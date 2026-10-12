@@ -1,110 +1,143 @@
 0|(prazno)
 1|Dostupna je novija verzija: {}
 2|Dodaj čvor
-3|Poravnaj dolje
-4|Središte (H)
-5|Središte (V)
-6|Poravnaj lijevo
-7|Poravnaj desno
-8|Poravnaj gore
-9|Automatski prilagodi radno područje prozoru
-10|Automatski
-11|Boja pozadine
-12|Prenesi naprijed
-13|Centriraj na stol
-14|Centriraj jedno na drugo
-15|Očisti popis
-16|Zatvori
-17|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
-18|Boja
-19|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
-20|Pretvori u putanju
-21|Kopiraj
-22|Kut
-23|Nije moguće provjeriti ažuriranja.
-24|Izbriši
-25|Izbriši čvor
-26|Razmak između linija
-27|Dupliciraj
-28|Uredi čvorove
-29|Elipsa (E)
-30|Prilagodi svim objektima
-31|Prilagodi svim objektima (Ctrl+9)
-32|Prilagodi stol prozoru
-33|Prilagodi radnom području (Ctrl+0)
-34|Zrcali vodoravno
-35|Zrcali okomito
-36|Mreža
-37|Grupiraj
-38|Grupirano. Objekti zadržavaju svoje slojeve.
-39|Srce (K)
-40|Umetni čvor (ili dvaput kliknite segment)
-41|Licenca
-42|Crta (L)
-43|Debljina linija
-44|Zaključaj
-45|Zaključano objekata: {}
-46|Glavna mreža
-47|Učini segment iza svakog odabranog čvora zakrivljenim
-48|Učini segment iza svakog odabranog čvora ravnim
-49|Pretvori odabrane čvorove u kutne
-50|Učini odabrane čvorove glatkima
-51|Povećaj
-52|Smanji
-53|Najnovije izdanje: {}
-54|Uređivanje čvorova (N)
-55|Otvori / zatvori
-56|Otvori nedavne
-57|Otvori stranicu za preuzimanje
-58|Pomak prikaza (H)
-59|Zalijepi
-60|Mnogokut (G)
-61|Izlomljena crta / pero (P)
-62|Stranica projekta na GitHubu
-63|Brzi vodič
-64|Izlaz
-65|Polumjer zaobljenja
-66|Pravokutnik (R)
-67|Ponovi
-68|Vrati mrežu
-69|Vrati
-70|Zakreni 90° ulijevo
-71|Zakreni 90° udesno
-72|Zaobli
-73|Zaobljuje odabrane kutove ovim polumjerom
-74|Zaobljeno kutova: {}
-75|Traži
-76|Sekundarna mreža
-77|Odabir (V)
-78|Prvo odaberite oblik, a zatim uredite njegove čvorove.
-79|Odaberi sve
-80|Za grupiranje odaberite barem dva objekta.
-81|Prenesi natrag
-82|Prikaži
-83|Glatko
-84|Prianjanje uz mrežu
-85|Prianjanje uz objekte
-86|Spirala (I)
-87|Zvijezda (S)
-88|Tekst (T)
-89|Sekundarna mreža mora biti finija od glavne.
-90|Prostor oko radne površine
-91|Nema ravnih kutova za zaobljivanje.
-92|U krivulju
-93|U crtu
-94|Trokut (Y)
-95|Poništi
-96|Razgrupiraj
-97|Otključaj
-98|Otključano objekata: {}
-99|Ažuriranja
-100|Verzija {}
-101|Mogućnosti prikaza
-102|Radno područje
-103|Boja radnog prostora
-104|Imate najnoviju verziju.
-105|Imate verziju {}.
-106|Povećaj
-107|Povećaj (Z)
-108|Smanji
-109|Smanji (X)
+3|Prilagodi sliku
+4|Poravnaj dolje
+5|Središte (H)
+6|Središte (V)
+7|Poravnaj lijevo
+8|Poravnaj desno
+9|Poravnaj gore
+10|Kut
+11|Primijeni
+12|Automatske razine
+13|Automatski prilagodi radno područje prozoru
+14|Automatski
+15|Boja pozadine
+16|Svjetlina
+17|Prenesi naprijed
+18|Odustani
+19|Centriraj na stol
+20|Centriraj jedno na drugo
+21|Očisti popis
+22|Zatvori
+23|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
+24|Boja
+25|Kontrast
+26|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
+27|Pretvori u putanju
+28|Kopiraj
+29|Kut
+30|Nije moguće provjeriti ažuriranja.
+31|Izbriši
+32|Izbriši čvor
+33|Nakon toga izbriši sliku
+34|Razmak između linija
+35|Dupliciraj
+36|Uredi čvorove
+37|Elipsa (E)
+38|Graviraj svijetle dijelove umjesto tamnih
+39|Prilagodi svim objektima
+40|Prilagodi svim objektima (Ctrl+9)
+41|Prilagodi stol prozoru
+42|Prilagodi radnom području (Ctrl+0)
+43|Zrcali H
+44|Zrcali V
+45|Zrcali vodoravno
+46|Zrcali okomito
+47|Gama
+48|Mreža
+49|Grupiraj
+50|Grupirano. Objekti zadržavaju svoje slojeve.
+51|Srce (K)
+52|Zanemari mala područja
+53|Uvoz
+54|Uvoz nije uspio: {}
+55|Uvoz slike
+56|Slika {} uvezena
+57|Umetni čvor (ili dvaput kliknite segment)
+58|Licenca
+59|Crta (L)
+60|Debljina linija
+61|Zaključaj
+62|Zaključano objekata: {}
+63|Glavna mreža
+64|Učini segment iza svakog odabranog čvora zakrivljenim
+65|Učini segment iza svakog odabranog čvora ravnim
+66|Pretvori odabrane čvorove u kutne
+67|Učini odabrane čvorove glatkima
+68|Povećaj
+69|Smanji
+70|Negativ slike
+71|Najnovije izdanje: {}
+72|Uređivanje čvorova (N)
+73|Otvori / zatvori
+74|Otvori nedavne
+75|Otvori stranicu za preuzimanje
+76|Pomak prikaza (H)
+77|Zalijepi
+78|Mnogokut (G)
+79|Izlomljena crta / pero (P)
+80|Stranica projekta na GitHubu
+81|Brzi vodič
+82|Izlaz
+83|Polumjer zaobljenja
+84|Pravokutnik (R)
+85|Ponovi
+86|Vrati
+87|Vrati mrežu
+88|Vrati
+89|Zakreni 90° ulijevo
+90|Zakreni 90° udesno
+91|Rotacija i zrcaljenje
+92|Zaobli
+93|Zaobljuje odabrane kutove ovim polumjerom
+94|Zaobljeno kutova: {}
+95|Traži
+96|Sekundarna mreža
+97|Odabir (V)
+98|Prvo odaberite oblik, a zatim uredite njegove čvorove.
+99|Odaberi sve
+100|Za grupiranje odaberite barem dva objekta.
+101|Prenesi natrag
+102|Prikaži
+103|Pojednostavi
+104|Veličina
+105|Glatko
+106|Zagladi krivulje
+107|Prianjanje uz mrežu
+108|Prianjanje uz objekte
+109|Spirala (I)
+110|Zvijezda (S)
+111|Tekst (T)
+112|Rezultat je prazan.
+113|Sekundarna mreža mora biti finija od glavne.
+114|Prostor oko radne površine
+115|Nema ravnih kutova za zaobljivanje.
+116|Prag
+117|U krivulju
+118|U crtu
+119|Ton
+120|Vektoriziraj
+121|Vektorizacija slike
+122|Vektoriziraj svijetla područja
+123|Vektorizirano obrisa: {}
+124|Trokut (Y)
+125|Poništi
+126|Razgrupiraj
+127|Otključaj
+128|Otključano objekata: {}
+129|Ažuriranja
+130|Verzija {}
+131|Mogućnosti prikaza
+132|Širina
+133|Radno područje
+134|Boja radnog prostora
+135|Imate najnoviju verziju.
+136|Imate verziju {}.
+137|Povećaj
+138|Povećaj (Z)
+139|Smanji
+140|Smanji (X)
+141|Obrisa: {}
+142|{} × {} px

@@ -1,110 +1,143 @@
 0|(üres)
 1|Újabb verzió érhető el: {}
 2|Csomópont hozzáadása
-3|Alulra igazítás
-4|Középre (V)
-5|Középre (F)
-6|Balra igazítás
-7|Jobbra igazítás
-8|Felülre igazítás
-9|A munkaterület automatikus illesztése az ablakhoz
-10|Automatikus
-11|Háttérszín
-12|Előre hozás
-13|Középre az asztalon
-14|Egymásra középre igazítás
-15|Lista törlése
-16|Bezárás
-17|Nyitott útvonal zárása, vagy zárt útvonal megnyitása a kijelölt csomópontnál
-18|Szín
-19|Alakítsa a szöveget görbékké, vagy vektorizálja a képet, hogy szerkeszthesse a csomópontjait.
-20|Átalakítás útvonallá
-21|Másolás
-22|Sarok
-23|A frissítések keresése nem sikerült.
-24|Törlés
-25|Csomópont törlése
-26|Vonalak távolsága
-27|Kettőzés
-28|Csomópontok szerkesztése
-29|Ellipszis (E)
-30|Illesztés az összes objektumhoz
-31|Illesztés az összes objektumhoz (Ctrl+9)
-32|Asztal illesztése az ablakhoz
-33|Illesztés a munkaterülethez (Ctrl+0)
-34|Vízszintes tükrözés
-35|Függőleges tükrözés
-36|Rács
-37|Csoportosítás
-38|Csoportosítva. Az objektumok megtartják a rétegeiket.
-39|Szív (K)
-40|Csomópont beszúrása (vagy dupla kattintás egy szakaszra)
-41|Licenc
-42|Vonal (L)
-43|Vonalvastagság
-44|Zárolás
-45|{} objektum zárolva.
-46|Fő rács
-47|Minden kijelölt csomópont utáni szakasz görbévé tétele
-48|Minden kijelölt csomópont utáni szakasz egyenessé tétele
-49|A kijelölt csomópontok sarokká alakítása
-50|A kijelölt csomópontok simává alakítása
-51|Teljes méret
-52|Kis méret
-53|Legújabb kiadás: {}
-54|Csomópontok szerkesztése (N)
-55|Nyitás / zárás
-56|Legutóbbi megnyitása
-57|Letöltési oldal megnyitása
-58|Nézet mozgatása (H)
-59|Beillesztés
-60|Sokszög (G)
-61|Töröttvonal / toll (P)
-62|A projekt oldala a GitHubon
-63|Gyorsútmutató
-64|Kilépés
-65|A lekerekítés sugara
-66|Téglalap (R)
-67|Újra
-68|Rács visszaállítása
-69|Visszaállítás
-70|Forgatás 90°-kal balra
-71|Forgatás 90°-kal jobbra
-72|Lekerekítés
-73|A kijelölt sarkok lekerekítése ezzel a sugárral
-74|{} sarok lekerekítve.
-75|Keresés
-76|Másodlagos rács
-77|Kijelölés (V)
-78|Először jelöljön ki egy alakzatot, majd szerkessze a csomópontjait.
-79|Összes kijelölése
-80|A csoportosításhoz jelöljön ki legalább két objektumot.
-81|Hátra küldés
-82|Megjelenítés
-83|Sima
-84|Illesztés a rácshoz
-85|Igazítás az objektumokhoz
-86|Spirál (I)
-87|Csillag (S)
-88|Szöveg (T)
-89|A másodlagos rácsnak finomabbnak kell lennie a fő rácsnál.
-90|A munkaterület körüli tér
-91|Nincsenek lekerekítendő egyenes sarkok.
-92|Görbévé
-93|Vonallá
-94|Háromszög (Y)
-95|Visszavonás
-96|Csoport bontása
-97|Feloldás
-98|{} objektum feloldva.
-99|Frissítések
-100|{} verzió
-101|Nézetbeállítások
-102|Munkaterület
-103|A munkaterület színe
-104|A legújabb verziót használja.
-105|Az Ön verziója: {}.
-106|Nagyítás
-107|Nagyítás (Z)
-108|Kicsinyítés
-109|Kicsinyítés (X)
+3|Kép beállítása
+4|Alulra igazítás
+5|Középre (V)
+6|Középre (F)
+7|Balra igazítás
+8|Jobbra igazítás
+9|Felülre igazítás
+10|Szög
+11|Alkalmaz
+12|Automatikus szintek
+13|A munkaterület automatikus illesztése az ablakhoz
+14|Automatikus
+15|Háttérszín
+16|Fényerő
+17|Előre hozás
+18|Mégse
+19|Középre az asztalon
+20|Egymásra középre igazítás
+21|Lista törlése
+22|Bezárás
+23|Nyitott útvonal zárása, vagy zárt útvonal megnyitása a kijelölt csomópontnál
+24|Szín
+25|Kontraszt
+26|Alakítsa a szöveget görbékké, vagy vektorizálja a képet, hogy szerkeszthesse a csomópontjait.
+27|Átalakítás útvonallá
+28|Másolás
+29|Sarok
+30|A frissítések keresése nem sikerült.
+31|Törlés
+32|Csomópont törlése
+33|A kép törlése utána
+34|Vonalak távolsága
+35|Kettőzés
+36|Csomópontok szerkesztése
+37|Ellipszis (E)
+38|A világos részek gravírozása a sötétek helyett
+39|Illesztés az összes objektumhoz
+40|Illesztés az összes objektumhoz (Ctrl+9)
+41|Asztal illesztése az ablakhoz
+42|Illesztés a munkaterülethez (Ctrl+0)
+43|Tükrözés V
+44|Tükrözés F
+45|Vízszintes tükrözés
+46|Függőleges tükrözés
+47|Gamma
+48|Rács
+49|Csoportosítás
+50|Csoportosítva. Az objektumok megtartják a rétegeiket.
+51|Szív (K)
+52|Kis területek figyelmen kívül hagyása
+53|Importálás
+54|Az importálás nem sikerült: {}
+55|Kép importálása
+56|Kép importálva: {}
+57|Csomópont beszúrása (vagy dupla kattintás egy szakaszra)
+58|Licenc
+59|Vonal (L)
+60|Vonalvastagság
+61|Zárolás
+62|{} objektum zárolva.
+63|Fő rács
+64|Minden kijelölt csomópont utáni szakasz görbévé tétele
+65|Minden kijelölt csomópont utáni szakasz egyenessé tétele
+66|A kijelölt csomópontok sarokká alakítása
+67|A kijelölt csomópontok simává alakítása
+68|Teljes méret
+69|Kis méret
+70|Negatív kép
+71|Legújabb kiadás: {}
+72|Csomópontok szerkesztése (N)
+73|Nyitás / zárás
+74|Legutóbbi megnyitása
+75|Letöltési oldal megnyitása
+76|Nézet mozgatása (H)
+77|Beillesztés
+78|Sokszög (G)
+79|Töröttvonal / toll (P)
+80|A projekt oldala a GitHubon
+81|Gyorsútmutató
+82|Kilépés
+83|A lekerekítés sugara
+84|Téglalap (R)
+85|Újra
+86|Visszaállítás
+87|Rács visszaállítása
+88|Visszaállítás
+89|Forgatás 90°-kal balra
+90|Forgatás 90°-kal jobbra
+91|Forgatás és tükrözés
+92|Lekerekítés
+93|A kijelölt sarkok lekerekítése ezzel a sugárral
+94|{} sarok lekerekítve.
+95|Keresés
+96|Másodlagos rács
+97|Kijelölés (V)
+98|Először jelöljön ki egy alakzatot, majd szerkessze a csomópontjait.
+99|Összes kijelölése
+100|A csoportosításhoz jelöljön ki legalább két objektumot.
+101|Hátra küldés
+102|Megjelenítés
+103|Egyszerűsítés
+104|Méret
+105|Sima
+106|Görbék simítása
+107|Illesztés a rácshoz
+108|Igazítás az objektumokhoz
+109|Spirál (I)
+110|Csillag (S)
+111|Szöveg (T)
+112|Az eredmény üres.
+113|A másodlagos rácsnak finomabbnak kell lennie a fő rácsnál.
+114|A munkaterület körüli tér
+115|Nincsenek lekerekítendő egyenes sarkok.
+116|Küszöb
+117|Görbévé
+118|Vonallá
+119|Tónus
+120|Vektorizálás
+121|Kép vektorizálása
+122|A világos területek vektorizálása
+123|{} körvonal vektorizálva
+124|Háromszög (Y)
+125|Visszavonás
+126|Csoport bontása
+127|Feloldás
+128|{} objektum feloldva.
+129|Frissítések
+130|{} verzió
+131|Nézetbeállítások
+132|Szélesség
+133|Munkaterület
+134|A munkaterület színe
+135|A legújabb verziót használja.
+136|Az Ön verziója: {}.
+137|Nagyítás
+138|Nagyítás (Z)
+139|Kicsinyítés
+140|Kicsinyítés (X)
+141|{} körvonal
+142|{} × {} px

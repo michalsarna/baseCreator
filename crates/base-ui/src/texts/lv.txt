@@ -1,110 +1,143 @@
 0|(tukšs)
 1|Pieejama jaunāka versija: {}
 2|Pievienot mezglu
-3|Līdzināt apakšā
-4|Centrēt (H)
-5|Centrēt (V)
-6|Līdzināt pa kreisi
-7|Līdzināt pa labi
-8|Līdzināt augšā
-9|Automātiski pielāgot darba apgabalu logam
-10|Automātiski
-11|Fona krāsa
-12|Pārvietot uz priekšplānu
-13|Centrēt uz galda
-14|Centrēt vienu pret otru
-15|Notīrīt sarakstu
-16|Aizvērt
-17|Aizvērt atvērtu ceļu vai atvērt aizvērtu atlasītajā mezglā
-18|Krāsa
-19|Pārvērsiet tekstu līknēs vai vektorizējiet attēlu, lai rediģētu tā mezglus.
-20|Pārvērst par ceļu
-21|Kopēt
-22|Stūris
-23|Neizdevās pārbaudīt atjauninājumus.
-24|Dzēst
-25|Dzēst mezglu
-26|Attālums starp līnijām
-27|Dublēt
-28|Rediģēt mezglus
-29|Elipse (E)
-30|Pielāgot visiem objektiem
-31|Pielāgot visiem objektiem (Ctrl+9)
-32|Pielāgot galdu logam
-33|Pielāgot darba apgabalam (Ctrl+0)
-34|Apvērst horizontāli
-35|Apvērst vertikāli
-36|Režģis
-37|Grupēt
-38|Sagrupēts. Objekti saglabā savus slāņus.
-39|Sirds (K)
-40|Ievietot mezglu (vai divreiz noklikšķināt uz posma)
-41|Licence
-42|Līnija (L)
-43|Līniju biezums
-44|Bloķēt
-45|Bloķēti objekti: {}
-46|Galvenais režģis
-47|Padarīt posmu aiz katra atlasītā mezgla izliektu
-48|Padarīt posmu aiz katra atlasītā mezgla taisnu
-49|Padarīt atlasītos mezglus par stūra mezgliem
-50|Padarīt atlasītos mezglus gludus
-51|Maksimizēt
-52|Minimizēt
-53|Jaunākais izlaidums: {}
-54|Mezglu rediģēšana (N)
-55|Atvērt / aizvērt
-56|Atvērt nesenos
-57|Atvērt lejupielādes lapu
-58|Skata pārvietošana (H)
-59|Ielīmēt
-60|Daudzstūris (G)
-61|Lauzta līnija / pildspalva (P)
-62|Projekta lapa GitHub
-63|Ātrais ceļvedis
-64|Iziet
-65|Noapaļošanas rādiuss
-66|Taisnstūris (R)
-67|Atkārtot
-68|Atiestatīt režģi
-69|Atjaunot
-70|Pagriezt par 90° pretēji pulksteņrādītājam
-71|Pagriezt par 90° pulksteņrādītāja virzienā
-72|Noapaļot
-73|Noapaļo atlasītos stūrus ar šo rādiusu
-74|Noapaļoti stūri: {}
-75|Meklēt
-76|Palīgrežģis
-77|Atlase (V)
-78|Vispirms atlasiet formu, pēc tam rediģējiet tās mezglus.
-79|Atlasīt visu
-80|Lai grupētu, atlasiet vismaz divus objektus.
-81|Pārvietot uz fonu
-82|Rādīt
-83|Gluds
-84|Piesaistīt režģim
-85|Pieķerties objektiem
-86|Spirāle (I)
-87|Zvaigzne (S)
-88|Teksts (T)
-89|Palīgrežģim jābūt smalkākam par galveno režģi.
-90|Telpa ap darba laukumu
-91|Nav taisnu stūru, ko noapaļot.
-92|Par līkni
-93|Par līniju
-94|Trijstūris (Y)
-95|Atsaukt
-96|Atgrupēt
-97|Atbloķēt
-98|Atbloķēti objekti: {}
-99|Atjauninājumi
-100|Versija {}
-101|Skata opcijas
-102|Darba apgabals
-103|Darba telpas krāsa
-104|Jums ir jaunākā versija.
-105|Jums ir versija {}.
-106|Tuvināt
-107|Tuvināt (Z)
-108|Tālināt
-109|Tālināt (X)
+3|Attēla pielāgošana
+4|Līdzināt apakšā
+5|Centrēt (H)
+6|Centrēt (V)
+7|Līdzināt pa kreisi
+8|Līdzināt pa labi
+9|Līdzināt augšā
+10|Leņķis
+11|Lietot
+12|Automātiskie līmeņi
+13|Automātiski pielāgot darba apgabalu logam
+14|Automātiski
+15|Fona krāsa
+16|Spilgtums
+17|Pārvietot uz priekšplānu
+18|Atcelt
+19|Centrēt uz galda
+20|Centrēt vienu pret otru
+21|Notīrīt sarakstu
+22|Aizvērt
+23|Aizvērt atvērtu ceļu vai atvērt aizvērtu atlasītajā mezglā
+24|Krāsa
+25|Kontrasts
+26|Pārvērsiet tekstu līknēs vai vektorizējiet attēlu, lai rediģētu tā mezglus.
+27|Pārvērst par ceļu
+28|Kopēt
+29|Stūris
+30|Neizdevās pārbaudīt atjauninājumus.
+31|Dzēst
+32|Dzēst mezglu
+33|Pēc tam dzēst attēlu
+34|Attālums starp līnijām
+35|Dublēt
+36|Rediģēt mezglus
+37|Elipse (E)
+38|Gravēt gaišās daļas tumšo vietā
+39|Pielāgot visiem objektiem
+40|Pielāgot visiem objektiem (Ctrl+9)
+41|Pielāgot galdu logam
+42|Pielāgot darba apgabalam (Ctrl+0)
+43|Apvērst H
+44|Apvērst V
+45|Apvērst horizontāli
+46|Apvērst vertikāli
+47|Gamma
+48|Režģis
+49|Grupēt
+50|Sagrupēts. Objekti saglabā savus slāņus.
+51|Sirds (K)
+52|Ignorēt mazus apgabalus
+53|Importēt
+54|Importēšana neizdevās: {}
+55|Attēla imports
+56|Attēls {} importēts
+57|Ievietot mezglu (vai divreiz noklikšķināt uz posma)
+58|Licence
+59|Līnija (L)
+60|Līniju biezums
+61|Bloķēt
+62|Bloķēti objekti: {}
+63|Galvenais režģis
+64|Padarīt posmu aiz katra atlasītā mezgla izliektu
+65|Padarīt posmu aiz katra atlasītā mezgla taisnu
+66|Padarīt atlasītos mezglus par stūra mezgliem
+67|Padarīt atlasītos mezglus gludus
+68|Maksimizēt
+69|Minimizēt
+70|Negatīvs attēls
+71|Jaunākais izlaidums: {}
+72|Mezglu rediģēšana (N)
+73|Atvērt / aizvērt
+74|Atvērt nesenos
+75|Atvērt lejupielādes lapu
+76|Skata pārvietošana (H)
+77|Ielīmēt
+78|Daudzstūris (G)
+79|Lauzta līnija / pildspalva (P)
+80|Projekta lapa GitHub
+81|Ātrais ceļvedis
+82|Iziet
+83|Noapaļošanas rādiuss
+84|Taisnstūris (R)
+85|Atkārtot
+86|Atiestatīt
+87|Atiestatīt režģi
+88|Atjaunot
+89|Pagriezt par 90° pretēji pulksteņrādītājam
+90|Pagriezt par 90° pulksteņrādītāja virzienā
+91|Pagriešana un apvēršana
+92|Noapaļot
+93|Noapaļo atlasītos stūrus ar šo rādiusu
+94|Noapaļoti stūri: {}
+95|Meklēt
+96|Palīgrežģis
+97|Atlase (V)
+98|Vispirms atlasiet formu, pēc tam rediģējiet tās mezglus.
+99|Atlasīt visu
+100|Lai grupētu, atlasiet vismaz divus objektus.
+101|Pārvietot uz fonu
+102|Rādīt
+103|Vienkāršot
+104|Izmērs
+105|Gluds
+106|Nogludināt līknes
+107|Piesaistīt režģim
+108|Pieķerties objektiem
+109|Spirāle (I)
+110|Zvaigzne (S)
+111|Teksts (T)
+112|Rezultāts ir tukšs.
+113|Palīgrežģim jābūt smalkākam par galveno režģi.
+114|Telpa ap darba laukumu
+115|Nav taisnu stūru, ko noapaļot.
+116|Slieksnis
+117|Par līkni
+118|Par līniju
+119|Tonis
+120|Vektorizēt
+121|Attēla vektorizēšana
+122|Vektorizēt gaišos apgabalus
+123|Vektorizētas kontūras: {}
+124|Trijstūris (Y)
+125|Atsaukt
+126|Atgrupēt
+127|Atbloķēt
+128|Atbloķēti objekti: {}
+129|Atjauninājumi
+130|Versija {}
+131|Skata opcijas
+132|Platums
+133|Darba apgabals
+134|Darba telpas krāsa
+135|Jums ir jaunākā versija.
+136|Jums ir versija {}.
+137|Tuvināt
+138|Tuvināt (Z)
+139|Tālināt
+140|Tālināt (X)
+141|Kontūras: {}
+142|{} × {} px

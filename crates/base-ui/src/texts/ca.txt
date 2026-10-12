@@ -1,110 +1,143 @@
 0|(buit)
 1|Hi ha una versió més nova disponible: {}
 2|Afegeix un node
-3|Alinea a baix
-4|Centra (H)
-5|Centra (V)
-6|Alinea a l'esquerra
-7|Alinea a la dreta
-8|Alinea a dalt
-9|Ajusta automàticament l'àrea de treball a la finestra
-10|Automàtic
-11|Color de fons
-12|Porta al davant
-13|Centra a la taula
-14|Centra entre ells
-15|Buida la llista
-16|Tanca
-17|Tanca un traçat obert, o obre'n un de tancat al node seleccionat
-18|Color
-19|Convertiu el text en corbes, o vectoritzeu la imatge, per editar-ne els nodes.
-20|Converteix en traçat
-21|Copia
-22|Cantonada
-23|No s'han pogut cercar actualitzacions.
-24|Suprimeix
-25|Suprimeix el node
-26|Distància entre línies
-27|Duplica
-28|Edita els nodes
-29|El·lipse (E)
-30|Ajusta a tots els objectes
-31|Ajusta a tots els objectes (Ctrl+9)
-32|Ajusta la taula a la finestra
-33|Ajusta a l'àrea de treball (Ctrl+0)
-34|Gira horitzontalment
-35|Gira verticalment
-36|Quadrícula
-37|Agrupa
-38|Agrupat. Els objectes conserven les seves capes.
-39|Cor (K)
-40|Insereix un node (o fes doble clic en un segment)
-41|Llicència
-42|Línia (L)
-43|Gruix de les línies
-44|Bloqueja
-45|{} objecte(s) bloquejat(s).
-46|Quadrícula principal
-47|Fes corb el segment posterior a cada node seleccionat
-48|Fes recte el segment posterior a cada node seleccionat
-49|Converteix els nodes seleccionats en cantonades
-50|Fes suaus els nodes seleccionats
-51|Maximitza
-52|Minimitza
-53|Darrera versió: {}
-54|Edició de nodes (N)
-55|Obre / tanca
-56|Obre recents
-57|Obre la pàgina de baixada
-58|Mou la vista (H)
-59|Enganxa
-60|Polígon (G)
-61|Polilínia / ploma (P)
-62|Pàgina del projecte a GitHub
-63|Guia ràpida
-64|Surt
-65|Radi d'arrodoniment
-66|Rectangle (R)
-67|Refés
-68|Restableix la quadrícula
-69|Restaura
-70|Gira 90° a l'esquerra
-71|Gira 90° a la dreta
-72|Arrodoneix
-73|Arrodoneix les cantonades seleccionades amb aquest radi
-74|{} cantonada(es) arrodonida(es).
-75|Cerca
-76|Quadrícula secundària
-77|Selecciona (V)
-78|Seleccioneu primer una forma i després editeu-ne els nodes.
-79|Selecciona-ho tot
-80|Seleccioneu com a mínim dos objectes per agrupar.
-81|Envia al darrere
-82|Mostra
-83|Suau
-84|Ajusta a la quadrícula
-85|Encaixa als objectes
-86|Espiral (I)
-87|Estrella (S)
-88|Text (T)
-89|La quadrícula secundària ha de ser més fina que la principal.
-90|L'espai al voltant de l'àrea de treball
-91|No hi ha cantonades rectes per arrodonir.
-92|A corba
-93|A línia
-94|Triangle (Y)
-95|Desfés
-96|Desagrupa
-97|Desbloqueja
-98|{} objecte(s) desbloquejat(s).
-99|Actualitzacions
-100|Versió {}
-101|Opcions de visualització
-102|Àrea de treball
-103|Color de l'espai de treball
-104|Teniu la versió més recent.
-105|Teniu la versió {}.
-106|Apropa
-107|Apropa (Z)
-108|Allunya
-109|Allunya (X)
+3|Ajusta la imatge
+4|Alinea a baix
+5|Centra (H)
+6|Centra (V)
+7|Alinea a l'esquerra
+8|Alinea a la dreta
+9|Alinea a dalt
+10|Angle
+11|Aplica
+12|Nivells automàtics
+13|Ajusta automàticament l'àrea de treball a la finestra
+14|Automàtic
+15|Color de fons
+16|Brillantor
+17|Porta al davant
+18|Cancel·la
+19|Centra a la taula
+20|Centra entre ells
+21|Buida la llista
+22|Tanca
+23|Tanca un traçat obert, o obre'n un de tancat al node seleccionat
+24|Color
+25|Contrast
+26|Convertiu el text en corbes, o vectoritzeu la imatge, per editar-ne els nodes.
+27|Converteix en traçat
+28|Copia
+29|Cantonada
+30|No s'han pogut cercar actualitzacions.
+31|Suprimeix
+32|Suprimeix el node
+33|Suprimeix la imatge després
+34|Distància entre línies
+35|Duplica
+36|Edita els nodes
+37|El·lipse (E)
+38|Grava les parts clares en lloc de les fosques
+39|Ajusta a tots els objectes
+40|Ajusta a tots els objectes (Ctrl+9)
+41|Ajusta la taula a la finestra
+42|Ajusta a l'àrea de treball (Ctrl+0)
+43|Gira H
+44|Gira V
+45|Gira horitzontalment
+46|Gira verticalment
+47|Gamma
+48|Quadrícula
+49|Agrupa
+50|Agrupat. Els objectes conserven les seves capes.
+51|Cor (K)
+52|Ignora les àrees petites
+53|Importa
+54|La importació ha fallat: {}
+55|Importa una imatge
+56|Imatge {} importada
+57|Insereix un node (o fes doble clic en un segment)
+58|Llicència
+59|Línia (L)
+60|Gruix de les línies
+61|Bloqueja
+62|{} objecte(s) bloquejat(s).
+63|Quadrícula principal
+64|Fes corb el segment posterior a cada node seleccionat
+65|Fes recte el segment posterior a cada node seleccionat
+66|Converteix els nodes seleccionats en cantonades
+67|Fes suaus els nodes seleccionats
+68|Maximitza
+69|Minimitza
+70|Imatge en negatiu
+71|Darrera versió: {}
+72|Edició de nodes (N)
+73|Obre / tanca
+74|Obre recents
+75|Obre la pàgina de baixada
+76|Mou la vista (H)
+77|Enganxa
+78|Polígon (G)
+79|Polilínia / ploma (P)
+80|Pàgina del projecte a GitHub
+81|Guia ràpida
+82|Surt
+83|Radi d'arrodoniment
+84|Rectangle (R)
+85|Refés
+86|Restableix
+87|Restableix la quadrícula
+88|Restaura
+89|Gira 90° a l'esquerra
+90|Gira 90° a la dreta
+91|Gira i inverteix
+92|Arrodoneix
+93|Arrodoneix les cantonades seleccionades amb aquest radi
+94|{} cantonada(es) arrodonida(es).
+95|Cerca
+96|Quadrícula secundària
+97|Selecciona (V)
+98|Seleccioneu primer una forma i després editeu-ne els nodes.
+99|Selecciona-ho tot
+100|Seleccioneu com a mínim dos objectes per agrupar.
+101|Envia al darrere
+102|Mostra
+103|Simplifica
+104|Mida
+105|Suau
+106|Suavitza les corbes
+107|Ajusta a la quadrícula
+108|Encaixa als objectes
+109|Espiral (I)
+110|Estrella (S)
+111|Text (T)
+112|El resultat és buit.
+113|La quadrícula secundària ha de ser més fina que la principal.
+114|L'espai al voltant de l'àrea de treball
+115|No hi ha cantonades rectes per arrodonir.
+116|Llindar
+117|A corba
+118|A línia
+119|To
+120|Vectoritza
+121|Vectoritza la imatge
+122|Vectoritza les àrees clares
+123|{} contorns vectoritzats
+124|Triangle (Y)
+125|Desfés
+126|Desagrupa
+127|Desbloqueja
+128|{} objecte(s) desbloquejat(s).
+129|Actualitzacions
+130|Versió {}
+131|Opcions de visualització
+132|Amplada
+133|Àrea de treball
+134|Color de l'espai de treball
+135|Teniu la versió més recent.
+136|Teniu la versió {}.
+137|Apropa
+138|Apropa (Z)
+139|Allunya
+140|Allunya (X)
+141|{} contorns
+142|{} × {} px

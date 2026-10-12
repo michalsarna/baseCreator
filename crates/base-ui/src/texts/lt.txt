@@ -1,110 +1,143 @@
 0|(tuščia)
 1|Yra naujesnė versija: {}
 2|Pridėti mazgą
-3|Lygiuoti apačioje
-4|Centruoti (H)
-5|Centruoti (V)
-6|Lygiuoti kairėje
-7|Lygiuoti dešinėje
-8|Lygiuoti viršuje
-9|Automatiškai pritaikyti darbo sritį prie lango
-10|Automatinė
-11|Fono spalva
-12|Perkelti į priekį
-13|Centruoti ant stalo
-14|Centruoti vieną kito atžvilgiu
-15|Išvalyti sąrašą
-16|Uždaryti
-17|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
-18|Spalva
-19|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
-20|Konvertuoti į kontūrą
-21|Kopijuoti
-22|Kampas
-23|Nepavyko patikrinti naujinimų.
-24|Naikinti
-25|Naikinti mazgą
-26|Atstumas tarp linijų
-27|Dubliuoti
-28|Redaguoti mazgus
-29|Elipsė (E)
-30|Pritaikyti prie visų objektų
-31|Pritaikyti prie visų objektų (Ctrl+9)
-32|Pritaikyti stalą prie lango
-33|Pritaikyti prie darbo srities (Ctrl+0)
-34|Apversti horizontaliai
-35|Apversti vertikaliai
-36|Tinklelis
-37|Grupuoti
-38|Sugrupuota. Objektai išlaiko savo sluoksnius.
-39|Širdis (K)
-40|Įterpti mazgą (arba dukart spustelėti atkarpą)
-41|Licencija
-42|Linija (L)
-43|Linijų storis
-44|Užrakinti
-45|Užrakinta objektų: {}
-46|Pagrindinis tinklelis
-47|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
-48|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
-49|Pažymėtus mazgus paversti kampiniais
-50|Pažymėtus mazgus padaryti glotniais
-51|Padidinti
-52|Sumažinti
-53|Naujausias leidimas: {}
-54|Mazgų redagavimas (N)
-55|Atverti / uždaryti
-56|Atverti neseniai naudotus
-57|Atverti atsisiuntimo puslapį
-58|Rodinio stumdymas (H)
-59|Įklijuoti
-60|Daugiakampis (G)
-61|Laužtė / plunksna (P)
-62|Projekto puslapis GitHub
-63|Greitasis vadovas
-64|Išeiti
-65|Apvalinimo spindulys
-66|Stačiakampis (R)
-67|Grąžinti
-68|Atstatyti tinklelį
-69|Atkurti
-70|Pasukti 90° prieš laikrodžio rodyklę
-71|Pasukti 90° pagal laikrodžio rodyklę
-72|Suapvalinti
-73|Suapvalina pažymėtus kampus šiuo spinduliu
-74|Suapvalinta kampų: {}
-75|Paieška
-76|Antrinis tinklelis
-77|Žymėjimas (V)
-78|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
-79|Pasirinkti viską
-80|Norėdami grupuoti, pasirinkite bent du objektus.
-81|Perkelti į galą
-82|Rodyti
-83|Glotnus
-84|Prilipdyti prie tinklelio
-85|Prilipti prie objektų
-86|Spiralė (I)
-87|Žvaigždė (S)
-88|Tekstas (T)
-89|Antrinis tinklelis turi būti smulkesnis už pagrindinį.
-90|Erdvė aplink darbo plotą
-91|Nėra tiesių kampų apvalinimui.
-92|Į kreivę
-93|Į liniją
-94|Trikampis (Y)
-95|Atšaukti
-96|Išgrupuoti
-97|Atrakinti
-98|Atrakinta objektų: {}
-99|Naujinimai
-100|Versija {}
-101|Rodinio parinktys
-102|Darbo sritis
-103|Darbo erdvės spalva
-104|Turite naujausią versiją.
-105|Jūs turite versiją {}.
-106|Priartinti
-107|Priartinti (Z)
-108|Nutolinti
-109|Nutolinti (X)
+3|Paveikslėlio koregavimas
+4|Lygiuoti apačioje
+5|Centruoti (H)
+6|Centruoti (V)
+7|Lygiuoti kairėje
+8|Lygiuoti dešinėje
+9|Lygiuoti viršuje
+10|Kampas
+11|Taikyti
+12|Automatiniai lygiai
+13|Automatiškai pritaikyti darbo sritį prie lango
+14|Automatinė
+15|Fono spalva
+16|Ryškumas
+17|Perkelti į priekį
+18|Atšaukti
+19|Centruoti ant stalo
+20|Centruoti vieną kito atžvilgiu
+21|Išvalyti sąrašą
+22|Uždaryti
+23|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
+24|Spalva
+25|Kontrastas
+26|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
+27|Konvertuoti į kontūrą
+28|Kopijuoti
+29|Kampas
+30|Nepavyko patikrinti naujinimų.
+31|Naikinti
+32|Naikinti mazgą
+33|Po to naikinti paveikslėlį
+34|Atstumas tarp linijų
+35|Dubliuoti
+36|Redaguoti mazgus
+37|Elipsė (E)
+38|Graviruoti šviesias dalis vietoj tamsių
+39|Pritaikyti prie visų objektų
+40|Pritaikyti prie visų objektų (Ctrl+9)
+41|Pritaikyti stalą prie lango
+42|Pritaikyti prie darbo srities (Ctrl+0)
+43|Apversti H
+44|Apversti V
+45|Apversti horizontaliai
+46|Apversti vertikaliai
+47|Gama
+48|Tinklelis
+49|Grupuoti
+50|Sugrupuota. Objektai išlaiko savo sluoksnius.
+51|Širdis (K)
+52|Ignoruoti mažas sritis
+53|Importas
+54|Importuoti nepavyko: {}
+55|Paveikslėlio importas
+56|Paveikslėlis {} importuotas
+57|Įterpti mazgą (arba dukart spustelėti atkarpą)
+58|Licencija
+59|Linija (L)
+60|Linijų storis
+61|Užrakinti
+62|Užrakinta objektų: {}
+63|Pagrindinis tinklelis
+64|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
+65|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
+66|Pažymėtus mazgus paversti kampiniais
+67|Pažymėtus mazgus padaryti glotniais
+68|Padidinti
+69|Sumažinti
+70|Neigiamas paveikslėlis
+71|Naujausias leidimas: {}
+72|Mazgų redagavimas (N)
+73|Atverti / uždaryti
+74|Atverti neseniai naudotus
+75|Atverti atsisiuntimo puslapį
+76|Rodinio stumdymas (H)
+77|Įklijuoti
+78|Daugiakampis (G)
+79|Laužtė / plunksna (P)
+80|Projekto puslapis GitHub
+81|Greitasis vadovas
+82|Išeiti
+83|Apvalinimo spindulys
+84|Stačiakampis (R)
+85|Grąžinti
+86|Atstatyti
+87|Atstatyti tinklelį
+88|Atkurti
+89|Pasukti 90° prieš laikrodžio rodyklę
+90|Pasukti 90° pagal laikrodžio rodyklę
+91|Sukimas ir apvertimas
+92|Suapvalinti
+93|Suapvalina pažymėtus kampus šiuo spinduliu
+94|Suapvalinta kampų: {}
+95|Paieška
+96|Antrinis tinklelis
+97|Žymėjimas (V)
+98|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
+99|Pasirinkti viską
+100|Norėdami grupuoti, pasirinkite bent du objektus.
+101|Perkelti į galą
+102|Rodyti
+103|Supaprastinti
+104|Dydis
+105|Glotnus
+106|Išlyginti kreives
+107|Prilipdyti prie tinklelio
+108|Prilipti prie objektų
+109|Spiralė (I)
+110|Žvaigždė (S)
+111|Tekstas (T)
+112|Rezultatas tuščias.
+113|Antrinis tinklelis turi būti smulkesnis už pagrindinį.
+114|Erdvė aplink darbo plotą
+115|Nėra tiesių kampų apvalinimui.
+116|Slenkstis
+117|Į kreivę
+118|Į liniją
+119|Tonas
+120|Vektorizuoti
+121|Paveikslėlio vektorizavimas
+122|Vektorizuoti šviesias sritis
+123|Suvektorizuota kontūrų: {}
+124|Trikampis (Y)
+125|Atšaukti
+126|Išgrupuoti
+127|Atrakinti
+128|Atrakinta objektų: {}
+129|Naujinimai
+130|Versija {}
+131|Rodinio parinktys
+132|Plotis
+133|Darbo sritis
+134|Darbo erdvės spalva
+135|Turite naujausią versiją.
+136|Jūs turite versiją {}.
+137|Priartinti
+138|Priartinti (Z)
+139|Nutolinti
+140|Nutolinti (X)
+141|Kontūrų: {}
+142|{} × {} px

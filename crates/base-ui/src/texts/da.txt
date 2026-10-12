@@ -1,110 +1,143 @@
 0|(tom)
 1|En nyere version er tilgængelig: {}
 2|Tilføj knudepunkt
-3|Justér til bunden
-4|Centrér (H)
-5|Centrér (V)
-6|Justér til venstre
-7|Justér til højre
-8|Justér til toppen
-9|Tilpas automatisk arbejdsområdet til vinduet
-10|Automatisk
-11|Baggrundsfarve
-12|Bring forrest
-13|Centrér på bordet
-14|Centrér på hinanden
-15|Ryd listen
-16|Luk
-17|Luk en åben sti, eller åbn en lukket ved det markerede knudepunkt
-18|Farve
-19|Konvertér teksten til kurver, eller vektorisér billedet, for at redigere dets knudepunkter.
-20|Konvertér til sti
-21|Kopiér
-22|Hjørne
-23|Kunne ikke søge efter opdateringer.
-24|Slet
-25|Slet knudepunkt
-26|Afstand mellem linjer
-27|Dupliker
-28|Redigér knudepunkter
-29|Ellipse (E)
-30|Tilpas til alle objekter
-31|Tilpas til alle objekter (Ctrl+9)
-32|Tilpas bordet til vinduet
-33|Tilpas til arbejdsområdet (Ctrl+0)
-34|Vend vandret
-35|Vend lodret
-36|Gitter
-37|Gruppér
-38|Grupperet. Objekterne beholder deres lag.
-39|Hjerte (K)
-40|Indsæt et knudepunkt (eller dobbeltklik på et segment)
-41|Licens
-42|Linje (L)
-43|Linjetykkelse
-44|Lås
-45|{} objekt(er) låst.
-46|Hovedgitter
-47|Gør segmentet efter hvert markeret knudepunkt buet
-48|Gør segmentet efter hvert markeret knudepunkt lige
-49|Gør de markerede knudepunkter til hjørner
-50|Gør de markerede knudepunkter glatte
-51|Maksimér
-52|Minimér
-53|Seneste udgivelse: {}
-54|Redigér knudepunkter (N)
-55|Åbn / luk
-56|Åbn seneste
-57|Åbn downloadsiden
-58|Panorér (H)
-59|Sæt ind
-60|Polygon (G)
-61|Polylinje / pen (P)
-62|Projektside på GitHub
-63|Hurtigguide
-64|Afslut
-65|Radius for afrunding
-66|Rektangel (R)
-67|Gentag
-68|Nulstil gitter
-69|Gendan
-70|Roter 90° mod uret
-71|Roter 90° med uret
-72|Afrund
-73|Afrund de markerede hjørner med denne radius
-74|{} hjørne(r) afrundet.
-75|Søg
-76|Sekundært gitter
-77|Markér (V)
-78|Markér først en form, og redigér derefter dens knudepunkter.
-79|Markér alt
-80|Markér mindst to objekter for at gruppere.
-81|Send bagest
-82|Vis
-83|Glat
-84|Fastgør til gitter
-85|Fastgør til objekter
-86|Spiral (I)
-87|Stjerne (S)
-88|Tekst (T)
-89|Det sekundære gitter skal være finere end hovedgitteret.
-90|Rummet omkring arbejdsområdet
-91|Der er ingen rette hjørner at afrunde.
-92|Til kurve
-93|Til linje
-94|Trekant (Y)
-95|Fortryd
-96|Opløs gruppe
-97|Lås op
-98|{} objekt(er) låst op.
-99|Opdateringer
-100|Version {}
-101|Visningsindstillinger
-102|Arbejdsområde
-103|Farve på arbejdsrummet
-104|Du har den nyeste version.
-105|Du har {}.
-106|Zoom ind
-107|Zoom ind (Z)
-108|Zoom ud
-109|Zoom ud (X)
+3|Justér billede
+4|Justér til bunden
+5|Centrér (H)
+6|Centrér (V)
+7|Justér til venstre
+8|Justér til højre
+9|Justér til toppen
+10|Vinkel
+11|Anvend
+12|Automatiske niveauer
+13|Tilpas automatisk arbejdsområdet til vinduet
+14|Automatisk
+15|Baggrundsfarve
+16|Lysstyrke
+17|Bring forrest
+18|Annullér
+19|Centrér på bordet
+20|Centrér på hinanden
+21|Ryd listen
+22|Luk
+23|Luk en åben sti, eller åbn en lukket ved det markerede knudepunkt
+24|Farve
+25|Kontrast
+26|Konvertér teksten til kurver, eller vektorisér billedet, for at redigere dets knudepunkter.
+27|Konvertér til sti
+28|Kopiér
+29|Hjørne
+30|Kunne ikke søge efter opdateringer.
+31|Slet
+32|Slet knudepunkt
+33|Slet billedet bagefter
+34|Afstand mellem linjer
+35|Dupliker
+36|Redigér knudepunkter
+37|Ellipse (E)
+38|Gravér de lyse dele i stedet for de mørke
+39|Tilpas til alle objekter
+40|Tilpas til alle objekter (Ctrl+9)
+41|Tilpas bordet til vinduet
+42|Tilpas til arbejdsområdet (Ctrl+0)
+43|Vend H
+44|Vend V
+45|Vend vandret
+46|Vend lodret
+47|Gamma
+48|Gitter
+49|Gruppér
+50|Grupperet. Objekterne beholder deres lag.
+51|Hjerte (K)
+52|Ignorer små områder
+53|Importer
+54|Importen mislykkedes: {}
+55|Importer billede
+56|Billedet {} importeret
+57|Indsæt et knudepunkt (eller dobbeltklik på et segment)
+58|Licens
+59|Linje (L)
+60|Linjetykkelse
+61|Lås
+62|{} objekt(er) låst.
+63|Hovedgitter
+64|Gør segmentet efter hvert markeret knudepunkt buet
+65|Gør segmentet efter hvert markeret knudepunkt lige
+66|Gør de markerede knudepunkter til hjørner
+67|Gør de markerede knudepunkter glatte
+68|Maksimér
+69|Minimér
+70|Negativt billede
+71|Seneste udgivelse: {}
+72|Redigér knudepunkter (N)
+73|Åbn / luk
+74|Åbn seneste
+75|Åbn downloadsiden
+76|Panorér (H)
+77|Sæt ind
+78|Polygon (G)
+79|Polylinje / pen (P)
+80|Projektside på GitHub
+81|Hurtigguide
+82|Afslut
+83|Radius for afrunding
+84|Rektangel (R)
+85|Gentag
+86|Nulstil
+87|Nulstil gitter
+88|Gendan
+89|Roter 90° mod uret
+90|Roter 90° med uret
+91|Roter og vend
+92|Afrund
+93|Afrund de markerede hjørner med denne radius
+94|{} hjørne(r) afrundet.
+95|Søg
+96|Sekundært gitter
+97|Markér (V)
+98|Markér først en form, og redigér derefter dens knudepunkter.
+99|Markér alt
+100|Markér mindst to objekter for at gruppere.
+101|Send bagest
+102|Vis
+103|Forenkl
+104|Størrelse
+105|Glat
+106|Udjævn kurver
+107|Fastgør til gitter
+108|Fastgør til objekter
+109|Spiral (I)
+110|Stjerne (S)
+111|Tekst (T)
+112|Resultatet er tomt.
+113|Det sekundære gitter skal være finere end hovedgitteret.
+114|Rummet omkring arbejdsområdet
+115|Der er ingen rette hjørner at afrunde.
+116|Tærskel
+117|Til kurve
+118|Til linje
+119|Tone
+120|Vektorisér
+121|Vektorisér billede
+122|Vektorisér de lyse områder
+123|{} omrids vektoriseret
+124|Trekant (Y)
+125|Fortryd
+126|Opløs gruppe
+127|Lås op
+128|{} objekt(er) låst op.
+129|Opdateringer
+130|Version {}
+131|Visningsindstillinger
+132|Bredde
+133|Arbejdsområde
+134|Farve på arbejdsrummet
+135|Du har den nyeste version.
+136|Du har {}.
+137|Zoom ind
+138|Zoom ind (Z)
+139|Zoom ud
+140|Zoom ud (X)
+141|{} omrids
+142|{} × {} px

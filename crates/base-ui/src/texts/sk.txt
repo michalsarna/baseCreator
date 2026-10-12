@@ -1,110 +1,143 @@
 0|(prázdne)
 1|K dispozícii je novšia verzia: {}
 2|Pridať uzol
-3|Zarovnať nadol
-4|Na stred (H)
-5|Na stred (V)
-6|Zarovnať doľava
-7|Zarovnať doprava
-8|Zarovnať nahor
-9|Automaticky prispôsobiť pracovnú plochu oknu
-10|Automaticky
-11|Farba pozadia
-12|Preniesť do popredia
-13|Vycentrovať na stôl
-14|Vycentrovať na seba
-15|Vymazať zoznam
-16|Zavrieť
-17|Zavrieť otvorenú cestu, alebo otvoriť uzavretú vo vybranom uzle
-18|Farba
-19|Preveďte text na krivky, alebo obrázok vektorizujte, aby ste mohli upravovať jeho uzly.
-20|Previesť na cestu
-21|Kopírovať
-22|Roh
-23|Aktualizácie sa nepodarilo skontrolovať.
-24|Odstrániť
-25|Odstrániť uzol
-26|Vzdialenosť medzi čiarami
-27|Duplikovať
-28|Upraviť uzly
-29|Elipsa (E)
-30|Prispôsobiť všetkým objektom
-31|Prispôsobiť všetkým objektom (Ctrl+9)
-32|Prispôsobiť stôl oknu
-33|Prispôsobiť pracovnej ploche (Ctrl+0)
-34|Prevrátiť vodorovne
-35|Prevrátiť zvisle
-36|Mriežka
-37|Zoskupiť
-38|Zoskupené. Objekty si ponechajú svoje vrstvy.
-39|Srdce (K)
-40|Vložiť uzol (alebo dvakrát kliknúť na úsek)
-41|Licencia
-42|Čiara (L)
-43|Hrúbka čiar
-44|Zamknúť
-45|Zamknutých objektov: {}
-46|Hlavná mriežka
-47|Zmeniť úsek za každým vybraným uzlom na krivku
-48|Zmeniť úsek za každým vybraným uzlom na priamy
-49|Zmeniť vybrané uzly na rohové
-50|Zmeniť vybrané uzly na hladké
-51|Maximalizovať
-52|Minimalizovať
-53|Najnovšie vydanie: {}
-54|Úprava uzlov (N)
-55|Otvoriť / zavrieť
-56|Naposledy otvorené
-57|Otvoriť stránku na stiahnutie
-58|Posun pohľadu (H)
-59|Prilepiť
-60|Mnohouholník (G)
-61|Lomená čiara / pero (P)
-62|Stránka projektu na GitHube
-63|Rýchly sprievodca
-64|Koniec
-65|Polomer zaoblenia
-66|Obdĺžnik (R)
-67|Znova
-68|Obnoviť mriežku
-69|Obnoviť
-70|Otočiť o 90° doľava
-71|Otočiť o 90° doprava
-72|Zaobliť
-73|Zaobli vybrané rohy týmto polomerom
-74|Zaoblených rohov: {}
-75|Hľadať
-76|Vedľajšia mriežka
-77|Výber (V)
-78|Najprv vyberte tvar a potom upravte jeho uzly.
-79|Vybrať všetko
-80|Na zoskupenie vyberte aspoň dva objekty.
-81|Preniesť do pozadia
-82|Zobraziť
-83|Hladký
-84|Prichytávať k mriežke
-85|Prichytávať k objektom
-86|Špirála (I)
-87|Hviezda (S)
-88|Text (T)
-89|Vedľajšia mriežka musí byť jemnejšia ako hlavná.
-90|Priestor okolo pracovnej plochy
-91|Nie sú žiadne priame rohy na zaoblenie.
-92|Na krivku
-93|Na úsečku
-94|Trojuholník (Y)
-95|Späť
-96|Zrušiť zoskupenie
-97|Odomknúť
-98|Odomknutých objektov: {}
-99|Aktualizácie
-100|Verzia {}
-101|Možnosti zobrazenia
-102|Pracovná plocha
-103|Farba pracovného priestoru
-104|Máte najnovšiu verziu.
-105|Máte verziu {}.
-106|Priblížiť
-107|Priblížiť (Z)
-108|Oddialiť
-109|Oddialiť (X)
+3|Úprava obrázka
+4|Zarovnať nadol
+5|Na stred (H)
+6|Na stred (V)
+7|Zarovnať doľava
+8|Zarovnať doprava
+9|Zarovnať nahor
+10|Uhol
+11|Použiť
+12|Automatické úrovne
+13|Automaticky prispôsobiť pracovnú plochu oknu
+14|Automaticky
+15|Farba pozadia
+16|Jas
+17|Preniesť do popredia
+18|Zrušiť
+19|Vycentrovať na stôl
+20|Vycentrovať na seba
+21|Vymazať zoznam
+22|Zavrieť
+23|Zavrieť otvorenú cestu, alebo otvoriť uzavretú vo vybranom uzle
+24|Farba
+25|Kontrast
+26|Preveďte text na krivky, alebo obrázok vektorizujte, aby ste mohli upravovať jeho uzly.
+27|Previesť na cestu
+28|Kopírovať
+29|Roh
+30|Aktualizácie sa nepodarilo skontrolovať.
+31|Odstrániť
+32|Odstrániť uzol
+33|Potom obrázok odstrániť
+34|Vzdialenosť medzi čiarami
+35|Duplikovať
+36|Upraviť uzly
+37|Elipsa (E)
+38|Gravírovať svetlé časti namiesto tmavých
+39|Prispôsobiť všetkým objektom
+40|Prispôsobiť všetkým objektom (Ctrl+9)
+41|Prispôsobiť stôl oknu
+42|Prispôsobiť pracovnej ploche (Ctrl+0)
+43|Prevrátiť H
+44|Prevrátiť V
+45|Prevrátiť vodorovne
+46|Prevrátiť zvisle
+47|Gama
+48|Mriežka
+49|Zoskupiť
+50|Zoskupené. Objekty si ponechajú svoje vrstvy.
+51|Srdce (K)
+52|Ignorovať malé plochy
+53|Import
+54|Import zlyhal: {}
+55|Import obrázka
+56|Obrázok {} importovaný
+57|Vložiť uzol (alebo dvakrát kliknúť na úsek)
+58|Licencia
+59|Čiara (L)
+60|Hrúbka čiar
+61|Zamknúť
+62|Zamknutých objektov: {}
+63|Hlavná mriežka
+64|Zmeniť úsek za každým vybraným uzlom na krivku
+65|Zmeniť úsek za každým vybraným uzlom na priamy
+66|Zmeniť vybrané uzly na rohové
+67|Zmeniť vybrané uzly na hladké
+68|Maximalizovať
+69|Minimalizovať
+70|Negatívny obrázok
+71|Najnovšie vydanie: {}
+72|Úprava uzlov (N)
+73|Otvoriť / zavrieť
+74|Naposledy otvorené
+75|Otvoriť stránku na stiahnutie
+76|Posun pohľadu (H)
+77|Prilepiť
+78|Mnohouholník (G)
+79|Lomená čiara / pero (P)
+80|Stránka projektu na GitHube
+81|Rýchly sprievodca
+82|Koniec
+83|Polomer zaoblenia
+84|Obdĺžnik (R)
+85|Znova
+86|Obnoviť
+87|Obnoviť mriežku
+88|Obnoviť
+89|Otočiť o 90° doľava
+90|Otočiť o 90° doprava
+91|Otočenie a prevrátenie
+92|Zaobliť
+93|Zaobli vybrané rohy týmto polomerom
+94|Zaoblených rohov: {}
+95|Hľadať
+96|Vedľajšia mriežka
+97|Výber (V)
+98|Najprv vyberte tvar a potom upravte jeho uzly.
+99|Vybrať všetko
+100|Na zoskupenie vyberte aspoň dva objekty.
+101|Preniesť do pozadia
+102|Zobraziť
+103|Zjednodušiť
+104|Veľkosť
+105|Hladký
+106|Vyhladiť krivky
+107|Prichytávať k mriežke
+108|Prichytávať k objektom
+109|Špirála (I)
+110|Hviezda (S)
+111|Text (T)
+112|Výsledok je prázdny.
+113|Vedľajšia mriežka musí byť jemnejšia ako hlavná.
+114|Priestor okolo pracovnej plochy
+115|Nie sú žiadne priame rohy na zaoblenie.
+116|Prah
+117|Na krivku
+118|Na úsečku
+119|Tón
+120|Vektorizovať
+121|Vektorizácia obrázka
+122|Vektorizovať svetlé plochy
+123|Vektorizovaných obrysov: {}
+124|Trojuholník (Y)
+125|Späť
+126|Zrušiť zoskupenie
+127|Odomknúť
+128|Odomknutých objektov: {}
+129|Aktualizácie
+130|Verzia {}
+131|Možnosti zobrazenia
+132|Šírka
+133|Pracovná plocha
+134|Farba pracovného priestoru
+135|Máte najnovšiu verziu.
+136|Máte verziu {}.
+137|Priblížiť
+138|Priblížiť (Z)
+139|Oddialiť
+140|Oddialiť (X)
+141|Obrysov: {}
+142|{} × {} px

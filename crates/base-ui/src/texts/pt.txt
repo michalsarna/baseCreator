@@ -1,110 +1,143 @@
 0|(vazio)
 1|Está disponível uma versão mais recente: {}
 2|Adicionar nó
-3|Alinhar em baixo
-4|Centrar (H)
-5|Centrar (V)
-6|Alinhar à esquerda
-7|Alinhar à direita
-8|Alinhar ao topo
-9|Ajustar automaticamente a área de trabalho à janela
-10|Automático
-11|Cor de fundo
-12|Trazer para a frente
-13|Centrar na mesa
-14|Centrar entre si
-15|Limpar lista
-16|Fechar
-17|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
-18|Cor
-19|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
-20|Converter em caminho
-21|Copiar
-22|Canto
-23|Não foi possível procurar atualizações.
-24|Eliminar
-25|Eliminar nó
-26|Distância entre linhas
-27|Duplicar
-28|Editar nós
-29|Elipse (E)
-30|Ajustar a todos os objetos
-31|Ajustar a todos os objetos (Ctrl+9)
-32|Ajustar a mesa à janela
-33|Ajustar à área de trabalho (Ctrl+0)
-34|Inverter horizontalmente
-35|Inverter verticalmente
-36|Grelha
-37|Agrupar
-38|Agrupado. Os objetos mantêm as suas camadas.
-39|Coração (K)
-40|Inserir um nó (ou duplo clique num segmento)
-41|Licença
-42|Linha (L)
-43|Espessura da linha
-44|Bloquear
-45|{} objeto(s) bloqueado(s).
-46|Grelha principal
-47|Tornar curvo o segmento a seguir a cada nó selecionado
-48|Tornar reto o segmento a seguir a cada nó selecionado
-49|Tornar os nós selecionados cantos
-50|Tornar os nós selecionados suaves
-51|Maximizar
-52|Minimizar
-53|Última versão: {}
-54|Edição de nós (N)
-55|Abrir / fechar
-56|Abrir recente
-57|Abrir a página de transferências
-58|Mover vista (H)
-59|Colar
-60|Polígono (G)
-61|Polilinha / caneta (P)
-62|Página do projeto no GitHub
-63|Guia rápido
-64|Sair
-65|Raio de arredondamento
-66|Retângulo (R)
-67|Refazer
-68|Repor grelha
-69|Restaurar
-70|Rodar 90° para a esquerda
-71|Rodar 90° para a direita
-72|Arredondar
-73|Arredonda os cantos selecionados com este raio
-74|{} canto(s) arredondado(s).
-75|Pesquisar
-76|Grelha secundária
-77|Selecionar (V)
-78|Selecione primeiro uma forma e depois edite os seus nós.
-79|Selecionar tudo
-80|Selecione pelo menos dois objetos para agrupar.
-81|Enviar para trás
-82|Mostrar
-83|Suave
-84|Ajustar à grelha
-85|Ajustar aos objetos
-86|Espiral (I)
-87|Estrela (S)
-88|Texto (T)
-89|A grelha secundária tem de ser mais fina do que a principal.
-90|O espaço à volta da área de trabalho
-91|Não há cantos retos para arredondar.
-92|Para curva
-93|Para linha
-94|Triângulo (Y)
-95|Anular
-96|Desagrupar
-97|Desbloquear
-98|{} objeto(s) desbloqueado(s).
-99|Atualizações
-100|Versão {}
-101|Opções de visualização
-102|Área de trabalho
-103|Cor do espaço de trabalho
-104|Tem a versão mais recente.
-105|Tem a versão {}.
-106|Ampliar
-107|Ampliar (Z)
-108|Reduzir
-109|Reduzir (X)
+3|Ajustar imagem
+4|Alinhar em baixo
+5|Centrar (H)
+6|Centrar (V)
+7|Alinhar à esquerda
+8|Alinhar à direita
+9|Alinhar ao topo
+10|Ângulo
+11|Aplicar
+12|Níveis automáticos
+13|Ajustar automaticamente a área de trabalho à janela
+14|Automático
+15|Cor de fundo
+16|Brilho
+17|Trazer para a frente
+18|Cancelar
+19|Centrar na mesa
+20|Centrar entre si
+21|Limpar lista
+22|Fechar
+23|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
+24|Cor
+25|Contraste
+26|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
+27|Converter em caminho
+28|Copiar
+29|Canto
+30|Não foi possível procurar atualizações.
+31|Eliminar
+32|Eliminar nó
+33|Eliminar a imagem depois
+34|Distância entre linhas
+35|Duplicar
+36|Editar nós
+37|Elipse (E)
+38|Gravar as partes claras em vez das escuras
+39|Ajustar a todos os objetos
+40|Ajustar a todos os objetos (Ctrl+9)
+41|Ajustar a mesa à janela
+42|Ajustar à área de trabalho (Ctrl+0)
+43|Inverter H
+44|Inverter V
+45|Inverter horizontalmente
+46|Inverter verticalmente
+47|Gama
+48|Grelha
+49|Agrupar
+50|Agrupado. Os objetos mantêm as suas camadas.
+51|Coração (K)
+52|Ignorar áreas pequenas
+53|Importar
+54|Falha ao importar: {}
+55|Importar imagem
+56|Imagem {} importada
+57|Inserir um nó (ou duplo clique num segmento)
+58|Licença
+59|Linha (L)
+60|Espessura da linha
+61|Bloquear
+62|{} objeto(s) bloqueado(s).
+63|Grelha principal
+64|Tornar curvo o segmento a seguir a cada nó selecionado
+65|Tornar reto o segmento a seguir a cada nó selecionado
+66|Tornar os nós selecionados cantos
+67|Tornar os nós selecionados suaves
+68|Maximizar
+69|Minimizar
+70|Imagem negativa
+71|Última versão: {}
+72|Edição de nós (N)
+73|Abrir / fechar
+74|Abrir recente
+75|Abrir a página de transferências
+76|Mover vista (H)
+77|Colar
+78|Polígono (G)
+79|Polilinha / caneta (P)
+80|Página do projeto no GitHub
+81|Guia rápido
+82|Sair
+83|Raio de arredondamento
+84|Retângulo (R)
+85|Refazer
+86|Repor
+87|Repor grelha
+88|Restaurar
+89|Rodar 90° para a esquerda
+90|Rodar 90° para a direita
+91|Rodar e inverter
+92|Arredondar
+93|Arredonda os cantos selecionados com este raio
+94|{} canto(s) arredondado(s).
+95|Pesquisar
+96|Grelha secundária
+97|Selecionar (V)
+98|Selecione primeiro uma forma e depois edite os seus nós.
+99|Selecionar tudo
+100|Selecione pelo menos dois objetos para agrupar.
+101|Enviar para trás
+102|Mostrar
+103|Simplificar
+104|Tamanho
+105|Suave
+106|Suavizar curvas
+107|Ajustar à grelha
+108|Ajustar aos objetos
+109|Espiral (I)
+110|Estrela (S)
+111|Texto (T)
+112|O resultado está vazio.
+113|A grelha secundária tem de ser mais fina do que a principal.
+114|O espaço à volta da área de trabalho
+115|Não há cantos retos para arredondar.
+116|Limiar
+117|Para curva
+118|Para linha
+119|Tom
+120|Vetorizar
+121|Vetorizar imagem
+122|Vetorizar as áreas claras
+123|{} contornos vetorizados
+124|Triângulo (Y)
+125|Anular
+126|Desagrupar
+127|Desbloquear
+128|{} objeto(s) desbloqueado(s).
+129|Atualizações
+130|Versão {}
+131|Opções de visualização
+132|Largura
+133|Área de trabalho
+134|Cor do espaço de trabalho
+135|Tem a versão mais recente.
+136|Tem a versão {}.
+137|Ampliar
+138|Ampliar (Z)
+139|Reduzir
+140|Reduzir (X)
+141|{} contornos
+142|{} × {} px

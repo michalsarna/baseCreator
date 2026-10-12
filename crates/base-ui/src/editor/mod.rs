@@ -4,12 +4,14 @@ mod bars;
 mod canvas;
 mod commands;
 mod host;
+mod image_ui;
 mod prefs;
 
 pub use bars::{arrange_bar, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use host::EditorHost;
+pub use image_ui::{EditorImages, ImgDlg, TraceDlg};
 pub use prefs::view_options_window;
 
 use base_core::bezier::Node;
@@ -214,6 +216,9 @@ pub struct EditorState {
     pub space_prev: Option<Tool>,
     /// What was copied (shapes with their groups), ready to paste.
     pub clipboard: Vec<Shape>,
+    /// The import / adjust dialog of a picture, and the trace dialog.
+    pub img_dlg: Option<ImgDlg>,
+    pub trace_dlg: Option<TraceDlg>,
 }
 
 impl EditorState {
@@ -248,6 +253,8 @@ impl EditorState {
             image_tex: Default::default(),
             space_prev: None,
             clipboard: vec![],
+            img_dlg: None,
+            trace_dlg: None,
         }
     }
 }

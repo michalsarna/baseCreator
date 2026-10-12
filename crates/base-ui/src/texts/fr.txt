@@ -1,110 +1,143 @@
 0|(vide)
 1|Une version plus récente est disponible : {}
 2|Ajouter un nœud
-3|Aligner en bas
-4|Centrer (H)
-5|Centrer (V)
-6|Aligner à gauche
-7|Aligner à droite
-8|Aligner en haut
-9|Ajuster automatiquement la zone de travail à la fenêtre
-10|Automatique
-11|Couleur de fond
-12|Mettre au premier plan
-13|Centrer sur la table
-14|Centrer les uns sur les autres
-15|Vider la liste
-16|Fermer
-17|Fermer un tracé ouvert, ou ouvrir un tracé fermé au nœud sélectionné
-18|Couleur
-19|Convertissez le texte en courbes, ou vectorisez l'image, pour modifier ses nœuds.
-20|Convertir en tracé
-21|Copier
-22|Angle
-23|Impossible de rechercher les mises à jour.
-24|Supprimer
-25|Supprimer le nœud
-26|Distance entre les lignes
-27|Dupliquer
-28|Modifier les nœuds
-29|Ellipse (E)
-30|Ajuster à tous les objets
-31|Ajuster à tous les objets (Ctrl+9)
-32|Ajuster la table à la fenêtre
-33|Ajuster à la zone de travail (Ctrl+0)
-34|Retourner horizontalement
-35|Retourner verticalement
-36|Grille
-37|Grouper
-38|Groupé. Les objets gardent leurs calques.
-39|Cœur (K)
-40|Insérer un nœud (ou double-cliquer sur un segment)
-41|Licence
-42|Ligne (L)
-43|Épaisseur des lignes
-44|Verrouiller
-45|{} objet(s) verrouillé(s).
-46|Grille principale
-47|Rendre courbe le segment qui suit chaque nœud sélectionné
-48|Rendre droit le segment qui suit chaque nœud sélectionné
-49|Transformer les nœuds sélectionnés en angles
-50|Rendre les nœuds sélectionnés lisses
-51|Agrandir
-52|Réduire
-53|Dernière version : {}
-54|Édition des nœuds (N)
-55|Ouvrir / fermer
-56|Fichiers récents
-57|Ouvrir la page de téléchargement
-58|Déplacer la vue (H)
-59|Coller
-60|Polygone (G)
-61|Polyligne / plume (P)
-62|Page du projet sur GitHub
-63|Guide rapide
-64|Quitter
-65|Rayon d'arrondi
-66|Rectangle (R)
-67|Rétablir
-68|Réinitialiser la grille
-69|Restaurer
-70|Pivoter de 90° à gauche
-71|Pivoter de 90° à droite
-72|Arrondir
-73|Arrondit les angles sélectionnés avec ce rayon
-74|{} angle(s) arrondi(s).
-75|Rechercher
-76|Grille secondaire
-77|Sélection (V)
-78|Sélectionnez d'abord une forme, puis modifiez ses nœuds.
-79|Tout sélectionner
-80|Sélectionnez au moins deux objets à grouper.
-81|Mettre à l'arrière-plan
-82|Afficher
-83|Lisse
-84|Aimanter à la grille
-85|Aimanter aux objets
-86|Spirale (I)
-87|Étoile (S)
-88|Texte (T)
-89|La grille secondaire doit être plus fine que la grille principale.
-90|L'espace autour de la zone de travail
-91|Il n'y a pas d'angles droits à arrondir.
-92|En courbe
-93|En ligne
-94|Triangle (Y)
-95|Annuler
-96|Dissocier
-97|Débloquer
-98|{} objet(s) déverrouillé(s).
-99|Mises à jour
-100|Version {}
-101|Options d'affichage
-102|Zone de travail
-103|Couleur de l'espace de travail
-104|Vous avez la version la plus récente.
-105|Vous avez la version {}.
-106|Zoom avant
-107|Zoom avant (Z)
-108|Zoom arrière
-109|Zoom arrière (X)
+3|Ajuster l'image
+4|Aligner en bas
+5|Centrer (H)
+6|Centrer (V)
+7|Aligner à gauche
+8|Aligner à droite
+9|Aligner en haut
+10|Angle
+11|Appliquer
+12|Niveaux automatiques
+13|Ajuster automatiquement la zone de travail à la fenêtre
+14|Automatique
+15|Couleur de fond
+16|Luminosité
+17|Mettre au premier plan
+18|Annuler
+19|Centrer sur la table
+20|Centrer les uns sur les autres
+21|Vider la liste
+22|Fermer
+23|Fermer un tracé ouvert, ou ouvrir un tracé fermé au nœud sélectionné
+24|Couleur
+25|Contraste
+26|Convertissez le texte en courbes, ou vectorisez l'image, pour modifier ses nœuds.
+27|Convertir en tracé
+28|Copier
+29|Angle
+30|Impossible de rechercher les mises à jour.
+31|Supprimer
+32|Supprimer le nœud
+33|Supprimer ensuite l'image
+34|Distance entre les lignes
+35|Dupliquer
+36|Modifier les nœuds
+37|Ellipse (E)
+38|Graver les parties claires au lieu des parties sombres
+39|Ajuster à tous les objets
+40|Ajuster à tous les objets (Ctrl+9)
+41|Ajuster la table à la fenêtre
+42|Ajuster à la zone de travail (Ctrl+0)
+43|Retourner H
+44|Retourner V
+45|Retourner horizontalement
+46|Retourner verticalement
+47|Gamma
+48|Grille
+49|Grouper
+50|Groupé. Les objets gardent leurs calques.
+51|Cœur (K)
+52|Ignorer les petites zones
+53|Importer
+54|Échec de l'importation : {}
+55|Importer une image
+56|Image {} importée
+57|Insérer un nœud (ou double-cliquer sur un segment)
+58|Licence
+59|Ligne (L)
+60|Épaisseur des lignes
+61|Verrouiller
+62|{} objet(s) verrouillé(s).
+63|Grille principale
+64|Rendre courbe le segment qui suit chaque nœud sélectionné
+65|Rendre droit le segment qui suit chaque nœud sélectionné
+66|Transformer les nœuds sélectionnés en angles
+67|Rendre les nœuds sélectionnés lisses
+68|Agrandir
+69|Réduire
+70|Image en négatif
+71|Dernière version : {}
+72|Édition des nœuds (N)
+73|Ouvrir / fermer
+74|Fichiers récents
+75|Ouvrir la page de téléchargement
+76|Déplacer la vue (H)
+77|Coller
+78|Polygone (G)
+79|Polyligne / plume (P)
+80|Page du projet sur GitHub
+81|Guide rapide
+82|Quitter
+83|Rayon d'arrondi
+84|Rectangle (R)
+85|Rétablir
+86|Réinitialiser
+87|Réinitialiser la grille
+88|Restaurer
+89|Pivoter de 90° à gauche
+90|Pivoter de 90° à droite
+91|Rotation et retournement
+92|Arrondir
+93|Arrondit les angles sélectionnés avec ce rayon
+94|{} angle(s) arrondi(s).
+95|Rechercher
+96|Grille secondaire
+97|Sélection (V)
+98|Sélectionnez d'abord une forme, puis modifiez ses nœuds.
+99|Tout sélectionner
+100|Sélectionnez au moins deux objets à grouper.
+101|Mettre à l'arrière-plan
+102|Afficher
+103|Simplifier
+104|Taille
+105|Lisse
+106|Lisser les courbes
+107|Aimanter à la grille
+108|Aimanter aux objets
+109|Spirale (I)
+110|Étoile (S)
+111|Texte (T)
+112|Le résultat est vide.
+113|La grille secondaire doit être plus fine que la grille principale.
+114|L'espace autour de la zone de travail
+115|Il n'y a pas d'angles droits à arrondir.
+116|Seuil
+117|En courbe
+118|En ligne
+119|Tonalité
+120|Vectoriser
+121|Vectoriser l'image
+122|Vectoriser les zones claires
+123|{} contours vectorisés
+124|Triangle (Y)
+125|Annuler
+126|Dissocier
+127|Débloquer
+128|{} objet(s) déverrouillé(s).
+129|Mises à jour
+130|Version {}
+131|Options d'affichage
+132|Largeur
+133|Zone de travail
+134|Couleur de l'espace de travail
+135|Vous avez la version la plus récente.
+136|Vous avez la version {}.
+137|Zoom avant
+138|Zoom avant (Z)
+139|Zoom arrière
+140|Zoom arrière (X)
+141|{} contours
+142|{} × {} px

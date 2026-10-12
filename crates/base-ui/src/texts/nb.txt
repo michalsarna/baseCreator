@@ -1,110 +1,143 @@
 0|(tom)
 1|En nyere versjon er tilgjengelig: {}
 2|Legg til node
-3|Juster nederst
-4|Sentrer (H)
-5|Sentrer (V)
-6|Juster til venstre
-7|Juster til høyre
-8|Juster øverst
-9|Tilpass arbeidsområdet automatisk til vinduet
-10|Automatisk
-11|Bakgrunnsfarge
-12|Flytt fremst
-13|Sentrer på bordet
-14|Sentrer på hverandre
-15|Tøm listen
-16|Lukk
-17|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
-18|Farge
-19|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
-20|Konverter til bane
-21|Kopier
-22|Hjørne
-23|Kunne ikke se etter oppdateringer.
-24|Slett
-25|Slett node
-26|Avstand mellom linjer
-27|Dupliser
-28|Rediger noder
-29|Ellipse (E)
-30|Tilpass til alle objekter
-31|Tilpass til alle objekter (Ctrl+9)
-32|Tilpass bordet til vinduet
-33|Tilpass til arbeidsområdet (Ctrl+0)
-34|Speilvend horisontalt
-35|Speilvend vertikalt
-36|Rutenett
-37|Grupper
-38|Gruppert. Objektene beholder lagene sine.
-39|Hjerte (K)
-40|Sett inn en node (eller dobbeltklikk på et segment)
-41|Lisens
-42|Linje (L)
-43|Linjetykkelse
-44|Lås
-45|{} objekt(er) låst.
-46|Hovedrutenett
-47|Gjør segmentet etter hver merkede node buet
-48|Gjør segmentet etter hver merkede node rett
-49|Gjør de merkede nodene til hjørner
-50|Gjør de merkede nodene glatte
-51|Maksimer
-52|Minimer
-53|Siste utgivelse: {}
-54|Rediger noder (N)
-55|Åpne / lukk
-56|Åpne nylige
-57|Åpne nedlastingssiden
-58|Panorer (H)
-59|Lim inn
-60|Mangekant (G)
-61|Polylinje / penn (P)
-62|Prosjektsiden på GitHub
-63|Hurtigguide
-64|Avslutt
-65|Radius for avrunding
-66|Rektangel (R)
-67|Gjør om
-68|Tilbakestill rutenett
-69|Gjenopprett
-70|Roter 90° mot klokken
-71|Roter 90° med klokken
-72|Avrund
-73|Avrund de merkede hjørnene med denne radiusen
-74|{} hjørne(r) avrundet.
-75|Søk
-76|Sekundært rutenett
-77|Merk (V)
-78|Merk først en form, og rediger deretter nodene.
-79|Merk alt
-80|Merk minst to objekter for å gruppere.
-81|Flytt bakerst
-82|Vis
-83|Glatt
-84|Fest til rutenett
-85|Fest til objekter
-86|Spiral (I)
-87|Stjerne (S)
-88|Tekst (T)
-89|Det sekundære rutenettet må være finere enn hovedrutenettet.
-90|Rommet rundt arbeidsområdet
-91|Det finnes ingen rette hjørner å avrunde.
-92|Til kurve
-93|Til linje
-94|Trekant (Y)
-95|Angre
-96|Del opp gruppe
-97|Lås opp
-98|{} objekt(er) låst opp.
-99|Oppdateringer
-100|Versjon {}
-101|Visningsvalg
-102|Arbeidsområde
-103|Farge på arbeidsrommet
-104|Du har den nyeste versjonen.
-105|Du har {}.
-106|Zoom inn
-107|Zoom inn (Z)
-108|Zoom ut
-109|Zoom ut (X)
+3|Juster bilde
+4|Juster nederst
+5|Sentrer (H)
+6|Sentrer (V)
+7|Juster til venstre
+8|Juster til høyre
+9|Juster øverst
+10|Vinkel
+11|Bruk
+12|Automatiske nivåer
+13|Tilpass arbeidsområdet automatisk til vinduet
+14|Automatisk
+15|Bakgrunnsfarge
+16|Lysstyrke
+17|Flytt fremst
+18|Avbryt
+19|Sentrer på bordet
+20|Sentrer på hverandre
+21|Tøm listen
+22|Lukk
+23|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
+24|Farge
+25|Kontrast
+26|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
+27|Konverter til bane
+28|Kopier
+29|Hjørne
+30|Kunne ikke se etter oppdateringer.
+31|Slett
+32|Slett node
+33|Slett bildet etterpå
+34|Avstand mellom linjer
+35|Dupliser
+36|Rediger noder
+37|Ellipse (E)
+38|Graver de lyse delene i stedet for de mørke
+39|Tilpass til alle objekter
+40|Tilpass til alle objekter (Ctrl+9)
+41|Tilpass bordet til vinduet
+42|Tilpass til arbeidsområdet (Ctrl+0)
+43|Speil H
+44|Speil V
+45|Speilvend horisontalt
+46|Speilvend vertikalt
+47|Gamma
+48|Rutenett
+49|Grupper
+50|Gruppert. Objektene beholder lagene sine.
+51|Hjerte (K)
+52|Ignorer små områder
+53|Importer
+54|Importen mislyktes: {}
+55|Importer bilde
+56|Bildet {} importert
+57|Sett inn en node (eller dobbeltklikk på et segment)
+58|Lisens
+59|Linje (L)
+60|Linjetykkelse
+61|Lås
+62|{} objekt(er) låst.
+63|Hovedrutenett
+64|Gjør segmentet etter hver merkede node buet
+65|Gjør segmentet etter hver merkede node rett
+66|Gjør de merkede nodene til hjørner
+67|Gjør de merkede nodene glatte
+68|Maksimer
+69|Minimer
+70|Negativt bilde
+71|Siste utgivelse: {}
+72|Rediger noder (N)
+73|Åpne / lukk
+74|Åpne nylige
+75|Åpne nedlastingssiden
+76|Panorer (H)
+77|Lim inn
+78|Mangekant (G)
+79|Polylinje / penn (P)
+80|Prosjektsiden på GitHub
+81|Hurtigguide
+82|Avslutt
+83|Radius for avrunding
+84|Rektangel (R)
+85|Gjør om
+86|Tilbakestill
+87|Tilbakestill rutenett
+88|Gjenopprett
+89|Roter 90° mot klokken
+90|Roter 90° med klokken
+91|Roter og speil
+92|Avrund
+93|Avrund de merkede hjørnene med denne radiusen
+94|{} hjørne(r) avrundet.
+95|Søk
+96|Sekundært rutenett
+97|Merk (V)
+98|Merk først en form, og rediger deretter nodene.
+99|Merk alt
+100|Merk minst to objekter for å gruppere.
+101|Flytt bakerst
+102|Vis
+103|Forenkle
+104|Størrelse
+105|Glatt
+106|Jevn ut kurver
+107|Fest til rutenett
+108|Fest til objekter
+109|Spiral (I)
+110|Stjerne (S)
+111|Tekst (T)
+112|Resultatet er tomt.
+113|Det sekundære rutenettet må være finere enn hovedrutenettet.
+114|Rommet rundt arbeidsområdet
+115|Det finnes ingen rette hjørner å avrunde.
+116|Terskel
+117|Til kurve
+118|Til linje
+119|Tone
+120|Vektoriser
+121|Vektoriser bilde
+122|Vektoriser de lyse områdene
+123|{} omriss vektorisert
+124|Trekant (Y)
+125|Angre
+126|Del opp gruppe
+127|Lås opp
+128|{} objekt(er) låst opp.
+129|Oppdateringer
+130|Versjon {}
+131|Visningsvalg
+132|Bredde
+133|Arbeidsområde
+134|Farge på arbeidsrommet
+135|Du har den nyeste versjonen.
+136|Du har {}.
+137|Zoom inn
+138|Zoom inn (Z)
+139|Zoom ut
+140|Zoom ut (X)
+141|{} omriss
+142|{} × {} px

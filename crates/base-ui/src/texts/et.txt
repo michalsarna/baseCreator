@@ -1,110 +1,143 @@
 0|(tühi)
 1|Saadaval on uuem versioon: {}
 2|Lisa sõlm
-3|Joonda alla
-4|Keskele (H)
-5|Keskele (V)
-6|Joonda vasakule
-7|Joonda paremale
-8|Joonda üles
-9|Sobita tööala automaatselt aknaga
-10|Automaatne
-11|Taustavärv
-12|Too ette
-13|Tsentreeri lauale
-14|Tsentreeri üksteise suhtes
-15|Tühjenda loend
-16|Sulge
-17|Sulge avatud tee või ava suletud tee valitud sõlmes
-18|Värv
-19|Teisendage tekst kõverateks või vektoriseerige pilt, et selle sõlmi redigeerida.
-20|Teisenda teeks
-21|Kopeeri
-22|Nurk
-23|Uuenduste kontrollimine ebaõnnestus.
-24|Kustuta
-25|Kustuta sõlm
-26|Joonte vahe
-27|Dubleeri
-28|Redigeeri sõlmi
-29|Ellips (E)
-30|Sobita kõigi objektidega
-31|Sobita kõigi objektidega (Ctrl+9)
-32|Sobita laud aknaga
-33|Sobita tööalaga (Ctrl+0)
-34|Pööra horisontaalselt
-35|Pööra vertikaalselt
-36|Ruudustik
-37|Grupeeri
-38|Grupeeritud. Objektid säilitavad oma kihid.
-39|Süda (K)
-40|Lisa sõlm (või tehke lõigul topeltklõps)
-41|Litsents
-42|Joon (L)
-43|Joonte paksus
-44|Lukusta
-45|Lukustatud objekte: {}
-46|Pearuudustik
-47|Tee iga valitud sõlme järgne lõik kõveraks
-48|Tee iga valitud sõlme järgne lõik sirgeks
-49|Tee valitud sõlmed nurkadeks
-50|Tee valitud sõlmed siledaks
-51|Maksimeeri
-52|Minimeeri
-53|Uusim väljalase: {}
-54|Sõlmede redigeerimine (N)
-55|Ava / sulge
-56|Ava hiljutised
-57|Ava allalaadimisleht
-58|Vaate nihutamine (H)
-59|Kleebi
-60|Hulknurk (G)
-61|Murdjoon / pliiats (P)
-62|Projekti leht GitHubis
-63|Kiirjuhend
-64|Välju
-65|Ümardamise raadius
-66|Ristkülik (R)
-67|Tee uuesti
-68|Lähtesta ruudustik
-69|Taasta
-70|Pööra 90° vastupäeva
-71|Pööra 90° päripäeva
-72|Ümarda
-73|Ümardab valitud nurgad selle raadiusega
-74|Ümardatud nurki: {}
-75|Otsi
-76|Abiruudustik
-77|Valik (V)
-78|Valige esmalt kuju, seejärel redigeerige selle sõlmi.
-79|Vali kõik
-80|Grupeerimiseks valige vähemalt kaks objekti.
-81|Saada taha
-82|Näita
-83|Sile
-84|Joondu ruudustikuga
-85|Joonda objektidele
-86|Spiraal (I)
-87|Täht (S)
-88|Tekst (T)
-89|Abiruudustik peab olema peenem kui pearuudustik.
-90|Tööala ümbritsev ruum
-91|Ümardamiseks pole sirgeid nurki.
-92|Kõveraks
-93|Jooneks
-94|Kolmnurk (Y)
-95|Võta tagasi
-96|Tühista grupeerimine
-97|Ava lukustus
-98|Lukust lahti tehtud objekte: {}
-99|Uuendused
-100|Versioon {}
-101|Vaate valikud
-102|Tööala
-103|Tööruumi värv
-104|Teil on uusim versioon.
-105|Teil on versioon {}.
-106|Suurenda
-107|Suurenda (Z)
-108|Vähenda
-109|Vähenda (X)
+3|Pildi kohandamine
+4|Joonda alla
+5|Keskele (H)
+6|Keskele (V)
+7|Joonda vasakule
+8|Joonda paremale
+9|Joonda üles
+10|Nurk
+11|Rakenda
+12|Automaatsed tasemed
+13|Sobita tööala automaatselt aknaga
+14|Automaatne
+15|Taustavärv
+16|Eredus
+17|Too ette
+18|Tühista
+19|Tsentreeri lauale
+20|Tsentreeri üksteise suhtes
+21|Tühjenda loend
+22|Sulge
+23|Sulge avatud tee või ava suletud tee valitud sõlmes
+24|Värv
+25|Kontrast
+26|Teisendage tekst kõverateks või vektoriseerige pilt, et selle sõlmi redigeerida.
+27|Teisenda teeks
+28|Kopeeri
+29|Nurk
+30|Uuenduste kontrollimine ebaõnnestus.
+31|Kustuta
+32|Kustuta sõlm
+33|Kustuta pilt pärast
+34|Joonte vahe
+35|Dubleeri
+36|Redigeeri sõlmi
+37|Ellips (E)
+38|Graveeri heledad osad tumedate asemel
+39|Sobita kõigi objektidega
+40|Sobita kõigi objektidega (Ctrl+9)
+41|Sobita laud aknaga
+42|Sobita tööalaga (Ctrl+0)
+43|Pööra H
+44|Pööra V
+45|Pööra horisontaalselt
+46|Pööra vertikaalselt
+47|Gamma
+48|Ruudustik
+49|Grupeeri
+50|Grupeeritud. Objektid säilitavad oma kihid.
+51|Süda (K)
+52|Ignoreeri väikesi alasid
+53|Import
+54|Importimine ebaõnnestus: {}
+55|Pildi import
+56|Pilt {} imporditud
+57|Lisa sõlm (või tehke lõigul topeltklõps)
+58|Litsents
+59|Joon (L)
+60|Joonte paksus
+61|Lukusta
+62|Lukustatud objekte: {}
+63|Pearuudustik
+64|Tee iga valitud sõlme järgne lõik kõveraks
+65|Tee iga valitud sõlme järgne lõik sirgeks
+66|Tee valitud sõlmed nurkadeks
+67|Tee valitud sõlmed siledaks
+68|Maksimeeri
+69|Minimeeri
+70|Negatiivpilt
+71|Uusim väljalase: {}
+72|Sõlmede redigeerimine (N)
+73|Ava / sulge
+74|Ava hiljutised
+75|Ava allalaadimisleht
+76|Vaate nihutamine (H)
+77|Kleebi
+78|Hulknurk (G)
+79|Murdjoon / pliiats (P)
+80|Projekti leht GitHubis
+81|Kiirjuhend
+82|Välju
+83|Ümardamise raadius
+84|Ristkülik (R)
+85|Tee uuesti
+86|Lähtesta
+87|Lähtesta ruudustik
+88|Taasta
+89|Pööra 90° vastupäeva
+90|Pööra 90° päripäeva
+91|Pööramine ja peegeldamine
+92|Ümarda
+93|Ümardab valitud nurgad selle raadiusega
+94|Ümardatud nurki: {}
+95|Otsi
+96|Abiruudustik
+97|Valik (V)
+98|Valige esmalt kuju, seejärel redigeerige selle sõlmi.
+99|Vali kõik
+100|Grupeerimiseks valige vähemalt kaks objekti.
+101|Saada taha
+102|Näita
+103|Lihtsusta
+104|Suurus
+105|Sile
+106|Silu kõverad
+107|Joondu ruudustikuga
+108|Joonda objektidele
+109|Spiraal (I)
+110|Täht (S)
+111|Tekst (T)
+112|Tulemus on tühi.
+113|Abiruudustik peab olema peenem kui pearuudustik.
+114|Tööala ümbritsev ruum
+115|Ümardamiseks pole sirgeid nurki.
+116|Lävi
+117|Kõveraks
+118|Jooneks
+119|Toon
+120|Vektoriseeri
+121|Pildi vektoriseerimine
+122|Vektoriseeri heledad alad
+123|Vektoriseeritud piirjooni: {}
+124|Kolmnurk (Y)
+125|Võta tagasi
+126|Tühista grupeerimine
+127|Ava lukustus
+128|Lukust lahti tehtud objekte: {}
+129|Uuendused
+130|Versioon {}
+131|Vaate valikud
+132|Laius
+133|Tööala
+134|Tööruumi värv
+135|Teil on uusim versioon.
+136|Teil on versioon {}.
+137|Suurenda
+138|Suurenda (Z)
+139|Vähenda
+140|Vähenda (X)
+141|Piirjooni: {}
+142|{} × {} px

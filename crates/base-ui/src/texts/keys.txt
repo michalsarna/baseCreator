@@ -1,110 +1,143 @@
 0	(empty)
 1	A newer version is available: {}
 2	Add node
-3	Align bottom
-4	Align centre (H)
-5	Align centre (V)
-6	Align left
-7	Align right
-8	Align top
-9	Auto-fit work area to window
-10	Automatic
-11	Background colour
-12	Bring to front
-13	Centre on bed
-14	Centre on each other
-15	Clear list
-16	Close
-17	Close an open path, or open a closed one at the selected node
-18	Colour
-19	Convert text to curves, or trace the image, to edit its nodes.
-20	Convert to path
-21	Copy
-22	Corner
-23	Could not check for updates.
-24	Delete
-25	Delete node
-26	Distance between lines
-27	Duplicate
-28	Edit nodes
-29	Ellipse (E)
-30	Fit all objects
-31	Fit all objects (Ctrl+9)
-32	Fit bed to window
-33	Fit work area (Ctrl+0)
-34	Flip horizontal
-35	Flip vertical
-36	Grid
-37	Group
-38	Grouped. The objects keep their layers.
-39	Heart (K)
-40	Insert a node (or double-click a segment)
-41	Licence
-42	Line (L)
-43	Line thickness
-44	Lock
-45	Locked {} object(s).
-46	Main grid
-47	Make the segment after each selected node a curve
-48	Make the segment after each selected node straight
-49	Make the selected nodes corners
-50	Make the selected nodes smooth
-51	Maximise
-52	Minimise
-53	Newest release: {}
-54	Node edit (N)
-55	Open / close
-56	Open recent
-57	Open the download page
-58	Pan (H)
-59	Paste
-60	Polygon (G)
-61	Polyline / pen (P)
-62	Project page on GitHub
-63	Quick guide
-64	Quit
-65	Radius for rounding
-66	Rectangle (R)
-67	Redo
-68	Reset grid
-69	Restore
-70	Rotate 90° CCW
-71	Rotate 90° CW
-72	Round
-73	Round the selected corners with this radius
-74	Rounded {} corner(s).
-75	Search
-76	Secondary grid
-77	Select (V)
-78	Select a shape first, then edit its nodes.
-79	Select all
-80	Select at least two objects to group.
-81	Send to back
-82	Show
-83	Smooth
-84	Snap to grid
-85	Snap to objects
-86	Spiral (I)
-87	Star (S)
-88	Text (T)
-89	The secondary grid must be finer than the main grid.
-90	The space around the work area
-91	There are no straight corners to round.
-92	To curve
-93	To line
-94	Triangle (Y)
-95	Undo
-96	Ungroup
-97	Unlock
-98	Unlocked {} object(s).
-99	Updates
-100	Version {}
-101	View options
-102	Work area
-103	Workspace colour
-104	You have the newest version.
-105	You have {}.
-106	Zoom in
-107	Zoom in (Z)
-108	Zoom out
-109	Zoom out (X)
+3	Adjust image
+4	Align bottom
+5	Align centre (H)
+6	Align centre (V)
+7	Align left
+8	Align right
+9	Align top
+10	Angle
+11	Apply
+12	Auto levels
+13	Auto-fit work area to window
+14	Automatic
+15	Background colour
+16	Brightness
+17	Bring to front
+18	Cancel
+19	Centre on bed
+20	Centre on each other
+21	Clear list
+22	Close
+23	Close an open path, or open a closed one at the selected node
+24	Colour
+25	Contrast
+26	Convert text to curves, or trace the image, to edit its nodes.
+27	Convert to path
+28	Copy
+29	Corner
+30	Could not check for updates.
+31	Delete
+32	Delete node
+33	Delete the image afterwards
+34	Distance between lines
+35	Duplicate
+36	Edit nodes
+37	Ellipse (E)
+38	Engrave the light parts instead of the dark parts
+39	Fit all objects
+40	Fit all objects (Ctrl+9)
+41	Fit bed to window
+42	Fit work area (Ctrl+0)
+43	Flip H
+44	Flip V
+45	Flip horizontal
+46	Flip vertical
+47	Gamma
+48	Grid
+49	Group
+50	Grouped. The objects keep their layers.
+51	Heart (K)
+52	Ignore small areas
+53	Import
+54	Import failed: {}
+55	Import image
+56	Imported image {}
+57	Insert a node (or double-click a segment)
+58	Licence
+59	Line (L)
+60	Line thickness
+61	Lock
+62	Locked {} object(s).
+63	Main grid
+64	Make the segment after each selected node a curve
+65	Make the segment after each selected node straight
+66	Make the selected nodes corners
+67	Make the selected nodes smooth
+68	Maximise
+69	Minimise
+70	Negative image
+71	Newest release: {}
+72	Node edit (N)
+73	Open / close
+74	Open recent
+75	Open the download page
+76	Pan (H)
+77	Paste
+78	Polygon (G)
+79	Polyline / pen (P)
+80	Project page on GitHub
+81	Quick guide
+82	Quit
+83	Radius for rounding
+84	Rectangle (R)
+85	Redo
+86	Reset
+87	Reset grid
+88	Restore
+89	Rotate 90° CCW
+90	Rotate 90° CW
+91	Rotate and flip
+92	Round
+93	Round the selected corners with this radius
+94	Rounded {} corner(s).
+95	Search
+96	Secondary grid
+97	Select (V)
+98	Select a shape first, then edit its nodes.
+99	Select all
+100	Select at least two objects to group.
+101	Send to back
+102	Show
+103	Simplify
+104	Size
+105	Smooth
+106	Smooth curves
+107	Snap to grid
+108	Snap to objects
+109	Spiral (I)
+110	Star (S)
+111	Text (T)
+112	The result is empty.
+113	The secondary grid must be finer than the main grid.
+114	The space around the work area
+115	There are no straight corners to round.
+116	Threshold
+117	To curve
+118	To line
+119	Tone
+120	Trace
+121	Trace image
+122	Trace the light areas
+123	Traced {} outlines
+124	Triangle (Y)
+125	Undo
+126	Ungroup
+127	Unlock
+128	Unlocked {} object(s).
+129	Updates
+130	Version {}
+131	View options
+132	Width
+133	Work area
+134	Workspace colour
+135	You have the newest version.
+136	You have {}.
+137	Zoom in
+138	Zoom in (Z)
+139	Zoom out
+140	Zoom out (X)
+141	{} outlines
+142	{} × {} px
