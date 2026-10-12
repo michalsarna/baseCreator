@@ -16,6 +16,7 @@ pub mod snap;
 pub mod svg;
 pub mod text;
 pub mod trace;
+pub mod units;
 
 pub use bezier::*;
 pub use camimg::{CameraKind, CameraSource, CameraView, ImageSettings, Lens, RefPoint};
@@ -23,6 +24,7 @@ pub use geom::*;
 pub use image::{Adjust, ImageData};
 pub use scene::{Kind, Scene, Shape, DEFAULT_FLATTEN_TOL};
 pub use text::TextData;
+pub use units::{SpeedUnit, Units};
 
 #[cfg(test)]
 mod tests;
