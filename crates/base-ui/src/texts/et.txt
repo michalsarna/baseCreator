@@ -1,0 +1,24 @@
+0|Lisa sõlm
+1|Sulge avatud tee või ava suletud tee valitud sõlmes
+2|Teisendage tekst kõverateks või vektoriseerige pilt, et selle sõlmi redigeerida.
+3|Nurk
+4|Kustuta sõlm
+5|Grupeeritud. Objektid säilitavad oma kihid.
+6|Lisa sõlm (või tehke lõigul topeltklõps)
+7|Lukustatud objekte: {}
+8|Tee iga valitud sõlme järgne lõik kõveraks
+9|Tee iga valitud sõlme järgne lõik sirgeks
+10|Tee valitud sõlmed nurkadeks
+11|Tee valitud sõlmed siledaks
+12|Ava / sulge
+13|Ümardamise raadius
+14|Ümarda
+15|Ümardab valitud nurgad selle raadiusega
+16|Ümardatud nurki: {}
+17|Valige esmalt kuju, seejärel redigeerige selle sõlmi.
+18|Grupeerimiseks valige vähemalt kaks objekti.
+19|Sile
+20|Ümardamiseks pole sirgeid nurki.
+21|Kõveraks
+22|Jooneks
+23|Lukust lahti tehtud objekte: {}

@@ -1,0 +1,24 @@
+0|Csomópont hozzáadása
+1|Nyitott útvonal zárása, vagy zárt útvonal megnyitása a kijelölt csomópontnál
+2|Alakítsa a szöveget görbékké, vagy vektorizálja a képet, hogy szerkeszthesse a csomópontjait.
+3|Sarok
+4|Csomópont törlése
+5|Csoportosítva. Az objektumok megtartják a rétegeiket.
+6|Csomópont beszúrása (vagy dupla kattintás egy szakaszra)
+7|{} objektum zárolva.
+8|Minden kijelölt csomópont utáni szakasz görbévé tétele
+9|Minden kijelölt csomópont utáni szakasz egyenessé tétele
+10|A kijelölt csomópontok sarokká alakítása
+11|A kijelölt csomópontok simává alakítása
+12|Nyitás / zárás
+13|A lekerekítés sugara
+14|Lekerekítés
+15|A kijelölt sarkok lekerekítése ezzel a sugárral
+16|{} sarok lekerekítve.
+17|Először jelöljön ki egy alakzatot, majd szerkessze a csomópontjait.
+18|A csoportosításhoz jelöljön ki legalább két objektumot.
+19|Sima
+20|Nincsenek lekerekítendő egyenes sarkok.
+21|Görbévé
+22|Vonallá
+23|{} objektum feloldva.

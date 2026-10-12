@@ -150,8 +150,7 @@ pub fn tr(s: &'static str) -> &'static str {
 
 static SETS: RwLock<Vec<&'static Texts>> = RwLock::new(Vec::new());
 
-/// Texts shared by the applications (none yet: the shared windows still take theirs from the application).
-static BASE: Texts = Texts::new(&[], "", [""; 23]);
+use crate::texts::TEXTS as BASE;
 
 /// Add the texts of an application. They are asked before the shared ones, in the order they were registered.
 /// Registering the same set again does nothing.

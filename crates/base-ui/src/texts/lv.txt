@@ -1,0 +1,24 @@
+0|Pievienot mezglu
+1|Aizvērt atvērtu ceļu vai atvērt aizvērtu atlasītajā mezglā
+2|Pārvērsiet tekstu līknēs vai vektorizējiet attēlu, lai rediģētu tā mezglus.
+3|Stūris
+4|Dzēst mezglu
+5|Sagrupēts. Objekti saglabā savus slāņus.
+6|Ievietot mezglu (vai divreiz noklikšķināt uz posma)
+7|Bloķēti objekti: {}
+8|Padarīt posmu aiz katra atlasītā mezgla izliektu
+9|Padarīt posmu aiz katra atlasītā mezgla taisnu
+10|Padarīt atlasītos mezglus par stūra mezgliem
+11|Padarīt atlasītos mezglus gludus
+12|Atvērt / aizvērt
+13|Noapaļošanas rādiuss
+14|Noapaļot
+15|Noapaļo atlasītos stūrus ar šo rādiusu
+16|Noapaļoti stūri: {}
+17|Vispirms atlasiet formu, pēc tam rediģējiet tās mezglus.
+18|Lai grupētu, atlasiet vismaz divus objektus.
+19|Gluds
+20|Nav taisnu stūru, ko noapaļot.
+21|Par līkni
+22|Par līniju
+23|Atbloķēti objekti: {}

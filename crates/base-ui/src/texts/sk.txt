@@ -1,0 +1,24 @@
+0|Pridať uzol
+1|Zavrieť otvorenú cestu, alebo otvoriť uzavretú vo vybranom uzle
+2|Preveďte text na krivky, alebo obrázok vektorizujte, aby ste mohli upravovať jeho uzly.
+3|Roh
+4|Odstrániť uzol
+5|Zoskupené. Objekty si ponechajú svoje vrstvy.
+6|Vložiť uzol (alebo dvakrát kliknúť na úsek)
+7|Zamknutých objektov: {}
+8|Zmeniť úsek za každým vybraným uzlom na krivku
+9|Zmeniť úsek za každým vybraným uzlom na priamy
+10|Zmeniť vybrané uzly na rohové
+11|Zmeniť vybrané uzly na hladké
+12|Otvoriť / zavrieť
+13|Polomer zaoblenia
+14|Zaobliť
+15|Zaobli vybrané rohy týmto polomerom
+16|Zaoblených rohov: {}
+17|Najprv vyberte tvar a potom upravte jeho uzly.
+18|Na zoskupenie vyberte aspoň dva objekty.
+19|Hladký
+20|Nie sú žiadne priame rohy na zaoblenie.
+21|Na krivku
+22|Na úsečku
+23|Odomknutých objektov: {}

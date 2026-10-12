@@ -1,0 +1,24 @@
+0|Přidat uzel
+1|Zavřít otevřenou cestu, nebo otevřít uzavřenou ve vybraném uzlu
+2|Převeďte text na křivky, nebo obrázek vektorizujte, abyste mohli upravovat jeho uzly.
+3|Roh
+4|Smazat uzel
+5|Seskupeno. Objekty si ponechají své vrstvy.
+6|Vložit uzel (nebo dvakrát kliknout na úsek)
+7|Zamčeno objektů: {}
+8|Změnit úsek za každým vybraným uzlem na křivku
+9|Změnit úsek za každým vybraným uzlem na přímý
+10|Změnit vybrané uzly na rohové
+11|Změnit vybrané uzly na hladké
+12|Otevřít / zavřít
+13|Poloměr zaoblení
+14|Zaoblit
+15|Zaoblí vybrané rohy tímto poloměrem
+16|Zaobleno rohů: {}
+17|Nejprve vyberte tvar a poté upravte jeho uzly.
+18|Pro seskupení vyberte alespoň dva objekty.
+19|Hladký
+20|Nejsou žádné přímé rohy k zaoblení.
+21|Na křivku
+22|Na úsečku
+23|Odemčeno objektů: {}

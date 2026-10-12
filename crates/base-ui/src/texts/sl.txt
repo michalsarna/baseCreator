@@ -1,0 +1,24 @@
+0|Dodaj vozlišče
+1|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
+2|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
+3|Kot
+4|Izbriši vozlišče
+5|Združeno. Predmeti obdržijo svoje sloje.
+6|Vstavi vozlišče (ali dvakrat kliknite odsek)
+7|Zaklenjenih predmetov: {}
+8|Odsek za vsakim izbranim vozliščem naredi ukrivljen
+9|Odsek za vsakim izbranim vozliščem naredi raven
+10|Izbrana vozlišča spremeni v kotna
+11|Izbrana vozlišča naredi gladka
+12|Odpri / zapri
+13|Polmer zaobljenja
+14|Zaobli
+15|Zaobli izbrane vogale s tem polmerom
+16|Zaobljenih vogalov: {}
+17|Najprej izberite obliko, nato uredite njena vozlišča.
+18|Za združevanje izberite vsaj dva predmeta.
+19|Gladko
+20|Ni ravnih vogalov za zaobljenje.
+21|V krivuljo
+22|V črto
+23|Odklenjenih predmetov: {}

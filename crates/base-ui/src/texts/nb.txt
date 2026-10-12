@@ -1,0 +1,24 @@
+0|Legg til node
+1|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
+2|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
+3|Hjørne
+4|Slett node
+5|Gruppert. Objektene beholder lagene sine.
+6|Sett inn en node (eller dobbeltklikk på et segment)
+7|{} objekt(er) låst.
+8|Gjør segmentet etter hver merkede node buet
+9|Gjør segmentet etter hver merkede node rett
+10|Gjør de merkede nodene til hjørner
+11|Gjør de merkede nodene glatte
+12|Åpne / lukk
+13|Radius for avrunding
+14|Avrund
+15|Avrund de merkede hjørnene med denne radiusen
+16|{} hjørne(r) avrundet.
+17|Merk først en form, og rediger deretter nodene.
+18|Merk minst to objekter for å gruppere.
+19|Glatt
+20|Det finnes ingen rette hjørner å avrunde.
+21|Til kurve
+22|Til linje
+23|{} objekt(er) låst opp.

@@ -1,0 +1,24 @@
+0|Żid nodu
+1|Agħlaq passaġġ miftuħ, jew iftaħ wieħed magħluq fin-nodu magħżul
+2|Ikkonverti t-test f'kurvi, jew vettorizza l-istampa, biex teditja n-nodi tagħha.
+3|Kantuniera
+4|Ħassar in-nodu
+5|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
+6|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
+7|Oġġetti llokkjati: {}
+8|Agħmel mgħawweġ is-segment wara kull nodu magħżul
+9|Agħmel dritt is-segment wara kull nodu magħżul
+10|Agħmel kantunieri min-nodi magħżula
+11|Agħmel bla xkiel in-nodi magħżula
+12|Iftaħ / agħlaq
+13|Raġġ tad-dawwir
+14|Dawwar
+15|Idawwar il-kantunieri magħżula b'dan ir-raġġ
+16|Kantunieri mdawra: {}
+17|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
+18|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
+19|Bla xkiel
+20|M'hemm l-ebda kantunieri dritti x'tidawwar.
+21|Għal kurva
+22|Għal linja
+23|Oġġetti mhux illokkjati: {}

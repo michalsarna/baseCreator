@@ -237,3 +237,6 @@ impl Default for EditorState {
         EditorState::new()
     }
 }
+
+#[cfg(test)]
+mod tests;
