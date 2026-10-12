@@ -1,84 +1,110 @@
 0|(tuščia)
-1|Pridėti mazgą
-2|Lygiuoti apačioje
-3|Centruoti (H)
-4|Centruoti (V)
-5|Lygiuoti kairėje
-6|Lygiuoti dešinėje
-7|Lygiuoti viršuje
-8|Automatiškai pritaikyti darbo sritį prie lango
-9|Perkelti į priekį
-10|Centruoti ant stalo
-11|Centruoti vieną kito atžvilgiu
-12|Išvalyti sąrašą
-13|Uždaryti
-14|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
-15|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
-16|Konvertuoti į kontūrą
-17|Kopijuoti
-18|Kampas
-19|Naikinti
-20|Naikinti mazgą
-21|Dubliuoti
-22|Redaguoti mazgus
-23|Elipsė (E)
-24|Pritaikyti prie visų objektų
-25|Pritaikyti prie visų objektų (Ctrl+9)
-26|Pritaikyti stalą prie lango
-27|Pritaikyti prie darbo srities (Ctrl+0)
-28|Apversti horizontaliai
-29|Apversti vertikaliai
-30|Tinklelis
-31|Grupuoti
-32|Sugrupuota. Objektai išlaiko savo sluoksnius.
-33|Širdis (K)
-34|Įterpti mazgą (arba dukart spustelėti atkarpą)
-35|Linija (L)
-36|Užrakinti
-37|Užrakinta objektų: {}
-38|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
-39|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
-40|Pažymėtus mazgus paversti kampiniais
-41|Pažymėtus mazgus padaryti glotniais
-42|Padidinti
-43|Sumažinti
-44|Mazgų redagavimas (N)
-45|Atverti / uždaryti
-46|Atverti neseniai naudotus
-47|Rodinio stumdymas (H)
-48|Įklijuoti
-49|Daugiakampis (G)
-50|Laužtė / plunksna (P)
-51|Išeiti
-52|Apvalinimo spindulys
-53|Stačiakampis (R)
-54|Grąžinti
-55|Atkurti
-56|Pasukti 90° prieš laikrodžio rodyklę
-57|Pasukti 90° pagal laikrodžio rodyklę
-58|Suapvalinti
-59|Suapvalina pažymėtus kampus šiuo spinduliu
-60|Suapvalinta kampų: {}
-61|Žymėjimas (V)
-62|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
-63|Pasirinkti viską
-64|Norėdami grupuoti, pasirinkite bent du objektus.
-65|Perkelti į galą
-66|Glotnus
-67|Prilipdyti prie tinklelio
-68|Prilipti prie objektų
-69|Spiralė (I)
-70|Žvaigždė (S)
-71|Tekstas (T)
-72|Nėra tiesių kampų apvalinimui.
-73|Į kreivę
-74|Į liniją
-75|Trikampis (Y)
-76|Atšaukti
-77|Išgrupuoti
-78|Atrakinti
-79|Atrakinta objektų: {}
-80|Priartinti
-81|Priartinti (Z)
-82|Nutolinti
-83|Nutolinti (X)
+1|Yra naujesnė versija: {}
+2|Pridėti mazgą
+3|Lygiuoti apačioje
+4|Centruoti (H)
+5|Centruoti (V)
+6|Lygiuoti kairėje
+7|Lygiuoti dešinėje
+8|Lygiuoti viršuje
+9|Automatiškai pritaikyti darbo sritį prie lango
+10|Automatinė
+11|Fono spalva
+12|Perkelti į priekį
+13|Centruoti ant stalo
+14|Centruoti vieną kito atžvilgiu
+15|Išvalyti sąrašą
+16|Uždaryti
+17|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
+18|Spalva
+19|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
+20|Konvertuoti į kontūrą
+21|Kopijuoti
+22|Kampas
+23|Nepavyko patikrinti naujinimų.
+24|Naikinti
+25|Naikinti mazgą
+26|Atstumas tarp linijų
+27|Dubliuoti
+28|Redaguoti mazgus
+29|Elipsė (E)
+30|Pritaikyti prie visų objektų
+31|Pritaikyti prie visų objektų (Ctrl+9)
+32|Pritaikyti stalą prie lango
+33|Pritaikyti prie darbo srities (Ctrl+0)
+34|Apversti horizontaliai
+35|Apversti vertikaliai
+36|Tinklelis
+37|Grupuoti
+38|Sugrupuota. Objektai išlaiko savo sluoksnius.
+39|Širdis (K)
+40|Įterpti mazgą (arba dukart spustelėti atkarpą)
+41|Licencija
+42|Linija (L)
+43|Linijų storis
+44|Užrakinti
+45|Užrakinta objektų: {}
+46|Pagrindinis tinklelis
+47|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
+48|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
+49|Pažymėtus mazgus paversti kampiniais
+50|Pažymėtus mazgus padaryti glotniais
+51|Padidinti
+52|Sumažinti
+53|Naujausias leidimas: {}
+54|Mazgų redagavimas (N)
+55|Atverti / uždaryti
+56|Atverti neseniai naudotus
+57|Atverti atsisiuntimo puslapį
+58|Rodinio stumdymas (H)
+59|Įklijuoti
+60|Daugiakampis (G)
+61|Laužtė / plunksna (P)
+62|Projekto puslapis GitHub
+63|Greitasis vadovas
+64|Išeiti
+65|Apvalinimo spindulys
+66|Stačiakampis (R)
+67|Grąžinti
+68|Atstatyti tinklelį
+69|Atkurti
+70|Pasukti 90° prieš laikrodžio rodyklę
+71|Pasukti 90° pagal laikrodžio rodyklę
+72|Suapvalinti
+73|Suapvalina pažymėtus kampus šiuo spinduliu
+74|Suapvalinta kampų: {}
+75|Paieška
+76|Antrinis tinklelis
+77|Žymėjimas (V)
+78|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
+79|Pasirinkti viską
+80|Norėdami grupuoti, pasirinkite bent du objektus.
+81|Perkelti į galą
+82|Rodyti
+83|Glotnus
+84|Prilipdyti prie tinklelio
+85|Prilipti prie objektų
+86|Spiralė (I)
+87|Žvaigždė (S)
+88|Tekstas (T)
+89|Antrinis tinklelis turi būti smulkesnis už pagrindinį.
+90|Erdvė aplink darbo plotą
+91|Nėra tiesių kampų apvalinimui.
+92|Į kreivę
+93|Į liniją
+94|Trikampis (Y)
+95|Atšaukti
+96|Išgrupuoti
+97|Atrakinti
+98|Atrakinta objektų: {}
+99|Naujinimai
+100|Versija {}
+101|Rodinio parinktys
+102|Darbo sritis
+103|Darbo erdvės spalva
+104|Turite naujausią versiją.
+105|Jūs turite versiją {}.
+106|Priartinti
+107|Priartinti (Z)
+108|Nutolinti
+109|Nutolinti (X)

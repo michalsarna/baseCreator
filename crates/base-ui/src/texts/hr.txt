@@ -1,84 +1,110 @@
 0|(prazno)
-1|Dodaj čvor
-2|Poravnaj dolje
-3|Središte (H)
-4|Središte (V)
-5|Poravnaj lijevo
-6|Poravnaj desno
-7|Poravnaj gore
-8|Automatski prilagodi radno područje prozoru
-9|Prenesi naprijed
-10|Centriraj na stol
-11|Centriraj jedno na drugo
-12|Očisti popis
-13|Zatvori
-14|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
-15|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
-16|Pretvori u putanju
-17|Kopiraj
-18|Kut
-19|Izbriši
-20|Izbriši čvor
-21|Dupliciraj
-22|Uredi čvorove
-23|Elipsa (E)
-24|Prilagodi svim objektima
-25|Prilagodi svim objektima (Ctrl+9)
-26|Prilagodi stol prozoru
-27|Prilagodi radnom području (Ctrl+0)
-28|Zrcali vodoravno
-29|Zrcali okomito
-30|Mreža
-31|Grupiraj
-32|Grupirano. Objekti zadržavaju svoje slojeve.
-33|Srce (K)
-34|Umetni čvor (ili dvaput kliknite segment)
-35|Crta (L)
-36|Zaključaj
-37|Zaključano objekata: {}
-38|Učini segment iza svakog odabranog čvora zakrivljenim
-39|Učini segment iza svakog odabranog čvora ravnim
-40|Pretvori odabrane čvorove u kutne
-41|Učini odabrane čvorove glatkima
-42|Povećaj
-43|Smanji
-44|Uređivanje čvorova (N)
-45|Otvori / zatvori
-46|Otvori nedavne
-47|Pomak prikaza (H)
-48|Zalijepi
-49|Mnogokut (G)
-50|Izlomljena crta / pero (P)
-51|Izlaz
-52|Polumjer zaobljenja
-53|Pravokutnik (R)
-54|Ponovi
-55|Vrati
-56|Zakreni 90° ulijevo
-57|Zakreni 90° udesno
-58|Zaobli
-59|Zaobljuje odabrane kutove ovim polumjerom
-60|Zaobljeno kutova: {}
-61|Odabir (V)
-62|Prvo odaberite oblik, a zatim uredite njegove čvorove.
-63|Odaberi sve
-64|Za grupiranje odaberite barem dva objekta.
-65|Prenesi natrag
-66|Glatko
-67|Prianjanje uz mrežu
-68|Prianjanje uz objekte
-69|Spirala (I)
-70|Zvijezda (S)
-71|Tekst (T)
-72|Nema ravnih kutova za zaobljivanje.
-73|U krivulju
-74|U crtu
-75|Trokut (Y)
-76|Poništi
-77|Razgrupiraj
-78|Otključaj
-79|Otključano objekata: {}
-80|Povećaj
-81|Povećaj (Z)
-82|Smanji
-83|Smanji (X)
+1|Dostupna je novija verzija: {}
+2|Dodaj čvor
+3|Poravnaj dolje
+4|Središte (H)
+5|Središte (V)
+6|Poravnaj lijevo
+7|Poravnaj desno
+8|Poravnaj gore
+9|Automatski prilagodi radno područje prozoru
+10|Automatski
+11|Boja pozadine
+12|Prenesi naprijed
+13|Centriraj na stol
+14|Centriraj jedno na drugo
+15|Očisti popis
+16|Zatvori
+17|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
+18|Boja
+19|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
+20|Pretvori u putanju
+21|Kopiraj
+22|Kut
+23|Nije moguće provjeriti ažuriranja.
+24|Izbriši
+25|Izbriši čvor
+26|Razmak između linija
+27|Dupliciraj
+28|Uredi čvorove
+29|Elipsa (E)
+30|Prilagodi svim objektima
+31|Prilagodi svim objektima (Ctrl+9)
+32|Prilagodi stol prozoru
+33|Prilagodi radnom području (Ctrl+0)
+34|Zrcali vodoravno
+35|Zrcali okomito
+36|Mreža
+37|Grupiraj
+38|Grupirano. Objekti zadržavaju svoje slojeve.
+39|Srce (K)
+40|Umetni čvor (ili dvaput kliknite segment)
+41|Licenca
+42|Crta (L)
+43|Debljina linija
+44|Zaključaj
+45|Zaključano objekata: {}
+46|Glavna mreža
+47|Učini segment iza svakog odabranog čvora zakrivljenim
+48|Učini segment iza svakog odabranog čvora ravnim
+49|Pretvori odabrane čvorove u kutne
+50|Učini odabrane čvorove glatkima
+51|Povećaj
+52|Smanji
+53|Najnovije izdanje: {}
+54|Uređivanje čvorova (N)
+55|Otvori / zatvori
+56|Otvori nedavne
+57|Otvori stranicu za preuzimanje
+58|Pomak prikaza (H)
+59|Zalijepi
+60|Mnogokut (G)
+61|Izlomljena crta / pero (P)
+62|Stranica projekta na GitHubu
+63|Brzi vodič
+64|Izlaz
+65|Polumjer zaobljenja
+66|Pravokutnik (R)
+67|Ponovi
+68|Vrati mrežu
+69|Vrati
+70|Zakreni 90° ulijevo
+71|Zakreni 90° udesno
+72|Zaobli
+73|Zaobljuje odabrane kutove ovim polumjerom
+74|Zaobljeno kutova: {}
+75|Traži
+76|Sekundarna mreža
+77|Odabir (V)
+78|Prvo odaberite oblik, a zatim uredite njegove čvorove.
+79|Odaberi sve
+80|Za grupiranje odaberite barem dva objekta.
+81|Prenesi natrag
+82|Prikaži
+83|Glatko
+84|Prianjanje uz mrežu
+85|Prianjanje uz objekte
+86|Spirala (I)
+87|Zvijezda (S)
+88|Tekst (T)
+89|Sekundarna mreža mora biti finija od glavne.
+90|Prostor oko radne površine
+91|Nema ravnih kutova za zaobljivanje.
+92|U krivulju
+93|U crtu
+94|Trokut (Y)
+95|Poništi
+96|Razgrupiraj
+97|Otključaj
+98|Otključano objekata: {}
+99|Ažuriranja
+100|Verzija {}
+101|Mogućnosti prikaza
+102|Radno područje
+103|Boja radnog prostora
+104|Imate najnoviju verziju.
+105|Imate verziju {}.
+106|Povećaj
+107|Povećaj (Z)
+108|Smanji
+109|Smanji (X)

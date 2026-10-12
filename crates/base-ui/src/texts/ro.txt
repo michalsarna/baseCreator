@@ -1,84 +1,110 @@
 0|(gol)
-1|Adaugă nod
-2|Aliniază jos
-3|Centrează (H)
-4|Centrează (V)
-5|Aliniază la stânga
-6|Aliniază la dreapta
-7|Aliniază sus
-8|Potrivește automat zona de lucru la fereastră
-9|Adu în față
-10|Centrează pe masă
-11|Centrează unele pe altele
-12|Golește lista
-13|Închide
-14|Închide un traseu deschis, sau deschide unul închis la nodul selectat
-15|Convertiți textul în curbe, sau vectorizați imaginea, pentru a-i edita nodurile.
-16|Convertește în traseu
-17|Copiază
-18|Colț
-19|Șterge
-20|Șterge nodul
-21|Duplică
-22|Editează nodurile
-23|Elipsă (E)
-24|Potrivește la toate obiectele
-25|Potrivește la toate obiectele (Ctrl+9)
-26|Potrivește masa la fereastră
-27|Potrivește la zona de lucru (Ctrl+0)
-28|Oglindește orizontal
-29|Oglindește vertical
-30|Grilă
-31|Grupează
-32|Grupat. Obiectele își păstrează straturile.
-33|Inimă (K)
-34|Inserează un nod (sau dublu clic pe un segment)
-35|Linie (L)
-36|Blochează
-37|{} obiect(e) blocat(e).
-38|Face curb segmentul de după fiecare nod selectat
-39|Face drept segmentul de după fiecare nod selectat
-40|Transformă nodurile selectate în colțuri
-41|Face netede nodurile selectate
-42|Maximizează
-43|Minimizează
-44|Editare noduri (N)
-45|Deschide / închide
-46|Deschide recente
-47|Deplasare vizualizare (H)
-48|Lipește
-49|Poligon (G)
-50|Polilinie / stilou (P)
-51|Ieșire
-52|Raza de rotunjire
-53|Dreptunghi (R)
-54|Refă
-55|Restaurează
-56|Rotește 90° la stânga
-57|Rotește 90° la dreapta
-58|Rotunjește
-59|Rotunjește colțurile selectate cu această rază
-60|{} colț(uri) rotunjit(e).
-61|Selectare (V)
-62|Selectați mai întâi o formă, apoi editați-i nodurile.
-63|Selectează tot
-64|Selectați cel puțin două obiecte pentru a grupa.
-65|Trimite în spate
-66|Neted
-67|Fixează pe grilă
-68|Aliniere la obiecte
-69|Spirală (I)
-70|Stea (S)
-71|Text (T)
-72|Nu există colțuri drepte de rotunjit.
-73|La curbă
-74|La linie
-75|Triunghi (Y)
-76|Anulează
-77|Degrupează
-78|Deblochează
-79|{} obiect(e) deblocat(e).
-80|Mărește
-81|Mărește (Z)
-82|Micșorează
-83|Micșorează (X)
+1|Este disponibilă o versiune mai nouă: {}
+2|Adaugă nod
+3|Aliniază jos
+4|Centrează (H)
+5|Centrează (V)
+6|Aliniază la stânga
+7|Aliniază la dreapta
+8|Aliniază sus
+9|Potrivește automat zona de lucru la fereastră
+10|Automat
+11|Culoarea fundalului
+12|Adu în față
+13|Centrează pe masă
+14|Centrează unele pe altele
+15|Golește lista
+16|Închide
+17|Închide un traseu deschis, sau deschide unul închis la nodul selectat
+18|Culoare
+19|Convertiți textul în curbe, sau vectorizați imaginea, pentru a-i edita nodurile.
+20|Convertește în traseu
+21|Copiază
+22|Colț
+23|Nu s-au putut căuta actualizări.
+24|Șterge
+25|Șterge nodul
+26|Distanța dintre linii
+27|Duplică
+28|Editează nodurile
+29|Elipsă (E)
+30|Potrivește la toate obiectele
+31|Potrivește la toate obiectele (Ctrl+9)
+32|Potrivește masa la fereastră
+33|Potrivește la zona de lucru (Ctrl+0)
+34|Oglindește orizontal
+35|Oglindește vertical
+36|Grilă
+37|Grupează
+38|Grupat. Obiectele își păstrează straturile.
+39|Inimă (K)
+40|Inserează un nod (sau dublu clic pe un segment)
+41|Licență
+42|Linie (L)
+43|Grosimea liniilor
+44|Blochează
+45|{} obiect(e) blocat(e).
+46|Grila principală
+47|Face curb segmentul de după fiecare nod selectat
+48|Face drept segmentul de după fiecare nod selectat
+49|Transformă nodurile selectate în colțuri
+50|Face netede nodurile selectate
+51|Maximizează
+52|Minimizează
+53|Cea mai nouă versiune: {}
+54|Editare noduri (N)
+55|Deschide / închide
+56|Deschide recente
+57|Deschide pagina de descărcare
+58|Deplasare vizualizare (H)
+59|Lipește
+60|Poligon (G)
+61|Polilinie / stilou (P)
+62|Pagina proiectului pe GitHub
+63|Ghid rapid
+64|Ieșire
+65|Raza de rotunjire
+66|Dreptunghi (R)
+67|Refă
+68|Resetează grila
+69|Restaurează
+70|Rotește 90° la stânga
+71|Rotește 90° la dreapta
+72|Rotunjește
+73|Rotunjește colțurile selectate cu această rază
+74|{} colț(uri) rotunjit(e).
+75|Căutare
+76|Grila secundară
+77|Selectare (V)
+78|Selectați mai întâi o formă, apoi editați-i nodurile.
+79|Selectează tot
+80|Selectați cel puțin două obiecte pentru a grupa.
+81|Trimite în spate
+82|Arată
+83|Neted
+84|Fixează pe grilă
+85|Aliniere la obiecte
+86|Spirală (I)
+87|Stea (S)
+88|Text (T)
+89|Grila secundară trebuie să fie mai fină decât cea principală.
+90|Spațiul din jurul zonei de lucru
+91|Nu există colțuri drepte de rotunjit.
+92|La curbă
+93|La linie
+94|Triunghi (Y)
+95|Anulează
+96|Degrupează
+97|Deblochează
+98|{} obiect(e) deblocat(e).
+99|Actualizări
+100|Versiunea {}
+101|Opțiuni de vizualizare
+102|Zona de lucru
+103|Culoarea spațiului de lucru
+104|Aveți cea mai nouă versiune.
+105|Aveți versiunea {}.
+106|Mărește
+107|Mărește (Z)
+108|Micșorează
+109|Micșorează (X)

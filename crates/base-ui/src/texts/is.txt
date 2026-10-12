@@ -1,84 +1,110 @@
 0|(tómt)
-1|Bæta við hnút
-2|Jafna neðst
-3|Miðja (L)
-4|Miðja (Lt)
-5|Jafna til vinstri
-6|Jafna til hægri
-7|Jafna efst
-8|Laga vinnusvæði sjálfkrafa að glugga
-9|Færa fremst
-10|Miðja á borðinu
-11|Miðja hvað á annað
-12|Hreinsa lista
-13|Loka
-14|Loka opnum ferli eða opna lokaðan við valinn hnút
-15|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
-16|Breyta í feril
-17|Afrita
-18|Horn
-19|Eyða
-20|Eyða hnút
-21|Tvöfalda
-22|Breyta hnútum
-23|Sporbaugur (E)
-24|Laga að öllum hlutum
-25|Laga að öllum hlutum (Ctrl+9)
-26|Laga borð að glugga
-27|Laga að vinnusvæði (Ctrl+0)
-28|Snúa lárétt
-29|Snúa lóðrétt
-30|Rúðunet
-31|Hópa
-32|Hópað. Hlutirnir halda lögum sínum.
-33|Hjarta (K)
-34|Setja inn hnút (eða tvísmella á bút)
-35|Lína (L)
-36|Læsa
-37|Læstir hlutir: {}
-38|Gera bútinn á eftir hverjum völdum hnút bogadreginn
-39|Gera bútinn á eftir hverjum völdum hnút beinan
-40|Gera valda hnúta að hornum
-41|Gera valda hnúta mjúka
-42|Hámarka
-43|Lágmarka
-44|Hnútabreyting (N)
-45|Opna / loka
-46|Opna nýleg
-47|Færa sýn (H)
-48|Líma
-49|Marghyrningur (G)
-50|Brotalína / penni (P)
-51|Hætta
-52|Radíus ávölunar
-53|Rétthyrningur (R)
-54|Endurgera
-55|Endurheimta
-56|Snúa 90° rangsælis
-57|Snúa 90° réttsælis
-58|Ávala
-59|Ávalar valin horn með þessum radíus
-60|Ávöluð horn: {}
-61|Velja (V)
-62|Veldu fyrst form og breyttu síðan hnútum þess.
-63|Velja allt
-64|Veldu að minnsta kosti tvo hluti til að hópa.
-65|Færa aftast
-66|Mjúkur
-67|Grípa í rúðunet
-68|Grípa í hluti
-69|Spírall (I)
-70|Stjarna (S)
-71|Texti (T)
-72|Engin bein horn til að ávala.
-73|Í feril
-74|Í línu
-75|Þríhyrningur (Y)
-76|Afturkalla
-77|Afhópa
-78|Aflæsa
-79|Aflæstir hlutir: {}
-80|Stækka
-81|Stækka (Z)
-82|Minnka
-83|Minnka (X)
+1|Nýrri útgáfa er í boði: {}
+2|Bæta við hnút
+3|Jafna neðst
+4|Miðja (L)
+5|Miðja (Lt)
+6|Jafna til vinstri
+7|Jafna til hægri
+8|Jafna efst
+9|Laga vinnusvæði sjálfkrafa að glugga
+10|Sjálfvirkur
+11|Bakgrunnslitur
+12|Færa fremst
+13|Miðja á borðinu
+14|Miðja hvað á annað
+15|Hreinsa lista
+16|Loka
+17|Loka opnum ferli eða opna lokaðan við valinn hnút
+18|Litur
+19|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
+20|Breyta í feril
+21|Afrita
+22|Horn
+23|Ekki tókst að leita að uppfærslum.
+24|Eyða
+25|Eyða hnút
+26|Fjarlægð milli lína
+27|Tvöfalda
+28|Breyta hnútum
+29|Sporbaugur (E)
+30|Laga að öllum hlutum
+31|Laga að öllum hlutum (Ctrl+9)
+32|Laga borð að glugga
+33|Laga að vinnusvæði (Ctrl+0)
+34|Snúa lárétt
+35|Snúa lóðrétt
+36|Rúðunet
+37|Hópa
+38|Hópað. Hlutirnir halda lögum sínum.
+39|Hjarta (K)
+40|Setja inn hnút (eða tvísmella á bút)
+41|Leyfi
+42|Lína (L)
+43|Línuþykkt
+44|Læsa
+45|Læstir hlutir: {}
+46|Aðalrúðunet
+47|Gera bútinn á eftir hverjum völdum hnút bogadreginn
+48|Gera bútinn á eftir hverjum völdum hnút beinan
+49|Gera valda hnúta að hornum
+50|Gera valda hnúta mjúka
+51|Hámarka
+52|Lágmarka
+53|Nýjasta útgáfa: {}
+54|Hnútabreyting (N)
+55|Opna / loka
+56|Opna nýleg
+57|Opna niðurhalssíðuna
+58|Færa sýn (H)
+59|Líma
+60|Marghyrningur (G)
+61|Brotalína / penni (P)
+62|Verkefnissíða á GitHub
+63|Flýtileiðbeiningar
+64|Hætta
+65|Radíus ávölunar
+66|Rétthyrningur (R)
+67|Endurgera
+68|Endurstilla rúðunet
+69|Endurheimta
+70|Snúa 90° rangsælis
+71|Snúa 90° réttsælis
+72|Ávala
+73|Ávalar valin horn með þessum radíus
+74|Ávöluð horn: {}
+75|Leita
+76|Aukarúðunet
+77|Velja (V)
+78|Veldu fyrst form og breyttu síðan hnútum þess.
+79|Velja allt
+80|Veldu að minnsta kosti tvo hluti til að hópa.
+81|Færa aftast
+82|Sýna
+83|Mjúkur
+84|Grípa í rúðunet
+85|Grípa í hluti
+86|Spírall (I)
+87|Stjarna (S)
+88|Texti (T)
+89|Aukarúðunetið verður að vera fínna en aðalrúðunetið.
+90|Svæðið í kringum vinnusvæðið
+91|Engin bein horn til að ávala.
+92|Í feril
+93|Í línu
+94|Þríhyrningur (Y)
+95|Afturkalla
+96|Afhópa
+97|Aflæsa
+98|Aflæstir hlutir: {}
+99|Uppfærslur
+100|Útgáfa {}
+101|Skoðunarvalkostir
+102|Vinnusvæði
+103|Litur vinnusvæðisins
+104|Þú ert með nýjustu útgáfuna.
+105|Þú ert með útgáfu {}.
+106|Stækka
+107|Stækka (Z)
+108|Minnka
+109|Minnka (X)

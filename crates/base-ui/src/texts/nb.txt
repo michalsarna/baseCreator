@@ -1,84 +1,110 @@
 0|(tom)
-1|Legg til node
-2|Juster nederst
-3|Sentrer (H)
-4|Sentrer (V)
-5|Juster til venstre
-6|Juster til høyre
-7|Juster øverst
-8|Tilpass arbeidsområdet automatisk til vinduet
-9|Flytt fremst
-10|Sentrer på bordet
-11|Sentrer på hverandre
-12|Tøm listen
-13|Lukk
-14|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
-15|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
-16|Konverter til bane
-17|Kopier
-18|Hjørne
-19|Slett
-20|Slett node
-21|Dupliser
-22|Rediger noder
-23|Ellipse (E)
-24|Tilpass til alle objekter
-25|Tilpass til alle objekter (Ctrl+9)
-26|Tilpass bordet til vinduet
-27|Tilpass til arbeidsområdet (Ctrl+0)
-28|Speilvend horisontalt
-29|Speilvend vertikalt
-30|Rutenett
-31|Grupper
-32|Gruppert. Objektene beholder lagene sine.
-33|Hjerte (K)
-34|Sett inn en node (eller dobbeltklikk på et segment)
-35|Linje (L)
-36|Lås
-37|{} objekt(er) låst.
-38|Gjør segmentet etter hver merkede node buet
-39|Gjør segmentet etter hver merkede node rett
-40|Gjør de merkede nodene til hjørner
-41|Gjør de merkede nodene glatte
-42|Maksimer
-43|Minimer
-44|Rediger noder (N)
-45|Åpne / lukk
-46|Åpne nylige
-47|Panorer (H)
-48|Lim inn
-49|Mangekant (G)
-50|Polylinje / penn (P)
-51|Avslutt
-52|Radius for avrunding
-53|Rektangel (R)
-54|Gjør om
-55|Gjenopprett
-56|Roter 90° mot klokken
-57|Roter 90° med klokken
-58|Avrund
-59|Avrund de merkede hjørnene med denne radiusen
-60|{} hjørne(r) avrundet.
-61|Merk (V)
-62|Merk først en form, og rediger deretter nodene.
-63|Merk alt
-64|Merk minst to objekter for å gruppere.
-65|Flytt bakerst
-66|Glatt
-67|Fest til rutenett
-68|Fest til objekter
-69|Spiral (I)
-70|Stjerne (S)
-71|Tekst (T)
-72|Det finnes ingen rette hjørner å avrunde.
-73|Til kurve
-74|Til linje
-75|Trekant (Y)
-76|Angre
-77|Del opp gruppe
-78|Lås opp
-79|{} objekt(er) låst opp.
-80|Zoom inn
-81|Zoom inn (Z)
-82|Zoom ut
-83|Zoom ut (X)
+1|En nyere versjon er tilgjengelig: {}
+2|Legg til node
+3|Juster nederst
+4|Sentrer (H)
+5|Sentrer (V)
+6|Juster til venstre
+7|Juster til høyre
+8|Juster øverst
+9|Tilpass arbeidsområdet automatisk til vinduet
+10|Automatisk
+11|Bakgrunnsfarge
+12|Flytt fremst
+13|Sentrer på bordet
+14|Sentrer på hverandre
+15|Tøm listen
+16|Lukk
+17|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
+18|Farge
+19|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
+20|Konverter til bane
+21|Kopier
+22|Hjørne
+23|Kunne ikke se etter oppdateringer.
+24|Slett
+25|Slett node
+26|Avstand mellom linjer
+27|Dupliser
+28|Rediger noder
+29|Ellipse (E)
+30|Tilpass til alle objekter
+31|Tilpass til alle objekter (Ctrl+9)
+32|Tilpass bordet til vinduet
+33|Tilpass til arbeidsområdet (Ctrl+0)
+34|Speilvend horisontalt
+35|Speilvend vertikalt
+36|Rutenett
+37|Grupper
+38|Gruppert. Objektene beholder lagene sine.
+39|Hjerte (K)
+40|Sett inn en node (eller dobbeltklikk på et segment)
+41|Lisens
+42|Linje (L)
+43|Linjetykkelse
+44|Lås
+45|{} objekt(er) låst.
+46|Hovedrutenett
+47|Gjør segmentet etter hver merkede node buet
+48|Gjør segmentet etter hver merkede node rett
+49|Gjør de merkede nodene til hjørner
+50|Gjør de merkede nodene glatte
+51|Maksimer
+52|Minimer
+53|Siste utgivelse: {}
+54|Rediger noder (N)
+55|Åpne / lukk
+56|Åpne nylige
+57|Åpne nedlastingssiden
+58|Panorer (H)
+59|Lim inn
+60|Mangekant (G)
+61|Polylinje / penn (P)
+62|Prosjektsiden på GitHub
+63|Hurtigguide
+64|Avslutt
+65|Radius for avrunding
+66|Rektangel (R)
+67|Gjør om
+68|Tilbakestill rutenett
+69|Gjenopprett
+70|Roter 90° mot klokken
+71|Roter 90° med klokken
+72|Avrund
+73|Avrund de merkede hjørnene med denne radiusen
+74|{} hjørne(r) avrundet.
+75|Søk
+76|Sekundært rutenett
+77|Merk (V)
+78|Merk først en form, og rediger deretter nodene.
+79|Merk alt
+80|Merk minst to objekter for å gruppere.
+81|Flytt bakerst
+82|Vis
+83|Glatt
+84|Fest til rutenett
+85|Fest til objekter
+86|Spiral (I)
+87|Stjerne (S)
+88|Tekst (T)
+89|Det sekundære rutenettet må være finere enn hovedrutenettet.
+90|Rommet rundt arbeidsområdet
+91|Det finnes ingen rette hjørner å avrunde.
+92|Til kurve
+93|Til linje
+94|Trekant (Y)
+95|Angre
+96|Del opp gruppe
+97|Lås opp
+98|{} objekt(er) låst opp.
+99|Oppdateringer
+100|Versjon {}
+101|Visningsvalg
+102|Arbeidsområde
+103|Farge på arbeidsrommet
+104|Du har den nyeste versjonen.
+105|Du har {}.
+106|Zoom inn
+107|Zoom inn (Z)
+108|Zoom ut
+109|Zoom ut (X)

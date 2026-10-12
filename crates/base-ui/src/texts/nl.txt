@@ -1,84 +1,110 @@
 0|(leeg)
-1|Knooppunt toevoegen
-2|Onder uitlijnen
-3|Centreren (H)
-4|Centreren (V)
-5|Links uitlijnen
-6|Rechts uitlijnen
-7|Boven uitlijnen
-8|Werkgebied automatisch in het venster passen
-9|Naar voren halen
-10|Op de tafel centreren
-11|Op elkaar centreren
-12|Lijst wissen
-13|Sluiten
-14|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
-15|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
-16|Omzetten naar pad
-17|Kopiëren
-18|Hoek
-19|Verwijderen
-20|Knooppunt verwijderen
-21|Dupliceren
-22|Knooppunten bewerken
-23|Ellips (E)
-24|Alle objecten passen
-25|Alle objecten passen (Ctrl+9)
-26|Tafel in venster passen
-27|Werkgebied passen (Ctrl+0)
-28|Horizontaal spiegelen
-29|Verticaal spiegelen
-30|Raster
-31|Groeperen
-32|Gegroepeerd. De objecten behouden hun lagen.
-33|Hart (K)
-34|Een knooppunt invoegen (of dubbelklik op een segment)
-35|Lijn (L)
-36|Vergrendelen
-37|{} object(en) vergrendeld.
-38|Het segment na elk geselecteerd knooppunt gebogen maken
-39|Het segment na elk geselecteerd knooppunt recht maken
-40|Geselecteerde knooppunten hoeken maken
-41|Geselecteerde knooppunten glad maken
-42|Maximaliseren
-43|Minimaliseren
-44|Knooppunten bewerken (N)
-45|Openen / sluiten
-46|Recent openen
-47|Weergave verschuiven (H)
-48|Plakken
-49|Veelhoek (G)
-50|Polylijn / pen (P)
-51|Afsluiten
-52|Straal voor afronding
-53|Rechthoek (R)
-54|Opnieuw
-55|Herstellen
-56|90° linksom draaien
-57|90° rechtsom draaien
-58|Afronden
-59|De geselecteerde hoeken afronden met deze straal
-60|{} hoek(en) afgerond.
-61|Selecteren (V)
-62|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
-63|Alles selecteren
-64|Selecteer minstens twee objecten om te groeperen.
-65|Naar achteren sturen
-66|Glad
-67|Aan raster uitlijnen
-68|Uitlijnen op objecten
-69|Spiraal (I)
-70|Ster (S)
-71|Tekst (T)
-72|Er zijn geen rechte hoeken om af te ronden.
-73|Naar curve
-74|Naar lijn
-75|Driehoek (Y)
-76|Ongedaan maken
-77|Groep opheffen
-78|Ontgrendelen
-79|{} object(en) ontgrendeld.
-80|Inzoomen
-81|Inzoomen (Z)
-82|Uitzoomen
-83|Uitzoomen (X)
+1|Er is een nieuwere versie beschikbaar: {}
+2|Knooppunt toevoegen
+3|Onder uitlijnen
+4|Centreren (H)
+5|Centreren (V)
+6|Links uitlijnen
+7|Rechts uitlijnen
+8|Boven uitlijnen
+9|Werkgebied automatisch in het venster passen
+10|Automatisch
+11|Achtergrondkleur
+12|Naar voren halen
+13|Op de tafel centreren
+14|Op elkaar centreren
+15|Lijst wissen
+16|Sluiten
+17|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
+18|Kleur
+19|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
+20|Omzetten naar pad
+21|Kopiëren
+22|Hoek
+23|Kon niet controleren op updates.
+24|Verwijderen
+25|Knooppunt verwijderen
+26|Afstand tussen lijnen
+27|Dupliceren
+28|Knooppunten bewerken
+29|Ellips (E)
+30|Alle objecten passen
+31|Alle objecten passen (Ctrl+9)
+32|Tafel in venster passen
+33|Werkgebied passen (Ctrl+0)
+34|Horizontaal spiegelen
+35|Verticaal spiegelen
+36|Raster
+37|Groeperen
+38|Gegroepeerd. De objecten behouden hun lagen.
+39|Hart (K)
+40|Een knooppunt invoegen (of dubbelklik op een segment)
+41|Licentie
+42|Lijn (L)
+43|Lijndikte
+44|Vergrendelen
+45|{} object(en) vergrendeld.
+46|Hoofdraster
+47|Het segment na elk geselecteerd knooppunt gebogen maken
+48|Het segment na elk geselecteerd knooppunt recht maken
+49|Geselecteerde knooppunten hoeken maken
+50|Geselecteerde knooppunten glad maken
+51|Maximaliseren
+52|Minimaliseren
+53|Nieuwste release: {}
+54|Knooppunten bewerken (N)
+55|Openen / sluiten
+56|Recent openen
+57|Downloadpagina openen
+58|Weergave verschuiven (H)
+59|Plakken
+60|Veelhoek (G)
+61|Polylijn / pen (P)
+62|Projectpagina op GitHub
+63|Snelgids
+64|Afsluiten
+65|Straal voor afronding
+66|Rechthoek (R)
+67|Opnieuw
+68|Raster terugzetten
+69|Herstellen
+70|90° linksom draaien
+71|90° rechtsom draaien
+72|Afronden
+73|De geselecteerde hoeken afronden met deze straal
+74|{} hoek(en) afgerond.
+75|Zoeken
+76|Secundair raster
+77|Selecteren (V)
+78|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
+79|Alles selecteren
+80|Selecteer minstens twee objecten om te groeperen.
+81|Naar achteren sturen
+82|Tonen
+83|Glad
+84|Aan raster uitlijnen
+85|Uitlijnen op objecten
+86|Spiraal (I)
+87|Ster (S)
+88|Tekst (T)
+89|Het secundaire raster moet fijner zijn dan het hoofdraster.
+90|De ruimte rond het werkgebied
+91|Er zijn geen rechte hoeken om af te ronden.
+92|Naar curve
+93|Naar lijn
+94|Driehoek (Y)
+95|Ongedaan maken
+96|Groep opheffen
+97|Ontgrendelen
+98|{} object(en) ontgrendeld.
+99|Updates
+100|Versie {}
+101|Weergaveopties
+102|Werkgebied
+103|Kleur van de werkruimte
+104|U heeft de nieuwste versie.
+105|U heeft {}.
+106|Inzoomen
+107|Inzoomen (Z)
+108|Uitzoomen
+109|Uitzoomen (X)

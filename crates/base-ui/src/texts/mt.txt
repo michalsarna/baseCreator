@@ -1,84 +1,110 @@
 0|(vojt)
-1|Żid nodu
-2|Allinja fil-qiegħ
-3|Iċċentra (O)
-4|Iċċentra (V)
-5|Allinja fix-xellug
-6|Allinja fuq il-lemin
-7|Allinja fil-quċċata
-8|Adatta awtomatikament iż-żona tax-xogħol mat-tieqa
-9|Ġib 'il quddiem
-10|Iċċentra fuq il-mejda
-11|Iċċentra fuq xulxin
-12|Ikkanċella l-lista
-13|Agħlaq
-14|Agħlaq passaġġ miftuħ, jew iftaħ wieħed magħluq fin-nodu magħżul
-15|Ikkonverti t-test f'kurvi, jew vettorizza l-istampa, biex teditja n-nodi tagħha.
-16|Ikkonverti f'passaġġ
-17|Ikkopja
-18|Kantuniera
-19|Neħħi
-20|Ħassar in-nodu
-21|Iddubbla
-22|Editja n-nodi
-23|Elliss (E)
-24|Adatta mal-oġġetti kollha
-25|Adatta mal-oġġetti kollha (Ctrl+9)
-26|Adatta l-mejda mat-tieqa
-27|Adatta maż-żona tax-xogħol (Ctrl+0)
-28|Aqleb orizzontalment
-29|Aqleb vertikalment
-30|Griglja
-31|Igruppa
-32|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
-33|Qalb (K)
-34|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
-35|Linja (L)
-36|Illokkja
-37|Oġġetti llokkjati: {}
-38|Agħmel mgħawweġ is-segment wara kull nodu magħżul
-39|Agħmel dritt is-segment wara kull nodu magħżul
-40|Agħmel kantunieri min-nodi magħżula
-41|Agħmel bla xkiel in-nodi magħżula
-42|Massimizza
-43|Minimizza
-44|Editjar tan-nodi (N)
-45|Iftaħ / agħlaq
-46|Iftaħ riċenti
-47|Mexxi l-vista (H)
-48|Waħħal
-49|Poligonu (G)
-50|Poliliena / pinna (P)
-51|Oħroġ
-52|Raġġ tad-dawwir
-53|Rettangolu (R)
-54|Erġa' agħmel
-55|Irrestawra
-56|Dawwar 90° kontra d-direzzjoni tal-arloġġ
-57|Dawwar 90° fl-istess direzzjoni tal-arloġġ
-58|Dawwar
-59|Idawwar il-kantunieri magħżula b'dan ir-raġġ
-60|Kantunieri mdawra: {}
-61|Agħżel (V)
-62|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
-63|Agħżel kollox
-64|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
-65|Ibgħat lura
-66|Bla xkiel
-67|Aqbad mal-griglja
-68|Aqbad mal-oġġetti
-69|Spiral (I)
-70|Stilla (S)
-71|Test (T)
-72|M'hemm l-ebda kantunieri dritti x'tidawwar.
-73|Għal kurva
-74|Għal linja
-75|Trijangolu (Y)
-76|Ħassar
-77|Neħħi l-grupp
-78|Iftaħ
-79|Oġġetti mhux illokkjati: {}
-80|Żid
-81|Żid (Z)
-82|Naqqas
-83|Naqqas (X)
+1|Hemm verżjoni aktar ġdida disponibbli: {}
+2|Żid nodu
+3|Allinja fil-qiegħ
+4|Iċċentra (O)
+5|Iċċentra (V)
+6|Allinja fix-xellug
+7|Allinja fuq il-lemin
+8|Allinja fil-quċċata
+9|Adatta awtomatikament iż-żona tax-xogħol mat-tieqa
+10|Awtomatiku
+11|Kulur tal-isfond
+12|Ġib 'il quddiem
+13|Iċċentra fuq il-mejda
+14|Iċċentra fuq xulxin
+15|Ikkanċella l-lista
+16|Agħlaq
+17|Agħlaq passaġġ miftuħ, jew iftaħ wieħed magħluq fin-nodu magħżul
+18|Kulur
+19|Ikkonverti t-test f'kurvi, jew vettorizza l-istampa, biex teditja n-nodi tagħha.
+20|Ikkonverti f'passaġġ
+21|Ikkopja
+22|Kantuniera
+23|Ma setgħux jiġu ċċekkjati l-aġġornamenti.
+24|Neħħi
+25|Ħassar in-nodu
+26|Distanza bejn il-linji
+27|Iddubbla
+28|Editja n-nodi
+29|Elliss (E)
+30|Adatta mal-oġġetti kollha
+31|Adatta mal-oġġetti kollha (Ctrl+9)
+32|Adatta l-mejda mat-tieqa
+33|Adatta maż-żona tax-xogħol (Ctrl+0)
+34|Aqleb orizzontalment
+35|Aqleb vertikalment
+36|Griglja
+37|Igruppa
+38|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
+39|Qalb (K)
+40|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
+41|Liċenzja
+42|Linja (L)
+43|Ħxuna tal-linji
+44|Illokkja
+45|Oġġetti llokkjati: {}
+46|Griglja prinċipali
+47|Agħmel mgħawweġ is-segment wara kull nodu magħżul
+48|Agħmel dritt is-segment wara kull nodu magħżul
+49|Agħmel kantunieri min-nodi magħżula
+50|Agħmel bla xkiel in-nodi magħżula
+51|Massimizza
+52|Minimizza
+53|L-aħħar rilaxx: {}
+54|Editjar tan-nodi (N)
+55|Iftaħ / agħlaq
+56|Iftaħ riċenti
+57|Iftaħ il-paġna tat-tniżżil
+58|Mexxi l-vista (H)
+59|Waħħal
+60|Poligonu (G)
+61|Poliliena / pinna (P)
+62|Paġna tal-proġett fuq GitHub
+63|Gwida mgħaġġla
+64|Oħroġ
+65|Raġġ tad-dawwir
+66|Rettangolu (R)
+67|Erġa' agħmel
+68|Irrisettja l-griglja
+69|Irrestawra
+70|Dawwar 90° kontra d-direzzjoni tal-arloġġ
+71|Dawwar 90° fl-istess direzzjoni tal-arloġġ
+72|Dawwar
+73|Idawwar il-kantunieri magħżula b'dan ir-raġġ
+74|Kantunieri mdawra: {}
+75|Fittex
+76|Griglja sekondarja
+77|Agħżel (V)
+78|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
+79|Agħżel kollox
+80|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
+81|Ibgħat lura
+82|Uri
+83|Bla xkiel
+84|Aqbad mal-griglja
+85|Aqbad mal-oġġetti
+86|Spiral (I)
+87|Stilla (S)
+88|Test (T)
+89|Il-griglja sekondarja trid tkun aktar fina mill-prinċipali.
+90|L-ispazju madwar iż-żona tax-xogħol
+91|M'hemm l-ebda kantunieri dritti x'tidawwar.
+92|Għal kurva
+93|Għal linja
+94|Trijangolu (Y)
+95|Ħassar
+96|Neħħi l-grupp
+97|Iftaħ
+98|Oġġetti mhux illokkjati: {}
+99|Aġġornamenti
+100|Verżjoni {}
+101|Għażliet tad-dehra
+102|Żona tax-xogħol
+103|Kulur tal-ispazju tax-xogħol
+104|Għandek l-aħħar verżjoni.
+105|Għandek il-verżjoni {}.
+106|Żid
+107|Żid (Z)
+108|Naqqas
+109|Naqqas (X)

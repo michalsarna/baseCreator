@@ -1,84 +1,110 @@
 0|(vacío)
-1|Añadir nodo
-2|Alinear abajo
-3|Centrar (H)
-4|Centrar (V)
-5|Alinear a la izquierda
-6|Alinear a la derecha
-7|Alinear arriba
-8|Ajustar automáticamente el área de trabajo a la ventana
-9|Traer al frente
-10|Centrar en la mesa
-11|Centrar entre sí
-12|Vaciar lista
-13|Cerrar
-14|Cerrar un trazado abierto, o abrir uno cerrado en el nodo seleccionado
-15|Convierta el texto en curvas, o vectorice la imagen, para editar sus nodos.
-16|Convertir en trazado
-17|Copiar
-18|Esquina
-19|Eliminar
-20|Eliminar nodo
-21|Duplicar
-22|Editar nodos
-23|Elipse (E)
-24|Ajustar a todos los objetos
-25|Ajustar a todos los objetos (Ctrl+9)
-26|Ajustar la mesa a la ventana
-27|Ajustar al área de trabajo (Ctrl+0)
-28|Voltear horizontalmente
-29|Voltear verticalmente
-30|Cuadrícula
-31|Agrupar
-32|Agrupado. Los objetos conservan sus capas.
-33|Corazón (K)
-34|Insertar un nodo (o doble clic en un segmento)
-35|Línea (L)
-36|Bloquear
-37|{} objeto(s) bloqueado(s).
-38|Hacer curvo el segmento posterior a cada nodo seleccionado
-39|Hacer recto el segmento posterior a cada nodo seleccionado
-40|Convertir los nodos seleccionados en esquinas
-41|Hacer suaves los nodos seleccionados
-42|Maximizar
-43|Minimizar
-44|Edición de nodos (N)
-45|Abrir / cerrar
-46|Abrir reciente
-47|Mover vista (H)
-48|Pegar
-49|Polígono (G)
-50|Polilínea / pluma (P)
-51|Salir
-52|Radio de redondeo
-53|Rectángulo (R)
-54|Rehacer
-55|Restaurar
-56|Girar 90° a la izquierda
-57|Girar 90° a la derecha
-58|Redondear
-59|Redondea las esquinas seleccionadas con este radio
-60|{} esquina(s) redondeada(s).
-61|Seleccionar (V)
-62|Seleccione primero una forma y luego edite sus nodos.
-63|Seleccionar todo
-64|Seleccione al menos dos objetos para agrupar.
-65|Enviar al fondo
-66|Suave
-67|Ajustar a la cuadrícula
-68|Ajustar a los objetos
-69|Espiral (I)
-70|Estrella (S)
-71|Texto (T)
-72|No hay esquinas rectas que redondear.
-73|A curva
-74|A línea
-75|Triángulo (Y)
-76|Deshacer
-77|Desagrupar
-78|Desbloquear
-79|{} objeto(s) desbloqueado(s).
-80|Acercar
-81|Acercar (Z)
-82|Alejar
-83|Alejar (X)
+1|Hay una versión más reciente: {}
+2|Añadir nodo
+3|Alinear abajo
+4|Centrar (H)
+5|Centrar (V)
+6|Alinear a la izquierda
+7|Alinear a la derecha
+8|Alinear arriba
+9|Ajustar automáticamente el área de trabajo a la ventana
+10|Automático
+11|Color de fondo
+12|Traer al frente
+13|Centrar en la mesa
+14|Centrar entre sí
+15|Vaciar lista
+16|Cerrar
+17|Cerrar un trazado abierto, o abrir uno cerrado en el nodo seleccionado
+18|Color
+19|Convierta el texto en curvas, o vectorice la imagen, para editar sus nodos.
+20|Convertir en trazado
+21|Copiar
+22|Esquina
+23|No se pudo buscar actualizaciones.
+24|Eliminar
+25|Eliminar nodo
+26|Distancia entre líneas
+27|Duplicar
+28|Editar nodos
+29|Elipse (E)
+30|Ajustar a todos los objetos
+31|Ajustar a todos los objetos (Ctrl+9)
+32|Ajustar la mesa a la ventana
+33|Ajustar al área de trabajo (Ctrl+0)
+34|Voltear horizontalmente
+35|Voltear verticalmente
+36|Cuadrícula
+37|Agrupar
+38|Agrupado. Los objetos conservan sus capas.
+39|Corazón (K)
+40|Insertar un nodo (o doble clic en un segmento)
+41|Licencia
+42|Línea (L)
+43|Grosor de línea
+44|Bloquear
+45|{} objeto(s) bloqueado(s).
+46|Cuadrícula principal
+47|Hacer curvo el segmento posterior a cada nodo seleccionado
+48|Hacer recto el segmento posterior a cada nodo seleccionado
+49|Convertir los nodos seleccionados en esquinas
+50|Hacer suaves los nodos seleccionados
+51|Maximizar
+52|Minimizar
+53|Última versión: {}
+54|Edición de nodos (N)
+55|Abrir / cerrar
+56|Abrir reciente
+57|Abrir la página de descargas
+58|Mover vista (H)
+59|Pegar
+60|Polígono (G)
+61|Polilínea / pluma (P)
+62|Página del proyecto en GitHub
+63|Guía rápida
+64|Salir
+65|Radio de redondeo
+66|Rectángulo (R)
+67|Rehacer
+68|Restablecer cuadrícula
+69|Restaurar
+70|Girar 90° a la izquierda
+71|Girar 90° a la derecha
+72|Redondear
+73|Redondea las esquinas seleccionadas con este radio
+74|{} esquina(s) redondeada(s).
+75|Buscar
+76|Cuadrícula secundaria
+77|Seleccionar (V)
+78|Seleccione primero una forma y luego edite sus nodos.
+79|Seleccionar todo
+80|Seleccione al menos dos objetos para agrupar.
+81|Enviar al fondo
+82|Mostrar
+83|Suave
+84|Ajustar a la cuadrícula
+85|Ajustar a los objetos
+86|Espiral (I)
+87|Estrella (S)
+88|Texto (T)
+89|La cuadrícula secundaria debe ser más fina que la principal.
+90|El espacio alrededor del área de trabajo
+91|No hay esquinas rectas que redondear.
+92|A curva
+93|A línea
+94|Triángulo (Y)
+95|Deshacer
+96|Desagrupar
+97|Desbloquear
+98|{} objeto(s) desbloqueado(s).
+99|Actualizaciones
+100|Versión {}
+101|Opciones de vista
+102|Área de trabajo
+103|Color del espacio de trabajo
+104|Tiene la versión más reciente.
+105|Tiene la versión {}.
+106|Acercar
+107|Acercar (Z)
+108|Alejar
+109|Alejar (X)

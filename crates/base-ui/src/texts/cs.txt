@@ -1,84 +1,110 @@
 0|(prázdné)
-1|Přidat uzel
-2|Zarovnat dolů
-3|Na střed (H)
-4|Na střed (V)
-5|Zarovnat doleva
-6|Zarovnat doprava
-7|Zarovnat nahoru
-8|Automaticky přizpůsobit pracovní plochu oknu
-9|Přenést do popředí
-10|Vystředit na stůl
-11|Vystředit na sebe
-12|Vymazat seznam
-13|Zavřít
-14|Zavřít otevřenou cestu, nebo otevřít uzavřenou ve vybraném uzlu
-15|Převeďte text na křivky, nebo obrázek vektorizujte, abyste mohli upravovat jeho uzly.
-16|Převést na cestu
-17|Kopírovat
-18|Roh
-19|Smazat
-20|Smazat uzel
-21|Duplikovat
-22|Upravit uzly
-23|Elipsa (E)
-24|Přizpůsobit všem objektům
-25|Přizpůsobit všem objektům (Ctrl+9)
-26|Přizpůsobit stůl oknu
-27|Přizpůsobit pracovní ploše (Ctrl+0)
-28|Převrátit vodorovně
-29|Převrátit svisle
-30|Mřížka
-31|Seskupit
-32|Seskupeno. Objekty si ponechají své vrstvy.
-33|Srdce (K)
-34|Vložit uzel (nebo dvakrát kliknout na úsek)
-35|Čára (L)
-36|Zamknout
-37|Zamčeno objektů: {}
-38|Změnit úsek za každým vybraným uzlem na křivku
-39|Změnit úsek za každým vybraným uzlem na přímý
-40|Změnit vybrané uzly na rohové
-41|Změnit vybrané uzly na hladké
-42|Maximalizovat
-43|Minimalizovat
-44|Úprava uzlů (N)
-45|Otevřít / zavřít
-46|Nedávno otevřené
-47|Posun pohledu (H)
-48|Vložit
-49|Mnohoúhelník (G)
-50|Lomená čára / pero (P)
-51|Konec
-52|Poloměr zaoblení
-53|Obdélník (R)
-54|Znovu
-55|Obnovit
-56|Otočit o 90° doleva
-57|Otočit o 90° doprava
-58|Zaoblit
-59|Zaoblí vybrané rohy tímto poloměrem
-60|Zaobleno rohů: {}
-61|Výběr (V)
-62|Nejprve vyberte tvar a poté upravte jeho uzly.
-63|Vybrat vše
-64|Pro seskupení vyberte alespoň dva objekty.
-65|Přenést do pozadí
-66|Hladký
-67|Přichytávat k mřížce
-68|Přichytávat k objektům
-69|Spirála (I)
-70|Hvězda (S)
-71|Text (T)
-72|Nejsou žádné přímé rohy k zaoblení.
-73|Na křivku
-74|Na úsečku
-75|Trojúhelník (Y)
-76|Zpět
-77|Zrušit seskupení
-78|Odemknout
-79|Odemčeno objektů: {}
-80|Přiblížit
-81|Přiblížit (Z)
-82|Oddálit
-83|Oddálit (X)
+1|K dispozici je novější verze: {}
+2|Přidat uzel
+3|Zarovnat dolů
+4|Na střed (H)
+5|Na střed (V)
+6|Zarovnat doleva
+7|Zarovnat doprava
+8|Zarovnat nahoru
+9|Automaticky přizpůsobit pracovní plochu oknu
+10|Automaticky
+11|Barva pozadí
+12|Přenést do popředí
+13|Vystředit na stůl
+14|Vystředit na sebe
+15|Vymazat seznam
+16|Zavřít
+17|Zavřít otevřenou cestu, nebo otevřít uzavřenou ve vybraném uzlu
+18|Barva
+19|Převeďte text na křivky, nebo obrázek vektorizujte, abyste mohli upravovat jeho uzly.
+20|Převést na cestu
+21|Kopírovat
+22|Roh
+23|Aktualizace se nepodařilo zkontrolovat.
+24|Smazat
+25|Smazat uzel
+26|Vzdálenost mezi čarami
+27|Duplikovat
+28|Upravit uzly
+29|Elipsa (E)
+30|Přizpůsobit všem objektům
+31|Přizpůsobit všem objektům (Ctrl+9)
+32|Přizpůsobit stůl oknu
+33|Přizpůsobit pracovní ploše (Ctrl+0)
+34|Převrátit vodorovně
+35|Převrátit svisle
+36|Mřížka
+37|Seskupit
+38|Seskupeno. Objekty si ponechají své vrstvy.
+39|Srdce (K)
+40|Vložit uzel (nebo dvakrát kliknout na úsek)
+41|Licence
+42|Čára (L)
+43|Tloušťka čar
+44|Zamknout
+45|Zamčeno objektů: {}
+46|Hlavní mřížka
+47|Změnit úsek za každým vybraným uzlem na křivku
+48|Změnit úsek za každým vybraným uzlem na přímý
+49|Změnit vybrané uzly na rohové
+50|Změnit vybrané uzly na hladké
+51|Maximalizovat
+52|Minimalizovat
+53|Nejnovější vydání: {}
+54|Úprava uzlů (N)
+55|Otevřít / zavřít
+56|Nedávno otevřené
+57|Otevřít stránku ke stažení
+58|Posun pohledu (H)
+59|Vložit
+60|Mnohoúhelník (G)
+61|Lomená čára / pero (P)
+62|Stránka projektu na GitHubu
+63|Rychlý průvodce
+64|Konec
+65|Poloměr zaoblení
+66|Obdélník (R)
+67|Znovu
+68|Obnovit mřížku
+69|Obnovit
+70|Otočit o 90° doleva
+71|Otočit o 90° doprava
+72|Zaoblit
+73|Zaoblí vybrané rohy tímto poloměrem
+74|Zaobleno rohů: {}
+75|Hledat
+76|Vedlejší mřížka
+77|Výběr (V)
+78|Nejprve vyberte tvar a poté upravte jeho uzly.
+79|Vybrat vše
+80|Pro seskupení vyberte alespoň dva objekty.
+81|Přenést do pozadí
+82|Zobrazit
+83|Hladký
+84|Přichytávat k mřížce
+85|Přichytávat k objektům
+86|Spirála (I)
+87|Hvězda (S)
+88|Text (T)
+89|Vedlejší mřížka musí být jemnější než hlavní.
+90|Prostor kolem pracovní plochy
+91|Nejsou žádné přímé rohy k zaoblení.
+92|Na křivku
+93|Na úsečku
+94|Trojúhelník (Y)
+95|Zpět
+96|Zrušit seskupení
+97|Odemknout
+98|Odemčeno objektů: {}
+99|Aktualizace
+100|Verze {}
+101|Možnosti zobrazení
+102|Pracovní plocha
+103|Barva pracovního prostoru
+104|Máte nejnovější verzi.
+105|Máte verzi {}.
+106|Přiblížit
+107|Přiblížit (Z)
+108|Oddálit
+109|Oddálit (X)

@@ -1,84 +1,110 @@
 0|(prazno)
-1|Dodaj vozlišče
-2|Poravnaj spodaj
-3|Sredina (V)
-4|Sredina (N)
-5|Poravnaj levo
-6|Poravnaj desno
-7|Poravnaj zgoraj
-8|Samodejno prilagodi delovno območje oknu
-9|Postavi naprej
-10|Centriraj na mizo
-11|Centriraj drugo na drugo
-12|Počisti seznam
-13|Zapri
-14|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
-15|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
-16|Pretvori v pot
-17|Kopiraj
-18|Kot
-19|Izbriši
-20|Izbriši vozlišče
-21|Podvoji
-22|Uredi vozlišča
-23|Elipsa (E)
-24|Prilagodi vsem predmetom
-25|Prilagodi vsem predmetom (Ctrl+9)
-26|Prilagodi mizo oknu
-27|Prilagodi delovnemu območju (Ctrl+0)
-28|Zrcali vodoravno
-29|Zrcali navpično
-30|Mreža
-31|Združi
-32|Združeno. Predmeti obdržijo svoje sloje.
-33|Srce (K)
-34|Vstavi vozlišče (ali dvakrat kliknite odsek)
-35|Črta (L)
-36|Zakleni
-37|Zaklenjenih predmetov: {}
-38|Odsek za vsakim izbranim vozliščem naredi ukrivljen
-39|Odsek za vsakim izbranim vozliščem naredi raven
-40|Izbrana vozlišča spremeni v kotna
-41|Izbrana vozlišča naredi gladka
-42|Povečaj
-43|Skrči
-44|Urejanje vozlišč (N)
-45|Odpri / zapri
-46|Odpri nedavne
-47|Premik pogleda (H)
-48|Prilepi
-49|Večkotnik (G)
-50|Lomljena črta / pero (P)
-51|Izhod
-52|Polmer zaobljenja
-53|Pravokotnik (R)
-54|Uveljavi
-55|Obnovi
-56|Zavrti za 90° v levo
-57|Zavrti za 90° v desno
-58|Zaobli
-59|Zaobli izbrane vogale s tem polmerom
-60|Zaobljenih vogalov: {}
-61|Izbira (V)
-62|Najprej izberite obliko, nato uredite njena vozlišča.
-63|Izberi vse
-64|Za združevanje izberite vsaj dva predmeta.
-65|Postavi nazaj
-66|Gladko
-67|Pripni na mrežo
-68|Pripni na predmete
-69|Spirala (I)
-70|Zvezda (S)
-71|Besedilo (T)
-72|Ni ravnih vogalov za zaobljenje.
-73|V krivuljo
-74|V črto
-75|Trikotnik (Y)
-76|Razveljavi
-77|Razdruži
-78|Odkleni
-79|Odklenjenih predmetov: {}
-80|Povečaj
-81|Povečaj (Z)
-82|Pomanjšaj
-83|Pomanjšaj (X)
+1|Na voljo je novejša različica: {}
+2|Dodaj vozlišče
+3|Poravnaj spodaj
+4|Sredina (V)
+5|Sredina (N)
+6|Poravnaj levo
+7|Poravnaj desno
+8|Poravnaj zgoraj
+9|Samodejno prilagodi delovno območje oknu
+10|Samodejno
+11|Barva ozadja
+12|Postavi naprej
+13|Centriraj na mizo
+14|Centriraj drugo na drugo
+15|Počisti seznam
+16|Zapri
+17|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
+18|Barva
+19|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
+20|Pretvori v pot
+21|Kopiraj
+22|Kot
+23|Posodobitev ni bilo mogoče preveriti.
+24|Izbriši
+25|Izbriši vozlišče
+26|Razdalja med črtami
+27|Podvoji
+28|Uredi vozlišča
+29|Elipsa (E)
+30|Prilagodi vsem predmetom
+31|Prilagodi vsem predmetom (Ctrl+9)
+32|Prilagodi mizo oknu
+33|Prilagodi delovnemu območju (Ctrl+0)
+34|Zrcali vodoravno
+35|Zrcali navpično
+36|Mreža
+37|Združi
+38|Združeno. Predmeti obdržijo svoje sloje.
+39|Srce (K)
+40|Vstavi vozlišče (ali dvakrat kliknite odsek)
+41|Licenca
+42|Črta (L)
+43|Debelina črt
+44|Zakleni
+45|Zaklenjenih predmetov: {}
+46|Glavna mreža
+47|Odsek za vsakim izbranim vozliščem naredi ukrivljen
+48|Odsek za vsakim izbranim vozliščem naredi raven
+49|Izbrana vozlišča spremeni v kotna
+50|Izbrana vozlišča naredi gladka
+51|Povečaj
+52|Skrči
+53|Najnovejša izdaja: {}
+54|Urejanje vozlišč (N)
+55|Odpri / zapri
+56|Odpri nedavne
+57|Odpri stran za prenos
+58|Premik pogleda (H)
+59|Prilepi
+60|Večkotnik (G)
+61|Lomljena črta / pero (P)
+62|Stran projekta na GitHubu
+63|Hitri vodnik
+64|Izhod
+65|Polmer zaobljenja
+66|Pravokotnik (R)
+67|Uveljavi
+68|Ponastavi mrežo
+69|Obnovi
+70|Zavrti za 90° v levo
+71|Zavrti za 90° v desno
+72|Zaobli
+73|Zaobli izbrane vogale s tem polmerom
+74|Zaobljenih vogalov: {}
+75|Iskanje
+76|Sekundarna mreža
+77|Izbira (V)
+78|Najprej izberite obliko, nato uredite njena vozlišča.
+79|Izberi vse
+80|Za združevanje izberite vsaj dva predmeta.
+81|Postavi nazaj
+82|Pokaži
+83|Gladko
+84|Pripni na mrežo
+85|Pripni na predmete
+86|Spirala (I)
+87|Zvezda (S)
+88|Besedilo (T)
+89|Sekundarna mreža mora biti finejša od glavne.
+90|Prostor okoli delovnega območja
+91|Ni ravnih vogalov za zaobljenje.
+92|V krivuljo
+93|V črto
+94|Trikotnik (Y)
+95|Razveljavi
+96|Razdruži
+97|Odkleni
+98|Odklenjenih predmetov: {}
+99|Posodobitve
+100|Različica {}
+101|Možnosti pogleda
+102|Delovno območje
+103|Barva delovnega prostora
+104|Imate najnovejšo različico.
+105|Imate različico {}.
+106|Povečaj
+107|Povečaj (Z)
+108|Pomanjšaj
+109|Pomanjšaj (X)

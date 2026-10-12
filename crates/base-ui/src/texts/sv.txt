@@ -1,84 +1,110 @@
 0|(tom)
-1|Lägg till nod
-2|Justera nedåt
-3|Centrera (H)
-4|Centrera (V)
-5|Justera till vänster
-6|Justera till höger
-7|Justera uppåt
-8|Anpassa arbetsytan automatiskt till fönstret
-9|Flytta längst fram
-10|Centrera på bordet
-11|Centrera på varandra
-12|Rensa listan
-13|Stäng
-14|Stäng en öppen bana, eller öppna en stängd vid den markerade noden
-15|Konvertera texten till kurvor, eller vektorisera bilden, för att redigera dess noder.
-16|Konvertera till bana
-17|Kopiera
-18|Hörn
-19|Ta bort
-20|Ta bort nod
-21|Duplicera
-22|Redigera noder
-23|Ellips (E)
-24|Anpassa till alla objekt
-25|Anpassa till alla objekt (Ctrl+9)
-26|Anpassa bordet till fönstret
-27|Anpassa till arbetsytan (Ctrl+0)
-28|Vänd horisontellt
-29|Vänd vertikalt
-30|Rutnät
-31|Gruppera
-32|Grupperat. Objekten behåller sina lager.
-33|Hjärta (K)
-34|Infoga en nod (eller dubbelklicka på ett segment)
-35|Linje (L)
-36|Lås
-37|{} objekt låsta.
-38|Gör segmentet efter varje markerad nod krökt
-39|Gör segmentet efter varje markerad nod rakt
-40|Gör de markerade noderna till hörn
-41|Gör de markerade noderna mjuka
-42|Maximera
-43|Minimera
-44|Redigera noder (N)
-45|Öppna / stäng
-46|Öppna senaste
-47|Panorera (H)
-48|Klistra in
-49|Polygon (G)
-50|Polylinje / penna (P)
-51|Avsluta
-52|Radie för rundning
-53|Rektangel (R)
-54|Gör om
-55|Återställ
-56|Rotera 90° moturs
-57|Rotera 90° medurs
-58|Runda
-59|Runda de markerade hörnen med den här radien
-60|{} hörn rundade.
-61|Markera (V)
-62|Markera först en form och redigera sedan dess noder.
-63|Markera allt
-64|Markera minst två objekt för att gruppera.
-65|Flytta längst bak
-66|Mjuk
-67|Fäst mot rutnät
-68|Fäst mot objekt
-69|Spiral (I)
-70|Stjärna (S)
-71|Text (T)
-72|Det finns inga raka hörn att runda.
-73|Till kurva
-74|Till linje
-75|Triangel (Y)
-76|Ångra
-77|Avgruppera
-78|Lås upp
-79|{} objekt upplåsta.
-80|Zooma in
-81|Zooma in (Z)
-82|Zooma ut
-83|Zooma ut (X)
+1|En nyare version finns: {}
+2|Lägg till nod
+3|Justera nedåt
+4|Centrera (H)
+5|Centrera (V)
+6|Justera till vänster
+7|Justera till höger
+8|Justera uppåt
+9|Anpassa arbetsytan automatiskt till fönstret
+10|Automatisk
+11|Bakgrundsfärg
+12|Flytta längst fram
+13|Centrera på bordet
+14|Centrera på varandra
+15|Rensa listan
+16|Stäng
+17|Stäng en öppen bana, eller öppna en stängd vid den markerade noden
+18|Färg
+19|Konvertera texten till kurvor, eller vektorisera bilden, för att redigera dess noder.
+20|Konvertera till bana
+21|Kopiera
+22|Hörn
+23|Kunde inte söka efter uppdateringar.
+24|Ta bort
+25|Ta bort nod
+26|Avstånd mellan linjer
+27|Duplicera
+28|Redigera noder
+29|Ellips (E)
+30|Anpassa till alla objekt
+31|Anpassa till alla objekt (Ctrl+9)
+32|Anpassa bordet till fönstret
+33|Anpassa till arbetsytan (Ctrl+0)
+34|Vänd horisontellt
+35|Vänd vertikalt
+36|Rutnät
+37|Gruppera
+38|Grupperat. Objekten behåller sina lager.
+39|Hjärta (K)
+40|Infoga en nod (eller dubbelklicka på ett segment)
+41|Licens
+42|Linje (L)
+43|Linjetjocklek
+44|Lås
+45|{} objekt låsta.
+46|Huvudrutnät
+47|Gör segmentet efter varje markerad nod krökt
+48|Gör segmentet efter varje markerad nod rakt
+49|Gör de markerade noderna till hörn
+50|Gör de markerade noderna mjuka
+51|Maximera
+52|Minimera
+53|Senaste utgåvan: {}
+54|Redigera noder (N)
+55|Öppna / stäng
+56|Öppna senaste
+57|Öppna nedladdningssidan
+58|Panorera (H)
+59|Klistra in
+60|Polygon (G)
+61|Polylinje / penna (P)
+62|Projektsidan på GitHub
+63|Snabbguide
+64|Avsluta
+65|Radie för rundning
+66|Rektangel (R)
+67|Gör om
+68|Återställ rutnät
+69|Återställ
+70|Rotera 90° moturs
+71|Rotera 90° medurs
+72|Runda
+73|Runda de markerade hörnen med den här radien
+74|{} hörn rundade.
+75|Sök
+76|Sekundärt rutnät
+77|Markera (V)
+78|Markera först en form och redigera sedan dess noder.
+79|Markera allt
+80|Markera minst två objekt för att gruppera.
+81|Flytta längst bak
+82|Visa
+83|Mjuk
+84|Fäst mot rutnät
+85|Fäst mot objekt
+86|Spiral (I)
+87|Stjärna (S)
+88|Text (T)
+89|Det sekundära rutnätet måste vara finare än huvudrutnätet.
+90|Utrymmet runt arbetsområdet
+91|Det finns inga raka hörn att runda.
+92|Till kurva
+93|Till linje
+94|Triangel (Y)
+95|Ångra
+96|Avgruppera
+97|Lås upp
+98|{} objekt upplåsta.
+99|Uppdateringar
+100|Version {}
+101|Visningsalternativ
+102|Arbetsyta
+103|Arbetsytans färg
+104|Du har den senaste versionen.
+105|Du har {}.
+106|Zooma in
+107|Zooma in (Z)
+108|Zooma ut
+109|Zooma ut (X)
