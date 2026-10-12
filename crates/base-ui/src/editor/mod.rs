@@ -1,12 +1,18 @@
 //! The parts of an editor that do not depend on the application: tools, the view, drags in progress, node addresses,
 //! grid preferences and the geometry of fitting the work area into a window.
+mod bars;
 mod canvas;
 mod commands;
 mod host;
+mod image_ui;
+mod prefs;
 
+pub use bars::{arrange_bar, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use host::EditorHost;
+pub use image_ui::{EditorImages, ImgDlg, TraceDlg};
+pub use prefs::view_options_window;
 
 use base_core::bezier::Node;
 use base_core::geom::{Pt, Rect, Xf};
@@ -142,6 +148,22 @@ fn default_line_width() -> f32 {
     1.0
 }
 
+impl GridPrefs {
+    /// Fill colour of the work area: your choice, or very light grey in the dark schemes and white in the light ones.
+    pub fn bed_fill(&self, dark_scheme: bool) -> egui::Color32 {
+        match self.bed_color {
+            Some(c) => egui::Color32::from_rgba_unmultiplied(c[0], c[1], c[2], c[3]),
+            None if dark_scheme => egui::Color32::from_rgb(0xea, 0xea, 0xed),
+            None => egui::Color32::WHITE,
+        }
+    }
+
+    /// Colour of the space around the work area: your choice, or the one of the colour scheme.
+    pub fn workspace_fill(&self) -> egui::Color32 {
+        self.workspace_color.map(|c| egui::Color32::from_rgba_unmultiplied(c[0], c[1], c[2], c[3])).unwrap_or_else(crate::theme::workspace)
+    }
+}
+
 impl Default for GridPrefs {
     fn default() -> Self {
         GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, line_width: 1.0 }
@@ -194,6 +216,9 @@ pub struct EditorState {
     pub space_prev: Option<Tool>,
     /// What was copied (shapes with their groups), ready to paste.
     pub clipboard: Vec<Shape>,
+    /// The import / adjust dialog of a picture, and the trace dialog.
+    pub img_dlg: Option<ImgDlg>,
+    pub trace_dlg: Option<TraceDlg>,
 }
 
 impl EditorState {
@@ -228,7 +253,18 @@ impl EditorState {
             image_tex: Default::default(),
             space_prev: None,
             clipboard: vec![],
+            img_dlg: None,
+            trace_dlg: None,
         }
+    }
+}
+
+impl EditorState {
+    /// Keep the secondary grid finer than the main grid.
+    pub fn clamp_grid(&mut self) {
+        self.grid = self.grid.clamp(0.1, 1000.0);
+        let max = (self.grid * 0.9).max(0.05);
+        self.grid_prefs.minor_mm = self.grid_prefs.minor_mm.clamp(0.05, max);
     }
 }
 

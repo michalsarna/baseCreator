@@ -2,10 +2,19 @@
 //! viewer, unit-aware number fields and the camera helpers.
 pub mod camera;
 pub mod camera_stream;
+pub mod clip_net;
+pub mod clipart_ui;
+pub mod dialogs;
 pub mod editor;
 pub mod fonts;
 pub mod i18n;
+pub mod icons;
 pub mod markdown_ui;
+pub mod menu;
+#[cfg(target_os = "macos")]
+pub mod native_menu;
 pub mod texts;
 pub mod theme;
 pub mod units_ui;
+pub mod window;
+pub mod widgets;

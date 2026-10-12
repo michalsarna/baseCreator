@@ -7,12 +7,22 @@ license.workspace = true
 [dependencies]
 base-core = { path = "../base-core" }
 egui = "0.36"
+rfd = "0.17"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 ureq = "2"
+egui_extras = { version = "0.36", default-features = false, features = ["svg"] }
 image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
 nokhwa = { version = "0.10", default-features = false, features = ["input-native"], optional = true }
 
 [features]
 # Live camera capture (nokhwa); the applications pass it on.
 camera = ["dep:nokhwa"]
+
+[target.'cfg(target_os = "macos")'.dependencies]
+# Native macOS menu bar: Tauri's menu crate, AppKit menus behind a safe API.
+muda = { version = "=0.21.1", default-features = false }
+objc2 = "0.6"
+objc2-app-kit = { version = "0.3", default-features = false, features = ["std", "NSApplication", "NSResponder", "NSImage"] }
+objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSData"] }
+resvg = { version = "0.48.1", default-features = false }

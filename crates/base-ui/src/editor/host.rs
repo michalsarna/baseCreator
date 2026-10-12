@@ -20,6 +20,11 @@ pub trait EditorHost: Sized {
     /// Remember the state for undo (called before a change) and note that something changed.
     fn checkpoint(&mut self);
     fn touch(&mut self);
+    /// Undo and redo the last change, and whether there is something to undo or redo.
+    fn undo(&mut self);
+    fn redo(&mut self);
+    fn can_undo(&self) -> bool;
+    fn can_redo(&self) -> bool;
     /// Forget the state remembered by the last `checkpoint` (nothing was changed after all).
     fn drop_checkpoint(&mut self);
     /// A button that deletes something; applications may draw it with an icon.
@@ -86,6 +91,16 @@ pub trait EditorHost: Sized {
         let v = &self.ed().view;
         let d: Vec2 = s - o - v.pan;
         Pt::new((d.x / v.zoom) as f64, (d.y / v.zoom) as f64)
+    }
+    /// Zoom by `f` around the middle of the canvas.
+    fn zoom_about_centre(&mut self, f: f32) {
+        let (w, h) = self.ed().canvas_avail;
+        let mid = egui::vec2(w / 2.0, h / 2.0);
+        let v = &mut self.ed_mut().view;
+        let before = (mid - v.pan) / v.zoom;
+        v.zoom = (v.zoom * f).clamp(0.05, 200.0);
+        v.pan = mid - before * v.zoom;
+        v.auto_fit = false;
     }
     /// `p` moved to the grid when snapping is on.
     fn snapped(&self, p: Pt) -> Pt {

@@ -229,3 +229,34 @@ pub mod iconify {
             .collect())
     }
 }
+
+/// Put an SVG picture on the work area: all of it on `layer` (colours are ignored), scaled so the longer side is
+/// `target_mm`, centred on `center` and grouped. Returns the new shape ids.
+pub fn import_clip(svg: &[u8], scene: &mut crate::scene::Scene, layer: usize, target_mm: f64, center: crate::geom::Pt) -> Result<Vec<u64>, String> {
+    use crate::geom::Xf;
+    let outlines = crate::svg::parse(svg)?;
+    let ids: Vec<u64> = outlines.into_iter().map(|o| scene.add(layer, crate::scene::Kind::Bezier(o.contours), Xf::IDENTITY)).collect();
+    if ids.is_empty() {
+        return Err("the picture has no outlines".into());
+    }
+    let bounds = scene.bounds_of(&ids).ok_or("the picture is empty")?;
+    let longest = bounds.width().max(bounds.height()).max(1e-9);
+    let k = target_mm / longest;
+    let c = bounds.center();
+    // Scale about the picture's own centre, then move that centre to `center`.
+    let xf = Xf::scale_about(k, k, c).then(Xf::translate(center.x - c.x, center.y - c.y));
+    for id in &ids {
+        if let Some(s) = scene.shape_mut(*id) {
+            s.xf = s.xf.then(xf);
+        }
+    }
+    if ids.len() > 1 {
+        let g = scene.new_group_id();
+        for id in &ids {
+            if let Some(s) = scene.shape_mut(*id) {
+                s.group = Some(g);
+            }
+        }
+    }
+    Ok(ids)
+}

@@ -1,24 +1,202 @@
-0|Přidat uzel
-1|Zavřít otevřenou cestu, nebo otevřít uzavřenou ve vybraném uzlu
-2|Převeďte text na křivky, nebo obrázek vektorizujte, abyste mohli upravovat jeho uzly.
-3|Roh
-4|Smazat uzel
-5|Seskupeno. Objekty si ponechají své vrstvy.
-6|Vložit uzel (nebo dvakrát kliknout na úsek)
-7|Zamčeno objektů: {}
-8|Změnit úsek za každým vybraným uzlem na křivku
-9|Změnit úsek za každým vybraným uzlem na přímý
-10|Změnit vybrané uzly na rohové
-11|Změnit vybrané uzly na hladké
-12|Otevřít / zavřít
-13|Poloměr zaoblení
-14|Zaoblit
-15|Zaoblí vybrané rohy tímto poloměrem
-16|Zaobleno rohů: {}
-17|Nejprve vyberte tvar a poté upravte jeho uzly.
-18|Pro seskupení vyberte alespoň dva objekty.
-19|Hladký
-20|Nejsou žádné přímé rohy k zaoblení.
-21|Na křivku
-22|Na úsečku
-23|Odemčeno objektů: {}
+0|(prázdné)
+1|K dispozici je novější verze: {}
+2|Přidá soubory SVG z vašeho počítače do vašeho kliparu
+3|Přidat soubor…
+4|Přidat uzel
+5|Přidáno obrázků: {} do kategorie {}
+6|Úprava obrázku
+7|Zarovnat dolů
+8|Na střed (H)
+9|Na střed (V)
+10|Zarovnat doleva
+11|Zarovnat doprava
+12|Zarovnat nahoru
+13|Všechny kategorie
+14|Úhel
+15|Zvířata
+16|Použít
+17|Autor
+18|Automatické úrovně
+19|Automaticky přizpůsobit pracovní plochu oknu
+20|Automaticky
+21|Barva pozadí
+22|Jas
+23|Přenést do popředí
+24|Zrušit
+25|Kategorie
+26|Oslavy
+27|Vystředit na stůl
+28|Vystředit na sebe
+29|Změnit kategorii
+30|Změnit kategorii…
+31|Vymazat seznam
+32|Kliknutím na obrázek zobrazíte jeho licenci a můžete jej uložit.
+33|Kliknutím umístíte na pracovní plochu
+34|Zavřít
+35|Zavřít otevřenou cestu, nebo otevřít uzavřenou ve vybraném uzlu
+36|Kolekce
+37|Barva
+38|Kontrast
+39|Převeďte text na křivky, nebo obrázek vektorizujte, abyste mohli upravovat jeho uzly.
+40|Převést na cestu
+41|Kopírovat
+42|Roh
+43|Aktualizace se nepodařilo zkontrolovat.
+44|Smazat
+45|Smazat uzel
+46|Poté obrázek smazat
+47|Smazat…
+48|Podrobnosti
+49|Podrobnosti…
+50|Vzdálenost mezi čarami
+51|Stáhnout
+52|Stažení se nezdařilo: {}
+53|Stahování…
+54|Duplikovat
+55|Upravit uzly
+56|Elipsa (E)
+57|Gravírovat světlé části místo tmavých
+58|Přizpůsobit všem objektům
+59|Přizpůsobit všem objektům (Ctrl+9)
+60|Přizpůsobit stůl oknu
+61|Přizpůsobit pracovní ploše (Ctrl+0)
+62|Převrátit H
+63|Převrátit V
+64|Převrátit vodorovně
+65|Převrátit svisle
+66|Jídlo
+67|Gama
+68|Mřížka
+69|Seskupit
+70|Seskupeno. Objekty si ponechají své vrstvy.
+71|Srdce (K)
+72|Ignorovat malé plochy
+73|Import
+74|Import se nezdařil: {}
+75|Import obrázku
+76|Obrázek {} importován
+77|Součást programu
+78|Vložit uzel (nebo dvakrát kliknout na úsek)
+79|Licence
+80|Čára (L)
+81|Tloušťka čar
+82|Zamknout
+83|Zamčeno objektů: {}
+84|Hlavní mřížka
+85|Změnit úsek za každým vybraným uzlem na křivku
+86|Změnit úsek za každým vybraným uzlem na přímý
+87|Změnit vybrané uzly na rohové
+88|Změnit vybrané uzly na hladké
+89|Maximalizovat
+90|Moje
+91|Minimalizovat
+92|Hudba a zábava
+93|Můj klipart
+94|Název
+95|Příroda
+96|Negativní obrázek
+97|Nejnovější vydání: {}
+98|Žádné obrázky. Použijte Online… a nějaké najděte.
+99|Úprava uzlů (N)
+100|Nic nenalezeno.
+101|OK
+102|Předměty
+103|Online klipart
+104|Online…
+105|Ukládejte jen obrázky, které smíte použít. Zkontrolujte licenci zdroje.
+106|Otevřít / zavřít
+107|Nedávno otevřené
+108|Otevřít stránku ke stažení
+109|Nebo stáhněte obrázek z adresy
+110|Posun pohledu (H)
+111|Vložit
+112|Obrázky, které jsou součástí programu
+113|Obrázky, které jste stáhli nebo přidali
+114|Umístěno: {}
+115|Mnohoúhelník (G)
+116|Lomená čára / pero (P)
+117|Stránka projektu na GitHubu
+118|Rychlý průvodce
+119|Konec
+120|Poloměr zaoblení
+121|Obdélník (R)
+122|Znovu
+123|Odebrat tento obrázek z kliparu? Soubor na disku bude smazán.
+124|Přejmenovat
+125|Přejmenovat…
+126|Obnovit
+127|Obnovit mřížku
+128|Obnovit
+129|Otočit o 90° doleva
+130|Otočit o 90° doprava
+131|Otočení a převrácení
+132|Zaoblit
+133|Zaoblí vybrané rohy tímto poloměrem
+134|Zaobleno rohů: {}
+135|Uložit kopii do mého kliparu
+136|Uložit do mého kliparu
+137|{} uloženo do kategorie {}
+138|Hledat
+139|Hledání se nezdařilo: {}
+140|Hledání v otevřených sbírkách ikon (Iconify). Obrázky se ukládají na váš disk do vámi zvolené kategorie.
+141|Vyhledejte na internetu další obrázky a uložte je sem
+142|Hledání…
+143|Vedlejší mřížka
+144|Výběr (V)
+145|Nejprve vyberte tvar a poté upravte jeho uzly.
+146|Vybrat vše
+147|Pro seskupení vyberte alespoň dva objekty.
+148|Přenést do pozadí
+149|Tvary
+150|Zobrazit
+151|Zjednodušit
+152|Velikost
+153|Velikost při vložení
+154|Hladký
+155|Vyhladit křivky
+156|Přichytávat k mřížce
+157|Přichytávat k objektům
+158|Zdroj
+159|Spirála (I)
+160|Hvězda (S)
+161|Symboly
+162|Text (T)
+163|Výsledek je prázdný.
+164|Vedlejší mřížka musí být jemnější než hlavní.
+165|Prostor kolem pracovní plochy
+166|Nejsou žádné přímé rohy k zaoblení.
+167|Práh
+168|Na křivku
+169|Na úsečku
+170|Tón
+171|Nástroje
+172|Vektorizovat
+173|Vektorizace obrázku
+174|Vektorizovat světlé plochy
+175|Vektorizováno obrysů: {}
+176|Trojúhelník (Y)
+177|Zpět
+178|Zrušit seskupení
+179|Odemknout
+180|Odemčeno objektů: {}
+181|Aktualizace
+182|Verze {}
+183|Možnosti zobrazení
+184|Šířka
+185|Pracovní plocha
+186|Barva pracovního prostoru
+187|Máte nejnovější verzi.
+188|Máte verzi {}.
+189|Přiblížit
+190|Přiblížit (Z)
+191|Oddálit
+192|Oddálit (X)
+193|je součástí programu
+194|uveďte autora
+195|např. kočka, květina, ozubené kolo
+196|uvedení autora není nutné
+197|nebo nová kategorie
+198|vaše
+199|Obrysů: {}
+200|Nalezeno obrázků: {}
+201|{} × {} px
