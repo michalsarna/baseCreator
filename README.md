@@ -7,19 +7,27 @@ not need a laser, and it grows by moving more of that part here, one piece at a 
 | Crate | What it holds |
 |---|---|
 | `base-core` | No GUI. Geometry, Bézier paths, arcs and fillets, snapping, boolean operations, text outlines, bitmaps and tracing, camera calibration, the **scene** (`Scene`, `Shape`, `Kind`: shapes with transforms, groups and ids), SVG and PDF reading, the clipart library, units, GRBL settings reports, ser2net helpers |
-| `base-ui` | egui parts: colour schemes (`theme`), fonts, the translation layer (`i18n`, `texts`), a Markdown viewer, unit-aware number fields, camera helpers (feature `camera`), and the **editor** (`editor`): the work-area canvas with its tools, selection, node editing and the editing commands, written against the `EditorHost` trait |
+| `base-ui` | egui parts. Interface: colour schemes (`theme`), fonts, icons (`icons`, Lucide SVGs), the translation layer (`i18n`, `texts`), menus (`menu`: entries, in-window bar, native macOS bar, the standard editing commands `StdAct`), the window frame, pop-ups and coloured buttons (`window`), small widgets, ready-made dialogs (`dialogs`: About, quick guide, update check), a Markdown viewer, unit-aware number fields, the clipart gallery (`clipart_ui`), camera helpers (feature `camera`). Editor (`editor`): the work-area canvas with tools, selection, node editing, the editing commands, the picture dialogs (import, adjust, trace), the view options window, the tool palette and the arrange bar, written against the `EditorHost` trait |
 
 ### The editor
 
 An application keeps an `EditorState` (selection, tool, view, grid, snapping, clipboard) and implements `EditorHost`:
 where its `Scene` and its `EditorState` are, how undo works (`checkpoint`, `touch`), which layers are shown and in what
-colour, the size of the work area and the units. The canvas (`EditorCanvas::canvas`), the node editing and the
+colour, the size of the work area and the units. The canvas (`EditorCanvas::canvas`), the node editing, the picture dialogs (`EditorImages`) and the
 commands on the selection (`EditorCommands`) are then provided. What belongs to the application (the machine's bed,
 no-go zones, a camera picture, a tool path preview, the context menu) is drawn by optional hooks of `EditorHost`
 (`paint_work_area`, `paint_under_shapes`, `paint_over_shapes`, `canvas_context_menu`, ...).
 
-What is **not** here yet: the menus and their list of actions, the icons, and the dialogs (they are written against
-LightCreator's own state).
+### Menus and dialogs
+
+An application lists its menus as `menu::Entry<A>` over its own action type `A` and implements `menu::MenuHost`
+(which actions are enabled or ticked, their icons, how to run one). The in-window bar is `menu::menu_bar`; on macOS
+`native_menu::NativeMenu` builds the system bar from the same entries. `menu::std_entries` has the entries of the
+standard editing commands (`StdAct`: undo, copy, align, group, zoom, grid ...) with their labels, accelerators and
+icons; `StdAct::run` carries one out on any `EditorHost`.
+
+What is **not** here: windows that need a machine or a document with layers (device settings, the print dialog, the
+camera overlay of a bed, the job check). They stay in the application.
 
 ## Using it
 
@@ -40,6 +48,12 @@ Point Cargo at your checkout of this repository. Put this in `.cargo/config.toml
 base-core = { path = "/path/to/baseCreator/crates/base-core" }
 base-ui   = { path = "/path/to/baseCreator/crates/base-ui" }
 ```
+
+### Texts
+
+`tools/gen-texts.py /path/to/LightCreator` regenerates `crates/base-ui/src/texts*` (the translations of every text the
+shared code shows) from LightCreator's table. A test checks that every `tr("...")` in the shared code has all 30
+translations.
 
 ### Translations
 
