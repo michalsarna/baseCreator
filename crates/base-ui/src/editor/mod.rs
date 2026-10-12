@@ -167,6 +167,8 @@ pub struct EditorState {
     pub grid_prefs: GridPrefs,
     pub polygon_sides: u32,
     pub spiral_turns: u32,
+    /// Radius (mm) for rounding corners.
+    pub fillet_radius: f64,
     /// The small window with the number of sides (polygon) or turns (spiral).
     pub show_shape_popup: bool,
     /// The last polygon or spiral drawn: tool, shape id and the box it was drawn in. The popup edits it.
@@ -207,6 +209,7 @@ impl EditorState {
             grid_prefs: GridPrefs::default(),
             polygon_sides: 6,
             spiral_turns: 3,
+            fillet_radius: 2.0,
             show_shape_popup: false,
             last_param: None,
             node_bar_active: true,
