@@ -287,3 +287,165 @@ fn homography_from_reference_points_recovers_the_transform() {
     assert!((x - ex).abs() < 1e-6 && (y - ey).abs() < 1e-6);
 }
 
+
+#[test]
+fn xf_inverse_roundtrip() {
+    let x = Xf::rotate(0.7).then(Xf::scale(2.0, 3.0)).then(Xf::translate(4.0, -1.0));
+    let p = Pt::new(1.5, 2.5);
+    let q = x.inverse().unwrap().apply(x.apply(p));
+    assert!(p.dist(q) < 1e-9);
+}
+
+#[test]
+fn crossing_selection_touches_partially_overlapped_shapes() {
+    let area = Rect { min: Pt::new(0.0, 0.0), max: Pt::new(10.0, 10.0) };
+    let rect_at = |x: f64, y: f64, s: f64| Shape { id: 1, layer: 0, kind: Kind::Rect { w: s, h: s }, xf: Xf::translate(x, y), group: None, locked: false };
+    assert!(rect_at(5.0, 5.0, 20.0).intersects_rect(&area), "partial overlap");
+    assert!(rect_at(2.0, 2.0, 3.0).intersects_rect(&area), "fully inside");
+    assert!(rect_at(-50.0, -50.0, 200.0).intersects_rect(&area), "area fully inside a big shape");
+    assert!(!rect_at(11.0, 11.0, 5.0).intersects_rect(&area), "outside");
+    // A diagonal line whose bounding box overlaps the area but which misses it.
+    let line = Shape { id: 2, layer: 0, kind: Kind::Path(vec![Polyline::new(vec![Pt::new(-1.0, 8.0), Pt::new(8.0, 20.0)], false)]), xf: Xf::IDENTITY, group: None, locked: false };
+    assert!(!line.intersects_rect(&Rect { min: Pt::new(0.0, 0.0), max: Pt::new(3.0, 3.0) }));
+    assert!(line.intersects_rect(&area));
+    // A line crossing straight through the area with no vertex inside it.
+    let through = Shape { id: 3, layer: 0, kind: Kind::Path(vec![Polyline::new(vec![Pt::new(-5.0, 5.0), Pt::new(15.0, 5.0)], false)]), xf: Xf::IDENTITY, group: None, locked: false };
+    assert!(through.intersects_rect(&area));
+}
+
+#[test]
+fn user_clipart_library_roundtrip() {
+    let dir = temp_dir("lib");
+    let mut lib = clipart::Library::open(&dir);
+    assert!(lib.items.is_empty());
+    let a = lib.add(CAT_SVG, "Big Cat!", "Animals", "https://example.org/cat.svg", "CC0", "Someone").unwrap();
+    let b = lib.add(&CAT_SVG.replace("<path", "<path fill=\"currentColor\""), "Big Cat!", "", "file", "", "").unwrap();
+    assert_eq!(a.id, "big-cat");
+    assert_eq!(b.id, "big-cat-2", "same name gets a different file");
+    assert_eq!(b.category, clipart::DEFAULT_CATEGORY);
+    assert!(lib.svg("big-cat-2").unwrap().contains("#000000"), "currentColor is made explicit");
+    lib.set_category("big-cat", "Pets").unwrap();
+    lib.rename("big-cat", "Kitty").unwrap();
+    // Reopen: everything is remembered.
+    let lib2 = clipart::Library::open(&dir);
+    assert_eq!(lib2.items.len(), 2);
+    let k = lib2.items.iter().find(|c| c.id == "big-cat").unwrap();
+    assert_eq!((k.name.as_str(), k.category.as_str(), k.license.as_str()), ("Kitty", "Pets", "CC0"));
+    assert_eq!(lib2.categories(), vec!["My clipart".to_string(), "Pets".to_string()]);
+    // Removing deletes the file and the entry; an index entry whose file vanished is dropped on open.
+    let mut lib3 = clipart::Library::open(&dir);
+    lib3.remove("big-cat").unwrap();
+    assert!(!dir.join("big-cat.svg").exists());
+    std::fs::remove_file(dir.join("big-cat-2.svg")).unwrap();
+    assert!(clipart::Library::open(&dir).items.is_empty());
+    // Bad input is refused.
+    assert!(lib3.add("<html></html>", "x", "", "", "", "").is_err());
+    assert!(lib3.add("<svg", "x", "", "", "", "").is_err());
+    let _ = std::fs::remove_dir_all(&dir);
+}
+
+#[test]
+fn iconify_search_answers_are_read() {
+    let json = r#"{"icons":["mdi:cat","tabler:cat","unknown:thing"],"total":3,"limit":3,"start":0,"collections":{
+        "mdi":{"name":"Material Design Icons","author":{"name":"Pictogrammers","url":"https://x"},"license":{"title":"Apache 2.0","spdx":"Apache-2.0","url":"https://l"}},
+        "tabler":{"name":"Tabler Icons","author":{"name":"Paweł Kuna"},"license":{"title":"MIT","spdx":"MIT"}}}}"#;
+    let hits = clipart::iconify::parse_search(json).unwrap();
+    assert_eq!(hits.len(), 3);
+    assert_eq!(hits[0].key(), "mdi:cat");
+    assert_eq!((hits[0].set_name.as_str(), hits[0].license_spdx.as_str(), hits[0].author.as_str()), ("Material Design Icons", "Apache-2.0", "Pictogrammers"));
+    assert!(hits[0].needs_no_credit() && hits[1].needs_no_credit());
+    assert!(hits[2].license_title.is_empty() && !hits[2].needs_no_credit());
+    assert_eq!(hits[0].svg_url("https://api.iconify.design"), "https://api.iconify.design/mdi/cat.svg");
+    assert_eq!(clipart::iconify::search_url("https://a", "paper plane", 20), "https://a/search?query=paper%20plane&limit=20");
+    assert!(clipart::iconify::parse_search("nonsense").is_err());
+    let by = clipart::iconify::Hit { prefix: "x".into(), name: "y".into(), set_name: String::new(), license_title: "CC BY 4.0".into(), license_spdx: "CC-BY-4.0".into(), license_url: String::new(), author: String::new() };
+    assert!(!by.needs_no_credit(), "attribution licences are flagged");
+}
+
+fn temp_dir(tag: &str) -> std::path::PathBuf {
+    let d = std::env::temp_dir().join(format!("lc-test-{tag}-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
+    std::fs::create_dir_all(&d).unwrap();
+    d
+}
+
+const CAT_SVG: &str = r##"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,2L22,2L22,12L2,12Z M5,15L19,15L19,22L5,22Z"/></svg>"##;
+
+fn tiny_pdf(content: &str) -> Vec<u8> {
+    use lopdf::{dictionary, Document as Pdf, Object, Stream};
+    let mut pdf = Pdf::with_version("1.5");
+    let pages_id = pdf.new_object_id();
+    let content_id = pdf.add_object(Stream::new(dictionary! {}, content.as_bytes().to_vec()));
+    let page_id = pdf.add_object(dictionary! {
+        "Type" => "Page",
+        "Parent" => pages_id,
+        "MediaBox" => vec![0.into(), 0.into(), 200.into(), 100.into()],
+        "Contents" => content_id,
+    });
+    pdf.objects.insert(pages_id, Object::Dictionary(dictionary! {
+        "Type" => "Pages", "Kids" => vec![page_id.into()], "Count" => 1,
+    }));
+    let catalog = pdf.add_object(dictionary! { "Type" => "Catalog", "Pages" => pages_id });
+    pdf.trailer.set("Root", catalog);
+    let mut out = Vec::new();
+    pdf.save_to(&mut out).unwrap();
+    out
+}
+
+#[test]
+fn text_produces_outlines() {
+    let t = TextData { text: "Hi".into(), size: 10.0, ..TextData::default() };
+    let c = text::contours(&t);
+    assert!(c.len() >= 3, "{}", c.len());
+    let s = Shape { id: 1, layer: 0, kind: Kind::Text(t), xf: Xf::IDENTITY, group: None, locked: false };
+    let b = s.bounds().unwrap();
+    assert!(b.width() > 5.0 && b.height() > 4.0 && b.height() < 12.0, "{:?}", b);
+}
+
+#[test]
+fn svg_is_read_into_outlines_with_their_colours() {
+    let svg = br##"<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect x="10" y="10" width="40" height="20" stroke="#ff0000" fill="none"/></svg>"##;
+    let out = svg::parse(svg).unwrap();
+    assert_eq!(out.len(), 1);
+    assert_eq!(out[0].color, [255, 0, 0]);
+    let b = Polyline::bounds(&out[0].contours[0].flatten(0.01)).unwrap();
+    assert!((b.width() - 40.0 * 25.4 / 96.0).abs() < 1e-3);
+    assert!(svg::parse(b"nonsense").is_err());
+}
+
+#[test]
+fn illustrator_pdf_paths_are_read_into_outlines() {
+    // Red stroked rectangle (x 10..110, y 20..60 in PDF space, y up) and a blue curve.
+    let data = tiny_pdf("1 0 0 RG 10 20 100 40 re S 0 0 1 RG 0 0 m 30 50 70 50 100 0 c S");
+    let out = pdf::parse(&data).unwrap();
+    assert_eq!(out.len(), 2);
+    assert_eq!(out[0].color, [255, 0, 0]);
+    let b = Polyline::bounds(&out[0].contours[0].flatten(0.01)).unwrap();
+    assert!((b.width() - 100.0 * 25.4 / 72.0).abs() < 1e-6);
+    assert!((b.min.y - (100.0 - 60.0) * 25.4 / 72.0).abs() < 1e-6);
+    assert_eq!(out[1].color, [0, 0, 255]);
+    assert!(out[1].contours[0].nodes.len() == 2 && out[1].contours[0].seg_is_curve(0));
+    assert!(pdf::parse(b"not a pdf").is_err());
+}
+
+#[test]
+fn a_scene_hands_out_ids_and_groups_and_keeps_locked_shapes_from_editing() {
+    let mut s = Scene::default();
+    let a = s.add(0, Kind::Rect { w: 1.0, h: 1.0 }, Xf::IDENTITY);
+    let b = s.add(1, Kind::Rect { w: 1.0, h: 1.0 }, Xf::IDENTITY);
+    assert_eq!((a, b), (1, 2));
+    let g = s.new_group_id();
+    s.shape_mut(a).unwrap().group = Some(g);
+    s.shape_mut(b).unwrap().group = Some(g);
+    assert_eq!(s.group_of(a), vec![a, b]);
+    assert_eq!(s.new_group_id(), g + 1);
+    s.shape_mut(a).unwrap().locked = true;
+    assert!(s.unlocked_mut(a).is_none() && s.unlocked_mut(b).is_some());
+    assert_eq!(s.unlocked_ids(&[a, b, 999]), vec![b]);
+    let bounds = s.bounds_of(&[a, b]).unwrap();
+    assert!((bounds.width() - 1.0).abs() < 1e-9);
+    // Saved counters come back as they were; a group counter of 0 (old files) still gives a valid id.
+    let (n, gr) = s.counters();
+    let mut again = Scene::from_parts(s.shapes.clone(), n, gr);
+    assert_eq!(again.add(0, Kind::Rect { w: 1.0, h: 1.0 }, Xf::IDENTITY), 3);
+    assert_eq!(Scene::from_parts(vec![], 1, 0).new_group_id(), 1);
+}
