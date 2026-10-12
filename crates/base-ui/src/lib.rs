@@ -5,6 +5,7 @@ pub mod camera_stream;
 pub mod editor;
 pub mod fonts;
 pub mod i18n;
+pub mod icons;
 pub mod markdown_ui;
 pub mod texts;
 pub mod theme;
