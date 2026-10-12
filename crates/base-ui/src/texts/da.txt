@@ -6,197 +6,216 @@
 5|{} billede(r) tilføjet til {}
 6|Justér billede
 7|Justér til bunden
-8|Centrér (H)
-9|Centrér (V)
-10|Justér til venstre
-11|Justér til højre
-12|Justér til toppen
-13|Alle kategorier
-14|Vinkel
-15|Dyr
-16|Anvend
-17|Forfatter
-18|Automatiske niveauer
-19|Tilpas automatisk arbejdsområdet til vinduet
-20|Automatisk
-21|Baggrundsfarve
-22|Lysstyrke
-23|Bring forrest
-24|Annullér
-25|Kategori
-26|Fester
-27|Centrér på bordet
-28|Centrér på hinanden
-29|Skift kategori
-30|Skift kategori…
-31|Ryd listen
-32|Klik på et billede for at se dets licens og gemme det.
-33|Klik for at placere på arbejdsområdet
-34|Luk
-35|Luk en åben sti, eller åbn en lukket ved det markerede knudepunkt
-36|Samling
-37|Farve
-38|Kontrast
-39|Konvertér teksten til kurver, eller vektorisér billedet, for at redigere dets knudepunkter.
-40|Konvertér til sti
-41|Kopiér
-42|Hjørne
-43|Kunne ikke søge efter opdateringer.
-44|Slet
-45|Slet knudepunkt
-46|Slet billedet bagefter
-47|Slet…
-48|Detaljer
-49|Detaljer…
-50|Afstand mellem linjer
-51|Download
-52|Download mislykkedes: {}
-53|Downloader…
-54|Dupliker
-55|Redigér knudepunkter
-56|Ellipse (E)
-57|Gravér de lyse dele i stedet for de mørke
-58|Tilpas til alle objekter
-59|Tilpas til alle objekter (Ctrl+9)
-60|Tilpas bordet til vinduet
-61|Tilpas til arbejdsområdet (Ctrl+0)
-62|Vend H
-63|Vend V
-64|Vend vandret
-65|Vend lodret
-66|Mad
-67|Gamma
-68|Gitter
-69|Gruppér
-70|Grupperet. Objekterne beholder deres lag.
-71|Hjerte (K)
-72|Ignorer små områder
-73|Importer
-74|Importen mislykkedes: {}
-75|Importer billede
-76|Billedet {} importeret
-77|Medfølgende
-78|Indsæt et knudepunkt (eller dobbeltklik på et segment)
-79|Licens
-80|Linje (L)
-81|Linjetykkelse
-82|Lås
-83|{} objekt(er) låst.
-84|Hovedgitter
-85|Gør segmentet efter hvert markeret knudepunkt buet
-86|Gør segmentet efter hvert markeret knudepunkt lige
-87|Gør de markerede knudepunkter til hjørner
-88|Gør de markerede knudepunkter glatte
-89|Maksimér
-90|Mine
-91|Minimér
-92|Musik og sjov
-93|Min clipart
-94|Navn
-95|Natur
-96|Negativt billede
-97|Seneste udgivelse: {}
-98|Ingen billeder her. Brug Online… for at finde nogle.
-99|Redigér knudepunkter (N)
-100|Intet fundet.
-101|OK
-102|Genstande
-103|Clipart online
-104|Online…
-105|Gem kun billeder, du må bruge. Tjek kildens licens.
-106|Åbn / luk
-107|Åbn seneste
-108|Åbn downloadsiden
-109|Eller download et billede fra en adresse
-110|Panorér (H)
-111|Sæt ind
-112|Billeder, der følger med programmet
-113|Billeder, du har downloadet eller tilføjet
-114|{} placeret
-115|Polygon (G)
-116|Polylinje / pen (P)
-117|Projektside på GitHub
-118|Hurtigguide
-119|Afslut
-120|Radius for afrunding
-121|Rektangel (R)
-122|Gentag
-123|Fjern dette billede fra din clipart? Filen på din disk slettes.
-124|Omdøb
-125|Omdøb…
-126|Nulstil
-127|Nulstil gitter
-128|Gendan
-129|Roter 90° mod uret
-130|Roter 90° med uret
-131|Roter og vend
-132|Afrund
-133|Afrund de markerede hjørner med denne radius
-134|{} hjørne(r) afrundet.
-135|Gem en kopi i min clipart
-136|Gem i min clipart
-137|{} gemt i {}
-138|Søg
-139|Søgningen mislykkedes: {}
-140|Søg i åbne ikonsamlinger (Iconify). Billeder gemmes på din disk i en kategori efter dit valg.
-141|Søg efter flere billeder på internettet og gem dem her
-142|Søger…
-143|Sekundært gitter
-144|Markér (V)
-145|Markér først en form, og redigér derefter dens knudepunkter.
-146|Markér alt
-147|Markér mindst to objekter for at gruppere.
-148|Send bagest
-149|Former
-150|Vis
-151|Forenkl
-152|Størrelse
-153|Størrelse ved placering
-154|Glat
-155|Udjævn kurver
-156|Fastgør til gitter
-157|Fastgør til objekter
-158|Kilde
-159|Spiral (I)
-160|Stjerne (S)
-161|Symboler
-162|Tekst (T)
-163|Resultatet er tomt.
-164|Det sekundære gitter skal være finere end hovedgitteret.
-165|Rummet omkring arbejdsområdet
-166|Der er ingen rette hjørner at afrunde.
-167|Tærskel
-168|Til kurve
-169|Til linje
-170|Tone
-171|Værktøj
-172|Vektorisér
-173|Vektorisér billede
-174|Vektorisér de lyse områder
-175|{} omrids vektoriseret
-176|Trekant (Y)
-177|Fortryd
-178|Opløs gruppe
-179|Lås op
-180|{} objekt(er) låst op.
-181|Opdateringer
-182|Version {}
-183|Visningsindstillinger
-184|Bredde
-185|Arbejdsområde
-186|Farve på arbejdsrummet
-187|Du har den nyeste version.
-188|Du har {}.
-189|Zoom ind
-190|Zoom ind (Z)
-191|Zoom ud
-192|Zoom ud (X)
-193|følger med programmet
-194|krediter forfatteren
-195|f.eks. kat, blomst, tandhjul
-196|ingen kreditering nødvendig
-197|eller en ny kategori
-198|dine
-199|{} omrids
-200|{} billeder fundet
-201|{} × {} px
+8|Centrér
+9|Centrér (H)
+10|Centrér (V)
+11|Justér til venstre
+12|Justér i midten
+13|Justér til højre
+14|Justér til toppen
+15|Justering
+16|Alle kategorier
+17|Vinkel
+18|Dyr
+19|Anvend
+20|Forfatter
+21|Automatiske niveauer
+22|Tilpas automatisk arbejdsområdet til vinduet
+23|Automatisk
+24|Baggrundsfarve
+25|Bund
+26|Lysstyrke
+27|Bring forrest
+28|Annullér
+29|Kategori
+30|Fester
+31|Centrér
+32|Centrér på bordet
+33|Centrér på hinanden
+34|Skift kategori
+35|Skift kategori…
+36|Ryd listen
+37|Klik på et billede for at se dets licens og gemme det.
+38|Klik for at placere på arbejdsområdet
+39|Luk
+40|Luk en åben sti, eller åbn en lukket ved det markerede knudepunkt
+41|Samling
+42|Farve
+43|Farveskema
+44|Kontrast
+45|Konvertér teksten til kurver, eller vektorisér billedet, for at redigere dets knudepunkter.
+46|Konvertér til sti
+47|Kopiér
+48|Hjørne
+49|Kunne ikke søge efter opdateringer.
+50|Slet
+51|Slet knudepunkt
+52|Slet billedet bagefter
+53|Slet…
+54|Detaljer
+55|Detaljer…
+56|Afstand mellem linjer
+57|Download
+58|Download mislykkedes: {}
+59|Downloader…
+60|Dupliker
+61|Redigér knudepunkter
+62|Ellipse (E)
+63|Gravér de lyse dele i stedet for de mørke
+64|Tilpas til alle objekter
+65|Tilpas til alle objekter (Ctrl+9)
+66|Tilpas bordet til vinduet
+67|Tilpas til arbejdsområdet (Ctrl+0)
+68|Vend H
+69|Vend V
+70|Vend vandret
+71|Vend lodret
+72|Mad
+73|Gamma
+74|Gitter
+75|Gruppér
+76|Grupperet. Objekterne beholder deres lag.
+77|Hjerte (K)
+78|Ignorer små områder
+79|Importer
+80|Importen mislykkedes: {}
+81|Importer billede
+82|Billedet {} importeret
+83|Medfølgende
+84|Indsæt et knudepunkt (eller dobbeltklik på et segment)
+85|Sprog
+86|Venstre
+87|Licens
+88|Linje (L)
+89|Linjetykkelse
+90|Lås
+91|Lås proportioner
+92|{} objekt(er) låst.
+93|Hovedgitter
+94|Gør segmentet efter hvert markeret knudepunkt buet
+95|Gør segmentet efter hvert markeret knudepunkt lige
+96|Gør de markerede knudepunkter til hjørner
+97|Gør de markerede knudepunkter glatte
+98|Maksimér
+99|Midt H
+100|Midt V
+101|Mine
+102|Minimér
+103|Spejl og centrering
+104|Musik og sjov
+105|Min clipart
+106|Navn
+107|Natur
+108|Negativt billede
+109|Seneste udgivelse: {}
+110|Ingen billeder her. Brug Online… for at finde nogle.
+111|Redigér knudepunkter (N)
+112|Intet fundet.
+113|OK
+114|Genstande
+115|Clipart online
+116|Online…
+117|Gem kun billeder, du må bruge. Tjek kildens licens.
+118|Åbn / luk
+119|Åbn seneste
+120|Åbn downloadsiden
+121|Eller download et billede fra en adresse
+122|Panorér (H)
+123|Sæt ind
+124|Billeder, der følger med programmet
+125|Billeder, du har downloadet eller tilføjet
+126|{} placeret
+127|Polygon (G)
+128|Polylinje / pen (P)
+129|Placering og størrelse
+130|Projektside på GitHub
+131|Hurtigguide
+132|Afslut
+133|Radius for afrunding
+134|Rektangel (R)
+135|Gentag
+136|Fjern dette billede fra din clipart? Filen på din disk slettes.
+137|Omdøb
+138|Omdøb…
+139|Nulstil
+140|Nulstil gitter
+141|Gendan
+142|Højre
+143|Roter
+144|Roter 90° mod uret
+145|Roter 90° med uret
+146|Roter og vend
+147|Rotation
+148|Afrund
+149|Afrund de markerede hjørner med denne radius
+150|{} hjørne(r) afrundet.
+151|Gem en kopi i min clipart
+152|Gem i min clipart
+153|{} gemt i {}
+154|Søg
+155|Søgningen mislykkedes: {}
+156|Søg i åbne ikonsamlinger (Iconify). Billeder gemmes på din disk i en kategori efter dit valg.
+157|Søg efter flere billeder på internettet og gem dem her
+158|Søger…
+159|Sekundært gitter
+160|Markér (V)
+161|Markér først en form, og redigér derefter dens knudepunkter.
+162|Markér alt
+163|Markér mindst to objekter for at gruppere.
+164|Send bagest
+165|Former
+166|Vis
+167|Vis eller skjul gitteret
+168|Vis eller skjul det sekundære gitter
+169|Forenkl
+170|Størrelse
+171|Størrelse ved placering
+172|Glat
+173|Udjævn kurver
+174|Fastgør til gitter
+175|Fastgør til objekter
+176|Kilde
+177|Spiral (I)
+178|Stjerne (S)
+179|Symboler
+180|Tekst (T)
+181|Resultatet er tomt.
+182|Det sekundære gitter skal være finere end hovedgitteret.
+183|Rummet omkring arbejdsområdet
+184|Der er ingen rette hjørner at afrunde.
+185|Tærskel
+186|Til kurve
+187|Til linje
+188|Tone
+189|Værktøj
+190|Top
+191|Vektorisér
+192|Vektorisér billede
+193|Vektorisér de lyse områder
+194|{} omrids vektoriseret
+195|Trekant (Y)
+196|Fortryd
+197|Opløs gruppe
+198|Lås op
+199|{} objekt(er) låst op.
+200|Opdateringer
+201|Version {}
+202|Visningsindstillinger
+203|Bredde
+204|Arbejdsområde
+205|Farve på arbejdsrummet
+206|Du har den nyeste version.
+207|Du har {}.
+208|Zoom ind
+209|Zoom ind (Z)
+210|Zoom ud
+211|Zoom ud (X)
+212|følger med programmet
+213|krediter forfatteren
+214|f.eks. kat, blomst, tandhjul
+215|ingen kreditering nødvendig
+216|eller en ny kategori
+217|dine
+218|{} omrids
+219|{} billeder fundet
+220|{} × {} px

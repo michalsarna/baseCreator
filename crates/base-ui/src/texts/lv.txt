@@ -6,197 +6,216 @@
 5|Pievienoti attēli: {} uz {}
 6|Attēla pielāgošana
 7|Līdzināt apakšā
-8|Centrēt (H)
-9|Centrēt (V)
-10|Līdzināt pa kreisi
-11|Līdzināt pa labi
-12|Līdzināt augšā
-13|Visas kategorijas
-14|Leņķis
-15|Dzīvnieki
-16|Lietot
-17|Autors
-18|Automātiskie līmeņi
-19|Automātiski pielāgot darba apgabalu logam
-20|Automātiski
-21|Fona krāsa
-22|Spilgtums
-23|Pārvietot uz priekšplānu
-24|Atcelt
-25|Kategorija
-26|Svētki
-27|Centrēt uz galda
-28|Centrēt vienu pret otru
-29|Mainīt kategoriju
-30|Mainīt kategoriju…
-31|Notīrīt sarakstu
-32|Noklikšķiniet uz attēla, lai redzētu tā licenci un saglabātu to.
-33|Noklikšķiniet, lai novietotu darba apgabalā
-34|Aizvērt
-35|Aizvērt atvērtu ceļu vai atvērt aizvērtu atlasītajā mezglā
-36|Kolekcija
-37|Krāsa
-38|Kontrasts
-39|Pārvērsiet tekstu līknēs vai vektorizējiet attēlu, lai rediģētu tā mezglus.
-40|Pārvērst par ceļu
-41|Kopēt
-42|Stūris
-43|Neizdevās pārbaudīt atjauninājumus.
-44|Dzēst
-45|Dzēst mezglu
-46|Pēc tam dzēst attēlu
-47|Dzēst…
-48|Informācija
-49|Informācija…
-50|Attālums starp līnijām
-51|Lejupielādēt
-52|Lejupielāde neizdevās: {}
-53|Lejupielādē…
-54|Dublēt
-55|Rediģēt mezglus
-56|Elipse (E)
-57|Gravēt gaišās daļas tumšo vietā
-58|Pielāgot visiem objektiem
-59|Pielāgot visiem objektiem (Ctrl+9)
-60|Pielāgot galdu logam
-61|Pielāgot darba apgabalam (Ctrl+0)
-62|Apvērst H
-63|Apvērst V
-64|Apvērst horizontāli
-65|Apvērst vertikāli
-66|Ēdiens
-67|Gamma
-68|Režģis
-69|Grupēt
-70|Sagrupēts. Objekti saglabā savus slāņus.
-71|Sirds (K)
-72|Ignorēt mazus apgabalus
-73|Importēt
-74|Importēšana neizdevās: {}
-75|Attēla imports
-76|Attēls {} importēts
-77|Iekļautie
-78|Ievietot mezglu (vai divreiz noklikšķināt uz posma)
-79|Licence
-80|Līnija (L)
-81|Līniju biezums
-82|Bloķēt
-83|Bloķēti objekti: {}
-84|Galvenais režģis
-85|Padarīt posmu aiz katra atlasītā mezgla izliektu
-86|Padarīt posmu aiz katra atlasītā mezgla taisnu
-87|Padarīt atlasītos mezglus par stūra mezgliem
-88|Padarīt atlasītos mezglus gludus
-89|Maksimizēt
-90|Mani
-91|Minimizēt
-92|Mūzika un izklaide
-93|Mana klipkopa
-94|Nosaukums
-95|Daba
-96|Negatīvs attēls
-97|Jaunākais izlaidums: {}
-98|Šeit nav attēlu. Izmantojiet Tiešsaistē…, lai tos atrastu.
-99|Mezglu rediģēšana (N)
-100|Nekas netika atrasts.
-101|Labi
-102|Priekšmeti
-103|Klipkopa tiešsaistē
-104|Tiešsaistē…
-105|Saglabājiet tikai tos attēlus, ko drīkstat izmantot. Pārbaudiet avota licenci.
-106|Atvērt / aizvērt
-107|Atvērt nesenos
-108|Atvērt lejupielādes lapu
-109|Vai lejupielādējiet attēlu no adreses
-110|Skata pārvietošana (H)
-111|Ielīmēt
-112|Attēli, kas nāk komplektā ar programmu
-113|Attēli, ko lejupielādējāt vai pievienojāt
-114|Novietots: {}
-115|Daudzstūris (G)
-116|Lauzta līnija / pildspalva (P)
-117|Projekta lapa GitHub
-118|Ātrais ceļvedis
-119|Iziet
-120|Noapaļošanas rādiuss
-121|Taisnstūris (R)
-122|Atkārtot
-123|Noņemt šo attēlu no jūsu klipkopas? Fails jūsu diskā tiek izdzēsts.
-124|Pārdēvēt
-125|Pārdēvēt…
-126|Atiestatīt
-127|Atiestatīt režģi
-128|Atjaunot
-129|Pagriezt par 90° pretēji pulksteņrādītājam
-130|Pagriezt par 90° pulksteņrādītāja virzienā
-131|Pagriešana un apvēršana
-132|Noapaļot
-133|Noapaļo atlasītos stūrus ar šo rādiusu
-134|Noapaļoti stūri: {}
-135|Saglabāt kopiju manā klipkopā
-136|Saglabāt manā klipkopā
-137|{} saglabāts kategorijā {}
-138|Meklēt
-139|Meklēšana neizdevās: {}
-140|Meklējiet atvērtās ikonu kolekcijās (Iconify). Attēli tiek saglabāti jūsu diskā jūsu izvēlētā kategorijā.
-141|Meklējiet vairāk attēlu internetā un saglabājiet tos šeit
-142|Meklē…
-143|Palīgrežģis
-144|Atlase (V)
-145|Vispirms atlasiet formu, pēc tam rediģējiet tās mezglus.
-146|Atlasīt visu
-147|Lai grupētu, atlasiet vismaz divus objektus.
-148|Pārvietot uz fonu
-149|Formas
-150|Rādīt
-151|Vienkāršot
-152|Izmērs
-153|Izmērs, novietojot
-154|Gluds
-155|Nogludināt līknes
-156|Piesaistīt režģim
-157|Pieķerties objektiem
-158|Avots
-159|Spirāle (I)
-160|Zvaigzne (S)
-161|Simboli
-162|Teksts (T)
-163|Rezultāts ir tukšs.
-164|Palīgrežģim jābūt smalkākam par galveno režģi.
-165|Telpa ap darba laukumu
-166|Nav taisnu stūru, ko noapaļot.
-167|Slieksnis
-168|Par līkni
-169|Par līniju
-170|Tonis
-171|Rīki
-172|Vektorizēt
-173|Attēla vektorizēšana
-174|Vektorizēt gaišos apgabalus
-175|Vektorizētas kontūras: {}
-176|Trijstūris (Y)
-177|Atsaukt
-178|Atgrupēt
-179|Atbloķēt
-180|Atbloķēti objekti: {}
-181|Atjauninājumi
-182|Versija {}
-183|Skata opcijas
-184|Platums
-185|Darba apgabals
-186|Darba telpas krāsa
-187|Jums ir jaunākā versija.
-188|Jums ir versija {}.
-189|Tuvināt
-190|Tuvināt (Z)
-191|Tālināt
-192|Tālināt (X)
-193|nāk komplektā ar programmu
-194|norādiet autoru
-195|piem., kaķis, zieds, zobrats
-196|autora norādīšana nav nepieciešama
-197|vai jauna kategorija
-198|jūsu
-199|Kontūras: {}
-200|Atrasti attēli: {}
-201|{} × {} px
+8|Centrēt
+9|Centrēt (H)
+10|Centrēt (V)
+11|Līdzināt pa kreisi
+12|Līdzināt pa vidu
+13|Līdzināt pa labi
+14|Līdzināt augšā
+15|Līdzināšana
+16|Visas kategorijas
+17|Leņķis
+18|Dzīvnieki
+19|Lietot
+20|Autors
+21|Automātiskie līmeņi
+22|Automātiski pielāgot darba apgabalu logam
+23|Automātiski
+24|Fona krāsa
+25|Apakša
+26|Spilgtums
+27|Pārvietot uz priekšplānu
+28|Atcelt
+29|Kategorija
+30|Svētki
+31|Centrēt
+32|Centrēt uz galda
+33|Centrēt vienu pret otru
+34|Mainīt kategoriju
+35|Mainīt kategoriju…
+36|Notīrīt sarakstu
+37|Noklikšķiniet uz attēla, lai redzētu tā licenci un saglabātu to.
+38|Noklikšķiniet, lai novietotu darba apgabalā
+39|Aizvērt
+40|Aizvērt atvērtu ceļu vai atvērt aizvērtu atlasītajā mezglā
+41|Kolekcija
+42|Krāsa
+43|Krāsu shēma
+44|Kontrasts
+45|Pārvērsiet tekstu līknēs vai vektorizējiet attēlu, lai rediģētu tā mezglus.
+46|Pārvērst par ceļu
+47|Kopēt
+48|Stūris
+49|Neizdevās pārbaudīt atjauninājumus.
+50|Dzēst
+51|Dzēst mezglu
+52|Pēc tam dzēst attēlu
+53|Dzēst…
+54|Informācija
+55|Informācija…
+56|Attālums starp līnijām
+57|Lejupielādēt
+58|Lejupielāde neizdevās: {}
+59|Lejupielādē…
+60|Dublēt
+61|Rediģēt mezglus
+62|Elipse (E)
+63|Gravēt gaišās daļas tumšo vietā
+64|Pielāgot visiem objektiem
+65|Pielāgot visiem objektiem (Ctrl+9)
+66|Pielāgot galdu logam
+67|Pielāgot darba apgabalam (Ctrl+0)
+68|Apvērst H
+69|Apvērst V
+70|Apvērst horizontāli
+71|Apvērst vertikāli
+72|Ēdiens
+73|Gamma
+74|Režģis
+75|Grupēt
+76|Sagrupēts. Objekti saglabā savus slāņus.
+77|Sirds (K)
+78|Ignorēt mazus apgabalus
+79|Importēt
+80|Importēšana neizdevās: {}
+81|Attēla imports
+82|Attēls {} importēts
+83|Iekļautie
+84|Ievietot mezglu (vai divreiz noklikšķināt uz posma)
+85|Valoda
+86|Pa kreisi
+87|Licence
+88|Līnija (L)
+89|Līniju biezums
+90|Bloķēt
+91|Bloķēt proporcijas
+92|Bloķēti objekti: {}
+93|Galvenais režģis
+94|Padarīt posmu aiz katra atlasītā mezgla izliektu
+95|Padarīt posmu aiz katra atlasītā mezgla taisnu
+96|Padarīt atlasītos mezglus par stūra mezgliem
+97|Padarīt atlasītos mezglus gludus
+98|Maksimizēt
+99|Vidus H
+100|Vidus V
+101|Mani
+102|Minimizēt
+103|Spogulis un centrēšana
+104|Mūzika un izklaide
+105|Mana klipkopa
+106|Nosaukums
+107|Daba
+108|Negatīvs attēls
+109|Jaunākais izlaidums: {}
+110|Šeit nav attēlu. Izmantojiet Tiešsaistē…, lai tos atrastu.
+111|Mezglu rediģēšana (N)
+112|Nekas netika atrasts.
+113|Labi
+114|Priekšmeti
+115|Klipkopa tiešsaistē
+116|Tiešsaistē…
+117|Saglabājiet tikai tos attēlus, ko drīkstat izmantot. Pārbaudiet avota licenci.
+118|Atvērt / aizvērt
+119|Atvērt nesenos
+120|Atvērt lejupielādes lapu
+121|Vai lejupielādējiet attēlu no adreses
+122|Skata pārvietošana (H)
+123|Ielīmēt
+124|Attēli, kas nāk komplektā ar programmu
+125|Attēli, ko lejupielādējāt vai pievienojāt
+126|Novietots: {}
+127|Daudzstūris (G)
+128|Lauzta līnija / pildspalva (P)
+129|Pozīcija un izmērs
+130|Projekta lapa GitHub
+131|Ātrais ceļvedis
+132|Iziet
+133|Noapaļošanas rādiuss
+134|Taisnstūris (R)
+135|Atkārtot
+136|Noņemt šo attēlu no jūsu klipkopas? Fails jūsu diskā tiek izdzēsts.
+137|Pārdēvēt
+138|Pārdēvēt…
+139|Atiestatīt
+140|Atiestatīt režģi
+141|Atjaunot
+142|Pa labi
+143|Pagriezt
+144|Pagriezt par 90° pretēji pulksteņrādītājam
+145|Pagriezt par 90° pulksteņrādītāja virzienā
+146|Pagriešana un apvēršana
+147|Pagriešana
+148|Noapaļot
+149|Noapaļo atlasītos stūrus ar šo rādiusu
+150|Noapaļoti stūri: {}
+151|Saglabāt kopiju manā klipkopā
+152|Saglabāt manā klipkopā
+153|{} saglabāts kategorijā {}
+154|Meklēt
+155|Meklēšana neizdevās: {}
+156|Meklējiet atvērtās ikonu kolekcijās (Iconify). Attēli tiek saglabāti jūsu diskā jūsu izvēlētā kategorijā.
+157|Meklējiet vairāk attēlu internetā un saglabājiet tos šeit
+158|Meklē…
+159|Palīgrežģis
+160|Atlase (V)
+161|Vispirms atlasiet formu, pēc tam rediģējiet tās mezglus.
+162|Atlasīt visu
+163|Lai grupētu, atlasiet vismaz divus objektus.
+164|Pārvietot uz fonu
+165|Formas
+166|Rādīt
+167|Rādīt vai slēpt režģi
+168|Rādīt vai slēpt palīgrežģi
+169|Vienkāršot
+170|Izmērs
+171|Izmērs, novietojot
+172|Gluds
+173|Nogludināt līknes
+174|Piesaistīt režģim
+175|Pieķerties objektiem
+176|Avots
+177|Spirāle (I)
+178|Zvaigzne (S)
+179|Simboli
+180|Teksts (T)
+181|Rezultāts ir tukšs.
+182|Palīgrežģim jābūt smalkākam par galveno režģi.
+183|Telpa ap darba laukumu
+184|Nav taisnu stūru, ko noapaļot.
+185|Slieksnis
+186|Par līkni
+187|Par līniju
+188|Tonis
+189|Rīki
+190|Augša
+191|Vektorizēt
+192|Attēla vektorizēšana
+193|Vektorizēt gaišos apgabalus
+194|Vektorizētas kontūras: {}
+195|Trijstūris (Y)
+196|Atsaukt
+197|Atgrupēt
+198|Atbloķēt
+199|Atbloķēti objekti: {}
+200|Atjauninājumi
+201|Versija {}
+202|Skata opcijas
+203|Platums
+204|Darba apgabals
+205|Darba telpas krāsa
+206|Jums ir jaunākā versija.
+207|Jums ir versija {}.
+208|Tuvināt
+209|Tuvināt (Z)
+210|Tālināt
+211|Tālināt (X)
+212|nāk komplektā ar programmu
+213|norādiet autoru
+214|piem., kaķis, zieds, zobrats
+215|autora norādīšana nav nepieciešama
+216|vai jauna kategorija
+217|jūsu
+218|Kontūras: {}
+219|Atrasti attēli: {}
+220|{} × {} px

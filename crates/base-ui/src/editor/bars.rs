@@ -129,3 +129,53 @@ pub fn arrange_bar<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) {
         a.run(h);
     }
 }
+
+/// The name of the current tool in a box of fixed width, so the control bar does not jump around when it changes.
+pub fn control_name<H: EditorHost>(h: &H, ui: &mut egui::Ui) {
+    let name = Tool::ALL.iter().find(|t| t.0 == h.ed().tool).map(|t| t.1).unwrap_or("");
+    ui.allocate_ui_with_layout(egui::vec2(96.0, 22.0), egui::Layout::left_to_right(egui::Align::Center), |ui| {
+        // The box keeps its width whatever the name is: it grows to the minimum and never past the maximum.
+        ui.set_min_size(egui::vec2(96.0, 22.0));
+        ui.set_max_width(96.0);
+        ui.add(egui::Label::new(egui::RichText::new(tr(name).split(" (").next().unwrap_or("")).strong()).truncate());
+    });
+    // Where the box ends, for the test that checks it does not move.
+    ui.ctx().data_mut(|d| d.insert_temp(egui::Id::new("tool_name_right"), ui.cursor().left()));
+}
+
+/// The four toggles of the control bar: the grid, the secondary grid, snapping to the grid and to objects.
+pub fn grid_toggles<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) {
+    use crate::widgets::toggle_icon;
+    let minor = h.ed().grid_prefs.minor_on;
+    if toggle_icon(ui, "grid-2x2", &tr("Show or hide the grid"), h.ed().show_grid) {
+        h.ed_mut().show_grid = !h.ed().show_grid;
+    }
+    if toggle_icon(ui, "grid-3x3", &tr("Show or hide the secondary grid"), minor) {
+        h.ed_mut().grid_prefs.minor_on = !minor;
+    }
+    if toggle_icon(ui, "magnet", &tr("Snap to grid"), h.ed().snap) {
+        h.ed_mut().snap = !h.ed().snap;
+    }
+    if toggle_icon(ui, "target", &tr("Snap to objects"), h.ed().snap_objects) {
+        h.ed_mut().snap_objects = !h.ed().snap_objects;
+    }
+}
+
+/// The size of the selection, dimmed, for the right end of the control bar (draws nothing without a selection).
+pub fn selection_size<H: EditorHost>(h: &H, ui: &mut egui::Ui) {
+    if let Some(b) = h.sel_bounds() {
+        let u = h.units();
+        ui.label(egui::RichText::new(format!("{} × {}", crate::units_ui::fmt_len(u, b.width(), 1), crate::units_ui::fmt_len(u, b.height(), 1))).color(theme::text_dim()));
+    }
+}
+
+/// The zoom and the pointer position for the right end of the status bar (call it in a right-to-left layout).
+pub fn zoom_and_cursor<H: EditorHost>(h: &H, ui: &mut egui::Ui) {
+    ui.label(format!("{}%", (h.ed().view.zoom / 2.0 * 100.0).round()));
+    if let Some(p) = h.ed().cursor_mm {
+        let u = h.units();
+        let (x, y) = (u.from_mm(p.x), u.from_mm(p.y));
+        let d = if u == base_core::units::Units::Mm { 2 } else { 3 };
+        ui.label(format!("X {:.*}  Y {:.*}{}", d, x, d, y, u.suffix()));
+    }
+}

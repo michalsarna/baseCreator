@@ -6,197 +6,216 @@
 5|{} afbeelding(en) toegevoegd aan {}
 6|Afbeelding aanpassen
 7|Onder uitlijnen
-8|Centreren (H)
-9|Centreren (V)
-10|Links uitlijnen
-11|Rechts uitlijnen
-12|Boven uitlijnen
-13|Alle categorieën
-14|Hoek
-15|Dieren
-16|Toepassen
-17|Auteur
-18|Automatische niveaus
-19|Werkgebied automatisch in het venster passen
-20|Automatisch
-21|Achtergrondkleur
-22|Helderheid
-23|Naar voren halen
-24|Annuleren
-25|Categorie
-26|Feesten
-27|Op de tafel centreren
-28|Op elkaar centreren
-29|Categorie wijzigen
-30|Categorie wijzigen…
-31|Lijst wissen
-32|Klik op een afbeelding om de licentie te zien en op te slaan.
-33|Klik om op het werkgebied te plaatsen
-34|Sluiten
-35|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
-36|Collectie
-37|Kleur
-38|Contrast
-39|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
-40|Omzetten naar pad
-41|Kopiëren
-42|Hoek
-43|Kon niet controleren op updates.
-44|Verwijderen
-45|Knooppunt verwijderen
-46|De afbeelding daarna verwijderen
-47|Verwijderen…
-48|Details
-49|Details…
-50|Afstand tussen lijnen
-51|Downloaden
-52|Downloaden mislukt: {}
-53|Downloaden…
-54|Dupliceren
-55|Knooppunten bewerken
-56|Ellips (E)
-57|De lichte delen graveren in plaats van de donkere
-58|Alle objecten passen
-59|Alle objecten passen (Ctrl+9)
-60|Tafel in venster passen
-61|Werkgebied passen (Ctrl+0)
-62|Spiegel H
-63|Spiegel V
-64|Horizontaal spiegelen
-65|Verticaal spiegelen
-66|Eten
-67|Gamma
-68|Raster
-69|Groeperen
-70|Gegroepeerd. De objecten behouden hun lagen.
-71|Hart (K)
-72|Kleine gebieden negeren
-73|Importeren
-74|Importeren mislukt: {}
-75|Afbeelding importeren
-76|Afbeelding {} geïmporteerd
-77|Meegeleverd
-78|Een knooppunt invoegen (of dubbelklik op een segment)
-79|Licentie
-80|Lijn (L)
-81|Lijndikte
-82|Vergrendelen
-83|{} object(en) vergrendeld.
-84|Hoofdraster
-85|Het segment na elk geselecteerd knooppunt gebogen maken
-86|Het segment na elk geselecteerd knooppunt recht maken
-87|Geselecteerde knooppunten hoeken maken
-88|Geselecteerde knooppunten glad maken
-89|Maximaliseren
-90|Mijn
-91|Minimaliseren
-92|Muziek en plezier
-93|Mijn clipart
-94|Naam
-95|Natuur
-96|Negatieve afbeelding
-97|Nieuwste release: {}
-98|Hier zijn geen afbeeldingen. Gebruik Online… om er te vinden.
-99|Knooppunten bewerken (N)
-100|Niets gevonden.
-101|OK
-102|Voorwerpen
-103|Online clipart
-104|Online…
-105|Sla alleen afbeeldingen op die u mag gebruiken. Controleer de licentie van de bron.
-106|Openen / sluiten
-107|Recent openen
-108|Downloadpagina openen
-109|Of download een afbeelding van een adres
-110|Weergave verschuiven (H)
-111|Plakken
-112|Afbeeldingen die bij het programma horen
-113|Afbeeldingen die u hebt gedownload of toegevoegd
-114|{} geplaatst
-115|Veelhoek (G)
-116|Polylijn / pen (P)
-117|Projectpagina op GitHub
-118|Snelgids
-119|Afsluiten
-120|Straal voor afronding
-121|Rechthoek (R)
-122|Opnieuw
-123|Deze afbeelding uit uw clipart verwijderen? Het bestand op uw schijf wordt verwijderd.
-124|Hernoemen
-125|Hernoemen…
-126|Terugzetten
-127|Raster terugzetten
-128|Herstellen
-129|90° linksom draaien
-130|90° rechtsom draaien
-131|Draaien en spiegelen
-132|Afronden
-133|De geselecteerde hoeken afronden met deze straal
-134|{} hoek(en) afgerond.
-135|Een kopie opslaan in mijn clipart
-136|Opslaan in mijn clipart
-137|{} opgeslagen in {}
-138|Zoeken
-139|Zoeken mislukt: {}
-140|Zoek in open pictogramcollecties (Iconify). Afbeeldingen worden op uw schijf opgeslagen, in een categorie naar keuze.
-141|Zoek op internet naar meer afbeeldingen en sla ze hier op
-142|Zoeken…
-143|Secundair raster
-144|Selecteren (V)
-145|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
-146|Alles selecteren
-147|Selecteer minstens twee objecten om te groeperen.
-148|Naar achteren sturen
-149|Vormen
-150|Tonen
-151|Vereenvoudigen
-152|Grootte
-153|Grootte bij plaatsen
-154|Glad
-155|Curven afvlakken
-156|Aan raster uitlijnen
-157|Uitlijnen op objecten
-158|Bron
-159|Spiraal (I)
-160|Ster (S)
-161|Symbolen
-162|Tekst (T)
-163|Het resultaat is leeg.
-164|Het secundaire raster moet fijner zijn dan het hoofdraster.
-165|De ruimte rond het werkgebied
-166|Er zijn geen rechte hoeken om af te ronden.
-167|Drempel
-168|Naar curve
-169|Naar lijn
-170|Toon
-171|Gereedschap
-172|Vectoriseren
-173|Afbeelding vectoriseren
-174|De lichte gebieden vectoriseren
-175|{} omtrekken gevectoriseerd
-176|Driehoek (Y)
-177|Ongedaan maken
-178|Groep opheffen
-179|Ontgrendelen
-180|{} object(en) ontgrendeld.
-181|Updates
-182|Versie {}
-183|Weergaveopties
-184|Breedte
-185|Werkgebied
-186|Kleur van de werkruimte
-187|U heeft de nieuwste versie.
-188|U heeft {}.
-189|Inzoomen
-190|Inzoomen (Z)
-191|Uitzoomen
-192|Uitzoomen (X)
-193|wordt met het programma meegeleverd
-194|vermeld de auteur
-195|bijv. kat, bloem, tandwiel
-196|geen naamsvermelding nodig
-197|of een nieuwe categorie
-198|van u
-199|{} omtrekken
-200|{} afbeeldingen gevonden
-201|{} × {} px
+8|Centreren
+9|Centreren (H)
+10|Centreren (V)
+11|Links uitlijnen
+12|In het midden uitlijnen
+13|Rechts uitlijnen
+14|Boven uitlijnen
+15|Uitlijning
+16|Alle categorieën
+17|Hoek
+18|Dieren
+19|Toepassen
+20|Auteur
+21|Automatische niveaus
+22|Werkgebied automatisch in het venster passen
+23|Automatisch
+24|Achtergrondkleur
+25|Onder
+26|Helderheid
+27|Naar voren halen
+28|Annuleren
+29|Categorie
+30|Feesten
+31|Centreren
+32|Op de tafel centreren
+33|Op elkaar centreren
+34|Categorie wijzigen
+35|Categorie wijzigen…
+36|Lijst wissen
+37|Klik op een afbeelding om de licentie te zien en op te slaan.
+38|Klik om op het werkgebied te plaatsen
+39|Sluiten
+40|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
+41|Collectie
+42|Kleur
+43|Kleurenschema
+44|Contrast
+45|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
+46|Omzetten naar pad
+47|Kopiëren
+48|Hoek
+49|Kon niet controleren op updates.
+50|Verwijderen
+51|Knooppunt verwijderen
+52|De afbeelding daarna verwijderen
+53|Verwijderen…
+54|Details
+55|Details…
+56|Afstand tussen lijnen
+57|Downloaden
+58|Downloaden mislukt: {}
+59|Downloaden…
+60|Dupliceren
+61|Knooppunten bewerken
+62|Ellips (E)
+63|De lichte delen graveren in plaats van de donkere
+64|Alle objecten passen
+65|Alle objecten passen (Ctrl+9)
+66|Tafel in venster passen
+67|Werkgebied passen (Ctrl+0)
+68|Spiegel H
+69|Spiegel V
+70|Horizontaal spiegelen
+71|Verticaal spiegelen
+72|Eten
+73|Gamma
+74|Raster
+75|Groeperen
+76|Gegroepeerd. De objecten behouden hun lagen.
+77|Hart (K)
+78|Kleine gebieden negeren
+79|Importeren
+80|Importeren mislukt: {}
+81|Afbeelding importeren
+82|Afbeelding {} geïmporteerd
+83|Meegeleverd
+84|Een knooppunt invoegen (of dubbelklik op een segment)
+85|Taal
+86|Links
+87|Licentie
+88|Lijn (L)
+89|Lijndikte
+90|Vergrendelen
+91|Beeldverhouding vergrendelen
+92|{} object(en) vergrendeld.
+93|Hoofdraster
+94|Het segment na elk geselecteerd knooppunt gebogen maken
+95|Het segment na elk geselecteerd knooppunt recht maken
+96|Geselecteerde knooppunten hoeken maken
+97|Geselecteerde knooppunten glad maken
+98|Maximaliseren
+99|Midden H
+100|Midden V
+101|Mijn
+102|Minimaliseren
+103|Spiegelen en centreren
+104|Muziek en plezier
+105|Mijn clipart
+106|Naam
+107|Natuur
+108|Negatieve afbeelding
+109|Nieuwste release: {}
+110|Hier zijn geen afbeeldingen. Gebruik Online… om er te vinden.
+111|Knooppunten bewerken (N)
+112|Niets gevonden.
+113|OK
+114|Voorwerpen
+115|Online clipart
+116|Online…
+117|Sla alleen afbeeldingen op die u mag gebruiken. Controleer de licentie van de bron.
+118|Openen / sluiten
+119|Recent openen
+120|Downloadpagina openen
+121|Of download een afbeelding van een adres
+122|Weergave verschuiven (H)
+123|Plakken
+124|Afbeeldingen die bij het programma horen
+125|Afbeeldingen die u hebt gedownload of toegevoegd
+126|{} geplaatst
+127|Veelhoek (G)
+128|Polylijn / pen (P)
+129|Positie en grootte
+130|Projectpagina op GitHub
+131|Snelgids
+132|Afsluiten
+133|Straal voor afronding
+134|Rechthoek (R)
+135|Opnieuw
+136|Deze afbeelding uit uw clipart verwijderen? Het bestand op uw schijf wordt verwijderd.
+137|Hernoemen
+138|Hernoemen…
+139|Terugzetten
+140|Raster terugzetten
+141|Herstellen
+142|Rechts
+143|Draaien
+144|90° linksom draaien
+145|90° rechtsom draaien
+146|Draaien en spiegelen
+147|Rotatie
+148|Afronden
+149|De geselecteerde hoeken afronden met deze straal
+150|{} hoek(en) afgerond.
+151|Een kopie opslaan in mijn clipart
+152|Opslaan in mijn clipart
+153|{} opgeslagen in {}
+154|Zoeken
+155|Zoeken mislukt: {}
+156|Zoek in open pictogramcollecties (Iconify). Afbeeldingen worden op uw schijf opgeslagen, in een categorie naar keuze.
+157|Zoek op internet naar meer afbeeldingen en sla ze hier op
+158|Zoeken…
+159|Secundair raster
+160|Selecteren (V)
+161|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
+162|Alles selecteren
+163|Selecteer minstens twee objecten om te groeperen.
+164|Naar achteren sturen
+165|Vormen
+166|Tonen
+167|Raster tonen of verbergen
+168|Secundair raster tonen of verbergen
+169|Vereenvoudigen
+170|Grootte
+171|Grootte bij plaatsen
+172|Glad
+173|Curven afvlakken
+174|Aan raster uitlijnen
+175|Uitlijnen op objecten
+176|Bron
+177|Spiraal (I)
+178|Ster (S)
+179|Symbolen
+180|Tekst (T)
+181|Het resultaat is leeg.
+182|Het secundaire raster moet fijner zijn dan het hoofdraster.
+183|De ruimte rond het werkgebied
+184|Er zijn geen rechte hoeken om af te ronden.
+185|Drempel
+186|Naar curve
+187|Naar lijn
+188|Toon
+189|Gereedschap
+190|Boven
+191|Vectoriseren
+192|Afbeelding vectoriseren
+193|De lichte gebieden vectoriseren
+194|{} omtrekken gevectoriseerd
+195|Driehoek (Y)
+196|Ongedaan maken
+197|Groep opheffen
+198|Ontgrendelen
+199|{} object(en) ontgrendeld.
+200|Updates
+201|Versie {}
+202|Weergaveopties
+203|Breedte
+204|Werkgebied
+205|Kleur van de werkruimte
+206|U heeft de nieuwste versie.
+207|U heeft {}.
+208|Inzoomen
+209|Inzoomen (Z)
+210|Uitzoomen
+211|Uitzoomen (X)
+212|wordt met het programma meegeleverd
+213|vermeld de auteur
+214|bijv. kat, bloem, tandwiel
+215|geen naamsvermelding nodig
+216|of een nieuwe categorie
+217|van u
+218|{} omtrekken
+219|{} afbeeldingen gevonden
+220|{} × {} px

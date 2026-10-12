@@ -6,7 +6,7 @@ baseCreator is a library used by LightCreator and MillCreator. Only the newest t
 
 | Version | Supported |
 |---------|-----------|
-| v0.3.0 (latest) | yes |
+| v0.4.0 (latest) | yes |
 | older | no, please update |
 
 ## Reporting a vulnerability

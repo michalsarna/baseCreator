@@ -6,13 +6,16 @@ mod commands;
 mod host;
 mod image_ui;
 mod prefs;
+mod props;
 
 pub use bars::{arrange_bar, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use host::EditorHost;
 pub use image_ui::{EditorImages, ImgDlg, TraceDlg};
+pub use bars::{control_name, grid_toggles, selection_size, zoom_and_cursor};
 pub use prefs::view_options_window;
+pub use props::properties_sections;
 
 use base_core::bezier::Node;
 use base_core::geom::{Pt, Rect, Xf};
@@ -184,6 +187,10 @@ pub struct EditorState {
     pub pen_pts: Vec<Pt>,
     /// The selection handles turn and slant (true) instead of resizing (false); a click on a handle swaps them.
     pub rotate_mode: bool,
+    /// The Properties tab keeps the proportions when the width or the height is typed.
+    pub lock_aspect: bool,
+    /// The angle typed in the Properties tab.
+    pub rot_input: f64,
     pub snap: bool,
     /// Snap a moved selection to the edges and centres of the other objects (guides are drawn while it holds).
     pub snap_objects: bool,
@@ -233,6 +240,8 @@ impl EditorState {
             drag: None,
             pen_pts: vec![],
             rotate_mode: false,
+            lock_aspect: true,
+            rot_input: 15.0,
             snap: false,
             snap_objects: false,
             snap_targets: None,

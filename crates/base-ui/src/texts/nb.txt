@@ -6,197 +6,216 @@
 5|{} bilde(r) lagt til i {}
 6|Juster bilde
 7|Juster nederst
-8|Sentrer (H)
-9|Sentrer (V)
-10|Juster til venstre
-11|Juster til høyre
-12|Juster øverst
-13|Alle kategorier
-14|Vinkel
-15|Dyr
-16|Bruk
-17|Forfatter
-18|Automatiske nivåer
-19|Tilpass arbeidsområdet automatisk til vinduet
-20|Automatisk
-21|Bakgrunnsfarge
-22|Lysstyrke
-23|Flytt fremst
-24|Avbryt
-25|Kategori
-26|Høytider
-27|Sentrer på bordet
-28|Sentrer på hverandre
-29|Bytt kategori
-30|Bytt kategori…
-31|Tøm listen
-32|Klikk på et bilde for å se lisensen og lagre det.
-33|Klikk for å plassere på arbeidsområdet
-34|Lukk
-35|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
-36|Samling
-37|Farge
-38|Kontrast
-39|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
-40|Konverter til bane
-41|Kopier
-42|Hjørne
-43|Kunne ikke se etter oppdateringer.
-44|Slett
-45|Slett node
-46|Slett bildet etterpå
-47|Slett…
-48|Detaljer
-49|Detaljer…
-50|Avstand mellom linjer
-51|Last ned
-52|Nedlastingen mislyktes: {}
-53|Laster ned…
-54|Dupliser
-55|Rediger noder
-56|Ellipse (E)
-57|Graver de lyse delene i stedet for de mørke
-58|Tilpass til alle objekter
-59|Tilpass til alle objekter (Ctrl+9)
-60|Tilpass bordet til vinduet
-61|Tilpass til arbeidsområdet (Ctrl+0)
-62|Speil H
-63|Speil V
-64|Speilvend horisontalt
-65|Speilvend vertikalt
-66|Mat
-67|Gamma
-68|Rutenett
-69|Grupper
-70|Gruppert. Objektene beholder lagene sine.
-71|Hjerte (K)
-72|Ignorer små områder
-73|Importer
-74|Importen mislyktes: {}
-75|Importer bilde
-76|Bildet {} importert
-77|Medfølgende
-78|Sett inn en node (eller dobbeltklikk på et segment)
-79|Lisens
-80|Linje (L)
-81|Linjetykkelse
-82|Lås
-83|{} objekt(er) låst.
-84|Hovedrutenett
-85|Gjør segmentet etter hver merkede node buet
-86|Gjør segmentet etter hver merkede node rett
-87|Gjør de merkede nodene til hjørner
-88|Gjør de merkede nodene glatte
-89|Maksimer
-90|Mine
-91|Minimer
-92|Musikk og moro
-93|Min clipart
-94|Navn
-95|Natur
-96|Negativt bilde
-97|Siste utgivelse: {}
-98|Ingen bilder her. Bruk Online… for å finne noen.
-99|Rediger noder (N)
-100|Fant ingenting.
-101|OK
-102|Gjenstander
-103|Clipart online
-104|Online…
-105|Lagre bare bilder du har lov til å bruke. Sjekk kildens lisens.
-106|Åpne / lukk
-107|Åpne nylige
-108|Åpne nedlastingssiden
-109|Eller last ned et bilde fra en adresse
-110|Panorer (H)
-111|Lim inn
-112|Bilder som følger med programmet
-113|Bilder du har lastet ned eller lagt til
-114|{} plassert
-115|Mangekant (G)
-116|Polylinje / penn (P)
-117|Prosjektsiden på GitHub
-118|Hurtigguide
-119|Avslutt
-120|Radius for avrunding
-121|Rektangel (R)
-122|Gjør om
-123|Fjerne dette bildet fra clipartene dine? Filen på disken din slettes.
-124|Gi nytt navn
-125|Gi nytt navn…
-126|Tilbakestill
-127|Tilbakestill rutenett
-128|Gjenopprett
-129|Roter 90° mot klokken
-130|Roter 90° med klokken
-131|Roter og speil
-132|Avrund
-133|Avrund de merkede hjørnene med denne radiusen
-134|{} hjørne(r) avrundet.
-135|Lagre en kopi i min clipart
-136|Lagre i min clipart
-137|{} lagret i {}
-138|Søk
-139|Søket mislyktes: {}
-140|Søk i åpne ikonsamlinger (Iconify). Bilder lagres på disken din, i en kategori du velger.
-141|Søk etter flere bilder på internett og lagre dem her
-142|Søker…
-143|Sekundært rutenett
-144|Merk (V)
-145|Merk først en form, og rediger deretter nodene.
-146|Merk alt
-147|Merk minst to objekter for å gruppere.
-148|Flytt bakerst
-149|Former
-150|Vis
-151|Forenkle
-152|Størrelse
-153|Størrelse ved plassering
-154|Glatt
-155|Jevn ut kurver
-156|Fest til rutenett
-157|Fest til objekter
-158|Kilde
-159|Spiral (I)
-160|Stjerne (S)
-161|Symboler
-162|Tekst (T)
-163|Resultatet er tomt.
-164|Det sekundære rutenettet må være finere enn hovedrutenettet.
-165|Rommet rundt arbeidsområdet
-166|Det finnes ingen rette hjørner å avrunde.
-167|Terskel
-168|Til kurve
-169|Til linje
-170|Tone
-171|Verktøy
-172|Vektoriser
-173|Vektoriser bilde
-174|Vektoriser de lyse områdene
-175|{} omriss vektorisert
-176|Trekant (Y)
-177|Angre
-178|Del opp gruppe
-179|Lås opp
-180|{} objekt(er) låst opp.
-181|Oppdateringer
-182|Versjon {}
-183|Visningsvalg
-184|Bredde
-185|Arbeidsområde
-186|Farge på arbeidsrommet
-187|Du har den nyeste versjonen.
-188|Du har {}.
-189|Zoom inn
-190|Zoom inn (Z)
-191|Zoom ut
-192|Zoom ut (X)
-193|følger med programmet
-194|krediter forfatteren
-195|f.eks. katt, blomst, tannhjul
-196|ingen kreditering nødvendig
-197|eller en ny kategori
-198|dine
-199|{} omriss
-200|{} bilder funnet
-201|{} × {} px
+8|Sentrer
+9|Sentrer (H)
+10|Sentrer (V)
+11|Juster til venstre
+12|Juster i midten
+13|Juster til høyre
+14|Juster øverst
+15|Justering
+16|Alle kategorier
+17|Vinkel
+18|Dyr
+19|Bruk
+20|Forfatter
+21|Automatiske nivåer
+22|Tilpass arbeidsområdet automatisk til vinduet
+23|Automatisk
+24|Bakgrunnsfarge
+25|Bunn
+26|Lysstyrke
+27|Flytt fremst
+28|Avbryt
+29|Kategori
+30|Høytider
+31|Sentrer
+32|Sentrer på bordet
+33|Sentrer på hverandre
+34|Bytt kategori
+35|Bytt kategori…
+36|Tøm listen
+37|Klikk på et bilde for å se lisensen og lagre det.
+38|Klikk for å plassere på arbeidsområdet
+39|Lukk
+40|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
+41|Samling
+42|Farge
+43|Fargetema
+44|Kontrast
+45|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
+46|Konverter til bane
+47|Kopier
+48|Hjørne
+49|Kunne ikke se etter oppdateringer.
+50|Slett
+51|Slett node
+52|Slett bildet etterpå
+53|Slett…
+54|Detaljer
+55|Detaljer…
+56|Avstand mellom linjer
+57|Last ned
+58|Nedlastingen mislyktes: {}
+59|Laster ned…
+60|Dupliser
+61|Rediger noder
+62|Ellipse (E)
+63|Graver de lyse delene i stedet for de mørke
+64|Tilpass til alle objekter
+65|Tilpass til alle objekter (Ctrl+9)
+66|Tilpass bordet til vinduet
+67|Tilpass til arbeidsområdet (Ctrl+0)
+68|Speil H
+69|Speil V
+70|Speilvend horisontalt
+71|Speilvend vertikalt
+72|Mat
+73|Gamma
+74|Rutenett
+75|Grupper
+76|Gruppert. Objektene beholder lagene sine.
+77|Hjerte (K)
+78|Ignorer små områder
+79|Importer
+80|Importen mislyktes: {}
+81|Importer bilde
+82|Bildet {} importert
+83|Medfølgende
+84|Sett inn en node (eller dobbeltklikk på et segment)
+85|Språk
+86|Venstre
+87|Lisens
+88|Linje (L)
+89|Linjetykkelse
+90|Lås
+91|Lås proporsjoner
+92|{} objekt(er) låst.
+93|Hovedrutenett
+94|Gjør segmentet etter hver merkede node buet
+95|Gjør segmentet etter hver merkede node rett
+96|Gjør de merkede nodene til hjørner
+97|Gjør de merkede nodene glatte
+98|Maksimer
+99|Midt H
+100|Midt V
+101|Mine
+102|Minimer
+103|Speiling og sentrering
+104|Musikk og moro
+105|Min clipart
+106|Navn
+107|Natur
+108|Negativt bilde
+109|Siste utgivelse: {}
+110|Ingen bilder her. Bruk Online… for å finne noen.
+111|Rediger noder (N)
+112|Fant ingenting.
+113|OK
+114|Gjenstander
+115|Clipart online
+116|Online…
+117|Lagre bare bilder du har lov til å bruke. Sjekk kildens lisens.
+118|Åpne / lukk
+119|Åpne nylige
+120|Åpne nedlastingssiden
+121|Eller last ned et bilde fra en adresse
+122|Panorer (H)
+123|Lim inn
+124|Bilder som følger med programmet
+125|Bilder du har lastet ned eller lagt til
+126|{} plassert
+127|Mangekant (G)
+128|Polylinje / penn (P)
+129|Posisjon og størrelse
+130|Prosjektsiden på GitHub
+131|Hurtigguide
+132|Avslutt
+133|Radius for avrunding
+134|Rektangel (R)
+135|Gjør om
+136|Fjerne dette bildet fra clipartene dine? Filen på disken din slettes.
+137|Gi nytt navn
+138|Gi nytt navn…
+139|Tilbakestill
+140|Tilbakestill rutenett
+141|Gjenopprett
+142|Høyre
+143|Roter
+144|Roter 90° mot klokken
+145|Roter 90° med klokken
+146|Roter og speil
+147|Rotasjon
+148|Avrund
+149|Avrund de merkede hjørnene med denne radiusen
+150|{} hjørne(r) avrundet.
+151|Lagre en kopi i min clipart
+152|Lagre i min clipart
+153|{} lagret i {}
+154|Søk
+155|Søket mislyktes: {}
+156|Søk i åpne ikonsamlinger (Iconify). Bilder lagres på disken din, i en kategori du velger.
+157|Søk etter flere bilder på internett og lagre dem her
+158|Søker…
+159|Sekundært rutenett
+160|Merk (V)
+161|Merk først en form, og rediger deretter nodene.
+162|Merk alt
+163|Merk minst to objekter for å gruppere.
+164|Flytt bakerst
+165|Former
+166|Vis
+167|Vis eller skjul rutenettet
+168|Vis eller skjul det sekundære rutenettet
+169|Forenkle
+170|Størrelse
+171|Størrelse ved plassering
+172|Glatt
+173|Jevn ut kurver
+174|Fest til rutenett
+175|Fest til objekter
+176|Kilde
+177|Spiral (I)
+178|Stjerne (S)
+179|Symboler
+180|Tekst (T)
+181|Resultatet er tomt.
+182|Det sekundære rutenettet må være finere enn hovedrutenettet.
+183|Rommet rundt arbeidsområdet
+184|Det finnes ingen rette hjørner å avrunde.
+185|Terskel
+186|Til kurve
+187|Til linje
+188|Tone
+189|Verktøy
+190|Topp
+191|Vektoriser
+192|Vektoriser bilde
+193|Vektoriser de lyse områdene
+194|{} omriss vektorisert
+195|Trekant (Y)
+196|Angre
+197|Del opp gruppe
+198|Lås opp
+199|{} objekt(er) låst opp.
+200|Oppdateringer
+201|Versjon {}
+202|Visningsvalg
+203|Bredde
+204|Arbeidsområde
+205|Farge på arbeidsrommet
+206|Du har den nyeste versjonen.
+207|Du har {}.
+208|Zoom inn
+209|Zoom inn (Z)
+210|Zoom ut
+211|Zoom ut (X)
+212|følger med programmet
+213|krediter forfatteren
+214|f.eks. katt, blomst, tannhjul
+215|ingen kreditering nødvendig
+216|eller en ny kategori
+217|dine
+218|{} omriss
+219|{} bilder funnet
+220|{} × {} px

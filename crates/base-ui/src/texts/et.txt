@@ -6,197 +6,216 @@
 5|Lisatud pilte: {} kategooriasse {}
 6|Pildi kohandamine
 7|Joonda alla
-8|Keskele (H)
-9|Keskele (V)
-10|Joonda vasakule
-11|Joonda paremale
-12|Joonda üles
-13|Kõik kategooriad
-14|Nurk
-15|Loomad
-16|Rakenda
-17|Autor
-18|Automaatsed tasemed
-19|Sobita tööala automaatselt aknaga
-20|Automaatne
-21|Taustavärv
-22|Eredus
-23|Too ette
-24|Tühista
-25|Kategooria
-26|Pühad
-27|Tsentreeri lauale
-28|Tsentreeri üksteise suhtes
-29|Muuda kategooriat
-30|Muuda kategooriat…
-31|Tühjenda loend
-32|Klõpsake pildil, et näha selle litsentsi ja see salvestada.
-33|Klõpsake, et paigutada tööalale
-34|Sulge
-35|Sulge avatud tee või ava suletud tee valitud sõlmes
-36|Kollektsioon
-37|Värv
-38|Kontrast
-39|Teisendage tekst kõverateks või vektoriseerige pilt, et selle sõlmi redigeerida.
-40|Teisenda teeks
-41|Kopeeri
-42|Nurk
-43|Uuenduste kontrollimine ebaõnnestus.
-44|Kustuta
-45|Kustuta sõlm
-46|Kustuta pilt pärast
-47|Kustuta…
-48|Üksikasjad
-49|Üksikasjad…
-50|Joonte vahe
-51|Laadi alla
-52|Allalaadimine ebaõnnestus: {}
-53|Laadin alla…
-54|Dubleeri
-55|Redigeeri sõlmi
-56|Ellips (E)
-57|Graveeri heledad osad tumedate asemel
-58|Sobita kõigi objektidega
-59|Sobita kõigi objektidega (Ctrl+9)
-60|Sobita laud aknaga
-61|Sobita tööalaga (Ctrl+0)
-62|Pööra H
-63|Pööra V
-64|Pööra horisontaalselt
-65|Pööra vertikaalselt
-66|Toit
-67|Gamma
-68|Ruudustik
-69|Grupeeri
-70|Grupeeritud. Objektid säilitavad oma kihid.
-71|Süda (K)
-72|Ignoreeri väikesi alasid
-73|Import
-74|Importimine ebaõnnestus: {}
-75|Pildi import
-76|Pilt {} imporditud
-77|Kaasasolevad
-78|Lisa sõlm (või tehke lõigul topeltklõps)
-79|Litsents
-80|Joon (L)
-81|Joonte paksus
-82|Lukusta
-83|Lukustatud objekte: {}
-84|Pearuudustik
-85|Tee iga valitud sõlme järgne lõik kõveraks
-86|Tee iga valitud sõlme järgne lõik sirgeks
-87|Tee valitud sõlmed nurkadeks
-88|Tee valitud sõlmed siledaks
-89|Maksimeeri
-90|Minu omad
-91|Minimeeri
-92|Muusika ja lõbu
-93|Minu klipid
-94|Nimi
-95|Loodus
-96|Negatiivpilt
-97|Uusim väljalase: {}
-98|Siin pole pilte. Leidmiseks kasutage Veebis….
-99|Sõlmede redigeerimine (N)
-100|Midagi ei leitud.
-101|OK
-102|Esemed
-103|Veebiklipid
-104|Veebis…
-105|Salvestage ainult pilte, mida tohite kasutada. Kontrollige allika litsentsi.
-106|Ava / sulge
-107|Ava hiljutised
-108|Ava allalaadimisleht
-109|Või laadige pilt alla aadressilt
-110|Vaate nihutamine (H)
-111|Kleebi
-112|Pildid, mis tulevad programmiga kaasa
-113|Pildid, mille olete alla laadinud või lisanud
-114|Paigutatud: {}
-115|Hulknurk (G)
-116|Murdjoon / pliiats (P)
-117|Projekti leht GitHubis
-118|Kiirjuhend
-119|Välju
-120|Ümardamise raadius
-121|Ristkülik (R)
-122|Tee uuesti
-123|Kas eemaldada see pilt teie klippidest? Fail teie kettalt kustutatakse.
-124|Nimeta ümber
-125|Nimeta ümber…
-126|Lähtesta
-127|Lähtesta ruudustik
-128|Taasta
-129|Pööra 90° vastupäeva
-130|Pööra 90° päripäeva
-131|Pööramine ja peegeldamine
-132|Ümarda
-133|Ümardab valitud nurgad selle raadiusega
-134|Ümardatud nurki: {}
-135|Salvesta koopia minu klippidesse
-136|Salvesta minu klippidesse
-137|{} salvestatud kategooriasse {}
-138|Otsi
-139|Otsing ebaõnnestus: {}
-140|Otsige avatud ikoonikogudest (Iconify). Pildid salvestatakse teie kettale teie valitud kategooriasse.
-141|Otsige internetist rohkem pilte ja salvestage need siia
-142|Otsin…
-143|Abiruudustik
-144|Valik (V)
-145|Valige esmalt kuju, seejärel redigeerige selle sõlmi.
-146|Vali kõik
-147|Grupeerimiseks valige vähemalt kaks objekti.
-148|Saada taha
-149|Kujundid
-150|Näita
-151|Lihtsusta
-152|Suurus
-153|Suurus paigutamisel
-154|Sile
-155|Silu kõverad
-156|Joondu ruudustikuga
-157|Joonda objektidele
-158|Allikas
-159|Spiraal (I)
-160|Täht (S)
-161|Sümbolid
-162|Tekst (T)
-163|Tulemus on tühi.
-164|Abiruudustik peab olema peenem kui pearuudustik.
-165|Tööala ümbritsev ruum
-166|Ümardamiseks pole sirgeid nurki.
-167|Lävi
-168|Kõveraks
-169|Jooneks
-170|Toon
-171|Tööriistad
-172|Vektoriseeri
-173|Pildi vektoriseerimine
-174|Vektoriseeri heledad alad
-175|Vektoriseeritud piirjooni: {}
-176|Kolmnurk (Y)
-177|Võta tagasi
-178|Tühista grupeerimine
-179|Ava lukustus
-180|Lukust lahti tehtud objekte: {}
-181|Uuendused
-182|Versioon {}
-183|Vaate valikud
-184|Laius
-185|Tööala
-186|Tööruumi värv
-187|Teil on uusim versioon.
-188|Teil on versioon {}.
-189|Suurenda
-190|Suurenda (Z)
-191|Vähenda
-192|Vähenda (X)
-193|tuleb programmiga kaasa
-194|viidake autorile
-195|nt kass, lill, hammasratas
-196|autori viitamine pole vajalik
-197|või uus kategooria
-198|teie oma
-199|Piirjooni: {}
-200|Leitud pilte: {}
-201|{} × {} px
+8|Keskele
+9|Keskele (H)
+10|Keskele (V)
+11|Joonda vasakule
+12|Joonda keskele
+13|Joonda paremale
+14|Joonda üles
+15|Joondus
+16|Kõik kategooriad
+17|Nurk
+18|Loomad
+19|Rakenda
+20|Autor
+21|Automaatsed tasemed
+22|Sobita tööala automaatselt aknaga
+23|Automaatne
+24|Taustavärv
+25|All
+26|Eredus
+27|Too ette
+28|Tühista
+29|Kategooria
+30|Pühad
+31|Keskele
+32|Tsentreeri lauale
+33|Tsentreeri üksteise suhtes
+34|Muuda kategooriat
+35|Muuda kategooriat…
+36|Tühjenda loend
+37|Klõpsake pildil, et näha selle litsentsi ja see salvestada.
+38|Klõpsake, et paigutada tööalale
+39|Sulge
+40|Sulge avatud tee või ava suletud tee valitud sõlmes
+41|Kollektsioon
+42|Värv
+43|Värviskeem
+44|Kontrast
+45|Teisendage tekst kõverateks või vektoriseerige pilt, et selle sõlmi redigeerida.
+46|Teisenda teeks
+47|Kopeeri
+48|Nurk
+49|Uuenduste kontrollimine ebaõnnestus.
+50|Kustuta
+51|Kustuta sõlm
+52|Kustuta pilt pärast
+53|Kustuta…
+54|Üksikasjad
+55|Üksikasjad…
+56|Joonte vahe
+57|Laadi alla
+58|Allalaadimine ebaõnnestus: {}
+59|Laadin alla…
+60|Dubleeri
+61|Redigeeri sõlmi
+62|Ellips (E)
+63|Graveeri heledad osad tumedate asemel
+64|Sobita kõigi objektidega
+65|Sobita kõigi objektidega (Ctrl+9)
+66|Sobita laud aknaga
+67|Sobita tööalaga (Ctrl+0)
+68|Pööra H
+69|Pööra V
+70|Pööra horisontaalselt
+71|Pööra vertikaalselt
+72|Toit
+73|Gamma
+74|Ruudustik
+75|Grupeeri
+76|Grupeeritud. Objektid säilitavad oma kihid.
+77|Süda (K)
+78|Ignoreeri väikesi alasid
+79|Import
+80|Importimine ebaõnnestus: {}
+81|Pildi import
+82|Pilt {} imporditud
+83|Kaasasolevad
+84|Lisa sõlm (või tehke lõigul topeltklõps)
+85|Keel
+86|Vasak
+87|Litsents
+88|Joon (L)
+89|Joonte paksus
+90|Lukusta
+91|Lukusta mõõtkava
+92|Lukustatud objekte: {}
+93|Pearuudustik
+94|Tee iga valitud sõlme järgne lõik kõveraks
+95|Tee iga valitud sõlme järgne lõik sirgeks
+96|Tee valitud sõlmed nurkadeks
+97|Tee valitud sõlmed siledaks
+98|Maksimeeri
+99|Kesk H
+100|Kesk V
+101|Minu omad
+102|Minimeeri
+103|Peegeldus ja keskele seadmine
+104|Muusika ja lõbu
+105|Minu klipid
+106|Nimi
+107|Loodus
+108|Negatiivpilt
+109|Uusim väljalase: {}
+110|Siin pole pilte. Leidmiseks kasutage Veebis….
+111|Sõlmede redigeerimine (N)
+112|Midagi ei leitud.
+113|OK
+114|Esemed
+115|Veebiklipid
+116|Veebis…
+117|Salvestage ainult pilte, mida tohite kasutada. Kontrollige allika litsentsi.
+118|Ava / sulge
+119|Ava hiljutised
+120|Ava allalaadimisleht
+121|Või laadige pilt alla aadressilt
+122|Vaate nihutamine (H)
+123|Kleebi
+124|Pildid, mis tulevad programmiga kaasa
+125|Pildid, mille olete alla laadinud või lisanud
+126|Paigutatud: {}
+127|Hulknurk (G)
+128|Murdjoon / pliiats (P)
+129|Asukoht ja suurus
+130|Projekti leht GitHubis
+131|Kiirjuhend
+132|Välju
+133|Ümardamise raadius
+134|Ristkülik (R)
+135|Tee uuesti
+136|Kas eemaldada see pilt teie klippidest? Fail teie kettalt kustutatakse.
+137|Nimeta ümber
+138|Nimeta ümber…
+139|Lähtesta
+140|Lähtesta ruudustik
+141|Taasta
+142|Parem
+143|Pööra
+144|Pööra 90° vastupäeva
+145|Pööra 90° päripäeva
+146|Pööramine ja peegeldamine
+147|Pööramine
+148|Ümarda
+149|Ümardab valitud nurgad selle raadiusega
+150|Ümardatud nurki: {}
+151|Salvesta koopia minu klippidesse
+152|Salvesta minu klippidesse
+153|{} salvestatud kategooriasse {}
+154|Otsi
+155|Otsing ebaõnnestus: {}
+156|Otsige avatud ikoonikogudest (Iconify). Pildid salvestatakse teie kettale teie valitud kategooriasse.
+157|Otsige internetist rohkem pilte ja salvestage need siia
+158|Otsin…
+159|Abiruudustik
+160|Valik (V)
+161|Valige esmalt kuju, seejärel redigeerige selle sõlmi.
+162|Vali kõik
+163|Grupeerimiseks valige vähemalt kaks objekti.
+164|Saada taha
+165|Kujundid
+166|Näita
+167|Näita või peida ruudustik
+168|Näita või peida abiruudustik
+169|Lihtsusta
+170|Suurus
+171|Suurus paigutamisel
+172|Sile
+173|Silu kõverad
+174|Joondu ruudustikuga
+175|Joonda objektidele
+176|Allikas
+177|Spiraal (I)
+178|Täht (S)
+179|Sümbolid
+180|Tekst (T)
+181|Tulemus on tühi.
+182|Abiruudustik peab olema peenem kui pearuudustik.
+183|Tööala ümbritsev ruum
+184|Ümardamiseks pole sirgeid nurki.
+185|Lävi
+186|Kõveraks
+187|Jooneks
+188|Toon
+189|Tööriistad
+190|Ülal
+191|Vektoriseeri
+192|Pildi vektoriseerimine
+193|Vektoriseeri heledad alad
+194|Vektoriseeritud piirjooni: {}
+195|Kolmnurk (Y)
+196|Võta tagasi
+197|Tühista grupeerimine
+198|Ava lukustus
+199|Lukust lahti tehtud objekte: {}
+200|Uuendused
+201|Versioon {}
+202|Vaate valikud
+203|Laius
+204|Tööala
+205|Tööruumi värv
+206|Teil on uusim versioon.
+207|Teil on versioon {}.
+208|Suurenda
+209|Suurenda (Z)
+210|Vähenda
+211|Vähenda (X)
+212|tuleb programmiga kaasa
+213|viidake autorile
+214|nt kass, lill, hammasratas
+215|autori viitamine pole vajalik
+216|või uus kategooria
+217|teie oma
+218|Piirjooni: {}
+219|Leitud pilte: {}
+220|{} × {} px

@@ -208,3 +208,23 @@ fn the_gallery_panel_draws() {
     });
     out.textures_delta.clear();
 }
+
+#[test]
+fn the_shared_bars_and_the_properties_sections_draw() {
+    let (mut h, a, _) = host_with_two_rects();
+    let ctx = egui::Context::default();
+    let mut shown = vec![];
+    for sel in [vec![], vec![a]] {
+        h.ed.sel = sel;
+        let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+            control_name(&h, ui);
+            grid_toggles(&mut h, ui);
+            selection_size(&h, ui);
+            zoom_and_cursor(&h, ui);
+            shown.push(properties_sections(&mut h, ui));
+        });
+        out.textures_delta.clear();
+    }
+    // A frame may run in more than one pass: the first is without a selection, the last with one.
+    assert!(!shown[0] && *shown.last().unwrap(), "the sections need a selection: {shown:?}");
+}
