@@ -1,13 +1,16 @@
 //! The parts of an editor that do not depend on the application: tools, the view, drags in progress, node addresses,
 //! grid preferences and the geometry of fitting the work area into a window.
 mod canvas;
+mod commands;
 mod host;
 
 pub use canvas::{CanvasView, EditorCanvas};
+pub use commands::EditorCommands;
 pub use host::EditorHost;
 
 use base_core::bezier::Node;
 use base_core::geom::{Pt, Rect, Xf};
+use base_core::scene::Shape;
 use egui::Key;
 use serde::{Deserialize, Serialize};
 
@@ -189,6 +192,8 @@ pub struct EditorState {
     pub image_tex: std::collections::HashMap<(u64, bool), egui::TextureHandle>,
     /// The tool to return to when Space (temporary pan) is released.
     pub space_prev: Option<Tool>,
+    /// What was copied (shapes with their groups), ready to paste.
+    pub clipboard: Vec<Shape>,
 }
 
 impl EditorState {
@@ -222,6 +227,7 @@ impl EditorState {
             canvas_origin: egui::Pos2::ZERO,
             image_tex: Default::default(),
             space_prev: None,
+            clipboard: vec![],
         }
     }
 }
