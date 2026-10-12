@@ -137,3 +137,87 @@ impl Default for GridPrefs {
         GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, line_width: 1.0 }
     }
 }
+
+/// The state of an editor: what is selected, the tool, the view, the grid and snapping, and the shape being drawn.
+/// An application keeps one and gives access to it through `EditorHost`.
+pub struct EditorState {
+    pub sel: Vec<u64>,
+    pub node_sel: Vec<NodeRef>,
+    pub active_seg: Option<NodeRef>,
+    pub tool: Tool,
+    /// The layer (or similar group) that new shapes go to.
+    pub active_layer: usize,
+    pub view: View,
+    pub drag: Option<Drag>,
+    pub pen_pts: Vec<Pt>,
+    /// The selection handles turn and slant (true) instead of resizing (false); a click on a handle swaps them.
+    pub rotate_mode: bool,
+    pub snap: bool,
+    /// Snap a moved selection to the edges and centres of the other objects (guides are drawn while it holds).
+    pub snap_objects: bool,
+    /// Boxes of the objects a drag can snap to (taken when the drag starts) and the guide lines now shown.
+    pub snap_targets: Option<Vec<Rect>>,
+    pub snap_guides: (Option<f64>, Option<f64>),
+    pub grid: f64,
+    pub show_grid: bool,
+    pub grid_prefs: GridPrefs,
+    pub polygon_sides: u32,
+    pub spiral_turns: u32,
+    /// The small window with the number of sides (polygon) or turns (spiral).
+    pub show_shape_popup: bool,
+    /// The last polygon or spiral drawn: tool, shape id and the box it was drawn in. The popup edits it.
+    pub last_param: Option<(Tool, u64, f64, f64)>,
+    /// The node-editing bar is shown while the canvas, the bar or the tool bars were the last thing clicked.
+    pub node_bar_active: bool,
+    /// Fit the view to all objects on the next frame.
+    pub fit_all_req: bool,
+    pub cursor_mm: Option<Pt>,
+    /// Size in pixels of the canvas as last drawn.
+    pub canvas_avail: (f32, f32),
+    /// Top-left corner of the work area on screen, for tests and overlays.
+    pub canvas_origin: egui::Pos2,
+    /// Textures of the pictures in the scene, by shape id and whether they are inverted.
+    pub image_tex: std::collections::HashMap<(u64, bool), egui::TextureHandle>,
+    /// The tool to return to when Space (temporary pan) is released.
+    pub space_prev: Option<Tool>,
+}
+
+impl EditorState {
+    pub fn new() -> EditorState {
+        EditorState {
+            sel: vec![],
+            node_sel: vec![],
+            active_seg: None,
+            tool: Tool::Select,
+            active_layer: 0,
+            view: View { zoom: 2.0, pan: egui::vec2(40.0, 40.0), need_fit: true, auto_fit: true },
+            drag: None,
+            pen_pts: vec![],
+            rotate_mode: false,
+            snap: false,
+            snap_objects: false,
+            snap_targets: None,
+            snap_guides: (None, None),
+            grid: 10.0,
+            show_grid: true,
+            grid_prefs: GridPrefs::default(),
+            polygon_sides: 6,
+            spiral_turns: 3,
+            show_shape_popup: false,
+            last_param: None,
+            node_bar_active: true,
+            fit_all_req: false,
+            cursor_mm: None,
+            canvas_avail: (900.0, 600.0),
+            canvas_origin: egui::Pos2::ZERO,
+            image_tex: Default::default(),
+            space_prev: None,
+        }
+    }
+}
+
+impl Default for EditorState {
+    fn default() -> Self {
+        EditorState::new()
+    }
+}
