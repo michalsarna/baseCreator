@@ -1,24 +1,63 @@
-0	Add node
-1	Close an open path, or open a closed one at the selected node
-2	Convert text to curves, or trace the image, to edit its nodes.
-3	Corner
-4	Delete node
-5	Grouped. The objects keep their layers.
-6	Insert a node (or double-click a segment)
-7	Locked {} object(s).
-8	Make the segment after each selected node a curve
-9	Make the segment after each selected node straight
-10	Make the selected nodes corners
-11	Make the selected nodes smooth
-12	Open / close
-13	Radius for rounding
-14	Round
-15	Round the selected corners with this radius
-16	Rounded {} corner(s).
-17	Select a shape first, then edit its nodes.
-18	Select at least two objects to group.
-19	Smooth
-20	There are no straight corners to round.
-21	To curve
-22	To line
-23	Unlocked {} object(s).
+0	(empty)
+1	Add node
+2	Align bottom
+3	Align centre (H)
+4	Align centre (V)
+5	Align left
+6	Align right
+7	Align top
+8	Auto-fit work area to window
+9	Bring to front
+10	Centre on bed
+11	Centre on each other
+12	Clear list
+13	Close an open path, or open a closed one at the selected node
+14	Convert text to curves, or trace the image, to edit its nodes.
+15	Convert to path
+16	Copy
+17	Corner
+18	Delete
+19	Delete node
+20	Duplicate
+21	Edit nodes
+22	Fit all objects
+23	Fit bed to window
+24	Flip horizontal
+25	Flip vertical
+26	Grid
+27	Group
+28	Grouped. The objects keep their layers.
+29	Insert a node (or double-click a segment)
+30	Lock
+31	Locked {} object(s).
+32	Make the segment after each selected node a curve
+33	Make the segment after each selected node straight
+34	Make the selected nodes corners
+35	Make the selected nodes smooth
+36	Open / close
+37	Open recent
+38	Paste
+39	Quit
+40	Radius for rounding
+41	Redo
+42	Rotate 90° CCW
+43	Rotate 90° CW
+44	Round
+45	Round the selected corners with this radius
+46	Rounded {} corner(s).
+47	Select a shape first, then edit its nodes.
+48	Select all
+49	Select at least two objects to group.
+50	Send to back
+51	Smooth
+52	Snap to grid
+53	Snap to objects
+54	There are no straight corners to round.
+55	To curve
+56	To line
+57	Undo
+58	Ungroup
+59	Unlock
+60	Unlocked {} object(s).
+61	Zoom in
+62	Zoom out

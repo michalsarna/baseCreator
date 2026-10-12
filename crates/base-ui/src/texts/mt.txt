@@ -1,24 +1,63 @@
-0|Żid nodu
-1|Agħlaq passaġġ miftuħ, jew iftaħ wieħed magħluq fin-nodu magħżul
-2|Ikkonverti t-test f'kurvi, jew vettorizza l-istampa, biex teditja n-nodi tagħha.
-3|Kantuniera
-4|Ħassar in-nodu
-5|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
-6|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
-7|Oġġetti llokkjati: {}
-8|Agħmel mgħawweġ is-segment wara kull nodu magħżul
-9|Agħmel dritt is-segment wara kull nodu magħżul
-10|Agħmel kantunieri min-nodi magħżula
-11|Agħmel bla xkiel in-nodi magħżula
-12|Iftaħ / agħlaq
-13|Raġġ tad-dawwir
-14|Dawwar
-15|Idawwar il-kantunieri magħżula b'dan ir-raġġ
-16|Kantunieri mdawra: {}
-17|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
-18|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
-19|Bla xkiel
-20|M'hemm l-ebda kantunieri dritti x'tidawwar.
-21|Għal kurva
-22|Għal linja
-23|Oġġetti mhux illokkjati: {}
+0|(vojt)
+1|Żid nodu
+2|Allinja fil-qiegħ
+3|Iċċentra (O)
+4|Iċċentra (V)
+5|Allinja fix-xellug
+6|Allinja fuq il-lemin
+7|Allinja fil-quċċata
+8|Adatta awtomatikament iż-żona tax-xogħol mat-tieqa
+9|Ġib 'il quddiem
+10|Iċċentra fuq il-mejda
+11|Iċċentra fuq xulxin
+12|Ikkanċella l-lista
+13|Agħlaq passaġġ miftuħ, jew iftaħ wieħed magħluq fin-nodu magħżul
+14|Ikkonverti t-test f'kurvi, jew vettorizza l-istampa, biex teditja n-nodi tagħha.
+15|Ikkonverti f'passaġġ
+16|Ikkopja
+17|Kantuniera
+18|Neħħi
+19|Ħassar in-nodu
+20|Iddubbla
+21|Editja n-nodi
+22|Adatta mal-oġġetti kollha
+23|Adatta l-mejda mat-tieqa
+24|Aqleb orizzontalment
+25|Aqleb vertikalment
+26|Griglja
+27|Igruppa
+28|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
+29|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
+30|Illokkja
+31|Oġġetti llokkjati: {}
+32|Agħmel mgħawweġ is-segment wara kull nodu magħżul
+33|Agħmel dritt is-segment wara kull nodu magħżul
+34|Agħmel kantunieri min-nodi magħżula
+35|Agħmel bla xkiel in-nodi magħżula
+36|Iftaħ / agħlaq
+37|Iftaħ riċenti
+38|Waħħal
+39|Oħroġ
+40|Raġġ tad-dawwir
+41|Erġa' agħmel
+42|Dawwar 90° kontra d-direzzjoni tal-arloġġ
+43|Dawwar 90° fl-istess direzzjoni tal-arloġġ
+44|Dawwar
+45|Idawwar il-kantunieri magħżula b'dan ir-raġġ
+46|Kantunieri mdawra: {}
+47|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
+48|Agħżel kollox
+49|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
+50|Ibgħat lura
+51|Bla xkiel
+52|Aqbad mal-griglja
+53|Aqbad mal-oġġetti
+54|M'hemm l-ebda kantunieri dritti x'tidawwar.
+55|Għal kurva
+56|Għal linja
+57|Ħassar
+58|Neħħi l-grupp
+59|Iftaħ
+60|Oġġetti mhux illokkjati: {}
+61|Żid
+62|Naqqas

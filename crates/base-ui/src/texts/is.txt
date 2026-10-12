@@ -1,24 +1,63 @@
-0|Bæta við hnút
-1|Loka opnum ferli eða opna lokaðan við valinn hnút
-2|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
-3|Horn
-4|Eyða hnút
-5|Hópað. Hlutirnir halda lögum sínum.
-6|Setja inn hnút (eða tvísmella á bút)
-7|Læstir hlutir: {}
-8|Gera bútinn á eftir hverjum völdum hnút bogadreginn
-9|Gera bútinn á eftir hverjum völdum hnút beinan
-10|Gera valda hnúta að hornum
-11|Gera valda hnúta mjúka
-12|Opna / loka
-13|Radíus ávölunar
-14|Ávala
-15|Ávalar valin horn með þessum radíus
-16|Ávöluð horn: {}
-17|Veldu fyrst form og breyttu síðan hnútum þess.
-18|Veldu að minnsta kosti tvo hluti til að hópa.
-19|Mjúkur
-20|Engin bein horn til að ávala.
-21|Í feril
-22|Í línu
-23|Aflæstir hlutir: {}
+0|(tómt)
+1|Bæta við hnút
+2|Jafna neðst
+3|Miðja (L)
+4|Miðja (Lt)
+5|Jafna til vinstri
+6|Jafna til hægri
+7|Jafna efst
+8|Laga vinnusvæði sjálfkrafa að glugga
+9|Færa fremst
+10|Miðja á borðinu
+11|Miðja hvað á annað
+12|Hreinsa lista
+13|Loka opnum ferli eða opna lokaðan við valinn hnút
+14|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
+15|Breyta í feril
+16|Afrita
+17|Horn
+18|Eyða
+19|Eyða hnút
+20|Tvöfalda
+21|Breyta hnútum
+22|Laga að öllum hlutum
+23|Laga borð að glugga
+24|Snúa lárétt
+25|Snúa lóðrétt
+26|Rúðunet
+27|Hópa
+28|Hópað. Hlutirnir halda lögum sínum.
+29|Setja inn hnút (eða tvísmella á bút)
+30|Læsa
+31|Læstir hlutir: {}
+32|Gera bútinn á eftir hverjum völdum hnút bogadreginn
+33|Gera bútinn á eftir hverjum völdum hnút beinan
+34|Gera valda hnúta að hornum
+35|Gera valda hnúta mjúka
+36|Opna / loka
+37|Opna nýleg
+38|Líma
+39|Hætta
+40|Radíus ávölunar
+41|Endurgera
+42|Snúa 90° rangsælis
+43|Snúa 90° réttsælis
+44|Ávala
+45|Ávalar valin horn með þessum radíus
+46|Ávöluð horn: {}
+47|Veldu fyrst form og breyttu síðan hnútum þess.
+48|Velja allt
+49|Veldu að minnsta kosti tvo hluti til að hópa.
+50|Færa aftast
+51|Mjúkur
+52|Grípa í rúðunet
+53|Grípa í hluti
+54|Engin bein horn til að ávala.
+55|Í feril
+56|Í línu
+57|Afturkalla
+58|Afhópa
+59|Aflæsa
+60|Aflæstir hlutir: {}
+61|Stækka
+62|Minnka

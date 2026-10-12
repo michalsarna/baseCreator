@@ -1,24 +1,63 @@
-0|Adicionar nó
-1|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
-2|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
-3|Canto
-4|Eliminar nó
-5|Agrupado. Os objetos mantêm as suas camadas.
-6|Inserir um nó (ou duplo clique num segmento)
-7|{} objeto(s) bloqueado(s).
-8|Tornar curvo o segmento a seguir a cada nó selecionado
-9|Tornar reto o segmento a seguir a cada nó selecionado
-10|Tornar os nós selecionados cantos
-11|Tornar os nós selecionados suaves
-12|Abrir / fechar
-13|Raio de arredondamento
-14|Arredondar
-15|Arredonda os cantos selecionados com este raio
-16|{} canto(s) arredondado(s).
-17|Selecione primeiro uma forma e depois edite os seus nós.
-18|Selecione pelo menos dois objetos para agrupar.
-19|Suave
-20|Não há cantos retos para arredondar.
-21|Para curva
-22|Para linha
-23|{} objeto(s) desbloqueado(s).
+0|(vazio)
+1|Adicionar nó
+2|Alinhar em baixo
+3|Centrar (H)
+4|Centrar (V)
+5|Alinhar à esquerda
+6|Alinhar à direita
+7|Alinhar ao topo
+8|Ajustar automaticamente a área de trabalho à janela
+9|Trazer para a frente
+10|Centrar na mesa
+11|Centrar entre si
+12|Limpar lista
+13|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
+14|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
+15|Converter em caminho
+16|Copiar
+17|Canto
+18|Eliminar
+19|Eliminar nó
+20|Duplicar
+21|Editar nós
+22|Ajustar a todos os objetos
+23|Ajustar a mesa à janela
+24|Inverter horizontalmente
+25|Inverter verticalmente
+26|Grelha
+27|Agrupar
+28|Agrupado. Os objetos mantêm as suas camadas.
+29|Inserir um nó (ou duplo clique num segmento)
+30|Bloquear
+31|{} objeto(s) bloqueado(s).
+32|Tornar curvo o segmento a seguir a cada nó selecionado
+33|Tornar reto o segmento a seguir a cada nó selecionado
+34|Tornar os nós selecionados cantos
+35|Tornar os nós selecionados suaves
+36|Abrir / fechar
+37|Abrir recente
+38|Colar
+39|Sair
+40|Raio de arredondamento
+41|Refazer
+42|Rodar 90° para a esquerda
+43|Rodar 90° para a direita
+44|Arredondar
+45|Arredonda os cantos selecionados com este raio
+46|{} canto(s) arredondado(s).
+47|Selecione primeiro uma forma e depois edite os seus nós.
+48|Selecionar tudo
+49|Selecione pelo menos dois objetos para agrupar.
+50|Enviar para trás
+51|Suave
+52|Ajustar à grelha
+53|Ajustar aos objetos
+54|Não há cantos retos para arredondar.
+55|Para curva
+56|Para linha
+57|Anular
+58|Desagrupar
+59|Desbloquear
+60|{} objeto(s) desbloqueado(s).
+61|Ampliar
+62|Reduzir

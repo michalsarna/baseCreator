@@ -1,24 +1,63 @@
-0|Lägg till nod
-1|Stäng en öppen bana, eller öppna en stängd vid den markerade noden
-2|Konvertera texten till kurvor, eller vektorisera bilden, för att redigera dess noder.
-3|Hörn
-4|Ta bort nod
-5|Grupperat. Objekten behåller sina lager.
-6|Infoga en nod (eller dubbelklicka på ett segment)
-7|{} objekt låsta.
-8|Gör segmentet efter varje markerad nod krökt
-9|Gör segmentet efter varje markerad nod rakt
-10|Gör de markerade noderna till hörn
-11|Gör de markerade noderna mjuka
-12|Öppna / stäng
-13|Radie för rundning
-14|Runda
-15|Runda de markerade hörnen med den här radien
-16|{} hörn rundade.
-17|Markera först en form och redigera sedan dess noder.
-18|Markera minst två objekt för att gruppera.
-19|Mjuk
-20|Det finns inga raka hörn att runda.
-21|Till kurva
-22|Till linje
-23|{} objekt upplåsta.
+0|(tom)
+1|Lägg till nod
+2|Justera nedåt
+3|Centrera (H)
+4|Centrera (V)
+5|Justera till vänster
+6|Justera till höger
+7|Justera uppåt
+8|Anpassa arbetsytan automatiskt till fönstret
+9|Flytta längst fram
+10|Centrera på bordet
+11|Centrera på varandra
+12|Rensa listan
+13|Stäng en öppen bana, eller öppna en stängd vid den markerade noden
+14|Konvertera texten till kurvor, eller vektorisera bilden, för att redigera dess noder.
+15|Konvertera till bana
+16|Kopiera
+17|Hörn
+18|Ta bort
+19|Ta bort nod
+20|Duplicera
+21|Redigera noder
+22|Anpassa till alla objekt
+23|Anpassa bordet till fönstret
+24|Vänd horisontellt
+25|Vänd vertikalt
+26|Rutnät
+27|Gruppera
+28|Grupperat. Objekten behåller sina lager.
+29|Infoga en nod (eller dubbelklicka på ett segment)
+30|Lås
+31|{} objekt låsta.
+32|Gör segmentet efter varje markerad nod krökt
+33|Gör segmentet efter varje markerad nod rakt
+34|Gör de markerade noderna till hörn
+35|Gör de markerade noderna mjuka
+36|Öppna / stäng
+37|Öppna senaste
+38|Klistra in
+39|Avsluta
+40|Radie för rundning
+41|Gör om
+42|Rotera 90° moturs
+43|Rotera 90° medurs
+44|Runda
+45|Runda de markerade hörnen med den här radien
+46|{} hörn rundade.
+47|Markera först en form och redigera sedan dess noder.
+48|Markera allt
+49|Markera minst två objekt för att gruppera.
+50|Flytta längst bak
+51|Mjuk
+52|Fäst mot rutnät
+53|Fäst mot objekt
+54|Det finns inga raka hörn att runda.
+55|Till kurva
+56|Till linje
+57|Ångra
+58|Avgruppera
+59|Lås upp
+60|{} objekt upplåsta.
+61|Zooma in
+62|Zooma ut

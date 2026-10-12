@@ -1,24 +1,63 @@
-0|Adaugă nod
-1|Închide un traseu deschis, sau deschide unul închis la nodul selectat
-2|Convertiți textul în curbe, sau vectorizați imaginea, pentru a-i edita nodurile.
-3|Colț
-4|Șterge nodul
-5|Grupat. Obiectele își păstrează straturile.
-6|Inserează un nod (sau dublu clic pe un segment)
-7|{} obiect(e) blocat(e).
-8|Face curb segmentul de după fiecare nod selectat
-9|Face drept segmentul de după fiecare nod selectat
-10|Transformă nodurile selectate în colțuri
-11|Face netede nodurile selectate
-12|Deschide / închide
-13|Raza de rotunjire
-14|Rotunjește
-15|Rotunjește colțurile selectate cu această rază
-16|{} colț(uri) rotunjit(e).
-17|Selectați mai întâi o formă, apoi editați-i nodurile.
-18|Selectați cel puțin două obiecte pentru a grupa.
-19|Neted
-20|Nu există colțuri drepte de rotunjit.
-21|La curbă
-22|La linie
-23|{} obiect(e) deblocat(e).
+0|(gol)
+1|Adaugă nod
+2|Aliniază jos
+3|Centrează (H)
+4|Centrează (V)
+5|Aliniază la stânga
+6|Aliniază la dreapta
+7|Aliniază sus
+8|Potrivește automat zona de lucru la fereastră
+9|Adu în față
+10|Centrează pe masă
+11|Centrează unele pe altele
+12|Golește lista
+13|Închide un traseu deschis, sau deschide unul închis la nodul selectat
+14|Convertiți textul în curbe, sau vectorizați imaginea, pentru a-i edita nodurile.
+15|Convertește în traseu
+16|Copiază
+17|Colț
+18|Șterge
+19|Șterge nodul
+20|Duplică
+21|Editează nodurile
+22|Potrivește la toate obiectele
+23|Potrivește masa la fereastră
+24|Oglindește orizontal
+25|Oglindește vertical
+26|Grilă
+27|Grupează
+28|Grupat. Obiectele își păstrează straturile.
+29|Inserează un nod (sau dublu clic pe un segment)
+30|Blochează
+31|{} obiect(e) blocat(e).
+32|Face curb segmentul de după fiecare nod selectat
+33|Face drept segmentul de după fiecare nod selectat
+34|Transformă nodurile selectate în colțuri
+35|Face netede nodurile selectate
+36|Deschide / închide
+37|Deschide recente
+38|Lipește
+39|Ieșire
+40|Raza de rotunjire
+41|Refă
+42|Rotește 90° la stânga
+43|Rotește 90° la dreapta
+44|Rotunjește
+45|Rotunjește colțurile selectate cu această rază
+46|{} colț(uri) rotunjit(e).
+47|Selectați mai întâi o formă, apoi editați-i nodurile.
+48|Selectează tot
+49|Selectați cel puțin două obiecte pentru a grupa.
+50|Trimite în spate
+51|Neted
+52|Fixează pe grilă
+53|Aliniere la obiecte
+54|Nu există colțuri drepte de rotunjit.
+55|La curbă
+56|La linie
+57|Anulează
+58|Degrupează
+59|Deblochează
+60|{} obiect(e) deblocat(e).
+61|Mărește
+62|Micșorează

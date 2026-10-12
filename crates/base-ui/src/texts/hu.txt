@@ -1,24 +1,63 @@
-0|Csomópont hozzáadása
-1|Nyitott útvonal zárása, vagy zárt útvonal megnyitása a kijelölt csomópontnál
-2|Alakítsa a szöveget görbékké, vagy vektorizálja a képet, hogy szerkeszthesse a csomópontjait.
-3|Sarok
-4|Csomópont törlése
-5|Csoportosítva. Az objektumok megtartják a rétegeiket.
-6|Csomópont beszúrása (vagy dupla kattintás egy szakaszra)
-7|{} objektum zárolva.
-8|Minden kijelölt csomópont utáni szakasz görbévé tétele
-9|Minden kijelölt csomópont utáni szakasz egyenessé tétele
-10|A kijelölt csomópontok sarokká alakítása
-11|A kijelölt csomópontok simává alakítása
-12|Nyitás / zárás
-13|A lekerekítés sugara
-14|Lekerekítés
-15|A kijelölt sarkok lekerekítése ezzel a sugárral
-16|{} sarok lekerekítve.
-17|Először jelöljön ki egy alakzatot, majd szerkessze a csomópontjait.
-18|A csoportosításhoz jelöljön ki legalább két objektumot.
-19|Sima
-20|Nincsenek lekerekítendő egyenes sarkok.
-21|Görbévé
-22|Vonallá
-23|{} objektum feloldva.
+0|(üres)
+1|Csomópont hozzáadása
+2|Alulra igazítás
+3|Középre (V)
+4|Középre (F)
+5|Balra igazítás
+6|Jobbra igazítás
+7|Felülre igazítás
+8|A munkaterület automatikus illesztése az ablakhoz
+9|Előre hozás
+10|Középre az asztalon
+11|Egymásra középre igazítás
+12|Lista törlése
+13|Nyitott útvonal zárása, vagy zárt útvonal megnyitása a kijelölt csomópontnál
+14|Alakítsa a szöveget görbékké, vagy vektorizálja a képet, hogy szerkeszthesse a csomópontjait.
+15|Átalakítás útvonallá
+16|Másolás
+17|Sarok
+18|Törlés
+19|Csomópont törlése
+20|Kettőzés
+21|Csomópontok szerkesztése
+22|Illesztés az összes objektumhoz
+23|Asztal illesztése az ablakhoz
+24|Vízszintes tükrözés
+25|Függőleges tükrözés
+26|Rács
+27|Csoportosítás
+28|Csoportosítva. Az objektumok megtartják a rétegeiket.
+29|Csomópont beszúrása (vagy dupla kattintás egy szakaszra)
+30|Zárolás
+31|{} objektum zárolva.
+32|Minden kijelölt csomópont utáni szakasz görbévé tétele
+33|Minden kijelölt csomópont utáni szakasz egyenessé tétele
+34|A kijelölt csomópontok sarokká alakítása
+35|A kijelölt csomópontok simává alakítása
+36|Nyitás / zárás
+37|Legutóbbi megnyitása
+38|Beillesztés
+39|Kilépés
+40|A lekerekítés sugara
+41|Újra
+42|Forgatás 90°-kal balra
+43|Forgatás 90°-kal jobbra
+44|Lekerekítés
+45|A kijelölt sarkok lekerekítése ezzel a sugárral
+46|{} sarok lekerekítve.
+47|Először jelöljön ki egy alakzatot, majd szerkessze a csomópontjait.
+48|Összes kijelölése
+49|A csoportosításhoz jelöljön ki legalább két objektumot.
+50|Hátra küldés
+51|Sima
+52|Illesztés a rácshoz
+53|Igazítás az objektumokhoz
+54|Nincsenek lekerekítendő egyenes sarkok.
+55|Görbévé
+56|Vonallá
+57|Visszavonás
+58|Csoport bontása
+59|Feloldás
+60|{} objektum feloldva.
+61|Nagyítás
+62|Kicsinyítés

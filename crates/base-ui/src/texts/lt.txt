@@ -1,24 +1,63 @@
-0|Pridėti mazgą
-1|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
-2|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
-3|Kampas
-4|Naikinti mazgą
-5|Sugrupuota. Objektai išlaiko savo sluoksnius.
-6|Įterpti mazgą (arba dukart spustelėti atkarpą)
-7|Užrakinta objektų: {}
-8|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
-9|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
-10|Pažymėtus mazgus paversti kampiniais
-11|Pažymėtus mazgus padaryti glotniais
-12|Atverti / uždaryti
-13|Apvalinimo spindulys
-14|Suapvalinti
-15|Suapvalina pažymėtus kampus šiuo spinduliu
-16|Suapvalinta kampų: {}
-17|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
-18|Norėdami grupuoti, pasirinkite bent du objektus.
-19|Glotnus
-20|Nėra tiesių kampų apvalinimui.
-21|Į kreivę
-22|Į liniją
-23|Atrakinta objektų: {}
+0|(tuščia)
+1|Pridėti mazgą
+2|Lygiuoti apačioje
+3|Centruoti (H)
+4|Centruoti (V)
+5|Lygiuoti kairėje
+6|Lygiuoti dešinėje
+7|Lygiuoti viršuje
+8|Automatiškai pritaikyti darbo sritį prie lango
+9|Perkelti į priekį
+10|Centruoti ant stalo
+11|Centruoti vieną kito atžvilgiu
+12|Išvalyti sąrašą
+13|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
+14|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
+15|Konvertuoti į kontūrą
+16|Kopijuoti
+17|Kampas
+18|Naikinti
+19|Naikinti mazgą
+20|Dubliuoti
+21|Redaguoti mazgus
+22|Pritaikyti prie visų objektų
+23|Pritaikyti stalą prie lango
+24|Apversti horizontaliai
+25|Apversti vertikaliai
+26|Tinklelis
+27|Grupuoti
+28|Sugrupuota. Objektai išlaiko savo sluoksnius.
+29|Įterpti mazgą (arba dukart spustelėti atkarpą)
+30|Užrakinti
+31|Užrakinta objektų: {}
+32|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
+33|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
+34|Pažymėtus mazgus paversti kampiniais
+35|Pažymėtus mazgus padaryti glotniais
+36|Atverti / uždaryti
+37|Atverti neseniai naudotus
+38|Įklijuoti
+39|Išeiti
+40|Apvalinimo spindulys
+41|Grąžinti
+42|Pasukti 90° prieš laikrodžio rodyklę
+43|Pasukti 90° pagal laikrodžio rodyklę
+44|Suapvalinti
+45|Suapvalina pažymėtus kampus šiuo spinduliu
+46|Suapvalinta kampų: {}
+47|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
+48|Pasirinkti viską
+49|Norėdami grupuoti, pasirinkite bent du objektus.
+50|Perkelti į galą
+51|Glotnus
+52|Prilipdyti prie tinklelio
+53|Prilipti prie objektų
+54|Nėra tiesių kampų apvalinimui.
+55|Į kreivę
+56|Į liniją
+57|Atšaukti
+58|Išgrupuoti
+59|Atrakinti
+60|Atrakinta objektų: {}
+61|Priartinti
+62|Nutolinti

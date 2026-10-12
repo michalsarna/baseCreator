@@ -31,6 +31,14 @@ impl EditorHost for Host {
         self.undo.push(self.scene.clone());
     }
     fn touch(&mut self) {}
+    fn undo(&mut self) {}
+    fn redo(&mut self) {}
+    fn can_undo(&self) -> bool {
+        !self.undo.is_empty()
+    }
+    fn can_redo(&self) -> bool {
+        false
+    }
     fn drop_checkpoint(&mut self) {
         self.undo.pop();
     }

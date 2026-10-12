@@ -1,24 +1,63 @@
-0|Knooppunt toevoegen
-1|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
-2|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
-3|Hoek
-4|Knooppunt verwijderen
-5|Gegroepeerd. De objecten behouden hun lagen.
-6|Een knooppunt invoegen (of dubbelklik op een segment)
-7|{} object(en) vergrendeld.
-8|Het segment na elk geselecteerd knooppunt gebogen maken
-9|Het segment na elk geselecteerd knooppunt recht maken
-10|Geselecteerde knooppunten hoeken maken
-11|Geselecteerde knooppunten glad maken
-12|Openen / sluiten
-13|Straal voor afronding
-14|Afronden
-15|De geselecteerde hoeken afronden met deze straal
-16|{} hoek(en) afgerond.
-17|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
-18|Selecteer minstens twee objecten om te groeperen.
-19|Glad
-20|Er zijn geen rechte hoeken om af te ronden.
-21|Naar curve
-22|Naar lijn
-23|{} object(en) ontgrendeld.
+0|(leeg)
+1|Knooppunt toevoegen
+2|Onder uitlijnen
+3|Centreren (H)
+4|Centreren (V)
+5|Links uitlijnen
+6|Rechts uitlijnen
+7|Boven uitlijnen
+8|Werkgebied automatisch in het venster passen
+9|Naar voren halen
+10|Op de tafel centreren
+11|Op elkaar centreren
+12|Lijst wissen
+13|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
+14|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
+15|Omzetten naar pad
+16|Kopiëren
+17|Hoek
+18|Verwijderen
+19|Knooppunt verwijderen
+20|Dupliceren
+21|Knooppunten bewerken
+22|Alle objecten passen
+23|Tafel in venster passen
+24|Horizontaal spiegelen
+25|Verticaal spiegelen
+26|Raster
+27|Groeperen
+28|Gegroepeerd. De objecten behouden hun lagen.
+29|Een knooppunt invoegen (of dubbelklik op een segment)
+30|Vergrendelen
+31|{} object(en) vergrendeld.
+32|Het segment na elk geselecteerd knooppunt gebogen maken
+33|Het segment na elk geselecteerd knooppunt recht maken
+34|Geselecteerde knooppunten hoeken maken
+35|Geselecteerde knooppunten glad maken
+36|Openen / sluiten
+37|Recent openen
+38|Plakken
+39|Afsluiten
+40|Straal voor afronding
+41|Opnieuw
+42|90° linksom draaien
+43|90° rechtsom draaien
+44|Afronden
+45|De geselecteerde hoeken afronden met deze straal
+46|{} hoek(en) afgerond.
+47|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
+48|Alles selecteren
+49|Selecteer minstens twee objecten om te groeperen.
+50|Naar achteren sturen
+51|Glad
+52|Aan raster uitlijnen
+53|Uitlijnen op objecten
+54|Er zijn geen rechte hoeken om af te ronden.
+55|Naar curve
+56|Naar lijn
+57|Ongedaan maken
+58|Groep opheffen
+59|Ontgrendelen
+60|{} object(en) ontgrendeld.
+61|Inzoomen
+62|Uitzoomen

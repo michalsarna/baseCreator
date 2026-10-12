@@ -1,24 +1,63 @@
-0|Dodaj vozlišče
-1|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
-2|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
-3|Kot
-4|Izbriši vozlišče
-5|Združeno. Predmeti obdržijo svoje sloje.
-6|Vstavi vozlišče (ali dvakrat kliknite odsek)
-7|Zaklenjenih predmetov: {}
-8|Odsek za vsakim izbranim vozliščem naredi ukrivljen
-9|Odsek za vsakim izbranim vozliščem naredi raven
-10|Izbrana vozlišča spremeni v kotna
-11|Izbrana vozlišča naredi gladka
-12|Odpri / zapri
-13|Polmer zaobljenja
-14|Zaobli
-15|Zaobli izbrane vogale s tem polmerom
-16|Zaobljenih vogalov: {}
-17|Najprej izberite obliko, nato uredite njena vozlišča.
-18|Za združevanje izberite vsaj dva predmeta.
-19|Gladko
-20|Ni ravnih vogalov za zaobljenje.
-21|V krivuljo
-22|V črto
-23|Odklenjenih predmetov: {}
+0|(prazno)
+1|Dodaj vozlišče
+2|Poravnaj spodaj
+3|Sredina (V)
+4|Sredina (N)
+5|Poravnaj levo
+6|Poravnaj desno
+7|Poravnaj zgoraj
+8|Samodejno prilagodi delovno območje oknu
+9|Postavi naprej
+10|Centriraj na mizo
+11|Centriraj drugo na drugo
+12|Počisti seznam
+13|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
+14|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
+15|Pretvori v pot
+16|Kopiraj
+17|Kot
+18|Izbriši
+19|Izbriši vozlišče
+20|Podvoji
+21|Uredi vozlišča
+22|Prilagodi vsem predmetom
+23|Prilagodi mizo oknu
+24|Zrcali vodoravno
+25|Zrcali navpično
+26|Mreža
+27|Združi
+28|Združeno. Predmeti obdržijo svoje sloje.
+29|Vstavi vozlišče (ali dvakrat kliknite odsek)
+30|Zakleni
+31|Zaklenjenih predmetov: {}
+32|Odsek za vsakim izbranim vozliščem naredi ukrivljen
+33|Odsek za vsakim izbranim vozliščem naredi raven
+34|Izbrana vozlišča spremeni v kotna
+35|Izbrana vozlišča naredi gladka
+36|Odpri / zapri
+37|Odpri nedavne
+38|Prilepi
+39|Izhod
+40|Polmer zaobljenja
+41|Uveljavi
+42|Zavrti za 90° v levo
+43|Zavrti za 90° v desno
+44|Zaobli
+45|Zaobli izbrane vogale s tem polmerom
+46|Zaobljenih vogalov: {}
+47|Najprej izberite obliko, nato uredite njena vozlišča.
+48|Izberi vse
+49|Za združevanje izberite vsaj dva predmeta.
+50|Postavi nazaj
+51|Gladko
+52|Pripni na mrežo
+53|Pripni na predmete
+54|Ni ravnih vogalov za zaobljenje.
+55|V krivuljo
+56|V črto
+57|Razveljavi
+58|Razdruži
+59|Odkleni
+60|Odklenjenih predmetov: {}
+61|Povečaj
+62|Pomanjšaj

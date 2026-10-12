@@ -1,24 +1,63 @@
-0|Cuir nód leis
-1|Dún cosán oscailte, nó oscail ceann dúnta ag an nód roghnaithe
-2|Tiontaigh an téacs ina chuair, nó veicteoraigh an íomhá, chun a nóid a chur in eagar.
-3|Cúinne
-4|Scrios nód
-5|Grúpáilte. Coinníonn na réada a gciseail.
-6|Cuir nód isteach (nó déchliceáil ar dheighleog)
-7|Réada glasáilte: {}
-8|Déan cuartha an deighleog tar éis gach nóid roghnaithe
-9|Déan díreach an deighleog tar éis gach nóid roghnaithe
-10|Déan cúinní de na nóid roghnaithe
-11|Déan réidh de na nóid roghnaithe
-12|Oscail / dún
-13|Ga cruinnithe
-14|Cruinnigh
-15|Cruinníonn na cúinní roghnaithe leis an ga seo
-16|Cruinníodh {} cúinne.
-17|Roghnaigh cruth ar dtús, ansin cuir a nóid in eagar.
-18|Roghnaigh dhá réad ar a laghad chun grúpáil.
-19|Réidh
-20|Níl aon chúinní díreacha le cruinniú.
-21|Go cuar
-22|Go líne
-23|Réada díghlasáilte: {}
+0|(folamh)
+1|Cuir nód leis
+2|Ailínigh ag an mbun
+3|Láraigh (L)
+4|Láraigh (Ing)
+5|Ailínigh ar clé
+6|Ailínigh ar dheis
+7|Ailínigh ag an mbarr
+8|Oiriúnaigh an limistéar oibre don fhuinneog go huathoibríoch
+9|Tabhair chun tosaigh
+10|Láraigh ar an mbord
+11|Láraigh ar a chéile
+12|Glan an liosta
+13|Dún cosán oscailte, nó oscail ceann dúnta ag an nód roghnaithe
+14|Tiontaigh an téacs ina chuair, nó veicteoraigh an íomhá, chun a nóid a chur in eagar.
+15|Tiontaigh ina chosán
+16|Cóipeáil
+17|Cúinne
+18|Scrios
+19|Scrios nód
+20|Dúbailt
+21|Cuir nóid in eagar
+22|Oiriúnaigh do gach réad
+23|Oiriúnaigh an bord don fhuinneog
+24|Iompaigh go cothrománach
+25|Iompaigh go hingearach
+26|Eangach
+27|Grúpáil
+28|Grúpáilte. Coinníonn na réada a gciseail.
+29|Cuir nód isteach (nó déchliceáil ar dheighleog)
+30|Glasáil
+31|Réada glasáilte: {}
+32|Déan cuartha an deighleog tar éis gach nóid roghnaithe
+33|Déan díreach an deighleog tar éis gach nóid roghnaithe
+34|Déan cúinní de na nóid roghnaithe
+35|Déan réidh de na nóid roghnaithe
+36|Oscail / dún
+37|Oscail le déanaí
+38|Greamaigh
+39|Scoir
+40|Ga cruinnithe
+41|Athdhéan
+42|Rothlaigh 90° tuathal
+43|Rothlaigh 90° deiseal
+44|Cruinnigh
+45|Cruinníonn na cúinní roghnaithe leis an ga seo
+46|Cruinníodh {} cúinne.
+47|Roghnaigh cruth ar dtús, ansin cuir a nóid in eagar.
+48|Roghnaigh gach rud
+49|Roghnaigh dhá réad ar a laghad chun grúpáil.
+50|Seol ar gcúl
+51|Réidh
+52|Greamaigh den eangach
+53|Teaglaim le réada
+54|Níl aon chúinní díreacha le cruinniú.
+55|Go cuar
+56|Go líne
+57|Cealaigh
+58|Dí-ghrúpáil
+59|Díghlasáil
+60|Réada díghlasáilte: {}
+61|Súmáil isteach
+62|Súmáil amach

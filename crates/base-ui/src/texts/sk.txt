@@ -1,24 +1,63 @@
-0|Pridať uzol
-1|Zavrieť otvorenú cestu, alebo otvoriť uzavretú vo vybranom uzle
-2|Preveďte text na krivky, alebo obrázok vektorizujte, aby ste mohli upravovať jeho uzly.
-3|Roh
-4|Odstrániť uzol
-5|Zoskupené. Objekty si ponechajú svoje vrstvy.
-6|Vložiť uzol (alebo dvakrát kliknúť na úsek)
-7|Zamknutých objektov: {}
-8|Zmeniť úsek za každým vybraným uzlom na krivku
-9|Zmeniť úsek za každým vybraným uzlom na priamy
-10|Zmeniť vybrané uzly na rohové
-11|Zmeniť vybrané uzly na hladké
-12|Otvoriť / zavrieť
-13|Polomer zaoblenia
-14|Zaobliť
-15|Zaobli vybrané rohy týmto polomerom
-16|Zaoblených rohov: {}
-17|Najprv vyberte tvar a potom upravte jeho uzly.
-18|Na zoskupenie vyberte aspoň dva objekty.
-19|Hladký
-20|Nie sú žiadne priame rohy na zaoblenie.
-21|Na krivku
-22|Na úsečku
-23|Odomknutých objektov: {}
+0|(prázdne)
+1|Pridať uzol
+2|Zarovnať nadol
+3|Na stred (H)
+4|Na stred (V)
+5|Zarovnať doľava
+6|Zarovnať doprava
+7|Zarovnať nahor
+8|Automaticky prispôsobiť pracovnú plochu oknu
+9|Preniesť do popredia
+10|Vycentrovať na stôl
+11|Vycentrovať na seba
+12|Vymazať zoznam
+13|Zavrieť otvorenú cestu, alebo otvoriť uzavretú vo vybranom uzle
+14|Preveďte text na krivky, alebo obrázok vektorizujte, aby ste mohli upravovať jeho uzly.
+15|Previesť na cestu
+16|Kopírovať
+17|Roh
+18|Odstrániť
+19|Odstrániť uzol
+20|Duplikovať
+21|Upraviť uzly
+22|Prispôsobiť všetkým objektom
+23|Prispôsobiť stôl oknu
+24|Prevrátiť vodorovne
+25|Prevrátiť zvisle
+26|Mriežka
+27|Zoskupiť
+28|Zoskupené. Objekty si ponechajú svoje vrstvy.
+29|Vložiť uzol (alebo dvakrát kliknúť na úsek)
+30|Zamknúť
+31|Zamknutých objektov: {}
+32|Zmeniť úsek za každým vybraným uzlom na krivku
+33|Zmeniť úsek za každým vybraným uzlom na priamy
+34|Zmeniť vybrané uzly na rohové
+35|Zmeniť vybrané uzly na hladké
+36|Otvoriť / zavrieť
+37|Naposledy otvorené
+38|Prilepiť
+39|Koniec
+40|Polomer zaoblenia
+41|Znova
+42|Otočiť o 90° doľava
+43|Otočiť o 90° doprava
+44|Zaobliť
+45|Zaobli vybrané rohy týmto polomerom
+46|Zaoblených rohov: {}
+47|Najprv vyberte tvar a potom upravte jeho uzly.
+48|Vybrať všetko
+49|Na zoskupenie vyberte aspoň dva objekty.
+50|Preniesť do pozadia
+51|Hladký
+52|Prichytávať k mriežke
+53|Prichytávať k objektom
+54|Nie sú žiadne priame rohy na zaoblenie.
+55|Na krivku
+56|Na úsečku
+57|Späť
+58|Zrušiť zoskupenie
+59|Odomknúť
+60|Odomknutých objektov: {}
+61|Priblížiť
+62|Oddialiť

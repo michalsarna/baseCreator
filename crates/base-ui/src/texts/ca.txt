@@ -1,24 +1,63 @@
-0|Afegeix un node
-1|Tanca un traçat obert, o obre'n un de tancat al node seleccionat
-2|Convertiu el text en corbes, o vectoritzeu la imatge, per editar-ne els nodes.
-3|Cantonada
-4|Suprimeix el node
-5|Agrupat. Els objectes conserven les seves capes.
-6|Insereix un node (o fes doble clic en un segment)
-7|{} objecte(s) bloquejat(s).
-8|Fes corb el segment posterior a cada node seleccionat
-9|Fes recte el segment posterior a cada node seleccionat
-10|Converteix els nodes seleccionats en cantonades
-11|Fes suaus els nodes seleccionats
-12|Obre / tanca
-13|Radi d'arrodoniment
-14|Arrodoneix
-15|Arrodoneix les cantonades seleccionades amb aquest radi
-16|{} cantonada(es) arrodonida(es).
-17|Seleccioneu primer una forma i després editeu-ne els nodes.
-18|Seleccioneu com a mínim dos objectes per agrupar.
-19|Suau
-20|No hi ha cantonades rectes per arrodonir.
-21|A corba
-22|A línia
-23|{} objecte(s) desbloquejat(s).
+0|(buit)
+1|Afegeix un node
+2|Alinea a baix
+3|Centra (H)
+4|Centra (V)
+5|Alinea a l'esquerra
+6|Alinea a la dreta
+7|Alinea a dalt
+8|Ajusta automàticament l'àrea de treball a la finestra
+9|Porta al davant
+10|Centra a la taula
+11|Centra entre ells
+12|Buida la llista
+13|Tanca un traçat obert, o obre'n un de tancat al node seleccionat
+14|Convertiu el text en corbes, o vectoritzeu la imatge, per editar-ne els nodes.
+15|Converteix en traçat
+16|Copia
+17|Cantonada
+18|Suprimeix
+19|Suprimeix el node
+20|Duplica
+21|Edita els nodes
+22|Ajusta a tots els objectes
+23|Ajusta la taula a la finestra
+24|Gira horitzontalment
+25|Gira verticalment
+26|Quadrícula
+27|Agrupa
+28|Agrupat. Els objectes conserven les seves capes.
+29|Insereix un node (o fes doble clic en un segment)
+30|Bloqueja
+31|{} objecte(s) bloquejat(s).
+32|Fes corb el segment posterior a cada node seleccionat
+33|Fes recte el segment posterior a cada node seleccionat
+34|Converteix els nodes seleccionats en cantonades
+35|Fes suaus els nodes seleccionats
+36|Obre / tanca
+37|Obre recents
+38|Enganxa
+39|Surt
+40|Radi d'arrodoniment
+41|Refés
+42|Gira 90° a l'esquerra
+43|Gira 90° a la dreta
+44|Arrodoneix
+45|Arrodoneix les cantonades seleccionades amb aquest radi
+46|{} cantonada(es) arrodonida(es).
+47|Seleccioneu primer una forma i després editeu-ne els nodes.
+48|Selecciona-ho tot
+49|Seleccioneu com a mínim dos objectes per agrupar.
+50|Envia al darrere
+51|Suau
+52|Ajusta a la quadrícula
+53|Encaixa als objectes
+54|No hi ha cantonades rectes per arrodonir.
+55|A corba
+56|A línia
+57|Desfés
+58|Desagrupa
+59|Desbloqueja
+60|{} objecte(s) desbloquejat(s).
+61|Apropa
+62|Allunya
