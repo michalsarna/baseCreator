@@ -1,0 +1,26 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Unit tests
+        run: |
+          set -o pipefail
+          cargo test --workspace 2>&1 | tee unit-tests.log || {
+            # One annotation per failed test (test name and panic message) on the pull request.
+            awk '/^---- .* stdout ----$/ { t=$2 } p { print "::error title=unit tests::" t ": " $0; p=0 } /panicked at/ { p=1 }' unit-tests.log
+            exit 1
+          }
+

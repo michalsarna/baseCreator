@@ -1,0 +1,289 @@
+use crate::*;
+
+fn sq(x: f64, y: f64, s: f64) -> Polyline {
+    Polyline::new(vec![Pt::new(x, y), Pt::new(x + s, y), Pt::new(x + s, y + s), Pt::new(x, y + s)], true)
+}
+
+fn total_area(p: &[Polyline]) -> f64 {
+    // Outer rings positive, holes negative (opposite orientation).
+    p.iter().map(|q| q.area()).sum::<f64>().abs()
+}
+
+fn square_with_hole() -> ImageData {
+    // 40x40 white image, black 20x20 square at (10,10) with a white 6x6 hole.
+    let mut g = vec![255u8; 40 * 40];
+    for y in 10..30 {
+        for x in 10..30 {
+            g[y * 40 + x] = 0;
+        }
+    }
+    for y in 17..23 {
+        for x in 17..23 {
+            g[y * 40 + x] = 255;
+        }
+    }
+    ImageData { name: "t".into(), px_w: 40, px_h: 40, gray: g, w: 40.0, h: 40.0, invert: false }
+}
+
+fn gradient_rgb(w: usize, h: usize) -> Vec<u8> {
+    (0..w * h).flat_map(|i| [(i % w * 255 / w.max(1)) as u8, (i / w * 255 / h.max(1)) as u8, 128]).collect()
+}
+
+#[test]
+fn bezier_ellipse_area_and_node_insert() {
+    let c = Contour::ellipse(20.0, 10.0);
+    let area = c.flatten(0.01).area().abs();
+    assert!((area - std::f64::consts::PI * 10.0 * 5.0).abs() < 0.5, "area {area}");
+    // Inserting a node must not change the outline.
+    let mut c2 = c.clone();
+    let before = c2.point_at(1, 0.37);
+    let at = c2.insert_node(1, 0.37);
+    assert!(c2.nodes[at].p.dist(before) < 1e-9);
+    let area2 = c2.flatten(0.01).area().abs();
+    assert!((area - area2).abs() < 0.1);
+    // Straight segment insert lands on the line.
+    let mut r = Contour::rect(10.0, 10.0);
+    let at = r.insert_node(0, 0.5);
+    assert_eq!(r.nodes[at].p, Pt::new(5.0, 0.0));
+}
+
+#[test]
+fn boolean_ops_on_squares() {
+    let (a, b) = (vec![sq(0.0, 0.0, 4.0)], vec![sq(2.0, 2.0, 4.0)]);
+    assert!((total_area(&ops::boolean(&a, &b, ops::BoolOp::Union)) - 28.0).abs() < 1e-6);
+    assert!((total_area(&ops::boolean(&a, &b, ops::BoolOp::Intersect)) - 4.0).abs() < 1e-6);
+    assert!((total_area(&ops::boolean(&a, &b, ops::BoolOp::Difference)) - 12.0).abs() < 1e-6);
+    assert!((total_area(&ops::boolean(&a, &b, ops::BoolOp::Xor)) - 24.0).abs() < 1e-6);
+}
+
+#[test]
+fn offset_shrinks_and_grows() {
+    let a = vec![sq(0.0, 0.0, 10.0)];
+    let inner = ops::offset(&a, -1.0);
+    assert!((total_area(&inner) - 64.0).abs() < 0.5, "{}", total_area(&inner));
+    let outer = ops::offset(&a, 1.0);
+    assert!(total_area(&outer) > 120.0);
+    let rings = ops::inset_rings(&a, 1.0, 100);
+    assert!(rings.len() >= 4 && rings.len() <= 6, "{}", rings.len());
+}
+
+#[test]
+fn trace_finds_outline_and_hole() {
+    let im = square_with_hole();
+    let cs = trace::trace(&im, &trace::TraceParams { smooth: false, tolerance: 0.0, ..Default::default() });
+    assert_eq!(cs.len(), 2, "outline and hole");
+    let areas: Vec<f64> = cs.iter().map(|c| c.flatten(0.01).area().abs()).collect();
+    let (big, small) = (areas.iter().cloned().fold(0.0, f64::max), areas.iter().cloned().fold(f64::MAX, f64::min));
+    assert!((big - 400.0).abs() < 1.0 && (small - 36.0).abs() < 1.0, "{areas:?}");
+    // Speckle filter drops the hole.
+    let cs = trace::trace(&im, &trace::TraceParams { min_area: 50.0, ..Default::default() });
+    assert_eq!(cs.len(), 1);
+    // Tracing the light areas finds the background frame and the hole's island.
+    let cs = trace::trace(&im, &trace::TraceParams { invert: true, smooth: false, min_area: 1.0, ..Default::default() });
+    assert_eq!(cs.len(), 3);
+}
+
+#[test]
+fn image_adjustments() {
+    let im = square_with_hole();
+    let rot = im.adjusted(&Adjust { quarter_turns: 1, ..Default::default() });
+    assert_eq!((rot.px_w, rot.px_h), (40, 40));
+    let wide = ImageData { px_w: 4, px_h: 2, gray: vec![0, 10, 20, 30, 40, 50, 60, 70], w: 40.0, h: 20.0, ..im.clone() };
+    let r = wide.adjusted(&Adjust { quarter_turns: 1, ..Default::default() });
+    assert_eq!((r.px_w, r.px_h, r.w, r.h), (2, 4, 20.0, 40.0));
+    // Clockwise: the top-left pixel ends up top-right.
+    assert_eq!(r.gray[1], 0);
+    let f = wide.adjusted(&Adjust { flip_h: true, ..Default::default() });
+    assert_eq!(&f.gray[..4], &[30, 20, 10, 0]);
+    let b = wide.adjusted(&Adjust { brightness: 0.5, ..Default::default() });
+    assert!(b.gray[0] >= 127 && b.gray[7] > wide.gray[7]);
+    let c = wide.adjusted(&Adjust { auto_levels: true, ..Default::default() });
+    assert_eq!((c.gray[0], c.gray[7]), (0, 255));
+    let free = im.adjusted(&Adjust { angle_deg: 45.0, ..Default::default() });
+    assert!(free.px_w > 40 && free.px_w < 60);
+}
+
+#[test]
+fn ser2net_configs() {
+    use ser2net::{config, shell_safe, version_from_output, Settings, Version};
+    let s = Settings { serial_port: "/dev/ttyUSB0".into(), baud: 115200, tcp_port: 3333, bind: None, kick_old_user: true };
+    let y = config(Version::V4, &s);
+    assert!(y.contains("accepter: tcp,3333\n") && y.contains("connector: serialdev,/dev/ttyUSB0,115200n81,local") && y.contains("kickolduser: true"));
+    let local = Settings { bind: Some("127.0.0.1".into()), kick_old_user: false, ..s.clone() };
+    assert!(config(Version::V4, &local).contains("accepter: tcp,127.0.0.1,3333"));
+    let old = config(Version::V3, &s);
+    assert!(old.contains("3333:raw:0:/dev/ttyUSB0:115200 8DATABITS NONE 1STOPBIT kickolduser"));
+    assert!(config(Version::V3, &local).contains("127.0.0.1,3333:raw:0:"));
+    assert!(shell_safe("/dev/ttyUSB0") && !shell_safe("a'b"));
+    assert_eq!(version_from_output("ser2net version 4.6.1"), Some(Version::V4));
+    assert_eq!(version_from_output("ser2net version 3.5.1"), Some(Version::V3));
+    assert_eq!(version_from_output("nothing"), None);
+    assert_eq!(Version::V4.file(), "/etc/ser2net.yaml");
+}
+
+#[test]
+fn rounding_corners_of_a_rectangle() {
+    let c = Contour::rect(10.0, 10.0);
+    let (r, n) = fillet::round_contour(&c, 2.0, None);
+    assert_eq!(n, 4);
+    // Each corner loses (4 - pi) r^2 / 1 of area: area = 100 - 4 * (1 - pi/4) * r^2.
+    let expect = 100.0 - 4.0 * (1.0 - std::f64::consts::FRAC_PI_4) * 4.0;
+    let area = r.flatten(0.005).area().abs();
+    assert!((area - expect).abs() < 0.02, "{area} vs {expect}");
+    // A radius that is too large is limited to half a side: the result is a stadium-like shape, not garbage.
+    let (big, n) = fillet::round_contour(&c, 50.0, None);
+    assert_eq!(n, 4);
+    let b = Polyline::bounds(&big.flatten(0.01)).unwrap();
+    assert!((b.width() - 10.0).abs() < 1e-6 && (b.height() - 10.0).abs() < 1e-6);
+    assert!(big.flatten(0.01).area().abs() < 100.0 && big.flatten(0.01).area().abs() > 70.0);
+    // Only the chosen corner.
+    let one: std::collections::HashSet<usize> = [0usize].into_iter().collect();
+    let (_, n) = fillet::round_contour(&c, 2.0, Some(&one));
+    assert_eq!(n, 1);
+    // Nothing to do for a smooth ellipse.
+    assert_eq!(fillet::round_contour(&Contour::ellipse(10.0, 6.0), 1.0, None).1, 0);
+}
+
+#[test]
+fn filleting_two_lines() {
+    // A horizontal and a vertical line that cross at (10, 10).
+    let h = (Pt::new(0.0, 10.0), Pt::new(14.0, 10.0));
+    let v = (Pt::new(10.0, 0.0), Pt::new(10.0, 25.0));
+    let c = fillet::fillet_lines(h, v, 3.0).expect("fillet");
+    // Kept: the longer parts (0,10) .. and (10,25) .. so the corner is at (10,10) turning towards +y.
+    assert_eq!(c.nodes.first().unwrap().p, Pt::new(0.0, 10.0));
+    assert_eq!(c.nodes.last().unwrap().p, Pt::new(10.0, 25.0));
+    let tangents: Vec<Pt> = c.nodes.iter().map(|n| n.p).collect();
+    assert!(tangents.contains(&Pt::new(7.0, 10.0)), "{tangents:?}");
+    assert!(tangents.iter().any(|p| (p.x - 10.0).abs() < 1e-9 && (p.y - 13.0).abs() < 1e-9));
+    // The arc's middle lies at distance r from its centre (7, 13) and bulges towards the corner.
+    let mid = c.point_at(1, 0.5);
+    assert!((mid.dist(Pt::new(7.0, 13.0)) - 3.0).abs() < 0.01, "{mid:?}");
+    assert!(mid.x > 7.0 && mid.y < 13.0);
+    // Parallel lines cannot be joined.
+    assert!(fillet::fillet_lines((Pt::new(0.0, 0.0), Pt::new(5.0, 0.0)), (Pt::new(0.0, 3.0), Pt::new(5.0, 3.0)), 1.0).is_none());
+    assert!(fillet::as_segment(&[Contour { nodes: vec![Node::corner(Pt::new(0.0, 0.0)), Node::corner(Pt::new(1.0, 1.0))], closed: false }]).is_some());
+    assert!(fillet::as_segment(&[Contour::rect(1.0, 1.0)]).is_none());
+}
+
+#[test]
+fn picture_adjustments_change_nothing_by_default_and_do_what_they_say() {
+    let img = gradient_rgb(8, 6);
+    let mut same = img.clone();
+    camimg::adjust(&mut same, 8, 6, &ImageSettings::default());
+    assert_eq!(same, img);
+    // Brightness +100 adds 255, -100 subtracts it.
+    let mut bright = img.clone();
+    camimg::adjust(&mut bright, 8, 6, &ImageSettings { brightness: 20, ..Default::default() });
+    assert_eq!(bright[2], 128 + 51);
+    let mut dark = img.clone();
+    camimg::adjust(&mut dark, 8, 6, &ImageSettings { brightness: -100, ..Default::default() });
+    assert!(dark.iter().all(|v| *v == 0));
+    // Contrast pushes values away from the middle: mid grey stays, lighter gets lighter, darker darker.
+    let mut c = vec![128u8, 128, 128, 200, 200, 200, 60, 60, 60];
+    camimg::adjust(&mut c, 3, 1, &ImageSettings { contrast: 100, ..Default::default() });
+    assert_eq!(&c[0..3], &[128, 128, 128]);
+    assert!(c[3] > 200 && c[6] < 60, "{c:?}");
+    // White balance: a warm (2800 K) light is cooled, so blue gains on red; 6500 K is daylight and changes nothing.
+    let mut warm = vec![200u8, 150, 100];
+    camimg::adjust(&mut warm, 1, 1, &ImageSettings { white_balance: Some(2800), ..Default::default() });
+    assert!(warm[0] < 200 && warm[2] >= 100, "{warm:?}");
+    let mut day = vec![200u8, 150, 100];
+    camimg::adjust(&mut day, 1, 1, &ImageSettings { white_balance: Some(6500), ..Default::default() });
+    assert!(day.iter().zip([200u8, 150, 100]).all(|(a, b)| (*a as i32 - b as i32).abs() <= 4), "{day:?}");
+    // Denoising smooths a lone bright pixel and leaves flat areas alone.
+    let mut dot = vec![0u8; 5 * 5 * 3];
+    dot[(2 * 5 + 2) * 3..(2 * 5 + 2) * 3 + 3].copy_from_slice(&[255, 255, 255]);
+    camimg::adjust(&mut dot, 5, 5, &ImageSettings { denoise: 0.9, ..Default::default() });
+    assert!(dot[(2 * 5 + 2) * 3] < 100 && dot[(2 * 5 + 1) * 3] > 0);
+    let mut flat = vec![90u8; 6 * 6 * 3];
+    camimg::adjust(&mut flat, 6, 6, &ImageSettings { denoise: 0.95, ..Default::default() });
+    assert!(flat.iter().all(|v| *v == 90));
+    // Values outside the ranges are clamped; garbage cannot panic.
+    let wild = ImageSettings { brightness: 9999, contrast: 9999, white_balance: Some(1), denoise: f32::NAN, prefer_yuyv: false }.clamped();
+    assert_eq!((wild.brightness, wild.contrast, wild.white_balance, wild.denoise), (100, 100, Some(2500), 0.0));
+    let mut tiny = vec![1u8, 2, 3];
+    camimg::adjust(&mut tiny, 1, 1, &ImageSettings { denoise: 0.9, brightness: 5, ..Default::default() });
+    camimg::adjust(&mut tiny, 100, 100, &ImageSettings { brightness: 5, ..Default::default() }); // buffer too small: ignored
+}
+
+#[test]
+fn lens_correction_with_zero_coefficients_is_the_identity_and_barrel_distortion_is_undone() {
+    let img = gradient_rgb(40, 30);
+    assert_eq!(camimg::undistort(&img, 40, 30, &Lens::default()), img);
+    // Insane coefficients are ignored, not applied.
+    assert_eq!(camimg::undistort(&img, 40, 30, &Lens { k1: f64::NAN, ..Default::default() }), img);
+    assert_eq!(camimg::undistort(&img, 40, 30, &Lens { k1: 99.0, ..Default::default() }), img);
+    assert_eq!(camimg::undistort(&[], 0, 0, &Lens { k1: 0.1, ..Default::default() }), Vec::<u8>::new());
+    // A stretch of the picture: with k1 > 0 the corner of the result is taken from further out, so it goes black or
+    // changes, while the centre keeps its colour.
+    let lens = Lens { k1: 0.25, ..Default::default() };
+    let out = camimg::undistort(&img, 40, 30, &lens);
+    assert_eq!(out.len(), img.len());
+    let centre = (15 * 40 + 20) * 3;
+    assert!((out[centre] as i32 - img[centre] as i32).abs() <= 8, "the centre stays");
+    assert_ne!(&out[0..3], &img[0..3], "the corner moves");
+    // The mapping in the middle of a side: undistorting a picture made with the same model brings it back.
+    let (w, h) = (60usize, 60usize);
+    let f = w as f64;
+    let src: Vec<u8> = (0..w * h).flat_map(|i| {
+        let (x, y) = ((i % w) as f64, (i / w) as f64);
+        // A smooth pattern, so interpolation is accurate.
+        let v = (128.0 + 100.0 * ((x * 0.15).sin() * (y * 0.12).cos())) as u8;
+        [v, v, v]
+    }).collect();
+    let l = Lens { k1: 0.05, ..Default::default() };
+    let once = camimg::undistort(&src, w, h, &l);
+    // A point of the result samples the source at its distorted place: check one point by hand.
+    let (x, y) = (45usize, 20usize);
+    let (xn, yn) = ((x as f64 + 0.5 - 30.0) / f, (y as f64 + 0.5 - 30.0) / f);
+    let r2 = xn * xn + yn * yn;
+    let (sx, sy) = (xn * (1.0 + l.k1 * r2) * f + 30.0 - 0.5, yn * (1.0 + l.k1 * r2) * f + 30.0 - 0.5);
+    let expect = src[(sy.round() as usize * w + sx.round() as usize) * 3] as i32;
+    assert!((once[(y * w + x) * 3] as i32 - expect).abs() <= 12, "{} vs {expect}", once[(y * w + x) * 3]);
+}
+
+#[test]
+fn homography_from_reference_points_recovers_the_transform() {
+    let mm = |u: f64, v: f64| (u * 0.5 + 10.0, v * 0.5 + 20.0); // a scale and a shift
+    let pts = |list: &[(f64, f64)]| -> Vec<RefPoint> { list.iter().map(|p| RefPoint { px: *p, mm: mm(p.0, p.1) }).collect() };
+    // Three points: an affine map is enough.
+    let h3 = camimg::homography(&pts(&[(0.0, 0.0), (640.0, 0.0), (0.0, 480.0)])).unwrap();
+    let (x, y) = camimg::apply(&h3, (320.0, 240.0)).unwrap();
+    assert!((x - 170.0).abs() < 1e-6 && (y - 140.0).abs() < 1e-6, "{x},{y}");
+    // Four points of a perspective view: the map sends them where they should go and recovers the others.
+    let persp = |u: f64, v: f64| {
+        let w = 1.0 + 0.0008 * u + 0.0005 * v;
+        ((0.3 * u + 0.05 * v + 7.0) / w, (0.02 * u + 0.28 * v + 3.0) / w)
+    };
+    let corners = [(0.0, 0.0), (640.0, 0.0), (640.0, 480.0), (0.0, 480.0)];
+    let four: Vec<RefPoint> = corners.iter().map(|p| RefPoint { px: *p, mm: persp(p.0, p.1) }).collect();
+    let h = camimg::homography(&four).unwrap();
+    for q in [(100.0, 100.0), (320.0, 240.0), (600.0, 50.0)] {
+        let (x, y) = camimg::apply(&h, q).unwrap();
+        let (ex, ey) = persp(q.0, q.1);
+        assert!((x - ex).abs() < 1e-6 && (y - ey).abs() < 1e-6, "{q:?}: {x},{y} vs {ex},{ey}");
+    }
+    // More than four points are fitted in the least-squares sense (a point that is a little off does not break it).
+    let mut five = four.clone();
+    five.push(RefPoint { px: (320.0, 240.0), mm: { let p = persp(320.0, 240.0); (p.0 + 0.05, p.1 - 0.05) } });
+    let h5 = camimg::homography(&five).unwrap();
+    let (x, y) = camimg::apply(&h5, (100.0, 100.0)).unwrap();
+    let (ex, ey) = persp(100.0, 100.0);
+    assert!((x - ex).abs() < 0.2 && (y - ey).abs() < 0.2);
+    // Not enough or degenerate points give nothing.
+    assert!(camimg::homography(&pts(&[(0.0, 0.0), (10.0, 0.0)])).is_none());
+    assert!(camimg::homography(&pts(&[(0.0, 0.0), (10.0, 10.0), (20.0, 20.0)])).is_none(), "three points on a line");
+    assert!(camimg::homography(&[RefPoint { px: (f64::NAN, 0.0), mm: (0.0, 0.0) }; 4]).is_none());
+    // The corners of the overlay from the map, and reference points from the corners, are each other's inverse.
+    let c = camimg::corners(&h, 640.0, 480.0).unwrap();
+    for (p, q) in c.iter().zip(corners.iter().map(|q| persp(q.0, q.1))) {
+        assert!(p.dist(Pt::new(q.0, q.1)) < 1e-6);
+    }
+    let back = camimg::points_from_corners(&c, 640.0, 480.0);
+    let h2 = camimg::homography(&back).unwrap();
+    let (x, y) = camimg::apply(&h2, (250.0, 90.0)).unwrap();
+    let (ex, ey) = persp(250.0, 90.0);
+    assert!((x - ex).abs() < 1e-6 && (y - ey).abs() < 1e-6);
+}
+
