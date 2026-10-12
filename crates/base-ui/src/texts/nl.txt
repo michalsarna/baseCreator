@@ -1,143 +1,202 @@
 0|(leeg)
 1|Er is een nieuwere versie beschikbaar: {}
-2|Knooppunt toevoegen
-3|Afbeelding aanpassen
-4|Onder uitlijnen
-5|Centreren (H)
-6|Centreren (V)
-7|Links uitlijnen
-8|Rechts uitlijnen
-9|Boven uitlijnen
-10|Hoek
-11|Toepassen
-12|Automatische niveaus
-13|Werkgebied automatisch in het venster passen
-14|Automatisch
-15|Achtergrondkleur
-16|Helderheid
-17|Naar voren halen
-18|Annuleren
-19|Op de tafel centreren
-20|Op elkaar centreren
-21|Lijst wissen
-22|Sluiten
-23|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
-24|Kleur
-25|Contrast
-26|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
-27|Omzetten naar pad
-28|Kopiëren
-29|Hoek
-30|Kon niet controleren op updates.
-31|Verwijderen
-32|Knooppunt verwijderen
-33|De afbeelding daarna verwijderen
-34|Afstand tussen lijnen
-35|Dupliceren
-36|Knooppunten bewerken
-37|Ellips (E)
-38|De lichte delen graveren in plaats van de donkere
-39|Alle objecten passen
-40|Alle objecten passen (Ctrl+9)
-41|Tafel in venster passen
-42|Werkgebied passen (Ctrl+0)
-43|Spiegel H
-44|Spiegel V
-45|Horizontaal spiegelen
-46|Verticaal spiegelen
-47|Gamma
-48|Raster
-49|Groeperen
-50|Gegroepeerd. De objecten behouden hun lagen.
-51|Hart (K)
-52|Kleine gebieden negeren
-53|Importeren
-54|Importeren mislukt: {}
-55|Afbeelding importeren
-56|Afbeelding {} geïmporteerd
-57|Een knooppunt invoegen (of dubbelklik op een segment)
-58|Licentie
-59|Lijn (L)
-60|Lijndikte
-61|Vergrendelen
-62|{} object(en) vergrendeld.
-63|Hoofdraster
-64|Het segment na elk geselecteerd knooppunt gebogen maken
-65|Het segment na elk geselecteerd knooppunt recht maken
-66|Geselecteerde knooppunten hoeken maken
-67|Geselecteerde knooppunten glad maken
-68|Maximaliseren
-69|Minimaliseren
-70|Negatieve afbeelding
-71|Nieuwste release: {}
-72|Knooppunten bewerken (N)
-73|Openen / sluiten
-74|Recent openen
-75|Downloadpagina openen
-76|Weergave verschuiven (H)
-77|Plakken
-78|Veelhoek (G)
-79|Polylijn / pen (P)
-80|Projectpagina op GitHub
-81|Snelgids
-82|Afsluiten
-83|Straal voor afronding
-84|Rechthoek (R)
-85|Opnieuw
-86|Terugzetten
-87|Raster terugzetten
-88|Herstellen
-89|90° linksom draaien
-90|90° rechtsom draaien
-91|Draaien en spiegelen
-92|Afronden
-93|De geselecteerde hoeken afronden met deze straal
-94|{} hoek(en) afgerond.
-95|Zoeken
-96|Secundair raster
-97|Selecteren (V)
-98|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
-99|Alles selecteren
-100|Selecteer minstens twee objecten om te groeperen.
-101|Naar achteren sturen
-102|Tonen
-103|Vereenvoudigen
-104|Grootte
-105|Glad
-106|Curven afvlakken
-107|Aan raster uitlijnen
-108|Uitlijnen op objecten
-109|Spiraal (I)
-110|Ster (S)
-111|Tekst (T)
-112|Het resultaat is leeg.
-113|Het secundaire raster moet fijner zijn dan het hoofdraster.
-114|De ruimte rond het werkgebied
-115|Er zijn geen rechte hoeken om af te ronden.
-116|Drempel
-117|Naar curve
-118|Naar lijn
-119|Toon
-120|Vectoriseren
-121|Afbeelding vectoriseren
-122|De lichte gebieden vectoriseren
-123|{} omtrekken gevectoriseerd
-124|Driehoek (Y)
-125|Ongedaan maken
-126|Groep opheffen
-127|Ontgrendelen
-128|{} object(en) ontgrendeld.
-129|Updates
-130|Versie {}
-131|Weergaveopties
-132|Breedte
-133|Werkgebied
-134|Kleur van de werkruimte
-135|U heeft de nieuwste versie.
-136|U heeft {}.
-137|Inzoomen
-138|Inzoomen (Z)
-139|Uitzoomen
-140|Uitzoomen (X)
-141|{} omtrekken
-142|{} × {} px
+2|SVG-bestanden van uw computer aan uw clipart toevoegen
+3|Bestand toevoegen…
+4|Knooppunt toevoegen
+5|{} afbeelding(en) toegevoegd aan {}
+6|Afbeelding aanpassen
+7|Onder uitlijnen
+8|Centreren (H)
+9|Centreren (V)
+10|Links uitlijnen
+11|Rechts uitlijnen
+12|Boven uitlijnen
+13|Alle categorieën
+14|Hoek
+15|Dieren
+16|Toepassen
+17|Auteur
+18|Automatische niveaus
+19|Werkgebied automatisch in het venster passen
+20|Automatisch
+21|Achtergrondkleur
+22|Helderheid
+23|Naar voren halen
+24|Annuleren
+25|Categorie
+26|Feesten
+27|Op de tafel centreren
+28|Op elkaar centreren
+29|Categorie wijzigen
+30|Categorie wijzigen…
+31|Lijst wissen
+32|Klik op een afbeelding om de licentie te zien en op te slaan.
+33|Klik om op het werkgebied te plaatsen
+34|Sluiten
+35|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
+36|Collectie
+37|Kleur
+38|Contrast
+39|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
+40|Omzetten naar pad
+41|Kopiëren
+42|Hoek
+43|Kon niet controleren op updates.
+44|Verwijderen
+45|Knooppunt verwijderen
+46|De afbeelding daarna verwijderen
+47|Verwijderen…
+48|Details
+49|Details…
+50|Afstand tussen lijnen
+51|Downloaden
+52|Downloaden mislukt: {}
+53|Downloaden…
+54|Dupliceren
+55|Knooppunten bewerken
+56|Ellips (E)
+57|De lichte delen graveren in plaats van de donkere
+58|Alle objecten passen
+59|Alle objecten passen (Ctrl+9)
+60|Tafel in venster passen
+61|Werkgebied passen (Ctrl+0)
+62|Spiegel H
+63|Spiegel V
+64|Horizontaal spiegelen
+65|Verticaal spiegelen
+66|Eten
+67|Gamma
+68|Raster
+69|Groeperen
+70|Gegroepeerd. De objecten behouden hun lagen.
+71|Hart (K)
+72|Kleine gebieden negeren
+73|Importeren
+74|Importeren mislukt: {}
+75|Afbeelding importeren
+76|Afbeelding {} geïmporteerd
+77|Meegeleverd
+78|Een knooppunt invoegen (of dubbelklik op een segment)
+79|Licentie
+80|Lijn (L)
+81|Lijndikte
+82|Vergrendelen
+83|{} object(en) vergrendeld.
+84|Hoofdraster
+85|Het segment na elk geselecteerd knooppunt gebogen maken
+86|Het segment na elk geselecteerd knooppunt recht maken
+87|Geselecteerde knooppunten hoeken maken
+88|Geselecteerde knooppunten glad maken
+89|Maximaliseren
+90|Mijn
+91|Minimaliseren
+92|Muziek en plezier
+93|Mijn clipart
+94|Naam
+95|Natuur
+96|Negatieve afbeelding
+97|Nieuwste release: {}
+98|Hier zijn geen afbeeldingen. Gebruik Online… om er te vinden.
+99|Knooppunten bewerken (N)
+100|Niets gevonden.
+101|OK
+102|Voorwerpen
+103|Online clipart
+104|Online…
+105|Sla alleen afbeeldingen op die u mag gebruiken. Controleer de licentie van de bron.
+106|Openen / sluiten
+107|Recent openen
+108|Downloadpagina openen
+109|Of download een afbeelding van een adres
+110|Weergave verschuiven (H)
+111|Plakken
+112|Afbeeldingen die bij het programma horen
+113|Afbeeldingen die u hebt gedownload of toegevoegd
+114|{} geplaatst
+115|Veelhoek (G)
+116|Polylijn / pen (P)
+117|Projectpagina op GitHub
+118|Snelgids
+119|Afsluiten
+120|Straal voor afronding
+121|Rechthoek (R)
+122|Opnieuw
+123|Deze afbeelding uit uw clipart verwijderen? Het bestand op uw schijf wordt verwijderd.
+124|Hernoemen
+125|Hernoemen…
+126|Terugzetten
+127|Raster terugzetten
+128|Herstellen
+129|90° linksom draaien
+130|90° rechtsom draaien
+131|Draaien en spiegelen
+132|Afronden
+133|De geselecteerde hoeken afronden met deze straal
+134|{} hoek(en) afgerond.
+135|Een kopie opslaan in mijn clipart
+136|Opslaan in mijn clipart
+137|{} opgeslagen in {}
+138|Zoeken
+139|Zoeken mislukt: {}
+140|Zoek in open pictogramcollecties (Iconify). Afbeeldingen worden op uw schijf opgeslagen, in een categorie naar keuze.
+141|Zoek op internet naar meer afbeeldingen en sla ze hier op
+142|Zoeken…
+143|Secundair raster
+144|Selecteren (V)
+145|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
+146|Alles selecteren
+147|Selecteer minstens twee objecten om te groeperen.
+148|Naar achteren sturen
+149|Vormen
+150|Tonen
+151|Vereenvoudigen
+152|Grootte
+153|Grootte bij plaatsen
+154|Glad
+155|Curven afvlakken
+156|Aan raster uitlijnen
+157|Uitlijnen op objecten
+158|Bron
+159|Spiraal (I)
+160|Ster (S)
+161|Symbolen
+162|Tekst (T)
+163|Het resultaat is leeg.
+164|Het secundaire raster moet fijner zijn dan het hoofdraster.
+165|De ruimte rond het werkgebied
+166|Er zijn geen rechte hoeken om af te ronden.
+167|Drempel
+168|Naar curve
+169|Naar lijn
+170|Toon
+171|Gereedschap
+172|Vectoriseren
+173|Afbeelding vectoriseren
+174|De lichte gebieden vectoriseren
+175|{} omtrekken gevectoriseerd
+176|Driehoek (Y)
+177|Ongedaan maken
+178|Groep opheffen
+179|Ontgrendelen
+180|{} object(en) ontgrendeld.
+181|Updates
+182|Versie {}
+183|Weergaveopties
+184|Breedte
+185|Werkgebied
+186|Kleur van de werkruimte
+187|U heeft de nieuwste versie.
+188|U heeft {}.
+189|Inzoomen
+190|Inzoomen (Z)
+191|Uitzoomen
+192|Uitzoomen (X)
+193|wordt met het programma meegeleverd
+194|vermeld de auteur
+195|bijv. kat, bloem, tandwiel
+196|geen naamsvermelding nodig
+197|of een nieuwe categorie
+198|van u
+199|{} omtrekken
+200|{} afbeeldingen gevonden
+201|{} × {} px

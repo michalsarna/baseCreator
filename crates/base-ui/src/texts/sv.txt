@@ -1,143 +1,202 @@
 0|(tom)
 1|En nyare version finns: {}
-2|Lägg till nod
-3|Justera bild
-4|Justera nedåt
-5|Centrera (H)
-6|Centrera (V)
-7|Justera till vänster
-8|Justera till höger
-9|Justera uppåt
-10|Vinkel
-11|Använd
-12|Automatiska nivåer
-13|Anpassa arbetsytan automatiskt till fönstret
-14|Automatisk
-15|Bakgrundsfärg
-16|Ljusstyrka
-17|Flytta längst fram
-18|Avbryt
-19|Centrera på bordet
-20|Centrera på varandra
-21|Rensa listan
-22|Stäng
-23|Stäng en öppen bana, eller öppna en stängd vid den markerade noden
-24|Färg
-25|Kontrast
-26|Konvertera texten till kurvor, eller vektorisera bilden, för att redigera dess noder.
-27|Konvertera till bana
-28|Kopiera
-29|Hörn
-30|Kunde inte söka efter uppdateringar.
-31|Ta bort
-32|Ta bort nod
-33|Ta bort bilden efteråt
-34|Avstånd mellan linjer
-35|Duplicera
-36|Redigera noder
-37|Ellips (E)
-38|Gravera de ljusa delarna i stället för de mörka
-39|Anpassa till alla objekt
-40|Anpassa till alla objekt (Ctrl+9)
-41|Anpassa bordet till fönstret
-42|Anpassa till arbetsytan (Ctrl+0)
-43|Vänd H
-44|Vänd V
-45|Vänd horisontellt
-46|Vänd vertikalt
-47|Gamma
-48|Rutnät
-49|Gruppera
-50|Grupperat. Objekten behåller sina lager.
-51|Hjärta (K)
-52|Ignorera små områden
-53|Importera
-54|Importen misslyckades: {}
-55|Importera bild
-56|Bilden {} importerad
-57|Infoga en nod (eller dubbelklicka på ett segment)
-58|Licens
-59|Linje (L)
-60|Linjetjocklek
-61|Lås
-62|{} objekt låsta.
-63|Huvudrutnät
-64|Gör segmentet efter varje markerad nod krökt
-65|Gör segmentet efter varje markerad nod rakt
-66|Gör de markerade noderna till hörn
-67|Gör de markerade noderna mjuka
-68|Maximera
-69|Minimera
-70|Negativ bild
-71|Senaste utgåvan: {}
-72|Redigera noder (N)
-73|Öppna / stäng
-74|Öppna senaste
-75|Öppna nedladdningssidan
-76|Panorera (H)
-77|Klistra in
-78|Polygon (G)
-79|Polylinje / penna (P)
-80|Projektsidan på GitHub
-81|Snabbguide
-82|Avsluta
-83|Radie för rundning
-84|Rektangel (R)
-85|Gör om
-86|Återställ
-87|Återställ rutnät
-88|Återställ
-89|Rotera 90° moturs
-90|Rotera 90° medurs
-91|Rotera och vänd
-92|Runda
-93|Runda de markerade hörnen med den här radien
-94|{} hörn rundade.
-95|Sök
-96|Sekundärt rutnät
-97|Markera (V)
-98|Markera först en form och redigera sedan dess noder.
-99|Markera allt
-100|Markera minst två objekt för att gruppera.
-101|Flytta längst bak
-102|Visa
-103|Förenkla
-104|Storlek
-105|Mjuk
-106|Jämna ut kurvor
-107|Fäst mot rutnät
-108|Fäst mot objekt
-109|Spiral (I)
-110|Stjärna (S)
-111|Text (T)
-112|Resultatet är tomt.
-113|Det sekundära rutnätet måste vara finare än huvudrutnätet.
-114|Utrymmet runt arbetsområdet
-115|Det finns inga raka hörn att runda.
-116|Tröskel
-117|Till kurva
-118|Till linje
-119|Ton
-120|Vektorisera
-121|Vektorisera bild
-122|Vektorisera de ljusa områdena
-123|{} konturer vektoriserade
-124|Triangel (Y)
-125|Ångra
-126|Avgruppera
-127|Lås upp
-128|{} objekt upplåsta.
-129|Uppdateringar
-130|Version {}
-131|Visningsalternativ
-132|Bredd
-133|Arbetsyta
-134|Arbetsytans färg
-135|Du har den senaste versionen.
-136|Du har {}.
-137|Zooma in
-138|Zooma in (Z)
-139|Zooma ut
-140|Zooma ut (X)
-141|{} konturer
-142|{} × {} px
+2|Lägg till SVG-filer från din dator i din clipart
+3|Lägg till fil…
+4|Lägg till nod
+5|{} bild(er) tillagda i {}
+6|Justera bild
+7|Justera nedåt
+8|Centrera (H)
+9|Centrera (V)
+10|Justera till vänster
+11|Justera till höger
+12|Justera uppåt
+13|Alla kategorier
+14|Vinkel
+15|Djur
+16|Använd
+17|Upphovsperson
+18|Automatiska nivåer
+19|Anpassa arbetsytan automatiskt till fönstret
+20|Automatisk
+21|Bakgrundsfärg
+22|Ljusstyrka
+23|Flytta längst fram
+24|Avbryt
+25|Kategori
+26|Högtider
+27|Centrera på bordet
+28|Centrera på varandra
+29|Byt kategori
+30|Byt kategori…
+31|Rensa listan
+32|Klicka på en bild för att se dess licens och spara den.
+33|Klicka för att placera på arbetsytan
+34|Stäng
+35|Stäng en öppen bana, eller öppna en stängd vid den markerade noden
+36|Samling
+37|Färg
+38|Kontrast
+39|Konvertera texten till kurvor, eller vektorisera bilden, för att redigera dess noder.
+40|Konvertera till bana
+41|Kopiera
+42|Hörn
+43|Kunde inte söka efter uppdateringar.
+44|Ta bort
+45|Ta bort nod
+46|Ta bort bilden efteråt
+47|Ta bort…
+48|Detaljer
+49|Detaljer…
+50|Avstånd mellan linjer
+51|Ladda ner
+52|Nedladdningen misslyckades: {}
+53|Laddar ner…
+54|Duplicera
+55|Redigera noder
+56|Ellips (E)
+57|Gravera de ljusa delarna i stället för de mörka
+58|Anpassa till alla objekt
+59|Anpassa till alla objekt (Ctrl+9)
+60|Anpassa bordet till fönstret
+61|Anpassa till arbetsytan (Ctrl+0)
+62|Vänd H
+63|Vänd V
+64|Vänd horisontellt
+65|Vänd vertikalt
+66|Mat
+67|Gamma
+68|Rutnät
+69|Gruppera
+70|Grupperat. Objekten behåller sina lager.
+71|Hjärta (K)
+72|Ignorera små områden
+73|Importera
+74|Importen misslyckades: {}
+75|Importera bild
+76|Bilden {} importerad
+77|Medföljande
+78|Infoga en nod (eller dubbelklicka på ett segment)
+79|Licens
+80|Linje (L)
+81|Linjetjocklek
+82|Lås
+83|{} objekt låsta.
+84|Huvudrutnät
+85|Gör segmentet efter varje markerad nod krökt
+86|Gör segmentet efter varje markerad nod rakt
+87|Gör de markerade noderna till hörn
+88|Gör de markerade noderna mjuka
+89|Maximera
+90|Mina
+91|Minimera
+92|Musik och nöje
+93|Min clipart
+94|Namn
+95|Natur
+96|Negativ bild
+97|Senaste utgåvan: {}
+98|Inga bilder här. Använd Online… för att hitta några.
+99|Redigera noder (N)
+100|Inget hittades.
+101|OK
+102|Föremål
+103|Clipart online
+104|Online…
+105|Spara bara bilder du får använda. Kontrollera källans licens.
+106|Öppna / stäng
+107|Öppna senaste
+108|Öppna nedladdningssidan
+109|Eller ladda ner en bild från en adress
+110|Panorera (H)
+111|Klistra in
+112|Bilder som följer med programmet
+113|Bilder du har laddat ner eller lagt till
+114|{} placerad
+115|Polygon (G)
+116|Polylinje / penna (P)
+117|Projektsidan på GitHub
+118|Snabbguide
+119|Avsluta
+120|Radie för rundning
+121|Rektangel (R)
+122|Gör om
+123|Ta bort den här bilden från din clipart? Filen på din disk raderas.
+124|Byt namn
+125|Byt namn…
+126|Återställ
+127|Återställ rutnät
+128|Återställ
+129|Rotera 90° moturs
+130|Rotera 90° medurs
+131|Rotera och vänd
+132|Runda
+133|Runda de markerade hörnen med den här radien
+134|{} hörn rundade.
+135|Spara en kopia i min clipart
+136|Spara i min clipart
+137|{} sparad i {}
+138|Sök
+139|Sökningen misslyckades: {}
+140|Sök i öppna ikonsamlingar (Iconify). Bilder sparas på din disk, i en kategori som du väljer.
+141|Sök efter fler bilder på internet och spara dem här
+142|Söker…
+143|Sekundärt rutnät
+144|Markera (V)
+145|Markera först en form och redigera sedan dess noder.
+146|Markera allt
+147|Markera minst två objekt för att gruppera.
+148|Flytta längst bak
+149|Former
+150|Visa
+151|Förenkla
+152|Storlek
+153|Storlek vid placering
+154|Mjuk
+155|Jämna ut kurvor
+156|Fäst mot rutnät
+157|Fäst mot objekt
+158|Källa
+159|Spiral (I)
+160|Stjärna (S)
+161|Symboler
+162|Text (T)
+163|Resultatet är tomt.
+164|Det sekundära rutnätet måste vara finare än huvudrutnätet.
+165|Utrymmet runt arbetsområdet
+166|Det finns inga raka hörn att runda.
+167|Tröskel
+168|Till kurva
+169|Till linje
+170|Ton
+171|Verktyg
+172|Vektorisera
+173|Vektorisera bild
+174|Vektorisera de ljusa områdena
+175|{} konturer vektoriserade
+176|Triangel (Y)
+177|Ångra
+178|Avgruppera
+179|Lås upp
+180|{} objekt upplåsta.
+181|Uppdateringar
+182|Version {}
+183|Visningsalternativ
+184|Bredd
+185|Arbetsyta
+186|Arbetsytans färg
+187|Du har den senaste versionen.
+188|Du har {}.
+189|Zooma in
+190|Zooma in (Z)
+191|Zooma ut
+192|Zooma ut (X)
+193|följer med programmet
+194|ange upphovspersonen
+195|t.ex. katt, blomma, kugghjul
+196|ingen namngivning krävs
+197|eller en ny kategori
+198|dina
+199|{} konturer
+200|{} bilder hittades
+201|{} × {} px

@@ -1,14 +1,35 @@
 //! Tests of the editor against a minimal host (a scene and an editor state, nothing else).
 use super::*;
+use crate::clipart_ui::{ClipGallery, ClipHost, ClipState};
 use base_core::geom::Xf;
 use base_core::scene::{Kind, Scene};
 
-#[derive(Default)]
+const CAT_SVG: &[u8] = br##"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,2L22,2L22,12L2,12Z M5,15L19,15L19,22L5,22Z"/></svg>"##;
+const BUILTIN: crate::clipart_ui::Builtin = &[("Animals", "cat", CAT_SVG)];
+
 struct Host {
     scene: Scene,
     ed: EditorState,
     status: String,
     undo: Vec<Scene>,
+    clip: ClipState,
+}
+
+impl Default for Host {
+    fn default() -> Host {
+        // Never touch the real user library in tests.
+        let dir = std::env::temp_dir().join(format!("base-ui-clip-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
+        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::new(base_core::clipart::Library::open(dir), BUILTIN) }
+    }
+}
+
+impl ClipHost for Host {
+    fn clip(&self) -> &ClipState {
+        &self.clip
+    }
+    fn clip_mut(&mut self) -> &mut ClipState {
+        &mut self.clip
+    }
 }
 
 impl EditorHost for Host {
@@ -143,4 +164,47 @@ fn the_canvas_draws_and_a_shape_is_created_by_the_tool_state() {
     let before = h.scene.shapes.len();
     h.finish_pen(false);
     assert_eq!(h.scene.shapes.len(), before + 1);
+}
+
+#[test]
+fn placing_a_picture_uses_the_active_layer_scales_centres_groups_and_can_be_undone() {
+    let mut h = Host::default();
+    h.ed.active_layer = 5;
+    h.clip.size_mm = 30.0;
+    h.place_clip(CAT_SVG, "cat");
+    assert!(!h.ed.sel.is_empty());
+    assert!(h.scene.shapes.iter().all(|s| s.layer == 5));
+    let b = h.scene.bounds_of(&h.ed.sel).unwrap();
+    assert!((b.width().max(b.height()) - 30.0).abs() < 1e-6);
+    assert!(b.center().dist(base_core::geom::Pt::new(100.0, 50.0)) < 1e-6, "the middle of the 200 x 100 work area");
+    assert_eq!(h.undo.len(), 1);
+    // A broken picture changes nothing and leaves no undo step behind.
+    h.place_clip(b"<svg", "broken");
+    assert_eq!(h.undo.len(), 1);
+    assert!(h.status.contains("Import failed"), "{}", h.status);
+}
+
+#[test]
+fn user_pictures_mix_with_shipped_ones_per_category() {
+    let mut h = Host::default();
+    let svg = String::from_utf8_lossy(CAT_SVG).to_string();
+    h.clip.lib.add(&svg, "my cat", "Animals", "https://x.org/cat.svg", "CC0", "me").unwrap();
+    h.clip.lib.add(&svg, "my dog", "Pets", "https://x.org/dog.svg", "MIT", "me").unwrap();
+    h.clip.reload();
+    let cats = h.clip.categories();
+    assert!(cats.contains(&"Animals".to_string()) && cats.contains(&"Pets".to_string()));
+    assert_eq!(h.clip.user_svgs.len(), 2);
+    h.clip.lib.set_category("my-dog", "Animals").unwrap();
+    assert!(h.clip.lib.items.iter().all(|c| c.category == "Animals"));
+    assert!(h.clip.user_categories().contains(&"Animals".to_string()));
+}
+
+#[test]
+fn the_gallery_panel_draws() {
+    let mut h = Host::default();
+    let ctx = egui::Context::default();
+    let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+        egui::CentralPanel::no_frame().show(ui, |ui| h.clipart_panel(ui));
+    });
+    out.textures_delta.clear();
 }

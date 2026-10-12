@@ -1,143 +1,202 @@
 0|(vazio)
 1|Está disponível uma versão mais recente: {}
-2|Adicionar nó
-3|Ajustar imagem
-4|Alinhar em baixo
-5|Centrar (H)
-6|Centrar (V)
-7|Alinhar à esquerda
-8|Alinhar à direita
-9|Alinhar ao topo
-10|Ângulo
-11|Aplicar
-12|Níveis automáticos
-13|Ajustar automaticamente a área de trabalho à janela
-14|Automático
-15|Cor de fundo
-16|Brilho
-17|Trazer para a frente
-18|Cancelar
-19|Centrar na mesa
-20|Centrar entre si
-21|Limpar lista
-22|Fechar
-23|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
-24|Cor
-25|Contraste
-26|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
-27|Converter em caminho
-28|Copiar
-29|Canto
-30|Não foi possível procurar atualizações.
-31|Eliminar
-32|Eliminar nó
-33|Eliminar a imagem depois
-34|Distância entre linhas
-35|Duplicar
-36|Editar nós
-37|Elipse (E)
-38|Gravar as partes claras em vez das escuras
-39|Ajustar a todos os objetos
-40|Ajustar a todos os objetos (Ctrl+9)
-41|Ajustar a mesa à janela
-42|Ajustar à área de trabalho (Ctrl+0)
-43|Inverter H
-44|Inverter V
-45|Inverter horizontalmente
-46|Inverter verticalmente
-47|Gama
-48|Grelha
-49|Agrupar
-50|Agrupado. Os objetos mantêm as suas camadas.
-51|Coração (K)
-52|Ignorar áreas pequenas
-53|Importar
-54|Falha ao importar: {}
-55|Importar imagem
-56|Imagem {} importada
-57|Inserir um nó (ou duplo clique num segmento)
-58|Licença
-59|Linha (L)
-60|Espessura da linha
-61|Bloquear
-62|{} objeto(s) bloqueado(s).
-63|Grelha principal
-64|Tornar curvo o segmento a seguir a cada nó selecionado
-65|Tornar reto o segmento a seguir a cada nó selecionado
-66|Tornar os nós selecionados cantos
-67|Tornar os nós selecionados suaves
-68|Maximizar
-69|Minimizar
-70|Imagem negativa
-71|Última versão: {}
-72|Edição de nós (N)
-73|Abrir / fechar
-74|Abrir recente
-75|Abrir a página de transferências
-76|Mover vista (H)
-77|Colar
-78|Polígono (G)
-79|Polilinha / caneta (P)
-80|Página do projeto no GitHub
-81|Guia rápido
-82|Sair
-83|Raio de arredondamento
-84|Retângulo (R)
-85|Refazer
-86|Repor
-87|Repor grelha
-88|Restaurar
-89|Rodar 90° para a esquerda
-90|Rodar 90° para a direita
-91|Rodar e inverter
-92|Arredondar
-93|Arredonda os cantos selecionados com este raio
-94|{} canto(s) arredondado(s).
-95|Pesquisar
-96|Grelha secundária
-97|Selecionar (V)
-98|Selecione primeiro uma forma e depois edite os seus nós.
-99|Selecionar tudo
-100|Selecione pelo menos dois objetos para agrupar.
-101|Enviar para trás
-102|Mostrar
-103|Simplificar
-104|Tamanho
-105|Suave
-106|Suavizar curvas
-107|Ajustar à grelha
-108|Ajustar aos objetos
-109|Espiral (I)
-110|Estrela (S)
-111|Texto (T)
-112|O resultado está vazio.
-113|A grelha secundária tem de ser mais fina do que a principal.
-114|O espaço à volta da área de trabalho
-115|Não há cantos retos para arredondar.
-116|Limiar
-117|Para curva
-118|Para linha
-119|Tom
-120|Vetorizar
-121|Vetorizar imagem
-122|Vetorizar as áreas claras
-123|{} contornos vetorizados
-124|Triângulo (Y)
-125|Anular
-126|Desagrupar
-127|Desbloquear
-128|{} objeto(s) desbloqueado(s).
-129|Atualizações
-130|Versão {}
-131|Opções de visualização
-132|Largura
-133|Área de trabalho
-134|Cor do espaço de trabalho
-135|Tem a versão mais recente.
-136|Tem a versão {}.
-137|Ampliar
-138|Ampliar (Z)
-139|Reduzir
-140|Reduzir (X)
-141|{} contornos
-142|{} × {} px
+2|Adiciona ficheiros SVG do seu computador aos seus cliparts
+3|Adicionar ficheiro…
+4|Adicionar nó
+5|{} imagem(ns) adicionada(s) a {}
+6|Ajustar imagem
+7|Alinhar em baixo
+8|Centrar (H)
+9|Centrar (V)
+10|Alinhar à esquerda
+11|Alinhar à direita
+12|Alinhar ao topo
+13|Todas as categorias
+14|Ângulo
+15|Animais
+16|Aplicar
+17|Autor
+18|Níveis automáticos
+19|Ajustar automaticamente a área de trabalho à janela
+20|Automático
+21|Cor de fundo
+22|Brilho
+23|Trazer para a frente
+24|Cancelar
+25|Categoria
+26|Celebrações
+27|Centrar na mesa
+28|Centrar entre si
+29|Mudar de categoria
+30|Mudar de categoria…
+31|Limpar lista
+32|Clique numa imagem para ver a sua licença e guardá-la.
+33|Clique para colocar na área de trabalho
+34|Fechar
+35|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
+36|Coleção
+37|Cor
+38|Contraste
+39|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
+40|Converter em caminho
+41|Copiar
+42|Canto
+43|Não foi possível procurar atualizações.
+44|Eliminar
+45|Eliminar nó
+46|Eliminar a imagem depois
+47|Eliminar…
+48|Detalhes
+49|Detalhes…
+50|Distância entre linhas
+51|Transferir
+52|Falha na transferência: {}
+53|A transferir…
+54|Duplicar
+55|Editar nós
+56|Elipse (E)
+57|Gravar as partes claras em vez das escuras
+58|Ajustar a todos os objetos
+59|Ajustar a todos os objetos (Ctrl+9)
+60|Ajustar a mesa à janela
+61|Ajustar à área de trabalho (Ctrl+0)
+62|Inverter H
+63|Inverter V
+64|Inverter horizontalmente
+65|Inverter verticalmente
+66|Comida
+67|Gama
+68|Grelha
+69|Agrupar
+70|Agrupado. Os objetos mantêm as suas camadas.
+71|Coração (K)
+72|Ignorar áreas pequenas
+73|Importar
+74|Falha ao importar: {}
+75|Importar imagem
+76|Imagem {} importada
+77|Incluídos
+78|Inserir um nó (ou duplo clique num segmento)
+79|Licença
+80|Linha (L)
+81|Espessura da linha
+82|Bloquear
+83|{} objeto(s) bloqueado(s).
+84|Grelha principal
+85|Tornar curvo o segmento a seguir a cada nó selecionado
+86|Tornar reto o segmento a seguir a cada nó selecionado
+87|Tornar os nós selecionados cantos
+88|Tornar os nós selecionados suaves
+89|Maximizar
+90|Meus
+91|Minimizar
+92|Música e diversão
+93|Os meus cliparts
+94|Nome
+95|Natureza
+96|Imagem negativa
+97|Última versão: {}
+98|Não há imagens aqui. Use Online… para encontrar algumas.
+99|Edição de nós (N)
+100|Nada encontrado.
+101|OK
+102|Objetos
+103|Cliparts online
+104|Online…
+105|Guarde apenas imagens que possa usar. Verifique a licença da fonte.
+106|Abrir / fechar
+107|Abrir recente
+108|Abrir a página de transferências
+109|Ou transfira uma imagem a partir de um endereço
+110|Mover vista (H)
+111|Colar
+112|Imagens que vêm com o programa
+113|Imagens que transferiu ou adicionou
+114|{} colocado
+115|Polígono (G)
+116|Polilinha / caneta (P)
+117|Página do projeto no GitHub
+118|Guia rápido
+119|Sair
+120|Raio de arredondamento
+121|Retângulo (R)
+122|Refazer
+123|Remover esta imagem dos seus cliparts? O ficheiro no seu disco é eliminado.
+124|Mudar o nome
+125|Mudar o nome…
+126|Repor
+127|Repor grelha
+128|Restaurar
+129|Rodar 90° para a esquerda
+130|Rodar 90° para a direita
+131|Rodar e inverter
+132|Arredondar
+133|Arredonda os cantos selecionados com este raio
+134|{} canto(s) arredondado(s).
+135|Guardar uma cópia nos meus cliparts
+136|Guardar nos meus cliparts
+137|{} guardado em {}
+138|Pesquisar
+139|Falha na pesquisa: {}
+140|Pesquise em coleções abertas de ícones (Iconify). As imagens são guardadas no seu disco, na categoria que escolher.
+141|Procure mais imagens na Internet e guarde-as aqui
+142|A pesquisar…
+143|Grelha secundária
+144|Selecionar (V)
+145|Selecione primeiro uma forma e depois edite os seus nós.
+146|Selecionar tudo
+147|Selecione pelo menos dois objetos para agrupar.
+148|Enviar para trás
+149|Formas
+150|Mostrar
+151|Simplificar
+152|Tamanho
+153|Tamanho ao colocar
+154|Suave
+155|Suavizar curvas
+156|Ajustar à grelha
+157|Ajustar aos objetos
+158|Fonte
+159|Espiral (I)
+160|Estrela (S)
+161|Símbolos
+162|Texto (T)
+163|O resultado está vazio.
+164|A grelha secundária tem de ser mais fina do que a principal.
+165|O espaço à volta da área de trabalho
+166|Não há cantos retos para arredondar.
+167|Limiar
+168|Para curva
+169|Para linha
+170|Tom
+171|Ferramentas
+172|Vetorizar
+173|Vetorizar imagem
+174|Vetorizar as áreas claras
+175|{} contornos vetorizados
+176|Triângulo (Y)
+177|Anular
+178|Desagrupar
+179|Desbloquear
+180|{} objeto(s) desbloqueado(s).
+181|Atualizações
+182|Versão {}
+183|Opções de visualização
+184|Largura
+185|Área de trabalho
+186|Cor do espaço de trabalho
+187|Tem a versão mais recente.
+188|Tem a versão {}.
+189|Ampliar
+190|Ampliar (Z)
+191|Reduzir
+192|Reduzir (X)
+193|vem com o programa
+194|atribua o autor
+195|p. ex. gato, flor, engrenagem
+196|não requer atribuição
+197|ou uma categoria nova
+198|seu
+199|{} contornos
+200|{} imagens encontradas
+201|{} × {} px

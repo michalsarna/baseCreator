@@ -1,143 +1,202 @@
 0|(tómt)
 1|Nýrri útgáfa er í boði: {}
-2|Bæta við hnút
-3|Laga mynd
-4|Jafna neðst
-5|Miðja (L)
-6|Miðja (Lt)
-7|Jafna til vinstri
-8|Jafna til hægri
-9|Jafna efst
-10|Horn
-11|Virkja
-12|Sjálfvirk stig
-13|Laga vinnusvæði sjálfkrafa að glugga
-14|Sjálfvirkur
-15|Bakgrunnslitur
-16|Birta
-17|Færa fremst
-18|Hætta við
-19|Miðja á borðinu
-20|Miðja hvað á annað
-21|Hreinsa lista
-22|Loka
-23|Loka opnum ferli eða opna lokaðan við valinn hnút
-24|Litur
-25|Birtuskil
-26|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
-27|Breyta í feril
-28|Afrita
-29|Horn
-30|Ekki tókst að leita að uppfærslum.
-31|Eyða
-32|Eyða hnút
-33|Eyða myndinni á eftir
-34|Fjarlægð milli lína
-35|Tvöfalda
-36|Breyta hnútum
-37|Sporbaugur (E)
-38|Grafa ljósu hlutana í stað þeirra dökku
-39|Laga að öllum hlutum
-40|Laga að öllum hlutum (Ctrl+9)
-41|Laga borð að glugga
-42|Laga að vinnusvæði (Ctrl+0)
-43|Spegla L
-44|Spegla Lt
-45|Snúa lárétt
-46|Snúa lóðrétt
-47|Gamma
-48|Rúðunet
-49|Hópa
-50|Hópað. Hlutirnir halda lögum sínum.
-51|Hjarta (K)
-52|Hunsa lítil svæði
-53|Innflutningur
-54|Innflutningur mistókst: {}
-55|Innflutningur myndar
-56|Mynd {} flutt inn
-57|Setja inn hnút (eða tvísmella á bút)
-58|Leyfi
-59|Lína (L)
-60|Línuþykkt
-61|Læsa
-62|Læstir hlutir: {}
-63|Aðalrúðunet
-64|Gera bútinn á eftir hverjum völdum hnút bogadreginn
-65|Gera bútinn á eftir hverjum völdum hnút beinan
-66|Gera valda hnúta að hornum
-67|Gera valda hnúta mjúka
-68|Hámarka
-69|Lágmarka
-70|Neikvæð mynd
-71|Nýjasta útgáfa: {}
-72|Hnútabreyting (N)
-73|Opna / loka
-74|Opna nýleg
-75|Opna niðurhalssíðuna
-76|Færa sýn (H)
-77|Líma
-78|Marghyrningur (G)
-79|Brotalína / penni (P)
-80|Verkefnissíða á GitHub
-81|Flýtileiðbeiningar
-82|Hætta
-83|Radíus ávölunar
-84|Rétthyrningur (R)
-85|Endurgera
-86|Endurstilla
-87|Endurstilla rúðunet
-88|Endurheimta
-89|Snúa 90° rangsælis
-90|Snúa 90° réttsælis
-91|Snúningur og speglun
-92|Ávala
-93|Ávalar valin horn með þessum radíus
-94|Ávöluð horn: {}
-95|Leita
-96|Aukarúðunet
-97|Velja (V)
-98|Veldu fyrst form og breyttu síðan hnútum þess.
-99|Velja allt
-100|Veldu að minnsta kosti tvo hluti til að hópa.
-101|Færa aftast
-102|Sýna
-103|Einfalda
-104|Stærð
-105|Mjúkur
-106|Slétta ferla
-107|Grípa í rúðunet
-108|Grípa í hluti
-109|Spírall (I)
-110|Stjarna (S)
-111|Texti (T)
-112|Niðurstaðan er tóm.
-113|Aukarúðunetið verður að vera fínna en aðalrúðunetið.
-114|Svæðið í kringum vinnusvæðið
-115|Engin bein horn til að ávala.
-116|Þröskuldur
-117|Í feril
-118|Í línu
-119|Tónn
-120|Vigurgera
-121|Vigurgerð myndar
-122|Vigurgera ljósu svæðin
-123|Vigurgerðar útlínur: {}
-124|Þríhyrningur (Y)
-125|Afturkalla
-126|Afhópa
-127|Aflæsa
-128|Aflæstir hlutir: {}
-129|Uppfærslur
-130|Útgáfa {}
-131|Skoðunarvalkostir
-132|Breidd
-133|Vinnusvæði
-134|Litur vinnusvæðisins
-135|Þú ert með nýjustu útgáfuna.
-136|Þú ert með útgáfu {}.
-137|Stækka
-138|Stækka (Z)
-139|Minnka
-140|Minnka (X)
-141|Útlínur: {}
-142|{} × {} px
+2|Bætir SVG-skrám úr tölvunni þinni við klippimyndirnar þínar
+3|Bæta við skrá…
+4|Bæta við hnút
+5|Bætt við myndum: {} í {}
+6|Laga mynd
+7|Jafna neðst
+8|Miðja (L)
+9|Miðja (Lt)
+10|Jafna til vinstri
+11|Jafna til hægri
+12|Jafna efst
+13|Allir flokkar
+14|Horn
+15|Dýr
+16|Virkja
+17|Höfundur
+18|Sjálfvirk stig
+19|Laga vinnusvæði sjálfkrafa að glugga
+20|Sjálfvirkur
+21|Bakgrunnslitur
+22|Birta
+23|Færa fremst
+24|Hætta við
+25|Flokkur
+26|Hátíðir
+27|Miðja á borðinu
+28|Miðja hvað á annað
+29|Breyta flokki
+30|Breyta flokki…
+31|Hreinsa lista
+32|Smelltu á mynd til að sjá leyfi hennar og vista hana.
+33|Smelltu til að setja á vinnusvæðið
+34|Loka
+35|Loka opnum ferli eða opna lokaðan við valinn hnút
+36|Safn
+37|Litur
+38|Birtuskil
+39|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
+40|Breyta í feril
+41|Afrita
+42|Horn
+43|Ekki tókst að leita að uppfærslum.
+44|Eyða
+45|Eyða hnút
+46|Eyða myndinni á eftir
+47|Eyða…
+48|Nánar
+49|Nánar…
+50|Fjarlægð milli lína
+51|Sækja
+52|Niðurhal mistókst: {}
+53|Sæki…
+54|Tvöfalda
+55|Breyta hnútum
+56|Sporbaugur (E)
+57|Grafa ljósu hlutana í stað þeirra dökku
+58|Laga að öllum hlutum
+59|Laga að öllum hlutum (Ctrl+9)
+60|Laga borð að glugga
+61|Laga að vinnusvæði (Ctrl+0)
+62|Spegla L
+63|Spegla Lt
+64|Snúa lárétt
+65|Snúa lóðrétt
+66|Matur
+67|Gamma
+68|Rúðunet
+69|Hópa
+70|Hópað. Hlutirnir halda lögum sínum.
+71|Hjarta (K)
+72|Hunsa lítil svæði
+73|Innflutningur
+74|Innflutningur mistókst: {}
+75|Innflutningur myndar
+76|Mynd {} flutt inn
+77|Innifalið
+78|Setja inn hnút (eða tvísmella á bút)
+79|Leyfi
+80|Lína (L)
+81|Línuþykkt
+82|Læsa
+83|Læstir hlutir: {}
+84|Aðalrúðunet
+85|Gera bútinn á eftir hverjum völdum hnút bogadreginn
+86|Gera bútinn á eftir hverjum völdum hnút beinan
+87|Gera valda hnúta að hornum
+88|Gera valda hnúta mjúka
+89|Hámarka
+90|Mínar
+91|Lágmarka
+92|Tónlist og gaman
+93|Mínar klippimyndir
+94|Heiti
+95|Náttúra
+96|Neikvæð mynd
+97|Nýjasta útgáfa: {}
+98|Engar myndir hér. Notaðu Á netinu… til að finna nokkrar.
+99|Hnútabreyting (N)
+100|Ekkert fannst.
+101|Í lagi
+102|Hlutir
+103|Klippimyndir á netinu
+104|Á netinu…
+105|Vistaðu aðeins myndir sem þú mátt nota. Athugaðu leyfi heimildarinnar.
+106|Opna / loka
+107|Opna nýleg
+108|Opna niðurhalssíðuna
+109|Eða sæktu mynd af vistfangi
+110|Færa sýn (H)
+111|Líma
+112|Myndir sem fylgja forritinu
+113|Myndir sem þú sóttir eða bættir við
+114|Sett: {}
+115|Marghyrningur (G)
+116|Brotalína / penni (P)
+117|Verkefnissíða á GitHub
+118|Flýtileiðbeiningar
+119|Hætta
+120|Radíus ávölunar
+121|Rétthyrningur (R)
+122|Endurgera
+123|Fjarlægja þessa mynd úr klippimyndunum þínum? Skránni á disknum þínum er eytt.
+124|Endurnefna
+125|Endurnefna…
+126|Endurstilla
+127|Endurstilla rúðunet
+128|Endurheimta
+129|Snúa 90° rangsælis
+130|Snúa 90° réttsælis
+131|Snúningur og speglun
+132|Ávala
+133|Ávalar valin horn með þessum radíus
+134|Ávöluð horn: {}
+135|Vista afrit í mínar klippimyndir
+136|Vista í mínar klippimyndir
+137|{} vistað í {}
+138|Leita
+139|Leit mistókst: {}
+140|Leitaðu í opnum táknasöfnum (Iconify). Myndir eru vistaðar á disknum þínum, í flokki að eigin vali.
+141|Leitaðu að fleiri myndum á netinu og vistaðu þær hér
+142|Leita…
+143|Aukarúðunet
+144|Velja (V)
+145|Veldu fyrst form og breyttu síðan hnútum þess.
+146|Velja allt
+147|Veldu að minnsta kosti tvo hluti til að hópa.
+148|Færa aftast
+149|Form
+150|Sýna
+151|Einfalda
+152|Stærð
+153|Stærð við staðsetningu
+154|Mjúkur
+155|Slétta ferla
+156|Grípa í rúðunet
+157|Grípa í hluti
+158|Heimild
+159|Spírall (I)
+160|Stjarna (S)
+161|Tákn
+162|Texti (T)
+163|Niðurstaðan er tóm.
+164|Aukarúðunetið verður að vera fínna en aðalrúðunetið.
+165|Svæðið í kringum vinnusvæðið
+166|Engin bein horn til að ávala.
+167|Þröskuldur
+168|Í feril
+169|Í línu
+170|Tónn
+171|Verkfæri
+172|Vigurgera
+173|Vigurgerð myndar
+174|Vigurgera ljósu svæðin
+175|Vigurgerðar útlínur: {}
+176|Þríhyrningur (Y)
+177|Afturkalla
+178|Afhópa
+179|Aflæsa
+180|Aflæstir hlutir: {}
+181|Uppfærslur
+182|Útgáfa {}
+183|Skoðunarvalkostir
+184|Breidd
+185|Vinnusvæði
+186|Litur vinnusvæðisins
+187|Þú ert með nýjustu útgáfuna.
+188|Þú ert með útgáfu {}.
+189|Stækka
+190|Stækka (Z)
+191|Minnka
+192|Minnka (X)
+193|fylgir forritinu
+194|nefndu höfundinn
+195|t.d. köttur, blóm, tannhjól
+196|ekki þarf að geta höfundar
+197|eða nýr flokkur
+198|þín
+199|Útlínur: {}
+200|Myndir fundust: {}
+201|{} × {} px

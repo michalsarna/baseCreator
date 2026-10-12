@@ -2,6 +2,8 @@
 //! viewer, unit-aware number fields and the camera helpers.
 pub mod camera;
 pub mod camera_stream;
+pub mod clip_net;
+pub mod clipart_ui;
 pub mod dialogs;
 pub mod editor;
 pub mod fonts;

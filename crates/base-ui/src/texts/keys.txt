@@ -1,143 +1,202 @@
 0	(empty)
 1	A newer version is available: {}
-2	Add node
-3	Adjust image
-4	Align bottom
-5	Align centre (H)
-6	Align centre (V)
-7	Align left
-8	Align right
-9	Align top
-10	Angle
-11	Apply
-12	Auto levels
-13	Auto-fit work area to window
-14	Automatic
-15	Background colour
-16	Brightness
-17	Bring to front
-18	Cancel
-19	Centre on bed
-20	Centre on each other
-21	Clear list
-22	Close
-23	Close an open path, or open a closed one at the selected node
-24	Colour
-25	Contrast
-26	Convert text to curves, or trace the image, to edit its nodes.
-27	Convert to path
-28	Copy
-29	Corner
-30	Could not check for updates.
-31	Delete
-32	Delete node
-33	Delete the image afterwards
-34	Distance between lines
-35	Duplicate
-36	Edit nodes
-37	Ellipse (E)
-38	Engrave the light parts instead of the dark parts
-39	Fit all objects
-40	Fit all objects (Ctrl+9)
-41	Fit bed to window
-42	Fit work area (Ctrl+0)
-43	Flip H
-44	Flip V
-45	Flip horizontal
-46	Flip vertical
-47	Gamma
-48	Grid
-49	Group
-50	Grouped. The objects keep their layers.
-51	Heart (K)
-52	Ignore small areas
-53	Import
-54	Import failed: {}
-55	Import image
-56	Imported image {}
-57	Insert a node (or double-click a segment)
-58	Licence
-59	Line (L)
-60	Line thickness
-61	Lock
-62	Locked {} object(s).
-63	Main grid
-64	Make the segment after each selected node a curve
-65	Make the segment after each selected node straight
-66	Make the selected nodes corners
-67	Make the selected nodes smooth
-68	Maximise
-69	Minimise
-70	Negative image
-71	Newest release: {}
-72	Node edit (N)
-73	Open / close
-74	Open recent
-75	Open the download page
-76	Pan (H)
-77	Paste
-78	Polygon (G)
-79	Polyline / pen (P)
-80	Project page on GitHub
-81	Quick guide
-82	Quit
-83	Radius for rounding
-84	Rectangle (R)
-85	Redo
-86	Reset
-87	Reset grid
-88	Restore
-89	Rotate 90° CCW
-90	Rotate 90° CW
-91	Rotate and flip
-92	Round
-93	Round the selected corners with this radius
-94	Rounded {} corner(s).
-95	Search
-96	Secondary grid
-97	Select (V)
-98	Select a shape first, then edit its nodes.
-99	Select all
-100	Select at least two objects to group.
-101	Send to back
-102	Show
-103	Simplify
-104	Size
-105	Smooth
-106	Smooth curves
-107	Snap to grid
-108	Snap to objects
-109	Spiral (I)
-110	Star (S)
-111	Text (T)
-112	The result is empty.
-113	The secondary grid must be finer than the main grid.
-114	The space around the work area
-115	There are no straight corners to round.
-116	Threshold
-117	To curve
-118	To line
-119	Tone
-120	Trace
-121	Trace image
-122	Trace the light areas
-123	Traced {} outlines
-124	Triangle (Y)
-125	Undo
-126	Ungroup
-127	Unlock
-128	Unlocked {} object(s).
-129	Updates
-130	Version {}
-131	View options
-132	Width
-133	Work area
-134	Workspace colour
-135	You have the newest version.
-136	You have {}.
-137	Zoom in
-138	Zoom in (Z)
-139	Zoom out
-140	Zoom out (X)
-141	{} outlines
-142	{} × {} px
+2	Add SVG files from your computer to your clipart
+3	Add file…
+4	Add node
+5	Added {} picture(s) to {}
+6	Adjust image
+7	Align bottom
+8	Align centre (H)
+9	Align centre (V)
+10	Align left
+11	Align right
+12	Align top
+13	All categories
+14	Angle
+15	Animals
+16	Apply
+17	Author
+18	Auto levels
+19	Auto-fit work area to window
+20	Automatic
+21	Background colour
+22	Brightness
+23	Bring to front
+24	Cancel
+25	Category
+26	Celebrations
+27	Centre on bed
+28	Centre on each other
+29	Change category
+30	Change category…
+31	Clear list
+32	Click a picture to see its licence and save it.
+33	Click to place on the work area
+34	Close
+35	Close an open path, or open a closed one at the selected node
+36	Collection
+37	Colour
+38	Contrast
+39	Convert text to curves, or trace the image, to edit its nodes.
+40	Convert to path
+41	Copy
+42	Corner
+43	Could not check for updates.
+44	Delete
+45	Delete node
+46	Delete the image afterwards
+47	Delete…
+48	Details
+49	Details…
+50	Distance between lines
+51	Download
+52	Download failed: {}
+53	Downloading…
+54	Duplicate
+55	Edit nodes
+56	Ellipse (E)
+57	Engrave the light parts instead of the dark parts
+58	Fit all objects
+59	Fit all objects (Ctrl+9)
+60	Fit bed to window
+61	Fit work area (Ctrl+0)
+62	Flip H
+63	Flip V
+64	Flip horizontal
+65	Flip vertical
+66	Food
+67	Gamma
+68	Grid
+69	Group
+70	Grouped. The objects keep their layers.
+71	Heart (K)
+72	Ignore small areas
+73	Import
+74	Import failed: {}
+75	Import image
+76	Imported image {}
+77	Included
+78	Insert a node (or double-click a segment)
+79	Licence
+80	Line (L)
+81	Line thickness
+82	Lock
+83	Locked {} object(s).
+84	Main grid
+85	Make the segment after each selected node a curve
+86	Make the segment after each selected node straight
+87	Make the selected nodes corners
+88	Make the selected nodes smooth
+89	Maximise
+90	Mine
+91	Minimise
+92	Music and fun
+93	My clipart
+94	Name
+95	Nature
+96	Negative image
+97	Newest release: {}
+98	No pictures here. Use Online… to find some.
+99	Node edit (N)
+100	Nothing found.
+101	OK
+102	Objects
+103	Online clipart
+104	Online…
+105	Only save pictures you may use. Check the licence of the source.
+106	Open / close
+107	Open recent
+108	Open the download page
+109	Or download a picture from an address
+110	Pan (H)
+111	Paste
+112	Pictures that come with the program
+113	Pictures you downloaded or added
+114	Placed {}
+115	Polygon (G)
+116	Polyline / pen (P)
+117	Project page on GitHub
+118	Quick guide
+119	Quit
+120	Radius for rounding
+121	Rectangle (R)
+122	Redo
+123	Remove this picture from your clipart? The file on your disk is deleted.
+124	Rename
+125	Rename…
+126	Reset
+127	Reset grid
+128	Restore
+129	Rotate 90° CCW
+130	Rotate 90° CW
+131	Rotate and flip
+132	Round
+133	Round the selected corners with this radius
+134	Rounded {} corner(s).
+135	Save a copy in my clipart
+136	Save to my clipart
+137	Saved {} in {}
+138	Search
+139	Search failed: {}
+140	Search open icon collections (Iconify). Pictures are saved on your disk, in a category of your choice.
+141	Search the internet for more pictures and save them here
+142	Searching…
+143	Secondary grid
+144	Select (V)
+145	Select a shape first, then edit its nodes.
+146	Select all
+147	Select at least two objects to group.
+148	Send to back
+149	Shapes
+150	Show
+151	Simplify
+152	Size
+153	Size when placed
+154	Smooth
+155	Smooth curves
+156	Snap to grid
+157	Snap to objects
+158	Source
+159	Spiral (I)
+160	Star (S)
+161	Symbols
+162	Text (T)
+163	The result is empty.
+164	The secondary grid must be finer than the main grid.
+165	The space around the work area
+166	There are no straight corners to round.
+167	Threshold
+168	To curve
+169	To line
+170	Tone
+171	Tools
+172	Trace
+173	Trace image
+174	Trace the light areas
+175	Traced {} outlines
+176	Triangle (Y)
+177	Undo
+178	Ungroup
+179	Unlock
+180	Unlocked {} object(s).
+181	Updates
+182	Version {}
+183	View options
+184	Width
+185	Work area
+186	Workspace colour
+187	You have the newest version.
+188	You have {}.
+189	Zoom in
+190	Zoom in (Z)
+191	Zoom out
+192	Zoom out (X)
+193	comes with the program
+194	credit the author
+195	e.g. cat, flower, gear
+196	no credit needed
+197	or a new category
+198	yours
+199	{} outlines
+200	{} pictures found
+201	{} × {} px
