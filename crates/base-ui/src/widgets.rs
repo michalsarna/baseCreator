@@ -62,3 +62,30 @@ pub fn icon_button_ink(ui: &mut egui::Ui, icon: &str, tip: &str, on: bool, size:
     on && resp.clicked()
 }
 
+
+/// A small heading with an icon, above a group of controls (the sections of the Properties tab).
+pub fn section_title(ui: &mut egui::Ui, icon: &str, title: &str) {
+    ui.horizontal(|ui| {
+        ui.add(icons::slot(Some(icon), theme::text_dim()));
+        ui.label(RichText::new(title).strong().color(theme::text_dim()));
+    });
+    ui.add_space(2.0);
+}
+
+/// Buttons of one size in rows of three, as a table: (label, tooltip, icon). Returns the index of the clicked one.
+pub fn button_grid(ui: &mut egui::Ui, id: &str, cells: &[(&str, &str, &str)]) -> Option<usize> {
+    let mut clicked = None;
+    let bw = (ui.available_width() - 12.0) / 3.0;
+    egui::Grid::new(id).num_columns(3).spacing([6.0, 6.0]).show(ui, |ui| {
+        for (i, (label, tip, icon)) in cells.iter().enumerate() {
+            let btn = egui::Button::image_and_text(icons::slot(Some(icon), theme::text()), *label).truncate();
+            if ui.add_sized([bw, 24.0], btn).on_hover_text(*tip).clicked() {
+                clicked = Some(i);
+            }
+            if i % 3 == 2 {
+                ui.end_row();
+            }
+        }
+    });
+    clicked
+}

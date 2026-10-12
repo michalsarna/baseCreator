@@ -6,197 +6,216 @@
 5|Cuireadh {} íomhá le {}
 6|Coigeartaigh an íomhá
 7|Ailínigh ag an mbun
-8|Láraigh (L)
-9|Láraigh (Ing)
-10|Ailínigh ar clé
-11|Ailínigh ar dheis
-12|Ailínigh ag an mbarr
-13|Gach catagóir
-14|Uillinn
-15|Ainmhithe
-16|Cuir i bhfeidhm
-17|Údar
-18|Leibhéil uathoibríocha
-19|Oiriúnaigh an limistéar oibre don fhuinneog go huathoibríoch
-20|Uathoibríoch
-21|Dath cúlra
-22|Gile
-23|Tabhair chun tosaigh
-24|Cealaigh
-25|Catagóir
-26|Ceiliúradh
-27|Láraigh ar an mbord
-28|Láraigh ar a chéile
-29|Athraigh an chatagóir
-30|Athraigh an chatagóir…
-31|Glan an liosta
-32|Cliceáil ar íomhá chun a ceadúnas a fheiceáil agus í a shábháil.
-33|Cliceáil chun a chur ar an limistéar oibre
-34|Dún
-35|Dún cosán oscailte, nó oscail ceann dúnta ag an nód roghnaithe
-36|Bailiúchán
-37|Dath
-38|Codarsnacht
-39|Tiontaigh an téacs ina chuair, nó veicteoraigh an íomhá, chun a nóid a chur in eagar.
-40|Tiontaigh ina chosán
-41|Cóipeáil
-42|Cúinne
-43|Níorbh fhéidir nuashonruithe a sheiceáil.
-44|Scrios
-45|Scrios nód
-46|Scrios an íomhá ina dhiaidh
-47|Scrios…
-48|Sonraí
-49|Sonraí…
-50|Achar idir línte
-51|Íoslódáil
-52|Theip ar an íoslódáil: {}
-53|Ag íoslódáil…
-54|Dúbailt
-55|Cuir nóid in eagar
-56|Éilips (E)
-57|Greanáil na codanna éadroma in ionad na gcodanna dorcha
-58|Oiriúnaigh do gach réad
-59|Oiriúnaigh do gach réad (Ctrl+9)
-60|Oiriúnaigh an bord don fhuinneog
-61|Oiriúnaigh don limistéar oibre (Ctrl+0)
-62|Iompaigh L
-63|Iompaigh Ing
-64|Iompaigh go cothrománach
-65|Iompaigh go hingearach
-66|Bia
-67|Gáma
-68|Eangach
-69|Grúpáil
-70|Grúpáilte. Coinníonn na réada a gciseail.
-71|Croí (K)
-72|Déan neamhaird de limistéir bheaga
-73|Iompórtáil
-74|Theip ar an iompórtáil: {}
-75|Iompórtáil íomhá
-76|Iompórtáladh an íomhá {}
-77|San áireamh
-78|Cuir nód isteach (nó déchliceáil ar dheighleog)
-79|Ceadúnas
-80|Líne (L)
-81|Tiús na línte
-82|Glasáil
-83|Réada glasáilte: {}
-84|An phríomh-eangach
-85|Déan cuartha an deighleog tar éis gach nóid roghnaithe
-86|Déan díreach an deighleog tar éis gach nóid roghnaithe
-87|Déan cúinní de na nóid roghnaithe
-88|Déan réidh de na nóid roghnaithe
-89|Uasmhéadaigh
-90|Mianta
-91|Íoslaghdaigh
-92|Ceol agus spraoi
-93|Mo chlipeanna
-94|Ainm
-95|Nádúr
-96|Íomhá dhiúltach
-97|An eisiúint is nuaí: {}
-98|Níl aon íomhánna anseo. Úsáid Ar líne… chun roinnt a aimsiú.
-99|Eagarthóireacht nód (N)
-100|Níor aimsíodh aon rud.
-101|Ceart go leor
-102|Réada
-103|Clipeanna ar líne
-104|Ar líne…
-105|Ná sábháil ach íomhánna a bhfuil cead agat iad a úsáid. Seiceáil ceadúnas na foinse.
-106|Oscail / dún
-107|Oscail le déanaí
-108|Oscail an leathanach íoslódála
-109|Nó íoslódáil íomhá ó sheoladh
-110|Bog an t-amharc (H)
-111|Greamaigh
-112|Íomhánna a thagann leis an gclár
-113|Íomhánna a d'íoslódáil nó a chuir tú leis
-114|Curtha: {}
-115|Polagán (G)
-116|Il-líne / peann (P)
-117|Leathanach an tionscadail ar GitHub
-118|Treoir ghasta
-119|Scoir
-120|Ga cruinnithe
-121|Dronuilleog (R)
-122|Athdhéan
-123|An bhfuil tú ag iarraidh an íomhá seo a bhaint de do chlipeanna? Scriostar an comhad ar do dhiosca.
-124|Athainmnigh
-125|Athainmnigh…
-126|Athshocraigh
-127|Athshocraigh an eangach
-128|Athchóirigh
-129|Rothlaigh 90° tuathal
-130|Rothlaigh 90° deiseal
-131|Rothlú agus iompú
-132|Cruinnigh
-133|Cruinníonn na cúinní roghnaithe leis an ga seo
-134|Cruinníodh {} cúinne.
-135|Sábháil cóip i mo chlipeanna
-136|Sábháil i mo chlipeanna
-137|{} sábháilte i {}
-138|Cuardaigh
-139|Theip ar an gcuardach: {}
-140|Cuardaigh bailiúcháin oscailte deilbhíní (Iconify). Sábháiltear íomhánna ar do dhiosca, i gcatagóir de do rogha.
-141|Cuardaigh tuilleadh íomhánna ar an idirlíon agus sábháil anseo iad
-142|Ag cuardach…
-143|An eangach thánaisteach
-144|Roghnaigh (V)
-145|Roghnaigh cruth ar dtús, ansin cuir a nóid in eagar.
-146|Roghnaigh gach rud
-147|Roghnaigh dhá réad ar a laghad chun grúpáil.
-148|Seol ar gcúl
-149|Cruthanna
-150|Taispeáin
-151|Simpligh
-152|Méid
-153|Méid agus á chur
-154|Réidh
-155|Mínigh na cuair
-156|Greamaigh den eangach
-157|Teaglaim le réada
-158|Foinse
-159|Bís (I)
-160|Réalta (S)
-161|Siombailí
-162|Téacs (T)
-163|Tá an toradh folamh.
-164|Caithfidh an eangach thánaisteach a bheith níos míne ná an phríomh-eangach.
-165|An spás timpeall an limistéir oibre
-166|Níl aon chúinní díreacha le cruinniú.
-167|Tairseach
-168|Go cuar
-169|Go líne
-170|Tonn
-171|Uirlisí
-172|Veicteoraigh
-173|Veicteoriú íomhá
-174|Veicteoraigh na limistéir éadroma
-175|Imlínte veicteoraithe: {}
-176|Triantán (Y)
-177|Cealaigh
-178|Dí-ghrúpáil
-179|Díghlasáil
-180|Réada díghlasáilte: {}
-181|Nuashonruithe
-182|Leagan {}
-183|Roghanna amhairc
-184|Leithead
-185|Limistéar oibre
-186|Dath an spáis oibre
-187|Tá an leagan is nuaí agat.
-188|Tá leagan {} agat.
-189|Súmáil isteach
-190|Súmáil isteach (Z)
-191|Súmáil amach
-192|Súmáil amach (X)
-193|thagann leis an gclár
-194|luaigh an t-údar
-195|m.sh. cat, bláth, fiacail rotha
-196|ní gá an t-údar a lua
-197|nó catagóir nua
-198|leatsa
-199|Imlínte: {}
-200|Aimsíodh íomhánna: {}
-201|{} × {} px
+8|Láraigh
+9|Láraigh (L)
+10|Láraigh (Ing)
+11|Ailínigh ar clé
+12|Ailínigh sa lár
+13|Ailínigh ar dheis
+14|Ailínigh ag an mbarr
+15|Ailíniú
+16|Gach catagóir
+17|Uillinn
+18|Ainmhithe
+19|Cuir i bhfeidhm
+20|Údar
+21|Leibhéil uathoibríocha
+22|Oiriúnaigh an limistéar oibre don fhuinneog go huathoibríoch
+23|Uathoibríoch
+24|Dath cúlra
+25|Bun
+26|Gile
+27|Tabhair chun tosaigh
+28|Cealaigh
+29|Catagóir
+30|Ceiliúradh
+31|Láraigh
+32|Láraigh ar an mbord
+33|Láraigh ar a chéile
+34|Athraigh an chatagóir
+35|Athraigh an chatagóir…
+36|Glan an liosta
+37|Cliceáil ar íomhá chun a ceadúnas a fheiceáil agus í a shábháil.
+38|Cliceáil chun a chur ar an limistéar oibre
+39|Dún
+40|Dún cosán oscailte, nó oscail ceann dúnta ag an nód roghnaithe
+41|Bailiúchán
+42|Dath
+43|Scéim dathanna
+44|Codarsnacht
+45|Tiontaigh an téacs ina chuair, nó veicteoraigh an íomhá, chun a nóid a chur in eagar.
+46|Tiontaigh ina chosán
+47|Cóipeáil
+48|Cúinne
+49|Níorbh fhéidir nuashonruithe a sheiceáil.
+50|Scrios
+51|Scrios nód
+52|Scrios an íomhá ina dhiaidh
+53|Scrios…
+54|Sonraí
+55|Sonraí…
+56|Achar idir línte
+57|Íoslódáil
+58|Theip ar an íoslódáil: {}
+59|Ag íoslódáil…
+60|Dúbailt
+61|Cuir nóid in eagar
+62|Éilips (E)
+63|Greanáil na codanna éadroma in ionad na gcodanna dorcha
+64|Oiriúnaigh do gach réad
+65|Oiriúnaigh do gach réad (Ctrl+9)
+66|Oiriúnaigh an bord don fhuinneog
+67|Oiriúnaigh don limistéar oibre (Ctrl+0)
+68|Iompaigh L
+69|Iompaigh Ing
+70|Iompaigh go cothrománach
+71|Iompaigh go hingearach
+72|Bia
+73|Gáma
+74|Eangach
+75|Grúpáil
+76|Grúpáilte. Coinníonn na réada a gciseail.
+77|Croí (K)
+78|Déan neamhaird de limistéir bheaga
+79|Iompórtáil
+80|Theip ar an iompórtáil: {}
+81|Iompórtáil íomhá
+82|Iompórtáladh an íomhá {}
+83|San áireamh
+84|Cuir nód isteach (nó déchliceáil ar dheighleog)
+85|Teanga
+86|Clé
+87|Ceadúnas
+88|Líne (L)
+89|Tiús na línte
+90|Glasáil
+91|Faoi ghlas na comhréireanna
+92|Réada glasáilte: {}
+93|An phríomh-eangach
+94|Déan cuartha an deighleog tar éis gach nóid roghnaithe
+95|Déan díreach an deighleog tar éis gach nóid roghnaithe
+96|Déan cúinní de na nóid roghnaithe
+97|Déan réidh de na nóid roghnaithe
+98|Uasmhéadaigh
+99|Lár L
+100|Lár Ing
+101|Mianta
+102|Íoslaghdaigh
+103|Scáthán agus lárú
+104|Ceol agus spraoi
+105|Mo chlipeanna
+106|Ainm
+107|Nádúr
+108|Íomhá dhiúltach
+109|An eisiúint is nuaí: {}
+110|Níl aon íomhánna anseo. Úsáid Ar líne… chun roinnt a aimsiú.
+111|Eagarthóireacht nód (N)
+112|Níor aimsíodh aon rud.
+113|Ceart go leor
+114|Réada
+115|Clipeanna ar líne
+116|Ar líne…
+117|Ná sábháil ach íomhánna a bhfuil cead agat iad a úsáid. Seiceáil ceadúnas na foinse.
+118|Oscail / dún
+119|Oscail le déanaí
+120|Oscail an leathanach íoslódála
+121|Nó íoslódáil íomhá ó sheoladh
+122|Bog an t-amharc (H)
+123|Greamaigh
+124|Íomhánna a thagann leis an gclár
+125|Íomhánna a d'íoslódáil nó a chuir tú leis
+126|Curtha: {}
+127|Polagán (G)
+128|Il-líne / peann (P)
+129|Suíomh agus méid
+130|Leathanach an tionscadail ar GitHub
+131|Treoir ghasta
+132|Scoir
+133|Ga cruinnithe
+134|Dronuilleog (R)
+135|Athdhéan
+136|An bhfuil tú ag iarraidh an íomhá seo a bhaint de do chlipeanna? Scriostar an comhad ar do dhiosca.
+137|Athainmnigh
+138|Athainmnigh…
+139|Athshocraigh
+140|Athshocraigh an eangach
+141|Athchóirigh
+142|Deis
+143|Rothlaigh
+144|Rothlaigh 90° tuathal
+145|Rothlaigh 90° deiseal
+146|Rothlú agus iompú
+147|Rothlú
+148|Cruinnigh
+149|Cruinníonn na cúinní roghnaithe leis an ga seo
+150|Cruinníodh {} cúinne.
+151|Sábháil cóip i mo chlipeanna
+152|Sábháil i mo chlipeanna
+153|{} sábháilte i {}
+154|Cuardaigh
+155|Theip ar an gcuardach: {}
+156|Cuardaigh bailiúcháin oscailte deilbhíní (Iconify). Sábháiltear íomhánna ar do dhiosca, i gcatagóir de do rogha.
+157|Cuardaigh tuilleadh íomhánna ar an idirlíon agus sábháil anseo iad
+158|Ag cuardach…
+159|An eangach thánaisteach
+160|Roghnaigh (V)
+161|Roghnaigh cruth ar dtús, ansin cuir a nóid in eagar.
+162|Roghnaigh gach rud
+163|Roghnaigh dhá réad ar a laghad chun grúpáil.
+164|Seol ar gcúl
+165|Cruthanna
+166|Taispeáin
+167|Taispeáin nó folaigh an eangach
+168|Taispeáin nó folaigh an eangach thánaisteach
+169|Simpligh
+170|Méid
+171|Méid agus á chur
+172|Réidh
+173|Mínigh na cuair
+174|Greamaigh den eangach
+175|Teaglaim le réada
+176|Foinse
+177|Bís (I)
+178|Réalta (S)
+179|Siombailí
+180|Téacs (T)
+181|Tá an toradh folamh.
+182|Caithfidh an eangach thánaisteach a bheith níos míne ná an phríomh-eangach.
+183|An spás timpeall an limistéir oibre
+184|Níl aon chúinní díreacha le cruinniú.
+185|Tairseach
+186|Go cuar
+187|Go líne
+188|Tonn
+189|Uirlisí
+190|Barr
+191|Veicteoraigh
+192|Veicteoriú íomhá
+193|Veicteoraigh na limistéir éadroma
+194|Imlínte veicteoraithe: {}
+195|Triantán (Y)
+196|Cealaigh
+197|Dí-ghrúpáil
+198|Díghlasáil
+199|Réada díghlasáilte: {}
+200|Nuashonruithe
+201|Leagan {}
+202|Roghanna amhairc
+203|Leithead
+204|Limistéar oibre
+205|Dath an spáis oibre
+206|Tá an leagan is nuaí agat.
+207|Tá leagan {} agat.
+208|Súmáil isteach
+209|Súmáil isteach (Z)
+210|Súmáil amach
+211|Súmáil amach (X)
+212|thagann leis an gclár
+213|luaigh an t-údar
+214|m.sh. cat, bláth, fiacail rotha
+215|ní gá an t-údar a lua
+216|nó catagóir nua
+217|leatsa
+218|Imlínte: {}
+219|Aimsíodh íomhánna: {}
+220|{} × {} px
