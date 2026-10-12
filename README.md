@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/icons/icon-256.png" alt="baseCreator icon" width="128"></p>
+
 # baseCreator
 
 Shared code of [LightCreator](https://github.com/michalsarna/LightCreator) (laser) and
@@ -70,3 +72,9 @@ here never triggers a release of an application.
 Tags `-alpha.N` were used while LightCreator was being moved over; use the plain tags.
 
 Licence: MIT OR Apache-2.0, as LightCreator. See `CREDITS.md`.
+
+## Icon
+
+`assets/icons/basecreator.svg` is the project icon: the orange background and the brown base of the LightCreator icon,
+without the laser. MillCreator and LightCreator put their own tool on the same base. `tools/make-icons.sh
+assets/icons/basecreator.svg basecreator` renders the PNGs, the `.ico` and the `.icns` (needs inkscape; the `.icns` needs macOS).
