@@ -104,6 +104,7 @@ dependencies = [
  "egui",
  "image",
  "nokhwa",
+ "serde",
  "serde_json",
  "ureq",
 ]

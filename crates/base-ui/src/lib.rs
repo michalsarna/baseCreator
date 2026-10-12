@@ -2,6 +2,7 @@
 //! viewer, unit-aware number fields and the camera helpers.
 pub mod camera;
 pub mod camera_stream;
+pub mod editor;
 pub mod fonts;
 pub mod i18n;
 pub mod markdown_ui;
