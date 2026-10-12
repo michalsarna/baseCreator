@@ -1,5 +1,9 @@
 //! The parts of an editor that do not depend on the application: tools, the view, drags in progress, node addresses,
 //! grid preferences and the geometry of fitting the work area into a window.
+mod host;
+
+pub use host::EditorHost;
+
 use base_core::bezier::Node;
 use base_core::geom::{Pt, Rect, Xf};
 use egui::Key;
