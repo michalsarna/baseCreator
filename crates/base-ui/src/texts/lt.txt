@@ -1,0 +1,24 @@
+0|Pridėti mazgą
+1|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
+2|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
+3|Kampas
+4|Naikinti mazgą
+5|Sugrupuota. Objektai išlaiko savo sluoksnius.
+6|Įterpti mazgą (arba dukart spustelėti atkarpą)
+7|Užrakinta objektų: {}
+8|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
+9|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
+10|Pažymėtus mazgus paversti kampiniais
+11|Pažymėtus mazgus padaryti glotniais
+12|Atverti / uždaryti
+13|Apvalinimo spindulys
+14|Suapvalinti
+15|Suapvalina pažymėtus kampus šiuo spinduliu
+16|Suapvalinta kampų: {}
+17|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
+18|Norėdami grupuoti, pasirinkite bent du objektus.
+19|Glotnus
+20|Nėra tiesių kampų apvalinimui.
+21|Į kreivę
+22|Į liniją
+23|Atrakinta objektų: {}

@@ -1,0 +1,24 @@
+0|Añadir nodo
+1|Cerrar un trazado abierto, o abrir uno cerrado en el nodo seleccionado
+2|Convierta el texto en curvas, o vectorice la imagen, para editar sus nodos.
+3|Esquina
+4|Eliminar nodo
+5|Agrupado. Los objetos conservan sus capas.
+6|Insertar un nodo (o doble clic en un segmento)
+7|{} objeto(s) bloqueado(s).
+8|Hacer curvo el segmento posterior a cada nodo seleccionado
+9|Hacer recto el segmento posterior a cada nodo seleccionado
+10|Convertir los nodos seleccionados en esquinas
+11|Hacer suaves los nodos seleccionados
+12|Abrir / cerrar
+13|Radio de redondeo
+14|Redondear
+15|Redondea las esquinas seleccionadas con este radio
+16|{} esquina(s) redondeada(s).
+17|Seleccione primero una forma y luego edite sus nodos.
+18|Seleccione al menos dos objetos para agrupar.
+19|Suave
+20|No hay esquinas rectas que redondear.
+21|A curva
+22|A línea
+23|{} objeto(s) desbloqueado(s).

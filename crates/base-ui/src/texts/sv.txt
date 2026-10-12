@@ -1,0 +1,24 @@
+0|Lägg till nod
+1|Stäng en öppen bana, eller öppna en stängd vid den markerade noden
+2|Konvertera texten till kurvor, eller vektorisera bilden, för att redigera dess noder.
+3|Hörn
+4|Ta bort nod
+5|Grupperat. Objekten behåller sina lager.
+6|Infoga en nod (eller dubbelklicka på ett segment)
+7|{} objekt låsta.
+8|Gör segmentet efter varje markerad nod krökt
+9|Gör segmentet efter varje markerad nod rakt
+10|Gör de markerade noderna till hörn
+11|Gör de markerade noderna mjuka
+12|Öppna / stäng
+13|Radie för rundning
+14|Runda
+15|Runda de markerade hörnen med den här radien
+16|{} hörn rundade.
+17|Markera först en form och redigera sedan dess noder.
+18|Markera minst två objekt för att gruppera.
+19|Mjuk
+20|Det finns inga raka hörn att runda.
+21|Till kurva
+22|Till linje
+23|{} objekt upplåsta.

@@ -1,0 +1,24 @@
+0|Ajouter un nœud
+1|Fermer un tracé ouvert, ou ouvrir un tracé fermé au nœud sélectionné
+2|Convertissez le texte en courbes, ou vectorisez l'image, pour modifier ses nœuds.
+3|Angle
+4|Supprimer le nœud
+5|Groupé. Les objets gardent leurs calques.
+6|Insérer un nœud (ou double-cliquer sur un segment)
+7|{} objet(s) verrouillé(s).
+8|Rendre courbe le segment qui suit chaque nœud sélectionné
+9|Rendre droit le segment qui suit chaque nœud sélectionné
+10|Transformer les nœuds sélectionnés en angles
+11|Rendre les nœuds sélectionnés lisses
+12|Ouvrir / fermer
+13|Rayon d'arrondi
+14|Arrondir
+15|Arrondit les angles sélectionnés avec ce rayon
+16|{} angle(s) arrondi(s).
+17|Sélectionnez d'abord une forme, puis modifiez ses nœuds.
+18|Sélectionnez au moins deux objets à grouper.
+19|Lisse
+20|Il n'y a pas d'angles droits à arrondir.
+21|En courbe
+22|En ligne
+23|{} objet(s) déverrouillé(s).

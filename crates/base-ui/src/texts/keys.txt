@@ -1,0 +1,24 @@
+0	Add node
+1	Close an open path, or open a closed one at the selected node
+2	Convert text to curves, or trace the image, to edit its nodes.
+3	Corner
+4	Delete node
+5	Grouped. The objects keep their layers.
+6	Insert a node (or double-click a segment)
+7	Locked {} object(s).
+8	Make the segment after each selected node a curve
+9	Make the segment after each selected node straight
+10	Make the selected nodes corners
+11	Make the selected nodes smooth
+12	Open / close
+13	Radius for rounding
+14	Round
+15	Round the selected corners with this radius
+16	Rounded {} corner(s).
+17	Select a shape first, then edit its nodes.
+18	Select at least two objects to group.
+19	Smooth
+20	There are no straight corners to round.
+21	To curve
+22	To line
+23	Unlocked {} object(s).

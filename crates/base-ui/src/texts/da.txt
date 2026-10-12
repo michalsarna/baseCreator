@@ -1,0 +1,24 @@
+0|Tilføj knudepunkt
+1|Luk en åben sti, eller åbn en lukket ved det markerede knudepunkt
+2|Konvertér teksten til kurver, eller vektorisér billedet, for at redigere dets knudepunkter.
+3|Hjørne
+4|Slet knudepunkt
+5|Grupperet. Objekterne beholder deres lag.
+6|Indsæt et knudepunkt (eller dobbeltklik på et segment)
+7|{} objekt(er) låst.
+8|Gør segmentet efter hvert markeret knudepunkt buet
+9|Gør segmentet efter hvert markeret knudepunkt lige
+10|Gør de markerede knudepunkter til hjørner
+11|Gør de markerede knudepunkter glatte
+12|Åbn / luk
+13|Radius for afrunding
+14|Afrund
+15|Afrund de markerede hjørner med denne radius
+16|{} hjørne(r) afrundet.
+17|Markér først en form, og redigér derefter dens knudepunkter.
+18|Markér mindst to objekter for at gruppere.
+19|Glat
+20|Der er ingen rette hjørner at afrunde.
+21|Til kurve
+22|Til linje
+23|{} objekt(er) låst op.

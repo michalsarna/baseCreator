@@ -1,0 +1,24 @@
+0|Adicionar nó
+1|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
+2|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
+3|Canto
+4|Eliminar nó
+5|Agrupado. Os objetos mantêm as suas camadas.
+6|Inserir um nó (ou duplo clique num segmento)
+7|{} objeto(s) bloqueado(s).
+8|Tornar curvo o segmento a seguir a cada nó selecionado
+9|Tornar reto o segmento a seguir a cada nó selecionado
+10|Tornar os nós selecionados cantos
+11|Tornar os nós selecionados suaves
+12|Abrir / fechar
+13|Raio de arredondamento
+14|Arredondar
+15|Arredonda os cantos selecionados com este raio
+16|{} canto(s) arredondado(s).
+17|Selecione primeiro uma forma e depois edite os seus nós.
+18|Selecione pelo menos dois objetos para agrupar.
+19|Suave
+20|Não há cantos retos para arredondar.
+21|Para curva
+22|Para linha
+23|{} objeto(s) desbloqueado(s).

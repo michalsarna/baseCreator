@@ -7,10 +7,19 @@ not need a laser, and it grows by moving more of that part here, one piece at a 
 | Crate | What it holds |
 |---|---|
 | `base-core` | No GUI. Geometry, Bézier paths, arcs and fillets, snapping, boolean operations, text outlines, bitmaps and tracing, camera calibration, the **scene** (`Scene`, `Shape`, `Kind`: shapes with transforms, groups and ids), SVG and PDF reading, the clipart library, units, GRBL settings reports, ser2net helpers |
-| `base-ui` | egui parts: colour schemes (`theme`), fonts, the translation layer (`i18n`), a Markdown viewer, unit-aware number fields, camera helpers (feature `camera`) |
+| `base-ui` | egui parts: colour schemes (`theme`), fonts, the translation layer (`i18n`, `texts`), a Markdown viewer, unit-aware number fields, camera helpers (feature `camera`), and the **editor** (`editor`): the work-area canvas with its tools, selection, node editing and the editing commands, written against the `EditorHost` trait |
 
-What is **not** here yet: the work-area canvas, the node editor, the menus and the dialogs. They are written against
-LightCreator's own state (layers, device, action list) and need a host interface first.
+### The editor
+
+An application keeps an `EditorState` (selection, tool, view, grid, snapping, clipboard) and implements `EditorHost`:
+where its `Scene` and its `EditorState` are, how undo works (`checkpoint`, `touch`), which layers are shown and in what
+colour, the size of the work area and the units. The canvas (`EditorCanvas::canvas`), the node editing and the
+commands on the selection (`EditorCommands`) are then provided. What belongs to the application (the machine's bed,
+no-go zones, a camera picture, a tool path preview, the context menu) is drawn by optional hooks of `EditorHost`
+(`paint_work_area`, `paint_under_shapes`, `paint_over_shapes`, `canvas_context_menu`, ...).
+
+What is **not** here yet: the menus and their list of actions, the icons, and the dialogs (they are written against
+LightCreator's own state).
 
 ## Using it
 

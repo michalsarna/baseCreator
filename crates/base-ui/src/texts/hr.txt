@@ -1,0 +1,24 @@
+0|Dodaj čvor
+1|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
+2|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
+3|Kut
+4|Izbriši čvor
+5|Grupirano. Objekti zadržavaju svoje slojeve.
+6|Umetni čvor (ili dvaput kliknite segment)
+7|Zaključano objekata: {}
+8|Učini segment iza svakog odabranog čvora zakrivljenim
+9|Učini segment iza svakog odabranog čvora ravnim
+10|Pretvori odabrane čvorove u kutne
+11|Učini odabrane čvorove glatkima
+12|Otvori / zatvori
+13|Polumjer zaobljenja
+14|Zaobli
+15|Zaobljuje odabrane kutove ovim polumjerom
+16|Zaobljeno kutova: {}
+17|Prvo odaberite oblik, a zatim uredite njegove čvorove.
+18|Za grupiranje odaberite barem dva objekta.
+19|Glatko
+20|Nema ravnih kutova za zaobljivanje.
+21|U krivulju
+22|U crtu
+23|Otključano objekata: {}

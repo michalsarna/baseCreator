@@ -1,0 +1,24 @@
+0|Bæta við hnút
+1|Loka opnum ferli eða opna lokaðan við valinn hnút
+2|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
+3|Horn
+4|Eyða hnút
+5|Hópað. Hlutirnir halda lögum sínum.
+6|Setja inn hnút (eða tvísmella á bút)
+7|Læstir hlutir: {}
+8|Gera bútinn á eftir hverjum völdum hnút bogadreginn
+9|Gera bútinn á eftir hverjum völdum hnút beinan
+10|Gera valda hnúta að hornum
+11|Gera valda hnúta mjúka
+12|Opna / loka
+13|Radíus ávölunar
+14|Ávala
+15|Ávalar valin horn með þessum radíus
+16|Ávöluð horn: {}
+17|Veldu fyrst form og breyttu síðan hnútum þess.
+18|Veldu að minnsta kosti tvo hluti til að hópa.
+19|Mjúkur
+20|Engin bein horn til að ávala.
+21|Í feril
+22|Í línu
+23|Aflæstir hlutir: {}

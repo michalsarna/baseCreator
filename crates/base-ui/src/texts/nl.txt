@@ -1,0 +1,24 @@
+0|Knooppunt toevoegen
+1|Een open pad sluiten, of een gesloten pad openen bij het geselecteerde knooppunt
+2|Zet de tekst om in curven, of vectoriseer de afbeelding, om de knooppunten te bewerken.
+3|Hoek
+4|Knooppunt verwijderen
+5|Gegroepeerd. De objecten behouden hun lagen.
+6|Een knooppunt invoegen (of dubbelklik op een segment)
+7|{} object(en) vergrendeld.
+8|Het segment na elk geselecteerd knooppunt gebogen maken
+9|Het segment na elk geselecteerd knooppunt recht maken
+10|Geselecteerde knooppunten hoeken maken
+11|Geselecteerde knooppunten glad maken
+12|Openen / sluiten
+13|Straal voor afronding
+14|Afronden
+15|De geselecteerde hoeken afronden met deze straal
+16|{} hoek(en) afgerond.
+17|Selecteer eerst een vorm en bewerk dan zijn knooppunten.
+18|Selecteer minstens twee objecten om te groeperen.
+19|Glad
+20|Er zijn geen rechte hoeken om af te ronden.
+21|Naar curve
+22|Naar lijn
+23|{} object(en) ontgrendeld.
