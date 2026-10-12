@@ -11,53 +11,74 @@
 10|Centra a la taula
 11|Centra entre ells
 12|Buida la llista
-13|Tanca un traçat obert, o obre'n un de tancat al node seleccionat
-14|Convertiu el text en corbes, o vectoritzeu la imatge, per editar-ne els nodes.
-15|Converteix en traçat
-16|Copia
-17|Cantonada
-18|Suprimeix
-19|Suprimeix el node
-20|Duplica
-21|Edita els nodes
-22|Ajusta a tots els objectes
-23|Ajusta la taula a la finestra
-24|Gira horitzontalment
-25|Gira verticalment
-26|Quadrícula
-27|Agrupa
-28|Agrupat. Els objectes conserven les seves capes.
-29|Insereix un node (o fes doble clic en un segment)
-30|Bloqueja
-31|{} objecte(s) bloquejat(s).
-32|Fes corb el segment posterior a cada node seleccionat
-33|Fes recte el segment posterior a cada node seleccionat
-34|Converteix els nodes seleccionats en cantonades
-35|Fes suaus els nodes seleccionats
-36|Obre / tanca
-37|Obre recents
-38|Enganxa
-39|Surt
-40|Radi d'arrodoniment
-41|Refés
-42|Gira 90° a l'esquerra
-43|Gira 90° a la dreta
-44|Arrodoneix
-45|Arrodoneix les cantonades seleccionades amb aquest radi
-46|{} cantonada(es) arrodonida(es).
-47|Seleccioneu primer una forma i després editeu-ne els nodes.
-48|Selecciona-ho tot
-49|Seleccioneu com a mínim dos objectes per agrupar.
-50|Envia al darrere
-51|Suau
-52|Ajusta a la quadrícula
-53|Encaixa als objectes
-54|No hi ha cantonades rectes per arrodonir.
-55|A corba
-56|A línia
-57|Desfés
-58|Desagrupa
-59|Desbloqueja
-60|{} objecte(s) desbloquejat(s).
-61|Apropa
-62|Allunya
+13|Tanca
+14|Tanca un traçat obert, o obre'n un de tancat al node seleccionat
+15|Convertiu el text en corbes, o vectoritzeu la imatge, per editar-ne els nodes.
+16|Converteix en traçat
+17|Copia
+18|Cantonada
+19|Suprimeix
+20|Suprimeix el node
+21|Duplica
+22|Edita els nodes
+23|El·lipse (E)
+24|Ajusta a tots els objectes
+25|Ajusta a tots els objectes (Ctrl+9)
+26|Ajusta la taula a la finestra
+27|Ajusta a l'àrea de treball (Ctrl+0)
+28|Gira horitzontalment
+29|Gira verticalment
+30|Quadrícula
+31|Agrupa
+32|Agrupat. Els objectes conserven les seves capes.
+33|Cor (K)
+34|Insereix un node (o fes doble clic en un segment)
+35|Línia (L)
+36|Bloqueja
+37|{} objecte(s) bloquejat(s).
+38|Fes corb el segment posterior a cada node seleccionat
+39|Fes recte el segment posterior a cada node seleccionat
+40|Converteix els nodes seleccionats en cantonades
+41|Fes suaus els nodes seleccionats
+42|Maximitza
+43|Minimitza
+44|Edició de nodes (N)
+45|Obre / tanca
+46|Obre recents
+47|Mou la vista (H)
+48|Enganxa
+49|Polígon (G)
+50|Polilínia / ploma (P)
+51|Surt
+52|Radi d'arrodoniment
+53|Rectangle (R)
+54|Refés
+55|Restaura
+56|Gira 90° a l'esquerra
+57|Gira 90° a la dreta
+58|Arrodoneix
+59|Arrodoneix les cantonades seleccionades amb aquest radi
+60|{} cantonada(es) arrodonida(es).
+61|Selecciona (V)
+62|Seleccioneu primer una forma i després editeu-ne els nodes.
+63|Selecciona-ho tot
+64|Seleccioneu com a mínim dos objectes per agrupar.
+65|Envia al darrere
+66|Suau
+67|Ajusta a la quadrícula
+68|Encaixa als objectes
+69|Espiral (I)
+70|Estrella (S)
+71|Text (T)
+72|No hi ha cantonades rectes per arrodonir.
+73|A corba
+74|A línia
+75|Triangle (Y)
+76|Desfés
+77|Desagrupa
+78|Desbloqueja
+79|{} objecte(s) desbloquejat(s).
+80|Apropa
+81|Apropa (Z)
+82|Allunya
+83|Allunya (X)

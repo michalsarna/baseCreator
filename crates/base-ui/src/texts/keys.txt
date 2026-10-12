@@ -11,53 +11,74 @@
 10	Centre on bed
 11	Centre on each other
 12	Clear list
-13	Close an open path, or open a closed one at the selected node
-14	Convert text to curves, or trace the image, to edit its nodes.
-15	Convert to path
-16	Copy
-17	Corner
-18	Delete
-19	Delete node
-20	Duplicate
-21	Edit nodes
-22	Fit all objects
-23	Fit bed to window
-24	Flip horizontal
-25	Flip vertical
-26	Grid
-27	Group
-28	Grouped. The objects keep their layers.
-29	Insert a node (or double-click a segment)
-30	Lock
-31	Locked {} object(s).
-32	Make the segment after each selected node a curve
-33	Make the segment after each selected node straight
-34	Make the selected nodes corners
-35	Make the selected nodes smooth
-36	Open / close
-37	Open recent
-38	Paste
-39	Quit
-40	Radius for rounding
-41	Redo
-42	Rotate 90° CCW
-43	Rotate 90° CW
-44	Round
-45	Round the selected corners with this radius
-46	Rounded {} corner(s).
-47	Select a shape first, then edit its nodes.
-48	Select all
-49	Select at least two objects to group.
-50	Send to back
-51	Smooth
-52	Snap to grid
-53	Snap to objects
-54	There are no straight corners to round.
-55	To curve
-56	To line
-57	Undo
-58	Ungroup
-59	Unlock
-60	Unlocked {} object(s).
-61	Zoom in
-62	Zoom out
+13	Close
+14	Close an open path, or open a closed one at the selected node
+15	Convert text to curves, or trace the image, to edit its nodes.
+16	Convert to path
+17	Copy
+18	Corner
+19	Delete
+20	Delete node
+21	Duplicate
+22	Edit nodes
+23	Ellipse (E)
+24	Fit all objects
+25	Fit all objects (Ctrl+9)
+26	Fit bed to window
+27	Fit work area (Ctrl+0)
+28	Flip horizontal
+29	Flip vertical
+30	Grid
+31	Group
+32	Grouped. The objects keep their layers.
+33	Heart (K)
+34	Insert a node (or double-click a segment)
+35	Line (L)
+36	Lock
+37	Locked {} object(s).
+38	Make the segment after each selected node a curve
+39	Make the segment after each selected node straight
+40	Make the selected nodes corners
+41	Make the selected nodes smooth
+42	Maximise
+43	Minimise
+44	Node edit (N)
+45	Open / close
+46	Open recent
+47	Pan (H)
+48	Paste
+49	Polygon (G)
+50	Polyline / pen (P)
+51	Quit
+52	Radius for rounding
+53	Rectangle (R)
+54	Redo
+55	Restore
+56	Rotate 90° CCW
+57	Rotate 90° CW
+58	Round
+59	Round the selected corners with this radius
+60	Rounded {} corner(s).
+61	Select (V)
+62	Select a shape first, then edit its nodes.
+63	Select all
+64	Select at least two objects to group.
+65	Send to back
+66	Smooth
+67	Snap to grid
+68	Snap to objects
+69	Spiral (I)
+70	Star (S)
+71	Text (T)
+72	There are no straight corners to round.
+73	To curve
+74	To line
+75	Triangle (Y)
+76	Undo
+77	Ungroup
+78	Unlock
+79	Unlocked {} object(s).
+80	Zoom in
+81	Zoom in (Z)
+82	Zoom out
+83	Zoom out (X)

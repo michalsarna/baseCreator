@@ -11,53 +11,74 @@
 10|Miðja á borðinu
 11|Miðja hvað á annað
 12|Hreinsa lista
-13|Loka opnum ferli eða opna lokaðan við valinn hnút
-14|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
-15|Breyta í feril
-16|Afrita
-17|Horn
-18|Eyða
-19|Eyða hnút
-20|Tvöfalda
-21|Breyta hnútum
-22|Laga að öllum hlutum
-23|Laga borð að glugga
-24|Snúa lárétt
-25|Snúa lóðrétt
-26|Rúðunet
-27|Hópa
-28|Hópað. Hlutirnir halda lögum sínum.
-29|Setja inn hnút (eða tvísmella á bút)
-30|Læsa
-31|Læstir hlutir: {}
-32|Gera bútinn á eftir hverjum völdum hnút bogadreginn
-33|Gera bútinn á eftir hverjum völdum hnút beinan
-34|Gera valda hnúta að hornum
-35|Gera valda hnúta mjúka
-36|Opna / loka
-37|Opna nýleg
-38|Líma
-39|Hætta
-40|Radíus ávölunar
-41|Endurgera
-42|Snúa 90° rangsælis
-43|Snúa 90° réttsælis
-44|Ávala
-45|Ávalar valin horn með þessum radíus
-46|Ávöluð horn: {}
-47|Veldu fyrst form og breyttu síðan hnútum þess.
-48|Velja allt
-49|Veldu að minnsta kosti tvo hluti til að hópa.
-50|Færa aftast
-51|Mjúkur
-52|Grípa í rúðunet
-53|Grípa í hluti
-54|Engin bein horn til að ávala.
-55|Í feril
-56|Í línu
-57|Afturkalla
-58|Afhópa
-59|Aflæsa
-60|Aflæstir hlutir: {}
-61|Stækka
-62|Minnka
+13|Loka
+14|Loka opnum ferli eða opna lokaðan við valinn hnút
+15|Breyttu textanum í ferla, eða vigurgerðu myndina, til að breyta hnútum hennar.
+16|Breyta í feril
+17|Afrita
+18|Horn
+19|Eyða
+20|Eyða hnút
+21|Tvöfalda
+22|Breyta hnútum
+23|Sporbaugur (E)
+24|Laga að öllum hlutum
+25|Laga að öllum hlutum (Ctrl+9)
+26|Laga borð að glugga
+27|Laga að vinnusvæði (Ctrl+0)
+28|Snúa lárétt
+29|Snúa lóðrétt
+30|Rúðunet
+31|Hópa
+32|Hópað. Hlutirnir halda lögum sínum.
+33|Hjarta (K)
+34|Setja inn hnút (eða tvísmella á bút)
+35|Lína (L)
+36|Læsa
+37|Læstir hlutir: {}
+38|Gera bútinn á eftir hverjum völdum hnút bogadreginn
+39|Gera bútinn á eftir hverjum völdum hnút beinan
+40|Gera valda hnúta að hornum
+41|Gera valda hnúta mjúka
+42|Hámarka
+43|Lágmarka
+44|Hnútabreyting (N)
+45|Opna / loka
+46|Opna nýleg
+47|Færa sýn (H)
+48|Líma
+49|Marghyrningur (G)
+50|Brotalína / penni (P)
+51|Hætta
+52|Radíus ávölunar
+53|Rétthyrningur (R)
+54|Endurgera
+55|Endurheimta
+56|Snúa 90° rangsælis
+57|Snúa 90° réttsælis
+58|Ávala
+59|Ávalar valin horn með þessum radíus
+60|Ávöluð horn: {}
+61|Velja (V)
+62|Veldu fyrst form og breyttu síðan hnútum þess.
+63|Velja allt
+64|Veldu að minnsta kosti tvo hluti til að hópa.
+65|Færa aftast
+66|Mjúkur
+67|Grípa í rúðunet
+68|Grípa í hluti
+69|Spírall (I)
+70|Stjarna (S)
+71|Texti (T)
+72|Engin bein horn til að ávala.
+73|Í feril
+74|Í línu
+75|Þríhyrningur (Y)
+76|Afturkalla
+77|Afhópa
+78|Aflæsa
+79|Aflæstir hlutir: {}
+80|Stækka
+81|Stækka (Z)
+82|Minnka
+83|Minnka (X)

@@ -11,53 +11,74 @@
 10|Centrar na mesa
 11|Centrar entre si
 12|Limpar lista
-13|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
-14|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
-15|Converter em caminho
-16|Copiar
-17|Canto
-18|Eliminar
-19|Eliminar nó
-20|Duplicar
-21|Editar nós
-22|Ajustar a todos os objetos
-23|Ajustar a mesa à janela
-24|Inverter horizontalmente
-25|Inverter verticalmente
-26|Grelha
-27|Agrupar
-28|Agrupado. Os objetos mantêm as suas camadas.
-29|Inserir um nó (ou duplo clique num segmento)
-30|Bloquear
-31|{} objeto(s) bloqueado(s).
-32|Tornar curvo o segmento a seguir a cada nó selecionado
-33|Tornar reto o segmento a seguir a cada nó selecionado
-34|Tornar os nós selecionados cantos
-35|Tornar os nós selecionados suaves
-36|Abrir / fechar
-37|Abrir recente
-38|Colar
-39|Sair
-40|Raio de arredondamento
-41|Refazer
-42|Rodar 90° para a esquerda
-43|Rodar 90° para a direita
-44|Arredondar
-45|Arredonda os cantos selecionados com este raio
-46|{} canto(s) arredondado(s).
-47|Selecione primeiro uma forma e depois edite os seus nós.
-48|Selecionar tudo
-49|Selecione pelo menos dois objetos para agrupar.
-50|Enviar para trás
-51|Suave
-52|Ajustar à grelha
-53|Ajustar aos objetos
-54|Não há cantos retos para arredondar.
-55|Para curva
-56|Para linha
-57|Anular
-58|Desagrupar
-59|Desbloquear
-60|{} objeto(s) desbloqueado(s).
-61|Ampliar
-62|Reduzir
+13|Fechar
+14|Fechar um caminho aberto, ou abrir um fechado no nó selecionado
+15|Converta o texto em curvas, ou vetorize a imagem, para editar os seus nós.
+16|Converter em caminho
+17|Copiar
+18|Canto
+19|Eliminar
+20|Eliminar nó
+21|Duplicar
+22|Editar nós
+23|Elipse (E)
+24|Ajustar a todos os objetos
+25|Ajustar a todos os objetos (Ctrl+9)
+26|Ajustar a mesa à janela
+27|Ajustar à área de trabalho (Ctrl+0)
+28|Inverter horizontalmente
+29|Inverter verticalmente
+30|Grelha
+31|Agrupar
+32|Agrupado. Os objetos mantêm as suas camadas.
+33|Coração (K)
+34|Inserir um nó (ou duplo clique num segmento)
+35|Linha (L)
+36|Bloquear
+37|{} objeto(s) bloqueado(s).
+38|Tornar curvo o segmento a seguir a cada nó selecionado
+39|Tornar reto o segmento a seguir a cada nó selecionado
+40|Tornar os nós selecionados cantos
+41|Tornar os nós selecionados suaves
+42|Maximizar
+43|Minimizar
+44|Edição de nós (N)
+45|Abrir / fechar
+46|Abrir recente
+47|Mover vista (H)
+48|Colar
+49|Polígono (G)
+50|Polilinha / caneta (P)
+51|Sair
+52|Raio de arredondamento
+53|Retângulo (R)
+54|Refazer
+55|Restaurar
+56|Rodar 90° para a esquerda
+57|Rodar 90° para a direita
+58|Arredondar
+59|Arredonda os cantos selecionados com este raio
+60|{} canto(s) arredondado(s).
+61|Selecionar (V)
+62|Selecione primeiro uma forma e depois edite os seus nós.
+63|Selecionar tudo
+64|Selecione pelo menos dois objetos para agrupar.
+65|Enviar para trás
+66|Suave
+67|Ajustar à grelha
+68|Ajustar aos objetos
+69|Espiral (I)
+70|Estrela (S)
+71|Texto (T)
+72|Não há cantos retos para arredondar.
+73|Para curva
+74|Para linha
+75|Triângulo (Y)
+76|Anular
+77|Desagrupar
+78|Desbloquear
+79|{} objeto(s) desbloqueado(s).
+80|Ampliar
+81|Ampliar (Z)
+82|Reduzir
+83|Reduzir (X)

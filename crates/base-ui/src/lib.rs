@@ -13,3 +13,5 @@ pub mod native_menu;
 pub mod texts;
 pub mod theme;
 pub mod units_ui;
+pub mod window;
+pub mod widgets;

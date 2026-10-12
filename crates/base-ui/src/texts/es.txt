@@ -11,53 +11,74 @@
 10|Centrar en la mesa
 11|Centrar entre sí
 12|Vaciar lista
-13|Cerrar un trazado abierto, o abrir uno cerrado en el nodo seleccionado
-14|Convierta el texto en curvas, o vectorice la imagen, para editar sus nodos.
-15|Convertir en trazado
-16|Copiar
-17|Esquina
-18|Eliminar
-19|Eliminar nodo
-20|Duplicar
-21|Editar nodos
-22|Ajustar a todos los objetos
-23|Ajustar la mesa a la ventana
-24|Voltear horizontalmente
-25|Voltear verticalmente
-26|Cuadrícula
-27|Agrupar
-28|Agrupado. Los objetos conservan sus capas.
-29|Insertar un nodo (o doble clic en un segmento)
-30|Bloquear
-31|{} objeto(s) bloqueado(s).
-32|Hacer curvo el segmento posterior a cada nodo seleccionado
-33|Hacer recto el segmento posterior a cada nodo seleccionado
-34|Convertir los nodos seleccionados en esquinas
-35|Hacer suaves los nodos seleccionados
-36|Abrir / cerrar
-37|Abrir reciente
-38|Pegar
-39|Salir
-40|Radio de redondeo
-41|Rehacer
-42|Girar 90° a la izquierda
-43|Girar 90° a la derecha
-44|Redondear
-45|Redondea las esquinas seleccionadas con este radio
-46|{} esquina(s) redondeada(s).
-47|Seleccione primero una forma y luego edite sus nodos.
-48|Seleccionar todo
-49|Seleccione al menos dos objetos para agrupar.
-50|Enviar al fondo
-51|Suave
-52|Ajustar a la cuadrícula
-53|Ajustar a los objetos
-54|No hay esquinas rectas que redondear.
-55|A curva
-56|A línea
-57|Deshacer
-58|Desagrupar
-59|Desbloquear
-60|{} objeto(s) desbloqueado(s).
-61|Acercar
-62|Alejar
+13|Cerrar
+14|Cerrar un trazado abierto, o abrir uno cerrado en el nodo seleccionado
+15|Convierta el texto en curvas, o vectorice la imagen, para editar sus nodos.
+16|Convertir en trazado
+17|Copiar
+18|Esquina
+19|Eliminar
+20|Eliminar nodo
+21|Duplicar
+22|Editar nodos
+23|Elipse (E)
+24|Ajustar a todos los objetos
+25|Ajustar a todos los objetos (Ctrl+9)
+26|Ajustar la mesa a la ventana
+27|Ajustar al área de trabajo (Ctrl+0)
+28|Voltear horizontalmente
+29|Voltear verticalmente
+30|Cuadrícula
+31|Agrupar
+32|Agrupado. Los objetos conservan sus capas.
+33|Corazón (K)
+34|Insertar un nodo (o doble clic en un segmento)
+35|Línea (L)
+36|Bloquear
+37|{} objeto(s) bloqueado(s).
+38|Hacer curvo el segmento posterior a cada nodo seleccionado
+39|Hacer recto el segmento posterior a cada nodo seleccionado
+40|Convertir los nodos seleccionados en esquinas
+41|Hacer suaves los nodos seleccionados
+42|Maximizar
+43|Minimizar
+44|Edición de nodos (N)
+45|Abrir / cerrar
+46|Abrir reciente
+47|Mover vista (H)
+48|Pegar
+49|Polígono (G)
+50|Polilínea / pluma (P)
+51|Salir
+52|Radio de redondeo
+53|Rectángulo (R)
+54|Rehacer
+55|Restaurar
+56|Girar 90° a la izquierda
+57|Girar 90° a la derecha
+58|Redondear
+59|Redondea las esquinas seleccionadas con este radio
+60|{} esquina(s) redondeada(s).
+61|Seleccionar (V)
+62|Seleccione primero una forma y luego edite sus nodos.
+63|Seleccionar todo
+64|Seleccione al menos dos objetos para agrupar.
+65|Enviar al fondo
+66|Suave
+67|Ajustar a la cuadrícula
+68|Ajustar a los objetos
+69|Espiral (I)
+70|Estrella (S)
+71|Texto (T)
+72|No hay esquinas rectas que redondear.
+73|A curva
+74|A línea
+75|Triángulo (Y)
+76|Deshacer
+77|Desagrupar
+78|Desbloquear
+79|{} objeto(s) desbloqueado(s).
+80|Acercar
+81|Acercar (Z)
+82|Alejar
+83|Alejar (X)

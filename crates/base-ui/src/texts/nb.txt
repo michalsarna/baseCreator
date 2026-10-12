@@ -11,53 +11,74 @@
 10|Sentrer på bordet
 11|Sentrer på hverandre
 12|Tøm listen
-13|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
-14|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
-15|Konverter til bane
-16|Kopier
-17|Hjørne
-18|Slett
-19|Slett node
-20|Dupliser
-21|Rediger noder
-22|Tilpass til alle objekter
-23|Tilpass bordet til vinduet
-24|Speilvend horisontalt
-25|Speilvend vertikalt
-26|Rutenett
-27|Grupper
-28|Gruppert. Objektene beholder lagene sine.
-29|Sett inn en node (eller dobbeltklikk på et segment)
-30|Lås
-31|{} objekt(er) låst.
-32|Gjør segmentet etter hver merkede node buet
-33|Gjør segmentet etter hver merkede node rett
-34|Gjør de merkede nodene til hjørner
-35|Gjør de merkede nodene glatte
-36|Åpne / lukk
-37|Åpne nylige
-38|Lim inn
-39|Avslutt
-40|Radius for avrunding
-41|Gjør om
-42|Roter 90° mot klokken
-43|Roter 90° med klokken
-44|Avrund
-45|Avrund de merkede hjørnene med denne radiusen
-46|{} hjørne(r) avrundet.
-47|Merk først en form, og rediger deretter nodene.
-48|Merk alt
-49|Merk minst to objekter for å gruppere.
-50|Flytt bakerst
-51|Glatt
-52|Fest til rutenett
-53|Fest til objekter
-54|Det finnes ingen rette hjørner å avrunde.
-55|Til kurve
-56|Til linje
-57|Angre
-58|Del opp gruppe
-59|Lås opp
-60|{} objekt(er) låst opp.
-61|Zoom inn
-62|Zoom ut
+13|Lukk
+14|Lukk en åpen bane, eller åpne en lukket ved den merkede noden
+15|Konverter teksten til kurver, eller vektoriser bildet, for å redigere nodene.
+16|Konverter til bane
+17|Kopier
+18|Hjørne
+19|Slett
+20|Slett node
+21|Dupliser
+22|Rediger noder
+23|Ellipse (E)
+24|Tilpass til alle objekter
+25|Tilpass til alle objekter (Ctrl+9)
+26|Tilpass bordet til vinduet
+27|Tilpass til arbeidsområdet (Ctrl+0)
+28|Speilvend horisontalt
+29|Speilvend vertikalt
+30|Rutenett
+31|Grupper
+32|Gruppert. Objektene beholder lagene sine.
+33|Hjerte (K)
+34|Sett inn en node (eller dobbeltklikk på et segment)
+35|Linje (L)
+36|Lås
+37|{} objekt(er) låst.
+38|Gjør segmentet etter hver merkede node buet
+39|Gjør segmentet etter hver merkede node rett
+40|Gjør de merkede nodene til hjørner
+41|Gjør de merkede nodene glatte
+42|Maksimer
+43|Minimer
+44|Rediger noder (N)
+45|Åpne / lukk
+46|Åpne nylige
+47|Panorer (H)
+48|Lim inn
+49|Mangekant (G)
+50|Polylinje / penn (P)
+51|Avslutt
+52|Radius for avrunding
+53|Rektangel (R)
+54|Gjør om
+55|Gjenopprett
+56|Roter 90° mot klokken
+57|Roter 90° med klokken
+58|Avrund
+59|Avrund de merkede hjørnene med denne radiusen
+60|{} hjørne(r) avrundet.
+61|Merk (V)
+62|Merk først en form, og rediger deretter nodene.
+63|Merk alt
+64|Merk minst to objekter for å gruppere.
+65|Flytt bakerst
+66|Glatt
+67|Fest til rutenett
+68|Fest til objekter
+69|Spiral (I)
+70|Stjerne (S)
+71|Tekst (T)
+72|Det finnes ingen rette hjørner å avrunde.
+73|Til kurve
+74|Til linje
+75|Trekant (Y)
+76|Angre
+77|Del opp gruppe
+78|Lås opp
+79|{} objekt(er) låst opp.
+80|Zoom inn
+81|Zoom inn (Z)
+82|Zoom ut
+83|Zoom ut (X)

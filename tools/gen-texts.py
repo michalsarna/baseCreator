@@ -2,7 +2,7 @@
 """Regenerate crates/base-ui/src/texts.rs and crates/base-ui/src/texts/*.txt.
 
 The shared interface texts are the English strings the code of crates/base-ui asks for with tr("...") / trf("..."),
-the labels of the menu entries in menu.rs, and the six alignment labels. Their translations are taken from a
+the labels of the menu entries in menu.rs, the labels of the tools, and the six alignment labels. Their translations are taken from a
 checkout of LightCreator (assets/lang/*.txt and the table in crates/lightcreator/src/i18n.rs).
 
 Usage: tools/gen-texts.py /path/to/LightCreator
@@ -33,6 +33,9 @@ def wanted():
             text = open(os.path.join(root, f)).read()
             for m in re.finditer(r'\btrf?\(\s*"((?:[^"\\]|\\.)*)"', text):
                 out.add(literal(m.group(1)))
+            if f == "mod.rs":
+                for m in re.finditer(r'\(Tool::\w+,\s*"((?:[^"\\]|\\.)*)",\s*Key::', text):
+                    out.add(literal(m.group(1)))
             if f == "menu.rs":
                 for m in re.finditer(r'Item\(StdAct::[^,]*(?:\([^)]*\))?,\s*"((?:[^"\\]|\\.)*)"', text):
                     out.add(literal(m.group(1)))

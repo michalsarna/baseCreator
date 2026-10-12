@@ -11,53 +11,74 @@
 10|Vystředit na stůl
 11|Vystředit na sebe
 12|Vymazat seznam
-13|Zavřít otevřenou cestu, nebo otevřít uzavřenou ve vybraném uzlu
-14|Převeďte text na křivky, nebo obrázek vektorizujte, abyste mohli upravovat jeho uzly.
-15|Převést na cestu
-16|Kopírovat
-17|Roh
-18|Smazat
-19|Smazat uzel
-20|Duplikovat
-21|Upravit uzly
-22|Přizpůsobit všem objektům
-23|Přizpůsobit stůl oknu
-24|Převrátit vodorovně
-25|Převrátit svisle
-26|Mřížka
-27|Seskupit
-28|Seskupeno. Objekty si ponechají své vrstvy.
-29|Vložit uzel (nebo dvakrát kliknout na úsek)
-30|Zamknout
-31|Zamčeno objektů: {}
-32|Změnit úsek za každým vybraným uzlem na křivku
-33|Změnit úsek za každým vybraným uzlem na přímý
-34|Změnit vybrané uzly na rohové
-35|Změnit vybrané uzly na hladké
-36|Otevřít / zavřít
-37|Nedávno otevřené
-38|Vložit
-39|Konec
-40|Poloměr zaoblení
-41|Znovu
-42|Otočit o 90° doleva
-43|Otočit o 90° doprava
-44|Zaoblit
-45|Zaoblí vybrané rohy tímto poloměrem
-46|Zaobleno rohů: {}
-47|Nejprve vyberte tvar a poté upravte jeho uzly.
-48|Vybrat vše
-49|Pro seskupení vyberte alespoň dva objekty.
-50|Přenést do pozadí
-51|Hladký
-52|Přichytávat k mřížce
-53|Přichytávat k objektům
-54|Nejsou žádné přímé rohy k zaoblení.
-55|Na křivku
-56|Na úsečku
-57|Zpět
-58|Zrušit seskupení
-59|Odemknout
-60|Odemčeno objektů: {}
-61|Přiblížit
-62|Oddálit
+13|Zavřít
+14|Zavřít otevřenou cestu, nebo otevřít uzavřenou ve vybraném uzlu
+15|Převeďte text na křivky, nebo obrázek vektorizujte, abyste mohli upravovat jeho uzly.
+16|Převést na cestu
+17|Kopírovat
+18|Roh
+19|Smazat
+20|Smazat uzel
+21|Duplikovat
+22|Upravit uzly
+23|Elipsa (E)
+24|Přizpůsobit všem objektům
+25|Přizpůsobit všem objektům (Ctrl+9)
+26|Přizpůsobit stůl oknu
+27|Přizpůsobit pracovní ploše (Ctrl+0)
+28|Převrátit vodorovně
+29|Převrátit svisle
+30|Mřížka
+31|Seskupit
+32|Seskupeno. Objekty si ponechají své vrstvy.
+33|Srdce (K)
+34|Vložit uzel (nebo dvakrát kliknout na úsek)
+35|Čára (L)
+36|Zamknout
+37|Zamčeno objektů: {}
+38|Změnit úsek za každým vybraným uzlem na křivku
+39|Změnit úsek za každým vybraným uzlem na přímý
+40|Změnit vybrané uzly na rohové
+41|Změnit vybrané uzly na hladké
+42|Maximalizovat
+43|Minimalizovat
+44|Úprava uzlů (N)
+45|Otevřít / zavřít
+46|Nedávno otevřené
+47|Posun pohledu (H)
+48|Vložit
+49|Mnohoúhelník (G)
+50|Lomená čára / pero (P)
+51|Konec
+52|Poloměr zaoblení
+53|Obdélník (R)
+54|Znovu
+55|Obnovit
+56|Otočit o 90° doleva
+57|Otočit o 90° doprava
+58|Zaoblit
+59|Zaoblí vybrané rohy tímto poloměrem
+60|Zaobleno rohů: {}
+61|Výběr (V)
+62|Nejprve vyberte tvar a poté upravte jeho uzly.
+63|Vybrat vše
+64|Pro seskupení vyberte alespoň dva objekty.
+65|Přenést do pozadí
+66|Hladký
+67|Přichytávat k mřížce
+68|Přichytávat k objektům
+69|Spirála (I)
+70|Hvězda (S)
+71|Text (T)
+72|Nejsou žádné přímé rohy k zaoblení.
+73|Na křivku
+74|Na úsečku
+75|Trojúhelník (Y)
+76|Zpět
+77|Zrušit seskupení
+78|Odemknout
+79|Odemčeno objektů: {}
+80|Přiblížit
+81|Přiblížit (Z)
+82|Oddálit
+83|Oddálit (X)

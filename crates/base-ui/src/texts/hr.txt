@@ -11,53 +11,74 @@
 10|Centriraj na stol
 11|Centriraj jedno na drugo
 12|Očisti popis
-13|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
-14|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
-15|Pretvori u putanju
-16|Kopiraj
-17|Kut
-18|Izbriši
-19|Izbriši čvor
-20|Dupliciraj
-21|Uredi čvorove
-22|Prilagodi svim objektima
-23|Prilagodi stol prozoru
-24|Zrcali vodoravno
-25|Zrcali okomito
-26|Mreža
-27|Grupiraj
-28|Grupirano. Objekti zadržavaju svoje slojeve.
-29|Umetni čvor (ili dvaput kliknite segment)
-30|Zaključaj
-31|Zaključano objekata: {}
-32|Učini segment iza svakog odabranog čvora zakrivljenim
-33|Učini segment iza svakog odabranog čvora ravnim
-34|Pretvori odabrane čvorove u kutne
-35|Učini odabrane čvorove glatkima
-36|Otvori / zatvori
-37|Otvori nedavne
-38|Zalijepi
-39|Izlaz
-40|Polumjer zaobljenja
-41|Ponovi
-42|Zakreni 90° ulijevo
-43|Zakreni 90° udesno
-44|Zaobli
-45|Zaobljuje odabrane kutove ovim polumjerom
-46|Zaobljeno kutova: {}
-47|Prvo odaberite oblik, a zatim uredite njegove čvorove.
-48|Odaberi sve
-49|Za grupiranje odaberite barem dva objekta.
-50|Prenesi natrag
-51|Glatko
-52|Prianjanje uz mrežu
-53|Prianjanje uz objekte
-54|Nema ravnih kutova za zaobljivanje.
-55|U krivulju
-56|U crtu
-57|Poništi
-58|Razgrupiraj
-59|Otključaj
-60|Otključano objekata: {}
-61|Povećaj
-62|Smanji
+13|Zatvori
+14|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
+15|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
+16|Pretvori u putanju
+17|Kopiraj
+18|Kut
+19|Izbriši
+20|Izbriši čvor
+21|Dupliciraj
+22|Uredi čvorove
+23|Elipsa (E)
+24|Prilagodi svim objektima
+25|Prilagodi svim objektima (Ctrl+9)
+26|Prilagodi stol prozoru
+27|Prilagodi radnom području (Ctrl+0)
+28|Zrcali vodoravno
+29|Zrcali okomito
+30|Mreža
+31|Grupiraj
+32|Grupirano. Objekti zadržavaju svoje slojeve.
+33|Srce (K)
+34|Umetni čvor (ili dvaput kliknite segment)
+35|Crta (L)
+36|Zaključaj
+37|Zaključano objekata: {}
+38|Učini segment iza svakog odabranog čvora zakrivljenim
+39|Učini segment iza svakog odabranog čvora ravnim
+40|Pretvori odabrane čvorove u kutne
+41|Učini odabrane čvorove glatkima
+42|Povećaj
+43|Smanji
+44|Uređivanje čvorova (N)
+45|Otvori / zatvori
+46|Otvori nedavne
+47|Pomak prikaza (H)
+48|Zalijepi
+49|Mnogokut (G)
+50|Izlomljena crta / pero (P)
+51|Izlaz
+52|Polumjer zaobljenja
+53|Pravokutnik (R)
+54|Ponovi
+55|Vrati
+56|Zakreni 90° ulijevo
+57|Zakreni 90° udesno
+58|Zaobli
+59|Zaobljuje odabrane kutove ovim polumjerom
+60|Zaobljeno kutova: {}
+61|Odabir (V)
+62|Prvo odaberite oblik, a zatim uredite njegove čvorove.
+63|Odaberi sve
+64|Za grupiranje odaberite barem dva objekta.
+65|Prenesi natrag
+66|Glatko
+67|Prianjanje uz mrežu
+68|Prianjanje uz objekte
+69|Spirala (I)
+70|Zvijezda (S)
+71|Tekst (T)
+72|Nema ravnih kutova za zaobljivanje.
+73|U krivulju
+74|U crtu
+75|Trokut (Y)
+76|Poništi
+77|Razgrupiraj
+78|Otključaj
+79|Otključano objekata: {}
+80|Povećaj
+81|Povećaj (Z)
+82|Smanji
+83|Smanji (X)

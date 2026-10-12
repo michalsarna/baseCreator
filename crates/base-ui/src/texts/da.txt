@@ -11,53 +11,74 @@
 10|Centrér på bordet
 11|Centrér på hinanden
 12|Ryd listen
-13|Luk en åben sti, eller åbn en lukket ved det markerede knudepunkt
-14|Konvertér teksten til kurver, eller vektorisér billedet, for at redigere dets knudepunkter.
-15|Konvertér til sti
-16|Kopiér
-17|Hjørne
-18|Slet
-19|Slet knudepunkt
-20|Dupliker
-21|Redigér knudepunkter
-22|Tilpas til alle objekter
-23|Tilpas bordet til vinduet
-24|Vend vandret
-25|Vend lodret
-26|Gitter
-27|Gruppér
-28|Grupperet. Objekterne beholder deres lag.
-29|Indsæt et knudepunkt (eller dobbeltklik på et segment)
-30|Lås
-31|{} objekt(er) låst.
-32|Gør segmentet efter hvert markeret knudepunkt buet
-33|Gør segmentet efter hvert markeret knudepunkt lige
-34|Gør de markerede knudepunkter til hjørner
-35|Gør de markerede knudepunkter glatte
-36|Åbn / luk
-37|Åbn seneste
-38|Sæt ind
-39|Afslut
-40|Radius for afrunding
-41|Gentag
-42|Roter 90° mod uret
-43|Roter 90° med uret
-44|Afrund
-45|Afrund de markerede hjørner med denne radius
-46|{} hjørne(r) afrundet.
-47|Markér først en form, og redigér derefter dens knudepunkter.
-48|Markér alt
-49|Markér mindst to objekter for at gruppere.
-50|Send bagest
-51|Glat
-52|Fastgør til gitter
-53|Fastgør til objekter
-54|Der er ingen rette hjørner at afrunde.
-55|Til kurve
-56|Til linje
-57|Fortryd
-58|Opløs gruppe
-59|Lås op
-60|{} objekt(er) låst op.
-61|Zoom ind
-62|Zoom ud
+13|Luk
+14|Luk en åben sti, eller åbn en lukket ved det markerede knudepunkt
+15|Konvertér teksten til kurver, eller vektorisér billedet, for at redigere dets knudepunkter.
+16|Konvertér til sti
+17|Kopiér
+18|Hjørne
+19|Slet
+20|Slet knudepunkt
+21|Dupliker
+22|Redigér knudepunkter
+23|Ellipse (E)
+24|Tilpas til alle objekter
+25|Tilpas til alle objekter (Ctrl+9)
+26|Tilpas bordet til vinduet
+27|Tilpas til arbejdsområdet (Ctrl+0)
+28|Vend vandret
+29|Vend lodret
+30|Gitter
+31|Gruppér
+32|Grupperet. Objekterne beholder deres lag.
+33|Hjerte (K)
+34|Indsæt et knudepunkt (eller dobbeltklik på et segment)
+35|Linje (L)
+36|Lås
+37|{} objekt(er) låst.
+38|Gør segmentet efter hvert markeret knudepunkt buet
+39|Gør segmentet efter hvert markeret knudepunkt lige
+40|Gør de markerede knudepunkter til hjørner
+41|Gør de markerede knudepunkter glatte
+42|Maksimér
+43|Minimér
+44|Redigér knudepunkter (N)
+45|Åbn / luk
+46|Åbn seneste
+47|Panorér (H)
+48|Sæt ind
+49|Polygon (G)
+50|Polylinje / pen (P)
+51|Afslut
+52|Radius for afrunding
+53|Rektangel (R)
+54|Gentag
+55|Gendan
+56|Roter 90° mod uret
+57|Roter 90° med uret
+58|Afrund
+59|Afrund de markerede hjørner med denne radius
+60|{} hjørne(r) afrundet.
+61|Markér (V)
+62|Markér først en form, og redigér derefter dens knudepunkter.
+63|Markér alt
+64|Markér mindst to objekter for at gruppere.
+65|Send bagest
+66|Glat
+67|Fastgør til gitter
+68|Fastgør til objekter
+69|Spiral (I)
+70|Stjerne (S)
+71|Tekst (T)
+72|Der er ingen rette hjørner at afrunde.
+73|Til kurve
+74|Til linje
+75|Trekant (Y)
+76|Fortryd
+77|Opløs gruppe
+78|Lås op
+79|{} objekt(er) låst op.
+80|Zoom ind
+81|Zoom ind (Z)
+82|Zoom ud
+83|Zoom ud (X)

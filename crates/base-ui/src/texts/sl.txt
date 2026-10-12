@@ -11,53 +11,74 @@
 10|Centriraj na mizo
 11|Centriraj drugo na drugo
 12|Počisti seznam
-13|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
-14|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
-15|Pretvori v pot
-16|Kopiraj
-17|Kot
-18|Izbriši
-19|Izbriši vozlišče
-20|Podvoji
-21|Uredi vozlišča
-22|Prilagodi vsem predmetom
-23|Prilagodi mizo oknu
-24|Zrcali vodoravno
-25|Zrcali navpično
-26|Mreža
-27|Združi
-28|Združeno. Predmeti obdržijo svoje sloje.
-29|Vstavi vozlišče (ali dvakrat kliknite odsek)
-30|Zakleni
-31|Zaklenjenih predmetov: {}
-32|Odsek za vsakim izbranim vozliščem naredi ukrivljen
-33|Odsek za vsakim izbranim vozliščem naredi raven
-34|Izbrana vozlišča spremeni v kotna
-35|Izbrana vozlišča naredi gladka
-36|Odpri / zapri
-37|Odpri nedavne
-38|Prilepi
-39|Izhod
-40|Polmer zaobljenja
-41|Uveljavi
-42|Zavrti za 90° v levo
-43|Zavrti za 90° v desno
-44|Zaobli
-45|Zaobli izbrane vogale s tem polmerom
-46|Zaobljenih vogalov: {}
-47|Najprej izberite obliko, nato uredite njena vozlišča.
-48|Izberi vse
-49|Za združevanje izberite vsaj dva predmeta.
-50|Postavi nazaj
-51|Gladko
-52|Pripni na mrežo
-53|Pripni na predmete
-54|Ni ravnih vogalov za zaobljenje.
-55|V krivuljo
-56|V črto
-57|Razveljavi
-58|Razdruži
-59|Odkleni
-60|Odklenjenih predmetov: {}
-61|Povečaj
-62|Pomanjšaj
+13|Zapri
+14|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
+15|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
+16|Pretvori v pot
+17|Kopiraj
+18|Kot
+19|Izbriši
+20|Izbriši vozlišče
+21|Podvoji
+22|Uredi vozlišča
+23|Elipsa (E)
+24|Prilagodi vsem predmetom
+25|Prilagodi vsem predmetom (Ctrl+9)
+26|Prilagodi mizo oknu
+27|Prilagodi delovnemu območju (Ctrl+0)
+28|Zrcali vodoravno
+29|Zrcali navpično
+30|Mreža
+31|Združi
+32|Združeno. Predmeti obdržijo svoje sloje.
+33|Srce (K)
+34|Vstavi vozlišče (ali dvakrat kliknite odsek)
+35|Črta (L)
+36|Zakleni
+37|Zaklenjenih predmetov: {}
+38|Odsek za vsakim izbranim vozliščem naredi ukrivljen
+39|Odsek za vsakim izbranim vozliščem naredi raven
+40|Izbrana vozlišča spremeni v kotna
+41|Izbrana vozlišča naredi gladka
+42|Povečaj
+43|Skrči
+44|Urejanje vozlišč (N)
+45|Odpri / zapri
+46|Odpri nedavne
+47|Premik pogleda (H)
+48|Prilepi
+49|Večkotnik (G)
+50|Lomljena črta / pero (P)
+51|Izhod
+52|Polmer zaobljenja
+53|Pravokotnik (R)
+54|Uveljavi
+55|Obnovi
+56|Zavrti za 90° v levo
+57|Zavrti za 90° v desno
+58|Zaobli
+59|Zaobli izbrane vogale s tem polmerom
+60|Zaobljenih vogalov: {}
+61|Izbira (V)
+62|Najprej izberite obliko, nato uredite njena vozlišča.
+63|Izberi vse
+64|Za združevanje izberite vsaj dva predmeta.
+65|Postavi nazaj
+66|Gladko
+67|Pripni na mrežo
+68|Pripni na predmete
+69|Spirala (I)
+70|Zvezda (S)
+71|Besedilo (T)
+72|Ni ravnih vogalov za zaobljenje.
+73|V krivuljo
+74|V črto
+75|Trikotnik (Y)
+76|Razveljavi
+77|Razdruži
+78|Odkleni
+79|Odklenjenih predmetov: {}
+80|Povečaj
+81|Povečaj (Z)
+82|Pomanjšaj
+83|Pomanjšaj (X)

@@ -1,9 +1,11 @@
 //! The parts of an editor that do not depend on the application: tools, the view, drags in progress, node addresses,
 //! grid preferences and the geometry of fitting the work area into a window.
+mod bars;
 mod canvas;
 mod commands;
 mod host;
 
+pub use bars::{arrange_bar, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use host::EditorHost;
