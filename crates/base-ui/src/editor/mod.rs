@@ -1,7 +1,9 @@
 //! The parts of an editor that do not depend on the application: tools, the view, drags in progress, node addresses,
 //! grid preferences and the geometry of fitting the work area into a window.
+mod canvas;
 mod host;
 
+pub use canvas::{CanvasView, EditorCanvas};
 pub use host::EditorHost;
 
 use base_core::bezier::Node;
@@ -69,6 +71,7 @@ pub struct View {
 /// A node address: shape id, contour index, node index.
 pub type NodeRef = (u64, usize, usize);
 
+#[derive(Clone)]
 pub enum Drag {
     Move { start: Pt, orig: Vec<(u64, Xf)> },
     Scale { anchor: Pt, grab: Pt, handle: usize, orig: Vec<(u64, Xf)> },

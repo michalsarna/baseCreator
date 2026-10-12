@@ -2,6 +2,7 @@
 //!
 //! The application implements the required methods of `EditorHost` (where its scene and its `EditorState` are, how
 //! its undo works, which layers are shown); everything else is provided here.
+use super::canvas::CanvasView;
 use super::{handle_pts, EditorState, NodeRef, Tool};
 use base_core::bezier::{Contour, Node};
 use base_core::geom::{Pt, Rect, Xf};
@@ -29,6 +30,49 @@ pub trait EditorHost: Sized {
     fn say(&mut self, msg: String);
     /// The message now shown in the status line.
     fn said(&self) -> &str;
+
+    // ---- what the application tells the canvas ----
+
+    /// Size of the work area in millimetres.
+    fn work_size(&self) -> (f64, f64);
+    /// The units rulers and fields show.
+    fn units(&self) -> base_core::units::Units;
+    /// Colour of the space around the work area, and of the work area itself.
+    fn workspace_fill(&self) -> egui::Color32;
+    fn bed_fill(&self) -> egui::Color32;
+    /// The colour a layer's shapes are drawn in, or `None` when the layer is hidden. Dimmed layers return a dimmed colour.
+    fn shape_color(&self, layer: usize) -> Option<egui::Color32>;
+    /// The plain colour of a layer (for the outline of a shape being drawn).
+    fn layer_color(&self, layer: usize) -> egui::Color32;
+    /// Draw the pictures faintly (while a preview is shown over them).
+    fn dim_pictures(&self) -> bool {
+        false
+    }
+
+    /// Drawn after the work area and its grid: markings of the machine, zones, home, the live position.
+    fn paint_work_area(&mut self, _v: &CanvasView) {}
+    /// Drawn under the shapes (a camera picture).
+    fn paint_under_shapes(&mut self, _v: &CanvasView) {}
+    /// Drawn over the shapes (a tool path preview).
+    fn paint_over_shapes(&mut self, _v: &CanvasView) {}
+    /// Draw the mark of a locked shape inside `rect`.
+    fn paint_lock(&self, ui: &egui::Ui, rect: egui::Rect) {
+        let c = crate::theme::accent();
+        let body = egui::Rect::from_min_max(rect.left_center(), rect.right_bottom()).shrink2(egui::vec2(1.0, 0.0));
+        ui.painter().rect_filled(body, 1.0, c);
+        let r = body.width() * 0.32;
+        let top = egui::pos2(body.center().x, body.top());
+        ui.painter().circle_stroke(top, r, egui::Stroke::new(1.6, c));
+    }
+    /// Let the application take the pointer for itself (dragging the corners of a camera picture): return true
+    /// while it does, and the canvas leaves the tools alone.
+    fn pointer_claimed(&mut self, _resp: &egui::Response, _origin: Pos2, _press: Option<Pos2>, _hover: Option<Pos2>) -> bool {
+        false
+    }
+    /// The context menu of the canvas (the application draws it and runs the command chosen).
+    fn canvas_context_menu(&mut self, _ui: &mut egui::Ui, _resp: &egui::Response) {}
+    /// The text tool was clicked at `at`.
+    fn place_text(&mut self, _at: Pt) {}
 
     // ---- the view ----
 
