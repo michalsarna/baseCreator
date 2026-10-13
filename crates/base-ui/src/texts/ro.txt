@@ -37,185 +37,186 @@
 36|Golește lista
 37|Faceți clic pe o imagine pentru a-i vedea licența și a o salva.
 38|Clic pentru a plasa pe zona de lucru
-39|Închide
-40|Închide un traseu deschis, sau deschide unul închis la nodul selectat
-41|Colecție
-42|Culoare
-43|Schemă de culori
-44|Contrast
-45|Convertiți textul în curbe, sau vectorizați imaginea, pentru a-i edita nodurile.
-46|Convertește în traseu
-47|Copiază
-48|Colț
-49|Nu s-au putut căuta actualizări.
-50|Șterge
-51|Șterge nodul
-52|Șterge imaginea după aceea
-53|Șterge…
-54|Detalii
-55|Detalii…
-56|Distanța dintre linii
-57|Descarcă
-58|Descărcarea a eșuat: {}
-59|Se descarcă…
-60|Duplică
-61|Editează nodurile
-62|Elipsă (E)
-63|Gravează părțile deschise în loc de cele închise
-64|Potrivește la toate obiectele
-65|Potrivește la toate obiectele (Ctrl+9)
-66|Potrivește masa la fereastră
-67|Potrivește la zona de lucru (Ctrl+0)
-68|Oglindire H
-69|Oglindire V
-70|Oglindește orizontal
-71|Oglindește vertical
-72|Mâncare
-73|Gamma
-74|Grilă
-75|Grupează
-76|Grupat. Obiectele își păstrează straturile.
-77|Inimă (K)
-78|Ignoră zonele mici
-79|Importă
-80|Importul a eșuat: {}
-81|Importă imagine
-82|Imaginea {} importată
-83|Incluse
-84|Inserează un nod (sau dublu clic pe un segment)
-85|Limbă
-86|Stânga
-87|Licență
-88|Linie (L)
-89|Grosimea liniilor
-90|Blochează
-91|Blochează raportul de aspect
-92|{} obiect(e) blocat(e).
-93|Grila principală
-94|Face curb segmentul de după fiecare nod selectat
-95|Face drept segmentul de după fiecare nod selectat
-96|Transformă nodurile selectate în colțuri
-97|Face netede nodurile selectate
-98|Maximizează
-99|Mijloc H
-100|Mijloc V
-101|Ale mele
-102|Minimizează
-103|Oglindire și centrare
-104|Muzică și distracție
-105|Clipart-urile mele
-106|Nume
-107|Natură
-108|Imagine negativă
-109|Cea mai nouă versiune: {}
-110|Nicio imagine aici. Folosiți Online… pentru a găsi.
-111|Editare noduri (N)
-112|Nu s-a găsit nimic.
-113|OK
-114|Obiecte
-115|Clipart online
-116|Online…
-117|Salvați doar imagini pe care aveți voie să le folosiți. Verificați licența sursei.
-118|Deschide / închide
-119|Deschide recente
-120|Deschide pagina de descărcare
-121|Sau descărcați o imagine de la o adresă
-122|Deplasare vizualizare (H)
-123|Lipește
-124|Imagini care vin cu programul
-125|Imagini pe care le-ați descărcat sau adăugat
-126|{} plasat
-127|Poligon (G)
-128|Polilinie / stilou (P)
-129|Poziție și dimensiune
-130|Pagina proiectului pe GitHub
-131|Ghid rapid
-132|Ieșire
-133|Raza de rotunjire
-134|Dreptunghi (R)
-135|Refă
-136|Eliminați această imagine din clipart-urile dvs.? Fișierul de pe disc este șters.
-137|Redenumește
-138|Redenumește…
-139|Resetează
-140|Resetează grila
-141|Restaurează
-142|Dreapta
-143|Rotește
-144|Rotește 90° la stânga
-145|Rotește 90° la dreapta
-146|Rotire și oglindire
-147|Rotație
-148|Rotunjește
-149|Rotunjește colțurile selectate cu această rază
-150|{} colț(uri) rotunjit(e).
-151|Salvează o copie în clipart-urile mele
-152|Salvează în clipart-urile mele
-153|{} salvat în {}
-154|Căutare
-155|Căutarea a eșuat: {}
-156|Căutați în colecții deschise de pictograme (Iconify). Imaginile se salvează pe discul dvs., într-o categorie la alegere.
-157|Căutați mai multe imagini pe internet și salvați-le aici
-158|Se caută…
-159|Grila secundară
-160|Selectare (V)
-161|Selectați mai întâi o formă, apoi editați-i nodurile.
-162|Selectează tot
-163|Selectați cel puțin două obiecte pentru a grupa.
-164|Trimite în spate
-165|Forme
-166|Arată
-167|Arată sau ascunde grila
-168|Arată sau ascunde grila secundară
-169|Simplifică
-170|Dimensiune
-171|Dimensiune la plasare
-172|Neted
-173|Netezește curbele
-174|Fixează pe grilă
-175|Aliniere la obiecte
-176|Sursă
-177|Spirală (I)
-178|Stea (S)
-179|Simboluri
-180|Text (T)
-181|Rezultatul este gol.
-182|Grila secundară trebuie să fie mai fină decât cea principală.
-183|Spațiul din jurul zonei de lucru
-184|Nu există colțuri drepte de rotunjit.
-185|Prag
-186|La curbă
-187|La linie
-188|Ton
-189|Unelte
-190|Sus
-191|Vectorizează
-192|Vectorizează imaginea
-193|Vectorizează zonele deschise
-194|{} contururi vectorizate
-195|Triunghi (Y)
-196|Anulează
-197|Degrupează
-198|Deblochează
-199|{} obiect(e) deblocat(e).
-200|Actualizări
-201|Versiunea {}
-202|Opțiuni de vizualizare
-203|Lățime
-204|Zona de lucru
-205|Culoarea spațiului de lucru
-206|Aveți cea mai nouă versiune.
-207|Aveți versiunea {}.
-208|Mărește
-209|Mărește (Z)
-210|Micșorează
-211|Micșorează (X)
-212|vine cu programul
-213|menționați autorul
-214|de ex. pisică, floare, roată dințată
-215|nu e nevoie de atribuire
-216|sau o categorie nouă
-217|ale dvs.
-218|{} contururi
-219|{} imagini găsite
-220|{} × {} px
+39|Clipart
+40|Închide
+41|Închide un traseu deschis, sau deschide unul închis la nodul selectat
+42|Colecție
+43|Culoare
+44|Schemă de culori
+45|Contrast
+46|Convertiți textul în curbe, sau vectorizați imaginea, pentru a-i edita nodurile.
+47|Convertește în traseu
+48|Copiază
+49|Colț
+50|Nu s-au putut căuta actualizări.
+51|Șterge
+52|Șterge nodul
+53|Șterge imaginea după aceea
+54|Șterge…
+55|Detalii
+56|Detalii…
+57|Distanța dintre linii
+58|Descarcă
+59|Descărcarea a eșuat: {}
+60|Se descarcă…
+61|Duplică
+62|Editează nodurile
+63|Elipsă (E)
+64|Gravează părțile deschise în loc de cele închise
+65|Potrivește la toate obiectele
+66|Potrivește la toate obiectele (Ctrl+9)
+67|Potrivește masa la fereastră
+68|Potrivește la zona de lucru (Ctrl+0)
+69|Oglindire H
+70|Oglindire V
+71|Oglindește orizontal
+72|Oglindește vertical
+73|Mâncare
+74|Gamma
+75|Grilă
+76|Grupează
+77|Grupat. Obiectele își păstrează straturile.
+78|Inimă (K)
+79|Ignoră zonele mici
+80|Importă
+81|Importul a eșuat: {}
+82|Importă imagine
+83|Imaginea {} importată
+84|Incluse
+85|Inserează un nod (sau dublu clic pe un segment)
+86|Limbă
+87|Stânga
+88|Licență
+89|Linie (L)
+90|Grosimea liniilor
+91|Blochează
+92|Blochează raportul de aspect
+93|{} obiect(e) blocat(e).
+94|Grila principală
+95|Face curb segmentul de după fiecare nod selectat
+96|Face drept segmentul de după fiecare nod selectat
+97|Transformă nodurile selectate în colțuri
+98|Face netede nodurile selectate
+99|Maximizează
+100|Mijloc H
+101|Mijloc V
+102|Ale mele
+103|Minimizează
+104|Oglindire și centrare
+105|Muzică și distracție
+106|Clipart-urile mele
+107|Nume
+108|Natură
+109|Imagine negativă
+110|Cea mai nouă versiune: {}
+111|Nicio imagine aici. Folosiți Online… pentru a găsi.
+112|Editare noduri (N)
+113|Nu s-a găsit nimic.
+114|OK
+115|Obiecte
+116|Clipart online
+117|Online…
+118|Salvați doar imagini pe care aveți voie să le folosiți. Verificați licența sursei.
+119|Deschide / închide
+120|Deschide recente
+121|Deschide pagina de descărcare
+122|Sau descărcați o imagine de la o adresă
+123|Deplasare vizualizare (H)
+124|Lipește
+125|Imagini care vin cu programul
+126|Imagini pe care le-ați descărcat sau adăugat
+127|{} plasat
+128|Poligon (G)
+129|Polilinie / stilou (P)
+130|Poziție și dimensiune
+131|Pagina proiectului pe GitHub
+132|Ghid rapid
+133|Ieșire
+134|Raza de rotunjire
+135|Dreptunghi (R)
+136|Refă
+137|Eliminați această imagine din clipart-urile dvs.? Fișierul de pe disc este șters.
+138|Redenumește
+139|Redenumește…
+140|Resetează
+141|Resetează grila
+142|Restaurează
+143|Dreapta
+144|Rotește
+145|Rotește 90° la stânga
+146|Rotește 90° la dreapta
+147|Rotire și oglindire
+148|Rotație
+149|Rotunjește
+150|Rotunjește colțurile selectate cu această rază
+151|{} colț(uri) rotunjit(e).
+152|Salvează o copie în clipart-urile mele
+153|Salvează în clipart-urile mele
+154|{} salvat în {}
+155|Căutare
+156|Căutarea a eșuat: {}
+157|Căutați în colecții deschise de pictograme (Iconify). Imaginile se salvează pe discul dvs., într-o categorie la alegere.
+158|Căutați mai multe imagini pe internet și salvați-le aici
+159|Se caută…
+160|Grila secundară
+161|Selectare (V)
+162|Selectați mai întâi o formă, apoi editați-i nodurile.
+163|Selectează tot
+164|Selectați cel puțin două obiecte pentru a grupa.
+165|Trimite în spate
+166|Forme
+167|Arată
+168|Arată sau ascunde grila
+169|Arată sau ascunde grila secundară
+170|Simplifică
+171|Dimensiune
+172|Dimensiune la plasare
+173|Neted
+174|Netezește curbele
+175|Fixează pe grilă
+176|Aliniere la obiecte
+177|Sursă
+178|Spirală (I)
+179|Stea (S)
+180|Simboluri
+181|Text (T)
+182|Rezultatul este gol.
+183|Grila secundară trebuie să fie mai fină decât cea principală.
+184|Spațiul din jurul zonei de lucru
+185|Nu există colțuri drepte de rotunjit.
+186|Prag
+187|La curbă
+188|La linie
+189|Ton
+190|Unelte
+191|Sus
+192|Vectorizează
+193|Vectorizează imaginea
+194|Vectorizează zonele deschise
+195|{} contururi vectorizate
+196|Triunghi (Y)
+197|Anulează
+198|Degrupează
+199|Deblochează
+200|{} obiect(e) deblocat(e).
+201|Actualizări
+202|Versiunea {}
+203|Opțiuni de vizualizare
+204|Lățime
+205|Zona de lucru
+206|Culoarea spațiului de lucru
+207|Aveți cea mai nouă versiune.
+208|Aveți versiunea {}.
+209|Mărește
+210|Mărește (Z)
+211|Micșorează
+212|Micșorează (X)
+213|vine cu programul
+214|menționați autorul
+215|de ex. pisică, floare, roată dințată
+216|nu e nevoie de atribuire
+217|sau o categorie nouă
+218|ale dvs.
+219|{} contururi
+220|{} imagini găsite
+221|{} × {} px

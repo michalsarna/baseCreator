@@ -44,6 +44,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Clear list", "Wyczyść listę", "Liste leeren", "Svuota elenco", "Tyhjennä luettelo", "清除列表", "सूची साफ़ करें"],
     ["Click a picture to see its licence and save it.", "Kliknij obrazek, aby zobaczyć jego licencję i go zapisać.", "Klicke auf ein Bild, um die Lizenz zu sehen und es zu speichern.", "Fai clic su un'immagine per vedere la licenza e salvarla.", "Napsauta kuvaa nähdäksesi lisenssin ja tallentaaksesi sen.", "点击图片查看其许可证并保存。", "लाइसेंस देखने और सहेजने के लिए चित्र पर क्लिक करें।"],
     ["Click to place on the work area", "Kliknij, aby umieścić na obszarze roboczym", "Klicken, um im Arbeitsbereich zu platzieren", "Clic per posizionare sull'area di lavoro", "Napsauta sijoittaaksesi työalueelle", "点击放置到工作区域", "कार्य क्षेत्र पर रखने के लिए क्लिक करें"],
+    ["Clipart", "Clipart", "Clipart", "Clipart", "Clipart", "剪贴画", "क्लिपआर्ट"],
     ["Close", "Zamknij", "Schließen", "Chiudi", "Sulje", "关闭", "बंद करें"],
     ["Close an open path, or open a closed one at the selected node", "Zamknij otwartą ścieżkę lub otwórz zamkniętą w zaznaczonym węźle", "Offenen Pfad schließen oder geschlossenen am ausgewählten Knoten öffnen", "Chiudi un tracciato aperto o apri uno chiuso al nodo selezionato", "Sulje avoin polku tai avaa suljettu valitun solmun kohdalta", "闭合开放路径，或在所选节点处断开闭合路径", "खुले पाथ को बंद करें या बंद पाथ को चयनित नोड पर खोलें"],
     ["Collection", "Kolekcja", "Sammlung", "Raccolta", "Kokoelma", "图标集", "संग्रह"],

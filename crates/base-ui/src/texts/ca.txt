@@ -37,185 +37,186 @@
 36|Buida la llista
 37|Feu clic en una imatge per veure'n la llicència i desar-la.
 38|Feu clic per col·locar a l'àrea de treball
-39|Tanca
-40|Tanca un traçat obert, o obre'n un de tancat al node seleccionat
-41|Col·lecció
-42|Color
-43|Esquema de colors
-44|Contrast
-45|Convertiu el text en corbes, o vectoritzeu la imatge, per editar-ne els nodes.
-46|Converteix en traçat
-47|Copia
-48|Cantonada
-49|No s'han pogut cercar actualitzacions.
-50|Suprimeix
-51|Suprimeix el node
-52|Suprimeix la imatge després
-53|Suprimeix…
-54|Detalls
-55|Detalls…
-56|Distància entre línies
-57|Baixa
-58|La baixada ha fallat: {}
-59|S'està baixant…
-60|Duplica
-61|Edita els nodes
-62|El·lipse (E)
-63|Grava les parts clares en lloc de les fosques
-64|Ajusta a tots els objectes
-65|Ajusta a tots els objectes (Ctrl+9)
-66|Ajusta la taula a la finestra
-67|Ajusta a l'àrea de treball (Ctrl+0)
-68|Gira H
-69|Gira V
-70|Gira horitzontalment
-71|Gira verticalment
-72|Menjar
-73|Gamma
-74|Quadrícula
-75|Agrupa
-76|Agrupat. Els objectes conserven les seves capes.
-77|Cor (K)
-78|Ignora les àrees petites
-79|Importa
-80|La importació ha fallat: {}
-81|Importa una imatge
-82|Imatge {} importada
-83|Inclosos
-84|Insereix un node (o fes doble clic en un segment)
-85|Llengua
-86|Esquerra
-87|Llicència
-88|Línia (L)
-89|Gruix de les línies
-90|Bloqueja
-91|Bloqueja la proporció
-92|{} objecte(s) bloquejat(s).
-93|Quadrícula principal
-94|Fes corb el segment posterior a cada node seleccionat
-95|Fes recte el segment posterior a cada node seleccionat
-96|Converteix els nodes seleccionats en cantonades
-97|Fes suaus els nodes seleccionats
-98|Maximitza
-99|Mig H
-100|Mig V
-101|Meus
-102|Minimitza
-103|Mirall i centrat
-104|Música i diversió
-105|Els meus cliparts
-106|Nom
-107|Natura
-108|Imatge en negatiu
-109|Darrera versió: {}
-110|No hi ha imatges aquí. Utilitzeu En línia… per trobar-ne.
-111|Edició de nodes (N)
-112|No s'ha trobat res.
-113|D'acord
-114|Objectes
-115|Cliparts en línia
-116|En línia…
-117|Deseu només imatges que pugueu utilitzar. Comproveu la llicència de la font.
-118|Obre / tanca
-119|Obre recents
-120|Obre la pàgina de baixada
-121|O baixeu una imatge d'una adreça
-122|Mou la vista (H)
-123|Enganxa
-124|Imatges que venen amb el programa
-125|Imatges que heu baixat o afegit
-126|{} col·locat
-127|Polígon (G)
-128|Polilínia / ploma (P)
-129|Posició i mida
-130|Pàgina del projecte a GitHub
-131|Guia ràpida
-132|Surt
-133|Radi d'arrodoniment
-134|Rectangle (R)
-135|Refés
-136|Voleu treure aquesta imatge dels vostres cliparts? El fitxer del disc se suprimeix.
-137|Canvia el nom
-138|Canvia el nom…
-139|Restableix
-140|Restableix la quadrícula
-141|Restaura
-142|Dreta
-143|Gira
-144|Gira 90° a l'esquerra
-145|Gira 90° a la dreta
-146|Gira i inverteix
-147|Rotació
-148|Arrodoneix
-149|Arrodoneix les cantonades seleccionades amb aquest radi
-150|{} cantonada(es) arrodonida(es).
-151|Desa una còpia als meus cliparts
-152|Desa als meus cliparts
-153|{} desat a {}
-154|Cerca
-155|La cerca ha fallat: {}
-156|Cerqueu en col·leccions d'icones obertes (Iconify). Les imatges es desen al vostre disc, en una categoria que trieu.
-157|Cerqueu més imatges a Internet i deseu-les aquí
-158|S'està cercant…
-159|Quadrícula secundària
-160|Selecciona (V)
-161|Seleccioneu primer una forma i després editeu-ne els nodes.
-162|Selecciona-ho tot
-163|Seleccioneu com a mínim dos objectes per agrupar.
-164|Envia al darrere
-165|Formes
-166|Mostra
-167|Mostra o amaga la quadrícula
-168|Mostra o amaga la quadrícula secundària
-169|Simplifica
-170|Mida
-171|Mida en col·locar
-172|Suau
-173|Suavitza les corbes
-174|Ajusta a la quadrícula
-175|Encaixa als objectes
-176|Font
-177|Espiral (I)
-178|Estrella (S)
-179|Símbols
-180|Text (T)
-181|El resultat és buit.
-182|La quadrícula secundària ha de ser més fina que la principal.
-183|L'espai al voltant de l'àrea de treball
-184|No hi ha cantonades rectes per arrodonir.
-185|Llindar
-186|A corba
-187|A línia
-188|To
-189|Eines
-190|Dalt
-191|Vectoritza
-192|Vectoritza la imatge
-193|Vectoritza les àrees clares
-194|{} contorns vectoritzats
-195|Triangle (Y)
-196|Desfés
-197|Desagrupa
-198|Desbloqueja
-199|{} objecte(s) desbloquejat(s).
-200|Actualitzacions
-201|Versió {}
-202|Opcions de visualització
-203|Amplada
-204|Àrea de treball
-205|Color de l'espai de treball
-206|Teniu la versió més recent.
-207|Teniu la versió {}.
-208|Apropa
-209|Apropa (Z)
-210|Allunya
-211|Allunya (X)
-212|ve amb el programa
-213|atribuïu l'autor
-214|p. ex. gat, flor, engranatge
-215|no cal atribució
-216|o una categoria nova
-217|vostre
-218|{} contorns
-219|{} imatges trobades
-220|{} × {} px
+39|Cliparts
+40|Tanca
+41|Tanca un traçat obert, o obre'n un de tancat al node seleccionat
+42|Col·lecció
+43|Color
+44|Esquema de colors
+45|Contrast
+46|Convertiu el text en corbes, o vectoritzeu la imatge, per editar-ne els nodes.
+47|Converteix en traçat
+48|Copia
+49|Cantonada
+50|No s'han pogut cercar actualitzacions.
+51|Suprimeix
+52|Suprimeix el node
+53|Suprimeix la imatge després
+54|Suprimeix…
+55|Detalls
+56|Detalls…
+57|Distància entre línies
+58|Baixa
+59|La baixada ha fallat: {}
+60|S'està baixant…
+61|Duplica
+62|Edita els nodes
+63|El·lipse (E)
+64|Grava les parts clares en lloc de les fosques
+65|Ajusta a tots els objectes
+66|Ajusta a tots els objectes (Ctrl+9)
+67|Ajusta la taula a la finestra
+68|Ajusta a l'àrea de treball (Ctrl+0)
+69|Gira H
+70|Gira V
+71|Gira horitzontalment
+72|Gira verticalment
+73|Menjar
+74|Gamma
+75|Quadrícula
+76|Agrupa
+77|Agrupat. Els objectes conserven les seves capes.
+78|Cor (K)
+79|Ignora les àrees petites
+80|Importa
+81|La importació ha fallat: {}
+82|Importa una imatge
+83|Imatge {} importada
+84|Inclosos
+85|Insereix un node (o fes doble clic en un segment)
+86|Llengua
+87|Esquerra
+88|Llicència
+89|Línia (L)
+90|Gruix de les línies
+91|Bloqueja
+92|Bloqueja la proporció
+93|{} objecte(s) bloquejat(s).
+94|Quadrícula principal
+95|Fes corb el segment posterior a cada node seleccionat
+96|Fes recte el segment posterior a cada node seleccionat
+97|Converteix els nodes seleccionats en cantonades
+98|Fes suaus els nodes seleccionats
+99|Maximitza
+100|Mig H
+101|Mig V
+102|Meus
+103|Minimitza
+104|Mirall i centrat
+105|Música i diversió
+106|Els meus cliparts
+107|Nom
+108|Natura
+109|Imatge en negatiu
+110|Darrera versió: {}
+111|No hi ha imatges aquí. Utilitzeu En línia… per trobar-ne.
+112|Edició de nodes (N)
+113|No s'ha trobat res.
+114|D'acord
+115|Objectes
+116|Cliparts en línia
+117|En línia…
+118|Deseu només imatges que pugueu utilitzar. Comproveu la llicència de la font.
+119|Obre / tanca
+120|Obre recents
+121|Obre la pàgina de baixada
+122|O baixeu una imatge d'una adreça
+123|Mou la vista (H)
+124|Enganxa
+125|Imatges que venen amb el programa
+126|Imatges que heu baixat o afegit
+127|{} col·locat
+128|Polígon (G)
+129|Polilínia / ploma (P)
+130|Posició i mida
+131|Pàgina del projecte a GitHub
+132|Guia ràpida
+133|Surt
+134|Radi d'arrodoniment
+135|Rectangle (R)
+136|Refés
+137|Voleu treure aquesta imatge dels vostres cliparts? El fitxer del disc se suprimeix.
+138|Canvia el nom
+139|Canvia el nom…
+140|Restableix
+141|Restableix la quadrícula
+142|Restaura
+143|Dreta
+144|Gira
+145|Gira 90° a l'esquerra
+146|Gira 90° a la dreta
+147|Gira i inverteix
+148|Rotació
+149|Arrodoneix
+150|Arrodoneix les cantonades seleccionades amb aquest radi
+151|{} cantonada(es) arrodonida(es).
+152|Desa una còpia als meus cliparts
+153|Desa als meus cliparts
+154|{} desat a {}
+155|Cerca
+156|La cerca ha fallat: {}
+157|Cerqueu en col·leccions d'icones obertes (Iconify). Les imatges es desen al vostre disc, en una categoria que trieu.
+158|Cerqueu més imatges a Internet i deseu-les aquí
+159|S'està cercant…
+160|Quadrícula secundària
+161|Selecciona (V)
+162|Seleccioneu primer una forma i després editeu-ne els nodes.
+163|Selecciona-ho tot
+164|Seleccioneu com a mínim dos objectes per agrupar.
+165|Envia al darrere
+166|Formes
+167|Mostra
+168|Mostra o amaga la quadrícula
+169|Mostra o amaga la quadrícula secundària
+170|Simplifica
+171|Mida
+172|Mida en col·locar
+173|Suau
+174|Suavitza les corbes
+175|Ajusta a la quadrícula
+176|Encaixa als objectes
+177|Font
+178|Espiral (I)
+179|Estrella (S)
+180|Símbols
+181|Text (T)
+182|El resultat és buit.
+183|La quadrícula secundària ha de ser més fina que la principal.
+184|L'espai al voltant de l'àrea de treball
+185|No hi ha cantonades rectes per arrodonir.
+186|Llindar
+187|A corba
+188|A línia
+189|To
+190|Eines
+191|Dalt
+192|Vectoritza
+193|Vectoritza la imatge
+194|Vectoritza les àrees clares
+195|{} contorns vectoritzats
+196|Triangle (Y)
+197|Desfés
+198|Desagrupa
+199|Desbloqueja
+200|{} objecte(s) desbloquejat(s).
+201|Actualitzacions
+202|Versió {}
+203|Opcions de visualització
+204|Amplada
+205|Àrea de treball
+206|Color de l'espai de treball
+207|Teniu la versió més recent.
+208|Teniu la versió {}.
+209|Apropa
+210|Apropa (Z)
+211|Allunya
+212|Allunya (X)
+213|ve amb el programa
+214|atribuïu l'autor
+215|p. ex. gat, flor, engranatge
+216|no cal atribució
+217|o una categoria nova
+218|vostre
+219|{} contorns
+220|{} imatges trobades
+221|{} × {} px

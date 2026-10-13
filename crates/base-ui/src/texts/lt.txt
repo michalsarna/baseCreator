@@ -37,185 +37,186 @@
 36|Išvalyti sąrašą
 37|Spustelėkite paveikslėlį, kad pamatytumėte jo licenciją ir įrašytumėte.
 38|Spustelėkite, kad padėtumėte darbo srityje
-39|Uždaryti
-40|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
-41|Kolekcija
-42|Spalva
-43|Spalvų schema
-44|Kontrastas
-45|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
-46|Konvertuoti į kontūrą
-47|Kopijuoti
-48|Kampas
-49|Nepavyko patikrinti naujinimų.
-50|Naikinti
-51|Naikinti mazgą
-52|Po to naikinti paveikslėlį
-53|Naikinti…
-54|Išsami informacija
-55|Išsami informacija…
-56|Atstumas tarp linijų
-57|Atsisiųsti
-58|Atsisiuntimas nepavyko: {}
-59|Siunčiama…
-60|Dubliuoti
-61|Redaguoti mazgus
-62|Elipsė (E)
-63|Graviruoti šviesias dalis vietoj tamsių
-64|Pritaikyti prie visų objektų
-65|Pritaikyti prie visų objektų (Ctrl+9)
-66|Pritaikyti stalą prie lango
-67|Pritaikyti prie darbo srities (Ctrl+0)
-68|Apversti H
-69|Apversti V
-70|Apversti horizontaliai
-71|Apversti vertikaliai
-72|Maistas
-73|Gama
-74|Tinklelis
-75|Grupuoti
-76|Sugrupuota. Objektai išlaiko savo sluoksnius.
-77|Širdis (K)
-78|Ignoruoti mažas sritis
-79|Importas
-80|Importuoti nepavyko: {}
-81|Paveikslėlio importas
-82|Paveikslėlis {} importuotas
-83|Įtraukti
-84|Įterpti mazgą (arba dukart spustelėti atkarpą)
-85|Kalba
-86|Kairė
-87|Licencija
-88|Linija (L)
-89|Linijų storis
-90|Užrakinti
-91|Užrakinti proporcijas
-92|Užrakinta objektų: {}
-93|Pagrindinis tinklelis
-94|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
-95|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
-96|Pažymėtus mazgus paversti kampiniais
-97|Pažymėtus mazgus padaryti glotniais
-98|Padidinti
-99|Vidurys H
-100|Vidurys V
-101|Mano
-102|Sumažinti
-103|Veidrodis ir centravimas
-104|Muzika ir pramogos
-105|Mano klipartai
-106|Pavadinimas
-107|Gamta
-108|Neigiamas paveikslėlis
-109|Naujausias leidimas: {}
-110|Čia nėra paveikslėlių. Naudokite Internetu…, kad jų rastumėte.
-111|Mazgų redagavimas (N)
-112|Nieko nerasta.
-113|Gerai
-114|Daiktai
-115|Klipartai internete
-116|Internetu…
-117|Įrašykite tik tuos paveikslėlius, kuriuos galite naudoti. Patikrinkite šaltinio licenciją.
-118|Atverti / uždaryti
-119|Atverti neseniai naudotus
-120|Atverti atsisiuntimo puslapį
-121|Arba atsisiųskite paveikslėlį iš adreso
-122|Rodinio stumdymas (H)
-123|Įklijuoti
-124|Paveikslėliai, pateikiami su programa
-125|Paveikslėliai, kuriuos atsisiuntėte ar pridėjote
-126|Padėta: {}
-127|Daugiakampis (G)
-128|Laužtė / plunksna (P)
-129|Padėtis ir dydis
-130|Projekto puslapis GitHub
-131|Greitasis vadovas
-132|Išeiti
-133|Apvalinimo spindulys
-134|Stačiakampis (R)
-135|Grąžinti
-136|Pašalinti šį paveikslėlį iš jūsų klipartų? Failas jūsų diske bus ištrintas.
-137|Pervadinti
-138|Pervadinti…
-139|Atstatyti
-140|Atstatyti tinklelį
-141|Atkurti
-142|Dešinė
-143|Sukti
-144|Pasukti 90° prieš laikrodžio rodyklę
-145|Pasukti 90° pagal laikrodžio rodyklę
-146|Sukimas ir apvertimas
-147|Sukimas
-148|Suapvalinti
-149|Suapvalina pažymėtus kampus šiuo spinduliu
-150|Suapvalinta kampų: {}
-151|Įrašyti kopiją į mano klipartus
-152|Įrašyti į mano klipartus
-153|{} įrašyta į {}
-154|Paieška
-155|Paieška nepavyko: {}
-156|Ieškokite atvirose piktogramų kolekcijose (Iconify). Paveikslėliai įrašomi jūsų diske, jūsų pasirinktoje kategorijoje.
-157|Ieškokite daugiau paveikslėlių internete ir įrašykite juos čia
-158|Ieškoma…
-159|Antrinis tinklelis
-160|Žymėjimas (V)
-161|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
-162|Pasirinkti viską
-163|Norėdami grupuoti, pasirinkite bent du objektus.
-164|Perkelti į galą
-165|Formos
-166|Rodyti
-167|Rodyti ar slėpti tinklelį
-168|Rodyti ar slėpti antrinį tinklelį
-169|Supaprastinti
-170|Dydis
-171|Dydis dedant
-172|Glotnus
-173|Išlyginti kreives
-174|Prilipdyti prie tinklelio
-175|Prilipti prie objektų
-176|Šaltinis
-177|Spiralė (I)
-178|Žvaigždė (S)
-179|Simboliai
-180|Tekstas (T)
-181|Rezultatas tuščias.
-182|Antrinis tinklelis turi būti smulkesnis už pagrindinį.
-183|Erdvė aplink darbo plotą
-184|Nėra tiesių kampų apvalinimui.
-185|Slenkstis
-186|Į kreivę
-187|Į liniją
-188|Tonas
-189|Įrankiai
-190|Viršus
-191|Vektorizuoti
-192|Paveikslėlio vektorizavimas
-193|Vektorizuoti šviesias sritis
-194|Suvektorizuota kontūrų: {}
-195|Trikampis (Y)
-196|Atšaukti
-197|Išgrupuoti
-198|Atrakinti
-199|Atrakinta objektų: {}
-200|Naujinimai
-201|Versija {}
-202|Rodinio parinktys
-203|Plotis
-204|Darbo sritis
-205|Darbo erdvės spalva
-206|Turite naujausią versiją.
-207|Jūs turite versiją {}.
-208|Priartinti
-209|Priartinti (Z)
-210|Nutolinti
-211|Nutolinti (X)
-212|pateikiamas su programa
-213|nurodykite autorių
-214|pvz., katė, gėlė, krumpliaratis
-215|autoriaus nurodyti nereikia
-216|arba nauja kategorija
-217|jūsų
-218|Kontūrų: {}
-219|Rasta paveikslėlių: {}
-220|{} × {} px
+39|Klipartai
+40|Uždaryti
+41|Uždaryti atvirą kontūrą arba atverti uždarą ties pažymėtu mazgu
+42|Kolekcija
+43|Spalva
+44|Spalvų schema
+45|Kontrastas
+46|Konvertuokite tekstą į kreives arba vektorizuokite paveikslėlį, kad galėtumėte redaguoti jo mazgus.
+47|Konvertuoti į kontūrą
+48|Kopijuoti
+49|Kampas
+50|Nepavyko patikrinti naujinimų.
+51|Naikinti
+52|Naikinti mazgą
+53|Po to naikinti paveikslėlį
+54|Naikinti…
+55|Išsami informacija
+56|Išsami informacija…
+57|Atstumas tarp linijų
+58|Atsisiųsti
+59|Atsisiuntimas nepavyko: {}
+60|Siunčiama…
+61|Dubliuoti
+62|Redaguoti mazgus
+63|Elipsė (E)
+64|Graviruoti šviesias dalis vietoj tamsių
+65|Pritaikyti prie visų objektų
+66|Pritaikyti prie visų objektų (Ctrl+9)
+67|Pritaikyti stalą prie lango
+68|Pritaikyti prie darbo srities (Ctrl+0)
+69|Apversti H
+70|Apversti V
+71|Apversti horizontaliai
+72|Apversti vertikaliai
+73|Maistas
+74|Gama
+75|Tinklelis
+76|Grupuoti
+77|Sugrupuota. Objektai išlaiko savo sluoksnius.
+78|Širdis (K)
+79|Ignoruoti mažas sritis
+80|Importas
+81|Importuoti nepavyko: {}
+82|Paveikslėlio importas
+83|Paveikslėlis {} importuotas
+84|Įtraukti
+85|Įterpti mazgą (arba dukart spustelėti atkarpą)
+86|Kalba
+87|Kairė
+88|Licencija
+89|Linija (L)
+90|Linijų storis
+91|Užrakinti
+92|Užrakinti proporcijas
+93|Užrakinta objektų: {}
+94|Pagrindinis tinklelis
+95|Atkarpą po kiekvieno pažymėto mazgo padaryti kreivą
+96|Atkarpą po kiekvieno pažymėto mazgo padaryti tiesią
+97|Pažymėtus mazgus paversti kampiniais
+98|Pažymėtus mazgus padaryti glotniais
+99|Padidinti
+100|Vidurys H
+101|Vidurys V
+102|Mano
+103|Sumažinti
+104|Veidrodis ir centravimas
+105|Muzika ir pramogos
+106|Mano klipartai
+107|Pavadinimas
+108|Gamta
+109|Neigiamas paveikslėlis
+110|Naujausias leidimas: {}
+111|Čia nėra paveikslėlių. Naudokite Internetu…, kad jų rastumėte.
+112|Mazgų redagavimas (N)
+113|Nieko nerasta.
+114|Gerai
+115|Daiktai
+116|Klipartai internete
+117|Internetu…
+118|Įrašykite tik tuos paveikslėlius, kuriuos galite naudoti. Patikrinkite šaltinio licenciją.
+119|Atverti / uždaryti
+120|Atverti neseniai naudotus
+121|Atverti atsisiuntimo puslapį
+122|Arba atsisiųskite paveikslėlį iš adreso
+123|Rodinio stumdymas (H)
+124|Įklijuoti
+125|Paveikslėliai, pateikiami su programa
+126|Paveikslėliai, kuriuos atsisiuntėte ar pridėjote
+127|Padėta: {}
+128|Daugiakampis (G)
+129|Laužtė / plunksna (P)
+130|Padėtis ir dydis
+131|Projekto puslapis GitHub
+132|Greitasis vadovas
+133|Išeiti
+134|Apvalinimo spindulys
+135|Stačiakampis (R)
+136|Grąžinti
+137|Pašalinti šį paveikslėlį iš jūsų klipartų? Failas jūsų diske bus ištrintas.
+138|Pervadinti
+139|Pervadinti…
+140|Atstatyti
+141|Atstatyti tinklelį
+142|Atkurti
+143|Dešinė
+144|Sukti
+145|Pasukti 90° prieš laikrodžio rodyklę
+146|Pasukti 90° pagal laikrodžio rodyklę
+147|Sukimas ir apvertimas
+148|Sukimas
+149|Suapvalinti
+150|Suapvalina pažymėtus kampus šiuo spinduliu
+151|Suapvalinta kampų: {}
+152|Įrašyti kopiją į mano klipartus
+153|Įrašyti į mano klipartus
+154|{} įrašyta į {}
+155|Paieška
+156|Paieška nepavyko: {}
+157|Ieškokite atvirose piktogramų kolekcijose (Iconify). Paveikslėliai įrašomi jūsų diske, jūsų pasirinktoje kategorijoje.
+158|Ieškokite daugiau paveikslėlių internete ir įrašykite juos čia
+159|Ieškoma…
+160|Antrinis tinklelis
+161|Žymėjimas (V)
+162|Pirmiausia pasirinkite formą, tada redaguokite jos mazgus.
+163|Pasirinkti viską
+164|Norėdami grupuoti, pasirinkite bent du objektus.
+165|Perkelti į galą
+166|Formos
+167|Rodyti
+168|Rodyti ar slėpti tinklelį
+169|Rodyti ar slėpti antrinį tinklelį
+170|Supaprastinti
+171|Dydis
+172|Dydis dedant
+173|Glotnus
+174|Išlyginti kreives
+175|Prilipdyti prie tinklelio
+176|Prilipti prie objektų
+177|Šaltinis
+178|Spiralė (I)
+179|Žvaigždė (S)
+180|Simboliai
+181|Tekstas (T)
+182|Rezultatas tuščias.
+183|Antrinis tinklelis turi būti smulkesnis už pagrindinį.
+184|Erdvė aplink darbo plotą
+185|Nėra tiesių kampų apvalinimui.
+186|Slenkstis
+187|Į kreivę
+188|Į liniją
+189|Tonas
+190|Įrankiai
+191|Viršus
+192|Vektorizuoti
+193|Paveikslėlio vektorizavimas
+194|Vektorizuoti šviesias sritis
+195|Suvektorizuota kontūrų: {}
+196|Trikampis (Y)
+197|Atšaukti
+198|Išgrupuoti
+199|Atrakinti
+200|Atrakinta objektų: {}
+201|Naujinimai
+202|Versija {}
+203|Rodinio parinktys
+204|Plotis
+205|Darbo sritis
+206|Darbo erdvės spalva
+207|Turite naujausią versiją.
+208|Jūs turite versiją {}.
+209|Priartinti
+210|Priartinti (Z)
+211|Nutolinti
+212|Nutolinti (X)
+213|pateikiamas su programa
+214|nurodykite autorių
+215|pvz., katė, gėlė, krumpliaratis
+216|autoriaus nurodyti nereikia
+217|arba nauja kategorija
+218|jūsų
+219|Kontūrų: {}
+220|Rasta paveikslėlių: {}
+221|{} × {} px
