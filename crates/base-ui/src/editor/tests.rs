@@ -19,7 +19,7 @@ impl Default for Host {
     fn default() -> Host {
         // Never touch the real user library in tests.
         let dir = std::env::temp_dir().join(format!("base-ui-clip-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
-        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::new(base_core::clipart::Library::open(dir), BUILTIN) }
+        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN) }
     }
 }
 
