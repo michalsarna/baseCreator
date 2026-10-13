@@ -10,6 +10,7 @@ pub mod grbl_settings;
 pub mod image;
 pub mod ops;
 pub mod pdf;
+pub mod project;
 pub mod scene;
 pub mod ser2net;
 pub mod snap;
