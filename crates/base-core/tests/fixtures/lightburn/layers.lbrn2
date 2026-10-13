@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightBurnProject AppVersion="2.1.04" DeviceName="No Machine" FormatVersion="1" MaterialHeight="0" MirrorX="False" MirrorY="False" AskForSendName="True">
+    <Thumbnail Source="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"/>
+    <VariableText>
+        <Start Value="0"/>
+        <End Value="999"/>
+        <Current Value="0"/>
+        <Increment Value="1"/>
+        <AutoAdvance Value="0"/>
+    </VariableText>
+    <UIPrefs>
+        <Optimize_ByLayer Value="0"/>
+        <Optimize_ByGroup Value="-1"/>
+        <Optimize_ByPriority Value="1"/>
+        <Optimize_WhichDirection Value="0"/>
+        <Optimize_InnerToOuter Value="1"/>
+        <Optimize_ByDirection Value="0"/>
+        <Optimize_ReduceTravel Value="1"/>
+        <Optimize_HideBacklash Value="0"/>
+        <Optimize_ReduceDirChanges Value="0"/>
+        <Optimize_ChooseCorners Value="0"/>
+        <Optimize_AllowReverse Value="1"/>
+        <Optimize_RemoveOverlaps Value="0"/>
+        <Optimize_OptimalEntryPoint Value="0"/>
+        <Optimize_OverlapDist Value="0.025"/>
+    </UIPrefs>
+    <CutSetting type="Cut">
+        <index Value="0"/>
+        <name Value="C00"/>
+        <maxPower Value="100"/>
+        <maxPower2 Value="20"/>
+        <speed Value="8.33333"/>
+        <tabsEnabled Value="1"/>
+        <priority Value="0"/>
+        <tabCount Value="1"/>
+        <tabCountMax Value="1"/>
+    </CutSetting>
+    <CutSetting type="Scan">
+        <index Value="1"/>
+        <name Value="C01"/>
+        <maxPower Value="50"/>
+        <maxPower2 Value="20"/>
+        <speed Value="83.3333"/>
+        <priority Value="1"/>
+        <tabCount Value="1"/>
+        <tabCountMax Value="1"/>
+    </CutSetting>
+    <CutSetting type="Offset">
+        <index Value="2"/>
+        <name Value="C02"/>
+        <maxPower Value="20"/>
+        <maxPower2 Value="20"/>
+        <speed Value="100"/>
+        <priority Value="2"/>
+    </CutSetting>
+    <CutSetting type="Scan">
+        <index Value="3"/>
+        <name Value="C03"/>
+        <maxPower Value="50"/>
+        <maxPower2 Value="20"/>
+        <speed Value="16.6667"/>
+        <priority Value="3"/>
+        <tabCount Value="1"/>
+        <tabCountMax Value="1"/>
+    </CutSetting>
+    <CutSetting type="Cut">
+        <index Value="4"/>
+        <name Value="C04"/>
+        <maxPower Value="75"/>
+        <maxPower2 Value="20"/>
+        <speed Value="33.3333"/>
+        <priority Value="4"/>
+        <tabCount Value="1"/>
+        <tabCountMax Value="1"/>
+    </CutSetting>
+    <CutSetting type="Offset">
+        <index Value="5"/>
+        <name Value="C05"/>
+        <maxPower Value="100"/>
+        <maxPower2 Value="20"/>
+        <speed Value="6.66667"/>
+        <priority Value="5"/>
+        <tabCount Value="1"/>
+        <tabCountMax Value="1"/>
+    </CutSetting>
+    <CutSetting type="Cut">
+        <index Value="6"/>
+        <name Value="C06"/>
+        <maxPower Value="30"/>
+        <maxPower2 Value="20"/>
+        <speed Value="11.6667"/>
+        <priority Value="6"/>
+        <tabCount Value="1"/>
+        <tabCountMax Value="1"/>
+    </CutSetting>
+    <Shape Type="Rect" CutIndex="0" W="67" H="58" Cr="0">
+        <XForm>1 0 0 1 87.5 308</XForm>
+    </Shape>
+    <Shape Type="Rect" CutIndex="1" W="73" H="38" Cr="0">
+        <XForm>1 0 0 1 97.5 228</XForm>
+    </Shape>
+    <Shape Type="Rect" CutIndex="2" W="61" H="42" Cr="0">
+        <XForm>1 0 0 1 131.5 131</XForm>
+    </Shape>
+    <Shape Type="Rect" CutIndex="6" W="43" H="60" Cr="0">
+        <XForm>1 0 0 1 223.5 308</XForm>
+    </Shape>
+    <Shape Type="Rect" CutIndex="5" W="68" H="56" Cr="0">
+        <XForm>1 0 0 1 246 213</XForm>
+    </Shape>
+    <Shape Type="Rect" CutIndex="4" W="80" H="46" Cr="0">
+        <XForm>1 0 0 1 275 113</XForm>
+    </Shape>
+    <Shape Type="Rect" CutIndex="3" W="95" H="54" Cr="0">
+        <XForm>1 0 0 1 121.5 47</XForm>
+    </Shape>
+    <Notes ShowOnLoad="0" Notes=""/>
+</LightBurnProject>
