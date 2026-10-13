@@ -37,185 +37,186 @@
 36|Ikkanċella l-lista
 37|Ikklikkja fuq stampa biex tara l-liċenzja tagħha u tissejvjaha.
 38|Ikklikkja biex tpoġġi fiż-żona tax-xogħol
-39|Agħlaq
-40|Agħlaq passaġġ miftuħ, jew iftaħ wieħed magħluq fin-nodu magħżul
-41|Kollezzjoni
-42|Kulur
-43|Skema tal-kuluri
-44|Kuntrast
-45|Ikkonverti t-test f'kurvi, jew vettorizza l-istampa, biex teditja n-nodi tagħha.
-46|Ikkonverti f'passaġġ
-47|Ikkopja
-48|Kantuniera
-49|Ma setgħux jiġu ċċekkjati l-aġġornamenti.
-50|Neħħi
-51|Ħassar in-nodu
-52|Ħassar l-istampa wara
-53|Ħassar…
-54|Dettalji
-55|Dettalji…
-56|Distanza bejn il-linji
-57|Niżżel
-58|It-tniżżil falla: {}
-59|Qed jitniżżel…
-60|Iddubbla
-61|Editja n-nodi
-62|Elliss (E)
-63|Inċiżjoni tal-partijiet ċari minflok dawk skuri
-64|Adatta mal-oġġetti kollha
-65|Adatta mal-oġġetti kollha (Ctrl+9)
-66|Adatta l-mejda mat-tieqa
-67|Adatta maż-żona tax-xogħol (Ctrl+0)
-68|Aqleb O
-69|Aqleb V
-70|Aqleb orizzontalment
-71|Aqleb vertikalment
-72|Ikel
-73|Gamma
-74|Griglja
-75|Igruppa
-76|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
-77|Qalb (K)
-78|Injora żoni żgħar
-79|Importa
-80|L-importazzjoni fallet: {}
-81|Importazzjoni tal-istampa
-82|Stampa {} importata
-83|Inklużi
-84|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
-85|Lingwa
-86|Xellug
-87|Liċenzja
-88|Linja (L)
-89|Ħxuna tal-linji
-90|Illokkja
-91|Illokkja l-proporzjonijiet
-92|Oġġetti llokkjati: {}
-93|Griglja prinċipali
-94|Agħmel mgħawweġ is-segment wara kull nodu magħżul
-95|Agħmel dritt is-segment wara kull nodu magħżul
-96|Agħmel kantunieri min-nodi magħżula
-97|Agħmel bla xkiel in-nodi magħżula
-98|Massimizza
-99|Nofs O
-100|Nofs V
-101|Tiegħi
-102|Minimizza
-103|Mera u ċentraġġ
-104|Mużika u divertiment
-105|Il-clipart tiegħi
-106|Isem
-107|In-natura
-108|Stampa negattiva
-109|L-aħħar rilaxx: {}
-110|M'hemm l-ebda stampi hawn. Uża Online… biex issib xi wħud.
-111|Editjar tan-nodi (N)
-112|Ma nstab xejn.
-113|OK
-114|Oġġetti
-115|Clipart online
-116|Online…
-117|Salva biss stampi li tista' tuża. Iċċekkja l-liċenzja tas-sors.
-118|Iftaħ / agħlaq
-119|Iftaħ riċenti
-120|Iftaħ il-paġna tat-tniżżil
-121|Jew niżżel stampa minn indirizz
-122|Mexxi l-vista (H)
-123|Waħħal
-124|Stampi li jiġu mal-programm
-125|Stampi li niżżilt jew żidt
-126|Imqiegħed: {}
-127|Poligonu (G)
-128|Poliliena / pinna (P)
-129|Pożizzjoni u daqs
-130|Paġna tal-proġett fuq GitHub
-131|Gwida mgħaġġla
-132|Oħroġ
-133|Raġġ tad-dawwir
-134|Rettangolu (R)
-135|Erġa' agħmel
-136|Tneħħi din l-istampa mill-clipart tiegħek? Il-fajl fuq id-disk tiegħek jitħassar.
-137|Semmi mill-ġdid
-138|Semmi mill-ġdid…
-139|Irrisettja
-140|Irrisettja l-griglja
-141|Irrestawra
-142|Lemin
-143|Dawwar
-144|Dawwar 90° kontra d-direzzjoni tal-arloġġ
-145|Dawwar 90° fl-istess direzzjoni tal-arloġġ
-146|Rotazzjoni u qlib
-147|Rotazzjoni
-148|Dawwar
-149|Idawwar il-kantunieri magħżula b'dan ir-raġġ
-150|Kantunieri mdawra: {}
-151|Salva kopja fil-clipart tiegħi
-152|Salva fil-clipart tiegħi
-153|{} salvat f'{}
-154|Fittex
-155|Is-search falla: {}
-156|Fittex f'kollezzjonijiet miftuħa ta' ikoni (Iconify). L-istampi jiġu salvati fuq id-disk tiegħek, f'kategorija li tagħżel.
-157|Fittex aktar stampi fuq l-internet u salvahom hawn
-158|Qed ifittex…
-159|Griglja sekondarja
-160|Agħżel (V)
-161|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
-162|Agħżel kollox
-163|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
-164|Ibgħat lura
-165|Forom
-166|Uri
-167|Uri jew aħbi l-griglja
-168|Uri jew aħbi l-griglja sekondarja
-169|Issimplifika
-170|Daqs
-171|Daqs meta jitqiegħed
-172|Bla xkiel
-173|Illixxa l-kurvi
-174|Aqbad mal-griglja
-175|Aqbad mal-oġġetti
-176|Sors
-177|Spiral (I)
-178|Stilla (S)
-179|Simboli
-180|Test (T)
-181|Ir-riżultat huwa vojt.
-182|Il-griglja sekondarja trid tkun aktar fina mill-prinċipali.
-183|L-ispazju madwar iż-żona tax-xogħol
-184|M'hemm l-ebda kantunieri dritti x'tidawwar.
-185|Limitu
-186|Għal kurva
-187|Għal linja
-188|Ton
-189|Għodod
-190|Fuq
-191|Vettorizza
-192|Vettorizzazzjoni tal-istampa
-193|Vettorizza ż-żoni ċari
-194|Kontorni vettorizzati: {}
-195|Trijangolu (Y)
-196|Ħassar
-197|Neħħi l-grupp
-198|Iftaħ
-199|Oġġetti mhux illokkjati: {}
-200|Aġġornamenti
-201|Verżjoni {}
-202|Għażliet tad-dehra
-203|Wisa'
-204|Żona tax-xogħol
-205|Kulur tal-ispazju tax-xogħol
-206|Għandek l-aħħar verżjoni.
-207|Għandek il-verżjoni {}.
-208|Żid
-209|Żid (Z)
-210|Naqqas
-211|Naqqas (X)
-212|jiġi mal-programm
-213|ikkreditah l-awtur
-214|eż. qattus, fjura, ingranaġġ
-215|m'hemmx bżonn tikkreditah
-216|jew kategorija ġdida
-217|tiegħek
-218|Kontorni: {}
-219|Stampi misjuba: {}
-220|{} × {} px
+39|Clipart
+40|Agħlaq
+41|Agħlaq passaġġ miftuħ, jew iftaħ wieħed magħluq fin-nodu magħżul
+42|Kollezzjoni
+43|Kulur
+44|Skema tal-kuluri
+45|Kuntrast
+46|Ikkonverti t-test f'kurvi, jew vettorizza l-istampa, biex teditja n-nodi tagħha.
+47|Ikkonverti f'passaġġ
+48|Ikkopja
+49|Kantuniera
+50|Ma setgħux jiġu ċċekkjati l-aġġornamenti.
+51|Neħħi
+52|Ħassar in-nodu
+53|Ħassar l-istampa wara
+54|Ħassar…
+55|Dettalji
+56|Dettalji…
+57|Distanza bejn il-linji
+58|Niżżel
+59|It-tniżżil falla: {}
+60|Qed jitniżżel…
+61|Iddubbla
+62|Editja n-nodi
+63|Elliss (E)
+64|Inċiżjoni tal-partijiet ċari minflok dawk skuri
+65|Adatta mal-oġġetti kollha
+66|Adatta mal-oġġetti kollha (Ctrl+9)
+67|Adatta l-mejda mat-tieqa
+68|Adatta maż-żona tax-xogħol (Ctrl+0)
+69|Aqleb O
+70|Aqleb V
+71|Aqleb orizzontalment
+72|Aqleb vertikalment
+73|Ikel
+74|Gamma
+75|Griglja
+76|Igruppa
+77|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
+78|Qalb (K)
+79|Injora żoni żgħar
+80|Importa
+81|L-importazzjoni fallet: {}
+82|Importazzjoni tal-istampa
+83|Stampa {} importata
+84|Inklużi
+85|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
+86|Lingwa
+87|Xellug
+88|Liċenzja
+89|Linja (L)
+90|Ħxuna tal-linji
+91|Illokkja
+92|Illokkja l-proporzjonijiet
+93|Oġġetti llokkjati: {}
+94|Griglja prinċipali
+95|Agħmel mgħawweġ is-segment wara kull nodu magħżul
+96|Agħmel dritt is-segment wara kull nodu magħżul
+97|Agħmel kantunieri min-nodi magħżula
+98|Agħmel bla xkiel in-nodi magħżula
+99|Massimizza
+100|Nofs O
+101|Nofs V
+102|Tiegħi
+103|Minimizza
+104|Mera u ċentraġġ
+105|Mużika u divertiment
+106|Il-clipart tiegħi
+107|Isem
+108|In-natura
+109|Stampa negattiva
+110|L-aħħar rilaxx: {}
+111|M'hemm l-ebda stampi hawn. Uża Online… biex issib xi wħud.
+112|Editjar tan-nodi (N)
+113|Ma nstab xejn.
+114|OK
+115|Oġġetti
+116|Clipart online
+117|Online…
+118|Salva biss stampi li tista' tuża. Iċċekkja l-liċenzja tas-sors.
+119|Iftaħ / agħlaq
+120|Iftaħ riċenti
+121|Iftaħ il-paġna tat-tniżżil
+122|Jew niżżel stampa minn indirizz
+123|Mexxi l-vista (H)
+124|Waħħal
+125|Stampi li jiġu mal-programm
+126|Stampi li niżżilt jew żidt
+127|Imqiegħed: {}
+128|Poligonu (G)
+129|Poliliena / pinna (P)
+130|Pożizzjoni u daqs
+131|Paġna tal-proġett fuq GitHub
+132|Gwida mgħaġġla
+133|Oħroġ
+134|Raġġ tad-dawwir
+135|Rettangolu (R)
+136|Erġa' agħmel
+137|Tneħħi din l-istampa mill-clipart tiegħek? Il-fajl fuq id-disk tiegħek jitħassar.
+138|Semmi mill-ġdid
+139|Semmi mill-ġdid…
+140|Irrisettja
+141|Irrisettja l-griglja
+142|Irrestawra
+143|Lemin
+144|Dawwar
+145|Dawwar 90° kontra d-direzzjoni tal-arloġġ
+146|Dawwar 90° fl-istess direzzjoni tal-arloġġ
+147|Rotazzjoni u qlib
+148|Rotazzjoni
+149|Dawwar
+150|Idawwar il-kantunieri magħżula b'dan ir-raġġ
+151|Kantunieri mdawra: {}
+152|Salva kopja fil-clipart tiegħi
+153|Salva fil-clipart tiegħi
+154|{} salvat f'{}
+155|Fittex
+156|Is-search falla: {}
+157|Fittex f'kollezzjonijiet miftuħa ta' ikoni (Iconify). L-istampi jiġu salvati fuq id-disk tiegħek, f'kategorija li tagħżel.
+158|Fittex aktar stampi fuq l-internet u salvahom hawn
+159|Qed ifittex…
+160|Griglja sekondarja
+161|Agħżel (V)
+162|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
+163|Agħżel kollox
+164|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
+165|Ibgħat lura
+166|Forom
+167|Uri
+168|Uri jew aħbi l-griglja
+169|Uri jew aħbi l-griglja sekondarja
+170|Issimplifika
+171|Daqs
+172|Daqs meta jitqiegħed
+173|Bla xkiel
+174|Illixxa l-kurvi
+175|Aqbad mal-griglja
+176|Aqbad mal-oġġetti
+177|Sors
+178|Spiral (I)
+179|Stilla (S)
+180|Simboli
+181|Test (T)
+182|Ir-riżultat huwa vojt.
+183|Il-griglja sekondarja trid tkun aktar fina mill-prinċipali.
+184|L-ispazju madwar iż-żona tax-xogħol
+185|M'hemm l-ebda kantunieri dritti x'tidawwar.
+186|Limitu
+187|Għal kurva
+188|Għal linja
+189|Ton
+190|Għodod
+191|Fuq
+192|Vettorizza
+193|Vettorizzazzjoni tal-istampa
+194|Vettorizza ż-żoni ċari
+195|Kontorni vettorizzati: {}
+196|Trijangolu (Y)
+197|Ħassar
+198|Neħħi l-grupp
+199|Iftaħ
+200|Oġġetti mhux illokkjati: {}
+201|Aġġornamenti
+202|Verżjoni {}
+203|Għażliet tad-dehra
+204|Wisa'
+205|Żona tax-xogħol
+206|Kulur tal-ispazju tax-xogħol
+207|Għandek l-aħħar verżjoni.
+208|Għandek il-verżjoni {}.
+209|Żid
+210|Żid (Z)
+211|Naqqas
+212|Naqqas (X)
+213|jiġi mal-programm
+214|ikkreditah l-awtur
+215|eż. qattus, fjura, ingranaġġ
+216|m'hemmx bżonn tikkreditah
+217|jew kategorija ġdida
+218|tiegħek
+219|Kontorni: {}
+220|Stampi misjuba: {}
+221|{} × {} px

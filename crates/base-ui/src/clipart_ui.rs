@@ -18,6 +18,11 @@ include!(concat!(env!("OUT_DIR"), "/clipart_files.rs"));
 /// (category, name, SVG bytes) of pictures shipped with a program.
 pub type Builtin = &'static [(&'static str, &'static str, &'static [u8])];
 
+/// The translated title of the gallery's side panel tab.
+pub fn tab_label() -> &'static str {
+    tr("Clipart")
+}
+
 pub const BLUE: Color32 = Color32::from_rgb(0x3b, 0x82, 0xd8);
 pub const GREEN: Color32 = Color32::from_rgb(0x2e, 0xa0, 0x4f);
 const TILE: f32 = 70.0;

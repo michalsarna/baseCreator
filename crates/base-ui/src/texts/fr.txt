@@ -37,185 +37,186 @@
 36|Vider la liste
 37|Cliquez sur une image pour voir sa licence et l'enregistrer.
 38|Cliquer pour placer sur la zone de travail
-39|Fermer
-40|Fermer un tracé ouvert, ou ouvrir un tracé fermé au nœud sélectionné
-41|Collection
-42|Couleur
-43|Thème de couleurs
-44|Contraste
-45|Convertissez le texte en courbes, ou vectorisez l'image, pour modifier ses nœuds.
-46|Convertir en tracé
-47|Copier
-48|Angle
-49|Impossible de rechercher les mises à jour.
-50|Supprimer
-51|Supprimer le nœud
-52|Supprimer ensuite l'image
-53|Supprimer…
-54|Détails
-55|Détails…
-56|Distance entre les lignes
-57|Télécharger
-58|Échec du téléchargement : {}
-59|Téléchargement…
-60|Dupliquer
-61|Modifier les nœuds
-62|Ellipse (E)
-63|Graver les parties claires au lieu des parties sombres
-64|Ajuster à tous les objets
-65|Ajuster à tous les objets (Ctrl+9)
-66|Ajuster la table à la fenêtre
-67|Ajuster à la zone de travail (Ctrl+0)
-68|Retourner H
-69|Retourner V
-70|Retourner horizontalement
-71|Retourner verticalement
-72|Nourriture
-73|Gamma
-74|Grille
-75|Grouper
-76|Groupé. Les objets gardent leurs calques.
-77|Cœur (K)
-78|Ignorer les petites zones
-79|Importer
-80|Échec de l'importation : {}
-81|Importer une image
-82|Image {} importée
-83|Inclus
-84|Insérer un nœud (ou double-cliquer sur un segment)
-85|Langue
-86|Gauche
-87|Licence
-88|Ligne (L)
-89|Épaisseur des lignes
-90|Verrouiller
-91|Verrouiller les proportions
-92|{} objet(s) verrouillé(s).
-93|Grille principale
-94|Rendre courbe le segment qui suit chaque nœud sélectionné
-95|Rendre droit le segment qui suit chaque nœud sélectionné
-96|Transformer les nœuds sélectionnés en angles
-97|Rendre les nœuds sélectionnés lisses
-98|Agrandir
-99|Milieu H
-100|Milieu V
-101|Les miens
-102|Réduire
-103|Miroir et centrage
-104|Musique et loisirs
-105|Mes cliparts
-106|Nom
-107|Nature
-108|Image en négatif
-109|Dernière version : {}
-110|Aucune image ici. Utilisez En ligne… pour en trouver.
-111|Édition des nœuds (N)
-112|Aucun résultat.
-113|OK
-114|Objets
-115|Cliparts en ligne
-116|En ligne…
-117|N'enregistrez que des images que vous avez le droit d'utiliser. Vérifiez la licence de la source.
-118|Ouvrir / fermer
-119|Fichiers récents
-120|Ouvrir la page de téléchargement
-121|Ou téléchargez une image depuis une adresse
-122|Déplacer la vue (H)
-123|Coller
-124|Images fournies avec le programme
-125|Images que vous avez téléchargées ou ajoutées
-126|{} placé
-127|Polygone (G)
-128|Polyligne / plume (P)
-129|Position et taille
-130|Page du projet sur GitHub
-131|Guide rapide
-132|Quitter
-133|Rayon d'arrondi
-134|Rectangle (R)
-135|Rétablir
-136|Retirer cette image de vos cliparts ? Le fichier est supprimé de votre disque.
-137|Renommer
-138|Renommer…
-139|Réinitialiser
-140|Réinitialiser la grille
-141|Restaurer
-142|Droite
-143|Rotation
-144|Pivoter de 90° à gauche
-145|Pivoter de 90° à droite
-146|Rotation et retournement
-147|Rotation
-148|Arrondir
-149|Arrondit les angles sélectionnés avec ce rayon
-150|{} angle(s) arrondi(s).
-151|Enregistrer une copie dans mes cliparts
-152|Enregistrer dans mes cliparts
-153|{} enregistré dans {}
-154|Rechercher
-155|Échec de la recherche : {}
-156|Recherche dans des collections d'icônes libres (Iconify). Les images sont enregistrées sur votre disque, dans la catégorie de votre choix.
-157|Cherchez d'autres images sur Internet et enregistrez-les ici
-158|Recherche…
-159|Grille secondaire
-160|Sélection (V)
-161|Sélectionnez d'abord une forme, puis modifiez ses nœuds.
-162|Tout sélectionner
-163|Sélectionnez au moins deux objets à grouper.
-164|Mettre à l'arrière-plan
-165|Formes
-166|Afficher
-167|Afficher ou masquer la grille
-168|Afficher ou masquer la grille secondaire
-169|Simplifier
-170|Taille
-171|Taille à l'insertion
-172|Lisse
-173|Lisser les courbes
-174|Aimanter à la grille
-175|Aimanter aux objets
-176|Source
-177|Spirale (I)
-178|Étoile (S)
-179|Symboles
-180|Texte (T)
-181|Le résultat est vide.
-182|La grille secondaire doit être plus fine que la grille principale.
-183|L'espace autour de la zone de travail
-184|Il n'y a pas d'angles droits à arrondir.
-185|Seuil
-186|En courbe
-187|En ligne
-188|Tonalité
-189|Outils
-190|Haut
-191|Vectoriser
-192|Vectoriser l'image
-193|Vectoriser les zones claires
-194|{} contours vectorisés
-195|Triangle (Y)
-196|Annuler
-197|Dissocier
-198|Débloquer
-199|{} objet(s) déverrouillé(s).
-200|Mises à jour
-201|Version {}
-202|Options d'affichage
-203|Largeur
-204|Zone de travail
-205|Couleur de l'espace de travail
-206|Vous avez la version la plus récente.
-207|Vous avez la version {}.
-208|Zoom avant
-209|Zoom avant (Z)
-210|Zoom arrière
-211|Zoom arrière (X)
-212|fourni avec le programme
-213|mentionner l'auteur
-214|p. ex. chat, fleur, engrenage
-215|aucune mention requise
-216|ou une nouvelle catégorie
-217|à vous
-218|{} contours
-219|{} images trouvées
-220|{} × {} px
+39|Cliparts
+40|Fermer
+41|Fermer un tracé ouvert, ou ouvrir un tracé fermé au nœud sélectionné
+42|Collection
+43|Couleur
+44|Thème de couleurs
+45|Contraste
+46|Convertissez le texte en courbes, ou vectorisez l'image, pour modifier ses nœuds.
+47|Convertir en tracé
+48|Copier
+49|Angle
+50|Impossible de rechercher les mises à jour.
+51|Supprimer
+52|Supprimer le nœud
+53|Supprimer ensuite l'image
+54|Supprimer…
+55|Détails
+56|Détails…
+57|Distance entre les lignes
+58|Télécharger
+59|Échec du téléchargement : {}
+60|Téléchargement…
+61|Dupliquer
+62|Modifier les nœuds
+63|Ellipse (E)
+64|Graver les parties claires au lieu des parties sombres
+65|Ajuster à tous les objets
+66|Ajuster à tous les objets (Ctrl+9)
+67|Ajuster la table à la fenêtre
+68|Ajuster à la zone de travail (Ctrl+0)
+69|Retourner H
+70|Retourner V
+71|Retourner horizontalement
+72|Retourner verticalement
+73|Nourriture
+74|Gamma
+75|Grille
+76|Grouper
+77|Groupé. Les objets gardent leurs calques.
+78|Cœur (K)
+79|Ignorer les petites zones
+80|Importer
+81|Échec de l'importation : {}
+82|Importer une image
+83|Image {} importée
+84|Inclus
+85|Insérer un nœud (ou double-cliquer sur un segment)
+86|Langue
+87|Gauche
+88|Licence
+89|Ligne (L)
+90|Épaisseur des lignes
+91|Verrouiller
+92|Verrouiller les proportions
+93|{} objet(s) verrouillé(s).
+94|Grille principale
+95|Rendre courbe le segment qui suit chaque nœud sélectionné
+96|Rendre droit le segment qui suit chaque nœud sélectionné
+97|Transformer les nœuds sélectionnés en angles
+98|Rendre les nœuds sélectionnés lisses
+99|Agrandir
+100|Milieu H
+101|Milieu V
+102|Les miens
+103|Réduire
+104|Miroir et centrage
+105|Musique et loisirs
+106|Mes cliparts
+107|Nom
+108|Nature
+109|Image en négatif
+110|Dernière version : {}
+111|Aucune image ici. Utilisez En ligne… pour en trouver.
+112|Édition des nœuds (N)
+113|Aucun résultat.
+114|OK
+115|Objets
+116|Cliparts en ligne
+117|En ligne…
+118|N'enregistrez que des images que vous avez le droit d'utiliser. Vérifiez la licence de la source.
+119|Ouvrir / fermer
+120|Fichiers récents
+121|Ouvrir la page de téléchargement
+122|Ou téléchargez une image depuis une adresse
+123|Déplacer la vue (H)
+124|Coller
+125|Images fournies avec le programme
+126|Images que vous avez téléchargées ou ajoutées
+127|{} placé
+128|Polygone (G)
+129|Polyligne / plume (P)
+130|Position et taille
+131|Page du projet sur GitHub
+132|Guide rapide
+133|Quitter
+134|Rayon d'arrondi
+135|Rectangle (R)
+136|Rétablir
+137|Retirer cette image de vos cliparts ? Le fichier est supprimé de votre disque.
+138|Renommer
+139|Renommer…
+140|Réinitialiser
+141|Réinitialiser la grille
+142|Restaurer
+143|Droite
+144|Rotation
+145|Pivoter de 90° à gauche
+146|Pivoter de 90° à droite
+147|Rotation et retournement
+148|Rotation
+149|Arrondir
+150|Arrondit les angles sélectionnés avec ce rayon
+151|{} angle(s) arrondi(s).
+152|Enregistrer une copie dans mes cliparts
+153|Enregistrer dans mes cliparts
+154|{} enregistré dans {}
+155|Rechercher
+156|Échec de la recherche : {}
+157|Recherche dans des collections d'icônes libres (Iconify). Les images sont enregistrées sur votre disque, dans la catégorie de votre choix.
+158|Cherchez d'autres images sur Internet et enregistrez-les ici
+159|Recherche…
+160|Grille secondaire
+161|Sélection (V)
+162|Sélectionnez d'abord une forme, puis modifiez ses nœuds.
+163|Tout sélectionner
+164|Sélectionnez au moins deux objets à grouper.
+165|Mettre à l'arrière-plan
+166|Formes
+167|Afficher
+168|Afficher ou masquer la grille
+169|Afficher ou masquer la grille secondaire
+170|Simplifier
+171|Taille
+172|Taille à l'insertion
+173|Lisse
+174|Lisser les courbes
+175|Aimanter à la grille
+176|Aimanter aux objets
+177|Source
+178|Spirale (I)
+179|Étoile (S)
+180|Symboles
+181|Texte (T)
+182|Le résultat est vide.
+183|La grille secondaire doit être plus fine que la grille principale.
+184|L'espace autour de la zone de travail
+185|Il n'y a pas d'angles droits à arrondir.
+186|Seuil
+187|En courbe
+188|En ligne
+189|Tonalité
+190|Outils
+191|Haut
+192|Vectoriser
+193|Vectoriser l'image
+194|Vectoriser les zones claires
+195|{} contours vectorisés
+196|Triangle (Y)
+197|Annuler
+198|Dissocier
+199|Débloquer
+200|{} objet(s) déverrouillé(s).
+201|Mises à jour
+202|Version {}
+203|Options d'affichage
+204|Largeur
+205|Zone de travail
+206|Couleur de l'espace de travail
+207|Vous avez la version la plus récente.
+208|Vous avez la version {}.
+209|Zoom avant
+210|Zoom avant (Z)
+211|Zoom arrière
+212|Zoom arrière (X)
+213|fourni avec le programme
+214|mentionner l'auteur
+215|p. ex. chat, fleur, engrenage
+216|aucune mention requise
+217|ou une nouvelle catégorie
+218|à vous
+219|{} contours
+220|{} images trouvées
+221|{} × {} px

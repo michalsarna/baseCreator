@@ -37,185 +37,186 @@
 36|Počisti seznam
 37|Kliknite sliko, da vidite njeno licenco in jo shranite.
 38|Kliknite za postavitev na delovno območje
-39|Zapri
-40|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
-41|Zbirka
-42|Barva
-43|Barvna shema
-44|Kontrast
-45|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
-46|Pretvori v pot
-47|Kopiraj
-48|Kot
-49|Posodobitev ni bilo mogoče preveriti.
-50|Izbriši
-51|Izbriši vozlišče
-52|Nato izbriši sliko
-53|Izbriši…
-54|Podrobnosti
-55|Podrobnosti…
-56|Razdalja med črtami
-57|Prenesi
-58|Prenos ni uspel: {}
-59|Prenašanje…
-60|Podvoji
-61|Uredi vozlišča
-62|Elipsa (E)
-63|Graviraj svetle dele namesto temnih
-64|Prilagodi vsem predmetom
-65|Prilagodi vsem predmetom (Ctrl+9)
-66|Prilagodi mizo oknu
-67|Prilagodi delovnemu območju (Ctrl+0)
-68|Zrcali V
-69|Zrcali N
-70|Zrcali vodoravno
-71|Zrcali navpično
-72|Hrana
-73|Gama
-74|Mreža
-75|Združi
-76|Združeno. Predmeti obdržijo svoje sloje.
-77|Srce (K)
-78|Prezri majhna območja
-79|Uvoz
-80|Uvoz ni uspel: {}
-81|Uvoz slike
-82|Slika {} uvožena
-83|Vključeno
-84|Vstavi vozlišče (ali dvakrat kliknite odsek)
-85|Jezik
-86|Levo
-87|Licenca
-88|Črta (L)
-89|Debelina črt
-90|Zakleni
-91|Zakleni razmerje
-92|Zaklenjenih predmetov: {}
-93|Glavna mreža
-94|Odsek za vsakim izbranim vozliščem naredi ukrivljen
-95|Odsek za vsakim izbranim vozliščem naredi raven
-96|Izbrana vozlišča spremeni v kotna
-97|Izbrana vozlišča naredi gladka
-98|Povečaj
-99|Sredina V
-100|Sredina N
-101|Moje
-102|Skrči
-103|Zrcaljenje in centriranje
-104|Glasba in zabava
-105|Moj clipart
-106|Ime
-107|Narava
-108|Negativ slike
-109|Najnovejša izdaja: {}
-110|Tukaj ni slik. Uporabite Na spletu…, da jih najdete.
-111|Urejanje vozlišč (N)
-112|Nič ni najdeno.
-113|V redu
-114|Predmeti
-115|Clipart na spletu
-116|Na spletu…
-117|Shranjujte samo slike, ki jih smete uporabljati. Preverite licenco vira.
-118|Odpri / zapri
-119|Odpri nedavne
-120|Odpri stran za prenos
-121|Ali prenesite sliko z naslova
-122|Premik pogleda (H)
-123|Prilepi
-124|Slike, ki so priložene programu
-125|Slike, ki ste jih prenesli ali dodali
-126|Postavljeno: {}
-127|Večkotnik (G)
-128|Lomljena črta / pero (P)
-129|Položaj in velikost
-130|Stran projekta na GitHubu
-131|Hitri vodnik
-132|Izhod
-133|Polmer zaobljenja
-134|Pravokotnik (R)
-135|Uveljavi
-136|Odstranim to sliko iz vašega cliparta? Datoteka na disku bo izbrisana.
-137|Preimenuj
-138|Preimenuj…
-139|Ponastavi
-140|Ponastavi mrežo
-141|Obnovi
-142|Desno
-143|Zavrti
-144|Zavrti za 90° v levo
-145|Zavrti za 90° v desno
-146|Vrtenje in zrcaljenje
-147|Vrtenje
-148|Zaobli
-149|Zaobli izbrane vogale s tem polmerom
-150|Zaobljenih vogalov: {}
-151|Shrani kopijo v moj clipart
-152|Shrani v moj clipart
-153|{} shranjeno v {}
-154|Iskanje
-155|Iskanje ni uspelo: {}
-156|Iščite po odprtih zbirkah ikon (Iconify). Slike se shranijo na vaš disk, v kategorijo po vaši izbiri.
-157|Poiščite več slik na spletu in jih shranite sem
-158|Iskanje…
-159|Sekundarna mreža
-160|Izbira (V)
-161|Najprej izberite obliko, nato uredite njena vozlišča.
-162|Izberi vse
-163|Za združevanje izberite vsaj dva predmeta.
-164|Postavi nazaj
-165|Oblike
-166|Pokaži
-167|Pokaži ali skrij mrežo
-168|Pokaži ali skrij sekundarno mrežo
-169|Poenostavi
-170|Velikost
-171|Velikost ob vstavitvi
-172|Gladko
-173|Zgladi krivulje
-174|Pripni na mrežo
-175|Pripni na predmete
-176|Vir
-177|Spirala (I)
-178|Zvezda (S)
-179|Simboli
-180|Besedilo (T)
-181|Rezultat je prazen.
-182|Sekundarna mreža mora biti finejša od glavne.
-183|Prostor okoli delovnega območja
-184|Ni ravnih vogalov za zaobljenje.
-185|Prag
-186|V krivuljo
-187|V črto
-188|Ton
-189|Orodja
-190|Zgoraj
-191|Vektoriziraj
-192|Vektorizacija slike
-193|Vektoriziraj svetla območja
-194|Vektoriziranih obrisov: {}
-195|Trikotnik (Y)
-196|Razveljavi
-197|Razdruži
-198|Odkleni
-199|Odklenjenih predmetov: {}
-200|Posodobitve
-201|Različica {}
-202|Možnosti pogleda
-203|Širina
-204|Delovno območje
-205|Barva delovnega prostora
-206|Imate najnovejšo različico.
-207|Imate različico {}.
-208|Povečaj
-209|Povečaj (Z)
-210|Pomanjšaj
-211|Pomanjšaj (X)
-212|je priložena programu
-213|navedite avtorja
-214|npr. mačka, cvet, zobnik
-215|navedba avtorja ni potrebna
-216|ali nova kategorija
-217|vaša
-218|Obrisov: {}
-219|Najdenih slik: {}
-220|{} × {} px
+39|Clipart
+40|Zapri
+41|Zapri odprto pot ali odpri zaprto pri izbranem vozlišču
+42|Zbirka
+43|Barva
+44|Barvna shema
+45|Kontrast
+46|Pretvorite besedilo v krivulje ali vektorizirajte sliko, da lahko urejate njena vozlišča.
+47|Pretvori v pot
+48|Kopiraj
+49|Kot
+50|Posodobitev ni bilo mogoče preveriti.
+51|Izbriši
+52|Izbriši vozlišče
+53|Nato izbriši sliko
+54|Izbriši…
+55|Podrobnosti
+56|Podrobnosti…
+57|Razdalja med črtami
+58|Prenesi
+59|Prenos ni uspel: {}
+60|Prenašanje…
+61|Podvoji
+62|Uredi vozlišča
+63|Elipsa (E)
+64|Graviraj svetle dele namesto temnih
+65|Prilagodi vsem predmetom
+66|Prilagodi vsem predmetom (Ctrl+9)
+67|Prilagodi mizo oknu
+68|Prilagodi delovnemu območju (Ctrl+0)
+69|Zrcali V
+70|Zrcali N
+71|Zrcali vodoravno
+72|Zrcali navpično
+73|Hrana
+74|Gama
+75|Mreža
+76|Združi
+77|Združeno. Predmeti obdržijo svoje sloje.
+78|Srce (K)
+79|Prezri majhna območja
+80|Uvoz
+81|Uvoz ni uspel: {}
+82|Uvoz slike
+83|Slika {} uvožena
+84|Vključeno
+85|Vstavi vozlišče (ali dvakrat kliknite odsek)
+86|Jezik
+87|Levo
+88|Licenca
+89|Črta (L)
+90|Debelina črt
+91|Zakleni
+92|Zakleni razmerje
+93|Zaklenjenih predmetov: {}
+94|Glavna mreža
+95|Odsek za vsakim izbranim vozliščem naredi ukrivljen
+96|Odsek za vsakim izbranim vozliščem naredi raven
+97|Izbrana vozlišča spremeni v kotna
+98|Izbrana vozlišča naredi gladka
+99|Povečaj
+100|Sredina V
+101|Sredina N
+102|Moje
+103|Skrči
+104|Zrcaljenje in centriranje
+105|Glasba in zabava
+106|Moj clipart
+107|Ime
+108|Narava
+109|Negativ slike
+110|Najnovejša izdaja: {}
+111|Tukaj ni slik. Uporabite Na spletu…, da jih najdete.
+112|Urejanje vozlišč (N)
+113|Nič ni najdeno.
+114|V redu
+115|Predmeti
+116|Clipart na spletu
+117|Na spletu…
+118|Shranjujte samo slike, ki jih smete uporabljati. Preverite licenco vira.
+119|Odpri / zapri
+120|Odpri nedavne
+121|Odpri stran za prenos
+122|Ali prenesite sliko z naslova
+123|Premik pogleda (H)
+124|Prilepi
+125|Slike, ki so priložene programu
+126|Slike, ki ste jih prenesli ali dodali
+127|Postavljeno: {}
+128|Večkotnik (G)
+129|Lomljena črta / pero (P)
+130|Položaj in velikost
+131|Stran projekta na GitHubu
+132|Hitri vodnik
+133|Izhod
+134|Polmer zaobljenja
+135|Pravokotnik (R)
+136|Uveljavi
+137|Odstranim to sliko iz vašega cliparta? Datoteka na disku bo izbrisana.
+138|Preimenuj
+139|Preimenuj…
+140|Ponastavi
+141|Ponastavi mrežo
+142|Obnovi
+143|Desno
+144|Zavrti
+145|Zavrti za 90° v levo
+146|Zavrti za 90° v desno
+147|Vrtenje in zrcaljenje
+148|Vrtenje
+149|Zaobli
+150|Zaobli izbrane vogale s tem polmerom
+151|Zaobljenih vogalov: {}
+152|Shrani kopijo v moj clipart
+153|Shrani v moj clipart
+154|{} shranjeno v {}
+155|Iskanje
+156|Iskanje ni uspelo: {}
+157|Iščite po odprtih zbirkah ikon (Iconify). Slike se shranijo na vaš disk, v kategorijo po vaši izbiri.
+158|Poiščite več slik na spletu in jih shranite sem
+159|Iskanje…
+160|Sekundarna mreža
+161|Izbira (V)
+162|Najprej izberite obliko, nato uredite njena vozlišča.
+163|Izberi vse
+164|Za združevanje izberite vsaj dva predmeta.
+165|Postavi nazaj
+166|Oblike
+167|Pokaži
+168|Pokaži ali skrij mrežo
+169|Pokaži ali skrij sekundarno mrežo
+170|Poenostavi
+171|Velikost
+172|Velikost ob vstavitvi
+173|Gladko
+174|Zgladi krivulje
+175|Pripni na mrežo
+176|Pripni na predmete
+177|Vir
+178|Spirala (I)
+179|Zvezda (S)
+180|Simboli
+181|Besedilo (T)
+182|Rezultat je prazen.
+183|Sekundarna mreža mora biti finejša od glavne.
+184|Prostor okoli delovnega območja
+185|Ni ravnih vogalov za zaobljenje.
+186|Prag
+187|V krivuljo
+188|V črto
+189|Ton
+190|Orodja
+191|Zgoraj
+192|Vektoriziraj
+193|Vektorizacija slike
+194|Vektoriziraj svetla območja
+195|Vektoriziranih obrisov: {}
+196|Trikotnik (Y)
+197|Razveljavi
+198|Razdruži
+199|Odkleni
+200|Odklenjenih predmetov: {}
+201|Posodobitve
+202|Različica {}
+203|Možnosti pogleda
+204|Širina
+205|Delovno območje
+206|Barva delovnega prostora
+207|Imate najnovejšo različico.
+208|Imate različico {}.
+209|Povečaj
+210|Povečaj (Z)
+211|Pomanjšaj
+212|Pomanjšaj (X)
+213|je priložena programu
+214|navedite avtorja
+215|npr. mačka, cvet, zobnik
+216|navedba avtorja ni potrebna
+217|ali nova kategorija
+218|vaša
+219|Obrisov: {}
+220|Najdenih slik: {}
+221|{} × {} px

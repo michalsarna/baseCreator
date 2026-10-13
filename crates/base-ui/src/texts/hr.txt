@@ -37,185 +37,186 @@
 36|Očisti popis
 37|Kliknite sliku da vidite njezinu licencu i spremite je.
 38|Kliknite za postavljanje na radno područje
-39|Zatvori
-40|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
-41|Zbirka
-42|Boja
-43|Shema boja
-44|Kontrast
-45|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
-46|Pretvori u putanju
-47|Kopiraj
-48|Kut
-49|Nije moguće provjeriti ažuriranja.
-50|Izbriši
-51|Izbriši čvor
-52|Nakon toga izbriši sliku
-53|Izbriši…
-54|Pojedinosti
-55|Pojedinosti…
-56|Razmak između linija
-57|Preuzmi
-58|Preuzimanje nije uspjelo: {}
-59|Preuzimanje…
-60|Dupliciraj
-61|Uredi čvorove
-62|Elipsa (E)
-63|Graviraj svijetle dijelove umjesto tamnih
-64|Prilagodi svim objektima
-65|Prilagodi svim objektima (Ctrl+9)
-66|Prilagodi stol prozoru
-67|Prilagodi radnom području (Ctrl+0)
-68|Zrcali H
-69|Zrcali V
-70|Zrcali vodoravno
-71|Zrcali okomito
-72|Hrana
-73|Gama
-74|Mreža
-75|Grupiraj
-76|Grupirano. Objekti zadržavaju svoje slojeve.
-77|Srce (K)
-78|Zanemari mala područja
-79|Uvoz
-80|Uvoz nije uspio: {}
-81|Uvoz slike
-82|Slika {} uvezena
-83|Uključeno
-84|Umetni čvor (ili dvaput kliknite segment)
-85|Jezik
-86|Lijevo
-87|Licenca
-88|Crta (L)
-89|Debljina linija
-90|Zaključaj
-91|Zaključaj omjer
-92|Zaključano objekata: {}
-93|Glavna mreža
-94|Učini segment iza svakog odabranog čvora zakrivljenim
-95|Učini segment iza svakog odabranog čvora ravnim
-96|Pretvori odabrane čvorove u kutne
-97|Učini odabrane čvorove glatkima
-98|Povećaj
-99|Sredina H
-100|Sredina V
-101|Moje
-102|Smanji
-103|Zrcaljenje i centriranje
-104|Glazba i zabava
-105|Moj clipart
-106|Naziv
-107|Priroda
-108|Negativ slike
-109|Najnovije izdanje: {}
-110|Ovdje nema slika. Upotrijebite Na mreži… da ih pronađete.
-111|Uređivanje čvorova (N)
-112|Ništa nije pronađeno.
-113|U redu
-114|Predmeti
-115|Clipart na mreži
-116|Na mreži…
-117|Spremajte samo slike koje smijete koristiti. Provjerite licencu izvora.
-118|Otvori / zatvori
-119|Otvori nedavne
-120|Otvori stranicu za preuzimanje
-121|Ili preuzmite sliku s adrese
-122|Pomak prikaza (H)
-123|Zalijepi
-124|Slike koje dolaze s programom
-125|Slike koje ste preuzeli ili dodali
-126|Postavljeno: {}
-127|Mnogokut (G)
-128|Izlomljena crta / pero (P)
-129|Položaj i veličina
-130|Stranica projekta na GitHubu
-131|Brzi vodič
-132|Izlaz
-133|Polumjer zaobljenja
-134|Pravokutnik (R)
-135|Ponovi
-136|Ukloniti ovu sliku iz vašeg cliparta? Datoteka na vašem disku bit će izbrisana.
-137|Preimenuj
-138|Preimenuj…
-139|Vrati
-140|Vrati mrežu
-141|Vrati
-142|Desno
-143|Zakreni
-144|Zakreni 90° ulijevo
-145|Zakreni 90° udesno
-146|Rotacija i zrcaljenje
-147|Rotacija
-148|Zaobli
-149|Zaobljuje odabrane kutove ovim polumjerom
-150|Zaobljeno kutova: {}
-151|Spremi kopiju u moj clipart
-152|Spremi u moj clipart
-153|{} spremljeno u {}
-154|Traži
-155|Pretraga nije uspjela: {}
-156|Pretražite otvorene zbirke ikona (Iconify). Slike se spremaju na vaš disk, u kategoriju po vašem izboru.
-157|Potražite još slika na internetu i spremite ih ovdje
-158|Traženje…
-159|Sekundarna mreža
-160|Odabir (V)
-161|Prvo odaberite oblik, a zatim uredite njegove čvorove.
-162|Odaberi sve
-163|Za grupiranje odaberite barem dva objekta.
-164|Prenesi natrag
-165|Oblici
-166|Prikaži
-167|Prikaži ili sakrij mrežu
-168|Prikaži ili sakrij sekundarnu mrežu
-169|Pojednostavi
-170|Veličina
-171|Veličina pri umetanju
-172|Glatko
-173|Zagladi krivulje
-174|Prianjanje uz mrežu
-175|Prianjanje uz objekte
-176|Izvor
-177|Spirala (I)
-178|Zvijezda (S)
-179|Simboli
-180|Tekst (T)
-181|Rezultat je prazan.
-182|Sekundarna mreža mora biti finija od glavne.
-183|Prostor oko radne površine
-184|Nema ravnih kutova za zaobljivanje.
-185|Prag
-186|U krivulju
-187|U crtu
-188|Ton
-189|Alati
-190|Gore
-191|Vektoriziraj
-192|Vektorizacija slike
-193|Vektoriziraj svijetla područja
-194|Vektorizirano obrisa: {}
-195|Trokut (Y)
-196|Poništi
-197|Razgrupiraj
-198|Otključaj
-199|Otključano objekata: {}
-200|Ažuriranja
-201|Verzija {}
-202|Mogućnosti prikaza
-203|Širina
-204|Radno područje
-205|Boja radnog prostora
-206|Imate najnoviju verziju.
-207|Imate verziju {}.
-208|Povećaj
-209|Povećaj (Z)
-210|Smanji
-211|Smanji (X)
-212|dolazi s programom
-213|navedite autora
-214|npr. mačka, cvijet, zupčanik
-215|navođenje autora nije potrebno
-216|ili nova kategorija
-217|vaše
-218|Obrisa: {}
-219|Pronađeno slika: {}
-220|{} × {} px
+39|Clipart
+40|Zatvori
+41|Zatvori otvorenu putanju ili otvori zatvorenu na odabranom čvoru
+42|Zbirka
+43|Boja
+44|Shema boja
+45|Kontrast
+46|Pretvorite tekst u krivulje ili vektorizirajte sliku da biste uređivali njezine čvorove.
+47|Pretvori u putanju
+48|Kopiraj
+49|Kut
+50|Nije moguće provjeriti ažuriranja.
+51|Izbriši
+52|Izbriši čvor
+53|Nakon toga izbriši sliku
+54|Izbriši…
+55|Pojedinosti
+56|Pojedinosti…
+57|Razmak između linija
+58|Preuzmi
+59|Preuzimanje nije uspjelo: {}
+60|Preuzimanje…
+61|Dupliciraj
+62|Uredi čvorove
+63|Elipsa (E)
+64|Graviraj svijetle dijelove umjesto tamnih
+65|Prilagodi svim objektima
+66|Prilagodi svim objektima (Ctrl+9)
+67|Prilagodi stol prozoru
+68|Prilagodi radnom području (Ctrl+0)
+69|Zrcali H
+70|Zrcali V
+71|Zrcali vodoravno
+72|Zrcali okomito
+73|Hrana
+74|Gama
+75|Mreža
+76|Grupiraj
+77|Grupirano. Objekti zadržavaju svoje slojeve.
+78|Srce (K)
+79|Zanemari mala područja
+80|Uvoz
+81|Uvoz nije uspio: {}
+82|Uvoz slike
+83|Slika {} uvezena
+84|Uključeno
+85|Umetni čvor (ili dvaput kliknite segment)
+86|Jezik
+87|Lijevo
+88|Licenca
+89|Crta (L)
+90|Debljina linija
+91|Zaključaj
+92|Zaključaj omjer
+93|Zaključano objekata: {}
+94|Glavna mreža
+95|Učini segment iza svakog odabranog čvora zakrivljenim
+96|Učini segment iza svakog odabranog čvora ravnim
+97|Pretvori odabrane čvorove u kutne
+98|Učini odabrane čvorove glatkima
+99|Povećaj
+100|Sredina H
+101|Sredina V
+102|Moje
+103|Smanji
+104|Zrcaljenje i centriranje
+105|Glazba i zabava
+106|Moj clipart
+107|Naziv
+108|Priroda
+109|Negativ slike
+110|Najnovije izdanje: {}
+111|Ovdje nema slika. Upotrijebite Na mreži… da ih pronađete.
+112|Uređivanje čvorova (N)
+113|Ništa nije pronađeno.
+114|U redu
+115|Predmeti
+116|Clipart na mreži
+117|Na mreži…
+118|Spremajte samo slike koje smijete koristiti. Provjerite licencu izvora.
+119|Otvori / zatvori
+120|Otvori nedavne
+121|Otvori stranicu za preuzimanje
+122|Ili preuzmite sliku s adrese
+123|Pomak prikaza (H)
+124|Zalijepi
+125|Slike koje dolaze s programom
+126|Slike koje ste preuzeli ili dodali
+127|Postavljeno: {}
+128|Mnogokut (G)
+129|Izlomljena crta / pero (P)
+130|Položaj i veličina
+131|Stranica projekta na GitHubu
+132|Brzi vodič
+133|Izlaz
+134|Polumjer zaobljenja
+135|Pravokutnik (R)
+136|Ponovi
+137|Ukloniti ovu sliku iz vašeg cliparta? Datoteka na vašem disku bit će izbrisana.
+138|Preimenuj
+139|Preimenuj…
+140|Vrati
+141|Vrati mrežu
+142|Vrati
+143|Desno
+144|Zakreni
+145|Zakreni 90° ulijevo
+146|Zakreni 90° udesno
+147|Rotacija i zrcaljenje
+148|Rotacija
+149|Zaobli
+150|Zaobljuje odabrane kutove ovim polumjerom
+151|Zaobljeno kutova: {}
+152|Spremi kopiju u moj clipart
+153|Spremi u moj clipart
+154|{} spremljeno u {}
+155|Traži
+156|Pretraga nije uspjela: {}
+157|Pretražite otvorene zbirke ikona (Iconify). Slike se spremaju na vaš disk, u kategoriju po vašem izboru.
+158|Potražite još slika na internetu i spremite ih ovdje
+159|Traženje…
+160|Sekundarna mreža
+161|Odabir (V)
+162|Prvo odaberite oblik, a zatim uredite njegove čvorove.
+163|Odaberi sve
+164|Za grupiranje odaberite barem dva objekta.
+165|Prenesi natrag
+166|Oblici
+167|Prikaži
+168|Prikaži ili sakrij mrežu
+169|Prikaži ili sakrij sekundarnu mrežu
+170|Pojednostavi
+171|Veličina
+172|Veličina pri umetanju
+173|Glatko
+174|Zagladi krivulje
+175|Prianjanje uz mrežu
+176|Prianjanje uz objekte
+177|Izvor
+178|Spirala (I)
+179|Zvijezda (S)
+180|Simboli
+181|Tekst (T)
+182|Rezultat je prazan.
+183|Sekundarna mreža mora biti finija od glavne.
+184|Prostor oko radne površine
+185|Nema ravnih kutova za zaobljivanje.
+186|Prag
+187|U krivulju
+188|U crtu
+189|Ton
+190|Alati
+191|Gore
+192|Vektoriziraj
+193|Vektorizacija slike
+194|Vektoriziraj svijetla područja
+195|Vektorizirano obrisa: {}
+196|Trokut (Y)
+197|Poništi
+198|Razgrupiraj
+199|Otključaj
+200|Otključano objekata: {}
+201|Ažuriranja
+202|Verzija {}
+203|Mogućnosti prikaza
+204|Širina
+205|Radno područje
+206|Boja radnog prostora
+207|Imate najnoviju verziju.
+208|Imate verziju {}.
+209|Povećaj
+210|Povećaj (Z)
+211|Smanji
+212|Smanji (X)
+213|dolazi s programom
+214|navedite autora
+215|npr. mačka, cvijet, zupčanik
+216|navođenje autora nije potrebno
+217|ili nova kategorija
+218|vaše
+219|Obrisa: {}
+220|Pronađeno slika: {}
+221|{} × {} px
