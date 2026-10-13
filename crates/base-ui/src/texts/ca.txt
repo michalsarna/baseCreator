@@ -53,170 +53,172 @@
 52|Suprimeix el node
 53|Suprimeix la imatge després
 54|Suprimeix…
-55|Detalls
-56|Detalls…
-57|Distància entre línies
-58|Baixa
-59|La baixada ha fallat: {}
-60|S'està baixant…
-61|Duplica
-62|Edita els nodes
-63|El·lipse (E)
-64|Grava les parts clares en lloc de les fosques
-65|Ajusta a tots els objectes
-66|Ajusta a tots els objectes (Ctrl+9)
-67|Ajusta la taula a la finestra
-68|Ajusta a l'àrea de treball (Ctrl+0)
-69|Gira H
-70|Gira V
-71|Gira horitzontalment
-72|Gira verticalment
-73|Menjar
-74|Gamma
-75|Quadrícula
-76|Agrupa
-77|Agrupat. Els objectes conserven les seves capes.
-78|Cor (K)
-79|Ignora les àrees petites
-80|Importa
-81|La importació ha fallat: {}
-82|Importa una imatge
-83|Imatge {} importada
-84|Inclosos
-85|Insereix un node (o fes doble clic en un segment)
-86|Llengua
-87|Esquerra
-88|Llicència
-89|Línia (L)
-90|Gruix de les línies
-91|Bloqueja
-92|Bloqueja la proporció
-93|{} objecte(s) bloquejat(s).
-94|Quadrícula principal
-95|Fes corb el segment posterior a cada node seleccionat
-96|Fes recte el segment posterior a cada node seleccionat
-97|Converteix els nodes seleccionats en cantonades
-98|Fes suaus els nodes seleccionats
-99|Maximitza
-100|Mig H
-101|Mig V
-102|Meus
-103|Minimitza
-104|Mirall i centrat
-105|Música i diversió
-106|Els meus cliparts
-107|Nom
-108|Natura
-109|Imatge en negatiu
-110|Darrera versió: {}
-111|No hi ha imatges aquí. Utilitzeu En línia… per trobar-ne.
-112|Edició de nodes (N)
-113|No s'ha trobat res.
-114|D'acord
-115|Objectes
-116|Cliparts en línia
-117|En línia…
-118|Deseu només imatges que pugueu utilitzar. Comproveu la llicència de la font.
-119|Obre / tanca
-120|Obre recents
-121|Obre la pàgina de baixada
-122|O baixeu una imatge d'una adreça
-123|Mou la vista (H)
-124|Enganxa
-125|Imatges que venen amb el programa
-126|Imatges que heu baixat o afegit
-127|{} col·locat
-128|Polígon (G)
-129|Polilínia / ploma (P)
-130|Posició i mida
-131|Pàgina del projecte a GitHub
-132|Guia ràpida
-133|Surt
-134|Radi d'arrodoniment
-135|Rectangle (R)
-136|Refés
-137|Voleu treure aquesta imatge dels vostres cliparts? El fitxer del disc se suprimeix.
-138|Canvia el nom
-139|Canvia el nom…
-140|Restableix
-141|Restableix la quadrícula
-142|Restaura
-143|Dreta
-144|Gira
-145|Gira 90° a l'esquerra
-146|Gira 90° a la dreta
-147|Gira i inverteix
-148|Rotació
-149|Arrodoneix
-150|Arrodoneix les cantonades seleccionades amb aquest radi
-151|{} cantonada(es) arrodonida(es).
-152|Desa una còpia als meus cliparts
-153|Desa als meus cliparts
-154|{} desat a {}
-155|Cerca
-156|La cerca ha fallat: {}
-157|Cerqueu en col·leccions d'icones obertes (Iconify). Les imatges es desen al vostre disc, en una categoria que trieu.
-158|Cerqueu més imatges a Internet i deseu-les aquí
-159|S'està cercant…
-160|Quadrícula secundària
-161|Selecciona (V)
-162|Seleccioneu primer una forma i després editeu-ne els nodes.
-163|Selecciona-ho tot
-164|Seleccioneu com a mínim dos objectes per agrupar.
-165|Envia al darrere
-166|Formes
-167|Mostra
-168|Mostra o amaga la quadrícula
-169|Mostra o amaga la quadrícula secundària
-170|Simplifica
-171|Mida
-172|Mida en col·locar
-173|Suau
-174|Suavitza les corbes
-175|Ajusta a la quadrícula
-176|Encaixa als objectes
-177|Font
-178|Espiral (I)
-179|Estrella (S)
-180|Símbols
-181|Text (T)
-182|El resultat és buit.
-183|La quadrícula secundària ha de ser més fina que la principal.
-184|L'espai al voltant de l'àrea de treball
-185|No hi ha cantonades rectes per arrodonir.
-186|Llindar
-187|A corba
-188|A línia
-189|To
-190|Eines
-191|Dalt
-192|Vectoritza
-193|Vectoritza la imatge
-194|Vectoritza les àrees clares
-195|{} contorns vectoritzats
-196|Triangle (Y)
-197|Desfés
-198|Desagrupa
-199|Desbloqueja
-200|{} objecte(s) desbloquejat(s).
-201|Actualitzacions
-202|Versió {}
-203|Opcions de visualització
-204|Amplada
-205|Àrea de treball
-206|Color de l'espai de treball
-207|Teniu la versió més recent.
-208|Teniu la versió {}.
-209|Apropa
-210|Apropa (Z)
-211|Allunya
-212|Allunya (X)
-213|ve amb el programa
-214|atribuïu l'autor
-215|p. ex. gat, flor, engranatge
-216|no cal atribució
-217|o una categoria nova
-218|vostre
-219|{} contorns
-220|{} imatges trobades
-221|{} × {} px
+55|Descriu el projecte: què és, els paràmetres que han funcionat, notes per a la propera vegada.
+56|Descripció
+57|Detalls
+58|Detalls…
+59|Distància entre línies
+60|Baixa
+61|La baixada ha fallat: {}
+62|S'està baixant…
+63|Duplica
+64|Edita els nodes
+65|El·lipse (E)
+66|Grava les parts clares en lloc de les fosques
+67|Ajusta a tots els objectes
+68|Ajusta a tots els objectes (Ctrl+9)
+69|Ajusta la taula a la finestra
+70|Ajusta a l'àrea de treball (Ctrl+0)
+71|Gira H
+72|Gira V
+73|Gira horitzontalment
+74|Gira verticalment
+75|Menjar
+76|Gamma
+77|Quadrícula
+78|Agrupa
+79|Agrupat. Els objectes conserven les seves capes.
+80|Cor (K)
+81|Ignora les àrees petites
+82|Importa
+83|La importació ha fallat: {}
+84|Importa una imatge
+85|Imatge {} importada
+86|Inclosos
+87|Insereix un node (o fes doble clic en un segment)
+88|Llengua
+89|Esquerra
+90|Llicència
+91|Línia (L)
+92|Gruix de les línies
+93|Bloqueja
+94|Bloqueja la proporció
+95|{} objecte(s) bloquejat(s).
+96|Quadrícula principal
+97|Fes corb el segment posterior a cada node seleccionat
+98|Fes recte el segment posterior a cada node seleccionat
+99|Converteix els nodes seleccionats en cantonades
+100|Fes suaus els nodes seleccionats
+101|Maximitza
+102|Mig H
+103|Mig V
+104|Meus
+105|Minimitza
+106|Mirall i centrat
+107|Música i diversió
+108|Els meus cliparts
+109|Nom
+110|Natura
+111|Imatge en negatiu
+112|Darrera versió: {}
+113|No hi ha imatges aquí. Utilitzeu En línia… per trobar-ne.
+114|Edició de nodes (N)
+115|No s'ha trobat res.
+116|D'acord
+117|Objectes
+118|Cliparts en línia
+119|En línia…
+120|Deseu només imatges que pugueu utilitzar. Comproveu la llicència de la font.
+121|Obre / tanca
+122|Obre recents
+123|Obre la pàgina de baixada
+124|O baixeu una imatge d'una adreça
+125|Mou la vista (H)
+126|Enganxa
+127|Imatges que venen amb el programa
+128|Imatges que heu baixat o afegit
+129|{} col·locat
+130|Polígon (G)
+131|Polilínia / ploma (P)
+132|Posició i mida
+133|Pàgina del projecte a GitHub
+134|Guia ràpida
+135|Surt
+136|Radi d'arrodoniment
+137|Rectangle (R)
+138|Refés
+139|Voleu treure aquesta imatge dels vostres cliparts? El fitxer del disc se suprimeix.
+140|Canvia el nom
+141|Canvia el nom…
+142|Restableix
+143|Restableix la quadrícula
+144|Restaura
+145|Dreta
+146|Gira
+147|Gira 90° a l'esquerra
+148|Gira 90° a la dreta
+149|Gira i inverteix
+150|Rotació
+151|Arrodoneix
+152|Arrodoneix les cantonades seleccionades amb aquest radi
+153|{} cantonada(es) arrodonida(es).
+154|Desa una còpia als meus cliparts
+155|Desa als meus cliparts
+156|{} desat a {}
+157|Cerca
+158|La cerca ha fallat: {}
+159|Cerqueu en col·leccions d'icones obertes (Iconify). Les imatges es desen al vostre disc, en una categoria que trieu.
+160|Cerqueu més imatges a Internet i deseu-les aquí
+161|S'està cercant…
+162|Quadrícula secundària
+163|Selecciona (V)
+164|Seleccioneu primer una forma i després editeu-ne els nodes.
+165|Selecciona-ho tot
+166|Seleccioneu com a mínim dos objectes per agrupar.
+167|Envia al darrere
+168|Formes
+169|Mostra
+170|Mostra o amaga la quadrícula
+171|Mostra o amaga la quadrícula secundària
+172|Simplifica
+173|Mida
+174|Mida en col·locar
+175|Suau
+176|Suavitza les corbes
+177|Ajusta a la quadrícula
+178|Encaixa als objectes
+179|Font
+180|Espiral (I)
+181|Estrella (S)
+182|Símbols
+183|Text (T)
+184|El resultat és buit.
+185|La quadrícula secundària ha de ser més fina que la principal.
+186|L'espai al voltant de l'àrea de treball
+187|No hi ha cantonades rectes per arrodonir.
+188|Llindar
+189|A corba
+190|A línia
+191|To
+192|Eines
+193|Dalt
+194|Vectoritza
+195|Vectoritza la imatge
+196|Vectoritza les àrees clares
+197|{} contorns vectoritzats
+198|Triangle (Y)
+199|Desfés
+200|Desagrupa
+201|Desbloqueja
+202|{} objecte(s) desbloquejat(s).
+203|Actualitzacions
+204|Versió {}
+205|Opcions de visualització
+206|Amplada
+207|Àrea de treball
+208|Color de l'espai de treball
+209|Teniu la versió més recent.
+210|Teniu la versió {}.
+211|Apropa
+212|Apropa (Z)
+213|Allunya
+214|Allunya (X)
+215|ve amb el programa
+216|atribuïu l'autor
+217|p. ex. gat, flor, engranatge
+218|no cal atribució
+219|o una categoria nova
+220|vostre
+221|{} contorns
+222|{} imatges trobades
+223|{} × {} px

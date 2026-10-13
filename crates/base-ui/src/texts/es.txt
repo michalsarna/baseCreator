@@ -53,170 +53,172 @@
 52|Eliminar nodo
 53|Eliminar la imagen después
 54|Eliminar…
-55|Detalles
-56|Detalles…
-57|Distancia entre líneas
-58|Descargar
-59|Error en la descarga: {}
-60|Descargando…
-61|Duplicar
-62|Editar nodos
-63|Elipse (E)
-64|Grabar las partes claras en lugar de las oscuras
-65|Ajustar a todos los objetos
-66|Ajustar a todos los objetos (Ctrl+9)
-67|Ajustar la mesa a la ventana
-68|Ajustar al área de trabajo (Ctrl+0)
-69|Voltear H
-70|Voltear V
-71|Voltear horizontalmente
-72|Voltear verticalmente
-73|Comida
-74|Gamma
-75|Cuadrícula
-76|Agrupar
-77|Agrupado. Los objetos conservan sus capas.
-78|Corazón (K)
-79|Ignorar áreas pequeñas
-80|Importar
-81|Error al importar: {}
-82|Importar imagen
-83|Imagen {} importada
-84|Incluidos
-85|Insertar un nodo (o doble clic en un segmento)
-86|Idioma
-87|Izquierda
-88|Licencia
-89|Línea (L)
-90|Grosor de línea
-91|Bloquear
-92|Bloquear proporción
-93|{} objeto(s) bloqueado(s).
-94|Cuadrícula principal
-95|Hacer curvo el segmento posterior a cada nodo seleccionado
-96|Hacer recto el segmento posterior a cada nodo seleccionado
-97|Convertir los nodos seleccionados en esquinas
-98|Hacer suaves los nodos seleccionados
-99|Maximizar
-100|Medio H
-101|Medio V
-102|Míos
-103|Minimizar
-104|Espejo y centrado
-105|Música y diversión
-106|Mis cliparts
-107|Nombre
-108|Naturaleza
-109|Imagen en negativo
-110|Última versión: {}
-111|No hay imágenes aquí. Use En línea… para encontrar algunas.
-112|Edición de nodos (N)
-113|No se encontró nada.
-114|Aceptar
-115|Objetos
-116|Cliparts en línea
-117|En línea…
-118|Guarde solo imágenes que pueda usar. Compruebe la licencia de la fuente.
-119|Abrir / cerrar
-120|Abrir reciente
-121|Abrir la página de descargas
-122|O descargue una imagen desde una dirección
-123|Mover vista (H)
-124|Pegar
-125|Imágenes que vienen con el programa
-126|Imágenes que ha descargado o añadido
-127|{} colocado
-128|Polígono (G)
-129|Polilínea / pluma (P)
-130|Posición y tamaño
-131|Página del proyecto en GitHub
-132|Guía rápida
-133|Salir
-134|Radio de redondeo
-135|Rectángulo (R)
-136|Rehacer
-137|¿Quitar esta imagen de sus cliparts? El archivo de su disco se elimina.
-138|Renombrar
-139|Renombrar…
-140|Restablecer
-141|Restablecer cuadrícula
-142|Restaurar
-143|Derecha
-144|Girar
-145|Girar 90° a la izquierda
-146|Girar 90° a la derecha
-147|Girar y voltear
-148|Rotación
-149|Redondear
-150|Redondea las esquinas seleccionadas con este radio
-151|{} esquina(s) redondeada(s).
-152|Guardar una copia en mis cliparts
-153|Guardar en mis cliparts
-154|{} guardado en {}
-155|Buscar
-156|Error en la búsqueda: {}
-157|Busque en colecciones abiertas de iconos (Iconify). Las imágenes se guardan en su disco, en la categoría que elija.
-158|Busque más imágenes en Internet y guárdelas aquí
-159|Buscando…
-160|Cuadrícula secundaria
-161|Seleccionar (V)
-162|Seleccione primero una forma y luego edite sus nodos.
-163|Seleccionar todo
-164|Seleccione al menos dos objetos para agrupar.
-165|Enviar al fondo
-166|Formas
-167|Mostrar
-168|Mostrar u ocultar la cuadrícula
-169|Mostrar u ocultar la cuadrícula secundaria
-170|Simplificar
-171|Tamaño
-172|Tamaño al insertar
-173|Suave
-174|Suavizar curvas
-175|Ajustar a la cuadrícula
-176|Ajustar a los objetos
-177|Fuente
-178|Espiral (I)
-179|Estrella (S)
-180|Símbolos
-181|Texto (T)
-182|El resultado está vacío.
-183|La cuadrícula secundaria debe ser más fina que la principal.
-184|El espacio alrededor del área de trabajo
-185|No hay esquinas rectas que redondear.
-186|Umbral
-187|A curva
-188|A línea
-189|Tono
-190|Herramientas
-191|Arriba
-192|Vectorizar
-193|Vectorizar imagen
-194|Vectorizar las zonas claras
-195|{} contornos vectorizados
-196|Triángulo (Y)
-197|Deshacer
-198|Desagrupar
-199|Desbloquear
-200|{} objeto(s) desbloqueado(s).
-201|Actualizaciones
-202|Versión {}
-203|Opciones de vista
-204|Anchura
-205|Área de trabajo
-206|Color del espacio de trabajo
-207|Tiene la versión más reciente.
-208|Tiene la versión {}.
-209|Acercar
-210|Acercar (Z)
-211|Alejar
-212|Alejar (X)
-213|viene con el programa
-214|atribuya al autor
-215|p. ej. gato, flor, engranaje
-216|no requiere atribución
-217|o una categoría nueva
-218|suyo
-219|{} contornos
-220|{} imágenes encontradas
-221|{} × {} px
+55|Describe el proyecto: qué es, los ajustes que funcionaron, notas para la próxima vez.
+56|Descripción
+57|Detalles
+58|Detalles…
+59|Distancia entre líneas
+60|Descargar
+61|Error en la descarga: {}
+62|Descargando…
+63|Duplicar
+64|Editar nodos
+65|Elipse (E)
+66|Grabar las partes claras en lugar de las oscuras
+67|Ajustar a todos los objetos
+68|Ajustar a todos los objetos (Ctrl+9)
+69|Ajustar la mesa a la ventana
+70|Ajustar al área de trabajo (Ctrl+0)
+71|Voltear H
+72|Voltear V
+73|Voltear horizontalmente
+74|Voltear verticalmente
+75|Comida
+76|Gamma
+77|Cuadrícula
+78|Agrupar
+79|Agrupado. Los objetos conservan sus capas.
+80|Corazón (K)
+81|Ignorar áreas pequeñas
+82|Importar
+83|Error al importar: {}
+84|Importar imagen
+85|Imagen {} importada
+86|Incluidos
+87|Insertar un nodo (o doble clic en un segmento)
+88|Idioma
+89|Izquierda
+90|Licencia
+91|Línea (L)
+92|Grosor de línea
+93|Bloquear
+94|Bloquear proporción
+95|{} objeto(s) bloqueado(s).
+96|Cuadrícula principal
+97|Hacer curvo el segmento posterior a cada nodo seleccionado
+98|Hacer recto el segmento posterior a cada nodo seleccionado
+99|Convertir los nodos seleccionados en esquinas
+100|Hacer suaves los nodos seleccionados
+101|Maximizar
+102|Medio H
+103|Medio V
+104|Míos
+105|Minimizar
+106|Espejo y centrado
+107|Música y diversión
+108|Mis cliparts
+109|Nombre
+110|Naturaleza
+111|Imagen en negativo
+112|Última versión: {}
+113|No hay imágenes aquí. Use En línea… para encontrar algunas.
+114|Edición de nodos (N)
+115|No se encontró nada.
+116|Aceptar
+117|Objetos
+118|Cliparts en línea
+119|En línea…
+120|Guarde solo imágenes que pueda usar. Compruebe la licencia de la fuente.
+121|Abrir / cerrar
+122|Abrir reciente
+123|Abrir la página de descargas
+124|O descargue una imagen desde una dirección
+125|Mover vista (H)
+126|Pegar
+127|Imágenes que vienen con el programa
+128|Imágenes que ha descargado o añadido
+129|{} colocado
+130|Polígono (G)
+131|Polilínea / pluma (P)
+132|Posición y tamaño
+133|Página del proyecto en GitHub
+134|Guía rápida
+135|Salir
+136|Radio de redondeo
+137|Rectángulo (R)
+138|Rehacer
+139|¿Quitar esta imagen de sus cliparts? El archivo de su disco se elimina.
+140|Renombrar
+141|Renombrar…
+142|Restablecer
+143|Restablecer cuadrícula
+144|Restaurar
+145|Derecha
+146|Girar
+147|Girar 90° a la izquierda
+148|Girar 90° a la derecha
+149|Girar y voltear
+150|Rotación
+151|Redondear
+152|Redondea las esquinas seleccionadas con este radio
+153|{} esquina(s) redondeada(s).
+154|Guardar una copia en mis cliparts
+155|Guardar en mis cliparts
+156|{} guardado en {}
+157|Buscar
+158|Error en la búsqueda: {}
+159|Busque en colecciones abiertas de iconos (Iconify). Las imágenes se guardan en su disco, en la categoría que elija.
+160|Busque más imágenes en Internet y guárdelas aquí
+161|Buscando…
+162|Cuadrícula secundaria
+163|Seleccionar (V)
+164|Seleccione primero una forma y luego edite sus nodos.
+165|Seleccionar todo
+166|Seleccione al menos dos objetos para agrupar.
+167|Enviar al fondo
+168|Formas
+169|Mostrar
+170|Mostrar u ocultar la cuadrícula
+171|Mostrar u ocultar la cuadrícula secundaria
+172|Simplificar
+173|Tamaño
+174|Tamaño al insertar
+175|Suave
+176|Suavizar curvas
+177|Ajustar a la cuadrícula
+178|Ajustar a los objetos
+179|Fuente
+180|Espiral (I)
+181|Estrella (S)
+182|Símbolos
+183|Texto (T)
+184|El resultado está vacío.
+185|La cuadrícula secundaria debe ser más fina que la principal.
+186|El espacio alrededor del área de trabajo
+187|No hay esquinas rectas que redondear.
+188|Umbral
+189|A curva
+190|A línea
+191|Tono
+192|Herramientas
+193|Arriba
+194|Vectorizar
+195|Vectorizar imagen
+196|Vectorizar las zonas claras
+197|{} contornos vectorizados
+198|Triángulo (Y)
+199|Deshacer
+200|Desagrupar
+201|Desbloquear
+202|{} objeto(s) desbloqueado(s).
+203|Actualizaciones
+204|Versión {}
+205|Opciones de vista
+206|Anchura
+207|Área de trabajo
+208|Color del espacio de trabajo
+209|Tiene la versión más reciente.
+210|Tiene la versión {}.
+211|Acercar
+212|Acercar (Z)
+213|Alejar
+214|Alejar (X)
+215|viene con el programa
+216|atribuya al autor
+217|p. ej. gato, flor, engranaje
+218|no requiere atribución
+219|o una categoría nueva
+220|suyo
+221|{} contornos
+222|{} imágenes encontradas
+223|{} × {} px

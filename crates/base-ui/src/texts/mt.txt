@@ -53,170 +53,172 @@
 52|Ħassar in-nodu
 53|Ħassar l-istampa wara
 54|Ħassar…
-55|Dettalji
-56|Dettalji…
-57|Distanza bejn il-linji
-58|Niżżel
-59|It-tniżżil falla: {}
-60|Qed jitniżżel…
-61|Iddubbla
-62|Editja n-nodi
-63|Elliss (E)
-64|Inċiżjoni tal-partijiet ċari minflok dawk skuri
-65|Adatta mal-oġġetti kollha
-66|Adatta mal-oġġetti kollha (Ctrl+9)
-67|Adatta l-mejda mat-tieqa
-68|Adatta maż-żona tax-xogħol (Ctrl+0)
-69|Aqleb O
-70|Aqleb V
-71|Aqleb orizzontalment
-72|Aqleb vertikalment
-73|Ikel
-74|Gamma
-75|Griglja
-76|Igruppa
-77|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
-78|Qalb (K)
-79|Injora żoni żgħar
-80|Importa
-81|L-importazzjoni fallet: {}
-82|Importazzjoni tal-istampa
-83|Stampa {} importata
-84|Inklużi
-85|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
-86|Lingwa
-87|Xellug
-88|Liċenzja
-89|Linja (L)
-90|Ħxuna tal-linji
-91|Illokkja
-92|Illokkja l-proporzjonijiet
-93|Oġġetti llokkjati: {}
-94|Griglja prinċipali
-95|Agħmel mgħawweġ is-segment wara kull nodu magħżul
-96|Agħmel dritt is-segment wara kull nodu magħżul
-97|Agħmel kantunieri min-nodi magħżula
-98|Agħmel bla xkiel in-nodi magħżula
-99|Massimizza
-100|Nofs O
-101|Nofs V
-102|Tiegħi
-103|Minimizza
-104|Mera u ċentraġġ
-105|Mużika u divertiment
-106|Il-clipart tiegħi
-107|Isem
-108|In-natura
-109|Stampa negattiva
-110|L-aħħar rilaxx: {}
-111|M'hemm l-ebda stampi hawn. Uża Online… biex issib xi wħud.
-112|Editjar tan-nodi (N)
-113|Ma nstab xejn.
-114|OK
-115|Oġġetti
-116|Clipart online
-117|Online…
-118|Salva biss stampi li tista' tuża. Iċċekkja l-liċenzja tas-sors.
-119|Iftaħ / agħlaq
-120|Iftaħ riċenti
-121|Iftaħ il-paġna tat-tniżżil
-122|Jew niżżel stampa minn indirizz
-123|Mexxi l-vista (H)
-124|Waħħal
-125|Stampi li jiġu mal-programm
-126|Stampi li niżżilt jew żidt
-127|Imqiegħed: {}
-128|Poligonu (G)
-129|Poliliena / pinna (P)
-130|Pożizzjoni u daqs
-131|Paġna tal-proġett fuq GitHub
-132|Gwida mgħaġġla
-133|Oħroġ
-134|Raġġ tad-dawwir
-135|Rettangolu (R)
-136|Erġa' agħmel
-137|Tneħħi din l-istampa mill-clipart tiegħek? Il-fajl fuq id-disk tiegħek jitħassar.
-138|Semmi mill-ġdid
-139|Semmi mill-ġdid…
-140|Irrisettja
-141|Irrisettja l-griglja
-142|Irrestawra
-143|Lemin
-144|Dawwar
-145|Dawwar 90° kontra d-direzzjoni tal-arloġġ
-146|Dawwar 90° fl-istess direzzjoni tal-arloġġ
-147|Rotazzjoni u qlib
-148|Rotazzjoni
-149|Dawwar
-150|Idawwar il-kantunieri magħżula b'dan ir-raġġ
-151|Kantunieri mdawra: {}
-152|Salva kopja fil-clipart tiegħi
-153|Salva fil-clipart tiegħi
-154|{} salvat f'{}
-155|Fittex
-156|Is-search falla: {}
-157|Fittex f'kollezzjonijiet miftuħa ta' ikoni (Iconify). L-istampi jiġu salvati fuq id-disk tiegħek, f'kategorija li tagħżel.
-158|Fittex aktar stampi fuq l-internet u salvahom hawn
-159|Qed ifittex…
-160|Griglja sekondarja
-161|Agħżel (V)
-162|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
-163|Agħżel kollox
-164|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
-165|Ibgħat lura
-166|Forom
-167|Uri
-168|Uri jew aħbi l-griglja
-169|Uri jew aħbi l-griglja sekondarja
-170|Issimplifika
-171|Daqs
-172|Daqs meta jitqiegħed
-173|Bla xkiel
-174|Illixxa l-kurvi
-175|Aqbad mal-griglja
-176|Aqbad mal-oġġetti
-177|Sors
-178|Spiral (I)
-179|Stilla (S)
-180|Simboli
-181|Test (T)
-182|Ir-riżultat huwa vojt.
-183|Il-griglja sekondarja trid tkun aktar fina mill-prinċipali.
-184|L-ispazju madwar iż-żona tax-xogħol
-185|M'hemm l-ebda kantunieri dritti x'tidawwar.
-186|Limitu
-187|Għal kurva
-188|Għal linja
-189|Ton
-190|Għodod
-191|Fuq
-192|Vettorizza
-193|Vettorizzazzjoni tal-istampa
-194|Vettorizza ż-żoni ċari
-195|Kontorni vettorizzati: {}
-196|Trijangolu (Y)
-197|Ħassar
-198|Neħħi l-grupp
-199|Iftaħ
-200|Oġġetti mhux illokkjati: {}
-201|Aġġornamenti
-202|Verżjoni {}
-203|Għażliet tad-dehra
-204|Wisa'
-205|Żona tax-xogħol
-206|Kulur tal-ispazju tax-xogħol
-207|Għandek l-aħħar verżjoni.
-208|Għandek il-verżjoni {}.
-209|Żid
-210|Żid (Z)
-211|Naqqas
-212|Naqqas (X)
-213|jiġi mal-programm
-214|ikkreditah l-awtur
-215|eż. qattus, fjura, ingranaġġ
-216|m'hemmx bżonn tikkreditah
-217|jew kategorija ġdida
-218|tiegħek
-219|Kontorni: {}
-220|Stampi misjuba: {}
-221|{} × {} px
+55|Iddeskrivi l-proġett: x'inhu, l-issettjar li ħadem, noti għall-darba li jmiss.
+56|Deskrizzjoni
+57|Dettalji
+58|Dettalji…
+59|Distanza bejn il-linji
+60|Niżżel
+61|It-tniżżil falla: {}
+62|Qed jitniżżel…
+63|Iddubbla
+64|Editja n-nodi
+65|Elliss (E)
+66|Inċiżjoni tal-partijiet ċari minflok dawk skuri
+67|Adatta mal-oġġetti kollha
+68|Adatta mal-oġġetti kollha (Ctrl+9)
+69|Adatta l-mejda mat-tieqa
+70|Adatta maż-żona tax-xogħol (Ctrl+0)
+71|Aqleb O
+72|Aqleb V
+73|Aqleb orizzontalment
+74|Aqleb vertikalment
+75|Ikel
+76|Gamma
+77|Griglja
+78|Igruppa
+79|Grupp magħmul. L-oġġetti jżommu s-saffi tagħhom.
+80|Qalb (K)
+81|Injora żoni żgħar
+82|Importa
+83|L-importazzjoni fallet: {}
+84|Importazzjoni tal-istampa
+85|Stampa {} importata
+86|Inklużi
+87|Daħħal nodu (jew ikklikkja darbtejn fuq segment)
+88|Lingwa
+89|Xellug
+90|Liċenzja
+91|Linja (L)
+92|Ħxuna tal-linji
+93|Illokkja
+94|Illokkja l-proporzjonijiet
+95|Oġġetti llokkjati: {}
+96|Griglja prinċipali
+97|Agħmel mgħawweġ is-segment wara kull nodu magħżul
+98|Agħmel dritt is-segment wara kull nodu magħżul
+99|Agħmel kantunieri min-nodi magħżula
+100|Agħmel bla xkiel in-nodi magħżula
+101|Massimizza
+102|Nofs O
+103|Nofs V
+104|Tiegħi
+105|Minimizza
+106|Mera u ċentraġġ
+107|Mużika u divertiment
+108|Il-clipart tiegħi
+109|Isem
+110|In-natura
+111|Stampa negattiva
+112|L-aħħar rilaxx: {}
+113|M'hemm l-ebda stampi hawn. Uża Online… biex issib xi wħud.
+114|Editjar tan-nodi (N)
+115|Ma nstab xejn.
+116|OK
+117|Oġġetti
+118|Clipart online
+119|Online…
+120|Salva biss stampi li tista' tuża. Iċċekkja l-liċenzja tas-sors.
+121|Iftaħ / agħlaq
+122|Iftaħ riċenti
+123|Iftaħ il-paġna tat-tniżżil
+124|Jew niżżel stampa minn indirizz
+125|Mexxi l-vista (H)
+126|Waħħal
+127|Stampi li jiġu mal-programm
+128|Stampi li niżżilt jew żidt
+129|Imqiegħed: {}
+130|Poligonu (G)
+131|Poliliena / pinna (P)
+132|Pożizzjoni u daqs
+133|Paġna tal-proġett fuq GitHub
+134|Gwida mgħaġġla
+135|Oħroġ
+136|Raġġ tad-dawwir
+137|Rettangolu (R)
+138|Erġa' agħmel
+139|Tneħħi din l-istampa mill-clipart tiegħek? Il-fajl fuq id-disk tiegħek jitħassar.
+140|Semmi mill-ġdid
+141|Semmi mill-ġdid…
+142|Irrisettja
+143|Irrisettja l-griglja
+144|Irrestawra
+145|Lemin
+146|Dawwar
+147|Dawwar 90° kontra d-direzzjoni tal-arloġġ
+148|Dawwar 90° fl-istess direzzjoni tal-arloġġ
+149|Rotazzjoni u qlib
+150|Rotazzjoni
+151|Dawwar
+152|Idawwar il-kantunieri magħżula b'dan ir-raġġ
+153|Kantunieri mdawra: {}
+154|Salva kopja fil-clipart tiegħi
+155|Salva fil-clipart tiegħi
+156|{} salvat f'{}
+157|Fittex
+158|Is-search falla: {}
+159|Fittex f'kollezzjonijiet miftuħa ta' ikoni (Iconify). L-istampi jiġu salvati fuq id-disk tiegħek, f'kategorija li tagħżel.
+160|Fittex aktar stampi fuq l-internet u salvahom hawn
+161|Qed ifittex…
+162|Griglja sekondarja
+163|Agħżel (V)
+164|Agħżel l-ewwel forma, imbagħad editja n-nodi tagħha.
+165|Agħżel kollox
+166|Agħżel mill-inqas żewġ oġġetti biex tigruppa.
+167|Ibgħat lura
+168|Forom
+169|Uri
+170|Uri jew aħbi l-griglja
+171|Uri jew aħbi l-griglja sekondarja
+172|Issimplifika
+173|Daqs
+174|Daqs meta jitqiegħed
+175|Bla xkiel
+176|Illixxa l-kurvi
+177|Aqbad mal-griglja
+178|Aqbad mal-oġġetti
+179|Sors
+180|Spiral (I)
+181|Stilla (S)
+182|Simboli
+183|Test (T)
+184|Ir-riżultat huwa vojt.
+185|Il-griglja sekondarja trid tkun aktar fina mill-prinċipali.
+186|L-ispazju madwar iż-żona tax-xogħol
+187|M'hemm l-ebda kantunieri dritti x'tidawwar.
+188|Limitu
+189|Għal kurva
+190|Għal linja
+191|Ton
+192|Għodod
+193|Fuq
+194|Vettorizza
+195|Vettorizzazzjoni tal-istampa
+196|Vettorizza ż-żoni ċari
+197|Kontorni vettorizzati: {}
+198|Trijangolu (Y)
+199|Ħassar
+200|Neħħi l-grupp
+201|Iftaħ
+202|Oġġetti mhux illokkjati: {}
+203|Aġġornamenti
+204|Verżjoni {}
+205|Għażliet tad-dehra
+206|Wisa'
+207|Żona tax-xogħol
+208|Kulur tal-ispazju tax-xogħol
+209|Għandek l-aħħar verżjoni.
+210|Għandek il-verżjoni {}.
+211|Żid
+212|Żid (Z)
+213|Naqqas
+214|Naqqas (X)
+215|jiġi mal-programm
+216|ikkreditah l-awtur
+217|eż. qattus, fjura, ingranaġġ
+218|m'hemmx bżonn tikkreditah
+219|jew kategorija ġdida
+220|tiegħek
+221|Kontorni: {}
+222|Stampi misjuba: {}
+223|{} × {} px

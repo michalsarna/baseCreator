@@ -53,170 +53,172 @@
 52|Odstrániť uzol
 53|Potom obrázok odstrániť
 54|Odstrániť…
-55|Podrobnosti
-56|Podrobnosti…
-57|Vzdialenosť medzi čiarami
-58|Stiahnuť
-59|Stiahnutie zlyhalo: {}
-60|Sťahuje sa…
-61|Duplikovať
-62|Upraviť uzly
-63|Elipsa (E)
-64|Gravírovať svetlé časti namiesto tmavých
-65|Prispôsobiť všetkým objektom
-66|Prispôsobiť všetkým objektom (Ctrl+9)
-67|Prispôsobiť stôl oknu
-68|Prispôsobiť pracovnej ploche (Ctrl+0)
-69|Prevrátiť H
-70|Prevrátiť V
-71|Prevrátiť vodorovne
-72|Prevrátiť zvisle
-73|Jedlo
-74|Gama
-75|Mriežka
-76|Zoskupiť
-77|Zoskupené. Objekty si ponechajú svoje vrstvy.
-78|Srdce (K)
-79|Ignorovať malé plochy
-80|Import
-81|Import zlyhal: {}
-82|Import obrázka
-83|Obrázok {} importovaný
-84|Súčasť programu
-85|Vložiť uzol (alebo dvakrát kliknúť na úsek)
-86|Jazyk
-87|Vľavo
-88|Licencia
-89|Čiara (L)
-90|Hrúbka čiar
-91|Zamknúť
-92|Zamknúť pomer strán
-93|Zamknutých objektov: {}
-94|Hlavná mriežka
-95|Zmeniť úsek za každým vybraným uzlom na krivku
-96|Zmeniť úsek za každým vybraným uzlom na priamy
-97|Zmeniť vybrané uzly na rohové
-98|Zmeniť vybrané uzly na hladké
-99|Maximalizovať
-100|Stred H
-101|Stred V
-102|Moje
-103|Minimalizovať
-104|Zrkadlenie a vycentrovanie
-105|Hudba a zábava
-106|Môj klipart
-107|Názov
-108|Príroda
-109|Negatívny obrázok
-110|Najnovšie vydanie: {}
-111|Žiadne obrázky. Použite Online… a nejaké nájdite.
-112|Úprava uzlov (N)
-113|Nič sa nenašlo.
-114|OK
-115|Predmety
-116|Online klipart
-117|Online…
-118|Ukladajte len obrázky, ktoré smiete použiť. Skontrolujte licenciu zdroja.
-119|Otvoriť / zavrieť
-120|Naposledy otvorené
-121|Otvoriť stránku na stiahnutie
-122|Alebo stiahnite obrázok z adresy
-123|Posun pohľadu (H)
-124|Prilepiť
-125|Obrázky, ktoré sú súčasťou programu
-126|Obrázky, ktoré ste stiahli alebo pridali
-127|Umiestnené: {}
-128|Mnohouholník (G)
-129|Lomená čiara / pero (P)
-130|Poloha a veľkosť
-131|Stránka projektu na GitHube
-132|Rýchly sprievodca
-133|Koniec
-134|Polomer zaoblenia
-135|Obdĺžnik (R)
-136|Znova
-137|Odstrániť tento obrázok z kliparu? Súbor na disku sa odstráni.
-138|Premenovať
-139|Premenovať…
-140|Obnoviť
-141|Obnoviť mriežku
+55|Opíšte projekt: čo to je, nastavenia, ktoré fungovali, poznámky nabudúce.
+56|Popis
+57|Podrobnosti
+58|Podrobnosti…
+59|Vzdialenosť medzi čiarami
+60|Stiahnuť
+61|Stiahnutie zlyhalo: {}
+62|Sťahuje sa…
+63|Duplikovať
+64|Upraviť uzly
+65|Elipsa (E)
+66|Gravírovať svetlé časti namiesto tmavých
+67|Prispôsobiť všetkým objektom
+68|Prispôsobiť všetkým objektom (Ctrl+9)
+69|Prispôsobiť stôl oknu
+70|Prispôsobiť pracovnej ploche (Ctrl+0)
+71|Prevrátiť H
+72|Prevrátiť V
+73|Prevrátiť vodorovne
+74|Prevrátiť zvisle
+75|Jedlo
+76|Gama
+77|Mriežka
+78|Zoskupiť
+79|Zoskupené. Objekty si ponechajú svoje vrstvy.
+80|Srdce (K)
+81|Ignorovať malé plochy
+82|Import
+83|Import zlyhal: {}
+84|Import obrázka
+85|Obrázok {} importovaný
+86|Súčasť programu
+87|Vložiť uzol (alebo dvakrát kliknúť na úsek)
+88|Jazyk
+89|Vľavo
+90|Licencia
+91|Čiara (L)
+92|Hrúbka čiar
+93|Zamknúť
+94|Zamknúť pomer strán
+95|Zamknutých objektov: {}
+96|Hlavná mriežka
+97|Zmeniť úsek za každým vybraným uzlom na krivku
+98|Zmeniť úsek za každým vybraným uzlom na priamy
+99|Zmeniť vybrané uzly na rohové
+100|Zmeniť vybrané uzly na hladké
+101|Maximalizovať
+102|Stred H
+103|Stred V
+104|Moje
+105|Minimalizovať
+106|Zrkadlenie a vycentrovanie
+107|Hudba a zábava
+108|Môj klipart
+109|Názov
+110|Príroda
+111|Negatívny obrázok
+112|Najnovšie vydanie: {}
+113|Žiadne obrázky. Použite Online… a nejaké nájdite.
+114|Úprava uzlov (N)
+115|Nič sa nenašlo.
+116|OK
+117|Predmety
+118|Online klipart
+119|Online…
+120|Ukladajte len obrázky, ktoré smiete použiť. Skontrolujte licenciu zdroja.
+121|Otvoriť / zavrieť
+122|Naposledy otvorené
+123|Otvoriť stránku na stiahnutie
+124|Alebo stiahnite obrázok z adresy
+125|Posun pohľadu (H)
+126|Prilepiť
+127|Obrázky, ktoré sú súčasťou programu
+128|Obrázky, ktoré ste stiahli alebo pridali
+129|Umiestnené: {}
+130|Mnohouholník (G)
+131|Lomená čiara / pero (P)
+132|Poloha a veľkosť
+133|Stránka projektu na GitHube
+134|Rýchly sprievodca
+135|Koniec
+136|Polomer zaoblenia
+137|Obdĺžnik (R)
+138|Znova
+139|Odstrániť tento obrázok z kliparu? Súbor na disku sa odstráni.
+140|Premenovať
+141|Premenovať…
 142|Obnoviť
-143|Vpravo
-144|Otočiť
-145|Otočiť o 90° doľava
-146|Otočiť o 90° doprava
-147|Otočenie a prevrátenie
-148|Otočenie
-149|Zaobliť
-150|Zaobli vybrané rohy týmto polomerom
-151|Zaoblených rohov: {}
-152|Uložiť kópiu do môjho kliparu
-153|Uložiť do môjho kliparu
-154|{} uložené do kategórie {}
-155|Hľadať
-156|Hľadanie zlyhalo: {}
-157|Vyhľadávanie v otvorených zbierkach ikon (Iconify). Obrázky sa ukladajú na váš disk do vami zvolenej kategórie.
-158|Vyhľadajte na internete ďalšie obrázky a uložte ich sem
-159|Hľadá sa…
-160|Vedľajšia mriežka
-161|Výber (V)
-162|Najprv vyberte tvar a potom upravte jeho uzly.
-163|Vybrať všetko
-164|Na zoskupenie vyberte aspoň dva objekty.
-165|Preniesť do pozadia
-166|Tvary
-167|Zobraziť
-168|Zobraziť alebo skryť mriežku
-169|Zobraziť alebo skryť vedľajšiu mriežku
-170|Zjednodušiť
-171|Veľkosť
-172|Veľkosť pri vložení
-173|Hladký
-174|Vyhladiť krivky
-175|Prichytávať k mriežke
-176|Prichytávať k objektom
-177|Zdroj
-178|Špirála (I)
-179|Hviezda (S)
-180|Symboly
-181|Text (T)
-182|Výsledok je prázdny.
-183|Vedľajšia mriežka musí byť jemnejšia ako hlavná.
-184|Priestor okolo pracovnej plochy
-185|Nie sú žiadne priame rohy na zaoblenie.
-186|Prah
-187|Na krivku
-188|Na úsečku
-189|Tón
-190|Nástroje
-191|Hore
-192|Vektorizovať
-193|Vektorizácia obrázka
-194|Vektorizovať svetlé plochy
-195|Vektorizovaných obrysov: {}
-196|Trojuholník (Y)
-197|Späť
-198|Zrušiť zoskupenie
-199|Odomknúť
-200|Odomknutých objektov: {}
-201|Aktualizácie
-202|Verzia {}
-203|Možnosti zobrazenia
-204|Šírka
-205|Pracovná plocha
-206|Farba pracovného priestoru
-207|Máte najnovšiu verziu.
-208|Máte verziu {}.
-209|Priblížiť
-210|Priblížiť (Z)
-211|Oddialiť
-212|Oddialiť (X)
-213|je súčasťou programu
-214|uveďte autora
-215|napr. mačka, kvet, ozubené koleso
-216|uvedenie autora nie je potrebné
-217|alebo nová kategória
-218|vaše
-219|Obrysov: {}
-220|Nájdené obrázky: {}
-221|{} × {} px
+143|Obnoviť mriežku
+144|Obnoviť
+145|Vpravo
+146|Otočiť
+147|Otočiť o 90° doľava
+148|Otočiť o 90° doprava
+149|Otočenie a prevrátenie
+150|Otočenie
+151|Zaobliť
+152|Zaobli vybrané rohy týmto polomerom
+153|Zaoblených rohov: {}
+154|Uložiť kópiu do môjho kliparu
+155|Uložiť do môjho kliparu
+156|{} uložené do kategórie {}
+157|Hľadať
+158|Hľadanie zlyhalo: {}
+159|Vyhľadávanie v otvorených zbierkach ikon (Iconify). Obrázky sa ukladajú na váš disk do vami zvolenej kategórie.
+160|Vyhľadajte na internete ďalšie obrázky a uložte ich sem
+161|Hľadá sa…
+162|Vedľajšia mriežka
+163|Výber (V)
+164|Najprv vyberte tvar a potom upravte jeho uzly.
+165|Vybrať všetko
+166|Na zoskupenie vyberte aspoň dva objekty.
+167|Preniesť do pozadia
+168|Tvary
+169|Zobraziť
+170|Zobraziť alebo skryť mriežku
+171|Zobraziť alebo skryť vedľajšiu mriežku
+172|Zjednodušiť
+173|Veľkosť
+174|Veľkosť pri vložení
+175|Hladký
+176|Vyhladiť krivky
+177|Prichytávať k mriežke
+178|Prichytávať k objektom
+179|Zdroj
+180|Špirála (I)
+181|Hviezda (S)
+182|Symboly
+183|Text (T)
+184|Výsledok je prázdny.
+185|Vedľajšia mriežka musí byť jemnejšia ako hlavná.
+186|Priestor okolo pracovnej plochy
+187|Nie sú žiadne priame rohy na zaoblenie.
+188|Prah
+189|Na krivku
+190|Na úsečku
+191|Tón
+192|Nástroje
+193|Hore
+194|Vektorizovať
+195|Vektorizácia obrázka
+196|Vektorizovať svetlé plochy
+197|Vektorizovaných obrysov: {}
+198|Trojuholník (Y)
+199|Späť
+200|Zrušiť zoskupenie
+201|Odomknúť
+202|Odomknutých objektov: {}
+203|Aktualizácie
+204|Verzia {}
+205|Možnosti zobrazenia
+206|Šírka
+207|Pracovná plocha
+208|Farba pracovného priestoru
+209|Máte najnovšiu verziu.
+210|Máte verziu {}.
+211|Priblížiť
+212|Priblížiť (Z)
+213|Oddialiť
+214|Oddialiť (X)
+215|je súčasťou programu
+216|uveďte autora
+217|napr. mačka, kvet, ozubené koleso
+218|uvedenie autora nie je potrebné
+219|alebo nová kategória
+220|vaše
+221|Obrysov: {}
+222|Nájdené obrázky: {}
+223|{} × {} px
