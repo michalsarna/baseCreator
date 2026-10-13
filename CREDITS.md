@@ -17,4 +17,4 @@ Licences are named for orientation; the exact terms are in each project's reposi
 * **[Lucide](https://lucide.dev)** (ISC): the interface icons (`assets/ui-icons`, licence in `assets/ui-icons/LICENSE-lucide.txt`); two icons drawn in the same style.
 * **[muda](https://github.com/tauri-apps/muda)** (Tauri, MIT / Apache-2.0) and **[objc2](https://github.com/madsmtm/objc2)** (MIT): the native macOS menu bar.
 * **[rfd](https://github.com/PolyMeilex/rfd)** (MIT): native file dialogs.
-* **[Material Design Icons](https://github.com/Templarian/MaterialDesign-SVG)** by Pictogrammers (Apache-2.0) and the **[Iconify](https://iconify.design)** search service: the clipart gallery.
+* **[Material Design Icons](https://github.com/Templarian/MaterialDesign-SVG)** by Pictogrammers (Apache-2.0) and the **[Iconify](https://iconify.design)** search service: the clipart gallery (`assets/clipart`).

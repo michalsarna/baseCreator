@@ -13,7 +13,9 @@ use egui::{Color32, RichText};
 use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 
-/// (category, name, SVG bytes) of every picture shipped with the program.
+include!(concat!(env!("OUT_DIR"), "/clipart_files.rs"));
+
+/// (category, name, SVG bytes) of pictures shipped with a program.
 pub type Builtin = &'static [(&'static str, &'static str, &'static [u8])];
 
 pub const BLUE: Color32 = Color32::from_rgb(0x3b, 0x82, 0xd8);
@@ -47,7 +49,13 @@ pub struct ClipState {
 }
 
 impl ClipState {
-    pub fn new(lib: Library, builtin: Builtin) -> ClipState {
+    /// The gallery over a library folder, with the pictures that ship with every program built on base-ui.
+    pub fn new(lib: Library) -> ClipState {
+        Self::with_builtin(lib, BUILTIN_CLIPART)
+    }
+
+    /// The same with another set of included pictures.
+    pub fn with_builtin(lib: Library, builtin: Builtin) -> ClipState {
         let mut s = ClipState { lib, builtin, user_svgs: HashMap::new(), filter: String::new(), category: None, show_builtin: true, show_user: true, size_mm: 50.0, dialog: None, online: None, collapsed: Default::default() };
         s.reload();
         s
@@ -642,3 +650,22 @@ pub trait ClipGallery: ClipHost {
 }
 
 impl<T: ClipHost> ClipGallery for T {}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use base_core::scene::Scene;
+    use std::collections::HashSet;
+
+    #[test]
+    fn every_shipped_picture_places_cleanly() {
+        assert!(BUILTIN_CLIPART.len() >= 300, "{} pictures", BUILTIN_CLIPART.len());
+        let cats: HashSet<&str> = BUILTIN_CLIPART.iter().map(|c| c.0).collect();
+        assert_eq!(cats.len(), 9, "{cats:?}");
+        for (cat, name, svg) in BUILTIN_CLIPART {
+            let mut d = Scene::default();
+            let ids = base_core::clipart::import_clip(svg, &mut d, 2, 40.0, Pt::new(100.0, 100.0)).unwrap_or_else(|e| panic!("{cat}/{name}: {e}"));
+            assert!(!ids.is_empty(), "{cat}/{name}");
+        }
+    }
+}
