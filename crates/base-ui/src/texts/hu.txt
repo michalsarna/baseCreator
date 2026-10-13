@@ -53,170 +53,172 @@
 52|Csomópont törlése
 53|A kép törlése utána
 54|Törlés…
-55|Részletek
-56|Részletek…
-57|Vonalak távolsága
-58|Letöltés
-59|A letöltés nem sikerült: {}
-60|Letöltés…
-61|Kettőzés
-62|Csomópontok szerkesztése
-63|Ellipszis (E)
-64|A világos részek gravírozása a sötétek helyett
-65|Illesztés az összes objektumhoz
-66|Illesztés az összes objektumhoz (Ctrl+9)
-67|Asztal illesztése az ablakhoz
-68|Illesztés a munkaterülethez (Ctrl+0)
-69|Tükrözés V
-70|Tükrözés F
-71|Vízszintes tükrözés
-72|Függőleges tükrözés
-73|Étel
-74|Gamma
-75|Rács
-76|Csoportosítás
-77|Csoportosítva. Az objektumok megtartják a rétegeiket.
-78|Szív (K)
-79|Kis területek figyelmen kívül hagyása
-80|Importálás
-81|Az importálás nem sikerült: {}
-82|Kép importálása
-83|Kép importálva: {}
-84|Mellékelt
-85|Csomópont beszúrása (vagy dupla kattintás egy szakaszra)
-86|Nyelv
-87|Balra
-88|Licenc
-89|Vonal (L)
-90|Vonalvastagság
-91|Zárolás
-92|Képarány zárolása
-93|{} objektum zárolva.
-94|Fő rács
-95|Minden kijelölt csomópont utáni szakasz görbévé tétele
-96|Minden kijelölt csomópont utáni szakasz egyenessé tétele
-97|A kijelölt csomópontok sarokká alakítása
-98|A kijelölt csomópontok simává alakítása
-99|Teljes méret
-100|Közép V
-101|Közép F
-102|Sajátok
-103|Kis méret
-104|Tükrözés és középre igazítás
-105|Zene és szórakozás
-106|Saját clipartok
-107|Név
-108|Természet
-109|Negatív kép
-110|Legújabb kiadás: {}
-111|Itt nincsenek képek. Az Online… segítségével találhat néhányat.
-112|Csomópontok szerkesztése (N)
-113|Nem található semmi.
-114|OK
-115|Tárgyak
-116|Online clipartok
-117|Online…
-118|Csak olyan képeket mentsen, amelyeket használhat. Ellenőrizze a forrás licencét.
-119|Nyitás / zárás
-120|Legutóbbi megnyitása
-121|Letöltési oldal megnyitása
-122|Vagy töltsön le egy képet egy címről
-123|Nézet mozgatása (H)
-124|Beillesztés
-125|A programmal érkező képek
-126|Az Ön által letöltött vagy hozzáadott képek
-127|Elhelyezve: {}
-128|Sokszög (G)
-129|Töröttvonal / toll (P)
-130|Pozíció és méret
-131|A projekt oldala a GitHubon
-132|Gyorsútmutató
-133|Kilépés
-134|A lekerekítés sugara
-135|Téglalap (R)
-136|Újra
-137|Eltávolítja ezt a képet a clipartjai közül? A lemezen lévő fájl törlődik.
-138|Átnevezés
-139|Átnevezés…
-140|Visszaállítás
-141|Rács visszaállítása
+55|Írd le a projektet: mi ez, mely beállítások működtek, jegyzetek a következő alkalomra.
+56|Leírás
+57|Részletek
+58|Részletek…
+59|Vonalak távolsága
+60|Letöltés
+61|A letöltés nem sikerült: {}
+62|Letöltés…
+63|Kettőzés
+64|Csomópontok szerkesztése
+65|Ellipszis (E)
+66|A világos részek gravírozása a sötétek helyett
+67|Illesztés az összes objektumhoz
+68|Illesztés az összes objektumhoz (Ctrl+9)
+69|Asztal illesztése az ablakhoz
+70|Illesztés a munkaterülethez (Ctrl+0)
+71|Tükrözés V
+72|Tükrözés F
+73|Vízszintes tükrözés
+74|Függőleges tükrözés
+75|Étel
+76|Gamma
+77|Rács
+78|Csoportosítás
+79|Csoportosítva. Az objektumok megtartják a rétegeiket.
+80|Szív (K)
+81|Kis területek figyelmen kívül hagyása
+82|Importálás
+83|Az importálás nem sikerült: {}
+84|Kép importálása
+85|Kép importálva: {}
+86|Mellékelt
+87|Csomópont beszúrása (vagy dupla kattintás egy szakaszra)
+88|Nyelv
+89|Balra
+90|Licenc
+91|Vonal (L)
+92|Vonalvastagság
+93|Zárolás
+94|Képarány zárolása
+95|{} objektum zárolva.
+96|Fő rács
+97|Minden kijelölt csomópont utáni szakasz görbévé tétele
+98|Minden kijelölt csomópont utáni szakasz egyenessé tétele
+99|A kijelölt csomópontok sarokká alakítása
+100|A kijelölt csomópontok simává alakítása
+101|Teljes méret
+102|Közép V
+103|Közép F
+104|Sajátok
+105|Kis méret
+106|Tükrözés és középre igazítás
+107|Zene és szórakozás
+108|Saját clipartok
+109|Név
+110|Természet
+111|Negatív kép
+112|Legújabb kiadás: {}
+113|Itt nincsenek képek. Az Online… segítségével találhat néhányat.
+114|Csomópontok szerkesztése (N)
+115|Nem található semmi.
+116|OK
+117|Tárgyak
+118|Online clipartok
+119|Online…
+120|Csak olyan képeket mentsen, amelyeket használhat. Ellenőrizze a forrás licencét.
+121|Nyitás / zárás
+122|Legutóbbi megnyitása
+123|Letöltési oldal megnyitása
+124|Vagy töltsön le egy képet egy címről
+125|Nézet mozgatása (H)
+126|Beillesztés
+127|A programmal érkező képek
+128|Az Ön által letöltött vagy hozzáadott képek
+129|Elhelyezve: {}
+130|Sokszög (G)
+131|Töröttvonal / toll (P)
+132|Pozíció és méret
+133|A projekt oldala a GitHubon
+134|Gyorsútmutató
+135|Kilépés
+136|A lekerekítés sugara
+137|Téglalap (R)
+138|Újra
+139|Eltávolítja ezt a képet a clipartjai közül? A lemezen lévő fájl törlődik.
+140|Átnevezés
+141|Átnevezés…
 142|Visszaállítás
-143|Jobbra
-144|Forgatás
-145|Forgatás 90°-kal balra
-146|Forgatás 90°-kal jobbra
-147|Forgatás és tükrözés
-148|Forgatás
-149|Lekerekítés
-150|A kijelölt sarkok lekerekítése ezzel a sugárral
-151|{} sarok lekerekítve.
-152|Másolat mentése a saját clipartjaimba
-153|Mentés a saját clipartjaimba
-154|{} mentve ide: {}
-155|Keresés
-156|A keresés nem sikerült: {}
-157|Keresés a nyílt ikongyűjteményekben (Iconify). A képek a lemezére kerülnek, az Ön által választott kategóriába.
-158|Keressen további képeket az interneten, és mentse ide őket
-159|Keresés…
-160|Másodlagos rács
-161|Kijelölés (V)
-162|Először jelöljön ki egy alakzatot, majd szerkessze a csomópontjait.
-163|Összes kijelölése
-164|A csoportosításhoz jelöljön ki legalább két objektumot.
-165|Hátra küldés
-166|Alakzatok
-167|Megjelenítés
-168|Rács megjelenítése vagy elrejtése
-169|Másodlagos rács megjelenítése vagy elrejtése
-170|Egyszerűsítés
-171|Méret
-172|Méret elhelyezéskor
-173|Sima
-174|Görbék simítása
-175|Illesztés a rácshoz
-176|Igazítás az objektumokhoz
-177|Forrás
-178|Spirál (I)
-179|Csillag (S)
-180|Szimbólumok
-181|Szöveg (T)
-182|Az eredmény üres.
-183|A másodlagos rácsnak finomabbnak kell lennie a fő rácsnál.
-184|A munkaterület körüli tér
-185|Nincsenek lekerekítendő egyenes sarkok.
-186|Küszöb
-187|Görbévé
-188|Vonallá
-189|Tónus
-190|Szerszámok
-191|Fent
-192|Vektorizálás
-193|Kép vektorizálása
-194|A világos területek vektorizálása
-195|{} körvonal vektorizálva
-196|Háromszög (Y)
-197|Visszavonás
-198|Csoport bontása
-199|Feloldás
-200|{} objektum feloldva.
-201|Frissítések
-202|{} verzió
-203|Nézetbeállítások
-204|Szélesség
-205|Munkaterület
-206|A munkaterület színe
-207|A legújabb verziót használja.
-208|Az Ön verziója: {}.
-209|Nagyítás
-210|Nagyítás (Z)
-211|Kicsinyítés
-212|Kicsinyítés (X)
-213|a programmal érkezik
-214|nevezze meg a szerzőt
-215|pl. macska, virág, fogaskerék
-216|nem kell megnevezni
-217|vagy új kategória
-218|az öné
-219|{} körvonal
-220|{} kép található
-221|{} × {} px
+143|Rács visszaállítása
+144|Visszaállítás
+145|Jobbra
+146|Forgatás
+147|Forgatás 90°-kal balra
+148|Forgatás 90°-kal jobbra
+149|Forgatás és tükrözés
+150|Forgatás
+151|Lekerekítés
+152|A kijelölt sarkok lekerekítése ezzel a sugárral
+153|{} sarok lekerekítve.
+154|Másolat mentése a saját clipartjaimba
+155|Mentés a saját clipartjaimba
+156|{} mentve ide: {}
+157|Keresés
+158|A keresés nem sikerült: {}
+159|Keresés a nyílt ikongyűjteményekben (Iconify). A képek a lemezére kerülnek, az Ön által választott kategóriába.
+160|Keressen további képeket az interneten, és mentse ide őket
+161|Keresés…
+162|Másodlagos rács
+163|Kijelölés (V)
+164|Először jelöljön ki egy alakzatot, majd szerkessze a csomópontjait.
+165|Összes kijelölése
+166|A csoportosításhoz jelöljön ki legalább két objektumot.
+167|Hátra küldés
+168|Alakzatok
+169|Megjelenítés
+170|Rács megjelenítése vagy elrejtése
+171|Másodlagos rács megjelenítése vagy elrejtése
+172|Egyszerűsítés
+173|Méret
+174|Méret elhelyezéskor
+175|Sima
+176|Görbék simítása
+177|Illesztés a rácshoz
+178|Igazítás az objektumokhoz
+179|Forrás
+180|Spirál (I)
+181|Csillag (S)
+182|Szimbólumok
+183|Szöveg (T)
+184|Az eredmény üres.
+185|A másodlagos rácsnak finomabbnak kell lennie a fő rácsnál.
+186|A munkaterület körüli tér
+187|Nincsenek lekerekítendő egyenes sarkok.
+188|Küszöb
+189|Görbévé
+190|Vonallá
+191|Tónus
+192|Szerszámok
+193|Fent
+194|Vektorizálás
+195|Kép vektorizálása
+196|A világos területek vektorizálása
+197|{} körvonal vektorizálva
+198|Háromszög (Y)
+199|Visszavonás
+200|Csoport bontása
+201|Feloldás
+202|{} objektum feloldva.
+203|Frissítések
+204|{} verzió
+205|Nézetbeállítások
+206|Szélesség
+207|Munkaterület
+208|A munkaterület színe
+209|A legújabb verziót használja.
+210|Az Ön verziója: {}.
+211|Nagyítás
+212|Nagyítás (Z)
+213|Kicsinyítés
+214|Kicsinyítés (X)
+215|a programmal érkezik
+216|nevezze meg a szerzőt
+217|pl. macska, virág, fogaskerék
+218|nem kell megnevezni
+219|vagy új kategória
+220|az öné
+221|{} körvonal
+222|{} kép található
+223|{} × {} px

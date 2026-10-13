@@ -60,6 +60,8 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Delete node", "Usuń węzeł", "Knoten löschen", "Elimina nodo", "Poista solmu", "删除节点", "नोड हटाएँ"],
     ["Delete the image afterwards", "Usuń obraz po wektoryzacji", "Bild danach löschen", "Elimina l'immagine dopo", "Poista kuva jälkeenpäin", "完成后删除图像", "बाद में छवि हटाएँ"],
     ["Delete…", "Usuń…", "Löschen…", "Elimina…", "Poista…", "删除…", "हटाएँ…"],
+    ["Describe the project: what it is, the settings that worked, notes for next time.", "Opisz projekt: co to jest, ustawienia, które zadziałały, notatki na następny raz.", "Beschreibe das Projekt: was es ist, welche Einstellungen funktionierten, Notizen fürs nächste Mal.", "Descrivi il progetto: cos'è, le impostazioni che hanno funzionato, appunti per la prossima volta.", "Kuvaile projekti: mikä se on, toimivat asetukset, muistiinpanoja seuraavaa kertaa varten.", "描述项目：它是什么、有效的设置、给下次的备注。", "परियोजना का वर्णन करें: यह क्या है, कौन-सी सेटिंग काम आईं, अगली बार के लिए नोट्स।"],
+    ["Description", "Opis", "Beschreibung", "Descrizione", "Kuvaus", "描述", "विवरण"],
     ["Details", "Szczegóły", "Details", "Dettagli", "Tiedot", "详细信息", "विवरण"],
     ["Details…", "Szczegóły…", "Details…", "Dettagli…", "Tiedot…", "详细信息…", "विवरण…"],
     ["Distance between lines", "Odległość między liniami", "Abstand zwischen den Linien", "Distanza tra le linee", "Viivojen väli", "线间距", "रेखाओं के बीच दूरी"],
