@@ -233,3 +233,8 @@
 232|Pauzė
 233|Groti
 234|Kartoti
+235|Automatinis slinkimas
+236|Išvalyti
+237|Siųsti
+238|Būsenos užklausos
+239|siųsti G-code / komandą $

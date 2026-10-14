@@ -233,3 +233,8 @@
 232|Hlé
 233|Spila
 234|Endurtaka
+235|Sjálfvirk skrun
+236|Hreinsa
+237|Senda
+238|Stöðufyrirspurnir
+239|senda G-code / $-skipun

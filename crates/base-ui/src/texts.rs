@@ -240,6 +240,11 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Pause", "Pauza", "Pause", "Pausa", "Tauko", "暂停", "रोकें"],
     ["Play", "Odtwarzaj", "Abspielen", "Riproduci", "Toista", "播放", "चलाएँ"],
     ["Repeat", "Powtarzaj", "Wiederholen", "Ripeti", "Toista", "重复", "दोहराएँ"],
+    ["Auto-scroll", "Autoprzewijanie", "Automatisch scrollen", "Scorrimento automatico", "Automaattinen vieritys", "自动滚动", "ऑटो-स्क्रॉल"],
+    ["Clear", "Wyczyść", "Leeren", "Cancella", "Tyhjennä", "清除", "साफ़ करें"],
+    ["Send", "Wyślij", "Senden", "Invia", "Lähetä", "发送", "भेजें"],
+    ["Status polls", "Zapytania o stan", "Statusabfragen", "Richieste di stato", "Tilakyselyt", "状态查询", "स्थिति पोल"],
+    ["send G-code / $ command", "wyślij G-code / polecenie $", "G-Code / $-Befehl senden", "invia G-code / comando $", "lähetä G-koodi / $-komento", "发送 G-code / $ 命令", "G-code / $ कमांड भेजें"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

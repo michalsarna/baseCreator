@@ -233,3 +233,8 @@
 232|Pauză
 233|Redare
 234|Repetă
+235|Derulare automată
+236|Golește
+237|Trimite
+238|Interogări de stare
+239|trimite G-code / comandă $

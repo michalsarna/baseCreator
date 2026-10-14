@@ -233,3 +233,8 @@
 232|Pozastavit
 233|Přehrát
 234|Opakovat
+235|Automatické rolování
+236|Vymazat
+237|Odeslat
+238|Dotazy na stav
+239|odeslat G-code / příkaz $

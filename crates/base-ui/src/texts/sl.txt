@@ -233,3 +233,8 @@
 232|Premor
 233|Predvajaj
 234|Ponavljaj
+235|Samodejno drsenje
+236|Počisti
+237|Pošlji
+238|Poizvedbe o stanju
+239|pošlji G-code / ukaz $

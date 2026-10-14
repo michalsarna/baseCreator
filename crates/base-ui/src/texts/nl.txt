@@ -233,3 +233,8 @@
 232|Pauze
 233|Afspelen
 234|Herhalen
+235|Automatisch scrollen
+236|Wissen
+237|Verzenden
+238|Statusopvragingen
+239|G-code / $-opdracht verzenden

@@ -233,3 +233,8 @@
 232|Pauza
 233|Reproduciraj
 234|Ponavljaj
+235|Automatsko pomicanje
+236|Očisti
+237|Pošalji
+238|Upiti o stanju
+239|pošalji G-code / naredbu $

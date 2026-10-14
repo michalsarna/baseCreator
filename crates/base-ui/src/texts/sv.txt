@@ -233,3 +233,8 @@
 232|Paus
 233|Spela upp
 234|Upprepa
+235|Rulla automatiskt
+236|Rensa
+237|Skicka
+238|Statusfrågor
+239|skicka G-code / $-kommando

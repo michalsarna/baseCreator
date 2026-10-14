@@ -233,3 +233,8 @@
 232|Waqfa
 233|Uża
 234|Irrepeti
+235|Skrolljar awtomatiku
+236|Nadvi
+237|Ibgħat
+238|Mistoqsijiet tal-istat
+239|ibgħat G-code / kmand $
