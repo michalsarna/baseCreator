@@ -50,39 +50,16 @@ pub struct DataPaths {
     pub settings: PathBuf,
 }
 
-/// Work out the places for `app`, move what an older version kept in `legacy` (its own folder) into
-/// the shared folder, and make the folders. Without a home folder everything goes to the temp folder.
-/// The old folder is left as it was.
-pub fn prepare(app: &str, legacy: Option<&Path>) -> DataPaths {
+/// Work out the places for `app` and make its folder. Without a home folder everything goes to the temp folder.
+pub fn prepare(app: &str) -> DataPaths {
     let base = base_dir().unwrap_or_else(|| std::env::temp_dir().join("baseCreator"));
-    prepare_in(&base, app, legacy)
+    prepare_in(&base, app)
 }
 
-pub fn prepare_in(base: &Path, app: &str, legacy: Option<&Path>) -> DataPaths {
+pub fn prepare_in(base: &Path, app: &str) -> DataPaths {
     let p = DataPaths { base: base.to_path_buf(), gallery: gallery_dir(base), settings: settings_file(base, app) };
     let _ = std::fs::create_dir_all(app_dir(base, app));
-    if let Some(old) = legacy {
-        migrate(&p, app, old);
-    }
     p
-}
-
-/// One time per program: copy the old settings (unless there are new ones) and add the old pictures to
-/// the shared gallery (a picture that is already there, with the same content, is not added twice).
-fn migrate(p: &DataPaths, app: &str, old: &Path) {
-    let marker = app_dir(&p.base, app).join(".migrated");
-    if marker.exists() {
-        return;
-    }
-    let old_settings = old.join("app.ron");
-    if old_settings.is_file() && !p.settings.exists() {
-        let _ = std::fs::copy(&old_settings, &p.settings);
-    }
-    let old_gallery = old.join("clipart");
-    if old_gallery.join("index.json").is_file() && old_gallery != p.gallery {
-        merge_gallery(&old_gallery, &p.gallery);
-    }
-    let _ = std::fs::write(marker, "settings and gallery copied from the program's own folder\n");
 }
 
 /// Add the pictures of the library in `from` to the one in `to`. Returns how many were added.
