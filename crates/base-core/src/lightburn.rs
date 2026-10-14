@@ -285,7 +285,7 @@ struct Pool {
     prims: std::collections::HashMap<usize, std::rc::Rc<Vec<(bool, usize, usize)>>>,
 }
 
-fn rounded_rect(w: f64, h: f64, r: f64) -> Contour {
+pub(crate) fn rounded_rect(w: f64, h: f64, r: f64) -> Contour {
     let (hw, hh) = (w / 2.0, h / 2.0);
     let r = r.max(0.0).min(hw).min(hh);
     if r <= 0.0 {
