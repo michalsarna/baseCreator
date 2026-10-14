@@ -548,3 +548,35 @@
 547|artėjimo pradžia negali būti aukščiau už pervažiavimo aukštį
 548|{} nustatymai
 549|… ir dar {}
+550|Sukurti
+551|Duomenų failai
+552|Generuoti formą…
+553|Sugeneruota formų: {}
+554|Generatorius
+555|Generatoriai
+556|Importuotojai
+557|Įdiegti papildinį iš zip…
+558|Scenarijaus pranešimai:
+559|Neįdiegta generatorių. Papildiniai gali juos pridėti (langas Papildiniai).
+560|Papildinių dar nėra. Įdėkite papildinio aplanką į papildinių aplanką arba įdiekite zip failą.
+561|Nėra
+562|Ne šiai programai
+563|Atidaryti papildinių aplanką
+564|Papildinio įdiegti nepavyko: {}
+565|Papildinys įdiegtas: {}
+566|Papildinys pašalintas: {}
+567|Papildiniai
+568|Papildiniai vykdo scenarijus, kurie gali kurti formas ir keisti G kodą. Diekite tik papildinius, kuriais pasitikite.
+569|Papildiniai, kurių nepavyko perskaityti
+570|Papildiniai…
+571|Postprocesorius
+572|Postprocesoriai
+573|Išankstiniai nustatymai
+574|Iš naujo įkelti papildinius
+575|Pašalinti
+576|Pašalinti papildinį {}? Jo aplankas bus ištrintas.
+577|Scenarijus nepavyko: {}
+578|Vertimai
+579|Importuoti papildiniu…
+580|Joks papildinys neskaito failų: įdiekite vieną lange Papildiniai
+581|Postprocesorius nepavyko, nieko neišsaugota: {}

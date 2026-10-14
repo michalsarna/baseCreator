@@ -30,6 +30,28 @@ pub const PEN: &[Preset] = &[
     Preset { name: "A2 (594 × 420)", area: [594.0, 420.0, 0.0], rapid: 6000.0, spindle_max: 0.0 },
 ];
 
+/// A preset to show in a list: the ones of the program and the ones plugins bring.
+#[derive(Clone, Debug, PartialEq)]
+pub struct PresetItem {
+    pub name: String,
+    pub area: [f64; 3],
+    pub rapid: f64,
+    pub spindle_max: f64,
+    /// From a plugin (its id), or `None` for the program's own.
+    pub plugin: Option<String>,
+}
+
+/// The built-in presets of a class followed by those of the plugins that are on and for this program.
+pub fn with_plugins(builtin: &[Preset], reg: &crate::plugins::Registry, app: &str, class: crate::plugins::PresetClass) -> Vec<PresetItem> {
+    let mut v: Vec<PresetItem> = builtin.iter().map(|p| PresetItem { name: p.name.to_string(), area: p.area, rapid: p.rapid, spindle_max: p.spindle_max, plugin: None }).collect();
+    for p in reg.plugins.iter().filter(|p| p.enabled && p.manifest.is_for(app)) {
+        for d in p.manifest.presets.iter().filter(|d| d.class == class) {
+            v.push(PresetItem { name: d.name.clone(), area: d.area, rapid: d.rapid, spindle_max: d.spindle_max, plugin: Some(p.manifest.id.clone()) });
+        }
+    }
+    v
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

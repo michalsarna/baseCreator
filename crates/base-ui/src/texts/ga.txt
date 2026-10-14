@@ -548,3 +548,35 @@
 547|ní féidir tús an druidim a bheith níos airde ná an airde taistil
 548|{} socrú
 549|… agus {} eile
+550|Cruthaigh
+551|Comhaid sonraí
+552|Gin cruth…
+553|Gineadh {} cruth
+554|Gineadóir
+555|Gineadóirí
+556|Iompórtálaithe
+557|Suiteáil breiseán ó zip…
+558|Teachtaireachtaí an scripte:
+559|Níl aon ghineadóirí suiteáilte. Is féidir le breiseáin iad a chur leis (fuinneog na mBreiseán).
+560|Níl aon bhreiseáin ann go fóill. Cuir fillteán breiseáin isteach i bhfillteán na mbreiseán nó suiteáil comhad zip.
+561|Aon cheann
+562|Ní don chlár seo
+563|Oscail fillteán na mbreiseán
+564|Theip ar shuiteáil an bhreiseáin: {}
+565|Suiteáladh an breiseán: {}
+566|Baineadh an breiseán: {}
+567|Breiseáin
+568|Ritheann breiseáin scripteanna a chruthaíonn cruthanna agus a athraíonn G-cód. Ná suiteáil ach breiseáin a bhfuil muinín agat astu.
+569|Breiseáin nár léadh
+570|Breiseáin…
+571|Iarphróiseálaí
+572|Iarphróiseálaithe
+573|Réamhshocruithe
+574|Athluchtaigh breiseáin
+575|Bain
+576|An mbainfear an breiseán {}? Scriosfar a fhillteán.
+577|Theip ar an script: {}
+578|Aistriúcháin
+579|Iompórtáil le breiseán…
+580|Ní léann aon bhreiseán comhaid: suiteáil ceann i bhfuinneog na mBreiseán
+581|Theip ar an iarphróiseálaí, níor sábháladh aon rud: {}

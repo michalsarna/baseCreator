@@ -548,3 +548,35 @@
 547|starten på tilnærmingen må ikke være høyere enn reisehøyden
 548|{} innstillinger
 549|… og {} til
+550|Opprett
+551|Datafiler
+552|Generer form…
+553|{} former generert
+554|Generator
+555|Generatorer
+556|Importører
+557|Installer programtillegg fra zip…
+558|Meldinger fra skriptet:
+559|Ingen generatorer installert. Programtillegg kan legge dem til (vinduet Programtillegg).
+560|Ingen programtillegg ennå. Legg en programtilleggsmappe i mappen for programtillegg, eller installer en zip-fil.
+561|Ingen
+562|Ikke for dette programmet
+563|Åpne mappen for programtillegg
+564|Installasjonen av programtillegget mislyktes: {}
+565|Programtillegg installert: {}
+566|Programtillegg fjernet: {}
+567|Programtillegg
+568|Programtillegg kjører skript som kan lage former og endre G-kode. Installer bare programtillegg du stoler på.
+569|Programtillegg som ikke kunne leses
+570|Programtillegg…
+571|Postprosessor
+572|Postprosessorer
+573|Forhåndsinnstillinger
+574|Last programtillegg på nytt
+575|Fjern
+576|Fjerne programtillegget {}? Mappen slettes.
+577|Skriptet feilet: {}
+578|Oversettelser
+579|Importer med et programtillegg…
+580|Ingen programtillegg leser filer: installer ett i vinduet Programtillegg
+581|Postprosessoren feilet, ingenting ble lagret: {}

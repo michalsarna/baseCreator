@@ -20,6 +20,8 @@ pub mod lightburn;
 pub mod ops;
 pub mod paths;
 pub mod pdf;
+pub mod plugin_script;
+pub mod plugins;
 pub mod presets;
 pub mod project;
 pub mod resume;

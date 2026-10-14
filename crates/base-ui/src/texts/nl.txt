@@ -548,3 +548,35 @@
 547|het begin van de nadering mag niet hoger liggen dan de verplaatshoogte
 548|{} instellingen
 549|… en nog {}
+550|Maken
+551|Gegevensbestanden
+552|Vorm genereren…
+553|{} vormen gegenereerd
+554|Generator
+555|Generatoren
+556|Importeurs
+557|Plug-in installeren vanuit zip…
+558|Berichten van het script:
+559|Geen generatoren geïnstalleerd. Plug-ins kunnen ze toevoegen (venster Plug-ins).
+560|Nog geen plug-ins. Zet een plug-inmap in de plug-inmap of installeer een zipbestand.
+561|Geen
+562|Niet voor dit programma
+563|Plug-inmap openen
+564|Installatie van de plug-in mislukt: {}
+565|Plug-in geïnstalleerd: {}
+566|Plug-in verwijderd: {}
+567|Plug-ins
+568|Plug-ins voeren scripts uit die vormen kunnen maken en G-code kunnen wijzigen. Installeer alleen plug-ins die je vertrouwt.
+569|Plug-ins die niet gelezen konden worden
+570|Plug-ins…
+571|Postprocessor
+572|Postprocessors
+573|Voorinstellingen
+574|Plug-ins opnieuw laden
+575|Verwijderen
+576|Plug-in {} verwijderen? De map wordt gewist.
+577|Het script is mislukt: {}
+578|Vertalingen
+579|Importeren met een plug-in…
+580|Geen plug-in leest bestanden: installeer er een in het venster Plug-ins
+581|De postprocessor is mislukt, er is niets opgeslagen: {}

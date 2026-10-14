@@ -555,6 +555,38 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["the start of the approach must not be higher than the travel height", "początek dojazdu nie może być wyżej niż wysokość przejazdu", "der Beginn der Anfahrt darf nicht höher als die Verfahrhöhe liegen", "l'inizio dell'avvicinamento non deve essere più alto dell'altezza di spostamento", "lähestymisen alku ei saa olla siirtokorkeutta ylempänä", "接近的起点不能高于移动高度", "पास पहुँचने की शुरुआत यात्रा ऊँचाई से ऊँची नहीं होनी चाहिए"],
     ["{} settings", "{} ustawień", "{} Einstellungen", "{} impostazioni", "{} asetusta", "{} 项设置", "{} सेटिंग"],
     ["… and {} more", "… i jeszcze {}", "… und {} weitere", "… e altre {}", "… ja {} lisää", "… 还有 {} 项", "… और {} और"],
+    ["Create", "Utwórz", "Erstellen", "Crea", "Luo", "创建", "बनाएँ"],
+    ["Data files", "Pliki danych", "Datendateien", "File di dati", "Datatiedostot", "数据文件", "डेटा फ़ाइलें"],
+    ["Generate shape…", "Generuj kształt…", "Form erzeugen…", "Genera forma…", "Luo muoto…", "生成形状…", "आकार बनाएँ…"],
+    ["Generated {} shapes", "Wygenerowano {} kształtów", "{} Formen erzeugt", "Generate {} forme", "Luotiin {} muotoa", "已生成 {} 个形状", "{} आकार बनाए गए"],
+    ["Generator", "Generator", "Generator", "Generatore", "Generaattori", "生成器", "जनरेटर"],
+    ["Generators", "Generatory", "Generatoren", "Generatori", "Generaattorit", "生成器", "जनरेटर"],
+    ["Importers", "Importery", "Importer", "Importatori", "Tuojat", "导入器", "इम्पोर्टर"],
+    ["Install plugin from zip…", "Zainstaluj wtyczkę z pliku zip…", "Plugin aus Zip installieren…", "Installa plugin da zip…", "Asenna lisäosa zip-tiedostosta…", "从 zip 安装插件…", "ज़िप से प्लगइन इंस्टॉल करें…"],
+    ["Messages of the script:", "Komunikaty skryptu:", "Meldungen des Skripts:", "Messaggi dello script:", "Skriptin viestit:", "脚本消息：", "स्क्रिप्ट के संदेश:"],
+    ["No generators installed. Plugins can add them (Plugins window).", "Brak zainstalowanych generatorów. Mogą je dodać wtyczki (okno Wtyczki).", "Keine Generatoren installiert. Plugins können sie hinzufügen (Fenster Plugins).", "Nessun generatore installato. I plugin possono aggiungerli (finestra Plugin).", "Generaattoreita ei ole asennettu. Lisäosat voivat lisätä niitä (Lisäosat-ikkuna).", "未安装生成器。插件可以添加它们（插件窗口）。", "कोई जनरेटर इंस्टॉल नहीं है। प्लगइन उन्हें जोड़ सकते हैं (प्लगइन विंडो)।"],
+    ["No plugins yet. Put a plugin folder into the plugins folder or install a zip.", "Nie ma jeszcze wtyczek. Włóż folder wtyczki do folderu wtyczek albo zainstaluj plik zip.", "Noch keine Plugins. Lege einen Plugin-Ordner in den Plugin-Ordner oder installiere eine Zip-Datei.", "Ancora nessun plugin. Metti una cartella di plugin nella cartella dei plugin o installa un file zip.", "Ei vielä lisäosia. Laita lisäosan kansio lisäosien kansioon tai asenna zip-tiedosto.", "还没有插件。把插件文件夹放进插件文件夹，或安装 zip 文件。", "अभी कोई प्लगइन नहीं है। प्लगइन फ़ोल्डर को प्लगइन के फ़ोल्डर में रखें या ज़िप फ़ाइल इंस्टॉल करें।"],
+    ["None", "Brak", "Keine", "Nessuno", "Ei mitään", "无", "कोई नहीं"],
+    ["Not for this program", "Nie dla tego programu", "Nicht für dieses Programm", "Non per questo programma", "Ei tälle ohjelmalle", "不适用于此程序", "इस प्रोग्राम के लिए नहीं"],
+    ["Open plugins folder", "Otwórz folder wtyczek", "Plugin-Ordner öffnen", "Apri la cartella dei plugin", "Avaa lisäosien kansio", "打开插件文件夹", "प्लगइन फ़ोल्डर खोलें"],
+    ["Plugin install failed: {}", "Nie udało się zainstalować wtyczki: {}", "Plugin-Installation fehlgeschlagen: {}", "Installazione del plugin non riuscita: {}", "Lisäosan asennus epäonnistui: {}", "插件安装失败：{}", "प्लगइन इंस्टॉल नहीं हो सका: {}"],
+    ["Plugin installed: {}", "Zainstalowano wtyczkę: {}", "Plugin installiert: {}", "Plugin installato: {}", "Lisäosa asennettu: {}", "插件已安装：{}", "प्लगइन इंस्टॉल हुआ: {}"],
+    ["Plugin removed: {}", "Usunięto wtyczkę: {}", "Plugin entfernt: {}", "Plugin rimosso: {}", "Lisäosa poistettu: {}", "插件已移除：{}", "प्लगइन हटाया गया: {}"],
+    ["Plugins", "Wtyczki", "Plugins", "Plugin", "Lisäosat", "插件", "प्लगइन"],
+    ["Plugins run scripts that can create shapes and change G-code. Install only plugins you trust.", "Wtyczki uruchamiają skrypty, które mogą tworzyć kształty i zmieniać G-code. Instaluj tylko wtyczki, którym ufasz.", "Plugins führen Skripte aus, die Formen erzeugen und G-Code ändern können. Installiere nur Plugins, denen du vertraust.", "I plugin eseguono script che possono creare forme e modificare il G-code. Installa solo plugin di cui ti fidi.", "Lisäosat ajavat skriptejä, jotka voivat luoda muotoja ja muuttaa G-koodia. Asenna vain lisäosia, joihin luotat.", "插件会运行可创建形状和修改 G 代码的脚本。请只安装你信任的插件。", "प्लगइन ऐसी स्क्रिप्ट चलाते हैं जो आकार बना सकती हैं और G-code बदल सकती हैं। केवल वही प्लगइन इंस्टॉल करें जिन पर आप भरोसा करते हैं।"],
+    ["Plugins that could not be read", "Wtyczki, których nie udało się wczytać", "Plugins, die nicht gelesen werden konnten", "Plugin che non si sono potuti leggere", "Lisäosat, joita ei voitu lukea", "无法读取的插件", "जो प्लगइन पढ़े नहीं जा सके"],
+    ["Plugins…", "Wtyczki…", "Plugins…", "Plugin…", "Lisäosat…", "插件…", "प्लगइन…"],
+    ["Postprocessor", "Postprocesor", "Postprozessor", "Postprocessore", "Jälkikäsittelijä", "后处理器", "पोस्टप्रोसेसर"],
+    ["Postprocessors", "Postprocesory", "Postprozessoren", "Postprocessori", "Jälkikäsittelijät", "后处理器", "पोस्टप्रोसेसर"],
+    ["Presets", "Ustawienia wstępne", "Voreinstellungen", "Preimpostazioni", "Esiasetukset", "预设", "प्रीसेट"],
+    ["Reload plugins", "Wczytaj wtyczki ponownie", "Plugins neu laden", "Ricarica i plugin", "Lataa lisäosat uudelleen", "重新加载插件", "प्लगइन फिर से लोड करें"],
+    ["Remove", "Usuń", "Entfernen", "Rimuovi", "Poista", "移除", "हटाएँ"],
+    ["Remove plugin {}? Its folder is deleted.", "Usunąć wtyczkę {}? Jej folder zostanie skasowany.", "Plugin {} entfernen? Sein Ordner wird gelöscht.", "Rimuovere il plugin {}? La sua cartella verrà eliminata.", "Poistetaanko lisäosa {}? Sen kansio poistetaan.", "移除插件 {}？其文件夹将被删除。", "प्लगइन {} हटाएँ? उसका फ़ोल्डर मिटा दिया जाएगा।"],
+    ["The script failed: {}", "Skrypt zakończył się błędem: {}", "Das Skript ist fehlgeschlagen: {}", "Lo script è fallito: {}", "Skripti epäonnistui: {}", "脚本失败：{}", "स्क्रिप्ट विफल रही: {}"],
+    ["Translations", "Tłumaczenia", "Übersetzungen", "Traduzioni", "Käännökset", "翻译", "अनुवाद"],
+    ["Import with a plugin…", "Importuj wtyczką…", "Mit einem Plugin importieren…", "Importa con un plugin…", "Tuo lisäosalla…", "使用插件导入…", "प्लगइन से आयात करें…"],
+    ["No plugin reads files: install one in the Plugins window", "Żadna wtyczka nie wczytuje plików: zainstaluj ją w oknie Wtyczki", "Kein Plugin liest Dateien: Installiere eines im Fenster Plugins", "Nessun plugin legge file: installane uno nella finestra Plugin", "Mikään lisäosa ei lue tiedostoja: asenna sellainen Lisäosat-ikkunassa", "没有插件可读取文件：请在插件窗口中安装一个", "कोई प्लगइन फ़ाइलें नहीं पढ़ता: प्लगइन विंडो में एक इंस्टॉल करें"],
+    ["The postprocessor failed, nothing was saved: {}", "Postprocesor się nie powiódł, nic nie zapisano: {}", "Der Postprozessor ist fehlgeschlagen, nichts wurde gespeichert: {}", "Il postprocessore è fallito, non è stato salvato nulla: {}", "Jälkikäsittelijä epäonnistui, mitään ei tallennettu: {}", "后处理器失败，未保存任何内容：{}", "पोस्टप्रोसेसर विफल रहा, कुछ भी सहेजा नहीं गया: {}"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
@@ -592,7 +624,7 @@ mod tests {
     use crate::i18n::Lang;
 
     /// The sources that call `tr` or `trf`.
-    const SOURCES: [&str; 23] = [
+    const SOURCES: [&str; 24] = [
         include_str!("editor/host.rs"),
         include_str!("editor/commands.rs"),
         include_str!("editor/canvas.rs"),
@@ -616,6 +648,7 @@ mod tests {
         include_str!("machine_ctl.rs"),
         include_str!("tools_ui.rs"),
         include_str!("tls_ui.rs"),
+        include_str!("plugins_ui.rs"),
     ];
 
     fn literals() -> Vec<String> {

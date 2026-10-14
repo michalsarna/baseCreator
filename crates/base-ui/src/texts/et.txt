@@ -548,3 +548,35 @@
 547|lähenemise algus ei tohi olla kõrgemal kui liikumiskõrgus
 548|{} seadet
 549|… ja veel {}
+550|Loo
+551|Andmefailid
+552|Loo kujund…
+553|Loodi {} kujundit
+554|Generaator
+555|Generaatorid
+556|Importijad
+557|Paigalda plugin zipist…
+558|Skripti teated:
+559|Generaatoreid pole paigaldatud. Pluginad saavad neid lisada (aken Pluginad).
+560|Pluginaid veel pole. Pane plugina kaust pluginate kausta või paigalda zip-fail.
+561|Puudub
+562|Pole selle programmi jaoks
+563|Ava pluginate kaust
+564|Plugina paigaldamine ebaõnnestus: {}
+565|Plugin paigaldatud: {}
+566|Plugin eemaldatud: {}
+567|Pluginad
+568|Pluginad käivitavad skripte, mis saavad luua kujundeid ja muuta G-koodi. Paigalda ainult pluginaid, mida usaldad.
+569|Pluginad, mida ei saanud lugeda
+570|Pluginad…
+571|Järeltöötleja
+572|Järeltöötlejad
+573|Eelseadistused
+574|Laadi pluginad uuesti
+575|Eemalda
+576|Kas eemaldada plugin {}? Selle kaust kustutatakse.
+577|Skript ebaõnnestus: {}
+578|Tõlked
+579|Impordi pluginaga…
+580|Ükski plugin ei loe faile: paigalda üks aknas Pluginad
+581|Järeltöötleja ebaõnnestus, midagi ei salvestatud: {}

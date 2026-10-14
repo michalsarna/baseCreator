@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "id": "gcode-tools",
+  "name": "G-code tools",
+  "version": "1.0.0",
+  "author": "baseCreator",
+  "license": "MIT OR Apache-2.0",
+  "description": "Postprocessors: numbered lines, and a program without comments.",
+  "postprocessors": [
+    { "id": "line-numbers", "name": "Number the lines (N10, N20, …)", "description": "For controllers that want line numbers.", "script": "numbers.rhai" },
+    { "id": "no-comments", "name": "Remove comments", "description": "Controllers with a short line buffer do not like comments.", "script": "strip.rhai" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "format": 1,
+  "id": "csv-importer",
+  "name": "XY points importer",
+  "version": "1.0.0",
+  "author": "baseCreator",
+  "license": "MIT OR Apache-2.0",
+  "description": "Reads a text file of x,y points (millimetres from the bottom left of the work area). A blank line starts a new line; a line `closed` before the break closes the shape.",
+  "importers": [
+    { "id": "xy", "name": "XY points (.xy, .csv)", "extensions": ["xy", "csv"], "script": "import.rhai" }
+  ]
+}

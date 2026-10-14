@@ -548,3 +548,35 @@
 547|začátek přiblížení nesmí být výš než výška přejezdu
 548|{} nastavení
 549|… a dalších {}
+550|Vytvořit
+551|Datové soubory
+552|Vytvořit tvar…
+553|Vytvořeno tvarů: {}
+554|Generátor
+555|Generátory
+556|Importéry
+557|Nainstalovat plugin ze zipu…
+558|Zprávy skriptu:
+559|Nejsou nainstalovány žádné generátory. Mohou je přidat pluginy (okno Pluginy).
+560|Zatím žádné pluginy. Vložte složku pluginu do složky pluginů nebo nainstalujte zip.
+561|Žádný
+562|Ne pro tento program
+563|Otevřít složku pluginů
+564|Instalace pluginu se nezdařila: {}
+565|Plugin nainstalován: {}
+566|Plugin odstraněn: {}
+567|Pluginy
+568|Pluginy spouštějí skripty, které mohou vytvářet tvary a měnit G-kód. Instalujte jen pluginy, kterým důvěřujete.
+569|Pluginy, které nešlo přečíst
+570|Pluginy…
+571|Postprocesor
+572|Postprocesory
+573|Předvolby
+574|Znovu načíst pluginy
+575|Odebrat
+576|Odstranit plugin {}? Jeho složka bude smazána.
+577|Skript selhal: {}
+578|Překlady
+579|Importovat pluginem…
+580|Žádný plugin nečte soubory: nainstalujte jej v okně Pluginy
+581|Postprocesor selhal, nic se neuložilo: {}

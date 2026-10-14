@@ -548,3 +548,35 @@
 547|o início da aproximação não pode estar mais alto do que a altura de deslocação
 548|{} definições
 549|… e mais {}
+550|Criar
+551|Ficheiros de dados
+552|Gerar forma…
+553|{} formas geradas
+554|Gerador
+555|Geradores
+556|Importadores
+557|Instalar plugin a partir de zip…
+558|Mensagens do script:
+559|Nenhum gerador instalado. Os plugins podem adicioná-los (janela Plugins).
+560|Ainda não há plugins. Ponha uma pasta de plugin na pasta de plugins ou instale um ficheiro zip.
+561|Nenhum
+562|Não é para este programa
+563|Abrir a pasta de plugins
+564|A instalação do plugin falhou: {}
+565|Plugin instalado: {}
+566|Plugin removido: {}
+567|Plugins
+568|Os plugins executam scripts que podem criar formas e alterar o G-code. Instale apenas plugins em que confia.
+569|Plugins que não puderam ser lidos
+570|Plugins…
+571|Pós-processador
+572|Pós-processadores
+573|Predefinições
+574|Recarregar os plugins
+575|Remover
+576|Remover o plugin {}? A sua pasta é apagada.
+577|O script falhou: {}
+578|Traduções
+579|Importar com um plugin…
+580|Nenhum plugin lê ficheiros: instale um na janela Plugins
+581|O pós-processador falhou, nada foi guardado: {}

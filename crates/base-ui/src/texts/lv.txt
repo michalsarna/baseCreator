@@ -548,3 +548,35 @@
 547|tuvošanās sākums nedrīkst būt augstāk par pārbrauciena augstumu
 548|{} iestatījumi
 549|… un vēl {}
+550|Izveidot
+551|Datu faili
+552|Ģenerēt formu…
+553|Izveidotas {} formas
+554|Ģenerators
+555|Ģeneratori
+556|Importētāji
+557|Instalēt spraudni no zip…
+558|Skripta ziņojumi:
+559|Nav instalētu ģeneratoru. Spraudņi tos var pievienot (logs Spraudņi).
+560|Vēl nav spraudņu. Ieliec spraudņa mapi spraudņu mapē vai instalē zip failu.
+561|Nav
+562|Nav šai programmai
+563|Atvērt spraudņu mapi
+564|Spraudņa instalēšana neizdevās: {}
+565|Spraudnis instalēts: {}
+566|Spraudnis noņemts: {}
+567|Spraudņi
+568|Spraudņi palaiž skriptus, kas var veidot formas un mainīt G-kodu. Instalē tikai spraudņus, kuriem uzticies.
+569|Spraudņi, kurus neizdevās nolasīt
+570|Spraudņi…
+571|Pēcapstrādātājs
+572|Pēcapstrādātāji
+573|Iepriekšējie iestatījumi
+574|Pārlādēt spraudņus
+575|Noņemt
+576|Vai noņemt spraudni {}? Tā mape tiks izdzēsta.
+577|Skripts neizdevās: {}
+578|Tulkojumi
+579|Importēt ar spraudni…
+580|Neviens spraudnis nelasa failus: instalē vienu logā Spraudņi
+581|Pēcapstrādātājs neizdevās, nekas netika saglabāts: {}

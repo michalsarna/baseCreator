@@ -548,3 +548,35 @@
 547|upphaf aðflugsins má ekki vera hærra en ferðahæðin
 548|{} stillingar
 549|… og {} í viðbót
+550|Búa til
+551|Gagnaskrár
+552|Búa til form…
+553|{} form búin til
+554|Smiður
+555|Smiðir
+556|Innflytjendur
+557|Setja upp viðbót úr zip…
+558|Skilaboð skriftunnar:
+559|Engir smiðir uppsettir. Viðbætur geta bætt þeim við (Viðbætur-glugginn).
+560|Engar viðbætur enn. Settu möppu viðbótar í viðbótamöppuna eða settu upp zip-skrá.
+561|Ekkert
+562|Ekki fyrir þetta forrit
+563|Opna möppu viðbóta
+564|Uppsetning viðbótar mistókst: {}
+565|Viðbót sett upp: {}
+566|Viðbót fjarlægð: {}
+567|Viðbætur
+568|Viðbætur keyra skriftur sem geta búið til form og breytt G-kóða. Settu aðeins upp viðbætur sem þú treystir.
+569|Viðbætur sem ekki var hægt að lesa
+570|Viðbætur…
+571|Eftirvinnsla
+572|Eftirvinnslur
+573|Forstillingar
+574|Endurhlaða viðbætur
+575|Fjarlægja
+576|Fjarlægja viðbótina {}? Mappan hennar er eytt.
+577|Skriftan mistókst: {}
+578|Þýðingar
+579|Flytja inn með viðbót…
+580|Engin viðbót les skrár: settu upp eina í Viðbætur-glugganum
+581|Eftirvinnslan mistókst, engu var vistað: {}

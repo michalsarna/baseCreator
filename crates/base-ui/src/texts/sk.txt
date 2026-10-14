@@ -548,3 +548,35 @@
 547|začiatok priblíženia nesmie byť vyššie ako výška presunu
 548|{} nastavení
 549|… a ďalších {}
+550|Vytvoriť
+551|Dátové súbory
+552|Vytvoriť tvar…
+553|Vytvorených tvarov: {}
+554|Generátor
+555|Generátory
+556|Importéry
+557|Nainštalovať plugin zo zipu…
+558|Správy skriptu:
+559|Nie sú nainštalované žiadne generátory. Môžu ich pridať pluginy (okno Pluginy).
+560|Zatiaľ žiadne pluginy. Vložte priečinok pluginu do priečinka pluginov alebo nainštalujte zip.
+561|Žiadny
+562|Nie pre tento program
+563|Otvoriť priečinok pluginov
+564|Inštalácia pluginu zlyhala: {}
+565|Plugin nainštalovaný: {}
+566|Plugin odstránený: {}
+567|Pluginy
+568|Pluginy spúšťajú skripty, ktoré môžu vytvárať tvary a meniť G-kód. Inštalujte len pluginy, ktorým dôverujete.
+569|Pluginy, ktoré sa nepodarilo prečítať
+570|Pluginy…
+571|Postprocesor
+572|Postprocesory
+573|Predvoľby
+574|Znova načítať pluginy
+575|Odstrániť
+576|Odstrániť plugin {}? Jeho priečinok sa zmaže.
+577|Skript zlyhal: {}
+578|Preklady
+579|Importovať pluginom…
+580|Žiadny plugin nečíta súbory: nainštalujte ho v okne Pluginy
+581|Postprocesor zlyhal, nič sa neuložilo: {}

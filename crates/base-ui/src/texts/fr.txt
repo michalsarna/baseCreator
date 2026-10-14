@@ -548,3 +548,35 @@
 547|le début de l'approche ne doit pas être plus haut que la hauteur de déplacement
 548|{} réglages
 549|… et {} de plus
+550|Créer
+551|Fichiers de données
+552|Générer une forme…
+553|{} formes générées
+554|Générateur
+555|Générateurs
+556|Importeurs
+557|Installer un plugin depuis un zip…
+558|Messages du script :
+559|Aucun générateur installé. Les plugins peuvent en ajouter (fenêtre Plugins).
+560|Pas encore de plugins. Placez un dossier de plugin dans le dossier des plugins ou installez un zip.
+561|Aucun
+562|Pas pour ce programme
+563|Ouvrir le dossier des plugins
+564|L'installation du plugin a échoué : {}
+565|Plugin installé : {}
+566|Plugin supprimé : {}
+567|Plugins
+568|Les plugins exécutent des scripts qui peuvent créer des formes et modifier le G-code. N'installez que des plugins de confiance.
+569|Plugins illisibles
+570|Plugins…
+571|Post-processeur
+572|Post-processeurs
+573|Préréglages
+574|Recharger les plugins
+575|Retirer
+576|Supprimer le plugin {} ? Son dossier est effacé.
+577|Le script a échoué : {}
+578|Traductions
+579|Importer avec un plugin…
+580|Aucun plugin ne lit de fichiers : installez-en un dans la fenêtre Plugins
+581|Le post-processeur a échoué, rien n'a été enregistré : {}

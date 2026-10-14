@@ -31,6 +31,10 @@ icons; `StdAct::run` carries one out on any `EditorHost`.
 What is **not** here: windows that need a machine or a document with layers (device settings, the print dialog, the
 camera overlay of a bed, the job check). They stay in the application.
 
+### Plugins
+
+Plugins add presets, clipart, translations, importers, generators (shapes from a form) and G-code postprocessors to every program: Rhai scripts in a sandbox, packs without code, installed from a folder or a zip. See [docs/PLUGINS.md](docs/PLUGINS.md) and the examples in `examples/plugins/`.
+
 ## Using it
 
 An application depends on a **tag** of this repository:

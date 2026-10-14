@@ -1,0 +1,24 @@
+{
+  "format": 1,
+  "id": "example-pack",
+  "name": "Example pack",
+  "version": "1.0.0",
+  "author": "baseCreator",
+  "license": "MIT OR Apache-2.0",
+  "description": "A pack without code: a machine preset, a clipart picture, a translation and a data file.",
+  "presets": [
+    { "name": "Example 2030 (200 × 300)", "class": "mill", "area": [300, 200, 40], "rapid": 1500, "spindle_max": 10000 },
+    { "name": "Example plotter A6 (148 × 105)", "class": "pen", "area": [148, 105, 0], "rapid": 5000 },
+    { "name": "Example 40 W laser (400 × 300)", "class": "laser", "area": [400, 300, 0], "rapid": 12000, "spindle_max": 1000 }
+  ],
+  "clipart": [
+    { "file": "clipart/diamond.svg", "name": "Diamond", "category": "Example pack" }
+  ],
+  "texts": {
+    "pl": { "Example text": "Przykładowy tekst" },
+    "de": { "Example text": "Beispieltext" }
+  },
+  "data": [
+    { "kind": "notes", "file": "data/notes.txt" }
+  ]
+}

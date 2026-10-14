@@ -548,3 +548,35 @@
 547|l'inici de l'aproximació no pot ser més alt que l'alçada de desplaçament
 548|{} paràmetres
 549|… i {} més
+550|Crea
+551|Fitxers de dades
+552|Genera una forma…
+553|S'han generat {} formes
+554|Generador
+555|Generadors
+556|Importadors
+557|Instal·la un connector des d'un zip…
+558|Missatges de l'script:
+559|No hi ha generadors instal·lats. Els connectors els poden afegir (finestra Connectors).
+560|Encara no hi ha connectors. Posa una carpeta de connector a la carpeta de connectors o instal·la un fitxer zip.
+561|Cap
+562|No és per a aquest programa
+563|Obre la carpeta de connectors
+564|La instal·lació del connector ha fallat: {}
+565|Connector instal·lat: {}
+566|Connector eliminat: {}
+567|Connectors
+568|Els connectors executen scripts que poden crear formes i canviar el G-code. Instal·la només connectors en què confiïs.
+569|Connectors que no s'han pogut llegir
+570|Connectors…
+571|Postprocessador
+572|Postprocessadors
+573|Valors predefinits
+574|Torna a carregar els connectors
+575|Treu
+576|Eliminar el connector {}? La seva carpeta se suprimeix.
+577|L'script ha fallat: {}
+578|Traduccions
+579|Importa amb un connector…
+580|Cap connector llegeix fitxers: n'has d'instal·lar un a la finestra Connectors
+581|El postprocessador ha fallat, no s'ha desat res: {}
