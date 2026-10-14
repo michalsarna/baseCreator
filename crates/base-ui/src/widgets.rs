@@ -89,3 +89,48 @@ pub fn button_grid(ui: &mut egui::Ui, id: &str, cells: &[(&str, &str, &str)]) ->
     });
     clicked
 }
+
+/// A row of widgets in the middle of the available width. The width of the row is measured while it is drawn and used
+/// for the next frame (the first frame has the row at the left), so any widgets work, not only text buttons.
+pub fn centered_row(ui: &mut egui::Ui, id_salt: &str, add: impl FnOnce(&mut egui::Ui)) {
+    let id = ui.id().with(("centered_row", id_salt));
+    let known: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(0.0);
+    let pad = if known > 0.0 { ((ui.available_width() - known) / 2.0).max(0.0) } else { 0.0 };
+    let mut start = 0.0;
+    let mut end = 0.0;
+    ui.horizontal(|ui| {
+        ui.add_space(pad);
+        start = ui.cursor().min.x;
+        add(ui);
+        end = ui.min_rect().max.x;
+    });
+    let width = (end - start).max(0.0);
+    if (width - known).abs() > 0.5 {
+        ui.data_mut(|d| d.insert_temp(id, width));
+        ui.ctx().request_repaint();
+    }
+}
+
+#[cfg(test)]
+mod centered_row_tests {
+    use super::*;
+
+    #[test]
+    fn the_row_moves_to_the_middle_once_its_width_is_known() {
+        let ctx = egui::Context::default();
+        let mut left = vec![];
+        for _ in 0..3 {
+            let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+                egui::CentralPanel::default().show(ui, |ui| {
+                    centered_row(ui, "t", |ui| {
+                        let r = ui.button("A button");
+                        left.push(r.rect.min.x);
+                    });
+                });
+            });
+            out.textures_delta.clear();
+        }
+        assert!(left[2] > left[0] + 10.0, "{left:?}");
+        assert!((left[2] - left[1]).abs() < 1.0 || left[1] > left[0], "{left:?}");
+    }
+}
