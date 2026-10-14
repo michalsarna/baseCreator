@@ -449,3 +449,55 @@ fn a_scene_hands_out_ids_and_groups_and_keeps_locked_shapes_from_editing() {
     assert_eq!(again.add(0, Kind::Rect { w: 1.0, h: 1.0 }, Xf::IDENTITY), 3);
     assert_eq!(Scene::from_parts(vec![], 1, 0).new_group_id(), 1);
 }
+
+#[test]
+fn programs_share_one_gallery_and_old_data_moves_in_once() {
+    use crate::{clipart::Library, paths};
+    let svg = |c: &str| format!("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'><rect width='10' height='10' fill='{c}'/></svg>");
+    let root = std::env::temp_dir().join(format!("bc-paths-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    let base = root.join("base");
+    // Two old program folders, each with settings and a gallery; both hold a picture called "box".
+    let old_a = root.join("a");
+    let old_b = root.join("b");
+    std::fs::create_dir_all(&old_a).unwrap();
+    std::fs::create_dir_all(&old_b).unwrap();
+    std::fs::write(old_a.join("app.ron"), "A").unwrap();
+    std::fs::write(old_b.join("app.ron"), "B").unwrap();
+    let mut la = Library::open(old_a.join("clipart"));
+    la.add(&svg("red"), "box", "Mine", "file", "", "").unwrap();
+    la.add(&svg("blue"), "same", "Mine", "file", "", "").unwrap();
+    let mut lb = Library::open(old_b.join("clipart"));
+    lb.add(&svg("green"), "box", "Mine", "file", "", "").unwrap();
+    lb.add(&svg("blue"), "same", "Mine", "file", "", "").unwrap();
+
+    let pa = paths::prepare_in(&base, "lightcreator", Some(&old_a));
+    let pb = paths::prepare_in(&base, "millcreator", Some(&old_b));
+    assert_eq!(std::fs::read_to_string(&pa.settings).unwrap(), "A");
+    assert_eq!(std::fs::read_to_string(&pb.settings).unwrap(), "B");
+    assert_eq!(pa.gallery, pb.gallery);
+    let g = Library::open(&pa.gallery);
+    // box (red), box (green, gets its own id), same (once: identical picture)
+    assert_eq!(g.items.len(), 3, "{:?}", g.items);
+    let ids: std::collections::HashSet<_> = g.items.iter().map(|c| c.id.clone()).collect();
+    assert_eq!(ids.len(), 3);
+
+    // Running it again changes nothing, even when the old folder gained a picture.
+    la.add(&svg("black"), "late", "Mine", "file", "", "").unwrap();
+    paths::prepare_in(&base, "lightcreator", Some(&old_a));
+    assert_eq!(Library::open(&pa.gallery).items.len(), 3);
+    // Existing new settings are not overwritten by old ones.
+    std::fs::write(&pa.settings, "NEW").unwrap();
+    std::fs::remove_file(base.join("apps/lightcreator/.migrated")).unwrap();
+    paths::prepare_in(&base, "lightcreator", Some(&old_a));
+    assert_eq!(std::fs::read_to_string(&pa.settings).unwrap(), "NEW");
+
+    // Two program instances changing the gallery do not lose each other's pictures.
+    let mut x = Library::open(&pa.gallery);
+    let mut y = Library::open(&pa.gallery);
+    x.add(&svg("pink"), "from x", "Mine", "file", "", "").unwrap();
+    y.add(&svg("gray"), "from y", "Mine", "file", "", "").unwrap();
+    assert!(Library::open(&pa.gallery).items.iter().any(|c| c.name == "from x"));
+    assert!(Library::open(&pa.gallery).items.iter().any(|c| c.name == "from y"));
+    let _ = std::fs::remove_dir_all(&root);
+}

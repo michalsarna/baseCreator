@@ -51,6 +51,8 @@ pub struct ClipState {
     pub online: Option<OnlineDlg>,
     /// Categories folded up to their title line.
     pub collapsed: std::collections::HashSet<String>,
+    /// When the index file was last read; another program sharing the folder may change it.
+    stamp: Option<std::time::SystemTime>,
 }
 
 impl ClipState {
@@ -61,9 +63,24 @@ impl ClipState {
 
     /// The same with another set of included pictures.
     pub fn with_builtin(lib: Library, builtin: Builtin) -> ClipState {
-        let mut s = ClipState { lib, builtin, user_svgs: HashMap::new(), filter: String::new(), category: None, show_builtin: true, show_user: true, size_mm: 50.0, dialog: None, online: None, collapsed: Default::default() };
+        let mut s = ClipState { lib, builtin, user_svgs: HashMap::new(), filter: String::new(), category: None, show_builtin: true, show_user: true, size_mm: 50.0, dialog: None, online: None, collapsed: Default::default(), stamp: None };
+        s.stamp = s.index_time();
         s.reload();
         s
+    }
+
+    fn index_time(&self) -> Option<std::time::SystemTime> {
+        std::fs::metadata(self.lib.dir().join("index.json")).and_then(|m| m.modified()).ok()
+    }
+
+    /// Pick up pictures that another program added to or removed from the shared gallery.
+    pub fn sync(&mut self) {
+        let t = self.index_time();
+        if t != self.stamp {
+            self.stamp = t;
+            self.lib.refresh();
+            self.reload();
+        }
     }
 
     /// Read the pictures of the library from disk (for thumbnails).
@@ -204,6 +221,7 @@ pub trait ClipGallery: ClipHost {
     }
 
     fn clipart_panel(&mut self, ui: &mut egui::Ui) {
+        self.clip_mut().sync();
         let units = self.units();
         ui.horizontal(|ui| {
             ui.add(egui::TextEdit::singleline(&mut self.clip_mut().filter).hint_text(tr("Search")).desired_width(130.0));
