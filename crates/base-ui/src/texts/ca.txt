@@ -246,3 +246,305 @@
 245|La restauració ha fallat: {}
 246|Restaura des d'una còpia de seguretat
 247|La configuració actual se substituirà per la de la còpia de seguretat. Les seves imatges s'afegiran a la galeria compartida. Voleu continuar?
+248|${} ara val {} passos/mm
+249|1. Fes una marca on és l'eina (o hi posa un comparador). 2. Prem Mou. 3. Mesura la distància i escriu-la a sota.
+250|Sonda tàctil 3D
+251|Una ordre G-code no és compatible o no és vàlida.
+252|Una paraula G-code no té lletra.
+253|A una ordre li falta el valor P o L.
+254|Una ordre necessita un nombre enter.
+255|Una ordre necessita paraules d'eix però la línia no en té.
+256|S'ha activat un final de carrera. La posició es pot haver perdut: torna a fer l'homing de la màquina.
+257|Una macro és G-code que envia un botó de la pestanya Control. Pot fer servir variables entre claudàtors.
+258|Un valor negatiu on cal un de positiu.
+259|Un número no és vàlid o falta.
+260|Una paraula es repeteix a la línia.
+261|Afegeix una macro
+262|Afegeix un recordatori
+263|Afegeix un pas
+264|Després de la tasca (acabada o aturada)
+265|Alarma
+266|Alarma {}: {}
+267|Alarmes
+268|Les {} configuracions del fitxer ja són al controlador.
+269|Un arc no té paraules d'eix al seu pla.
+270|Una entrada activa mentre res no la toca indica un problema de cablejat o de configuració ($5, $6).
+271|Al voltant de la tasca
+272|Les tecles de fletxa mouen X i Y, Re Pàg i Av Pàg mouen Z. Desactivat per defecte: les fletxes també mouen les formes seleccionades.
+273|En aquesta línia: X {} Y {} Z {}, {}, avanç {}
+274|Queden paraules d'eix mentre G80 és actiu.
+275|Primer feu una còpia de la configuració. Per continuar, escriviu {}:
+276|Fes una còpia a un fitxer…
+277|Abans que comenci la tasca
+278|Calibratge
+279|Calibratge…
+280|No es pot començar aquí: {}
+281|No es pot fer servir el fitxer: {}
+282|Canvia ara l'eina o el retolador. La màquina espera; res no es mou fins que continuïs.
+283|Comprova el programa abans de cada execució
+284|Esborra l'alarma ($X)
+285|Esborra les estadístiques
+286|Clica per escriure la posició de l'eina en coordenades de treball
+287|Connecta't primer a la màquina (pestanya Dispositiu)
+288|Connecta't a la màquina per veure'n les entrades.
+289|Continua la tasca
+290|Controlador
+291|Coordenades
+292|Inici de cicle
+293|Elimina aquesta macro
+294|Elimina aquest recordatori
+295|Diagnòstic i estadístiques
+296|Diagnòstic desat: {}
+297|Diagonal A
+298|La diagonal A és la més llarga: l'eix Y s'inclina cap a +X.
+299|Diagonal B
+300|La diagonal B és la més llarga: l'eix Y s'inclina cap a −X.
+301|Diàmetre de la bola
+302|Distància
+303|Fet
+304|Error
+305|Errors
+306|Exporta el diagnòstic (zip)…
+307|L'exportació ha fallat: {}
+308|Configuració de fàbrica ($RST=$)…
+309|S'ha escrit la configuració de fàbrica ($RST=$)
+310|Distància de fallada
+311|Moviment més ràpid de X i Y
+312|Retenció d'avanç
+313|Fitxer
+314|Configuració del firmware ($$)
+315|Del controlador
+316|El G-code està bloquejat durant una alarma o un desplaçament. Desbloqueja primer.
+317|G43.1 només pot desplaçar l'eix de la longitud de l'eina.
+318|G53 només funciona amb G0 o G1.
+319|GRBL no coneix aquesta ordre $.
+320|Ves a X0 Y0
+321|Alçada
+322|Mantén premut per moure
+323|Homing
+324|L'homing ha fallat: reinici durant el cicle.
+325|L'homing ha fallat: no s'ha trobat cap final de carrera. Comprova els finals de carrera i el cablejat.
+326|L'homing ha fallat: la porta de seguretat s'ha obert durant el cicle.
+327|L'homing ha fallat: el final de carrera no s'ha alliberat en retirar-se. Comprova la retirada i el cablejat.
+328|L'homing no està activat a la configuració ($22).
+329|Entrades
+330|Entrades actives: {}
+331|En lloc d'un pas per clic, l'eina es mou mentre el botó està premut
+332|Acabat de fer
+333|Tasques
+334|Moviment manual
+335|Teclat
+336|El mode làser necessita una sortida PWM.
+337|Última sonda: X {} Y {} Z {} ({})
+338|Última sonda: Z {} ({})
+339|Elevació després d'establir el zero
+340|Eleva a l'alçada de seguretat i ves al zero de la feina
+341|Línia
+342|Màquina
+343|Macro {}
+344|Macro {}: {}
+345|Macro {}: {} línies enviades
+346|Macros
+347|Manteniment
+348|Marca o talla un rectangle i mesura'n les dues diagonals: de l'angle frontal esquerre al posterior dret (A) i del frontal dret al posterior esquerre (B). Són iguals quan els eixos són perpendiculars.
+349|Mesurat
+350|Mou
+351|Mou {} la distància
+352|Valor nou: ${} = {} (era {})
+353|Encara no s'ha definit cap avanç.
+354|Cap recordatori. Afegeix-los a la configuració del dispositiu (Manteniment).
+355|Encara no s'ha llegit (Màquina → Configuració del firmware).
+356|Encara no s'ha llegit res.
+357|Desplaçament de Z en tocar
+358|Oli a les guies
+359|Només s'admeten els sistemes de coordenades de treball de G54 a G59.
+360|Només els que difereixen del valor típic
+361|Fora d'esquadra {}°: un extrem de l'eix Y està desplaçat {} mm en tota l'alçada.
+362|Posició
+363|Sonda
+364|Sonda Z
+365|La sonda ha fallat: no ha tocat res dins la distància. Comprova la placa i la distància de fallada.
+366|La sonda ha fallat: la sonda ja estava tancada abans del moviment. Comprova el cablejat i la placa.
+367|Posa la placa sota l'eina: l'eina baixa fins a tocar, i després Z s'estableix al gruix de la placa
+368|Posa l'eina al costat de la vora: es mou cap a ella fins a tocar, i la vora passa a ser zero
+369|Toc ràpid
+370|Llegeix la màquina
+371|Llegeix la configuració ($$)
+372|S'està llegint…
+373|Llegeix el firmware ($I) i la configuració ($$) del controlador
+374|Elimina aquest pas
+375|Reinici durant el moviment. Pot haver-se perdut passos: torna a fer l'homing de la màquina.
+376|Restaura des d'un fitxer…
+377|Restaura la configuració de fàbrica
+378|Restaura la configuració des d'un fitxer
+379|Retirada entre tocs
+380|Porta de seguretat
+381|Configuració desada a {}
+382|Torna a establir Z amb la sonda: l'eina nova toca la placa i Z passa a ser el gruix de la placa
+383|Ajust
+384|Toc lent
+385|Límits per programari
+386|Els límits per programari també necessiten l'homing activat.
+387|Algunes paraules no les fa servir cap ordre.
+388|Velocitat XY
+389|Velocitat Z
+390|Velocitat de l'eix
+391|Perpendicularitat dels eixos
+392|Comença des d'aquí
+393|Comença des de la línia
+394|Comença des de la línia…
+395|Estadístiques d'aquesta màquina
+396|Passos de X i Y (mm)
+397|Passos de Z (mm)
+398|Passos per mil·límetre
+399|Atura la feina
+400|Atura el moviment
+401|L'arc no es pot calcular a partir del radi. Divideix-lo o usa desplaçaments.
+402|A l'arc li falta el desplaçament I, J o K.
+403|Els eixos són perpendiculars dins de {} mm a l'alçada.
+404|La informació de compilació o la línia d'inici és massa llarga.
+405|El controlador ja les té totes.
+406|El controlador recorre el programa en mode de comprovació ($C): res no es mou, i les línies que no entén s'informen abans de l'execució real
+407|El controlador informa en polzades ($13): les posicions de la pestanya Control no són en mil·límetres.
+408|La tasca està en pausa
+409|L'ordre de moviment no és vàlida.
+410|El moviment supera el recorregut de la màquina i s'ha ignorat.
+411|La línia és massa llarga.
+412|El número de línia és fora de rang.
+413|La màquina ha funcionat {} hores en {} tasques.
+414|La màquina es porta a l'estat que té el programa en aquesta línia: unitats, broca, velocitat, posició. Assegura't que l'eina i la peça són on eren.
+415|La màquina es mou la distància que demanes; mesura fins on ha anat de debò i es calcula el nombre correcte de passos.
+416|El moviment supera el recorregut de la màquina. La posició es manté; desbloqueja per continuar.
+417|La sonda baixa fins a tocar; Z s'estableix al desplaçament de la sonda
+418|L'entrada de la sonda ja està tancada. Comprova la pinça, la placa i el cablejat.
+419|La sonda ha d'estar connectada a l'entrada de sonda del controlador. Comprova-ho tocant la placa: l'entrada es veu tancada a la pestanya Control.
+420|La porta de seguretat és oberta.
+421|El valor supera la freqüència de passos que admet aquest GRBL.
+422|No s'han pogut llegir els paràmetres; s'han restaurat els valors per defecte.
+423|Els paràmetres encara no s'han llegit.
+424|Els paràmetres es van desar abans del primer canvi: {}
+425|El temps de l'impuls de pas ha de ser almenys 3 µs.
+426|La destinació del moviment no és vàlida.
+427|L'eina és aquí: fes d'això el zero de la feina
+428|El número d'eina és massa alt.
+429|Aquests paràmetres viuen al controlador, no al dispositiu. Canvia'n un cada vegada i anota el valor anterior: un valor erroni pot fer que la màquina es mogui una distància equivocada. El primer canvi d'una sessió desa tots els paràmetres en un fitxer.
+430|Aquesta configuració del fitxer difereix del controlador. No s'escriu res fins que premeu Escriu-ho tot.
+431|Gruix del seu costat
+432|Gruix de la placa
+433|Aquesta ordre $ només funciona quan la màquina està inactiva.
+434|Això escriu $RST=$: cada paràmetre del controlador torna als valors per defecte del firmware. Els passos, els recorreguts, les velocitats i l'homing canviaran.
+435|Temps de funcionament
+436|Diàmetre de l'eina
+437|Placa de contacte
+438|Recorregut de X, Y, Z
+439|Dues ordres de la línia necessiten paraules d'eix.
+440|Dues ordres del mateix grup són a la mateixa línia.
+441|Escriu les dues diagonals per veure el resultat.
+442|Escriu la distància mesurada per veure el valor nou.
+443|Típic
+444|Unitat
+445|Fes servir aquests valors per al dispositiu
+446|Valor
+447|Variables: {}
+448|Què cal fer
+449|Feina
+450|Escriu
+451|Escriu ${}
+452|Voleu escriure ${} = {} al controlador? Ara és {}. Canvieu una configuració cada cop i apunteu el valor antic.
+453|Escriu una configuració
+454|Escriu-ho tot
+455|S'escriuen {} paràmetres; després es tornen a llegir
+456|final de carrera X
+457|Final de carrera X
+458|final de carrera Y
+459|Final de carrera Y
+460|Sí
+461|Z
+462|final de carrera Z
+463|Final de carrera Z
+464|Z a l'alçada de seguretat
+465|Zero a X i Y
+466|Zero a tot
+467|una distància de la sonda és fora de rang
+468|una mida de la sonda és fora de rang
+469|tancat
+470|porta
+471|cada
+472|retenció
+473|entrada {}
+474|sense contacte
+475|abans d'aquesta línia no s'ha definit l'avanç
+476|de {}
+477|desactivat
+478|activat
+479|obert
+480|sonda
+481|reinici
+482|broca aturada
+483|broca activada (M{}) a {}
+484|inici
+485|la distància de fallada ha de ser més llarga que el doble de la retirada
+486|la línia continua un arc (G2/G3) sense una paraula G
+487|la línia és després del final del programa
+488|les línies anteriors fan servir G53 o G92, així que no es pot calcular la posició
+489|el programa no s'ha mogut en X i Y abans d'aquesta línia
+490|l'avanç lent de la sonda ha d'estar entre 1 i el ràpid
+491|tocat
+492|Primer s'enviaran {} línies per preparar això.
+493|{} de {} configuracions difereixen després d'escriure:
+494|{} {}: {}
+495|{}: pendent ({} h de retard)
+496|{}: queden {} h
+497|1. On és el sensor
+498|2. La primera eina, la de referència
+499|3. Cada eina següent
+500|Una còpia de la configuració del controlador es conserva amb el dispositiu. Se'n fa una la primera vegada que es connecta la màquina i després cada cop que la configuració difereix de la còpia més recent; les còpies formen part de la còpia de seguretat del programa.
+501|S'ha desat amb el dispositiu una còpia dels {} paràmetres del controlador.
+502|S'ha desat amb el dispositiu una còpia dels {} paràmetres.
+503|Hi ha una tasca en marxa.
+504|Ja hi ha una mesura en marxa.
+505|S'ha desat una còpia nova dels paràmetres després del teu canvi ({} paràmetres difereixen de l'anterior).
+506|Un sensor de longitud d'eina és un interruptor en un lloc fix de la màquina. La punta de cada eina el toca, de manera que una fresa nova pot tenir exactament la mateixa Z que l'anterior sense tornar a tocar la peça. La seva posició és en coordenades de màquina: fes primer l'homing i no moguis mai el sensor.
+507|Després del toc, Z s'estableix a la Z de l'eina de referència al sensor
+508|Compara amb el controlador i escriu les diferències de nou
+509|Còpies de la configuració ({})
+510|Oblida
+511|Porta l'eina sobre el mig del sensor, uns mil·límetres per sobre, i prem el botó.
+512|Màquina X {}  Y {}, aproximació des de Z {}
+513|Fes una còpia ara
+514|Mesura l'eina de referència
+515|Mesura primer l'eina de referència.
+516|Mesura l'eina (sensor)
+517|Mesura aquesta eina i estableix Z
+518|Mesurant…
+519|Encara no mesurat.
+520|Encara no establert.
+521|No canvia res; es mostra la diferència respecte a la referència
+522|Només mesura
+523|Posa la primera fresa i estableix amb ella Z a la peça (pestanya Control: sonda Z, o toca la superfície i prem Z0). Després mesura-la al sensor.
+524|Referència: Z {} al sensor
+525|Restaura…
+526|Estableix primer la posició del sensor.
+527|El controlador encara no ha informat de la posició.
+528|Paràmetres diferents de la còpia desada amb el dispositiu: {}. S'ha desat una còpia nova.
+529|La primera vegada tingues una mà a prop de l'aturada: l'eina baixa cap al sensor.
+530|La màquina va al sensor i l'eina el toca dues vegades
+531|La màquina va al sensor de longitud d'eina; l'eina nova obté la Z de l'eina de referència
+532|La màquina no està inactiva.
+533|El sensor és aquí
+534|L'eina és tan llarga com la de referència.
+535|L'eina és {} mm més llarga que la de referència.
+536|L'eina és {} mm més curta que la de referència.
+537|Sensor de longitud d'eina
+538|Sensor de longitud d'eina…
+539|Alçada de desplaçament (Z de màquina)
+540|Quan una tasca s'atura per canviar de fresa, la finestra ofereix Mesura l'eina. També es pot fer aquí, en qualsevol moment.
+541|una posició del sensor és fora de rang
+542|després d'un canvi aquí
+543|en connectar
+544|a mà
+545|les còpies de la configuració no són vàlides
+546|la referència no és vàlida
+547|l'inici de l'aproximació no pot ser més alt que l'alçada de desplaçament
+548|{} paràmetres
+549|… i {} més

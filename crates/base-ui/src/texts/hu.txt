@@ -246,3 +246,305 @@
 245|A visszaállítás nem sikerült: {}
 246|Visszaállítás biztonsági mentésből
 247|A jelenlegi beállítások helyébe a biztonsági mentés beállításai lépnek. A képei hozzáadódnak a közös galériához. Folytatja?
+248|A(z) ${} értéke most {} lépés/mm
+249|1. Jelölje meg, ahol a szerszám áll (vagy tegyen oda mérőórát). 2. Nyomja meg a Mozgat gombot. 3. Mérje meg a távolságot, és írja be alább.
+250|3D tapintószonda
+251|Egy G-kód parancs nem támogatott vagy érvénytelen.
+252|Egy G-kód szóból hiányzik a betű.
+253|Egy parancsból hiányzik a P vagy L érték.
+254|Egy parancshoz egész szám kell.
+255|Egy parancshoz tengelyszavak kellenek, de a sorban nincs.
+256|Egy végálláskapcsoló működésbe lépett. A pozíció elveszhetett: referenciázza újra a gépet.
+257|A makró olyan G-kód, amelyet a Vezérlés fül egy gombja küld. Szögletes zárójelben változókat használhat.
+258|Negatív érték ott, ahol pozitív kell.
+259|Egy szám érvénytelen vagy hiányzik.
+260|Egy szó ismétlődik a sorban.
+261|Makró hozzáadása
+262|Emlékeztető hozzáadása
+263|Lépés hozzáadása
+264|A munka után (befejezve vagy leállítva)
+265|Riasztás
+266|Riasztás {}: {}
+267|Riasztások
+268|A fájl mind a(z) {} beállítása most a vezérlőben van.
+269|Egy ívnek nincs tengelyszava a síkjában.
+270|Az a bemenet, amely aktív, miközben semmi sem érinti, vezetékezési vagy beállítási hibára utal ($5, $6).
+271|A munka körül
+272|A nyílbillentyűk az X és Y tengelyt mozgatják, a Page Up és Page Down a Z-t. Alapból kikapcsolva: a nyilak a kijelölt alakzatokat is mozgatják.
+273|Ebben a sorban: X {} Y {} Z {}, {}, előtolás {}
+274|Tengelyszavak maradtak, miközben a G80 aktív.
+275|Előbb mentse el a beállításokat. A folytatáshoz írja be: {}:
+276|Mentés fájlba…
+277|A munka megkezdése előtt
+278|Kalibrálás
+279|Kalibrálás…
+280|Innen nem lehet indítani: {}
+281|A fájl nem használható: {}
+282|Cserélje most a szerszámot vagy a tollat. A gép vár; semmi sem mozdul, amíg nem folytatja.
+283|A program ellenőrzése minden futtatás előtt
+284|Riasztás törlése ($X)
+285|Statisztikák törlése
+286|Kattintson, hogy beírja a szerszám helyzetét a munkakoordinátákban
+287|Először csatlakozz a géphez (Eszköz lap)
+288|Csatlakozzon a géphez a bemenetei megtekintéséhez.
+289|A munka folytatása
+290|Vezérlő
+291|Koordináták
+292|Ciklus indítása
+293|Makró törlése
+294|Az emlékeztető törlése
+295|Diagnosztika és statisztika
+296|Diagnosztika mentve: {}
+297|A átló
+298|Az A átló a hosszabb: az Y tengely a +X felé dől.
+299|B átló
+300|A B átló a hosszabb: az Y tengely a −X felé dől.
+301|A golyó átmérője
+302|Távolság
+303|Kész
+304|Hiba
+305|Hibák
+306|Diagnosztika exportálása (zip)…
+307|Az exportálás nem sikerült: {}
+308|Gyári beállítások ($RST=$)…
+309|A gyári beállítások kiírva ($RST=$)
+310|Hibatávolság
+311|Az X és Y leggyorsabb mozgása
+312|Előtolás szüneteltetése
+313|Fájl
+314|Firmware-beállítások ($$)
+315|A vezérlőtől
+316|A G-kód riasztás vagy léptetés közben zárolva van. Előbb oldja fel.
+317|A G43.1 csak a szerszámhossz tengelyét tolhatja el.
+318|A G53 csak a G0-val vagy G1-gyel működik.
+319|A GRBL nem ismeri ezt a $ parancsot.
+320|Menj az X0 Y0 pontra
+321|Magasság
+322|Tartsa lenyomva a mozgatáshoz
+323|Referenciázás
+324|A referenciázás nem sikerült: visszaállítás a ciklus alatt.
+325|A referenciázás nem sikerült: nem található végálláskapcsoló. Ellenőrizze a kapcsolókat és a vezetékezést.
+326|A referenciázás nem sikerült: a biztonsági ajtót kinyitották a ciklus alatt.
+327|A referenciázás nem sikerült: a kapcsoló nem engedett el a távolodáskor. Ellenőrizze a távolodást és a vezetékezést.
+328|A referenciázás nincs engedélyezve a beállításokban ($22).
+329|Bemenetek
+330|Aktív bemenetek: {}
+331|Kattintásonként egy lépés helyett a szerszám addig mozog, amíg a gombot lenyomva tartja
+332|Épp most kész
+333|Munkák
+334|Léptetés
+335|Billentyűzet
+336|A lézer mód PWM kimenetet igényel.
+337|Utolsó tapintás: X {} Y {} Z {} ({})
+338|Utolsó tapintás: Z {} ({})
+339|Emelés a nulla beállítása után
+340|Emelje a biztonságos magasságra, majd menjen a munka nullpontjára
+341|Vonal
+342|Gép
+343|{}. makró
+344|{}. makró: {}
+345|Makró {}: {} sor elküldve
+346|Makrók
+347|Karbantartás
+348|Jelöljön ki vagy vágjon ki egy téglalapot, és mérje meg a két átlóját: a bal elülső saroktól a jobb hátsóig (A) és a jobb elülsőtől a bal hátsóig (B). Egyenlők, ha a tengelyek merőlegesek.
+349|Mért
+350|Mozgat
+351|{} mozgatása a távolsággal
+352|Új érték: ${} = {} (volt {})
+353|Az előtolás még nincs beállítva.
+354|Nincs emlékeztető. Adja hozzá az eszköz beállításaiban (Karbantartás).
+355|Még nincs beolvasva (Gép → Firmware-beállítások).
+356|Még nincs beolvasva semmi.
+357|A Z eltolása érintéskor
+358|Olajozza meg a vezetékeket
+359|Csak a G54–G59 munkakoordináta-rendszerek támogatottak.
+360|Csak azok, amelyek eltérnek a tipikus értéktől
+361|Nem derékszögű {}°-kal: az Y tengely egyik vége a teljes magasságon {} mm-rel el van tolva.
+362|Pozíció
+363|Tapintó
+364|Z tapintása
+365|A tapintás nem sikerült: a távolságon belül semmit sem érintett. Ellenőrizze a lapot és a hibatávolságot.
+366|A tapintás nem sikerült: a tapintó már a mozgás előtt zárva volt. Ellenőrizze a vezetékezést és a lapot.
+367|Tegye a lapot a szerszám alá: a szerszám lemegy az érintésig, majd a Z a lap vastagságára áll
+368|Állítsa a szerszámot az él mellé: az felé mozog az érintésig, és az él lesz a nulla
+369|Gyors érintés
+370|Gép beolvasása
+371|Beállítások beolvasása ($$)
+372|Beolvasás…
+373|Beolvassa a vezérlő firmware-ét ($I) és beállításait ($$)
+374|A lépés eltávolítása
+375|Visszaállítás mozgás közben. Lépések veszhettek el: referenciázza újra a gépet.
+376|Visszaállítás fájlból…
+377|Gyári beállítások visszaállítása
+378|Beállítások visszaállítása fájlból
+379|Visszahúzás az érintések között
+380|Biztonsági ajtó
+381|A beállítások mentve: {}
+382|Állítsa be újra a Z-t a tapintóval: az új szerszám megérinti a lapot, és a Z a lap vastagsága lesz
+383|Beállítás
+384|Lassú érintés
+385|Szoftveres határok
+386|A szoftveres határokhoz a referenciázásnak is be kell lennie kapcsolva.
+387|Néhány szót egyetlen parancs sem használ.
+388|XY sebesség
+389|Z sebesség
+390|Főorsó fordulatszáma
+391|A tengelyek merőlegessége
+392|Indítás innen
+393|Indítás sorból
+394|Indítás sorból…
+395|A gép statisztikái
+396|X és Y lépései (mm)
+397|Z lépései (mm)
+398|Lépés milliméterenként
+399|Munka leállítása
+400|Mozgás leállítása
+401|Az ív nem számítható ki a sugárból. Ossza fel, vagy használjon eltolásokat.
+402|Az ívből hiányzik az I, J vagy K eltolás.
+403|A tengelyek {} mm-en belül merőlegesek a magasság mentén.
+404|A build-információ vagy az indítósor túl hosszú.
+405|A vezérlőben már mind megvan.
+406|A vezérlő ellenőrző módban ($C) végigmegy a programon: semmi sem mozdul, és az általa nem értett sorokat a valódi futtatás előtt jelzi
+407|A vezérlő hüvelykben jelent ($13): a Vezérlés fül pozíciói nem milliméterben vannak.
+408|A munka szünetel
+409|A léptetési parancs érvénytelen.
+410|A léptetés túllépi a gép mozgástartományát, ezért figyelmen kívül maradt.
+411|A sor túl hosszú.
+412|A sorszám a tartományon kívül van.
+413|A gép {} órát dolgozott {} munkában.
+414|A gép abba az állapotba kerül, amelyben a program azon a soron van: mértékegységek, főorsó, sebesség, pozíció. Győződjön meg róla, hogy a szerszám és a munkadarab ott van, ahol volt.
+415|A gép a kért távolságot mozog; mérje meg, valójában mennyit ment, és kiszámoljuk a helyes lépésszámot.
+416|A mozgás túllépi a gép mozgástartományát. A pozíció megmarad; a folytatáshoz oldja fel.
+417|A tapintó lemegy az érintésig; a Z a tapintó eltolására áll
+418|A tapintó bemenete már zárva van. Ellenőrizze a csipeszt, a lapot és a vezetékezést.
+419|A tapintót a vezérlő tapintó bemenetére kell kötni. Próbálja ki a lap megérintésével: a bemenet zártként látszik a Vezérlés fülön.
+420|A biztonsági ajtó nyitva van.
+421|A beállítás meghaladja a GRBL által támogatott lépésfrekvenciát.
+422|A beállításokat nem sikerült beolvasni; az alapértékek visszaálltak.
+423|A beállításokat még nem olvasták be.
+424|A beállítások az első módosítás előtt mentve lettek: {}
+425|A lépésimpulzus idejének legalább 3 µs-nak kell lennie.
+426|A mozgás célja érvénytelen.
+427|A szerszám itt van: ez legyen a munka nullpontja
+428|A szerszám száma túl magas.
+429|Ezek a beállítások a vezérlőben vannak, nem az eszközben. Egyszerre egyet változtasson, és írja fel az előző értéket: egy rossz érték miatt a gép rossz távolságot tehet meg. A munkamenet első módosítása az összes beállítást fájlba menti.
+430|A fájl ezen beállításai eltérnek a vezérlőtől. Semmi sem íródik, amíg nem nyomja meg az Összes írása gombot.
+431|Az oldalának vastagsága
+432|A lap vastagsága
+433|Ez a $ parancs csak akkor működik, ha a gép áll.
+434|Ez kiírja a $RST=$ parancsot: a vezérlő minden beállítása visszatér a firmware alapértékeire. A lépésszámok, mozgástartományok, sebességek és a referenciázás mind megváltoznak.
+435|Futási idő
+436|A szerszám átmérője
+437|Érintőlap
+438|Az X, Y, Z mozgástartománya
+439|A sor két parancsa is tengelyszavakat igényel.
+440|Ugyanabból a csoportból két parancs van egy sorban.
+441|Írja be mindkét átlót az eredmény megtekintéséhez.
+442|Írja be a mért távolságot az új érték megtekintéséhez.
+443|Tipikus
+444|Egység
+445|Ezen értékek használata az eszközhöz
+446|Érték
+447|Változók: {}
+448|Mit kell tenni
+449|Munka
+450|Írás
+451|${} kiírása
+452|Beírja a ${} = {} értéket a vezérlőbe? Jelenleg {}. Egyszerre egy beállítást módosítson, és jegyezze fel a régi értéket.
+453|Beállítás írása
+454|Összes írása
+455|{} beállítás kiírása; utána visszaolvassuk őket
+456|X végállás
+457|X végálláskapcsoló
+458|Y végállás
+459|Y végálláskapcsoló
+460|Igen
+461|Z
+462|Z végállás
+463|Z végálláskapcsoló
+464|Z a biztonságos magasságra
+465|X és Y nullázása
+466|Mindent nulláz
+467|a tapintó egyik távolsága tartományon kívül van
+468|a tapintó egyik mérete tartományon kívül van
+469|zárt
+470|ajtó
+471|minden
+472|tartás
+473|bemenet {}
+474|nincs érintés
+475|e sor előtt nem volt előtolás beállítva
+476|/ {}
+477|ki
+478|be
+479|nyitott
+480|tapintó
+481|visszaállítás
+482|főorsó ki
+483|főorsó be (M{}) {}-on
+484|indítás
+485|a hibatávolságnak a visszahúzás kétszeresénél hosszabbnak kell lennie
+486|a sor G-szó nélkül folytat egy ívet (G2/G3)
+487|a sor a program vége után van
+488|a korábbi sorok G53-at vagy G92-t használnak, így a pozíció nem számolható ki
+489|a program e sor előtt nem mozdult X-ben és Y-ban
+490|a lassú tapintási előtolásnak 1 és a gyors között kell lennie
+491|megérintette
+492|Először {} sor lesz elküldve ennek beállításához.
+493|Írás után {} / {} beállítás eltér:
+494|{} {}: {}
+495|{}: esedékes ({} órát késik)
+496|{}: még {} óra
+497|1. Hol van az érzékelő
+498|2. Az első szerszám, a referencia
+499|3. Minden további szerszám
+500|A vezérlő beállításairól másolat készül, és az eszközzel együtt van tárolva. Az első csatlakozáskor készül, majd minden alkalommal, amikor a beállítások eltérnek a legújabb másolattól; a másolatok a program biztonsági mentésének részei.
+501|A vezérlő {} beállításáról másolat mentve az eszközzel.
+502|{} beállításról másolat mentve az eszközzel.
+503|Egy munka fut.
+504|Egy mérés már fut.
+505|A módosítása után új másolat készült a beállításokról ({} beállítás tér el az előzőtől).
+506|A szerszámhossz-érzékelő egy kapcsoló a gép egy rögzített helyén. Minden szerszám hegye megérinti, így egy új maró pontosan ugyanazt a Z-t kaphatja, mint az előző, anélkül hogy újra megérintené a munkadarabot. A helye gépi koordinátákban van megadva: előbb referenciázza a gépet, és soha ne mozgassa az érzékelőt.
+507|Az érintés után a Z a referenciaszerszám érzékelőnél mért Z-jére áll
+508|Összehasonlítás a vezérlővel, a különbségek visszaírása
+509|A beállítások másolatai ({})
+510|Elfelejt
+511|Vigye a szerszámot az érzékelő közepe fölé, néhány milliméterrel fölé, és nyomja meg a gombot.
+512|Gép X {}  Y {}, közelítés Z {}-ről
+513|Másolat készítése most
+514|A referenciaszerszám mérése
+515|Előbb mérje meg a referenciaszerszámot.
+516|Szerszám mérése (érzékelő)
+517|A szerszám mérése és a Z beállítása
+518|Mérés…
+519|Még nincs megmérve.
+520|Még nincs beállítva.
+521|Semmi sem változik; a referenciától való eltérés látszik
+522|Csak mérés
+523|Tegye be az első marót, és állítsa vele a Z-t a munkadarabon (Vezérlés fül: Z tapintása, vagy a felület megérintése és Z0). Aztán mérje meg az érzékelőn.
+524|Referencia: Z {} az érzékelőnél
+525|Visszaállítás…
+526|Előbb állítsa be az érzékelő helyét.
+527|A vezérlő még nem jelentette a pozíciót.
+528|Az eszközzel mentett másolattól eltérő beállítások: {}. Új másolat készült.
+529|Először tartsa a kezét a leállító közelében: a szerszám lefelé megy az érzékelő felé.
+530|A gép az érzékelőhöz megy, és a szerszám kétszer megérinti
+531|A gép a szerszámhossz-érzékelőhöz megy; az új szerszám megkapja a referenciaszerszám Z-jét
+532|A gép nem tétlen.
+533|Az érzékelő itt van
+534|A szerszám ugyanolyan hosszú, mint a referenciaszerszám.
+535|A szerszám {} mm-rel hosszabb a referenciaszerszámnál.
+536|A szerszám {} mm-rel rövidebb a referenciaszerszámnál.
+537|Szerszámhossz-érzékelő
+538|Szerszámhossz-érzékelő…
+539|Szállítási magasság (a gép Z-je)
+540|Ha a munka marócsere miatt megáll, az ablak felkínálja a Szerszám mérését. Itt is megteheti, bármikor.
+541|az érzékelő egyik pozíciója tartományon kívül van
+542|az itteni változtatás után
+543|csatlakozáskor
+544|kézzel
+545|a beállítások másolatai érvénytelenek
+546|a referencia érvénytelen
+547|a közelítés kezdete nem lehet magasabban a szállítási magasságnál
+548|{} beállítás
+549|… és még {}

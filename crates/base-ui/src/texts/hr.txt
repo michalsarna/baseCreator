@@ -246,3 +246,305 @@
 245|Vraćanje nije uspjelo: {}
 246|Vrati iz sigurnosne kopije
 247|Vaše trenutne postavke bit će zamijenjene postavkama iz sigurnosne kopije. Njezine slike bit će dodane u zajedničku galeriju. Nastaviti?
+248|${} sada iznosi {} koraka/mm
+249|1. Označite mjesto na kojem je alat (ili ondje postavite mjerni sat). 2. Pritisnite Pomakni. 3. Izmjerite udaljenost i upišite je ispod.
+250|3D dodirna sonda
+251|G-code naredba nije podržana ili je neispravna.
+252|G-code riječ nema slovo.
+253|Naredbi nedostaje vrijednost P ili L.
+254|Naredba traži cijeli broj.
+255|Naredba traži riječi osi, ali ih redak nema.
+256|Aktiviran je krajnji prekidač. Položaj je možda izgubljen: ponovno referencirajte stroj.
+257|Makro je G-code koji šalje gumb na kartici Upravljanje. Može koristiti varijable u uglatim zagradama.
+258|Negativna vrijednost gdje je potrebna pozitivna.
+259|Broj je neispravan ili nedostaje.
+260|Riječ se ponavlja u retku.
+261|Dodaj makro
+262|Dodaj podsjetnik
+263|Dodaj korak
+264|Nakon zadatka (završenog ili zaustavljenog)
+265|Alarm
+266|Alarm {}: {}
+267|Alarmi
+268|Svih {} postavki iz datoteke sada je u upravljaču.
+269|Luk nema riječi osi u svojoj ravnini.
+270|Ulaz koji je aktivan dok ga ništa ne dodiruje upućuje na problem s ožičenjem ili postavkama ($5, $6).
+271|Oko zadatka
+272|Tipke sa strelicama pomiču X i Y, Page Up i Page Down pomiču Z. Prema zadanome isključeno: strelice pomiču i odabrane oblike.
+273|U ovom retku: X {} Y {} Z {}, {}, posmak {}
+274|Ostale su riječi osi dok je G80 aktivan.
+275|Najprije napravite sigurnosnu kopiju postavki. Za nastavak upišite {}:
+276|Spremi sigurnosnu kopiju u datoteku…
+277|Prije početka zadatka
+278|Kalibracija
+279|Kalibracija…
+280|Ovdje se ne može početi: {}
+281|Datoteka se ne može koristiti: {}
+282|Zamijenite sada alat ili olovku. Stroj čeka; ništa se ne miče dok ne nastavite.
+283|Provjeri program prije svakog pokretanja
+284|Obriši alarm ($X)
+285|Očisti statistiku
+286|Kliknite za upis položaja alata u radnim koordinatama
+287|Prvo se spojite sa strojem (kartica Uređaj)
+288|Spojite se na stroj da vidite njegove ulaze.
+289|Nastavi zadatak
+290|Kontroler
+291|Koordinate
+292|Pokretanje ciklusa
+293|Izbriši ovaj makro
+294|Izbriši ovaj podsjetnik
+295|Dijagnostika i statistika
+296|Dijagnostika spremljena: {}
+297|Dijagonala A
+298|Dijagonala A je dulja: os Y nagnuta je prema +X.
+299|Dijagonala B
+300|Dijagonala B je dulja: os Y nagnuta je prema −X.
+301|Promjer kuglice
+302|Udaljenost
+303|Gotovo
+304|Pogreška
+305|Pogreške
+306|Izvezi dijagnostiku (zip)…
+307|Izvoz nije uspio: {}
+308|Tvorničke postavke ($RST=$)…
+309|Tvorničke postavke zapisane ($RST=$)
+310|Udaljenost neuspjeha
+311|Najbrže kretanje X i Y
+312|Zaustavi posmak
+313|Datoteka
+314|Postavke firmwarea ($$)
+315|Iz kontrolera
+316|G-code je zaključan tijekom alarma ili pomaka. Prvo otključajte.
+317|G43.1 može pomaknuti samo os duljine alata.
+318|G53 radi samo s G0 ili G1.
+319|GRBL ne poznaje ovu $ naredbu.
+320|Idi na X0 Y0
+321|Visina
+322|Držite pritisnuto za pomicanje
+323|Referenciranje
+324|Referenciranje nije uspjelo: reset tijekom ciklusa.
+325|Referenciranje nije uspjelo: krajnji prekidač nije pronađen. Provjerite prekidače i ožičenje.
+326|Referenciranje nije uspjelo: sigurnosna vrata otvorena su tijekom ciklusa.
+327|Referenciranje nije uspjelo: prekidač se nije oslobodio pri odmicanju. Provjerite odmak i ožičenje.
+328|Referenciranje nije omogućeno u postavkama ($22).
+329|Ulazi
+330|Aktivni ulazi: {}
+331|Umjesto jednog koraka po kliku, alat se pomiče dok je gumb pritisnut
+332|Upravo učinjeno
+333|Zadaci
+334|Ručno pomicanje
+335|Tipkovnica
+336|Laserski način traži PWM izlaz.
+337|Zadnja sonda: X {} Y {} Z {} ({})
+338|Zadnja sonda: Z {} ({})
+339|Podizanje nakon postavljanja nule
+340|Podignite na sigurnu visinu, zatim idite na nulu rada
+341|Crta
+342|Stroj
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: poslano {} redaka
+346|Makroi
+347|Održavanje
+348|Označite ili izrežite pravokutnik i izmjerite mu dvije dijagonale: od prednjeg lijevog do stražnjeg desnog kuta (A) i od prednjeg desnog do stražnjeg lijevog (B). Jednake su kad su osi okomite.
+349|Izmjereno
+350|Pomakni
+351|Pomakni {} za tu udaljenost
+352|Nova vrijednost: ${} = {} (bilo {})
+353|Posmak još nije postavljen.
+354|Nema podsjetnika. Dodajte ih u postavkama uređaja (Održavanje).
+355|Još nije pročitano (Stroj → Postavke firmwarea).
+356|Još ništa nije pročitano.
+357|Pomak Z pri dodiru
+358|Podmažite vodilice
+359|Podržani su samo radni koordinatni sustavi G54 do G59.
+360|Samo one koje se razlikuju od tipične vrijednosti
+361|Izvan pravog kuta za {}°: jedan kraj osi Y pomaknut je {} mm po cijeloj visini.
+362|Položaj
+363|Sonda
+364|Sondiraj Z
+365|Sondiranje nije uspjelo: ništa nije dodirnuto unutar udaljenosti. Provjerite pločicu i udaljenost neuspjeha.
+366|Sondiranje nije uspjelo: sonda je već bila zatvorena prije pomaka. Provjerite ožičenje i pločicu.
+367|Stavite pločicu ispod alata: alat ide dolje do dodira, zatim se Z postavlja na debljinu pločice
+368|Stavite alat uz rub: kreće se prema njemu do dodira, a rub postaje nula
+369|Brzi dodir
+370|Pročitaj stroj
+371|Pročitaj postavke ($$)
+372|Čitanje…
+373|Čita firmware ($I) i postavke ($$) kontrolera
+374|Ukloni ovaj korak
+375|Reset tijekom pomicanja. Možda su izgubljeni koraci: ponovno referencirajte stroj.
+376|Vrati iz datoteke…
+377|Vrati tvorničke postavke
+378|Vrati postavke iz datoteke
+379|Odmak između dodira
+380|Sigurnosna vrata
+381|Postavke spremljene u {}
+382|Ponovno postavite Z sondom: novi alat dodiruje pločicu i Z postaje debljina pločice
+383|Postavka
+384|Spori dodir
+385|Softverska ograničenja
+386|Softverska ograničenja traže i uključeno referenciranje.
+387|Neke riječi ne koristi nijedna naredba.
+388|Brzina XY
+389|Brzina Z
+390|Okretaji vretena
+391|Okomitost osi
+392|Počni odavde
+393|Počni od retka
+394|Počni od retka…
+395|Statistika ovog stroja
+396|Koraci X i Y (mm)
+397|Koraci Z (mm)
+398|Koraka po milimetru
+399|Zaustavi posao
+400|Zaustavi pomak
+401|Luk se ne može izračunati iz polumjera. Podijelite ga ili koristite pomake.
+402|Luku nedostaje pomak I, J ili K.
+403|Osi su okomite unutar {} mm po visini.
+404|Informacije o izgradnji ili početni redak predugi su.
+405|Upravljač ih već sve ima.
+406|Kontroler prolazi program u načinu provjere ($C): ništa se ne miče, a retci koje ne razumije prijavljuju se prije stvarnog pokretanja
+407|Kontroler izvještava u inčima ($13): položaji na kartici Upravljanje nisu u milimetrima.
+408|Zadatak je pauziran
+409|Naredba pomicanja nije ispravna.
+410|Pomak prelazi hod stroja i zanemaren je.
+411|Redak je predug.
+412|Broj retka je izvan raspona.
+413|Stroj je radio {} sati u {} zadataka.
+414|Stroj se dovodi u stanje koje program ima u tom retku: jedinice, vreteno, brzina, položaj. Pazite da su alat i radni komad ondje gdje su bili.
+415|Stroj se pomiče za udaljenost koju zadate; izmjerite koliko je stvarno otišao i izračunat će se točan broj koraka.
+416|Pomak prelazi hod stroja. Položaj je sačuvan; otključajte za nastavak.
+417|Sonda ide dolje do dodira; Z se postavlja na pomak sonde
+418|Ulaz sonde već je zatvoren. Provjerite stezaljku, pločicu i ožičenje.
+419|Sonda mora biti spojena na ulaz sonde kontrolera. Provjerite je dodirom pločice: ulaz se prikazuje kao zatvoren na kartici Upravljanje.
+420|Sigurnosna vrata su otvorena.
+421|Postavka je iznad frekvencije koraka koju ovaj GRBL podržava.
+422|Postavke se nisu mogle pročitati; vraćene su zadane.
+423|Postavke još nisu pročitane.
+424|Postavke su spremljene prije prve promjene: {}
+425|Trajanje impulsa koraka mora biti barem 3 µs.
+426|Cilj pomaka nije ispravan.
+427|Alat je ovdje: ovo postaje nula rada
+428|Broj alata je prevelik.
+429|Ove postavke žive u kontroleru, a ne u uređaju. Mijenjajte jednu po jednu i zapišite prethodnu vrijednost: pogrešna vrijednost može natjerati stroj da se pomakne za krivu udaljenost. Prva promjena u sesiji sprema sve postavke u datoteku.
+430|Ove postavke iz datoteke razlikuju se od upravljača. Ništa se ne upisuje dok ne pritisnete Upiši sve.
+431|Debljina njezine strane
+432|Debljina pločice
+433|Ova $ naredba radi samo kad stroj miruje.
+434|Ovo piše $RST=$: svaka postavka kontrolera vraća se na zadane vrijednosti firmwarea. Broj koraka, hodovi, brzine i referenciranje svi će se promijeniti.
+435|Vrijeme rada
+436|Promjer alata
+437|Dodirna pločica
+438|Hod X, Y, Z
+439|Dvije naredbe u retku trebaju riječi osi.
+440|Dvije naredbe iz iste skupine nalaze se u jednom retku.
+441|Upišite obje dijagonale da vidite rezultat.
+442|Upišite izmjerenu udaljenost da vidite novu vrijednost.
+443|Tipično
+444|Jedinica
+445|Koristi ove vrijednosti za uređaj
+446|Vrijednost
+447|Varijable: {}
+448|Što učiniti
+449|Rad
+450|Upiši
+451|Upiši ${}
+452|Upisati ${} = {} u upravljač? Sada je {}. Mijenjajte jednu postavku po jednu i zapišite staru vrijednost.
+453|Upis postavke
+454|Upiši sve
+455|Upisuje se {} postavki; nakon toga se čitaju natrag
+456|granični X
+457|Krajnji prekidač X
+458|granični Y
+459|Krajnji prekidač Y
+460|Da
+461|Z
+462|granični Z
+463|Krajnji prekidač Z
+464|Z na sigurnu visinu
+465|Nuliraj X i Y
+466|Nuliraj sve
+467|udaljenost sonde je izvan raspona
+468|veličina sonde je izvan raspona
+469|zatvoren
+470|vrata
+471|svakih
+472|zadržavanje
+473|ulaz {}
+474|nema dodira
+475|prije ovog retka nije postavljen posmak
+476|od {}
+477|isključeno
+478|uključeno
+479|otvoren
+480|sonda
+481|reset
+482|vreteno isključeno
+483|vreteno uključeno (M{}) na {}
+484|start
+485|udaljenost neuspjeha mora biti veća od dvostrukog odmaka
+486|redak nastavlja luk (G2/G3) bez G riječi
+487|redak je iza kraja programa
+488|prethodni retci koriste G53 ili G92, pa se položaj ne može izračunati
+489|program se prije ovog retka nije micao u X i Y
+490|spori posmak sonde mora biti između 1 i brzog
+491|dodirnuto
+492|Prvo će se poslati {} redaka da se ovo postavi.
+493|{} od {} postavki razlikuje se nakon upisa:
+494|{} {}: {}
+495|{}: dospjelo ({} h kašnjenja)
+496|{}: preostalo {} h
+497|1. Gdje je senzor
+498|2. Prvi alat, referentni
+499|3. Svaki sljedeći alat
+500|Kopija postavki kontrolera čuva se uz uređaj. Napravi se pri prvom povezivanju sa strojem i zatim svaki put kad se postavke razlikuju od najnovije kopije; kopije su dio sigurnosne kopije programa.
+501|Kopija {} postavki kontrolera spremljena je uz uređaj.
+502|Kopija {} postavki spremljena je uz uređaj.
+503|Zadatak je u tijeku.
+504|Mjerenje je već u tijeku.
+505|Nakon vaše promjene spremljena je nova kopija postavki ({} postavki razlikuje se od prethodne).
+506|Senzor duljine alata je prekidač na stalnom mjestu stroja. Vrh svakog alata dodiruje ga, pa novo glodalo može dobiti točno isti Z kao prethodno bez ponovnog dodirivanja radnog komada. Njegov položaj je u koordinatama stroja: prvo referencirajte stroj i nikad ne pomičite senzor.
+507|Nakon dodira Z se postavlja na Z referentnog alata na senzoru
+508|Usporedi s kontrolerom i upiši razlike natrag
+509|Kopije postavki ({})
+510|Zaboravi
+511|Pomaknite alat iznad sredine senzora, nekoliko milimetara iznad njega, i pritisnite gumb.
+512|Stroj X {}  Y {}, prilaz od Z {}
+513|Napravi kopiju sada
+514|Izmjeri referentni alat
+515|Prvo izmjerite referentni alat.
+516|Izmjeri alat (senzor)
+517|Izmjeri ovaj alat i postavi Z
+518|Mjerenje…
+519|Još nije izmjereno.
+520|Još nije postavljeno.
+521|Ništa se ne mijenja; prikazuje se razlika od reference
+522|Samo izmjeri
+523|Stavite prvo glodalo i njime postavite Z na radni komad (kartica Upravljanje: sondiranje Z ili dodirnite površinu i Z0). Zatim ga izmjerite na senzoru.
+524|Referenca: Z {} na senzoru
+525|Vrati…
+526|Prvo postavite položaj senzora.
+527|Kontroler još nije javio položaj.
+528|Postavke koje se razlikuju od kopije spremljene uz uređaj: {}. Spremljena je nova kopija.
+529|Prvi put držite ruku blizu zaustavljanja: alat ide dolje prema senzoru.
+530|Stroj ide do senzora, a alat ga dodiruje dvaput
+531|Stroj ide do senzora duljine alata; novi alat dobiva Z referentnog alata
+532|Stroj ne miruje.
+533|Senzor je ovdje
+534|Alat je jednako dug kao referentni.
+535|Alat je {} mm duži od referentnog.
+536|Alat je {} mm kraći od referentnog.
+537|Senzor duljine alata
+538|Senzor duljine alata…
+539|Visina prijelaza (Z stroja)
+540|Kad se zadatak zaustavi radi promjene glodala, prozor nudi Izmjeri alat. To se može napraviti i ovdje, u bilo koje vrijeme.
+541|položaj senzora je izvan raspona
+542|nakon promjene ovdje
+543|pri povezivanju
+544|ručno
+545|kopije postavki nisu ispravne
+546|referenca nije ispravna
+547|početak prilaza ne smije biti viši od visine prijelaza
+548|{} postavki
+549|… i još {}

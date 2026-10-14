@@ -246,3 +246,305 @@
 245|Obnovení se nezdařilo: {}
 246|Obnovit ze zálohy
 247|Vaše současné nastavení bude nahrazeno nastavením ze zálohy. Její obrázky se přidají do společné galerie. Pokračovat?
+248|${} je nyní {} kroků/mm
+249|1. Udělejte značku tam, kde je nástroj (nebo tam přiložte číselníkový úchylkoměr). 2. Stiskněte Posunout. 3. Změřte vzdálenost a zadejte ji níže.
+250|3D dotyková sonda
+251|Příkaz G-code není podporován nebo je neplatný.
+252|Slovo G-code nemá písmeno.
+253|V příkazu chybí hodnota P nebo L.
+254|Příkaz potřebuje celé číslo.
+255|Příkaz potřebuje slova os, ale řádek je nemá.
+256|Byl sepnut koncový spínač. Poloha mohla být ztracena: proveďte znovu referenci stroje.
+257|Makro je G-code, který odešle tlačítko na kartě Ovládání. Může používat proměnné v hranatých závorkách.
+258|Záporná hodnota tam, kde je potřeba kladná.
+259|Číslo je neplatné nebo chybí.
+260|Slovo se na řádku opakuje.
+261|Přidat makro
+262|Přidat připomenutí
+263|Přidat krok
+264|Po úloze (dokončené nebo zastavené)
+265|Alarm
+266|Alarm {}: {}
+267|Alarmy
+268|Všech {} nastavení ze souboru je nyní v řídicí jednotce.
+269|Oblouk nemá ve své rovině slova os.
+270|Vstup, který je aktivní, ačkoli se ho nic nedotýká, ukazuje na problém s kabeláží nebo nastavením ($5, $6).
+271|Kolem úlohy
+272|Šipky posouvají X a Y, Page Up a Page Down posouvají Z. Ve výchozím stavu vypnuto: šipky posouvají i vybrané tvary.
+273|Na tomto řádku: X {} Y {} Z {}, {}, posuv {}
+274|Zůstala slova os, zatímco je aktivní G80.
+275|Nejprve nastavení zálohujte. Pokračujte zadáním {}:
+276|Zálohovat do souboru…
+277|Před zahájením úlohy
+278|Kalibrace
+279|Kalibrace…
+280|Odsud nelze začít: {}
+281|Soubor nelze použít: {}
+282|Vyměňte nyní nástroj nebo pero. Stroj čeká; nic se nehýbe, dokud nepokračujete.
+283|Kontrolovat program před každým spuštěním
+284|Smazat alarm ($X)
+285|Vymazat statistiky
+286|Kliknutím zadáte polohu nástroje v pracovních souřadnicích
+287|Nejprve se připojte ke stroji (karta Zařízení)
+288|Připojte se ke stroji, abyste viděli jeho vstupy.
+289|Pokračovat v úloze
+290|Řadič
+291|Souřadnice
+292|Start cyklu
+293|Smazat toto makro
+294|Smazat toto připomenutí
+295|Diagnostika a statistiky
+296|Diagnostika uložena: {}
+297|Úhlopříčka A
+298|Úhlopříčka A je delší: osa Y je nakloněna k +X.
+299|Úhlopříčka B
+300|Úhlopříčka B je delší: osa Y je nakloněna k −X.
+301|Průměr kuličky
+302|Vzdálenost
+303|Hotovo
+304|Chyba
+305|Chyby
+306|Exportovat diagnostiku (zip)…
+307|Export se nezdařil: {}
+308|Tovární nastavení ($RST=$)…
+309|Tovární nastavení zapsáno ($RST=$)
+310|Vzdálenost selhání
+311|Nejrychlejší pohyb X a Y
+312|Pozastavit posuv
+313|Soubor
+314|Nastavení firmwaru ($$)
+315|Z řídicí jednotky
+316|G-code je během alarmu nebo posunu uzamčen. Nejdřív odemkněte.
+317|G43.1 může posunout jen osu délky nástroje.
+318|G53 funguje jen s G0 nebo G1.
+319|GRBL nezná tento příkaz $.
+320|Jet na X0 Y0
+321|Výška
+322|Podržte pro pohyb
+323|Reference
+324|Reference selhala: reset během cyklu.
+325|Reference selhala: nebyl nalezen koncový spínač. Zkontrolujte spínače a kabeláž.
+326|Reference selhala: během cyklu byla otevřena bezpečnostní dvířka.
+327|Reference selhala: spínač se při odjezdu neuvolnil. Zkontrolujte odjezd a kabeláž.
+328|Reference není v nastavení povolena ($22).
+329|Vstupy
+330|Aktivní vstupy: {}
+331|Místo jednoho kroku na kliknutí se nástroj pohybuje, dokud je tlačítko stisknuto
+332|Právě hotovo
+333|Úlohy
+334|Ruční posuv
+335|Klávesnice
+336|Laserový režim potřebuje výstup PWM.
+337|Poslední sonda: X {} Y {} Z {} ({})
+338|Poslední sonda: Z {} ({})
+339|Zvednutí po nastavení nuly
+340|Zvedněte na bezpečnou výšku a pak jeďte na nulu práce
+341|Čára
+342|Stroj
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: odesláno {} řádků
+346|Makra
+347|Údržba
+348|Označte nebo vyřízněte obdélník a změřte jeho dvě úhlopříčky: z levého předního rohu do pravého zadního (A) a z pravého předního do levého zadního (B). Jsou stejné, když jsou osy kolmé.
+349|Naměřeno
+350|Posunout
+351|Posunout {} o vzdálenost
+352|Nová hodnota: ${} = {} (bylo {})
+353|Posuv zatím není nastaven.
+354|Žádná připomenutí. Přidejte je v nastavení zařízení (Údržba).
+355|Dosud nenačteno (Stroj → Nastavení firmwaru).
+356|Zatím nic nepřečteno.
+357|Posun Z při dotyku
+358|Naolejujte vedení
+359|Podporovány jsou jen pracovní souřadnicové soustavy G54 až G59.
+360|Jen ty, které se liší od typické hodnoty
+361|Mimo pravý úhel o {}°: jeden konec osy Y je po celé výšce posunut o {} mm.
+362|Poloha
+363|Sonda
+364|Sondovat Z
+365|Sondování selhalo: na dané vzdálenosti se nic nedotklo. Zkontrolujte desku a vzdálenost selhání.
+366|Sondování selhalo: sonda byla sepnutá už před pohybem. Zkontrolujte kabeláž a desku.
+367|Položte desku pod nástroj: nástroj jede dolů až k dotyku, pak se Z nastaví na tloušťku desky
+368|Postavte nástroj k hraně: jede k ní až k dotyku a hrana se stane nulou
+369|Rychlý dotyk
+370|Načíst stroj
+371|Přečíst nastavení ($$)
+372|Načítání…
+373|Načte firmware ($I) a nastavení ($$) řídicí jednotky
+374|Odstranit tento krok
+375|Reset během pohybu. Mohly se ztratit kroky: proveďte znovu referenci stroje.
+376|Obnovit ze souboru…
+377|Obnovit tovární nastavení
+378|Obnovit nastavení ze souboru
+379|Odjezd mezi dotyky
+380|Bezpečnostní dvířka
+381|Nastavení uložena do {}
+382|Znovu nastavte Z sondou: nový nástroj se dotkne desky a Z se stane tloušťkou desky
+383|Nastavení
+384|Pomalý dotyk
+385|Softwarové limity
+386|Softwarové limity vyžadují i zapnutou referenci.
+387|Některá slova nepoužívá žádný příkaz.
+388|Rychlost XY
+389|Rychlost Z
+390|Otáčky vřetene
+391|Kolmost os
+392|Začít odtud
+393|Začít od řádku
+394|Začít od řádku…
+395|Statistiky tohoto stroje
+396|Kroky X a Y (mm)
+397|Kroky Z (mm)
+398|Kroků na milimetr
+399|Zastavit úlohu
+400|Zastavit pohyb
+401|Oblouk nelze vypočítat z poloměru. Rozdělte ho nebo použijte posuny.
+402|Oblouku chybí posun I, J nebo K.
+403|Osy jsou kolmé s přesností {} mm na výšku.
+404|Informace o sestavení nebo spouštěcí řádek je příliš dlouhý.
+405|Řídicí jednotka je už má všechna.
+406|Řídicí jednotka projde program v kontrolním režimu ($C): nic se nehýbe a řádky, kterým nerozumí, jsou ohlášeny před skutečným spuštěním
+407|Řídicí jednotka hlásí v palcích ($13): polohy na kartě Ovládání nejsou v milimetrech.
+408|Úloha je pozastavena
+409|Příkaz posuvu je neplatný.
+410|Posuv přesahuje dráhu stroje a byl ignorován.
+411|Řádek je příliš dlouhý.
+412|Číslo řádku je mimo rozsah.
+413|Stroj běžel {} hodin v {} úlohách.
+414|Stroj se uvede do stavu, který má program na tomto řádku: jednotky, vřeteno, rychlost, poloha. Ujistěte se, že nástroj a obrobek jsou tam, kde byly.
+415|Stroj se posune o vzdálenost, kterou zadáte; změřte, jak daleko opravdu dojel, a vypočte se správný počet kroků.
+416|Pohyb přesahuje dráhu stroje. Poloha je zachována; pro pokračování odemkněte.
+417|Sonda jede dolů až k dotyku; Z se nastaví na posun sondy
+418|Vstup sondy je už sepnutý. Zkontrolujte svorku, desku a kabeláž.
+419|Sonda musí být připojena ke vstupu sondy řídicí jednotky. Vyzkoušejte ji dotykem desky: vstup se na kartě Ovládání zobrazí jako sepnutý.
+420|Bezpečnostní dvířka jsou otevřená.
+421|Nastavení překračuje frekvenci kroků, kterou tento GRBL podporuje.
+422|Nastavení se nepodařilo načíst; byly obnoveny výchozí hodnoty.
+423|Nastavení zatím nebylo načteno.
+424|Nastavení bylo uloženo před první změnou: {}
+425|Doba impulzu kroku musí být alespoň 3 µs.
+426|Cíl pohybu je neplatný.
+427|Nástroj je tady: udělat z toho nulu práce
+428|Číslo nástroje je příliš vysoké.
+429|Tato nastavení jsou v řídicí jednotce, ne v zařízení. Měňte je po jednom a poznamenejte si předchozí hodnotu: špatná hodnota může způsobit, že stroj ujede špatnou vzdálenost. První změna v relaci uloží všechna nastavení do souboru.
+430|Tato nastavení ze souboru se liší od řídicí jednotky. Nic se nezapíše, dokud nestisknete Zapsat vše.
+431|Tloušťka jeho strany
+432|Tloušťka desky
+433|Tento příkaz $ funguje, jen když stroj stojí.
+434|Toto zapíše $RST=$: každé nastavení řídicí jednotky se vrátí na výchozí hodnoty firmwaru. Počty kroků, dráhy, rychlosti i reference se změní.
+435|Doba chodu
+436|Průměr nástroje
+437|Dotyková deska
+438|Dráha X, Y, Z
+439|Dva příkazy na řádku potřebují slova os.
+440|Dva příkazy stejné skupiny jsou na jednom řádku.
+441|Zadejte obě úhlopříčky, abyste viděli výsledek.
+442|Zadejte naměřenou vzdálenost, abyste viděli novou hodnotu.
+443|Typická
+444|Jednotka
+445|Použít tyto hodnoty pro zařízení
+446|Hodnota
+447|Proměnné: {}
+448|Co udělat
+449|Práce
+450|Zapsat
+451|Zapsat ${}
+452|Zapsat ${} = {} do řídicí jednotky? Nyní je {}. Měňte jedno nastavení po druhém a poznamenejte si starou hodnotu.
+453|Zápis nastavení
+454|Zapsat vše
+455|Zapisuje se {} nastavení; poté se přečtou zpět
+456|koncový X
+457|Koncový spínač X
+458|koncový Y
+459|Koncový spínač Y
+460|Ano
+461|Z
+462|koncový Z
+463|Koncový spínač Z
+464|Z na bezpečnou výšku
+465|Vynulovat X a Y
+466|Vynulovat vše
+467|vzdálenost sondy je mimo rozsah
+468|velikost sondy je mimo rozsah
+469|sepnuto
+470|dvířka
+471|každých
+472|pozastavení
+473|vstup {}
+474|žádný kontakt
+475|před tímto řádkem nebyl nastaven posuv
+476|z {}
+477|vypnuto
+478|zapnuto
+479|rozepnuto
+480|sonda
+481|reset
+482|vřeteno vypnuto
+483|vřeteno zapnuto (M{}) na {}
+484|start
+485|vzdálenost selhání musí být delší než dvojnásobek odjezdu
+486|řádek pokračuje v oblouku (G2/G3) bez slova G
+487|řádek je za koncem programu
+488|předchozí řádky používají G53 nebo G92, takže polohu nelze vypočítat
+489|program se před tímto řádkem nepohnul v X a Y
+490|pomalý posuv sondy musí být mezi 1 a rychlým
+491|dotkl se
+492|Nejdřív se odešle {} řádků, které to připraví.
+493|{} z {} nastavení se po zápisu liší:
+494|{} {}: {}
+495|{}: po termínu (o {} h)
+496|{}: zbývá {} h
+497|1. Kde je senzor
+498|2. První nástroj, referenční
+499|3. Každý další nástroj
+500|Kopie nastavení řídicí jednotky se uchovává u zařízení. Vytvoří se při prvním připojení ke stroji a potom pokaždé, když se nastavení liší od nejnovější kopie; kopie jsou součástí zálohy programu.
+501|Kopie {} nastavení řídicí jednotky byla uložena u zařízení.
+502|Kopie {} nastavení byla uložena u zařízení.
+503|Úloha běží.
+504|Měření už běží.
+505|Po vaší změně byla uložena nová kopie nastavení ({} nastavení se liší od předchozí).
+506|Senzor délky nástroje je spínač na pevném místě stroje. Dotýká se ho špička každého nástroje, takže nová fréza může dostat přesně stejné Z jako předchozí, aniž by se znovu dotkla obrobku. Jeho poloha je ve strojních souřadnicích: nejdřív proveďte referenci stroje a senzorem nikdy nehýbejte.
+507|Po dotyku se Z nastaví na Z referenčního nástroje u senzoru
+508|Porovnat s řídicí jednotkou a zapsat rozdíly zpět
+509|Kopie nastavení ({})
+510|Zapomenout
+511|Najeďte nástrojem nad střed senzoru, několik milimetrů nad něj, a stiskněte tlačítko.
+512|Stroj X {}  Y {}, přiblížení od Z {}
+513|Udělat kopii teď
+514|Změřit referenční nástroj
+515|Nejdřív změřte referenční nástroj.
+516|Změřit nástroj (senzor)
+517|Změřit tento nástroj a nastavit Z
+518|Měření…
+519|Zatím neměřeno.
+520|Zatím nenastaveno.
+521|Nic se nemění; zobrazí se rozdíl oproti referenci
+522|Jen změřit
+523|Vložte první frézu a nastavte s ní Z na obrobku (karta Ovládání: sondovat Z, nebo se dotknout povrchu a Z0). Pak ji změřte na senzoru.
+524|Reference: Z {} u senzoru
+525|Obnovit…
+526|Nejdřív nastavte polohu senzoru.
+527|Řídicí jednotka zatím nehlásí polohu.
+528|Nastavení, která se liší od kopie uložené u zařízení: {}. Byla uložena nová kopie.
+529|Poprvé mějte ruku blízko zastavení: nástroj jede dolů k senzoru.
+530|Stroj jede k senzoru a nástroj se ho dvakrát dotkne
+531|Stroj jede k senzoru délky nástroje; nový nástroj dostane Z referenčního nástroje
+532|Stroj není v klidu.
+533|Senzor je tady
+534|Nástroj je stejně dlouhý jako referenční.
+535|Nástroj je o {} mm delší než referenční.
+536|Nástroj je o {} mm kratší než referenční.
+537|Senzor délky nástroje
+538|Senzor délky nástroje…
+539|Výška přejezdu (Z stroje)
+540|Když úloha zastaví kvůli výměně frézy, okno nabídne Změřit nástroj. Lze to udělat i tady, kdykoli.
+541|poloha senzoru je mimo rozsah
+542|po změně zde
+543|při připojení
+544|ručně
+545|kopie nastavení nejsou platné
+546|reference není platná
+547|začátek přiblížení nesmí být výš než výška přejezdu
+548|{} nastavení
+549|… a dalších {}

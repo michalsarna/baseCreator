@@ -246,3 +246,305 @@
 245|Herstellen mislukt: {}
 246|Herstellen vanuit back-up
 247|Je huidige instellingen worden vervangen door die van de back-up. De afbeeldingen ervan worden aan de gedeelde galerij toegevoegd. Doorgaan?
+248|${} is nu {} stappen/mm
+249|1. Zet een markering waar het gereedschap staat (of plaats daar een meetklok). 2. Druk op Verplaats. 3. Meet de afstand en typ die hieronder in.
+250|3D-tastprobe
+251|Een G-code-opdracht wordt niet ondersteund of is ongeldig.
+252|Een G-code-woord heeft geen letter.
+253|Bij een opdracht ontbreekt de waarde P of L.
+254|Een opdracht heeft een geheel getal nodig.
+255|Een opdracht heeft aswoorden nodig, maar de regel heeft er geen.
+256|Een eindschakelaar is geraakt. De positie kan verloren zijn: referentie de machine opnieuw.
+257|Een macro is G-code die een knop op het tabblad Besturing verstuurt. Er mogen variabelen tussen vierkante haken in staan.
+258|Een negatieve waarde waar een positieve nodig is.
+259|Een getal is ongeldig of ontbreekt.
+260|Een woord komt dubbel voor in de regel.
+261|Macro toevoegen
+262|Herinnering toevoegen
+263|Stap toevoegen
+264|Na de taak (klaar of gestopt)
+265|Alarm
+266|Alarm {}: {}
+267|Alarmen
+268|Alle {} instellingen uit het bestand staan nu in de besturing.
+269|Een boog heeft geen aswoorden in zijn vlak.
+270|Een ingang die actief is terwijl niets hem aanraakt, wijst op een probleem met de bedrading of instellingen ($5, $6).
+271|Rond een taak
+272|Pijltjestoetsen verplaatsen X en Y, Page Up en Page Down verplaatsen Z. Standaard uit: de pijlen verplaatsen ook de geselecteerde vormen.
+273|Op deze regel: X {} Y {} Z {}, {}, voeding {}
+274|Er zijn aswoorden over terwijl G80 actief is.
+275|Maak eerst een back-up van de instellingen. Typ {} om door te gaan:
+276|Back-up naar een bestand…
+277|Voordat de taak begint
+278|Kalibratie
+279|Kalibratie…
+280|Hier kan niet worden gestart: {}
+281|Het bestand kan niet worden gebruikt: {}
+282|Verwissel nu het gereedschap of de pen. De machine wacht; niets beweegt tot je doorgaat.
+283|Programma controleren voor elke run
+284|Alarm wissen ($X)
+285|Statistieken wissen
+286|Klik om de positie van het gereedschap in werkcoördinaten te typen
+287|Maak eerst verbinding met de machine (tabblad Apparaat)
+288|Maak verbinding met de machine om de ingangen te zien.
+289|Taak voortzetten
+290|Controller
+291|Coördinaten
+292|Cyclusstart
+293|Deze macro verwijderen
+294|Deze herinnering verwijderen
+295|Diagnose en statistieken
+296|Diagnose opgeslagen: {}
+297|Diagonaal A
+298|Diagonaal A is de langste: de Y-as helt naar +X.
+299|Diagonaal B
+300|Diagonaal B is de langste: de Y-as helt naar −X.
+301|Diameter van de bol
+302|Afstand
+303|Klaar
+304|Fout
+305|Fouten
+306|Diagnose exporteren (zip)…
+307|Exporteren mislukt: {}
+308|Fabrieksinstellingen ($RST=$)…
+309|Fabrieksinstellingen geschreven ($RST=$)
+310|Faalafstand
+311|Snelste beweging van X en Y
+312|Voeding vasthouden
+313|Bestand
+314|Firmware-instellingen ($$)
+315|Van de besturing
+316|G-code is vergrendeld tijdens een alarm of een jog. Ontgrendel eerst.
+317|G43.1 kan alleen de as van de gereedschapslengte verschuiven.
+318|G53 werkt alleen met G0 of G1.
+319|GRBL kent deze $-opdracht niet.
+320|Ga naar X0 Y0
+321|Hoogte
+322|Ingedrukt houden om te bewegen
+323|Referentiëren
+324|Referentiëren mislukt: reset tijdens de cyclus.
+325|Referentiëren mislukt: geen eindschakelaar gevonden. Controleer de schakelaars en de bedrading.
+326|Referentiëren mislukt: de veiligheidsdeur werd tijdens de cyclus geopend.
+327|Referentiëren mislukt: de schakelaar kwam bij het terugtrekken niet los. Controleer de terugtrekafstand en de bedrading.
+328|Referentiëren is niet ingeschakeld in de instellingen ($22).
+329|Ingangen
+330|Actieve ingangen: {}
+331|In plaats van één stap per klik beweegt het gereedschap zolang de knop ingedrukt is
+332|Net gedaan
+333|Taken
+334|Handmatig bewegen
+335|Toetsenbord
+336|De lasermodus heeft een PWM-uitgang nodig.
+337|Laatste meting: X {} Y {} Z {} ({})
+338|Laatste meting: Z {} ({})
+339|Opheffen nadat de nul is gezet
+340|Til naar de veilige hoogte en ga dan naar de werknul
+341|Lijn
+342|Machine
+343|Macro {}
+344|Macro {}: {}
+345|Macro {}: {} regels verzonden
+346|Macro's
+347|Onderhoud
+348|Markeer of snijd een rechthoek en meet de twee diagonalen: van de linkervoorhoek naar de rechterachterhoek (A) en van rechtsvoor naar linksachter (B). Ze zijn gelijk als de assen haaks staan.
+349|Gemeten
+350|Verplaatsen
+351|{} over de afstand verplaatsen
+352|Nieuwe waarde: ${} = {} (was {})
+353|Er is nog geen voeding ingesteld.
+354|Geen herinneringen. Voeg ze toe in de apparaatinstellingen (Onderhoud).
+355|Nog niet gelezen (Machine → Firmware-instellingen).
+356|Nog niets gelezen.
+357|Verschuiving van Z bij aanraking
+358|Smeer de rails
+359|Alleen de werkcoördinatenstelsels G54 tot en met G59 worden ondersteund.
+360|Alleen die welke afwijken van de typische waarde
+361|Niet haaks met {}°: één uiteinde van de Y-as staat over de hele hoogte {} mm verschoven.
+362|Positie
+363|Probe
+364|Z proben
+365|Proben mislukt: binnen de afstand werd niets aangeraakt. Controleer de plaat en de faalafstand.
+366|Proben mislukt: de probe was al gesloten vóór de beweging. Controleer de bedrading en de plaat.
+367|Leg de plaat onder het gereedschap: het gereedschap gaat omlaag tot het raakt, daarna wordt Z op de dikte van de plaat gezet
+368|Zet het gereedschap naast de rand: het beweegt ernaartoe tot het raakt, en de rand wordt nul
+369|Snelle aanraking
+370|Machine lezen
+371|Instellingen lezen ($$)
+372|Lezen…
+373|Leest de firmware ($I) en de instellingen ($$) van de besturing
+374|Deze stap verwijderen
+375|Reset tijdens de beweging. Er kunnen stappen verloren zijn: referentie de machine opnieuw.
+376|Herstellen uit een bestand…
+377|Fabrieksinstellingen herstellen
+378|Instellingen herstellen uit een bestand
+379|Terugtrekken tussen de aanrakingen
+380|Veiligheidsdeur
+381|Instellingen opgeslagen in {}
+382|Zet Z opnieuw met de probe: het nieuwe gereedschap raakt de plaat en Z wordt de dikte van de plaat
+383|Instelling
+384|Langzame aanraking
+385|Softwarematige grenzen
+386|Softwarematige grenzen vereisen ook ingeschakeld referentiëren.
+387|Sommige woorden worden door geen enkele opdracht gebruikt.
+388|Snelheid XY
+389|Snelheid Z
+390|Spindeltoerental
+391|Haaksheid van de assen
+392|Vanaf hier starten
+393|Starten vanaf regel
+394|Starten vanaf regel…
+395|Statistieken van deze machine
+396|Stappen van X en Y (mm)
+397|Stappen van Z (mm)
+398|Stappen per millimeter
+399|Opdracht stoppen
+400|Beweging stoppen
+401|De boog is niet uit de straal te berekenen. Splits hem of gebruik offsets.
+402|De boog mist de offset I, J of K.
+403|De assen staan haaks binnen {} mm over de hoogte.
+404|De build-info of startregel is te lang.
+405|De besturing heeft ze al allemaal.
+406|De besturing loopt het programma door in controlemodus ($C): niets beweegt, en regels die ze niet begrijpt worden gemeld vóór de echte run
+407|De besturing meldt in inches ($13): de posities op het tabblad Besturing zijn niet in millimeters.
+408|De taak is gepauzeerd
+409|De jog-opdracht is ongeldig.
+410|De jog gaat voorbij het bereik van de machine en is genegeerd.
+411|De regel is te lang.
+412|Het regelnummer valt buiten het bereik.
+413|De machine heeft {} uur gedraaid in {} taken.
+414|De machine wordt gebracht in de toestand die het programma op die regel heeft: eenheden, spindel, snelheid, positie. Zorg dat gereedschap en werkstuk staan waar ze stonden.
+415|De machine verplaatst zich over een afstand die je opgeeft; meet hoe ver ze echt ging en het juiste aantal stappen wordt berekend.
+416|De beweging gaat voorbij het bereik van de machine. De positie blijft behouden; ontgrendel om door te gaan.
+417|De probe gaat omlaag tot hij raakt; Z wordt op de offset van de probe gezet
+418|De probe-ingang is al gesloten. Controleer de klem, de plaat en de bedrading.
+419|De probe moet op de probe-ingang van de besturing zijn aangesloten. Test hem door de plaat aan te raken: de ingang toont als gesloten op het tabblad Besturing.
+420|De veiligheidsdeur is open.
+421|De instelling ligt boven de staprate die deze GRBL ondersteunt.
+422|De instellingen konden niet worden gelezen; de standaardwaarden zijn hersteld.
+423|De instellingen zijn nog niet gelezen.
+424|De instellingen zijn vóór de eerste wijziging opgeslagen: {}
+425|De staptijd van de puls moet minstens 3 µs zijn.
+426|Het doel van de beweging is ongeldig.
+427|Het gereedschap staat hier: maak dit de werknul
+428|Het gereedschapsnummer is te hoog.
+429|Deze instellingen staan in de besturing, niet in het apparaat. Wijzig ze één voor één en noteer de vorige waarde: een verkeerde waarde kan de machine een verkeerde afstand laten afleggen. De eerste wijziging van een sessie slaat alle instellingen op in een bestand.
+430|Deze instellingen uit het bestand verschillen van de besturing. Er wordt niets geschreven tot je op Alles schrijven drukt.
+431|Dikte van de zijkant
+432|Dikte van de plaat
+433|Deze $-opdracht werkt alleen als de machine stilstaat.
+434|Dit schrijft $RST=$: elke instelling van de besturing gaat terug naar de standaardwaarden van de firmware. Stapaantallen, bereik, snelheden en referentiëren veranderen allemaal.
+435|Looptijd
+436|Diameter van het gereedschap
+437|Aanraakplaat
+438|Bereik van X, Y, Z
+439|Twee opdrachten in de regel hebben beide aswoorden nodig.
+440|Twee opdrachten van dezelfde groep staan in één regel.
+441|Typ beide diagonalen om het resultaat te zien.
+442|Typ de gemeten afstand om de nieuwe waarde te zien.
+443|Typisch
+444|Eenheid
+445|Deze waarden voor het apparaat gebruiken
+446|Waarde
+447|Variabelen: {}
+448|Wat te doen
+449|Werk
+450|Schrijven
+451|${} schrijven
+452|${} = {} naar de besturing schrijven? Nu is het {}. Wijzig één instelling tegelijk en noteer de oude waarde.
+453|Een instelling schrijven
+454|Alles schrijven
+455|{} instellingen worden geschreven; ze worden daarna teruggelezen
+456|X-eindschakelaar
+457|X-eindschakelaar
+458|Y-eindschakelaar
+459|Y-eindschakelaar
+460|Ja
+461|Z
+462|Z-eindschakelaar
+463|Z-eindschakelaar
+464|Z naar veilige hoogte
+465|X en Y op nul
+466|Alles op nul
+467|een probeafstand valt buiten het bereik
+468|een probegrootte valt buiten het bereik
+469|gesloten
+470|deur
+471|elke
+472|hold
+473|ingang {}
+474|geen aanraking
+475|vóór deze regel is geen voeding ingesteld
+476|van {}
+477|uit
+478|aan
+479|open
+480|probe
+481|reset
+482|spindel uit
+483|spindel aan (M{}) op {}
+484|start
+485|de faalafstand moet langer zijn dan tweemaal het terugtrekken
+486|de regel zet een boog (G2/G3) voort zonder G-woord
+487|de regel ligt voorbij het einde van het programma
+488|de regels ervoor gebruiken G53 of G92, dus de positie is niet te berekenen
+489|het programma heeft vóór deze regel niet in X en Y bewogen
+490|de langzame probe-voeding moet tussen 1 en de snelle liggen
+491|aangeraakt
+492|Eerst worden {} regels verzonden om dit klaar te zetten.
+493|{} van {} instellingen verschillen na het schrijven:
+494|{} {}: {}
+495|{}: te doen ({} u over tijd)
+496|{}: nog {} u
+497|1. Waar de sensor staat
+498|2. Het eerste gereedschap, de referentie
+499|3. Elk volgend gereedschap
+500|Een kopie van de instellingen van de besturing wordt bij het apparaat bewaard. Er wordt er een gemaakt bij de eerste verbinding met de machine en daarna telkens als de instellingen afwijken van de nieuwste kopie; de kopieën zijn onderdeel van de back-up van het programma.
+501|Een kopie van de {} instellingen van de besturing is bij het apparaat opgeslagen.
+502|Een kopie van de {} instellingen is bij het apparaat opgeslagen.
+503|Er loopt een taak.
+504|Er loopt al een meting.
+505|Na jouw wijziging is een nieuwe kopie van de instellingen opgeslagen ({} instellingen verschillen van de vorige).
+506|Een gereedschapslengtesensor is een schakelaar op een vaste plek van de machine. De punt van elk gereedschap raakt hem aan, zodat een nieuwe frees precies dezelfde Z kan krijgen als de vorige zonder het werkstuk opnieuw aan te raken. De positie is in machinecoördinaten: referentie eerst de machine en verplaats de sensor nooit.
+507|Na de aanraking wordt Z gezet op de Z van het referentiegereedschap bij de sensor
+508|Vergelijk met de besturing en schrijf de verschillen terug
+509|Kopieën van de instellingen ({})
+510|Vergeten
+511|Breng het gereedschap boven het midden van de sensor, enkele millimeters erboven, en druk op de knop.
+512|Machine X {}  Y {}, nadering vanaf Z {}
+513|Nu een kopie maken
+514|Referentiegereedschap meten
+515|Meet eerst het referentiegereedschap.
+516|Gereedschap meten (sensor)
+517|Dit gereedschap meten en Z zetten
+518|Meten…
+519|Nog niet gemeten.
+520|Nog niet ingesteld.
+521|Er verandert niets; het verschil met de referentie wordt getoond
+522|Alleen meten
+523|Plaats de eerste frees en zet daarmee Z op het werkstuk (tabblad Besturing: Z proben, of het oppervlak aanraken en Z0). Meet hem daarna op de sensor.
+524|Referentie: Z {} bij de sensor
+525|Herstellen…
+526|Stel eerst de positie van de sensor in.
+527|De besturing heeft de positie nog niet doorgegeven.
+528|Instellingen die afwijken van de bij het apparaat opgeslagen kopie: {}. Er is een nieuwe kopie opgeslagen.
+529|Houd de eerste keer een hand bij de stop: het gereedschap gaat omlaag naar de sensor.
+530|De machine gaat naar de sensor en het gereedschap raakt hem twee keer aan
+531|De machine gaat naar de gereedschapslengtesensor; het nieuwe gereedschap krijgt de Z van het referentiegereedschap
+532|De machine staat niet stil.
+533|De sensor staat hier
+534|Het gereedschap is even lang als het referentiegereedschap.
+535|Het gereedschap is {} mm langer dan het referentiegereedschap.
+536|Het gereedschap is {} mm korter dan het referentiegereedschap.
+537|Gereedschapslengtesensor
+538|Gereedschapslengtesensor…
+539|Verplaatshoogte (machine-Z)
+540|Als een taak stopt voor een fresverwisseling, biedt het venster Gereedschap meten aan. Het kan ook hier, op elk moment.
+541|een positie van de sensor valt buiten het bereik
+542|na een wijziging hier
+543|bij het verbinden
+544|met de hand
+545|de kopieën van de instellingen zijn niet geldig
+546|de referentie is niet geldig
+547|het begin van de nadering mag niet hoger liggen dan de verplaatshoogte
+548|{} instellingen
+549|… en nog {}

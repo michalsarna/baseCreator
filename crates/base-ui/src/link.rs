@@ -63,6 +63,11 @@ pub enum Cmd {
     Realtime(u8),
     /// Soft reset and drop everything queued.
     Abort,
+    /// Stop the job at its pauses (M0, M6) instead of sending them: the controller finishes what it has, the link tells
+    /// the program (`Evt::Barrier`) and waits for `Continue`. Off by default.
+    Barriers(bool),
+    /// Go on with a job that stopped at a pause.
+    Continue,
 }
 
 /// Direction of a console line.
@@ -97,6 +102,10 @@ pub enum Evt {
     Connected(bool),
     Status { state: String, x: f64, y: f64, z: f64 },
     Progress { done: usize, total: usize },
+    /// The full status report of a GRBL controller (the simple `Status` is sent too).
+    Report(base_core::grbl_status::Report),
+    /// The job reached a pause and waits: `text` is the line (`M0 (Change the bit to: V-bit)`), `line` its number.
+    Barrier { text: String, line: usize },
     /// A job is running, the controller has not answered for `secs` and the machine is not moving.
     Stalled { secs: u64, state: String },
 }
@@ -236,6 +245,8 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
     let mut waiting_since: Option<Instant> = None;
     let mut stall_reported = false;
     let mut machine_state = String::new();
+    let mut barriers = false;
+    let mut held = false;
     loop {
         loop {
             match rx.try_recv() {
@@ -266,9 +277,12 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     port = None;
                     queue.clear();
                     pending.clear();
+                    held = false;
                     emit(Evt::Connected(false));
                     emit(Evt::Log(crate::i18n::tr("Disconnected").into()));
                 }
+                Ok(Cmd::Barriers(b)) => barriers = b,
+                Ok(Cmd::Continue) => held = false,
                 Ok(Cmd::Line(l)) => {
                     // Immediate lines go ahead of job lines.
                     let at = queue.iter().position(|(_, k)| *k == Kind::Job).unwrap_or(queue.len());
@@ -289,6 +303,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                 Ok(Cmd::Abort) => {
                     queue.clear();
                     pending.clear();
+                    held = false;
                     total = 0;
                     if let Some(p) = port.as_mut() {
                         if let Some(b) = controller.abort_byte() {
@@ -333,6 +348,9 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     emit(traffic(Dir::Rx, line.clone(), true));
                     machine_state = state.clone();
                     emit(Evt::Status { state, x, y, z: base_core::machine::parse_status_z(&line).unwrap_or(f64::NAN) });
+                    if let Some(r) = base_core::grbl_status::parse(&line) {
+                        emit(Evt::Report(r));
+                    }
                 } else if restarting.is_some() && (line == "ok" || line.starts_with("error")) {
                     // Start-up noise (e.g. `error:7` from an empty EEPROM) or a late reply to a line sent before the
                     // reset: not the acknowledgement of anything queued now.
@@ -356,7 +374,26 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                 pending.clear();
             }
             // Write while the controller's RX buffer has room.
-            while let Some((l, _)) = queue.front().filter(|_| restarting.is_none()) {
+            while let Some((l, front_kind)) = queue.front().filter(|_| restarting.is_none()) {
+                let front_kind = *front_kind;
+                // A job that stopped at a pause sends nothing more of itself; immediate lines still go.
+                if held && front_kind == Kind::Job {
+                    break;
+                }
+                if barriers && front_kind == Kind::Job && base_core::resume::is_pause(l) {
+                    // Wait until everything before it has been done, then stop here and tell the program.
+                    let idle = machine_state.split(':').next().unwrap_or("") == "Idle";
+                    if !pending.is_empty() || !idle {
+                        break;
+                    }
+                    let (text, _) = queue.pop_front().unwrap();
+                    emit(Evt::Log(text.clone()));
+                    emit(Evt::Barrier { text, line: done });
+                    done += 1;
+                    emit(Evt::Progress { done, total });
+                    held = true;
+                    break;
+                }
                 let used: usize = pending.iter().map(|(n, _)| n).sum();
                 // Simple streaming keeps one line in flight; counting fills the controller's buffer.
                 if used + l.len() + 1 > RX_BUFFER || (simple && !pending.is_empty()) {
@@ -620,6 +657,70 @@ mod tests {
         assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Connected(true))));
         link.send(Cmd::Job((0..6).map(|i| format!("G1 X{i}")).collect()));
         assert!(!wait_for(&link, 2.0, |e| matches!(e, Evt::Stalled { .. })));
+    }
+
+    #[test]
+    fn a_job_stops_at_a_pause_lets_immediate_lines_through_and_goes_on_when_told() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        fake_grbl(listener, 4000);
+        let link = LaserLink::spawn(egui::Context::default());
+        link.send(Cmd::Connect { target: Target::Tcp { host: "127.0.0.1".into(), port }, controller: Controller::Grbl, streaming: base_core::machine::Streaming::Counting });
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Connected(true))));
+        link.send(Cmd::Barriers(true));
+        link.send(Cmd::Job(vec!["G0 X1".into(), "M0 (Change the bit to: V-bit)".into(), "G0 X2".into(), "G0 X3".into()]));
+        let mut barrier = None;
+        assert!(wait_for(&link, 3.0, |e| {
+            if let Evt::Barrier { text, line } = e {
+                barrier = Some((text.clone(), *line));
+            }
+            barrier.is_some()
+        }), "the job stops at M0");
+        assert_eq!(barrier, Some(("M0 (Change the bit to: V-bit)".to_string(), 1)));
+        // While it waits, an immediate line is answered and the job does not move on.
+        link.send(Cmd::Line("G10 L20 P1 Z0".into()));
+        let mut oks_after = 0;
+        let mut progressed = false;
+        wait_for(&link, 1.0, |e| {
+            match e {
+                Evt::Traffic(l) if l.dir == Dir::Tx && l.text == "G10 L20 P1 Z0" => oks_after += 1,
+                Evt::Progress { done, .. } if *done > 2 => progressed = true,
+                _ => {}
+            }
+            false
+        });
+        assert_eq!(oks_after, 1, "the immediate line was sent");
+        assert!(!progressed, "the job waits");
+        link.send(Cmd::Continue);
+        let mut finished = false;
+        assert!(wait_for(&link, 3.0, |e| {
+            if let Evt::Progress { done, total } = e {
+                finished = *done == 4 && *total == 4;
+            }
+            finished
+        }), "the job goes on after Continue");
+    }
+
+    #[test]
+    fn pauses_are_sent_to_the_controller_when_barriers_are_off() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        fake_grbl(listener, 2500);
+        let link = LaserLink::spawn(egui::Context::default());
+        link.send(Cmd::Connect { target: Target::Tcp { host: "127.0.0.1".into(), port }, controller: Controller::Grbl, streaming: base_core::machine::Streaming::Counting });
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Connected(true))));
+        link.send(Cmd::Job(vec!["G0 X1".into(), "M0".into(), "G0 X2".into()]));
+        let mut finished = false;
+        let mut barrier = false;
+        assert!(wait_for(&link, 3.0, |e| {
+            match e {
+                Evt::Barrier { .. } => barrier = true,
+                Evt::Progress { done, total } => finished = *done == 3 && *total == 3,
+                _ => {}
+            }
+            finished
+        }));
+        assert!(!barrier);
     }
 
     #[test]

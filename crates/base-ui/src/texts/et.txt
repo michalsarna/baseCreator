@@ -246,3 +246,305 @@
 245|Taastamine ebaõnnestus: {}
 246|Taasta varukoopiast
 247|Praegused seaded asendatakse varukoopia seadetega. Selle pildid lisatakse ühisgaleriisse. Kas jätkata?
+248|${} on nüüd {} sammu/mm
+249|1. Tee märk kohta, kus tööriist on (või pane sinna kellindikaator). 2. Vajuta Liiguta. 3. Mõõda kaugus ja kirjuta see allpool.
+250|3D puutesond
+251|G-koodi käsk ei ole toetatud või on vigane.
+252|G-koodi sõnal puudub täht.
+253|Käsul puudub väärtus P või L.
+254|Käsk vajab täisarvu.
+255|Käsk vajab teljesõnu, aga real neid ei ole.
+256|Piirlüliti vallandus. Asend võib olla kadunud: tee masina nullimine uuesti.
+257|Makro on G-kood, mille saadab vahekaardi Juhtimine nupp. See võib kasutada muutujaid nurksulgudes.
+258|Negatiivne väärtus seal, kus on vaja positiivset.
+259|Arv on vigane või puudub.
+260|Sõna kordub real.
+261|Lisa makro
+262|Lisa meeldetuletus
+263|Lisa samm
+264|Pärast tööd (lõpetatud või peatatud)
+265|Alarm
+266|Alarm {}: {}
+267|Alarmid
+268|Kõik faili {} seadet on nüüd kontrolleris.
+269|Kaarel ei ole oma tasandis teljesõnu.
+270|Sisend, mis on aktiivne, kuigi miski seda ei puuduta, viitab juhtmestiku või seadistuse probleemile ($5, $6).
+271|Töö ümber
+272|Nooleklahvid liigutavad X ja Y, Page Up ja Page Down liigutavad Z. Vaikimisi väljas: nooled liigutavad ka valitud kujundeid.
+273|Sellel real: X {} Y {} Z {}, {}, etteanne {}
+274|Teljesõnu on üle, kui G80 on aktiivne.
+275|Tee seadetest esmalt varukoopia. Jätkamiseks kirjuta {}:
+276|Varunda faili…
+277|Enne töö algust
+278|Kalibreerimine
+279|Kalibreerimine…
+280|Siit ei saa alustada: {}
+281|Faili ei saa kasutada: {}
+282|Vaheta nüüd tööriist või pliiats. Masin ootab; miski ei liigu, enne kui jätkad.
+283|Kontrolli programmi enne iga käivitamist
+284|Tühjenda alarm ($X)
+285|Tühjenda statistika
+286|Klõpsa, et sisestada tööriista asend töökoordinaatides
+287|Ühendu esmalt masinaga (vahekaart Seade)
+288|Ühenda masinaga, et näha selle sisendeid.
+289|Jätka tööd
+290|Kontroller
+291|Koordinaadid
+292|Tsükli algus
+293|Kustuta see makro
+294|Kustuta see meeldetuletus
+295|Diagnostika ja statistika
+296|Diagnostika salvestatud: {}
+297|Diagonaal A
+298|Diagonaal A on pikem: Y-telg kaldub +X poole.
+299|Diagonaal B
+300|Diagonaal B on pikem: Y-telg kaldub −X poole.
+301|Kuuli läbimõõt
+302|Kaugus
+303|Tehtud
+304|Viga
+305|Vead
+306|Ekspordi diagnostika (zip)…
+307|Eksportimine ebaõnnestus: {}
+308|Tehaseseaded ($RST=$)…
+309|Tehaseseaded kirjutatud ($RST=$)
+310|Ebaõnnestumise kaugus
+311|X-i ja Y kiireim liikumine
+312|Söötmise peatamine
+313|Fail
+314|Püsivara seaded ($$)
+315|Kontrollerilt
+316|G-kood on alarmi või liigutamise ajal lukus. Ava esmalt lukk.
+317|G43.1 saab nihutada ainult tööriista pikkuse telge.
+318|G53 töötab ainult koos G0 või G1-ga.
+319|GRBL ei tunne seda $-käsku.
+320|Mine kohta X0 Y0
+321|Kõrgus
+322|Hoia all, et liikuda
+323|Nullimine
+324|Nullimine ebaõnnestus: lähtestus tsükli ajal.
+325|Nullimine ebaõnnestus: piirlülitit ei leitud. Kontrolli lüliteid ja juhtmestikku.
+326|Nullimine ebaõnnestus: turvauks avati tsükli ajal.
+327|Nullimine ebaõnnestus: lüliti ei vabanenud taandumisel. Kontrolli taandumist ja juhtmestikku.
+328|Nullimine pole seadetes lubatud ($22).
+329|Sisendid
+330|Aktiivsed sisendid: {}
+331|Ühe sammu asemel klõpsu kohta liigub tööriist seni, kuni nupp on all
+332|Äsja tehtud
+333|Tööd
+334|Käsitsi liigutamine
+335|Klaviatuur
+336|Lasertööviis vajab PWM-väljundit.
+337|Viimane sondeerimine: X {} Y {} Z {} ({})
+338|Viimane sondeerimine: Z {} ({})
+339|Tõstmine pärast nulli seadmist
+340|Tõsta ohutu kõrguseni ja mine siis töö nulli
+341|Joon
+342|Masin
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: saadetud {} rida
+346|Makrod
+347|Hooldus
+348|Märgi või lõika ristkülik ja mõõda selle kaks diagonaali: vasakust eesnurgast parema tagumiseni (A) ja paremast eesnurgast vasakpoolse tagumiseni (B). Need on võrdsed, kui teljed on risti.
+349|Mõõdetud
+350|Liiguta
+351|Liiguta {} selle vahemaa võrra
+352|Uus väärtus: ${} = {} (oli {})
+353|Etteannet ei ole veel seatud.
+354|Meeldetuletusi pole. Lisa need seadme seadetes (Hooldus).
+355|Veel lugemata (Masin → Püsivara seaded).
+356|Midagi pole veel loetud.
+357|Z nihe puutel
+358|Õlita juhikud
+359|Toetatud on ainult töökoordinaatsüsteemid G54 kuni G59.
+360|Ainult need, mis erinevad tüüpilisest väärtusest
+361|Risti ei ole {}° võrra: Y-telje üks ots on kogu kõrgusel {} mm nihkes.
+362|Asend
+363|Sond
+364|Sondeeri Z
+365|Sondeerimine ebaõnnestus: vahemaa jooksul ei puudutatud midagi. Kontrolli plaati ja ebaõnnestumise kaugust.
+366|Sondeerimine ebaõnnestus: sond oli juba enne liikumist suletud. Kontrolli juhtmestikku ja plaati.
+367|Pane plaat tööriista alla: tööriist läheb alla kuni puuteni, siis seatakse Z plaadi paksuseks
+368|Pane tööriist serva kõrvale: see liigub selle poole kuni puuteni ja serv saab nulliks
+369|Kiire puude
+370|Loe masin
+371|Loe seaded ($$)
+372|Loen…
+373|Loeb kontrolleri püsivara ($I) ja seaded ($$)
+374|Eemalda see samm
+375|Lähtestus liikumise ajal. Samme võis kaduda: tee masina nullimine uuesti.
+376|Taasta failist…
+377|Taasta tehaseseaded
+378|Taasta seaded failist
+379|Taandumine puudete vahel
+380|Turvauks
+381|Seaded salvestatud: {}
+382|Sea Z uuesti sondiga: uus tööriist puudutab plaati ja Z saab plaadi paksuseks
+383|Seade
+384|Aeglane puude
+385|Tarkvaralised piirid
+386|Tarkvalised piirid vajavad ka lubatud nullimist.
+387|Mõnda sõna ei kasuta ükski käsk.
+388|Kiirus XY
+389|Kiirus Z
+390|Spindli pöörded
+391|Telgede risti olek
+392|Alusta siit
+393|Alusta reast
+394|Alusta reast…
+395|Selle masina statistika
+396|X-i ja Y sammud (mm)
+397|Z sammud (mm)
+398|Samme millimeetri kohta
+399|Peata töö
+400|Peata liikumine
+401|Kaart ei saa raadiusest arvutada. Jaga see või kasuta nihkeid.
+402|Kaarel puudub nihe I, J või K.
+403|Teljed on risti {} mm täpsusega üle kõrguse.
+404|Järgu info või käivitusrida on liiga pikk.
+405|Kontrolleris on need juba kõik olemas.
+406|Kontroller käib programmi läbi kontrollrežiimis ($C): miski ei liigu ja read, millest ta aru ei saa, teatatakse enne päris käivitust
+407|Kontroller teatab tollides ($13): vahekaardi Juhtimine asendid ei ole millimeetrites.
+408|Töö on peatatud
+409|Liigutamiskäsk on vigane.
+410|Liigutamine läheb üle masina käigu ja jäeti tähelepanuta.
+411|Rida on liiga pikk.
+412|Reanumber on vahemikust väljas.
+413|Masin on töötanud {} tundi {} töös.
+414|Masin viiakse olekusse, mis programmil sellel real on: ühikud, spindel, kiirus, asend. Veendu, et tööriist ja töö on seal, kus nad olid.
+415|Masin liigub sinu küsitud vahemaa; mõõda, kui kaugele ta tegelikult läks, ja õige sammude arv arvutatakse.
+416|Liikumine läheb üle masina käigu. Asend säilib; jätkamiseks ava lukk.
+417|Sond läheb alla kuni puuteni; Z seatakse sondi nihkeks
+418|Sondi sisend on juba suletud. Kontrolli klambrit, plaati ja juhtmestikku.
+419|Sond peab olema ühendatud kontrolleri sondisisendiga. Proovi seda plaati puudutades: sisend näitab vahekaardil Juhtimine suletuna.
+420|Turvauks on avatud.
+421|Seade on üle sammusageduse, mida see GRBL toetab.
+422|Seadeid ei saanud lugeda; vaikeväärtused taastati.
+423|Seadeid pole veel loetud.
+424|Seaded salvestati enne esimest muudatust: {}
+425|Sammuimpulsi aeg peab olema vähemalt 3 µs.
+426|Liikumise siht on vigane.
+427|Tööriist on siin: tee sellest töö null
+428|Tööriista number on liiga suur.
+429|Need seaded asuvad kontrolleris, mitte seadmes. Muuda ühte korraga ja märgi eelmine väärtus üles: vale väärtus võib panna masina liikuma vale vahemaa. Seansi esimene muudatus salvestab kõik seaded faili.
+430|Faili need seaded erinevad kontrollerist. Midagi ei kirjutata, kuni vajutad Kirjuta kõik.
+431|Selle külje paksus
+432|Plaadi paksus
+433|See $-käsk töötab ainult siis, kui masin seisab.
+434|See kirjutab $RST=$: kõik kontrolleri seaded lähevad tagasi püsivara vaikeväärtustele. Sammude arv, käigud, kiirused ja nullimine muutuvad kõik.
+435|Tööaeg
+436|Tööriista läbimõõt
+437|Puuteplaat
+438|X, Y, Z käik
+439|Kaks rea käsku vajavad mõlemad teljesõnu.
+440|Kaks sama rühma käsku on ühel real.
+441|Sisesta mõlemad diagonaalid, et tulemust näha.
+442|Sisesta mõõdetud vahemaa, et uut väärtust näha.
+443|Tüüpiline
+444|Ühik
+445|Kasuta neid väärtusi seadme jaoks
+446|Väärtus
+447|Muutujad: {}
+448|Mida teha
+449|Töö
+450|Kirjuta
+451|Kirjuta ${}
+452|Kas kirjutada ${} = {} kontrollerisse? Praegu on see {}. Muuda ühte seadet korraga ja pane vana väärtus kirja.
+453|Kirjuta seade
+454|Kirjuta kõik
+455|Kirjutatakse {} seadet; hiljem loetakse need tagasi
+456|X-piirlüliti
+457|X-piirlüliti
+458|Y-piirlüliti
+459|Y-piirlüliti
+460|Jah
+461|Z
+462|Z-piirlüliti
+463|Z-piirlüliti
+464|Z ohutusse kõrgusse
+465|Nulli X ja Y
+466|Nulli kõik
+467|sondi vahemaa on vahemikust väljas
+468|sondi suurus on vahemikust väljas
+469|suletud
+470|uks
+471|iga
+472|hoidmine
+473|sisend {}
+474|puudet pole
+475|enne seda rida ei seatud etteannet
+476|{}-st
+477|väljas
+478|sees
+479|avatud
+480|sond
+481|lähtestus
+482|spindel väljas
+483|spindel sees (M{}) kiirusel {}
+484|start
+485|ebaõnnestumise kaugus peab olema pikem kui kahekordne taandumine
+486|rida jätkab kaart (G2/G3) ilma G-sõnata
+487|rida on programmi lõpust väljas
+488|eelnevad read kasutavad G53 või G92, nii et asendit ei saa arvutada
+489|programm ei ole enne seda rida X-is ja Y-s liikunud
+490|aeglane sondeerimise etteanne peab olema vahemikus 1 kuni kiire
+491|puudutas
+492|Esmalt saadetakse {} rida selle ettevalmistamiseks.
+493|{} seadet {}-st erineb pärast kirjutamist:
+494|{} {}: {}
+495|{}: tähtaeg käes ({} h üle)
+496|{}: jäänud {} h
+497|1. Kus andur on
+498|2. Esimene tööriist, võrdlus
+499|3. Iga järgmine tööriist
+500|Kontrolleri seadete koopiat hoitakse seadme juures. See tehakse masinaga esmakordsel ühendamisel ja seejärel iga kord, kui seaded erinevad uusimast koopiast; koopiad kuuluvad programmi varukoopiasse.
+501|Kontrolleri {} seade koopia salvestati seadme juurde.
+502|{} seade koopia salvestati seadme juurde.
+503|Töö käib.
+504|Mõõtmine juba käib.
+505|Pärast sinu muudatust salvestati seadetest uus koopia ({} seadet erineb eelmisest).
+506|Tööriista pikkuse andur on lüliti masina kindlas kohas. Iga tööriista tipp puudutab seda, nii et uus freesi saab täpselt sama Z kui eelmine, ilma tööd uuesti puudutamata. Selle asukoht on masina koordinaatides: tee esmalt masina nullimine ja ära kunagi liiguta andurit.
+507|Pärast puudet seatakse Z võrdlustööriista Z-ks anduri juures
+508|Võrdle kontrolleriga ja kirjuta erinevused tagasi
+509|Seadete koopiad ({})
+510|Unusta
+511|Vii tööriist anduri keskele, mõni millimeeter selle kohale, ja vajuta nuppu.
+512|Masin X {}  Y {}, lähenemine Z-st {}
+513|Tee koopia kohe
+514|Mõõda võrdlustööriist
+515|Mõõda esmalt võrdlustööriist.
+516|Mõõda tööriist (andur)
+517|Mõõda see tööriist ja sea Z
+518|Mõõdan…
+519|Veel mõõtmata.
+520|Veel seadmata.
+521|Midagi ei muudeta; näidatakse erinevust võrdlusest
+522|Ainult mõõda
+523|Pane sisse esimene freesi ja sea sellega Z tööle (vahekaart Juhtimine: sondeeri Z või puuduta pinda ja Z0). Seejärel mõõda see anduril.
+524|Võrdlus: Z {} anduril
+525|Taasta…
+526|Sea esmalt anduri asukoht.
+527|Kontroller pole veel asendit teatanud.
+528|Seaded, mis erinevad seadme juurde salvestatud koopiast: {}. Salvestati uus koopia.
+529|Esimesel korral hoia käsi peatamise lähedal: tööriist läheb alla anduri poole.
+530|Masin sõidab andurini ja tööriist puudutab seda kaks korda
+531|Masin sõidab tööriista pikkuse anduri juurde; uus tööriist saab võrdlustööriista Z
+532|Masin ei ole jõudeolekus.
+533|Andur on siin
+534|Tööriist on sama pikk kui võrdlustööriist.
+535|Tööriist on {} mm pikem kui võrdlustööriist.
+536|Tööriist on {} mm lühem kui võrdlustööriist.
+537|Tööriista pikkuse andur
+538|Tööriista pikkuse andur…
+539|Liikumiskõrgus (masina Z)
+540|Kui töö peatub freesi vahetuseks, pakub aken Mõõda tööriist. Seda saab teha ka siin, igal ajal.
+541|anduri üks asukoht on vahemikust väljas
+542|pärast muudatust siin
+543|ühendamisel
+544|käsitsi
+545|seadete koopiad ei kehti
+546|võrdlus ei kehti
+547|lähenemise algus ei tohi olla kõrgemal kui liikumiskõrgus
+548|{} seadet
+549|… ja veel {}
