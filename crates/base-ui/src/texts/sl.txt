@@ -548,3 +548,35 @@
 547|začetek približevanja ne sme biti višje od višine prehoda
 548|{} nastavitev
 549|… in še {}
+550|Ustvari
+551|Podatkovne datoteke
+552|Ustvari obliko…
+553|Ustvarjenih oblik: {}
+554|Generator
+555|Generatorji
+556|Uvozniki
+557|Namesti vtičnik iz zip…
+558|Sporočila skripta:
+559|Ni nameščenih generatorjev. Vtičniki jih lahko dodajo (okno Vtičniki).
+560|Še ni vtičnikov. Dajte mapo vtičnika v mapo vtičnikov ali namestite datoteko zip.
+561|Brez
+562|Ni za ta program
+563|Odpri mapo vtičnikov
+564|Namestitev vtičnika ni uspela: {}
+565|Vtičnik nameščen: {}
+566|Vtičnik odstranjen: {}
+567|Vtičniki
+568|Vtičniki izvajajo skripte, ki lahko ustvarjajo oblike in spreminjajo G-kodo. Nameščajte samo vtičnike, ki jim zaupate.
+569|Vtičniki, ki jih ni bilo mogoče prebrati
+570|Vtičniki…
+571|Postprocesor
+572|Postprocesorji
+573|Prednastavitve
+574|Znova naloži vtičnike
+575|Odstrani
+576|Odstranim vtičnik {}? Njegova mapa bo izbrisana.
+577|Skript ni uspel: {}
+578|Prevodi
+579|Uvozi z vtičnikom…
+580|Noben vtičnik ne bere datotek: namestite ga v oknu Vtičniki
+581|Postprocesor ni uspel, nič ni bilo shranjeno: {}

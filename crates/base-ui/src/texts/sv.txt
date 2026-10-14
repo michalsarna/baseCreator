@@ -548,3 +548,35 @@
 547|början på närmandet får inte ligga högre än förflyttningshöjden
 548|{} inställningar
 549|… och {} till
+550|Skapa
+551|Datafiler
+552|Generera form…
+553|{} former genererade
+554|Generator
+555|Generatorer
+556|Importerare
+557|Installera tillägg från zip…
+558|Skriptets meddelanden:
+559|Inga generatorer installerade. Tillägg kan lägga till dem (fönstret Tillägg).
+560|Inga tillägg ännu. Lägg en tilläggsmapp i tilläggsmappen eller installera en zip-fil.
+561|Ingen
+562|Inte för det här programmet
+563|Öppna tilläggsmappen
+564|Installationen av tillägget misslyckades: {}
+565|Tillägg installerat: {}
+566|Tillägg borttaget: {}
+567|Tillägg
+568|Tillägg kör skript som kan skapa former och ändra G-kod. Installera bara tillägg du litar på.
+569|Tillägg som inte kunde läsas
+570|Tillägg…
+571|Efterbehandlare
+572|Efterbehandlare
+573|Förinställningar
+574|Läs in tilläggen igen
+575|Ta bort
+576|Ta bort tillägget {}? Dess mapp raderas.
+577|Skriptet misslyckades: {}
+578|Översättningar
+579|Importera med ett tillägg…
+580|Inget tillägg läser filer: installera ett i fönstret Tillägg
+581|Efterbehandlaren misslyckades, inget sparades: {}

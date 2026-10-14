@@ -548,3 +548,35 @@
 547	the start of the approach must not be higher than the travel height
 548	{} settings
 549	… and {} more
+550	Create
+551	Data files
+552	Generate shape…
+553	Generated {} shapes
+554	Generator
+555	Generators
+556	Importers
+557	Install plugin from zip…
+558	Messages of the script:
+559	No generators installed. Plugins can add them (Plugins window).
+560	No plugins yet. Put a plugin folder into the plugins folder or install a zip.
+561	None
+562	Not for this program
+563	Open plugins folder
+564	Plugin install failed: {}
+565	Plugin installed: {}
+566	Plugin removed: {}
+567	Plugins
+568	Plugins run scripts that can create shapes and change G-code. Install only plugins you trust.
+569	Plugins that could not be read
+570	Plugins…
+571	Postprocessor
+572	Postprocessors
+573	Presets
+574	Reload plugins
+575	Remove
+576	Remove plugin {}? Its folder is deleted.
+577	The script failed: {}
+578	Translations
+579	Import with a plugin…
+580	No plugin reads files: install one in the Plugins window
+581	The postprocessor failed, nothing was saved: {}

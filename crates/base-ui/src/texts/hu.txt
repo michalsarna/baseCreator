@@ -548,3 +548,35 @@
 547|a közelítés kezdete nem lehet magasabban a szállítási magasságnál
 548|{} beállítás
 549|… és még {}
+550|Létrehozás
+551|Adatfájlok
+552|Alakzat generálása…
+553|{} alakzat létrehozva
+554|Generátor
+555|Generátorok
+556|Importálók
+557|Bővítmény telepítése zip-ből…
+558|A szkript üzenetei:
+559|Nincs telepített generátor. A bővítmények hozzáadhatnak ilyet (Bővítmények ablak).
+560|Még nincs bővítmény. Tegyél egy bővítménymappát a bővítmények mappájába, vagy telepíts egy zip-fájlt.
+561|Nincs
+562|Nem ehhez a programhoz
+563|A bővítmények mappájának megnyitása
+564|A bővítmény telepítése nem sikerült: {}
+565|Bővítmény telepítve: {}
+566|Bővítmény eltávolítva: {}
+567|Bővítmények
+568|A bővítmények szkripteket futtatnak, amelyek alakzatokat hozhatnak létre és módosíthatják a G-kódot. Csak olyan bővítményt telepíts, amelyben megbízol.
+569|Nem olvasható bővítmények
+570|Bővítmények…
+571|Utófeldolgozó
+572|Utófeldolgozók
+573|Előbeállítások
+574|Bővítmények újratöltése
+575|Eltávolítás
+576|Eltávolítod a(z) {} bővítményt? A mappája törlődik.
+577|A szkript hibával leállt: {}
+578|Fordítások
+579|Importálás bővítménnyel…
+580|Egyetlen bővítmény sem olvas fájlokat: telepíts egyet a Bővítmények ablakban
+581|Az utófeldolgozó hibával leállt, semmi nem lett mentve: {}

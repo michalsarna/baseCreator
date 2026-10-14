@@ -16,3 +16,4 @@ zip = { version = "9.0.1", default-features = false, features = ["deflate"] }
 ron = "0.12"
 ttf-parser = { version = "0.25", default-features = false, features = ["std"] }
 usvg = "0.48.1"
+rhai = { version = "1.26.1", default-features = false, features = ["std", "no_module", "no_custom_syntax"] }

@@ -548,3 +548,35 @@
 547|početak prilaza ne smije biti viši od visine prijelaza
 548|{} postavki
 549|… i još {}
+550|Stvori
+551|Datoteke podataka
+552|Generiraj oblik…
+553|Generirano oblika: {}
+554|Generator
+555|Generatori
+556|Uvoznici
+557|Instaliraj dodatak iz zip datoteke…
+558|Poruke skripte:
+559|Nema instaliranih generatora. Dodaci ih mogu dodati (prozor Dodaci).
+560|Još nema dodataka. Stavite mapu dodatka u mapu dodataka ili instalirajte zip datoteku.
+561|Nijedan
+562|Nije za ovaj program
+563|Otvori mapu dodataka
+564|Instalacija dodatka nije uspjela: {}
+565|Dodatak je instaliran: {}
+566|Dodatak je uklonjen: {}
+567|Dodaci
+568|Dodaci pokreću skripte koje mogu stvarati oblike i mijenjati G-kod. Instalirajte samo dodatke kojima vjerujete.
+569|Dodaci koji se nisu mogli pročitati
+570|Dodaci…
+571|Postprocesor
+572|Postprocesori
+573|Predlošci postavki
+574|Ponovno učitaj dodatke
+575|Ukloni
+576|Ukloniti dodatak {}? Njegova mapa bit će izbrisana.
+577|Skripta nije uspjela: {}
+578|Prijevodi
+579|Uvezi dodatkom…
+580|Nijedan dodatak ne čita datoteke: instalirajte ga u prozoru Dodaci
+581|Postprocesor nije uspio, ništa nije spremljeno: {}

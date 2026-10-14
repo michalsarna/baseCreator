@@ -548,3 +548,35 @@
 547|el inicio de la aproximación no puede estar más alto que la altura de desplazamiento
 548|{} ajustes
 549|… y {} más
+550|Crear
+551|Archivos de datos
+552|Generar forma…
+553|Se generaron {} formas
+554|Generador
+555|Generadores
+556|Importadores
+557|Instalar complemento desde zip…
+558|Mensajes del script:
+559|No hay generadores instalados. Los complementos pueden añadirlos (ventana Complementos).
+560|Aún no hay complementos. Pon una carpeta de complemento en la carpeta de complementos o instala un zip.
+561|Ninguno
+562|No es para este programa
+563|Abrir la carpeta de complementos
+564|La instalación del complemento falló: {}
+565|Complemento instalado: {}
+566|Complemento eliminado: {}
+567|Complementos
+568|Los complementos ejecutan scripts que pueden crear formas y cambiar el G-code. Instala solo complementos de confianza.
+569|Complementos que no se pudieron leer
+570|Complementos…
+571|Postprocesador
+572|Postprocesadores
+573|Preajustes
+574|Recargar los complementos
+575|Quitar
+576|¿Eliminar el complemento {}? Su carpeta se borra.
+577|El script falló: {}
+578|Traducciones
+579|Importar con un complemento…
+580|Ningún complemento lee archivos: instala uno en la ventana Complementos
+581|El postprocesador falló, no se guardó nada: {}

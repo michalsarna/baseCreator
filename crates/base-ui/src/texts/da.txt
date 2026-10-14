@@ -548,3 +548,35 @@
 547|starten af tilgangen må ikke være højere end rejsehøjden
 548|{} indstillinger
 549|… og {} flere
+550|Opret
+551|Datafiler
+552|Generér form…
+553|{} former genereret
+554|Generator
+555|Generatorer
+556|Importere
+557|Installér plugin fra zip…
+558|Scriptets meddelelser:
+559|Ingen generatorer installeret. Plugins kan tilføje dem (vinduet Plugins).
+560|Ingen plugins endnu. Læg en plugin-mappe i plugin-mappen eller installér en zip-fil.
+561|Ingen
+562|Ikke til dette program
+563|Åbn plugin-mappen
+564|Installation af plugin mislykkedes: {}
+565|Plugin installeret: {}
+566|Plugin fjernet: {}
+567|Plugins
+568|Plugins kører scripts, der kan oprette former og ændre G-kode. Installér kun plugins, du stoler på.
+569|Plugins, der ikke kunne læses
+570|Plugins…
+571|Postprocessor
+572|Postprocessorer
+573|Forudindstillinger
+574|Genindlæs plugins
+575|Fjern
+576|Fjern pluginet {}? Dets mappe slettes.
+577|Scriptet fejlede: {}
+578|Oversættelser
+579|Importér med et plugin…
+580|Intet plugin læser filer: installér et i vinduet Plugins
+581|Postprocessoren fejlede, intet blev gemt: {}

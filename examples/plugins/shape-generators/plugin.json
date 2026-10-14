@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "id": "shape-generators",
+  "name": "Shape generators",
+  "version": "1.0.0",
+  "author": "baseCreator",
+  "license": "MIT OR Apache-2.0",
+  "description": "A hole pattern on a circle and a spur gear.",
+  "generators": [
+    {
+      "id": "hole-pattern",
+      "name": "Holes on a circle",
+      "description": "Equal holes on a circle, for a flange or a lid.",
+      "script": "holes.rhai",
+      "params": [
+        { "id": "count", "label": "Number of holes", "kind": "number", "default": 6, "min": 1, "max": 200 },
+        { "id": "circle_d", "label": "Circle diameter", "kind": "number", "default": 40, "min": 1, "max": 2000, "unit": "mm" },
+        { "id": "hole_d", "label": "Hole diameter", "kind": "number", "default": 4, "min": 0.1, "max": 500, "unit": "mm" },
+        { "id": "center", "label": "Centre hole", "kind": "bool", "default": true },
+        { "id": "layer", "label": "Layer", "kind": "number", "default": 4, "min": 0, "max": 15 }
+      ]
+    },
+    {
+      "id": "spur-gear",
+      "name": "Spur gear",
+      "description": "A simple gear outline with straight teeth (not an involute profile).",
+      "script": "gear.rhai",
+      "params": [
+        { "id": "teeth", "label": "Teeth", "kind": "number", "default": 18, "min": 6, "max": 200 },
+        { "id": "size", "label": "Module (tooth size)", "kind": "number", "default": 2, "min": 0.2, "max": 20, "unit": "mm" },
+        { "id": "bore", "label": "Bore diameter", "kind": "number", "default": 6, "min": 0, "max": 500, "unit": "mm" },
+        { "id": "style", "label": "Tooth shape", "kind": "choice", "default": "trapezoid", "options": ["trapezoid", "square"] }
+      ]
+    }
+  ]
+}

@@ -548,3 +548,35 @@
 547|începutul apropierii nu trebuie să fie mai sus decât înălțimea de deplasare
 548|{} setări
 549|… și încă {}
+550|Creează
+551|Fișiere de date
+552|Generează formă…
+553|S-au generat {} forme
+554|Generator
+555|Generatoare
+556|Importatoare
+557|Instalează un plugin din zip…
+558|Mesajele scriptului:
+559|Niciun generator instalat. Pluginurile le pot adăuga (fereastra Pluginuri).
+560|Încă nu sunt pluginuri. Pune un folder de plugin în folderul de pluginuri sau instalează un fișier zip.
+561|Niciunul
+562|Nu este pentru acest program
+563|Deschide folderul de pluginuri
+564|Instalarea pluginului a eșuat: {}
+565|Plugin instalat: {}
+566|Plugin eliminat: {}
+567|Pluginuri
+568|Pluginurile rulează scripturi care pot crea forme și modifica G-code. Instalează doar pluginuri în care ai încredere.
+569|Pluginuri care nu au putut fi citite
+570|Pluginuri…
+571|Postprocesor
+572|Postprocesoare
+573|Presetări
+574|Reîncarcă pluginurile
+575|Elimină
+576|Elimini pluginul {}? Folderul lui este șters.
+577|Scriptul a eșuat: {}
+578|Traduceri
+579|Importă cu un plugin…
+580|Niciun plugin nu citește fișiere: instalează unul în fereastra Pluginuri
+581|Postprocesorul a eșuat, nu s-a salvat nimic: {}

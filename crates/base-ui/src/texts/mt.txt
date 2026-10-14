@@ -548,3 +548,35 @@
 547|il-bidu tal-avviċinament ma jistax ikun aktar għoli mill-għoli tal-ivvjaġġar
 548|{} settings
 549|… u {} oħra
+550|Oħloq
+551|Fajls tad-dejta
+552|Iġġenera forma…
+553|Ġew iġġenerati {} forom
+554|Ġeneratur
+555|Ġeneraturi
+556|Importaturi
+557|Installa plugin minn zip…
+558|Messaġġi tal-iskrittura:
+559|L-ebda ġeneratur installat. Il-plugins jistgħu jżidu xi wħud (it-tieqa Plugins).
+560|Għad m'hemm l-ebda plugin. Poġġi folder ta' plugin fil-folder tal-plugins jew installa fajl zip.
+561|L-ebda wieħed
+562|Mhux għal dan il-programm
+563|Iftaħ il-folder tal-plugins
+564|L-installazzjoni tal-plugin falliet: {}
+565|Plugin installat: {}
+566|Plugin imneħħi: {}
+567|Plugins
+568|Il-plugins iħaddmu skritturi li jistgħu joħolqu forom u jbiddlu l-G-code. Installa biss plugins li tafda.
+569|Plugins li ma setgħux jinqraw
+570|Plugins…
+571|Post-proċessur
+572|Post-proċessuri
+573|Preset
+574|Erġa' tgħabbi l-plugins
+575|Neħħi
+576|Tneħħi l-plugin {}? Il-folder tiegħu jitħassar.
+577|L-iskrittura falliet: {}
+578|Traduzzjonijiet
+579|Importa b'plugin…
+580|L-ebda plugin ma jaqra fajls: installa wieħed fit-tieqa Plugins
+581|Il-post-proċessur falla, ma ġie ssejvjat xejn: {}
