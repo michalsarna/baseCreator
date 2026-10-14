@@ -222,3 +222,14 @@
 221|{} contorns
 222|{} imatges trobades
 223|{} × {} px
+224|Interromput (reinici per programari)
+225|Velocitat de l'animació
+226|Torna a l'inici
+227|No es pot obrir {}: {}
+228|Connectat a {}
+229|S'ha perdut la connexió
+230|Desconnectat
+231|Cap resposta del controlador des de fa {} s mentre s'executa una feina (estat: {}).
+232|Pausa
+233|Reprodueix
+234|Repeteix

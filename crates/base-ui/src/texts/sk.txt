@@ -222,3 +222,14 @@
 221|Obrysov: {}
 222|Nájdené obrázky: {}
 223|{} × {} px
+224|Prerušené (mäkký reset)
+225|Rýchlosť animácie
+226|Späť na začiatok
+227|Nemožno otvoriť {}: {}
+228|Pripojené k {}
+229|Spojenie sa stratilo
+230|Odpojené
+231|Riadiaca jednotka neodpovedá {} s počas úlohy (stav: {}).
+232|Pozastaviť
+233|Prehrať
+234|Opakovať

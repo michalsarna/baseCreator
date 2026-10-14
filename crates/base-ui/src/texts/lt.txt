@@ -222,3 +222,14 @@
 221|Kontūrų: {}
 222|Rasta paveikslėlių: {}
 223|{} × {} px
+224|Nutraukta (programinis atstatymas)
+225|Animacijos greitis
+226|Atgal į pradžią
+227|Nepavyksta atverti {}: {}
+228|Prisijungta prie {}
+229|Ryšys prarastas
+230|Atjungta
+231|Valdiklis neatsako {} s vykdant darbą (būsena: {}).
+232|Pauzė
+233|Groti
+234|Kartoti

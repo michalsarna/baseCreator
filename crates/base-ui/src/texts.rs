@@ -229,6 +229,17 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["{} outlines", "Liczba konturów: {}", "{} Konturen", "{} contorni", "{} ääriviivaa", "{} 条轮廓", "{} रूपरेखाएँ"],
     ["{} pictures found", "Znaleziono obrazków: {}", "{} Bilder gefunden", "Trovate {} immagini", "Löytyi {} kuvaa", "找到 {} 张图片", "{} चित्र मिले"],
     ["{} × {} px", "{} × {} px", "{} × {} px", "{} × {} px", "{} × {} px", "{} × {} 像素", "{} × {} पिक्सेल"],
+    ["Aborted (soft reset)", "Przerwano (reset programowy)", "Abgebrochen (Soft-Reset)", "Interrotto (soft reset)", "Keskeytetty (ohjelmallinen nollaus)", "已中止（软复位）", "रोका गया (सॉफ़्ट रीसेट)"],
+    ["Animation speed", "Szybkość animacji", "Geschwindigkeit der Animation", "Velocità dell'animazione", "Animaation nopeus", "动画速度", "एनिमेशन की गति"],
+    ["Back to the start", "Z powrotem na początek", "Zurück zum Anfang", "Torna all'inizio", "Takaisin alkuun", "回到开头", "शुरुआत पर वापस"],
+    ["Cannot open {}: {}", "Nie można otworzyć {}: {}", "{} kann nicht geöffnet werden: {}", "Impossibile aprire {}: {}", "Kohdetta {} ei voi avata: {}", "无法打开 {}：{}", "{} नहीं खुल सका: {}"],
+    ["Connected to {}", "Połączono z {}", "Verbunden mit {}", "Connesso a {}", "Yhdistetty: {}", "已连接到 {}", "{} से कनेक्ट हुआ"],
+    ["Connection lost", "Utracono połączenie", "Verbindung verloren", "Connessione persa", "Yhteys katkesi", "连接丢失", "कनेक्शन टूट गया"],
+    ["Disconnected", "Rozłączono", "Getrennt", "Disconnesso", "Ei yhteyttä", "未连接", "डिस्कनेक्टेड"],
+    ["No answer from the controller for {} s while a job is running (state: {}).", "Brak odpowiedzi sterownika od {} s podczas zadania (stan: {}).", "Seit {} s keine Antwort der Steuerung während eines Auftrags (Zustand: {}).", "Nessuna risposta dal controller da {} s durante un lavoro (stato: {}).", "Ohjain ei ole vastannut {} s työn aikana (tila: {}).", "作业运行期间控制器已 {} 秒没有应答（状态：{}）。", "काम चलते समय कंट्रोलर से {} s से कोई जवाब नहीं (स्थिति: {})।"],
+    ["Pause", "Pauza", "Pause", "Pausa", "Tauko", "暂停", "रोकें"],
+    ["Play", "Odtwarzaj", "Abspielen", "Riproduci", "Toista", "播放", "चलाएँ"],
+    ["Repeat", "Powtarzaj", "Wiederholen", "Ripeti", "Toista", "重复", "दोहराएँ"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

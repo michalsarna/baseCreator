@@ -222,3 +222,14 @@
 221|{} contours
 222|{} images trouvées
 223|{} × {} px
+224|Interrompu (réinitialisation logicielle)
+225|Vitesse de l'animation
+226|Retour au début
+227|Impossible d'ouvrir {} : {}
+228|Connecté à {}
+229|Connexion perdue
+230|Déconnecté
+231|Aucune réponse du contrôleur depuis {} s pendant un travail (état : {}).
+232|Pause
+233|Lecture
+234|Répéter

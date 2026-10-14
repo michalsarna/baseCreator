@@ -222,3 +222,14 @@
 221|{} contururi
 222|{} imagini găsite
 223|{} × {} px
+224|Întrerupt (resetare software)
+225|Viteza animației
+226|Înapoi la început
+227|Nu se poate deschide {}: {}
+228|Conectat la {}
+229|Conexiunea s-a pierdut
+230|Deconectat
+231|Niciun răspuns de la controler de {} s în timpul unei lucrări (stare: {}).
+232|Pauză
+233|Redare
+234|Repetă

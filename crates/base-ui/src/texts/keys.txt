@@ -222,3 +222,14 @@
 221	{} outlines
 222	{} pictures found
 223	{} × {} px
+224	Aborted (soft reset)
+225	Animation speed
+226	Back to the start
+227	Cannot open {}: {}
+228	Connected to {}
+229	Connection lost
+230	Disconnected
+231	No answer from the controller for {} s while a job is running (state: {}).
+232	Pause
+233	Play
+234	Repeat

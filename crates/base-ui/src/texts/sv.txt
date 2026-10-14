@@ -222,3 +222,14 @@
 221|{} konturer
 222|{} bilder hittades
 223|{} × {} px
+224|Avbruten (mjuk återställning)
+225|Animationens hastighet
+226|Tillbaka till början
+227|Kan inte öppna {}: {}
+228|Ansluten till {}
+229|Anslutningen förlorades
+230|Frånkopplad
+231|Inget svar från styrenheten på {} s under ett jobb (tillstånd: {}).
+232|Paus
+233|Spela upp
+234|Upprepa

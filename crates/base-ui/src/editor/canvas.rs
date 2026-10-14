@@ -641,6 +641,10 @@ pub trait EditorCanvas: EditorHost {
                 painter.line_segment([Pos2::new(bed.min.x, sy), Pos2::new(bed.max.x, sy)], st);
             }
         }
+        // The tool cursors belong to the work area: outside it (and while nothing is being dragged) the pointer is the ordinary one.
+        if self.ed().drag.is_none() && !mouse.is_some_and(|m| bed.contains(m)) {
+            ui.ctx().set_cursor_icon(CursorIcon::Default);
+        }
         if resp.drag_stopped_by(PointerButton::Primary) {
             self.ed_mut().snap_guides = (None, None);
             self.ed_mut().snap_targets = None;
