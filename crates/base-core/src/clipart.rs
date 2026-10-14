@@ -72,10 +72,21 @@ impl Library {
         &self.dir
     }
 
+    /// Read the index again: another program may have added or removed pictures in the shared folder.
+    pub fn refresh(&mut self) {
+        self.items = Library::open(self.dir.clone()).items;
+    }
+
+    /// Write the index. It goes to a temporary file first, so a program reading it at the same time never sees half of it.
     pub fn save(&self) -> Result<(), String> {
         std::fs::create_dir_all(&self.dir).map_err(|e| e.to_string())?;
         let json = serde_json::to_string_pretty(&self.items).map_err(|e| e.to_string())?;
-        std::fs::write(self.dir.join("index.json"), json).map_err(|e| e.to_string())
+        let tmp = self.dir.join(format!("index.json.{}.tmp", std::process::id()));
+        std::fs::write(&tmp, json).map_err(|e| e.to_string())?;
+        std::fs::rename(&tmp, self.dir.join("index.json")).map_err(|e| {
+            let _ = std::fs::remove_file(&tmp);
+            e.to_string()
+        })
     }
 
     pub fn svg(&self, id: &str) -> Option<String> {
@@ -85,6 +96,7 @@ impl Library {
     /// Add a picture. The SVG is validated and stored; returns the new entry.
     pub fn add(&mut self, svg: &str, name: &str, category: &str, source: &str, license: &str, author: &str) -> Result<Clip, String> {
         let text = normalize_svg(svg)?;
+        self.refresh();
         std::fs::create_dir_all(&self.dir).map_err(|e| e.to_string())?;
         let base = slug(name);
         let mut id = base.clone();
@@ -102,12 +114,14 @@ impl Library {
     }
 
     pub fn remove(&mut self, id: &str) -> Result<(), String> {
+        self.refresh();
         let _ = std::fs::remove_file(dir_join(&self.dir, id));
         self.items.retain(|c| c.id != id);
         self.save()
     }
 
     pub fn set_category(&mut self, id: &str, category: &str) -> Result<(), String> {
+        self.refresh();
         if let Some(c) = self.items.iter_mut().find(|c| c.id == id) {
             c.category = if category.trim().is_empty() { DEFAULT_CATEGORY.into() } else { category.trim().into() };
         }
@@ -115,6 +129,7 @@ impl Library {
     }
 
     pub fn rename(&mut self, id: &str, name: &str) -> Result<(), String> {
+        self.refresh();
         if let Some(c) = self.items.iter_mut().find(|c| c.id == id) {
             if !name.trim().is_empty() {
                 c.name = name.trim().into();

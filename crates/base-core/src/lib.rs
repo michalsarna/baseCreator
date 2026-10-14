@@ -11,6 +11,7 @@ pub mod image;
 pub mod machine;
 pub mod lightburn;
 pub mod ops;
+pub mod paths;
 pub mod pdf;
 pub mod project;
 pub mod scene;
