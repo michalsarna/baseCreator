@@ -10,8 +10,10 @@ pub mod editor;
 pub mod fonts;
 pub mod i18n;
 pub mod icons;
+pub mod link;
 pub mod markdown_ui;
 pub mod menu;
+pub mod playback;
 #[cfg(target_os = "macos")]
 pub mod native_menu;
 pub mod start;

@@ -134,3 +134,85 @@ mod centered_row_tests {
         assert!((left[2] - left[1]).abs() < 1.0 || left[1] > left[0], "{left:?}");
     }
 }
+
+/// Which edge of a panel is the one that is dragged to resize it.
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Edge {
+    Left,
+    Right,
+    Top,
+    Bottom,
+}
+
+/// The stroke of a line that can be dragged: thin and dim at rest, red and thicker under the pointer or while it is dragged.
+pub fn drag_line_stroke(hot: bool) -> egui::Stroke {
+    if hot {
+        egui::Stroke::new(3.0, Color32::from_rgb(0xe0, 0x30, 0x30))
+    } else {
+        egui::Stroke::new(1.0, theme::border())
+    }
+}
+
+/// Lights up the dragged edge of a resizable panel (red and thicker) while the pointer is on it or drags it, so it is
+/// clear that the line moves. Call it with the rectangle of the panel after it was shown.
+pub fn panel_edge_highlight(ctx: &egui::Context, panel: egui::Rect, edge: Edge) {
+    let id = egui::Id::new(("panel_edge_hot", edge as u8));
+    let line = match edge {
+        Edge::Left => [panel.left_top(), panel.left_bottom()],
+        Edge::Right => [panel.right_top(), panel.right_bottom()],
+        Edge::Top => [panel.left_top(), panel.right_top()],
+        Edge::Bottom => [panel.left_bottom(), panel.right_bottom()],
+    };
+    let (pointer, down) = ctx.input(|i| (i.pointer.hover_pos().or(i.pointer.latest_pos()), i.pointer.primary_down()));
+    let near = pointer.is_some_and(|p| {
+        let (across, along) = match edge {
+            Edge::Left | Edge::Right => ((p.x - line[0].x).abs(), p.y >= panel.top() && p.y <= panel.bottom()),
+            Edge::Top | Edge::Bottom => ((p.y - line[0].y).abs(), p.x >= panel.left() && p.x <= panel.right()),
+        };
+        across <= 5.0 && along
+    });
+    let was: bool = ctx.data(|d| d.get_temp(id)).unwrap_or(false);
+    // Once the drag has begun on the edge it stays lit until the button is released, wherever the pointer goes.
+    let hot = near || (was && down);
+    ctx.data_mut(|d| d.insert_temp(id, hot));
+    if hot {
+        let painter = ctx.layer_painter(egui::LayerId::new(egui::Order::Foreground, egui::Id::new("panel_edge_line")));
+        painter.line_segment(line, drag_line_stroke(true));
+    }
+}
+
+/// A horizontal line between two parts of a tab (a list above, its properties below) that is dragged up and down. The
+/// height of the part above is kept in `height`; the line is red and thicker under the pointer.
+pub fn horizontal_splitter(ui: &mut egui::Ui, id_salt: &str, height: &mut f32, min: f32, max: f32) {
+    let width = ui.available_width();
+    let (rect, resp) = ui.allocate_exact_size(egui::vec2(width, 9.0), egui::Sense::drag());
+    if resp.dragged() {
+        *height = (*height + resp.drag_delta().y).clamp(min, max.max(min));
+    }
+    let hot = resp.hovered() || resp.dragged();
+    if hot {
+        ui.ctx().set_cursor_icon(egui::CursorIcon::ResizeVertical);
+    }
+    let _ = id_salt;
+    let y = rect.center().y;
+    ui.painter().line_segment([egui::pos2(rect.left(), y), egui::pos2(rect.right(), y)], drag_line_stroke(hot));
+}
+
+/// A scrolled list with a draggable line under it (the part below keeps the rest of the tab). The height of the list is
+/// kept for the session; the line is red and thicker under the pointer.
+pub fn list_with_splitter<R>(ui: &mut egui::Ui, id_salt: &str, default_height: f32, add: impl FnOnce(&mut egui::Ui) -> R) -> R {
+    let id = ui.id().with(("list_height", id_salt));
+    let mut h: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(default_height);
+    let max = (ui.ctx().content_rect().height() - 260.0).max(120.0);
+    h = h.clamp(60.0, max);
+    let out = egui::ScrollArea::vertical().id_salt(id_salt).max_height(h).auto_shrink([false, true]).show(ui, add).inner;
+    horizontal_splitter(ui, id_salt, &mut h, 60.0, max);
+    ui.data_mut(|d| d.insert_temp(id, h));
+    out
+}
+
+/// `h:mm:ss` for a time in seconds.
+pub fn fmt_time(s: f64) -> String {
+    let s = if s.is_finite() && s > 0.0 { s as u64 } else { 0 };
+    format!("{}:{:02}:{:02}", s / 3600, s / 60 % 60, s % 60)
+}

@@ -222,3 +222,14 @@
 221|{} körvonal
 222|{} kép található
 223|{} × {} px
+224|Megszakítva (szoftveres újraindítás)
+225|Az animáció sebessége
+226|Vissza az elejére
+227|Nem nyitható meg: {}: {}
+228|Csatlakozva: {}
+229|A kapcsolat megszakadt
+230|Lecsatlakoztatva
+231|A vezérlő {} másodperce nem válaszol munka közben (állapot: {}).
+232|Szünet
+233|Lejátszás
+234|Ismétlés

@@ -8,6 +8,7 @@ pub mod fillet;
 pub mod geom;
 pub mod grbl_settings;
 pub mod image;
+pub mod machine;
 pub mod lightburn;
 pub mod ops;
 pub mod pdf;
