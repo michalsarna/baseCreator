@@ -233,3 +233,8 @@
 232|Pausa
 233|Reprodueix
 234|Repeteix
+235|Desplaçament automàtic
+236|Esborra
+237|Envia
+238|Consultes d'estat
+239|envia G-code / ordre $

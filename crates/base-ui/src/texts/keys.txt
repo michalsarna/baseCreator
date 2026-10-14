@@ -233,3 +233,8 @@
 232	Pause
 233	Play
 234	Repeat
+235	Auto-scroll
+236	Clear
+237	Send
+238	Status polls
+239	send G-code / $ command

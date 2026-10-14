@@ -233,3 +233,8 @@
 232|Pausa
 233|Reproduzir
 234|Repetir
+235|Deslocação automática
+236|Limpar
+237|Enviar
+238|Consultas de estado
+239|enviar G-code / comando $

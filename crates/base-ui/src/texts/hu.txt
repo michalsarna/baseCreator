@@ -233,3 +233,8 @@
 232|Szünet
 233|Lejátszás
 234|Ismétlés
+235|Automatikus görgetés
+236|Törlés
+237|Küldés
+238|Állapotlekérdezések
+239|G-code / $ parancs küldése

@@ -4,6 +4,7 @@ pub mod camera;
 pub mod camera_stream;
 pub mod clip_net;
 pub mod clipart_ui;
+pub mod console_ui;
 pub mod description_ui;
 pub mod dialogs;
 pub mod editor;

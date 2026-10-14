@@ -233,3 +233,8 @@
 232|Paus
 233|Esita
 234|Korda
+235|Automaatne kerimine
+236|Tühjenda
+237|Saada
+238|Olekupäringud
+239|saada G-code / käsk $

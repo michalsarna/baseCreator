@@ -233,3 +233,8 @@
 232|Pauze
 233|Atskaņot
 234|Atkārtot
+235|Automātiskā ritināšana
+236|Notīrīt
+237|Sūtīt
+238|Stāvokļa pieprasījumi
+239|sūtīt G-code / komandu $

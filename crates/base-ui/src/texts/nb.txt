@@ -233,3 +233,8 @@
 232|Pause
 233|Spill av
 234|Gjenta
+235|Automatisk rulling
+236|Tøm
+237|Send
+238|Statusforespørsler
+239|send G-code / $-kommando

@@ -233,3 +233,8 @@
 232|Sos
 233|Seinn
 234|Athdhéan
+235|Scrollú uathoibríoch
+236|Glan
+237|Seol
+238|Fiosruithe stádais
+239|seol G-code / ordú $
