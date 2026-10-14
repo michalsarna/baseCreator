@@ -29,6 +29,7 @@ pub mod snap;
 pub mod svg;
 pub mod text;
 pub mod trace;
+pub mod ugsd;
 pub mod units;
 
 pub use bezier::*;

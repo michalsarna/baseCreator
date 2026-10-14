@@ -154,6 +154,21 @@ impl Scene {
         self.shapes.push(s);
         id
     }
+    /// Add all shapes of `other` (new ids, groups kept apart from the existing ones); layers above `max_layer` go on
+    /// `max_layer`. Returns the ids of the new shapes.
+    pub fn append(&mut self, other: Scene, max_layer: usize) -> Vec<u64> {
+        let mut groups = std::collections::HashMap::new();
+        let mut ids = vec![];
+        for mut s in other.shapes {
+            s.layer = s.layer.min(max_layer);
+            if let Some(g) = s.group {
+                let new = *groups.entry(g).or_insert_with(|| self.new_group_id());
+                s.group = Some(new);
+            }
+            ids.push(self.add_shape(s));
+        }
+        ids
+    }
     pub fn new_group_id(&mut self) -> u64 {
         self.next_group = self.next_group.max(1);
         let g = self.next_group;

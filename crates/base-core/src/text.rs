@@ -169,6 +169,17 @@ fn layout(t: &TextData) -> Vec<Contour> {
     out
 }
 
+/// Distance from the top of the text box to the baseline of its first line, in millimetres.
+pub fn ascent(t: &TextData) -> f64 {
+    let size = t.size.max(0.1);
+    let Some(id) = find_face(t) else { return size };
+    db().with_face_data(id, |data, index| {
+        ttf_parser::Face::parse(data, index).ok().map(|f| f.ascender() as f64 * size / f.units_per_em().max(1) as f64)
+    })
+    .flatten()
+    .unwrap_or(size)
+}
+
 /// Glyph outlines for `t` in local coordinates (top-left origin, y down). Results are cached.
 pub fn contours(t: &TextData) -> Arc<Vec<Contour>> {
     static CACHE: OnceLock<Mutex<HashMap<String, Arc<Vec<Contour>>>>> = OnceLock::new();
