@@ -238,3 +238,11 @@
 237|Enviar
 238|Consultas de estado
 239|enviar G-code / comando $
+240|Descargar copia de seguridad…
+241|Restaurar desde una copia de seguridad…
+242|Error en la copia de seguridad: {}
+243|Copia de seguridad restaurada: {}
+244|Copia de seguridad guardada: {}
+245|Error al restaurar: {}
+246|Restaurar desde una copia de seguridad
+247|Su configuración actual se sustituirá por la de la copia de seguridad. Sus imágenes se añaden a la galería compartida. ¿Continuar?

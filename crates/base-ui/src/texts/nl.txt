@@ -238,3 +238,11 @@
 237|Verzenden
 238|Statusopvragingen
 239|G-code / $-opdracht verzenden
+240|Back-up downloaden…
+241|Herstellen vanuit back-up…
+242|Back-up mislukt: {}
+243|Back-up hersteld: {}
+244|Back-up opgeslagen: {}
+245|Herstellen mislukt: {}
+246|Herstellen vanuit back-up
+247|Je huidige instellingen worden vervangen door die van de back-up. De afbeeldingen ervan worden aan de gedeelde galerij toegevoegd. Doorgaan?

@@ -238,3 +238,11 @@
 237|Ibgħat
 238|Mistoqsijiet tal-istat
 239|ibgħat G-code / kmand $
+240|Niżżel backup…
+241|Irrestawra minn backup…
+242|Il-backup falla: {}
+243|Backup irrestawrat: {}
+244|Backup salvat: {}
+245|Ir-restawr falla: {}
+246|Irrestawra minn backup
+247|L-issettings preżenti tiegħek se jiġu mibdula b'dawk tal-backup. L-istampi tiegħu se jiżdiedu mal-gallerija maqsuma. Tkompli?

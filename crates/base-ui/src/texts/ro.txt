@@ -238,3 +238,11 @@
 237|Trimite
 238|Interogări de stare
 239|trimite G-code / comandă $
+240|Descarcă o copie de rezervă…
+241|Restaurează dintr-o copie de rezervă…
+242|Copierea de rezervă a eșuat: {}
+243|Copie de rezervă restaurată: {}
+244|Copie de rezervă salvată: {}
+245|Restaurarea a eșuat: {}
+246|Restaurează dintr-o copie de rezervă
+247|Setările curente vor fi înlocuite cu cele din copia de rezervă. Imaginile ei sunt adăugate în galeria comună. Continuați?

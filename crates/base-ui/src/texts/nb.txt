@@ -238,3 +238,11 @@
 237|Send
 238|Statusforespørsler
 239|send G-code / $-kommando
+240|Last ned sikkerhetskopi…
+241|Gjenopprett fra sikkerhetskopi…
+242|Sikkerhetskopieringen mislyktes: {}
+243|Sikkerhetskopi gjenopprettet: {}
+244|Sikkerhetskopi lagret: {}
+245|Gjenopprettingen mislyktes: {}
+246|Gjenopprett fra sikkerhetskopi
+247|Dine nåværende innstillinger erstattes av sikkerhetskopiens. Bildene i den legges til i det delte galleriet. Fortsette?

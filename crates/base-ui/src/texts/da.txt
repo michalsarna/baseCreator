@@ -238,3 +238,11 @@
 237|Send
 238|Statusforespørgsler
 239|send G-code / $-kommando
+240|Hent sikkerhedskopi…
+241|Gendan fra sikkerhedskopi…
+242|Sikkerhedskopieringen mislykkedes: {}
+243|Sikkerhedskopi gendannet: {}
+244|Sikkerhedskopi gemt: {}
+245|Gendannelsen mislykkedes: {}
+246|Gendan fra sikkerhedskopi
+247|Dine nuværende indstillinger erstattes af sikkerhedskopiens. Dens billeder føjes til det fælles galleri. Fortsæt?

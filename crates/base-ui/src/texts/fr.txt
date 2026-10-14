@@ -238,3 +238,11 @@
 237|Envoyer
 238|Interrogations d'état
 239|envoyer du G-code / une commande $
+240|Télécharger une sauvegarde…
+241|Restaurer depuis une sauvegarde…
+242|Échec de la sauvegarde : {}
+243|Sauvegarde restaurée : {}
+244|Sauvegarde enregistrée : {}
+245|Échec de la restauration : {}
+246|Restaurer depuis une sauvegarde
+247|Vos paramètres actuels seront remplacés par ceux de la sauvegarde. Ses images sont ajoutées à la galerie partagée. Continuer ?

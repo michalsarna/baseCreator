@@ -245,6 +245,14 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Send", "Wyślij", "Senden", "Invia", "Lähetä", "发送", "भेजें"],
     ["Status polls", "Zapytania o stan", "Statusabfragen", "Richieste di stato", "Tilakyselyt", "状态查询", "स्थिति पोल"],
     ["send G-code / $ command", "wyślij G-code / polecenie $", "G-Code / $-Befehl senden", "invia G-code / comando $", "lähetä G-koodi / $-komento", "发送 G-code / $ 命令", "G-code / $ कमांड भेजें"],
+    ["Download backup…", "Pobierz kopię zapasową…", "Sicherung herunterladen…", "Scarica il backup…", "Lataa varmuuskopio…", "下载备份…", "बैकअप डाउनलोड करें…"],
+    ["Restore from backup…", "Przywróć z kopii zapasowej…", "Aus Sicherung wiederherstellen…", "Ripristina dal backup…", "Palauta varmuuskopiosta…", "从备份恢复…", "बैकअप से पुनर्स्थापित करें…"],
+    ["Backup failed: {}", "Nie udało się zapisać kopii zapasowej: {}", "Sicherung fehlgeschlagen: {}", "Backup non riuscito: {}", "Varmuuskopiointi epäonnistui: {}", "备份失败：{}", "बैकअप विफल: {}"],
+    ["Backup restored: {}", "Przywrócono kopię zapasową: {}", "Sicherung wiederhergestellt: {}", "Backup ripristinato: {}", "Varmuuskopio palautettu: {}", "备份已恢复：{}", "बैकअप पुनर्स्थापित: {}"],
+    ["Backup saved: {}", "Zapisano kopię zapasową: {}", "Sicherung gespeichert: {}", "Backup salvato: {}", "Varmuuskopio tallennettu: {}", "备份已保存：{}", "बैकअप सहेजा गया: {}"],
+    ["Restore failed: {}", "Nie udało się przywrócić: {}", "Wiederherstellung fehlgeschlagen: {}", "Ripristino non riuscito: {}", "Palautus epäonnistui: {}", "恢复失败：{}", "पुनर्स्थापना विफल: {}"],
+    ["Restore from backup", "Przywróć z kopii zapasowej", "Aus Sicherung wiederherstellen", "Ripristina dal backup", "Palauta varmuuskopiosta", "从备份恢复", "बैकअप से पुनर्स्थापित करें"],
+    ["Your current settings will be replaced by the backup. Its pictures are added to the shared gallery. Continue?", "Obecne ustawienia zostaną zastąpione ustawieniami z kopii. Jej obrazki zostaną dodane do wspólnej galerii. Kontynuować?", "Deine aktuellen Einstellungen werden durch die Sicherung ersetzt. Ihre Bilder werden der gemeinsamen Galerie hinzugefügt. Fortfahren?", "Le impostazioni attuali saranno sostituite da quelle del backup. Le sue immagini vengono aggiunte alla galleria condivisa. Continuare?", "Nykyiset asetukset korvataan varmuuskopion asetuksilla. Sen kuvat lisätään yhteiseen galleriaan. Jatketaanko?", "当前设置将被备份中的设置替换，备份中的图片将添加到共享图库。是否继续？", "आपकी मौजूदा सेटिंग्स बैकअप की सेटिंग्स से बदल दी जाएँगी। इसके चित्र साझा गैलरी में जोड़ दिए जाएँगे। जारी रखें?"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

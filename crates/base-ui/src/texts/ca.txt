@@ -238,3 +238,11 @@
 237|Envia
 238|Consultes d'estat
 239|envia G-code / ordre $
+240|Baixa una còpia de seguretat…
+241|Restaura des d'una còpia de seguretat…
+242|La còpia de seguretat ha fallat: {}
+243|Còpia de seguretat restaurada: {}
+244|Còpia de seguretat desada: {}
+245|La restauració ha fallat: {}
+246|Restaura des d'una còpia de seguretat
+247|La configuració actual se substituirà per la de la còpia de seguretat. Les seves imatges s'afegiran a la galeria compartida. Voleu continuar?

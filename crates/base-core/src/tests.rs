@@ -501,3 +501,36 @@ fn programs_share_one_gallery_and_old_data_moves_in_once() {
     assert!(Library::open(&pa.gallery).items.iter().any(|c| c.name == "from y"));
     let _ = std::fs::remove_dir_all(&root);
 }
+
+#[test]
+fn backup_restores_settings_and_adds_pictures_to_the_shared_gallery() {
+    use crate::{backup, clipart::Library};
+    let svg = |c: &str| format!("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'><rect width='10' height='10' fill='{c}'/></svg>");
+    let root = std::env::temp_dir().join(format!("bc-backup-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(&root).unwrap();
+    let gallery = root.join("clipart");
+    let mut lib = Library::open(&gallery);
+    lib.add(&svg("red"), "old one", "Mine", "file", "", "").unwrap();
+    let zip = root.join("b.zip");
+    let n = backup::write(&zip, "LightCreator", "v1", &[("lang", "pl".into()), ("devices", "x\ny".into())], &gallery).unwrap();
+    assert_eq!(n, 4, "settings, index, one picture, README");
+    // Another program adds a picture afterwards; the restore must not lose it.
+    let mut other = Library::open(&gallery);
+    other.add(&svg("blue"), "newer", "Mine", "file", "", "").unwrap();
+    other.remove(&other.items[0].id.clone()).unwrap();
+    let r = backup::restore(&zip, "LightCreator", &gallery).unwrap();
+    assert_eq!(r.settings.get("lang").map(String::as_str), Some("pl"));
+    assert_eq!(r.settings.get("devices").map(String::as_str), Some("x\ny"));
+    assert!(!r.settings.contains_key(backup::PROGRAM_KEY));
+    assert_eq!(r.pictures, 1);
+    let names: Vec<_> = Library::open(&gallery).items.iter().map(|c| c.name.clone()).collect();
+    assert!(names.contains(&"old one".to_string()) && names.contains(&"newer".to_string()), "{names:?}");
+    // Restoring again adds nothing.
+    assert_eq!(backup::restore(&zip, "LightCreator", &gallery).unwrap().pictures, 0);
+    // Another program's backup is refused, and a missing file is an error.
+    assert!(backup::restore(&zip, "MillCreator", &gallery).unwrap_err().contains("lightcreator"));
+    assert!(backup::restore(&root.join("none.zip"), "LightCreator", &gallery).is_err());
+    assert_eq!(backup::file_name("pencreator", 1_791_676_800), "pencreator-backup-20261011.zip");
+    let _ = std::fs::remove_dir_all(&root);
+}

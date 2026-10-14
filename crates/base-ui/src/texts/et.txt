@@ -238,3 +238,11 @@
 237|Saada
 238|Olekupäringud
 239|saada G-code / käsk $
+240|Laadi alla varukoopia…
+241|Taasta varukoopiast…
+242|Varundamine ebaõnnestus: {}
+243|Varukoopia taastatud: {}
+244|Varukoopia salvestatud: {}
+245|Taastamine ebaõnnestus: {}
+246|Taasta varukoopiast
+247|Praegused seaded asendatakse varukoopia seadetega. Selle pildid lisatakse ühisgaleriisse. Kas jätkata?

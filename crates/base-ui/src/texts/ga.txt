@@ -238,3 +238,11 @@
 237|Seol
 238|Fiosruithe stádais
 239|seol G-code / ordú $
+240|Íoslódáil cúltaca…
+241|Athchóirigh ó chúltaca…
+242|Theip ar an gcúltaca: {}
+243|Cúltaca athchóirithe: {}
+244|Cúltaca sábháilte: {}
+245|Theip ar an athchóiriú: {}
+246|Athchóirigh ó chúltaca
+247|Cuirfear socruithe an chúltaca in ionad do chuid socruithe reatha. Cuirtear a phictiúir leis an ngailearaí comhroinnte. Lean ar aghaidh?

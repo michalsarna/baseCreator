@@ -238,3 +238,11 @@
 237|Skicka
 238|Statusfrågor
 239|skicka G-code / $-kommando
+240|Hämta säkerhetskopia…
+241|Återställ från säkerhetskopia…
+242|Säkerhetskopieringen misslyckades: {}
+243|Säkerhetskopia återställd: {}
+244|Säkerhetskopia sparad: {}
+245|Återställningen misslyckades: {}
+246|Återställ från säkerhetskopia
+247|Dina nuvarande inställningar ersätts av säkerhetskopians. Dess bilder läggs till i det delade galleriet. Fortsätta?
