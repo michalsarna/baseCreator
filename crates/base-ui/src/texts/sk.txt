@@ -238,3 +238,11 @@
 237|Odoslať
 238|Dotazy na stav
 239|odoslať G-code / príkaz $
+240|Stiahnuť zálohu…
+241|Obnoviť zo zálohy…
+242|Záloha zlyhala: {}
+243|Záloha obnovená: {}
+244|Záloha uložená: {}
+245|Obnovenie zlyhalo: {}
+246|Obnoviť zo zálohy
+247|Vaše súčasné nastavenia budú nahradené nastaveniami zo zálohy. Jej obrázky sa pridajú do spoločnej galérie. Pokračovať?

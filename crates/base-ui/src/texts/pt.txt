@@ -238,3 +238,11 @@
 237|Enviar
 238|Consultas de estado
 239|enviar G-code / comando $
+240|Transferir cópia de segurança…
+241|Restaurar a partir de uma cópia de segurança…
+242|Falha na cópia de segurança: {}
+243|Cópia de segurança restaurada: {}
+244|Cópia de segurança guardada: {}
+245|Falha ao restaurar: {}
+246|Restaurar a partir de uma cópia de segurança
+247|As suas definições atuais serão substituídas pelas da cópia de segurança. As imagens dela são adicionadas à galeria partilhada. Continuar?

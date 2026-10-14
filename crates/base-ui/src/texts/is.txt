@@ -238,3 +238,11 @@
 237|Senda
 238|Stöðufyrirspurnir
 239|senda G-code / $-skipun
+240|Sækja öryggisafrit…
+241|Endurheimta úr öryggisafriti…
+242|Öryggisafritun mistókst: {}
+243|Öryggisafrit endurheimt: {}
+244|Öryggisafrit vistað: {}
+245|Endurheimt mistókst: {}
+246|Endurheimta úr öryggisafriti
+247|Núverandi stillingar þínar verða leystar af hólmi með stillingum afritsins. Myndir þess bætast við sameiginlega safnið. Halda áfram?

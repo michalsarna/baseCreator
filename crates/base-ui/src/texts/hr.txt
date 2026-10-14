@@ -238,3 +238,11 @@
 237|Pošalji
 238|Upiti o stanju
 239|pošalji G-code / naredbu $
+240|Preuzmi sigurnosnu kopiju…
+241|Vrati iz sigurnosne kopije…
+242|Sigurnosno kopiranje nije uspjelo: {}
+243|Sigurnosna kopija vraćena: {}
+244|Sigurnosna kopija spremljena: {}
+245|Vraćanje nije uspjelo: {}
+246|Vrati iz sigurnosne kopije
+247|Vaše trenutne postavke bit će zamijenjene postavkama iz sigurnosne kopije. Njezine slike bit će dodane u zajedničku galeriju. Nastaviti?

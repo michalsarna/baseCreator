@@ -238,3 +238,11 @@
 237|Sūtīt
 238|Stāvokļa pieprasījumi
 239|sūtīt G-code / komandu $
+240|Lejupielādēt rezerves kopiju…
+241|Atjaunot no rezerves kopijas…
+242|Rezerves kopēšana neizdevās: {}
+243|Rezerves kopija atjaunota: {}
+244|Rezerves kopija saglabāta: {}
+245|Atjaunošana neizdevās: {}
+246|Atjaunot no rezerves kopijas
+247|Pašreizējie iestatījumi tiks aizstāti ar dublējuma iestatījumiem. Tā attēli tiks pievienoti kopīgajai galerijai. Vai turpināt?

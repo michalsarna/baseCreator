@@ -1,5 +1,6 @@
 //! Shared GUI of LightCreator and MillCreator: colour schemes, fonts, the translation layer, a small Markdown
 //! viewer, unit-aware number fields and the camera helpers.
+pub mod backup_ui;
 pub mod camera;
 pub mod camera_stream;
 pub mod clip_net;

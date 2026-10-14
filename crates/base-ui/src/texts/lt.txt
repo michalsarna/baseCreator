@@ -238,3 +238,11 @@
 237|Siųsti
 238|Būsenos užklausos
 239|siųsti G-code / komandą $
+240|Atsisiųsti atsarginę kopiją…
+241|Atkurti iš atsarginės kopijos…
+242|Atsarginė kopija nepavyko: {}
+243|Atsarginė kopija atkurta: {}
+244|Atsarginė kopija įrašyta: {}
+245|Atkurti nepavyko: {}
+246|Atkurti iš atsarginės kopijos
+247|Dabartiniai nustatymai bus pakeisti atsarginės kopijos nustatymais. Jos paveikslėliai bus pridėti prie bendros galerijos. Tęsti?

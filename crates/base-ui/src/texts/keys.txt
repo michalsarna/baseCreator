@@ -238,3 +238,11 @@
 237	Send
 238	Status polls
 239	send G-code / $ command
+240	Download backup…
+241	Restore from backup…
+242	Backup failed: {}
+243	Backup restored: {}
+244	Backup saved: {}
+245	Restore failed: {}
+246	Restore from backup
+247	Your current settings will be replaced by the backup. Its pictures are added to the shared gallery. Continue?

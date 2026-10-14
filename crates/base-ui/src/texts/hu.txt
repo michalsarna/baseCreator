@@ -238,3 +238,11 @@
 237|Küldés
 238|Állapotlekérdezések
 239|G-code / $ parancs küldése
+240|Biztonsági mentés letöltése…
+241|Visszaállítás biztonsági mentésből…
+242|A biztonsági mentés nem sikerült: {}
+243|Biztonsági mentés visszaállítva: {}
+244|Biztonsági mentés elmentve: {}
+245|A visszaállítás nem sikerült: {}
+246|Visszaállítás biztonsági mentésből
+247|A jelenlegi beállítások helyébe a biztonsági mentés beállításai lépnek. A képei hozzáadódnak a közös galériához. Folytatja?

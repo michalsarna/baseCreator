@@ -238,3 +238,11 @@
 237|Pošlji
 238|Poizvedbe o stanju
 239|pošlji G-code / ukaz $
+240|Prenesi varnostno kopijo…
+241|Obnovi iz varnostne kopije…
+242|Varnostno kopiranje ni uspelo: {}
+243|Varnostna kopija obnovljena: {}
+244|Varnostna kopija shranjena: {}
+245|Obnovitev ni uspela: {}
+246|Obnovi iz varnostne kopije
+247|Vaše trenutne nastavitve bodo zamenjane z nastavitvami iz varnostne kopije. Njene slike bodo dodane v skupno galerijo. Nadaljujem?
