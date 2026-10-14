@@ -246,3 +246,305 @@
 245|Theip ar an athchóiriú: {}
 246|Athchóirigh ó chúltaca
 247|Cuirfear socruithe an chúltaca in ionad do chuid socruithe reatha. Cuirtear a phictiúir leis an ngailearaí comhroinnte. Lean ar aghaidh?
+248|Tá ${} {} chéim/mm anois
+249|1. Déan comhartha san áit a bhfuil an uirlis (nó cuir tomhaisire diailín ann). 2. Brúigh Bog. 3. Tomhais an fad agus clóscríobh thíos é.
+250|Tóireadóir tadhaill 3D
+251|Ní thacaítear le horduithe G-code nó níl sé bailí.
+252|Níl litir ag focal G-code.
+253|Tá luach P nó L ar iarraidh ó ordú.
+254|Teastaíonn slánuimhir ó ordú.
+255|Teastaíonn focail aise ó ordú ach níl aon cheann sa líne.
+256|Buaileadh lasc teorann. Seans go bhfuil an suíomh caillte: déan homing ar an meaisín arís.
+257|Is G-code é macra a sheolann cnaipe ar an gcluaisín Rialú. Is féidir athróga idir lúibíní cearnacha a úsáid ann.
+258|Luach diúltach nuair is gá luach dearfach.
+259|Tá uimhir neamhbhailí nó ar iarraidh.
+260|Tá focal athdhéanta sa líne.
+261|Cuir macra leis
+262|Cuir meabhrúchán leis
+263|Cuir céim leis
+264|Tar éis na hoibre (críochnaithe nó stoptha)
+265|Aláram
+266|Aláram {}: {}
+267|Alárthaí
+268|Tá na {} socruithe uile ón gcomhad sa rialaitheoir anois.
+269|Níl focail aise ag stua ina plána.
+270|Léiríonn ionchur atá gníomhach gan aon rud á theagmháil le fadhb leis an gcáblú nó leis na socruithe ($5, $6).
+271|Timpeall oibre
+272|Bogann na heochracha saigheada X agus Y, bogann Page Up agus Page Down Z. As de réir réamhshocraithe: bogann na saigheada na cruthanna roghnaithe freisin.
+273|Sa líne seo: X {} Y {} Z {}, {}, beathú {}
+274|Tá focail aise fágtha agus G80 gníomhach.
+275|Cuir cúltaca de na socruithe ar dtús. Chun leanúint ar aghaidh, clóscríobh {}:
+276|Cúltaca go comhad…
+277|Sula dtosaíonn an obair
+278|Calabrú
+279|Calabrú…
+280|Ní féidir tosú anseo: {}
+281|Ní féidir an comhad a úsáid: {}
+282|Athraigh an uirlis nó an peann anois. Tá an meaisín ag fanacht; ní bhogann aon rud go dtí go leanfaidh tú ar aghaidh.
+283|Seiceáil an clár roimh gach rith
+284|Glan an t-aláram ($X)
+285|Glan na staitisticí
+286|Cliceáil chun suíomh na huirlise a chlóscríobh i gcomhordanáidí oibre
+287|Ceangail leis an meaisín ar dtús (cluaisín Gléas)
+288|Ceangail leis an meaisín chun a ionchuir a fheiceáil.
+289|Lean ar aghaidh leis an obair
+290|Rialaitheoir
+291|Comhordanáidí
+292|Tús timthrialla
+293|Scrios an macra seo
+294|Scrios an meabhrúchán seo
+295|Diagnóisic agus staitisticí
+296|Sábháladh an diagnóisic: {}
+297|Trasnán A
+298|Is é trasnán A an ceann is faide: claonann ais Y i dtreo +X.
+299|Trasnán B
+300|Is é trasnán B an ceann is faide: claonann ais Y i dtreo −X.
+301|Trastomhas na liathróide
+302|Achar
+303|Déanta
+304|Earráid
+305|Earráidí
+306|Easpórtáil diagnóisic (zip)…
+307|Theip ar an easpórtáil: {}
+308|Socruithe monarchan ($RST=$)…
+309|Scríobhadh socruithe monarchan ($RST=$)
+310|Fad teipe
+311|An ghluaiseacht is tapúla de X agus Y
+312|Coinnigh an beathú
+313|Comhad
+314|Socruithe an dochtearraí ($$)
+315|Ón rialtóir
+316|Tá G-code faoi ghlas le linn aláraim nó jog. Díghlasáil ar dtús.
+317|Ní féidir le G43.1 ach ais fad na huirlise a fhritháireamh.
+318|Ní oibríonn G53 ach le G0 nó G1.
+319|Níl an t-ordú $ seo ar eolas ag GRBL.
+320|Téigh go X0 Y0
+321|Airde
+322|Coinnigh síos chun bogadh
+323|Homing
+324|Theip ar an homing: athshocraíodh le linn an timthrialla.
+325|Theip ar an homing: níor aimsíodh lasc teorann. Seiceáil na lascanna agus an cáblú.
+326|Theip ar an homing: osclaíodh doras sábháilteachta le linn an timthrialla.
+327|Theip ar an homing: níor scaoileadh an lasc agus é á tharraingt siar. Seiceáil an tarraingt siar agus an cáblú.
+328|Níl homing cumasaithe sna socruithe ($22).
+329|Ionchuir
+330|Ionchuir ghníomhacha: {}
+331|In ionad céim amháin in aghaidh an chliceála, bogann an uirlis fad is atá an cnaipe coinnithe síos
+332|Déanta díreach anois
+333|Oibreacha
+334|Jogáil
+335|Méarchlár
+336|Teastaíonn aschur PWM ó mhodh léasair.
+337|An tóireadóireacht dheireanach: X {} Y {} Z {} ({})
+338|An tóireadóireacht dheireanach: Z {} ({})
+339|Ardú tar éis an nialas a shocrú
+340|Ardaigh go dtí an airde shábháilte, ansin téigh go nialas na hoibre
+341|Líne
+342|Meaisín
+343|Macra {}
+344|Macra {}: {}
+345|Macra {}: seoladh {} líne
+346|Macraí
+347|Cothabháil
+348|Marcáil nó gearr dronuilleog agus tomhais a dhá trasnán: ón gcúinne tosaigh clé go dtí an cúinne cúil deas (A) agus ón gcúinne tosaigh deas go dtí an cúinne cúil clé (B). Tá siad cothrom nuair atá na haiseanna ingearach.
+349|Tomhaiste
+350|Bog
+351|Bog {} an fad
+352|Luach nua: ${} = {} (bhí {})
+353|Níl beathú socraithe fós.
+354|Níl aon mheabhrúcháin ann. Cuir isteach iad i socruithe an ghléis (Cothabháil).
+355|Níor léadh fós (Meaisín → Socruithe an dochtearraí).
+356|Níor léadh aon rud go fóill.
+357|Fritháireamh Z ag an teagmháil
+358|Ramhraigh na ráillí
+359|Ní thacaítear ach leis na córais comhordanáidí oibre G54 go G59.
+360|Iad siúd amháin atá difriúil ón luach tipiciúil
+361|As cearnóg faoi {}°: tá foirceann amháin d'ais Y {} mm as áit ar feadh na hairde ar fad.
+362|Suíomh
+363|Tóireadóir
+364|Tóireadóireacht Z
+365|Theip ar an tóireadóireacht: níor tadhlaíodh le rud ar bith laistigh den fhad. Seiceáil an pláta agus an fad teipe.
+366|Theip ar an tóireadóireacht: bhí an tóireadóir dúnta cheana roimh an ngluaiseacht. Seiceáil an cáblú agus an pláta.
+367|Cuir an pláta faoin uirlis: téann an uirlis síos go dtí go dtadhlaíonn sí, agus ansin socraítear Z ar thiús an phláta
+368|Cuir an uirlis in aice leis an imeall: bogann sí ina threo go dtí go dtadhlaíonn sí, agus éiríonn an t-imeall nialasach
+369|Teagmháil thapa
+370|Léigh an meaisín
+371|Léigh na socruithe ($$)
+372|Ag léamh…
+373|Léann sé dochtearraí ($I) agus socruithe ($$) an rialtóra
+374|Bain an chéim seo
+375|Athshocrú le linn gluaiseachta. D'fhéadfadh céimeanna a bheith caillte: déan homing ar an meaisín arís.
+376|Athchóirigh ó chomhad…
+377|Athchóirigh socruithe monarchan
+378|Athchóirigh socruithe ó chomhad
+379|Tarraingt siar idir teagmhálacha
+380|Doras sábháilteachta
+381|Socruithe sábháilte i {}
+382|Socraigh Z arís leis an tóireadóir: tadhlaíonn an uirlis nua an pláta agus éiríonn Z mar thiús an phláta
+383|Socrú
+384|Teagmháil mhall
+385|Teorainneacha bogearraí
+386|Teastaíonn homing cumasaithe freisin le haghaidh teorainneacha bogearraí.
+387|Ní úsáideann aon ordú roinnt focal.
+388|Luas XY
+389|Luas Z
+390|Luas na fearsaide
+391|Ingearthacht na n-aiseanna
+392|Tosaigh as seo
+393|Tosaigh ó líne
+394|Tosaigh ó líne…
+395|Staitisticí an mheaisín seo
+396|Céimeanna X agus Y (mm)
+397|Céimeanna Z (mm)
+398|Céimeanna in aghaidh an mhilliméadair
+399|Stop an obair
+400|Stop an ghluaiseacht
+401|Ní féidir an stua a ríomh ón ga. Roinn é nó úsáid fritháirimh.
+402|Tá fritháireamh I, J nó K ar iarraidh ón stua.
+403|Tá na haiseanna ingearach laistigh de {} mm ar fud na hairde.
+404|Tá an fhaisnéis tógála nó an líne tosaithe rófhada.
+405|Tá siad uile ag an rialaitheoir cheana.
+406|Téann an rialtóir tríd an gclár i mód seiceála ($C): ní bhogann aon rud, agus tuairiscítear na línte nach dtuigeann sé roimh an rith fíor
+407|Tuairiscíonn an rialtóir i dtroithe ($13): níl na suíomhanna ar an gcluaisín Rialú i milliméadair.
+408|Tá an obair curtha ar sos
+409|Níl an t-ordú jog bailí.
+410|Téann an jog thar thaisteal an mheaisín agus rinneadh neamhaird air.
+411|Tá an líne rófhada.
+412|Tá uimhir na líne lasmuigh den raon.
+413|Tá an meaisín ag obair ar feadh {} uair an chloig in {} obair.
+414|Tugtar an meaisín chuig an staid atá ag an gclár ag an líne sin: aonaid, fearsaid, luas, suíomh. Bí cinnte go bhfuil an uirlis agus an obair san áit a raibh siad.
+415|Bogann an meaisín an fad a iarrann tú; tomhais cé chomh fada is a chuaigh sé i ndáiríre agus ríomhtar an líon ceart céimeanna.
+416|Téann an ghluaiseacht thar thaisteal an mheaisín. Coinnítear an suíomh; díghlasáil chun leanúint ar aghaidh.
+417|Téann an tóireadóir síos go dtí go dtadhlaíonn sé; socraítear Z ar fhritháireamh an tóireadóra
+418|Tá ionchur an tóireadóra dúnta cheana. Seiceáil an clip, an pláta agus an cáblú.
+419|Caithfidh an tóireadóir a bheith ceangailte le hionchur tóireadóra an rialtóra. Déan tástáil air trí theagmháil leis an bpláta: taispeántar an t-ionchur dúnta ar an gcluaisín Rialú.
+420|Tá an doras sábháilteachta oscailte.
+421|Tá an socrú os cionn na minicíochta céimeanna a dtacaíonn an GRBL seo léi.
+422|Níorbh fhéidir na socruithe a léamh; athchóiríodh na réamhshocruithe.
+423|Níor léadh na socruithe fós.
+424|Sábháladh na socruithe roimh an gcéad athrú: {}
+425|Caithfidh am an bhíoma céime a bheith 3 µs ar a laghad.
+426|Níl sprioc na gluaiseachta bailí.
+427|Tá an uirlis anseo: déan nialas na hoibre de seo
+428|Tá uimhir na huirlise ró-ard.
+429|Tá na socruithe seo sa rialtóir, ní sa ghléas. Athraigh ceann ag an am agus nótáil an luach roimhe: d'fhéadfadh luach mícheart an meaisín a bhogadh an fad mícheart. Sábhálann an chéad athrú de seisiún na socruithe go léir i gcomhad.
+430|Tá na socruithe seo den chomhad difriúil ón rialaitheoir. Ní scríobhtar aon rud go dtí go mbrúnn tú Scríobh uile.
+431|Tiús a taobh
+432|Tiús an phláta
+433|Ní oibríonn an t-ordú $ seo ach nuair a bhíonn an meaisín díomhaoin.
+434|Scríobhann sé seo $RST=$: filleann gach socrú den rialtóir ar réamhshocruithe an dochtearraí. Athrófar líon na gcéimeanna, an taisteal, na luasanna agus an homing.
+435|Am rite
+436|Trastomhas na huirlise
+437|Pláta tadhaill
+438|Taisteal X, Y, Z
+439|Teastaíonn focail aise ón dá ordú sa líne.
+440|Tá dhá ordú den ghrúpa céanna i líne amháin.
+441|Clóscríobh an dá thrasnán chun an toradh a fheiceáil.
+442|Clóscríobh an fad tomhaiste chun an luach nua a fheiceáil.
+443|Tipiciúil
+444|Aonad
+445|Úsáid na luachanna seo don ghléas
+446|Luach
+447|Athróga: {}
+448|Cad atá le déanamh
+449|Obair
+450|Scríobh
+451|Scríobh ${}
+452|An scríobh ${} = {} chuig an rialaitheoir? Is {} anois é. Athraigh socrú amháin ag an am agus nótáil an seanluach.
+453|Scríobh socrú
+454|Scríobh uile
+455|Á scríobh {} socrú; léitear ar ais iad ina dhiaidh sin
+456|teorainn X
+457|Lasc teorann X
+458|teorainn Y
+459|Lasc teorann Y
+460|Tá
+461|Z
+462|teorainn Z
+463|Lasc teorann Z
+464|Z go dtí an airde shábháilte
+465|Nialasaigh X agus Y
+466|Nialasaigh gach rud
+467|tá fad tóireadóra lasmuigh den raon
+468|tá méid tóireadóra lasmuigh den raon
+469|dúnta
+470|doras
+471|gach
+472|coinneáil
+473|ionchur {}
+474|gan teagmháil
+475|níor socraíodh beathú roimh an líne seo
+476|as {}
+477|as
+478|air
+479|oscailte
+480|tóireadóir
+481|athshocraigh
+482|fearsaid as
+483|fearsaid air (M{}) ag {}
+484|tosú
+485|caithfidh an fad teipe a bheith níos faide ná dhá oiread an tarraingt siar
+486|leanann an líne stua (G2/G3) gan focal G
+487|tá an líne tar éis dheireadh an chláir
+488|úsáideann na línte roimhe G53 nó G92, mar sin ní féidir an suíomh a ríomh
+489|níor bhog an clár in X agus Y roimh an líne seo
+490|caithfidh beathú mall an tóireadóra a bheith idir 1 agus an ceann tapa
+491|tadhlaíodh leis
+492|Seolfar {} líne ar dtús chun é seo a ullmhú.
+493|Tá {} as {} socrú difriúil tar éis scríobh:
+494|{} {}: {}
+495|{}: dlite ({} u ró-dhéanach)
+496|{}: {} u fágtha
+497|1. An áit a bhfuil an braiteoir
+498|2. An chéad uirlis, an tagartha
+499|3. Gach uirlis ina dhiaidh
+500|Coinnítear cóip de shocruithe an rialtóra leis an ngléas. Déantar ceann den chéad uair a cheanglaítear an meaisín agus ansin gach uair a bhíonn na socruithe difriúil ón gcóip is déanaí; tá na cóipeanna mar chuid de chúltaca an chláir.
+501|Sábháladh cóip de {} socrú an rialtóra leis an ngléas.
+502|Sábháladh cóip de {} socrú leis an ngléas.
+503|Tá obair ar siúl.
+504|Tá tomhas ar siúl cheana.
+505|Sábháladh cóip nua de na socruithe tar éis d'athraithe ({} socrú difriúil ón gceann roimhe).
+506|Is lasc é braiteoir fad uirlise ag áit sheasta ar an meaisín. Tadhlaíonn barr gach uirlise leis, mar sin féadfaidh bearrthóir nua an Z céanna a fháil leis an gceann roimhe gan teagmháil a dhéanamh leis an obair arís. Tá a shuíomh i gcomhordanáidí meaisín: déan homing ar dtús agus ná bog an braiteoir riamh.
+507|Tar éis na teagmhála socraítear Z ar Z na huirlise tagartha ag an mbraiteoir
+508|Cuir i gcomparáid leis an rialtóir agus scríobh na difríochtaí ar ais
+509|Cóipeanna de na socruithe ({})
+510|Déan dearmad
+511|Tabhair an uirlis os cionn lár an bhraiteora, cúpla milliméadar os a chionn, agus brúigh an cnaipe.
+512|Meaisín X {}  Y {}, druidim ó Z {}
+513|Déan cóip anois
+514|Tomhais an uirlis tagartha
+515|Tomhais an uirlis tagartha ar dtús.
+516|Tomhais an uirlis (braiteoir)
+517|Tomhais an uirlis seo agus socraigh Z
+518|Á thomhais…
+519|Níl tomhaiste fós.
+520|Níl socraithe fós.
+521|Ní athraítear aon rud; taispeántar an difríocht ón tagairt
+522|Tomhais amháin
+523|Cuir isteach an chéad bhearrthóir agus socraigh Z ar an obair leis (cluaisín Rialú: tóireadóireacht Z, nó teagmháil leis an dromchla agus Z0). Ansin tomhais é ar an mbraiteoir.
+524|Tagairt: Z {} ag an mbraiteoir
+525|Athchóirigh…
+526|Socraigh suíomh an bhraiteora ar dtús.
+527|Níl suíomh tuairiscithe ag an rialtóir fós.
+528|Socruithe atá difriúil ón gcóip a sábháladh leis an ngléas: {}. Sábháladh cóip nua.
+529|An chéad uair coinnigh lámh in aice leis an stopadh: téann an uirlis síos i dtreo an bhraiteora.
+530|Téann an meaisín chuig an mbraiteoir agus tadhlaíonn an uirlis leis faoi dhó
+531|Téann an meaisín chuig an mbraiteoir fad uirlise; faigheann an uirlis nua Z na huirlise tagartha
+532|Níl an meaisín díomhaoin.
+533|Tá an braiteoir anseo
+534|Tá an uirlis chomh fada leis an uirlis tagartha.
+535|Tá an uirlis {} mm níos faide ná an uirlis tagartha.
+536|Tá an uirlis {} mm níos giorra ná an uirlis tagartha.
+537|Braiteoir fad uirlise
+538|Braiteoir fad uirlise…
+539|Airde taistil (Z an mheaisín)
+540|Nuair a stopann obair le haghaidh athrú bearrthóra, tairgeann an fhuinneog Tomhais an uirlis. Is féidir é a dhéanamh anseo freisin, am ar bith.
+541|tá suíomh den bhraiteoir lasmuigh den raon
+542|tar éis athraithe anseo
+543|agus á cheangal
+544|de láimh
+545|níl cóipeanna na socruithe bailí
+546|níl an tagairt bailí
+547|ní féidir tús an druidim a bheith níos airde ná an airde taistil
+548|{} socrú
+549|… agus {} eile

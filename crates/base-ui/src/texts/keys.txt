@@ -246,3 +246,305 @@
 245	Restore failed: {}
 246	Restore from backup
 247	Your current settings will be replaced by the backup. Its pictures are added to the shared gallery. Continue?
+248	${} is now {} steps/mm
+249	1. Make a mark where the tool is (or put a dial gauge there). 2. Press Move. 3. Measure the distance and type it below.
+250	3D touch probe
+251	A G-code command is not supported or not valid.
+252	A G-code word has no letter.
+253	A command misses its P or L value.
+254	A command needs a whole number.
+255	A command needs axis words but the line has none.
+256	A limit switch was hit. The position may be lost: home the machine again.
+257	A macro is G-code that a button on the Control tab sends. It may use variables in brackets.
+258	A negative value where a positive one is needed.
+259	A number is not valid or is missing.
+260	A word is repeated in the line.
+261	Add a macro
+262	Add a reminder
+263	Add a step
+264	After the job (finished or stopped)
+265	Alarm
+266	Alarm {}: {}
+267	Alarms
+268	All {} settings of the file are in the controller now.
+269	An arc has no axis words in its plane.
+270	An input that is active while nothing touches it points to a wiring or setting problem ($5, $6).
+271	Around a job
+272	Arrow keys move X and Y, Page Up and Page Down move Z. Off by default: the arrows also move the selected shapes.
+273	At this line: X {} Y {} Z {}, {}, feed {}
+274	Axis words are left over while G80 is active.
+275	Back the settings up first. To go on, type {}:
+276	Back up to a file…
+277	Before the job starts
+278	Calibration
+279	Calibration…
+280	Cannot start here: {}
+281	Cannot use the file: {}
+282	Change the tool or the pen now. The machine waits; nothing moves until you go on.
+283	Check the program before every run
+284	Clear an alarm ($X)
+285	Clear the statistics
+286	Click to type the position of the tool in the work coordinates
+287	Connect to the machine first (Device tab)
+288	Connect to the machine to see its inputs.
+289	Continue the job
+290	Controller
+291	Coordinates
+292	Cycle start
+293	Delete this macro
+294	Delete this reminder
+295	Diagnostics and statistics
+296	Diagnostics saved: {}
+297	Diagonal A
+298	Diagonal A is the longer one: the Y axis leans towards +X.
+299	Diagonal B
+300	Diagonal B is the longer one: the Y axis leans towards −X.
+301	Diameter of the ball
+302	Distance
+303	Done
+304	Error
+305	Errors
+306	Export diagnostics (zip)…
+307	Export failed: {}
+308	Factory settings ($RST=$)…
+309	Factory settings written ($RST=$)
+310	Fail distance
+311	Fastest move of X and Y
+312	Feed hold
+313	File
+314	Firmware settings ($$)
+315	From the controller
+316	G-code is locked during an alarm or a jog. Unlock first.
+317	G43.1 can offset only the tool length axis.
+318	G53 works only with G0 or G1.
+319	GRBL does not know this $ command.
+320	Go to X0 Y0
+321	Height
+322	Hold to move
+323	Homing
+324	Homing failed: it was reset during the cycle.
+325	Homing failed: no limit switch was found. Check the switches and the wiring.
+326	Homing failed: the safety door was opened during the cycle.
+327	Homing failed: the switch did not release when pulling off. Check the pull-off and the wiring.
+328	Homing is not enabled in the settings ($22).
+329	Inputs
+330	Inputs active: {}
+331	Instead of one step per click, the tool moves while the button is held down
+332	It was just done
+333	Jobs
+334	Jogging
+335	Keyboard
+336	Laser mode needs a PWM output.
+337	Last probe: X {} Y {} Z {} ({})
+338	Last probe: Z {} ({})
+339	Lift after the zero is set
+340	Lift to the safe height, then go to the work zero
+341	Line
+342	Machine
+343	Macro {}
+344	Macro {}: {}
+345	Macro {}: {} lines sent
+346	Macros
+347	Maintenance
+348	Mark or cut a rectangle and measure its two diagonals: from the front left corner to the back right one (A) and from the front right to the back left (B). They are equal when the axes are square.
+349	Measured
+350	Move
+351	Move {} by the distance
+352	New value: ${} = {} (was {})
+353	No feed rate is set yet.
+354	No reminders. Add them in the device settings (Maintenance).
+355	Not read yet (Machine → Firmware settings).
+356	Nothing read yet.
+357	Offset of Z at the touch
+358	Oil the rails
+359	Only the work coordinate systems G54 to G59 are supported.
+360	Only those that differ from the typical value
+361	Out of square by {}°: one end of the Y axis is {} mm off over the whole height.
+362	Position
+363	Probe
+364	Probe Z
+365	Probe failed: it touched nothing within the distance. Check the plate and the fail distance.
+366	Probe failed: the probe was already closed before the move. Check the wiring and the plate.
+367	Put the plate under the tool: the tool goes down until it touches, then Z is set to the thickness of the plate
+368	Put the tool next to the edge: it moves towards it until it touches, and the edge becomes zero
+369	Quick touch
+370	Read the machine
+371	Read the settings ($$)
+372	Reading…
+373	Reads the firmware ($I) and the settings ($$) of the controller
+374	Remove this step
+375	Reset while moving. Steps may have been lost: home the machine again.
+376	Restore from a file…
+377	Restore the factory settings
+378	Restore the settings from a file
+379	Retract between the touches
+380	Safety door
+381	Saved the settings to {}
+382	Set Z again with the probe: the new tool touches the plate and Z becomes the thickness of the plate
+383	Setting
+384	Slow touch
+385	Soft limits
+386	Soft limits need homing to be enabled too.
+387	Some words are not used by any command.
+388	Speed XY
+389	Speed Z
+390	Spindle speed
+391	Squareness of the axes
+392	Start from here
+393	Start from line
+394	Start from line…
+395	Statistics of this machine
+396	Steps of X and Y (mm)
+397	Steps of Z (mm)
+398	Steps per millimetre
+399	Stop the job
+400	Stop the move
+401	The arc cannot be computed from its radius. Split it or use offsets.
+402	The arc misses its I, J or K offset.
+403	The axes are square within {} mm over the height.
+404	The build info or start-up line is too long.
+405	The controller already has all of them.
+406	The controller goes through the program in check mode ($C): nothing moves, and the lines it does not understand are reported before the real run
+407	The controller reports in inches ($13): the positions on the Control tab are not in millimetres.
+408	The job is paused
+409	The jog command is not valid.
+410	The jog goes beyond the travel of the machine and was ignored.
+411	The line is too long.
+412	The line number is out of range.
+413	The machine has run {} hours in {} jobs.
+414	The machine is brought to the state the program has at that line: units, spindle, speed, position. Be sure the tool and the work are where they were.
+415	The machine moves by a distance you ask for; measure how far it really went and the right number of steps is worked out.
+416	The move goes beyond the travel of the machine. The position is kept; unlock to go on.
+417	The probe goes down until it touches; Z is set to the offset of the probe
+418	The probe input is already closed. Check the clip, the plate and the wiring.
+419	The probe must be connected to the probe input of the controller. Test it by touching the plate: the input shows as closed on the Control tab.
+420	The safety door is open.
+421	The setting is above the step rate this GRBL supports.
+422	The settings could not be read; the defaults were restored.
+423	The settings have not been read yet.
+424	The settings were saved before the first change: {}
+425	The step pulse time must be at least 3 µs.
+426	The target of the move is not valid.
+427	The tool is here: make this the zero of the work
+428	The tool number is too high.
+429	These settings live in the controller, not in the device. Change one at a time and write down the previous value: a wrong value can make the machine move the wrong distance. The first change of a session saves all settings to a file.
+430	These settings of the file differ from the controller. Nothing is written until you press Write all.
+431	Thickness of its side
+432	Thickness of the plate
+433	This $ command works only when the machine is idle.
+434	This writes $RST=$: every setting of the controller goes back to the firmware's defaults. Step counts, travel, speeds and homing will all change.
+435	Time of running
+436	Tool diameter
+437	Touch plate
+438	Travel of X, Y, Z
+439	Two commands in the line both need axis words.
+440	Two commands of the same group are in one line.
+441	Type both diagonals to see the result.
+442	Type the measured distance to see the new value.
+443	Typical
+444	Unit
+445	Use these values for the device
+446	Value
+447	Variables: {}
+448	What to do
+449	Work
+450	Write
+451	Write ${}
+452	Write ${} = {} to the controller? It is now {}. Change one setting at a time and note the old value.
+453	Write a setting
+454	Write all
+455	Writing {} settings; they are read back afterwards
+456	X limit
+457	X limit switch
+458	Y limit
+459	Y limit switch
+460	Yes
+461	Z
+462	Z limit
+463	Z limit switch
+464	Z to safe height
+465	Zero X and Y
+466	Zero all
+467	a probe distance is out of range
+468	a probe size is out of range
+469	closed
+470	door
+471	every
+472	hold
+473	input {}
+474	no contact
+475	no feed rate was set before this line
+476	of {}
+477	off
+478	on
+479	open
+480	probe
+481	reset
+482	spindle off
+483	spindle on (M{}) at {}
+484	start
+485	the fail distance must be longer than twice the retract
+486	the line continues an arc (G2/G3) without a G word
+487	the line is past the end of the program
+488	the lines before use G53 or G92, so the position cannot be worked out
+489	the program has not moved in X and Y before this line
+490	the slow probe feed must be between 1 and the quick one
+491	touched
+492	{} lines will be sent first to set this up.
+493	{} of {} settings differ after writing:
+494	{} {}: {}
+495	{}: due ({} h over)
+496	{}: {} h left
+497	1. Where the sensor is
+498	2. The first tool, the reference
+499	3. Every other tool
+500	A copy of the settings of the controller is kept with the device. One is made when the machine is connected for the first time and again whenever the settings differ from the newest copy; the copies are part of the backup of the program.
+501	A copy of the {} settings of the controller was saved with the device.
+502	A copy of the {} settings was saved with the device.
+503	A job is running.
+504	A measurement is already running.
+505	A new copy of the settings was saved after your change ({} settings differ from the one before).
+506	A tool length sensor is a switch at a fixed place on the machine. The tip of every tool touches it, so a new bit can get exactly the same Z as the one before without touching the work again. Its position is in machine coordinates: home the machine first, and never move the sensor.
+507	After the touch Z is set to the Z of the reference tool at the sensor
+508	Compare with the controller and write the differences back
+509	Copies of the settings ({})
+510	Forget
+511	Jog the tool over the middle of the sensor, a few millimetres above it, and press the button.
+512	Machine X {}  Y {}, approach from Z {}
+513	Make a copy now
+514	Measure the reference tool
+515	Measure the reference tool first.
+516	Measure the tool (sensor)
+517	Measure this tool and set Z
+518	Measuring…
+519	Not measured yet.
+520	Not set yet.
+521	Nothing is changed; the difference from the reference is shown
+522	Only measure
+523	Put in the first bit and set Z on the work with it (the Control tab: probe Z, or touch the surface and press Z0). Then measure it on the sensor.
+524	Reference: Z {} at the sensor
+525	Restore…
+526	Set the position of the sensor first.
+527	The controller has not reported the position yet.
+528	Settings that differ from the copy saved with the device: {}. A new copy was saved.
+529	The first time, keep a hand near the stop: the tool goes down towards the sensor.
+530	The machine goes to the sensor and the tool touches it twice
+531	The machine goes to the tool length sensor; the new tool gets the Z of the reference tool
+532	The machine is not idle.
+533	The sensor is here
+534	The tool is as long as the reference tool.
+535	The tool is {} mm longer than the reference tool.
+536	The tool is {} mm shorter than the reference tool.
+537	Tool length sensor
+538	Tool length sensor…
+539	Travel height (machine Z)
+540	When a job pauses for a change of the bit, the window offers Measure the tool. It can also be done here, at any time.
+541	a position of the sensor is out of range
+542	after a change here
+543	at connecting
+544	by hand
+545	the copies of the settings are not valid
+546	the reference is not valid
+547	the start of the approach must not be higher than the travel height
+548	{} settings
+549	… and {} more

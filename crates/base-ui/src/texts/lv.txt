@@ -246,3 +246,305 @@
 245|Atjaunošana neizdevās: {}
 246|Atjaunot no rezerves kopijas
 247|Pašreizējie iestatījumi tiks aizstāti ar dublējuma iestatījumiem. Tā attēli tiks pievienoti kopīgajai galerijai. Vai turpināt?
+248|${} tagad ir {} soļi/mm
+249|1. Atzīmējiet vietu, kur atrodas darbarīks (vai novietojiet tur pulksteņa indikatoru). 2. Nospiediet Pārvietot. 3. Izmērījiet attālumu un ievadiet to zemāk.
+250|3D skārienzonde
+251|G-koda komanda netiek atbalstīta vai nav derīga.
+252|G-koda vārdam nav burta.
+253|Komandai trūkst vērtības P vai L.
+254|Komandai nepieciešams vesels skaitlis.
+255|Komandai nepieciešami asu vārdi, bet rindā to nav.
+256|Tika aktivizēts gala slēdzis. Pozīcija var būt zudusi: veiciet mašīnas atsauci vēlreiz.
+257|Makro ir G-kods, ko nosūta poga cilnē Vadība. Tajā var izmantot mainīgos kvadrātiekavās.
+258|Negatīva vērtība tur, kur vajadzīga pozitīva.
+259|Skaitlis nav derīgs vai trūkst.
+260|Vārds rindā atkārtojas.
+261|Pievienot makro
+262|Pievienot atgādinājumu
+263|Pievienot soli
+264|Pēc darba (pabeigta vai apturēta)
+265|Trauksme
+266|Trauksme {}: {}
+267|Trauksmes
+268|Visi {} faila iestatījumi tagad ir kontrolierī.
+269|Lokam savā plaknē nav asu vārdu.
+270|Ieeja, kas ir aktīva, kad tai nekas nepieskaras, norāda uz vadojuma vai iestatījumu problēmu ($5, $6).
+271|Ap darbu
+272|Bulttaustiņi pārvieto X un Y, Page Up un Page Down pārvieto Z. Pēc noklusējuma izslēgts: bultiņas pārvieto arī atlasītās formas.
+273|Šajā rindā: X {} Y {} Z {}, {}, padeve {}
+274|Palikuši asu vārdi, kamēr G80 ir aktīvs.
+275|Vispirms izveidojiet iestatījumu rezerves kopiju. Lai turpinātu, ierakstiet {}:
+276|Rezerves kopija failā…
+277|Pirms darba sākuma
+278|Kalibrēšana
+279|Kalibrēšana…
+280|Šeit nevar sākt: {}
+281|Failu nevar izmantot: {}
+282|Nomainiet tagad darbarīku vai pildspalvu. Mašīna gaida; nekas nekustas, kamēr nepārejat tālāk.
+283|Pārbaudīt programmu pirms katras palaišanas
+284|Notīrīt trauksmi ($X)
+285|Notīrīt statistiku
+286|Noklikšķiniet, lai ievadītu darbarīka pozīciju darba koordinātēs
+287|Vispirms pievienojieties iekārtai (cilne Ierīce)
+288|Pieslēdzieties mašīnai, lai redzētu tās ieejas.
+289|Turpināt darbu
+290|Kontrolleris
+291|Koordinātes
+292|Cikla sākums
+293|Dzēst šo makro
+294|Dzēst šo atgādinājumu
+295|Diagnostika un statistika
+296|Diagnostika saglabāta: {}
+297|Diagonāle A
+298|Diagonāle A ir garāka: Y ass noliecas uz +X pusi.
+299|Diagonāle B
+300|Diagonāle B ir garāka: Y ass noliecas uz −X pusi.
+301|Lodītes diametrs
+302|Attālums
+303|Gatavs
+304|Kļūda
+305|Kļūdas
+306|Eksportēt diagnostiku (zip)…
+307|Eksportēšana neizdevās: {}
+308|Rūpnīcas iestatījumi ($RST=$)…
+309|Rūpnīcas iestatījumi ierakstīti ($RST=$)
+310|Neveiksmes attālums
+311|Ātrākā X un Y kustība
+312|Padeves apturēšana
+313|Fails
+314|Programmaparatūras iestatījumi ($$)
+315|No kontrollera
+316|G-kods ir bloķēts trauksmes vai pārvietošanas laikā. Vispirms atbloķējiet.
+317|G43.1 var nobīdīt tikai darbarīka garuma asi.
+318|G53 darbojas tikai ar G0 vai G1.
+319|GRBL nepazīst šo $ komandu.
+320|Iet uz X0 Y0
+321|Augstums
+322|Turiet nospiestu, lai pārvietotu
+323|Atsauce
+324|Atsauce neizdevās: atiestatīšana cikla laikā.
+325|Atsauce neizdevās: gala slēdzis nav atrasts. Pārbaudiet slēdžus un vadojumu.
+326|Atsauce neizdevās: drošības durvis tika atvērtas cikla laikā.
+327|Atsauce neizdevās: slēdzis neatbrīvojās atvirzoties. Pārbaudiet atvirzi un vadojumu.
+328|Atsauce nav iespējota iestatījumos ($22).
+329|Ieejas
+330|Aktīvās ieejas: {}
+331|Viena soļa vietā uz klikšķi darbarīks pārvietojas, kamēr poga ir nospiesta
+332|Tikko izdarīts
+333|Darbi
+334|Manuāla pārvietošana
+335|Tastatūra
+336|Lāzera režīmam vajadzīga PWM izeja.
+337|Pēdējā zondēšana: X {} Y {} Z {} ({})
+338|Pēdējā zondēšana: Z {} ({})
+339|Pacelšana pēc nulles iestatīšanas
+340|Paceliet līdz drošajam augstumam, tad dodieties uz darba nulli
+341|Līnija
+342|Iekārta
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: nosūtītas {} rindas
+346|Makro
+347|Apkope
+348|Atzīmējiet vai izgrieziet taisnstūri un izmēriet tā divas diagonāles: no kreisā priekšējā stūra uz labo aizmugurējo (A) un no labā priekšējā uz kreiso aizmugurējo (B). Tās ir vienādas, kad asis ir perpendikulāras.
+349|Izmērīts
+350|Pārvietot
+351|Pārvietot {} par attālumu
+352|Jauna vērtība: ${} = {} (bija {})
+353|Padeve vēl nav iestatīta.
+354|Nav atgādinājumu. Pievienojiet tos ierīces iestatījumos (Apkope).
+355|Vēl nav nolasīts (Mašīna → Programmaparatūras iestatījumi).
+356|Vēl nekas nav nolasīts.
+357|Z nobīde pieskarsmē
+358|Ieeļļojiet vadotnes
+359|Tiek atbalstītas tikai darba koordinātu sistēmas no G54 līdz G59.
+360|Tikai tās, kas atšķiras no tipiskās vērtības
+361|Nav taisns leņķis par {}°: viens Y ass gals visā augstumā ir nobīdīts par {} mm.
+362|Pozīcija
+363|Zonde
+364|Zondēt Z
+365|Zondēšana neizdevās: attālumā nekas netika aizskarts. Pārbaudiet plāksni un neveiksmes attālumu.
+366|Zondēšana neizdevās: zonde jau pirms kustības bija noslēgta. Pārbaudiet vadojumu un plāksni.
+367|Novietojiet plāksni zem darbarīka: darbarīks iet uz leju līdz pieskaršanās brīdim, tad Z tiek iestatīts uz plāksnes biezumu
+368|Novietojiet darbarīku blakus malai: tas pārvietojas uz to līdz pieskaršanās brīdim, un mala kļūst par nulli
+369|Ātra pieskaršanās
+370|Nolasīt mašīnu
+371|Nolasīt iestatījumus ($$)
+372|Lasa…
+373|Nolasa kontrollera programmaparatūru ($I) un iestatījumus ($$)
+374|Noņemt šo soli
+375|Atiestatīšana kustības laikā. Soļi varēja tikt zaudēti: veiciet mašīnas atsauci vēlreiz.
+376|Atjaunot no faila…
+377|Atjaunot rūpnīcas iestatījumus
+378|Atjaunot iestatījumus no faila
+379|Atvirze starp pieskaršanās reizēm
+380|Drošības durvis
+381|Iestatījumi saglabāti: {}
+382|Iestatiet Z vēlreiz ar zondi: jaunais darbarīks pieskaras plāksnei un Z kļūst par plāksnes biezumu
+383|Iestatījums
+384|Lēna pieskaršanās
+385|Programmatūras robežas
+386|Programmatūras robežām nepieciešama arī iespējota atsauce.
+387|Dažus vārdus neizmanto neviena komanda.
+388|Ātrums XY
+389|Ātrums Z
+390|Vārpstas apgriezieni
+391|Asu perpendikularitāte
+392|Sākt no šejienes
+393|Sākt no rindas
+394|Sākt no rindas…
+395|Šīs mašīnas statistika
+396|X un Y soļi (mm)
+397|Z soļi (mm)
+398|Soļi uz milimetru
+399|Apturēt darbu
+400|Apturēt kustību
+401|Loku nevar aprēķināt no rādiusa. Sadaliet to vai izmantojiet nobīdes.
+402|Lokam trūkst nobīdes I, J vai K.
+403|Asis ir perpendikulāras {} mm robežās pa augstumu.
+404|Būvējuma informācija vai starta rinda ir pārāk gara.
+405|Kontrolierim tie jau visi ir.
+406|Kontrolleris izpilda programmu pārbaudes režīmā ($C): nekas nekustas, un rindas, ko tas nesaprot, tiek paziņotas pirms īstās palaišanas
+407|Kontrolleris ziņo collās ($13): pozīcijas cilnē Vadība nav milimetros.
+408|Darbs ir apturēts
+409|Pārvietošanas komanda nav derīga.
+410|Pārvietošana iet pāri mašīnas gājienam un tika ignorēta.
+411|Rinda ir pārāk gara.
+412|Rindas numurs ir ārpus diapazona.
+413|Mašīna ir strādājusi {} stundas {} darbos.
+414|Mašīna tiek novesta stāvoklī, kāds programmai ir šajā rindā: vienības, vārpsta, ātrums, pozīcija. Pārliecinieties, ka darbarīks un sagatave ir tur, kur bija.
+415|Mašīna pārvietojas par jūsu norādīto attālumu; izmēriet, cik tālu tā patiešām aizgāja, un tiks aprēķināts pareizais soļu skaits.
+416|Kustība iet pāri mašīnas gājienam. Pozīcija tiek saglabāta; atbloķējiet, lai turpinātu.
+417|Zonde iet uz leju līdz pieskaršanās brīdim; Z tiek iestatīts uz zondes nobīdi
+418|Zondes ieeja jau ir noslēgta. Pārbaudiet skavu, plāksni un vadojumu.
+419|Zondei jābūt pieslēgtai kontrollera zondes ieejai. Pārbaudiet to, pieskaroties plāksnei: ieeja cilnē Vadība tiek rādīta kā noslēgta.
+420|Drošības durvis ir vaļā.
+421|Iestatījums pārsniedz soļu frekvenci, ko atbalsta šis GRBL.
+422|Iestatījumus neizdevās nolasīt; atjaunotas noklusētās vērtības.
+423|Iestatījumi vēl nav nolasīti.
+424|Iestatījumi tika saglabāti pirms pirmās izmaiņas: {}
+425|Soļa impulsa laikam jābūt vismaz 3 µs.
+426|Kustības mērķis nav derīgs.
+427|Darbarīks ir šeit: padariet šo par darba nulli
+428|Darbarīka numurs ir pārāk liels.
+429|Šie iestatījumi atrodas kontrollerī, nevis ierīcē. Mainiet pa vienam un pierakstiet iepriekšējo vērtību: nepareiza vērtība var likt mašīnai pārvietoties nepareizu attālumu. Pirmā izmaiņa sesijā saglabā visus iestatījumus failā.
+430|Šie faila iestatījumi atšķiras no kontroliera. Nekas netiek rakstīts, kamēr nenospiežat Rakstīt visus.
+431|Tās malas biezums
+432|Plāksnes biezums
+433|Šī $ komanda darbojas tikai tad, kad mašīna ir dīkstāvē.
+434|Tas ieraksta $RST=$: visi kontrollera iestatījumi atgriežas pie programmaparatūras noklusējuma. Soļu skaits, gājieni, ātrumi un atsauce mainīsies.
+435|Darbības laiks
+436|Darbarīka diametrs
+437|Pieskaršanās plāksne
+438|X, Y, Z gājiens
+439|Abām rindas komandām nepieciešami asu vārdi.
+440|Divas vienas grupas komandas ir vienā rindā.
+441|Ievadiet abas diagonāles, lai redzētu rezultātu.
+442|Ievadiet izmērīto attālumu, lai redzētu jauno vērtību.
+443|Tipiska
+444|Vienība
+445|Izmantot šīs vērtības ierīcei
+446|Vērtība
+447|Mainīgie: {}
+448|Kas jādara
+449|Darbs
+450|Rakstīt
+451|Ierakstīt ${}
+452|Vai ierakstīt ${} = {} kontrolierī? Tagad tas ir {}. Mainiet pa vienam iestatījumam un pierakstiet veco vērtību.
+453|Rakstīt iestatījumu
+454|Rakstīt visus
+455|Tiek ierakstīti {} iestatījumi; pēc tam tie tiek nolasīti atpakaļ
+456|X gala slēdzis
+457|X gala slēdzis
+458|Y gala slēdzis
+459|Y gala slēdzis
+460|Jā
+461|Z
+462|Z gala slēdzis
+463|Z gala slēdzis
+464|Z uz drošo augstumu
+465|Nullēt X un Y
+466|Nullēt visu
+467|zondes attālums ir ārpus diapazona
+468|zondes izmērs ir ārpus diapazona
+469|noslēgts
+470|durvis
+471|ik pēc
+472|aizture
+473|ieeja {}
+474|nav pieskaršanās
+475|pirms šīs rindas padeve nav iestatīta
+476|no {}
+477|izslēgts
+478|ieslēgts
+479|atvērts
+480|zonde
+481|atiestatīšana
+482|vārpsta izslēgta
+483|vārpsta ieslēgta (M{}) pie {}
+484|starts
+485|neveiksmes attālumam jābūt lielākam par divkāršu atvirzi
+486|rinda turpina loku (G2/G3) bez G vārda
+487|rinda ir aiz programmas beigām
+488|iepriekšējās rindas izmanto G53 vai G92, tāpēc pozīciju nevar aprēķināt
+489|programma pirms šīs rindas nav kustējusies pa X un Y
+490|lēnajai zondēšanas padevei jābūt starp 1 un ātro
+491|pieskārās
+492|Vispirms tiks nosūtītas {} rindas, lai to sagatavotu.
+493|Pēc rakstīšanas {} no {} iestatījumiem atšķiras:
+494|{} {}: {}
+495|{}: termiņš pienācis ({} h pāri)
+496|{}: atlikušas {} h
+497|1. Kur ir sensors
+498|2. Pirmais darbarīks, atsauces
+499|3. Katrs nākamais darbarīks
+500|Kontrollera iestatījumu kopija tiek glabāta kopā ar ierīci. Tā tiek izveidota, pirmo reizi savienojoties ar mašīnu, un pēc tam katru reizi, kad iestatījumi atšķiras no jaunākās kopijas; kopijas ir daļa no programmas rezerves kopijas.
+501|Kontrollera {} iestatījumu kopija tika saglabāta kopā ar ierīci.
+502|{} iestatījumu kopija tika saglabāta kopā ar ierīci.
+503|Darbojas darbs.
+504|Mērīšana jau darbojas.
+505|Pēc jūsu izmaiņas tika saglabāta jauna iestatījumu kopija ({} iestatījumi atšķiras no iepriekšējās).
+506|Darbarīka garuma sensors ir slēdzis pastāvīgā vietā uz mašīnas. Katra darbarīka gals tam pieskaras, tāpēc jauna freze var iegūt tieši tādu pašu Z kā iepriekšējā, atkārtoti nepieskaroties sagatavei. Tā pozīcija ir mašīnas koordinātēs: vispirms veiciet mašīnas atsauci un nekad nepārvietojiet sensoru.
+507|Pēc pieskaršanās Z tiek iestatīts uz atsauces darbarīka Z pie sensora
+508|Salīdzināt ar kontrolleri un ierakstīt atšķirības atpakaļ
+509|Iestatījumu kopijas ({})
+510|Aizmirst
+511|Novietojiet darbarīku virs sensora vidus, dažus milimetrus virs tā, un nospiediet pogu.
+512|Mašīna X {}  Y {}, tuvošanās no Z {}
+513|Izveidot kopiju tagad
+514|Izmērīt atsauces darbarīku
+515|Vispirms izmēriet atsauces darbarīku.
+516|Izmērīt darbarīku (sensors)
+517|Izmērīt šo darbarīku un iestatīt Z
+518|Mēra…
+519|Vēl nav izmērīts.
+520|Vēl nav iestatīts.
+521|Nekas netiek mainīts; tiek rādīta atšķirība no atsauces
+522|Tikai izmērīt
+523|Ielieciet pirmo fresi un ar to iestatiet Z uz sagataves (cilne Vadība: zondēt Z vai pieskarties virsmai un Z0). Pēc tam izmēriet to uz sensora.
+524|Atsauce: Z {} pie sensora
+525|Atjaunot…
+526|Vispirms iestatiet sensora pozīciju.
+527|Kontrolleris vēl nav ziņojis pozīciju.
+528|Iestatījumi, kas atšķiras no kopijas, kas saglabāta kopā ar ierīci: {}. Saglabāta jauna kopija.
+529|Pirmo reizi turiet roku pie apturēšanas: darbarīks iet uz leju pret sensoru.
+530|Mašīna dodas pie sensora, un darbarīks tam pieskaras divreiz
+531|Mašīna dodas pie darbarīka garuma sensora; jaunais darbarīks iegūst atsauces darbarīka Z
+532|Mašīna nav dīkstāvē.
+533|Sensors ir šeit
+534|Darbarīks ir tikpat garš kā atsauces darbarīks.
+535|Darbarīks ir par {} mm garāks nekā atsauces darbarīks.
+536|Darbarīks ir par {} mm īsāks nekā atsauces darbarīks.
+537|Darbarīka garuma sensors
+538|Darbarīka garuma sensors…
+539|Pārbrauciena augstums (mašīnas Z)
+540|Kad darbs apstājas frēzes maiņai, logs piedāvā Izmērīt darbarīku. To var izdarīt arī šeit, jebkurā laikā.
+541|sensora pozīcija ir ārpus diapazona
+542|pēc izmaiņas šeit
+543|savienojoties
+544|ar roku
+545|iestatījumu kopijas nav derīgas
+546|atsauce nav derīga
+547|tuvošanās sākums nedrīkst būt augstāk par pārbrauciena augstumu
+548|{} iestatījumi
+549|… un vēl {}

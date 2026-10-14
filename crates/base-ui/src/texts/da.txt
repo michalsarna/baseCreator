@@ -246,3 +246,305 @@
 245|Gendannelsen mislykkedes: {}
 246|Gendan fra sikkerhedskopi
 247|Dine nuværende indstillinger erstattes af sikkerhedskopiens. Dens billeder føjes til det fælles galleri. Fortsæt?
+248|${} er nu {} trin/mm
+249|1. Lav et mærke, hvor værktøjet står (eller sæt et måleur der). 2. Tryk på Flyt. 3. Mål afstanden og skriv den nedenfor.
+250|3D-føleprobe
+251|En G-code-kommando understøttes ikke eller er ugyldig.
+252|Et G-code-ord har ikke noget bogstav.
+253|En kommando mangler værdien P eller L.
+254|En kommando kræver et helt tal.
+255|En kommando kræver akseord, men linjen har ingen.
+256|En endestop blev ramt. Positionen kan være tabt: homing af maskinen igen.
+257|En makro er G-code, som en knap på fanen Styring sender. Den kan bruge variabler i kantede parenteser.
+258|En negativ værdi, hvor der skal bruges en positiv.
+259|Et tal er ugyldigt eller mangler.
+260|Et ord gentages i linjen.
+261|Tilføj en makro
+262|Tilføj en påmindelse
+263|Tilføj et trin
+264|Efter jobbet (færdigt eller stoppet)
+265|Alarm
+266|Alarm {}: {}
+267|Alarmer
+268|Alle {} indstillinger fra filen er nu i styringen.
+269|En bue har ingen akseord i sit plan.
+270|En indgang, der er aktiv uden at noget rører den, peger på et problem med ledninger eller indstillinger ($5, $6).
+271|Omkring et job
+272|Piletasterne flytter X og Y, Page Up og Page Down flytter Z. Slået fra som standard: pilene flytter også de valgte former.
+273|På denne linje: X {} Y {} Z {}, {}, tilspænding {}
+274|Der er akseord tilbage, mens G80 er aktiv.
+275|Tag først en sikkerhedskopi af indstillingerne. For at fortsætte skriv {}:
+276|Sikkerhedskopiér til en fil…
+277|Før jobbet starter
+278|Kalibrering
+279|Kalibrering…
+280|Der kan ikke startes her: {}
+281|Filen kan ikke bruges: {}
+282|Skift værktøj eller pen nu. Maskinen venter; intet bevæger sig, før du fortsætter.
+283|Tjek programmet før hver kørsel
+284|Ryd alarmen ($X)
+285|Ryd statistikken
+286|Klik for at skrive værktøjets position i arbejdskoordinater
+287|Opret først forbindelse til maskinen (fanen Enhed)
+288|Opret forbindelse til maskinen for at se dens indgange.
+289|Fortsæt jobbet
+290|Controller
+291|Koordinater
+292|Cyklusstart
+293|Slet denne makro
+294|Slet denne påmindelse
+295|Diagnostik og statistik
+296|Diagnostik gemt: {}
+297|Diagonal A
+298|Diagonal A er den længste: Y-aksen hælder mod +X.
+299|Diagonal B
+300|Diagonal B er den længste: Y-aksen hælder mod −X.
+301|Kuglens diameter
+302|Afstand
+303|Færdig
+304|Fejl
+305|Fejl
+306|Eksportér diagnostik (zip)…
+307|Eksporten mislykkedes: {}
+308|Fabriksindstillinger ($RST=$)…
+309|Fabriksindstillinger skrevet ($RST=$)
+310|Fejlafstand
+311|Hurtigste bevægelse af X og Y
+312|Stop fremføring
+313|Filer
+314|Firmwareindstillinger ($$)
+315|Fra controlleren
+316|G-code er låst under en alarm eller en jog. Lås op først.
+317|G43.1 kan kun forskyde værktøjslængdeaksen.
+318|G53 virker kun med G0 eller G1.
+319|GRBL kender ikke denne $-kommando.
+320|Kør til X0 Y0
+321|Højde
+322|Hold nede for at flytte
+323|Homing
+324|Homing mislykkedes: nulstilling under cyklussen.
+325|Homing mislykkedes: ingen endestop fundet. Tjek endestop og ledninger.
+326|Homing mislykkedes: sikkerhedslågen blev åbnet under cyklussen.
+327|Homing mislykkedes: endestoppet slap ikke ved tilbagetrækning. Tjek tilbagetrækningen og ledningerne.
+328|Homing er ikke slået til i indstillingerne ($22).
+329|Indgange
+330|Aktive indgange: {}
+331|I stedet for ét trin pr. klik bevæger værktøjet sig, mens knappen holdes nede
+332|Lige gjort
+333|Job
+334|Jog
+335|Tastatur
+336|Lasertilstand kræver et PWM-udgang.
+337|Seneste probe: X {} Y {} Z {} ({})
+338|Seneste probe: Z {} ({})
+339|Løft efter nulpunktet er sat
+340|Løft til den sikre højde og kør derefter til arbejdets nulpunkt
+341|Linje
+342|Maskine
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: {} linjer sendt
+346|Makroer
+347|Vedligeholdelse
+348|Marker eller skær et rektangel, og mål de to diagonaler: fra det forreste venstre hjørne til det bageste højre (A) og fra det forreste højre til det bageste venstre (B). De er ens, når akserne er vinkelrette.
+349|Målt
+350|Flyt
+351|Flyt {} med afstanden
+352|Ny værdi: ${} = {} (var {})
+353|Der er endnu ikke sat en tilspænding.
+354|Ingen påmindelser. Tilføj dem i enhedens indstillinger (Vedligeholdelse).
+355|Ikke læst endnu (Maskine → Firmwareindstillinger).
+356|Intet læst endnu.
+357|Forskydning af Z ved berøring
+358|Smør skinnerne
+359|Kun arbejdskoordinatsystemerne G54 til G59 understøttes.
+360|Kun dem, der afviger fra den typiske værdi
+361|Ude af vinkel med {}°: den ene ende af Y-aksen er {} mm forskudt over hele højden.
+362|Position
+363|Probe
+364|Probe Z
+365|Probning mislykkedes: intet blev berørt inden for afstanden. Tjek pladen og fejlafstanden.
+366|Probning mislykkedes: proben var allerede lukket før bevægelsen. Tjek ledningerne og pladen.
+367|Læg pladen under værktøjet: værktøjet kører ned, til det rører, og så sættes Z til pladens tykkelse
+368|Sæt værktøjet ved siden af kanten: det kører mod den, til det rører, og kanten bliver nul
+369|Hurtig berøring
+370|Læs maskinen
+371|Læs indstillingerne ($$)
+372|Læser…
+373|Læser controllerens firmware ($I) og indstillinger ($$)
+374|Fjern dette trin
+375|Nulstilling under bevægelse. Der kan være mistet trin: homing af maskinen igen.
+376|Gendan fra en fil…
+377|Gendan fabriksindstillingerne
+378|Gendan indstillingerne fra en fil
+379|Tilbagetrækning mellem berøringerne
+380|Sikkerhedslåge
+381|Indstillingerne gemt i {}
+382|Sæt Z igen med proben: det nye værktøj rører pladen, og Z bliver pladens tykkelse
+383|Indstilling
+384|Langsom berøring
+385|Softwaregrænser
+386|Softwaregrænser kræver også, at homing er slået til.
+387|Nogle ord bruges ikke af nogen kommando.
+388|Hastighed XY
+389|Hastighed Z
+390|Spindelhastighed
+391|Akslernes vinkelrethed
+392|Start herfra
+393|Start fra linje
+394|Start fra linje…
+395|Statistik for denne maskine
+396|Trin for X og Y (mm)
+397|Trin for Z (mm)
+398|Trin pr. millimeter
+399|Stop opgaven
+400|Stop bevægelsen
+401|Buen kan ikke beregnes ud fra radius. Del den eller brug forskydninger.
+402|Buen mangler forskydningen I, J eller K.
+403|Akserne er vinkelrette inden for {} mm over højden.
+404|Build-oplysningerne eller startlinjen er for lang.
+405|Styringen har allerede dem alle.
+406|Controlleren gennemgår programmet i kontroltilstand ($C): intet bevæger sig, og linjer, den ikke forstår, rapporteres før den rigtige kørsel
+407|Controlleren rapporterer i tommer ($13): positionerne på fanen Styring er ikke i millimeter.
+408|Jobbet er sat på pause
+409|Jog-kommandoen er ugyldig.
+410|Jog'et går ud over maskinens bevægelse og blev ignoreret.
+411|Linjen er for lang.
+412|Linjenummeret er uden for området.
+413|Maskinen har kørt {} timer i {} job.
+414|Maskinen bringes til den tilstand, programmet har på den linje: enheder, spindel, hastighed, position. Sørg for, at værktøj og emne er, hvor de var.
+415|Maskinen flytter sig den afstand, du beder om; mål, hvor langt den virkelig kom, og det rigtige antal trin beregnes.
+416|Bevægelsen går ud over maskinens bevægelse. Positionen bevares; lås op for at fortsætte.
+417|Proben kører ned, til den rører; Z sættes til probens forskydning
+418|Probens indgang er allerede lukket. Tjek klemmen, pladen og ledningerne.
+419|Proben skal være tilsluttet controllerens probe-indgang. Test den ved at røre pladen: indgangen vises som lukket på fanen Styring.
+420|Sikkerhedslågen er åben.
+421|Indstillingen er over den trinfrekvens, denne GRBL understøtter.
+422|Indstillingerne kunne ikke læses; standardværdierne blev gendannet.
+423|Indstillingerne er ikke læst endnu.
+424|Indstillingerne blev gemt før den første ændring: {}
+425|Trinpulstiden skal være mindst 3 µs.
+426|Målet for bevægelsen er ugyldigt.
+427|Værktøjet er her: gør dette til arbejdets nulpunkt
+428|Værktøjsnummeret er for højt.
+429|Disse indstillinger ligger i controlleren, ikke i enheden. Ændr én ad gangen og skriv den forrige værdi ned: en forkert værdi kan få maskinen til at bevæge sig den forkerte afstand. Den første ændring i en session gemmer alle indstillinger i en fil.
+430|Disse indstillinger i filen afviger fra styringen. Intet skrives, før du trykker Skriv alle.
+431|Tykkelsen på dens side
+432|Pladens tykkelse
+433|Denne $-kommando virker kun, når maskinen er ledig.
+434|Dette skriver $RST=$: alle controllerens indstillinger går tilbage til firmwarens standarder. Trintal, bevægelser, hastigheder og homing ændres alle.
+435|Køretid
+436|Værktøjets diameter
+437|Berøringsplade
+438|Bevægelse af X, Y, Z
+439|To kommandoer i linjen kræver begge akseord.
+440|To kommandoer fra samme gruppe står i én linje.
+441|Skriv begge diagonaler for at se resultatet.
+442|Skriv den målte afstand for at se den nye værdi.
+443|Typisk
+444|Enhed
+445|Brug disse værdier til enheden
+446|Værdi
+447|Variabler: {}
+448|Hvad der skal gøres
+449|Arbejde
+450|Skriv
+451|Skriv ${}
+452|Skal ${} = {} skrives til styringen? Nu er den {}. Ændr én indstilling ad gangen og noter den gamle værdi.
+453|Skriv en indstilling
+454|Skriv alle
+455|Skriver {} indstillinger; de læses tilbage bagefter
+456|X-endestop
+457|X-endestop
+458|Y-endestop
+459|Y-endestop
+460|Ja
+461|Z
+462|Z-endestop
+463|Z-endestop
+464|Z til sikker højde
+465|Nulstil X og Y
+466|Nulstil alt
+467|en probeafstand er uden for området
+468|en probestørrelse er uden for området
+469|lukket
+470|låge
+471|hver
+472|hold
+473|indgang {}
+474|ingen berøring
+475|der er ikke sat en tilspænding før denne linje
+476|af {}
+477|fra
+478|til
+479|åben
+480|probe
+481|nulstil
+482|spindel fra
+483|spindel til (M{}) ved {}
+484|start
+485|fejlafstanden skal være længere end to gange tilbagetrækningen
+486|linjen fortsætter en bue (G2/G3) uden et G-ord
+487|linjen er efter programmets slutning
+488|linjerne før bruger G53 eller G92, så positionen kan ikke beregnes
+489|programmet har ikke bevæget sig i X og Y før denne linje
+490|den langsomme probetilspænding skal være mellem 1 og den hurtige
+491|berørt
+492|Først sendes {} linjer for at gøre dette klar.
+493|{} af {} indstillinger afviger efter skrivning:
+494|{} {}: {}
+495|{}: forfalden ({} t over)
+496|{}: {} t tilbage
+497|1. Hvor sensoren er
+498|2. Det første værktøj, referencen
+499|3. Hvert efterfølgende værktøj
+500|En kopi af controllerens indstillinger opbevares sammen med enheden. Der laves en, første gang maskinen tilsluttes, og derefter hver gang indstillingerne afviger fra den nyeste kopi; kopierne er en del af programmets sikkerhedskopi.
+501|En kopi af controllerens {} indstillinger blev gemt sammen med enheden.
+502|En kopi af de {} indstillinger blev gemt sammen med enheden.
+503|Et job kører.
+504|En måling kører allerede.
+505|Der blev gemt en ny kopi af indstillingerne efter din ændring ({} indstillinger afviger fra den forrige).
+506|En sensor til værktøjslængde er en kontakt på et fast sted på maskinen. Spidsen af hvert værktøj rører den, så en ny fræser kan få præcis samme Z som den forrige uden at røre emnet igen. Dens position er i maskinkoordinater: kør homing først, og flyt aldrig sensoren.
+507|Efter berøringen sættes Z til referenceværktøjets Z ved sensoren
+508|Sammenlign med controlleren og skriv forskellene tilbage
+509|Kopier af indstillingerne ({})
+510|Glem
+511|Kør værktøjet over midten af sensoren, nogle millimeter over den, og tryk på knappen.
+512|Maskine X {}  Y {}, tilgang fra Z {}
+513|Lav en kopi nu
+514|Mål referenceværktøjet
+515|Mål først referenceværktøjet.
+516|Mål værktøjet (sensor)
+517|Mål dette værktøj og sæt Z
+518|Måler…
+519|Endnu ikke målt.
+520|Endnu ikke sat.
+521|Intet ændres; forskellen fra referencen vises
+522|Kun mål
+523|Sæt den første fræser i og sæt Z på emnet med den (fanen Styring: probe Z, eller rør overfladen og tryk Z0). Mål den derefter på sensoren.
+524|Reference: Z {} ved sensoren
+525|Gendan…
+526|Sæt først sensorens position.
+527|Controlleren har endnu ikke meldt positionen.
+528|Indstillinger, der afviger fra kopien gemt sammen med enheden: {}. En ny kopi blev gemt.
+529|Første gang: hav en hånd nær stoppet; værktøjet kører ned mod sensoren.
+530|Maskinen kører til sensoren, og værktøjet rører den to gange
+531|Maskinen kører til værktøjslængdesensoren; det nye værktøj får referenceværktøjets Z
+532|Maskinen er ikke ledig.
+533|Sensoren er her
+534|Værktøjet er lige så langt som referenceværktøjet.
+535|Værktøjet er {} mm længere end referenceværktøjet.
+536|Værktøjet er {} mm kortere end referenceværktøjet.
+537|Sensor til værktøjslængde
+538|Sensor til værktøjslængde…
+539|Rejsehøjde (maskinens Z)
+540|Når et job stopper for et fræserskift, tilbyder vinduet Mål værktøjet. Det kan også gøres her, når som helst.
+541|en position af sensoren er uden for området
+542|efter en ændring her
+543|ved tilslutning
+544|manuelt
+545|kopierne af indstillingerne er ikke gyldige
+546|referencen er ikke gyldig
+547|starten af tilgangen må ikke være højere end rejsehøjden
+548|{} indstillinger
+549|… og {} flere

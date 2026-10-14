@@ -246,3 +246,305 @@
 245|Obnovitev ni uspela: {}
 246|Obnovi iz varnostne kopije
 247|Vaše trenutne nastavitve bodo zamenjane z nastavitvami iz varnostne kopije. Njene slike bodo dodane v skupno galerijo. Nadaljujem?
+248|${} je zdaj {} korakov/mm
+249|1. Naredite oznako tam, kjer je orodje (ali tam postavite merilno uro). 2. Pritisnite Premakni. 3. Izmerite razdaljo in jo vpišite spodaj.
+250|3D tipalna sonda
+251|Ukaz G-code ni podprt ali ni veljaven.
+252|Beseda G-code nima črke.
+253|Ukazu manjka vrednost P ali L.
+254|Ukaz potrebuje celo število.
+255|Ukaz potrebuje besede osi, vendar jih vrstica nima.
+256|Sprožilo se je končno stikalo. Položaj je morda izgubljen: znova izvedite referenciranje stroja.
+257|Makro je G-code, ki ga pošlje gumb na zavihku Upravljanje. Uporablja lahko spremenljivke v oglatih oklepajih.
+258|Negativna vrednost, kjer je potrebna pozitivna.
+259|Število ni veljavno ali manjka.
+260|Beseda se v vrstici ponavlja.
+261|Dodaj makro
+262|Dodaj opomnik
+263|Dodaj korak
+264|Po opravilu (končanem ali ustavljenem)
+265|Alarm
+266|Alarm {}: {}
+267|Alarmi
+268|Vseh {} nastavitev iz datoteke je zdaj v krmilniku.
+269|Lok nima besed osi v svoji ravnini.
+270|Vhod, ki je aktiven, čeprav se ga nič ne dotika, kaže na težavo z ožičenjem ali nastavitvami ($5, $6).
+271|Okoli opravila
+272|Smerne tipke premikajo X in Y, Page Up in Page Down premikata Z. Privzeto izklopljeno: puščice premikajo tudi izbrane oblike.
+273|V tej vrstici: X {} Y {} Z {}, {}, podajanje {}
+274|Ostale so besede osi, medtem ko je G80 aktiven.
+275|Najprej naredite varnostno kopijo nastavitev. Za nadaljevanje vnesite {}:
+276|Varnostna kopija v datoteko…
+277|Preden se opravilo začne
+278|Kalibracija
+279|Kalibracija…
+280|Tu ni mogoče začeti: {}
+281|Datoteke ni mogoče uporabiti: {}
+282|Zdaj zamenjajte orodje ali pero. Stroj čaka; nič se ne premakne, dokler ne nadaljujete.
+283|Preveri program pred vsakim zagonom
+284|Počisti alarm ($X)
+285|Počisti statistiko
+286|Kliknite za vnos položaja orodja v delovnih koordinatah
+287|Najprej se povežite s strojem (zavihek Naprava)
+288|Povežite se s strojem, da vidite njegove vhode.
+289|Nadaljuj opravilo
+290|Krmilnik
+291|Koordinate
+292|Začetek cikla
+293|Izbriši ta makro
+294|Izbriši ta opomnik
+295|Diagnostika in statistika
+296|Diagnostika shranjena: {}
+297|Diagonala A
+298|Diagonala A je daljša: os Y je nagnjena proti +X.
+299|Diagonala B
+300|Diagonala B je daljša: os Y je nagnjena proti −X.
+301|Premer kroglice
+302|Razdalja
+303|Opravljeno
+304|Napaka
+305|Napake
+306|Izvozi diagnostiko (zip)…
+307|Izvoz ni uspel: {}
+308|Tovarniške nastavitve ($RST=$)…
+309|Tovarniške nastavitve zapisane ($RST=$)
+310|Razdalja neuspeha
+311|Najhitrejše premikanje X in Y
+312|Zadrži podajanje
+313|Datoteka
+314|Nastavitve strojne programske opreme ($$)
+315|Iz krmilnika
+316|G-code je med alarmom ali premikanjem zaklenjen. Najprej odklenite.
+317|G43.1 lahko zamakne samo os dolžine orodja.
+318|G53 deluje samo z G0 ali G1.
+319|GRBL ne pozna tega ukaza $.
+320|Pojdi na X0 Y0
+321|Višina
+322|Držite pritisnjeno za premik
+323|Referenciranje
+324|Referenciranje ni uspelo: ponastavitev med ciklom.
+325|Referenciranje ni uspelo: končno stikalo ni najdeno. Preverite stikala in ožičenje.
+326|Referenciranje ni uspelo: varnostna vrata so bila odprta med ciklom.
+327|Referenciranje ni uspelo: stikalo se ni sprostilo pri odmiku. Preverite odmik in ožičenje.
+328|Referenciranje ni omogočeno v nastavitvah ($22).
+329|Vhodi
+330|Aktivni vhodi: {}
+331|Namesto enega koraka na klik se orodje premika, dokler je gumb pritisnjen
+332|Pravkar opravljeno
+333|Opravila
+334|Ročni premik
+335|Tipkovnica
+336|Laserski način potrebuje izhod PWM.
+337|Zadnja sonda: X {} Y {} Z {} ({})
+338|Zadnja sonda: Z {} ({})
+339|Dvig po nastavitvi ničle
+340|Dvignite na varno višino, nato pojdite na ničlo dela
+341|Črta
+342|Stroj
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: poslanih {} vrstic
+346|Makri
+347|Vzdrževanje
+348|Označite ali izrežite pravokotnik in izmerite njegovi dve diagonali: od levega sprednjega do desnega zadnjega kota (A) in od desnega sprednjega do levega zadnjega (B). Enaki sta, ko sta osi pravokotni.
+349|Izmerjeno
+350|Premakni
+351|Premakni {} za razdaljo
+352|Nova vrednost: ${} = {} (bilo je {})
+353|Podajanje še ni nastavljeno.
+354|Ni opomnikov. Dodajte jih v nastavitvah naprave (Vzdrževanje).
+355|Še ni prebrano (Stroj → Nastavitve strojne programske opreme).
+356|Še nič ni prebrano.
+357|Zamik Z ob dotiku
+358|Namažite vodila
+359|Podprti so samo delovni koordinatni sistemi od G54 do G59.
+360|Samo tiste, ki se razlikujejo od tipične vrednosti
+361|Ni pravokotno za {}°: en konec osi Y je po vsej višini premaknjen za {} mm.
+362|Položaj
+363|Sonda
+364|Sondiraj Z
+365|Sondiranje ni uspelo: v razdalji se ni nič dotaknilo. Preverite ploščico in razdaljo neuspeha.
+366|Sondiranje ni uspelo: sonda je bila zaprta že pred premikom. Preverite ožičenje in ploščico.
+367|Ploščico postavite pod orodje: orodje gre navzdol do dotika, nato se Z nastavi na debelino ploščice
+368|Orodje postavite ob rob: premika se proti njemu do dotika in rob postane ničla
+369|Hiter dotik
+370|Preberi stroj
+371|Preberi nastavitve ($$)
+372|Branje…
+373|Prebere strojno programsko opremo ($I) in nastavitve ($$) krmilnika
+374|Odstrani ta korak
+375|Ponastavitev med premikanjem. Koraki so morda izgubljeni: znova izvedite referenciranje stroja.
+376|Obnovi iz datoteke…
+377|Obnovi tovarniške nastavitve
+378|Obnovi nastavitve iz datoteke
+379|Odmik med dotiki
+380|Varnostna vrata
+381|Nastavitve shranjene v {}
+382|Znova nastavite Z s sondo: novo orodje se dotakne ploščice in Z postane debelina ploščice
+383|Nastavitev
+384|Počasen dotik
+385|Programske omejitve
+386|Programske omejitve zahtevajo tudi vklopljeno referenciranje.
+387|Nekaterih besed ne uporablja noben ukaz.
+388|Hitrost XY
+389|Hitrost Z
+390|Vrtljaji vretena
+391|Pravokotnost osi
+392|Začni tu
+393|Začni pri vrstici
+394|Začni pri vrstici…
+395|Statistika tega stroja
+396|Koraki X in Y (mm)
+397|Koraki Z (mm)
+398|Korakov na milimeter
+399|Ustavi delo
+400|Ustavi premik
+401|Loka ni mogoče izračunati iz polmera. Razdelite ga ali uporabite zamike.
+402|Loku manjka zamik I, J ali K.
+403|Osi so pravokotne znotraj {} mm po višini.
+404|Podatki o izdaji ali zagonska vrstica so predolgi.
+405|Krmilnik jih že ima vse.
+406|Krmilnik prehodi program v načinu preverjanja ($C): nič se ne premika, vrstice, ki jih ne razume, pa so javljene pred pravim zagonom
+407|Krmilnik poroča v palcih ($13): položaji na zavihku Upravljanje niso v milimetrih.
+408|Opravilo je začasno ustavljeno
+409|Ukaz za premik ni veljaven.
+410|Premik presega hod stroja in je bil prezrt.
+411|Vrstica je predolga.
+412|Številka vrstice je izven območja.
+413|Stroj je deloval {} ur v {} opravilih.
+414|Stroj se pripelje v stanje, ki ga ima program v tej vrstici: enote, vreteno, hitrost, položaj. Poskrbite, da sta orodje in obdelovanec tam, kjer sta bila.
+415|Stroj se premakne za razdaljo, ki jo zahtevate; izmerite, kako daleč je res šel, in izračuna se pravilno število korakov.
+416|Premik presega hod stroja. Položaj je ohranjen; odklenite za nadaljevanje.
+417|Sonda gre navzdol do dotika; Z se nastavi na zamik sonde
+418|Vhod sonde je že zaprt. Preverite sponko, ploščico in ožičenje.
+419|Sonda mora biti priključena na vhod sonde krmilnika. Preizkusite jo z dotikom ploščice: vhod je na zavihku Upravljanje prikazan kot zaprt.
+420|Varnostna vrata so odprta.
+421|Nastavitev presega frekvenco korakov, ki jo ta GRBL podpira.
+422|Nastavitev ni bilo mogoče prebrati; obnovljene so privzete vrednosti.
+423|Nastavitve še niso prebrane.
+424|Nastavitve so bile shranjene pred prvo spremembo: {}
+425|Čas impulza koraka mora biti vsaj 3 µs.
+426|Cilj premika ni veljaven.
+427|Orodje je tu: naredite to za ničlo dela
+428|Številka orodja je previsoka.
+429|Te nastavitve so v krmilniku, ne v napravi. Spreminjajte jih eno za drugo in si zapišite prejšnjo vrednost: napačna vrednost lahko povzroči, da se stroj premakne za napačno razdaljo. Prva sprememba v seji shrani vse nastavitve v datoteko.
+430|Te nastavitve iz datoteke se razlikujejo od krmilnika. Nič se ne zapiše, dokler ne pritisnete Zapiši vse.
+431|Debelina njene stranice
+432|Debelina ploščice
+433|Ta ukaz $ deluje samo, ko stroj miruje.
+434|To zapiše $RST=$: vse nastavitve krmilnika se vrnejo na privzete vrednosti strojne programske opreme. Število korakov, hodi, hitrosti in referenciranje se bodo spremenili.
+435|Čas delovanja
+436|Premer orodja
+437|Tipalna ploščica
+438|Hod X, Y, Z
+439|Oba ukaza v vrstici potrebujeta besede osi.
+440|Dva ukaza iz iste skupine sta v eni vrstici.
+441|Vnesite obe diagonali, da vidite rezultat.
+442|Vnesite izmerjeno razdaljo, da vidite novo vrednost.
+443|Tipično
+444|Enota
+445|Uporabi te vrednosti za napravo
+446|Vrednost
+447|Spremenljivke: {}
+448|Kaj storiti
+449|Delo
+450|Zapiši
+451|Zapiši ${}
+452|Zapisati ${} = {} v krmilnik? Zdaj je {}. Spreminjajte eno nastavitev naenkrat in si zapišite staro vrednost.
+453|Zapis nastavitve
+454|Zapiši vse
+455|Zapisujem {} nastavitev; potem se preberejo nazaj
+456|končni X
+457|Končno stikalo X
+458|končni Y
+459|Končno stikalo Y
+460|Da
+461|Z
+462|končni Z
+463|Končno stikalo Z
+464|Z na varno višino
+465|Ničli X in Y
+466|Ničli vse
+467|razdalja sonde je izven območja
+468|velikost sonde je izven območja
+469|zaprt
+470|vrata
+471|vsakih
+472|zadržanje
+473|vhod {}
+474|ni dotika
+475|pred to vrstico podajanje ni bilo nastavljeno
+476|od {}
+477|izklopljeno
+478|vklopljeno
+479|odprt
+480|sonda
+481|ponastavitev
+482|vreteno izklopljeno
+483|vreteno vklopljeno (M{}) pri {}
+484|zagon
+485|razdalja neuspeha mora biti daljša od dvojnega odmika
+486|vrstica nadaljuje lok (G2/G3) brez besede G
+487|vrstica je za koncem programa
+488|prejšnje vrstice uporabljajo G53 ali G92, zato položaja ni mogoče izračunati
+489|program se pred to vrstico ni premaknil v X in Y
+490|počasno podajanje sonde mora biti med 1 in hitrim
+491|dotaknilo se je
+492|Najprej bo poslanih {} vrstic, da se to pripravi.
+493|{} od {} nastavitev se po zapisu razlikuje:
+494|{} {}: {}
+495|{}: zapadlo ({} h zamude)
+496|{}: še {} h
+497|1. Kje je tipalo
+498|2. Prvo orodje, referenčno
+499|3. Vsako naslednje orodje
+500|Kopija nastavitev krmilnika se hrani ob napravi. Naredi se ob prvi povezavi s strojem in nato vsakič, ko se nastavitve razlikujejo od najnovejše kopije; kopije so del varnostne kopije programa.
+501|Kopija {} nastavitev krmilnika je bila shranjena ob napravi.
+502|Kopija {} nastavitev je bila shranjena ob napravi.
+503|Opravilo teče.
+504|Meritev že teče.
+505|Po vaši spremembi je bila shranjena nova kopija nastavitev ({} nastavitev se razlikuje od prejšnje).
+506|Tipalo dolžine orodja je stikalo na stalnem mestu stroja. Konica vsakega orodja se ga dotakne, zato lahko novo rezkalo dobi popolnoma enak Z kot prejšnje, ne da bi se znova dotaknilo obdelovanca. Njegov položaj je v koordinatah stroja: najprej izvedite referenciranje stroja in tipala nikoli ne premikajte.
+507|Po dotiku se Z nastavi na Z referenčnega orodja pri tipalu
+508|Primerjaj s krmilnikom in zapiši razlike nazaj
+509|Kopije nastavitev ({})
+510|Pozabi
+511|Orodje pripeljite nad sredino tipala, nekaj milimetrov nad njim, in pritisnite gumb.
+512|Stroj X {}  Y {}, približevanje od Z {}
+513|Naredi kopijo zdaj
+514|Izmeri referenčno orodje
+515|Najprej izmerite referenčno orodje.
+516|Izmeri orodje (tipalo)
+517|Izmeri to orodje in nastavi Z
+518|Merim…
+519|Še ni izmerjeno.
+520|Še ni nastavljeno.
+521|Nič se ne spremeni; prikazana je razlika od reference
+522|Samo izmeri
+523|Vstavite prvo rezkalo in z njim nastavite Z na obdelovancu (zavihek Upravljanje: sondiraj Z ali se dotaknite površine in Z0). Nato ga izmerite na tipalu.
+524|Referenca: Z {} pri tipalu
+525|Obnovi…
+526|Najprej nastavite položaj tipala.
+527|Krmilnik še ni sporočil položaja.
+528|Nastavitve, ki se razlikujejo od kopije, shranjene ob napravi: {}. Shranjena je nova kopija.
+529|Prvič imejte roko blizu ustavitve: orodje gre navzdol proti tipalu.
+530|Stroj gre do tipala in se ga orodje dvakrat dotakne
+531|Stroj gre do tipala dolžine orodja; novo orodje dobi Z referenčnega orodja
+532|Stroj ne miruje.
+533|Tipalo je tu
+534|Orodje je enako dolgo kot referenčno.
+535|Orodje je za {} mm daljše od referenčnega.
+536|Orodje je za {} mm krajše od referenčnega.
+537|Tipalo dolžine orodja
+538|Tipalo dolžine orodja…
+539|Višina prehoda (Z stroja)
+540|Ko se opravilo ustavi zaradi zamenjave rezkala, okno ponudi Izmeri orodje. To je mogoče storiti tudi tu, kadar koli.
+541|položaj tipala je izven območja
+542|po spremembi tu
+543|ob povezavi
+544|ročno
+545|kopije nastavitev niso veljavne
+546|referenca ni veljavna
+547|začetek približevanja ne sme biti višje od višine prehoda
+548|{} nastavitev
+549|… in še {}

@@ -246,3 +246,305 @@
 245|Restaurarea a eșuat: {}
 246|Restaurează dintr-o copie de rezervă
 247|Setările curente vor fi înlocuite cu cele din copia de rezervă. Imaginile ei sunt adăugate în galeria comună. Continuați?
+248|${} este acum {} pași/mm
+249|1. Faceți un semn unde se află scula (sau puneți acolo un comparator). 2. Apăsați Mută. 3. Măsurați distanța și scrieți-o mai jos.
+250|Sondă tactilă 3D
+251|O comandă G-code nu este acceptată sau nu este validă.
+252|Un cuvânt G-code nu are literă.
+253|Unei comenzi îi lipsește valoarea P sau L.
+254|O comandă are nevoie de un număr întreg.
+255|O comandă are nevoie de cuvinte de axă, dar linia nu are.
+256|S-a declanșat un limitator de cursă. Poziția poate fi pierdută: refaceți homing-ul mașinii.
+257|Un macro este G-code trimis de un buton din fila Control. Poate folosi variabile între paranteze pătrate.
+258|O valoare negativă acolo unde e nevoie de una pozitivă.
+259|Un număr nu este valid sau lipsește.
+260|Un cuvânt se repetă în linie.
+261|Adaugă un macro
+262|Adaugă un memento
+263|Adaugă un pas
+264|După lucrare (terminată sau oprită)
+265|Alarmă
+266|Alarmă {}: {}
+267|Alarme
+268|Toate cele {} setări din fișier sunt acum în controler.
+269|Un arc nu are cuvinte de axă în planul său.
+270|O intrare activă fără ca ceva să o atingă indică o problemă de cablaj sau de setări ($5, $6).
+271|În jurul unei lucrări
+272|Tastele săgeți mută X și Y, Page Up și Page Down mută Z. Dezactivat implicit: săgețile mută și formele selectate.
+273|Pe această linie: X {} Y {} Z {}, {}, avans {}
+274|Au rămas cuvinte de axă cât timp G80 este activ.
+275|Faceți mai întâi o copie a setărilor. Pentru a continua, tastați {}:
+276|Salvează într-un fișier…
+277|Înainte de începerea lucrării
+278|Calibrare
+279|Calibrare…
+280|Nu se poate începe aici: {}
+281|Fișierul nu poate fi folosit: {}
+282|Schimbați acum scula sau pixul. Mașina așteaptă; nimic nu se mișcă până nu continuați.
+283|Verifică programul înainte de fiecare rulare
+284|Șterge alarma ($X)
+285|Șterge statisticile
+286|Faceți clic pentru a scrie poziția sculei în coordonate de lucru
+287|Conectează-te mai întâi la mașină (fila Dispozitiv)
+288|Conectați-vă la mașină pentru a-i vedea intrările.
+289|Continuă lucrarea
+290|Controler
+291|Coordonate
+292|Pornire ciclu
+293|Șterge acest macro
+294|Șterge acest memento
+295|Diagnostic și statistici
+296|Diagnostic salvat: {}
+297|Diagonala A
+298|Diagonala A este mai lungă: axa Y se înclină spre +X.
+299|Diagonala B
+300|Diagonala B este mai lungă: axa Y se înclină spre −X.
+301|Diametrul bilei
+302|Distanță
+303|Gata
+304|Eroare
+305|Erori
+306|Exportă diagnosticul (zip)…
+307|Exportul a eșuat: {}
+308|Setări din fabrică ($RST=$)…
+309|Setările din fabrică au fost scrise ($RST=$)
+310|Distanța de eșec
+311|Cea mai rapidă mișcare a lui X și Y
+312|Oprirea avansului
+313|Fișier
+314|Setările firmware-ului ($$)
+315|De la controler
+316|G-code este blocat în timpul unei alarme sau al unui jog. Deblocați mai întâi.
+317|G43.1 poate decala doar axa lungimii sculei.
+318|G53 funcționează doar cu G0 sau G1.
+319|GRBL nu cunoaște această comandă $.
+320|Mergi la X0 Y0
+321|Înălțime
+322|Țineți apăsat pentru a mișca
+323|Homing
+324|Homing eșuat: resetare în timpul ciclului.
+325|Homing eșuat: nu s-a găsit niciun limitator. Verificați limitatoarele și cablajul.
+326|Homing eșuat: ușa de siguranță a fost deschisă în timpul ciclului.
+327|Homing eșuat: limitatorul nu s-a eliberat la retragere. Verificați retragerea și cablajul.
+328|Homing-ul nu este activat în setări ($22).
+329|Intrări
+330|Intrări active: {}
+331|În loc de un pas pe clic, scula se mișcă cât timp butonul este ținut apăsat
+332|Tocmai făcut
+333|Lucrări
+334|Deplasare manuală
+335|Tastatură
+336|Modul laser are nevoie de o ieșire PWM.
+337|Ultima sondare: X {} Y {} Z {} ({})
+338|Ultima sondare: Z {} ({})
+339|Ridicare după setarea zeroului
+340|Ridicați la înălțimea de siguranță, apoi mergeți la zeroul lucrării
+341|Linie
+342|Mașină
+343|Macro {}
+344|Macro {}: {}
+345|Macro {}: {} linii trimise
+346|Macro-uri
+347|Întreținere
+348|Marcați sau tăiați un dreptunghi și măsurați cele două diagonale: de la colțul față-stânga la spate-dreapta (A) și de la față-dreapta la spate-stânga (B). Sunt egale când axele sunt perpendiculare.
+349|Măsurat
+350|Mută
+351|Mută {} cu distanța
+352|Valoare nouă: ${} = {} (era {})
+353|Nu s-a setat încă un avans.
+354|Niciun memento. Adăugați-le în setările dispozitivului (Întreținere).
+355|Încă necitit (Mașină → Setările firmware-ului).
+356|Încă nu s-a citit nimic.
+357|Decalajul Z la atingere
+358|Ungeți ghidajele
+359|Sunt acceptate doar sistemele de coordonate de lucru de la G54 la G59.
+360|Doar cele care diferă de valoarea tipică
+361|În afara unghiului drept cu {}°: un capăt al axei Y este deplasat cu {} mm pe toată înălțimea.
+362|Poziție
+363|Sondă
+364|Sondează Z
+365|Sondarea a eșuat: nu s-a atins nimic în limita distanței. Verificați placa și distanța de eșec.
+366|Sondarea a eșuat: sonda era deja închisă înainte de mișcare. Verificați cablajul și placa.
+367|Puneți placa sub sculă: scula coboară până atinge, apoi Z se setează la grosimea plăcii
+368|Puneți scula lângă muchie: se deplasează spre ea până atinge, iar muchia devine zero
+369|Atingere rapidă
+370|Citește mașina
+371|Citește setările ($$)
+372|Se citește…
+373|Citește firmware-ul ($I) și setările ($$) controlerului
+374|Elimină acest pas
+375|Resetare în timpul mișcării. Este posibil să se fi pierdut pași: refaceți homing-ul mașinii.
+376|Restaurează dintr-un fișier…
+377|Restaurează setările din fabrică
+378|Restaurează setările dintr-un fișier
+379|Retragere între atingeri
+380|Ușă de siguranță
+381|Setări salvate în {}
+382|Setați din nou Z cu sonda: scula nouă atinge placa și Z devine grosimea plăcii
+383|Setare
+384|Atingere lentă
+385|Limite software
+386|Limitele software cer și homing activat.
+387|Unele cuvinte nu sunt folosite de nicio comandă.
+388|Viteza XY
+389|Viteza Z
+390|Turația axului
+391|Perpendicularitatea axelor
+392|Începe de aici
+393|Începe de la linia
+394|Începe de la linia…
+395|Statisticile acestei mașini
+396|Pașii lui X și Y (mm)
+397|Pașii lui Z (mm)
+398|Pași pe milimetru
+399|Oprește lucrarea
+400|Oprește mișcarea
+401|Arcul nu poate fi calculat din rază. Împărțiți-l sau folosiți decalaje.
+402|Arcului îi lipsește decalajul I, J sau K.
+403|Axele sunt perpendiculare în limita a {} mm pe înălțime.
+404|Informațiile de versiune sau linia de pornire sunt prea lungi.
+405|Controlerul le are deja pe toate.
+406|Controlerul parcurge programul în modul de verificare ($C): nimic nu se mișcă, iar liniile pe care nu le înțelege sunt raportate înainte de rularea reală
+407|Controlerul raportează în inci ($13): pozițiile din fila Control nu sunt în milimetri.
+408|Lucrarea este în pauză
+409|Comanda de deplasare nu este validă.
+410|Deplasarea depășește cursa mașinii și a fost ignorată.
+411|Linia este prea lungă.
+412|Numărul liniei este în afara intervalului.
+413|Mașina a funcționat {} ore în {} lucrări.
+414|Mașina este adusă în starea pe care o are programul la acea linie: unități, ax, viteză, poziție. Asigurați-vă că scula și piesa sunt unde au fost.
+415|Mașina se mișcă pe distanța cerută; măsurați cât a mers de fapt și se calculează numărul corect de pași.
+416|Mișcarea depășește cursa mașinii. Poziția este păstrată; deblocați pentru a continua.
+417|Sonda coboară până atinge; Z se setează la decalajul sondei
+418|Intrarea sondei este deja închisă. Verificați clema, placa și cablajul.
+419|Sonda trebuie conectată la intrarea de sondă a controlerului. Testați-o atingând placa: intrarea apare închisă în fila Control.
+420|Ușa de siguranță este deschisă.
+421|Setarea depășește frecvența de pași pe care o acceptă acest GRBL.
+422|Setările nu au putut fi citite; s-au restabilit valorile implicite.
+423|Setările nu au fost încă citite.
+424|Setările au fost salvate înainte de prima modificare: {}
+425|Timpul impulsului de pas trebuie să fie de cel puțin 3 µs.
+426|Ținta mișcării nu este validă.
+427|Scula este aici: faceți din asta zeroul lucrării
+428|Numărul sculei este prea mare.
+429|Aceste setări se află în controler, nu în dispozitiv. Schimbați câte una și notați valoarea veche: o valoare greșită poate face mașina să se miște pe o distanță greșită. Prima modificare dintr-o sesiune salvează toate setările într-un fișier.
+430|Aceste setări din fișier diferă de controler. Nu se scrie nimic până nu apăsați Scrie tot.
+431|Grosimea laturii sale
+432|Grosimea plăcii
+433|Această comandă $ funcționează doar când mașina este în repaus.
+434|Aceasta scrie $RST=$: fiecare setare a controlerului revine la valorile implicite ale firmware-ului. Numărul de pași, cursele, vitezele și homing-ul se vor schimba.
+435|Timp de funcționare
+436|Diametrul sculei
+437|Placă de atingere
+438|Cursa lui X, Y, Z
+439|Două comenzi din linie au amândouă nevoie de cuvinte de axă.
+440|Două comenzi din același grup sunt pe o linie.
+441|Introduceți ambele diagonale pentru a vedea rezultatul.
+442|Introduceți distanța măsurată pentru a vedea valoarea nouă.
+443|Tipic
+444|Unitate
+445|Folosește aceste valori pentru dispozitiv
+446|Valoare
+447|Variabile: {}
+448|Ce de făcut
+449|Lucrare
+450|Scrie
+451|Scrie ${}
+452|Scrieți ${} = {} în controler? Acum este {}. Schimbați o setare pe rând și notați valoarea veche.
+453|Scrie o setare
+454|Scrie tot
+455|Se scriu {} setări; apoi sunt citite înapoi
+456|limitator X
+457|Limitator de cursă X
+458|limitator Y
+459|Limitator de cursă Y
+460|Da
+461|Z
+462|limitator Z
+463|Limitator de cursă Z
+464|Z la înălțimea de siguranță
+465|Zero pe X și Y
+466|Zero pe toate
+467|o distanță a sondei este în afara intervalului
+468|o dimensiune a sondei este în afara intervalului
+469|închis
+470|ușă
+471|la fiecare
+472|oprire
+473|intrarea {}
+474|fără contact
+475|înainte de această linie nu s-a setat avansul
+476|din {}
+477|oprit
+478|pornit
+479|deschis
+480|sondă
+481|resetare
+482|ax oprit
+483|ax pornit (M{}) la {}
+484|start
+485|distanța de eșec trebuie să fie mai mare decât dublul retragerii
+486|linia continuă un arc (G2/G3) fără cuvânt G
+487|linia este după sfârșitul programului
+488|liniile dinainte folosesc G53 sau G92, deci poziția nu poate fi calculată
+489|programul nu s-a mișcat în X și Y înainte de această linie
+490|avansul lent al sondei trebuie să fie între 1 și cel rapid
+491|atins
+492|Mai întâi se vor trimite {} linii pentru a pregăti asta.
+493|{} din {} setări diferă după scriere:
+494|{} {}: {}
+495|{}: scadent ({} h peste)
+496|{}: mai sunt {} h
+497|1. Unde este senzorul
+498|2. Prima sculă, cea de referință
+499|3. Fiecare sculă următoare
+500|O copie a setărilor controlerului este păstrată cu dispozitivul. Se face la prima conectare la mașină și apoi de fiecare dată când setările diferă de cea mai recentă copie; copiile fac parte din copia de rezervă a programului.
+501|O copie a celor {} setări ale controlerului a fost salvată cu dispozitivul.
+502|O copie a celor {} setări a fost salvată cu dispozitivul.
+503|O lucrare rulează.
+504|O măsurare rulează deja.
+505|După modificarea ta s-a salvat o copie nouă a setărilor ({} setări diferă de cea dinainte).
+506|Un senzor de lungime a sculei este un comutator într-un loc fix al mașinii. Vârful fiecărei scule îl atinge, așa că o freză nouă poate primi exact același Z ca precedenta fără să atingă din nou piesa. Poziția lui este în coordonate de mașină: faceți mai întâi homing și nu mutați niciodată senzorul.
+507|După atingere Z se setează la Z al sculei de referință la senzor
+508|Compară cu controlerul și scrie diferențele înapoi
+509|Copii ale setărilor ({})
+510|Uită
+511|Duceți scula deasupra mijlocului senzorului, câțiva milimetri deasupra lui, și apăsați butonul.
+512|Mașină X {}  Y {}, apropiere de la Z {}
+513|Fă o copie acum
+514|Măsoară scula de referință
+515|Măsurați mai întâi scula de referință.
+516|Măsoară scula (senzor)
+517|Măsoară această sculă și setează Z
+518|Se măsoară…
+519|Încă nemăsurat.
+520|Încă nesetat.
+521|Nu se schimbă nimic; se arată diferența față de referință
+522|Doar măsoară
+523|Puneți prima freză și setați cu ea Z pe piesă (fila Control: sondează Z sau atingeți suprafața și Z0). Apoi măsurați-o pe senzor.
+524|Referință: Z {} la senzor
+525|Restaurează…
+526|Setați mai întâi poziția senzorului.
+527|Controlerul nu a raportat încă poziția.
+528|Setări care diferă de copia salvată cu dispozitivul: {}. S-a salvat o copie nouă.
+529|Prima dată țineți o mână lângă oprire: scula coboară spre senzor.
+530|Mașina merge la senzor, iar scula îl atinge de două ori
+531|Mașina merge la senzorul de lungime a sculei; scula nouă primește Z-ul sculei de referință
+532|Mașina nu este în repaus.
+533|Senzorul este aici
+534|Scula este la fel de lungă ca cea de referință.
+535|Scula este cu {} mm mai lungă decât cea de referință.
+536|Scula este cu {} mm mai scurtă decât cea de referință.
+537|Senzor de lungime a sculei
+538|Senzor de lungime a sculei…
+539|Înălțime de deplasare (Z al mașinii)
+540|Când o lucrare se oprește pentru schimbarea frezei, fereastra oferă Măsoară scula. Se poate face și aici, oricând.
+541|o poziție a senzorului este în afara intervalului
+542|după o schimbare aici
+543|la conectare
+544|manual
+545|copiile setărilor nu sunt valide
+546|referința nu este validă
+547|începutul apropierii nu trebuie să fie mai sus decât înălțimea de deplasare
+548|{} setări
+549|… și încă {}

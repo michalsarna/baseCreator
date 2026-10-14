@@ -246,3 +246,305 @@
 245|Error al restaurar: {}
 246|Restaurar desde una copia de seguridad
 247|Su configuración actual se sustituirá por la de la copia de seguridad. Sus imágenes se añaden a la galería compartida. ¿Continuar?
+248|${} ahora vale {} pasos/mm
+249|1. Haz una marca donde está la herramienta (o coloca allí un comparador). 2. Pulsa Mover. 3. Mide la distancia y escríbela abajo.
+250|Sonda táctil 3D
+251|Un comando G-code no es compatible o no es válido.
+252|Una palabra G-code no tiene letra.
+253|A un comando le falta el valor P o L.
+254|Un comando necesita un número entero.
+255|Un comando necesita palabras de eje pero la línea no tiene ninguna.
+256|Se activó un final de carrera. La posición puede haberse perdido: vuelve a hacer el homing de la máquina.
+257|Una macro es G-code que envía un botón de la pestaña Control. Puede usar variables entre corchetes.
+258|Un valor negativo donde hace falta uno positivo.
+259|Un número no es válido o falta.
+260|Una palabra se repite en la línea.
+261|Añadir una macro
+262|Añadir un recordatorio
+263|Añadir un paso
+264|Después del trabajo (terminado o detenido)
+265|Alarma
+266|Alarma {}: {}
+267|Alarmas
+268|Los {} ajustes del archivo ya están en el controlador.
+269|Un arco no tiene palabras de eje en su plano.
+270|Una entrada activa sin que nada la toque indica un problema de cableado o de ajustes ($5, $6).
+271|Alrededor de un trabajo
+272|Las flechas mueven X e Y, Re Pág y Av Pág mueven Z. Desactivado por defecto: las flechas también mueven las formas seleccionadas.
+273|En esta línea: X {} Y {} Z {}, {}, avance {}
+274|Quedan palabras de eje mientras G80 está activo.
+275|Primero haga una copia de los ajustes. Para continuar, escriba {}:
+276|Copia a un archivo…
+277|Antes de que empiece el trabajo
+278|Calibración
+279|Calibración…
+280|No se puede empezar aquí: {}
+281|No se puede usar el archivo: {}
+282|Cambia ahora la herramienta o el rotulador. La máquina espera; nada se mueve hasta que continúes.
+283|Comprobar el programa antes de cada ejecución
+284|Borrar la alarma ($X)
+285|Borrar las estadísticas
+286|Haz clic para escribir la posición de la herramienta en coordenadas de trabajo
+287|Conéctate primero a la máquina (pestaña Dispositivo)
+288|Conéctate a la máquina para ver sus entradas.
+289|Continuar el trabajo
+290|Controlador
+291|Coordenadas
+292|Inicio de ciclo
+293|Eliminar esta macro
+294|Eliminar este recordatorio
+295|Diagnóstico y estadísticas
+296|Diagnóstico guardado: {}
+297|Diagonal A
+298|La diagonal A es la más larga: el eje Y se inclina hacia +X.
+299|Diagonal B
+300|La diagonal B es la más larga: el eje Y se inclina hacia −X.
+301|Diámetro de la bola
+302|Distancia
+303|Hecho
+304|Error
+305|Errores
+306|Exportar diagnóstico (zip)…
+307|Error al exportar: {}
+308|Ajustes de fábrica ($RST=$)…
+309|Ajustes de fábrica escritos ($RST=$)
+310|Distancia de fallo
+311|Movimiento más rápido de X e Y
+312|Retención de avance
+313|Archivo
+314|Ajustes del firmware ($$)
+315|Del controlador
+316|El G-code está bloqueado durante una alarma o un jog. Desbloquea primero.
+317|G43.1 solo puede desplazar el eje de la longitud de la herramienta.
+318|G53 solo funciona con G0 o G1.
+319|GRBL no conoce este comando $.
+320|Ir a X0 Y0
+321|Altura
+322|Mantén pulsado para mover
+323|Homing
+324|El homing ha fallado: reinicio durante el ciclo.
+325|El homing ha fallado: no se encontró ningún final de carrera. Revisa los interruptores y el cableado.
+326|El homing ha fallado: la puerta de seguridad se abrió durante el ciclo.
+327|El homing ha fallado: el interruptor no se liberó al retirarse. Revisa la retirada y el cableado.
+328|El homing no está activado en los ajustes ($22).
+329|Entradas
+330|Entradas activas: {}
+331|En lugar de un paso por clic, la herramienta se mueve mientras el botón está pulsado
+332|Recién hecho
+333|Trabajos
+334|Movimiento manual
+335|Teclado
+336|El modo láser necesita una salida PWM.
+337|Última sonda: X {} Y {} Z {} ({})
+338|Última sonda: Z {} ({})
+339|Elevación tras fijar el cero
+340|Eleva a la altura de seguridad y ve después al cero del trabajo
+341|Línea
+342|Máquina
+343|Macro {}
+344|Macro {}: {}
+345|Macro {}: {} líneas enviadas
+346|Macros
+347|Mantenimiento
+348|Marca o corta un rectángulo y mide sus dos diagonales: del vértice delantero izquierdo al trasero derecho (A) y del delantero derecho al trasero izquierdo (B). Son iguales cuando los ejes son perpendiculares.
+349|Medido
+350|Mover
+351|Mover {} la distancia
+352|Valor nuevo: ${} = {} (era {})
+353|Aún no se ha definido un avance.
+354|Sin recordatorios. Añádelos en los ajustes del dispositivo (Mantenimiento).
+355|Aún sin leer (Máquina → Ajustes del firmware).
+356|Aún no se ha leído nada.
+357|Desplazamiento de Z al tocar
+358|Engrasar las guías
+359|Solo se admiten los sistemas de coordenadas de trabajo G54 a G59.
+360|Solo los que difieren del valor típico
+361|Fuera de escuadra {}°: un extremo del eje Y está desplazado {} mm en toda la altura.
+362|Posición
+363|Sonda
+364|Sondear Z
+365|El sondeo falló: no tocó nada dentro de la distancia. Revisa la placa y la distancia de fallo.
+366|El sondeo falló: la sonda ya estaba cerrada antes del movimiento. Revisa el cableado y la placa.
+367|Pon la placa bajo la herramienta: la herramienta baja hasta tocar y luego Z se fija al grosor de la placa
+368|Pon la herramienta junto al borde: se mueve hacia él hasta tocar, y el borde pasa a ser cero
+369|Toque rápido
+370|Leer la máquina
+371|Leer los ajustes ($$)
+372|Leyendo…
+373|Lee el firmware ($I) y los ajustes ($$) del controlador
+374|Quitar este paso
+375|Reinicio durante el movimiento. Pueden haberse perdido pasos: vuelve a hacer el homing de la máquina.
+376|Restaurar desde un archivo…
+377|Restaurar los ajustes de fábrica
+378|Restaurar los ajustes desde un archivo
+379|Retroceso entre los toques
+380|Puerta de seguridad
+381|Ajustes guardados en {}
+382|Fija Z de nuevo con la sonda: la herramienta nueva toca la placa y Z pasa a ser el grosor de la placa
+383|Ajuste
+384|Toque lento
+385|Límites por software
+386|Los límites por software necesitan también el homing activado.
+387|Algunas palabras no las usa ningún comando.
+388|Velocidad XY
+389|Velocidad Z
+390|Velocidad del husillo
+391|Perpendicularidad de los ejes
+392|Empezar desde aquí
+393|Empezar en la línea
+394|Empezar en la línea…
+395|Estadísticas de esta máquina
+396|Pasos de X e Y (mm)
+397|Pasos de Z (mm)
+398|Pasos por milímetro
+399|Detener el trabajo
+400|Detener el movimiento
+401|El arco no se puede calcular a partir del radio. Divídelo o usa desplazamientos.
+402|Al arco le falta el desplazamiento I, J o K.
+403|Los ejes son perpendiculares dentro de {} mm en la altura.
+404|La información de compilación o la línea de arranque es demasiado larga.
+405|El controlador ya los tiene todos.
+406|El controlador recorre el programa en modo de comprobación ($C): nada se mueve, y las líneas que no entiende se avisan antes de la ejecución real
+407|El controlador informa en pulgadas ($13): las posiciones de la pestaña Control no están en milímetros.
+408|El trabajo está en pausa
+409|El comando de jog no es válido.
+410|El jog supera el recorrido de la máquina y se ignoró.
+411|La línea es demasiado larga.
+412|El número de línea está fuera de rango.
+413|La máquina ha funcionado {} horas en {} trabajos.
+414|La máquina se lleva al estado que tiene el programa en esa línea: unidades, husillo, velocidad, posición. Asegúrate de que la herramienta y la pieza están donde estaban.
+415|La máquina se mueve la distancia que pidas; mide hasta dónde llegó de verdad y se calcula el número correcto de pasos.
+416|El movimiento supera el recorrido de la máquina. La posición se conserva; desbloquea para continuar.
+417|La sonda baja hasta tocar; Z se fija al desplazamiento de la sonda
+418|La entrada de la sonda ya está cerrada. Revisa la pinza, la placa y el cableado.
+419|La sonda debe estar conectada a la entrada de sonda del controlador. Pruébala tocando la placa: la entrada aparece cerrada en la pestaña Control.
+420|La puerta de seguridad está abierta.
+421|El ajuste está por encima de la frecuencia de pasos que admite este GRBL.
+422|No se pudieron leer los ajustes; se restauraron los valores por defecto.
+423|Los ajustes aún no se han leído.
+424|Los ajustes se guardaron antes del primer cambio: {}
+425|El tiempo del pulso de paso debe ser de al menos 3 µs.
+426|El destino del movimiento no es válido.
+427|La herramienta está aquí: haz de esto el cero del trabajo
+428|El número de herramienta es demasiado alto.
+429|Estos ajustes están en el controlador, no en el dispositivo. Cambia uno cada vez y anota el valor anterior: un valor erróneo puede hacer que la máquina se mueva una distancia equivocada. El primer cambio de una sesión guarda todos los ajustes en un archivo.
+430|Estos ajustes del archivo difieren del controlador. No se escribe nada hasta que pulse Escribir todo.
+431|Grosor de su lado
+432|Grosor de la placa
+433|Este comando $ solo funciona cuando la máquina está en reposo.
+434|Esto escribe $RST=$: todos los ajustes del controlador vuelven a los valores por defecto del firmware. Los pasos, recorridos, velocidades y el homing cambiarán todos.
+435|Tiempo de funcionamiento
+436|Diámetro de la herramienta
+437|Placa de contacto
+438|Recorrido de X, Y, Z
+439|Dos comandos de la línea necesitan ambos palabras de eje.
+440|Dos comandos del mismo grupo están en una línea.
+441|Escribe las dos diagonales para ver el resultado.
+442|Escribe la distancia medida para ver el valor nuevo.
+443|Típico
+444|Unidad
+445|Usar estos valores para el dispositivo
+446|Valor
+447|Variables: {}
+448|Qué hacer
+449|Trabajo
+450|Escribir
+451|Escribir ${}
+452|¿Escribir ${} = {} en el controlador? Ahora es {}. Cambie un ajuste cada vez y anote el valor antiguo.
+453|Escribir un ajuste
+454|Escribir todo
+455|Escribiendo {} ajustes; se leen de vuelta después
+456|final de carrera X
+457|Final de carrera X
+458|final de carrera Y
+459|Final de carrera Y
+460|Sí
+461|Z
+462|final de carrera Z
+463|Final de carrera Z
+464|Z a la altura de seguridad
+465|Poner X e Y a cero
+466|Poner todo a cero
+467|una distancia de la sonda está fuera de rango
+468|un tamaño de la sonda está fuera de rango
+469|cerrada
+470|puerta
+471|cada
+472|retención
+473|entrada {}
+474|sin contacto
+475|antes de esta línea no se fijó el avance
+476|de {}
+477|apagado
+478|encendido
+479|abierta
+480|sonda
+481|reinicio
+482|husillo apagado
+483|husillo encendido (M{}) a {}
+484|inicio
+485|la distancia de fallo debe ser mayor que el doble del retroceso
+486|la línea continúa un arco (G2/G3) sin palabra G
+487|la línea está después del final del programa
+488|las líneas anteriores usan G53 o G92, así que no se puede calcular la posición
+489|el programa no se ha movido en X e Y antes de esta línea
+490|el avance lento de la sonda debe estar entre 1 y el rápido
+491|tocó
+492|Primero se enviarán {} líneas para preparar esto.
+493|{} de {} ajustes difieren tras escribir:
+494|{} {}: {}
+495|{}: vencido ({} h de retraso)
+496|{}: faltan {} h
+497|1. Dónde está el sensor
+498|2. La primera herramienta, la de referencia
+499|3. Cada herramienta siguiente
+500|Una copia de los ajustes del controlador se guarda con el dispositivo. Se hace la primera vez que se conecta la máquina y después cada vez que los ajustes difieren de la copia más reciente; las copias forman parte de la copia de seguridad del programa.
+501|Se guardó con el dispositivo una copia de los {} ajustes del controlador.
+502|Se guardó con el dispositivo una copia de los {} ajustes.
+503|Hay un trabajo en marcha.
+504|Ya hay una medición en marcha.
+505|Se guardó una copia nueva de los ajustes tras tu cambio ({} ajustes difieren de la anterior).
+506|Un sensor de longitud de herramienta es un interruptor en un sitio fijo de la máquina. La punta de cada herramienta lo toca, de modo que una fresa nueva puede obtener exactamente la misma Z que la anterior sin volver a tocar la pieza. Su posición está en coordenadas de máquina: haz primero el homing y no muevas nunca el sensor.
+507|Tras el contacto, Z se fija a la Z de la herramienta de referencia en el sensor
+508|Comparar con el controlador y volver a escribir las diferencias
+509|Copias de los ajustes ({})
+510|Olvidar
+511|Lleva la herramienta sobre el centro del sensor, unos milímetros por encima, y pulsa el botón.
+512|Máquina X {}  Y {}, aproximación desde Z {}
+513|Hacer una copia ahora
+514|Medir la herramienta de referencia
+515|Mide primero la herramienta de referencia.
+516|Medir la herramienta (sensor)
+517|Medir esta herramienta y fijar Z
+518|Midiendo…
+519|Aún sin medir.
+520|Aún sin fijar.
+521|No se cambia nada; se muestra la diferencia con la referencia
+522|Solo medir
+523|Pon la primera fresa y fija con ella Z en la pieza (pestaña Control: sondear Z, o tocar la superficie y Z0). Luego mídela en el sensor.
+524|Referencia: Z {} en el sensor
+525|Restaurar…
+526|Fija primero la posición del sensor.
+527|El controlador aún no ha informado de la posición.
+528|Ajustes que difieren de la copia guardada con el dispositivo: {}. Se guardó una copia nueva.
+529|La primera vez ten una mano cerca de la parada: la herramienta baja hacia el sensor.
+530|La máquina va al sensor y la herramienta lo toca dos veces
+531|La máquina va al sensor de longitud de herramienta; la herramienta nueva obtiene la Z de la de referencia
+532|La máquina no está en reposo.
+533|El sensor está aquí
+534|La herramienta es tan larga como la de referencia.
+535|La herramienta es {} mm más larga que la de referencia.
+536|La herramienta es {} mm más corta que la de referencia.
+537|Sensor de longitud de herramienta
+538|Sensor de longitud de herramienta…
+539|Altura de desplazamiento (Z de la máquina)
+540|Cuando un trabajo se detiene para cambiar de fresa, la ventana ofrece Medir la herramienta. También se puede hacer aquí, en cualquier momento.
+541|una posición del sensor está fuera de rango
+542|tras un cambio aquí
+543|al conectar
+544|a mano
+545|las copias de los ajustes no son válidas
+546|la referencia no es válida
+547|el inicio de la aproximación no puede estar más alto que la altura de desplazamiento
+548|{} ajustes
+549|… y {} más

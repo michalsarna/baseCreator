@@ -246,3 +246,305 @@
 245|Atkurti nepavyko: {}
 246|Atkurti iš atsarginės kopijos
 247|Dabartiniai nustatymai bus pakeisti atsarginės kopijos nustatymais. Jos paveikslėliai bus pridėti prie bendros galerijos. Tęsti?
+248|${} dabar yra {} žingsnių/mm
+249|1. Pažymėkite vietą, kurioje yra įrankis (arba ten pastatykite indikatorių). 2. Paspauskite Perkelti. 3. Išmatuokite atstumą ir įveskite jį žemiau.
+250|3D lietimo zondas
+251|G-kodo komanda nepalaikoma arba netinkama.
+252|G-kodo žodis neturi raidės.
+253|Komandoje trūksta reikšmės P arba L.
+254|Komandai reikia sveikojo skaičiaus.
+255|Komandai reikia ašių žodžių, bet eilutėje jų nėra.
+256|Suveikė ribinis jungiklis. Padėtis galėjo būti prarasta: dar kartą atlikite mašinos nustatymą į pradinę padėtį.
+257|Makrokomanda yra G-kodas, kurį siunčia mygtukas skirtuke Valdymas. Joje galima naudoti kintamuosius laužtiniuose skliaustuose.
+258|Neigiama reikšmė ten, kur reikia teigiamos.
+259|Skaičius netinkamas arba trūksta.
+260|Žodis eilutėje kartojasi.
+261|Pridėti makrokomandą
+262|Pridėti priminimą
+263|Pridėti žingsnį
+264|Po darbo (baigto arba sustabdyto)
+265|Aliarmas
+266|Aliarmas {}: {}
+267|Aliarmai
+268|Visi {} failo nustatymai dabar yra valdiklyje.
+269|Lanko plokštumoje nėra ašių žodžių.
+270|Įvestis, kuri aktyvi, nors nieko neliečia, rodo laidų ar nustatymų problemą ($5, $6).
+271|Aplink darbą
+272|Rodyklių klavišai judina X ir Y, Page Up ir Page Down judina Z. Pagal numatytuosius nustatymus išjungta: rodyklės judina ir pažymėtas formas.
+273|Šioje eilutėje: X {} Y {} Z {}, {}, pastūma {}
+274|Liko ašių žodžių, kai aktyvus G80.
+275|Pirmiausia sukurkite nustatymų atsarginę kopiją. Norėdami tęsti, įveskite {}:
+276|Atsarginė kopija į failą…
+277|Prieš pradedant darbą
+278|Kalibravimas
+279|Kalibravimas…
+280|Čia pradėti negalima: {}
+281|Failo naudoti negalima: {}
+282|Pakeiskite įrankį ar rašiklį dabar. Mašina laukia; niekas nejuda, kol neprasitęsite.
+283|Tikrinti programą prieš kiekvieną paleidimą
+284|Išvalyti aliarmą ($X)
+285|Išvalyti statistiką
+286|Spustelėkite, kad įvestumėte įrankio padėtį darbo koordinatėmis
+287|Pirmiausia prisijunkite prie staklių (skirtukas Įrenginys)
+288|Prisijunkite prie mašinos, kad matytumėte jos įvestis.
+289|Tęsti darbą
+290|Valdiklis
+291|Koordinatės
+292|Ciklo pradžia
+293|Ištrinti šią makrokomandą
+294|Ištrinti šį priminimą
+295|Diagnostika ir statistika
+296|Diagnostika įrašyta: {}
+297|Įstrižainė A
+298|Įstrižainė A ilgesnė: Y ašis palinkusi į +X pusę.
+299|Įstrižainė B
+300|Įstrižainė B ilgesnė: Y ašis palinkusi į −X pusę.
+301|Rutuliuko skersmuo
+302|Atstumas
+303|Atlikta
+304|Klaida
+305|Klaidos
+306|Eksportuoti diagnostiką (zip)…
+307|Eksportuoti nepavyko: {}
+308|Gamykliniai nustatymai ($RST=$)…
+309|Gamykliniai nustatymai įrašyti ($RST=$)
+310|Nesėkmės atstumas
+311|Greičiausias X ir Y judėjimas
+312|Pastūmos sustabdymas
+313|Failas
+314|Programinės įrangos nustatymai ($$)
+315|Iš valdiklio
+316|G-kodas užrakintas aliarmo ar slinkimo metu. Pirmiausia atrakinkite.
+317|G43.1 gali pastumti tik įrankio ilgio ašį.
+318|G53 veikia tik su G0 arba G1.
+319|GRBL nepažįsta šios $ komandos.
+320|Eiti į X0 Y0
+321|Aukštis
+322|Laikykite nuspaudę, kad judėtų
+323|Nustatymas į pradinę padėtį
+324|Nustatymas į pradinę padėtį nepavyko: ciklo metu įvyko atstatymas.
+325|Nustatymas į pradinę padėtį nepavyko: ribinis jungiklis nerastas. Patikrinkite jungiklius ir laidus.
+326|Nustatymas į pradinę padėtį nepavyko: ciklo metu buvo atidarytos saugos durys.
+327|Nustatymas į pradinę padėtį nepavyko: jungiklis neatsilaisvino atitraukiant. Patikrinkite atitraukimą ir laidus.
+328|Nustatymas į pradinę padėtį neįjungtas nustatymuose ($22).
+329|Įvestys
+330|Aktyvios įvestys: {}
+331|Vietoj vieno žingsnio per spustelėjimą įrankis juda, kol mygtukas nuspaustas
+332|Ką tik padaryta
+333|Darbai
+334|Rankinis judinimas
+335|Klaviatūra
+336|Lazerio režimui reikia PWM išvesties.
+337|Paskutinis zondavimas: X {} Y {} Z {} ({})
+338|Paskutinis zondavimas: Z {} ({})
+339|Pakėlimas nustačius nulį
+340|Pakelkite iki saugaus aukščio, tada eikite į darbo nulį
+341|Linija
+342|Staklės
+343|Makrokomanda {}
+344|Makrokomanda {}: {}
+345|Makrokomanda {}: išsiųsta {} eilučių
+346|Makrokomandos
+347|Techninė priežiūra
+348|Pažymėkite arba išpjaukite stačiakampį ir išmatuokite dvi jo įstrižaines: iš kairiojo priekinio kampo į dešinįjį galinį (A) ir iš dešiniojo priekinio į kairįjį galinį (B). Jos lygios, kai ašys statmenos.
+349|Išmatuota
+350|Perkelti
+351|Perkelti {} per atstumą
+352|Nauja reikšmė: ${} = {} (buvo {})
+353|Pastūma dar nenustatyta.
+354|Priminimų nėra. Pridėkite juos įrenginio nustatymuose (Priežiūra).
+355|Dar neperskaityta (Mašina → Programinės įrangos nustatymai).
+356|Dar nieko neperskaityta.
+357|Z poslinkis palietus
+358|Sutepkite kreipiančiąsias
+359|Palaikomos tik darbo koordinačių sistemos nuo G54 iki G59.
+360|Tik tos, kurios skiriasi nuo tipinės reikšmės
+361|Ne stačiu kampu {}°: vienas Y ašies galas per visą aukštį pasislinkęs {} mm.
+362|Padėtis
+363|Zondas
+364|Zonduoti Z
+365|Zondavimas nepavyko: per atstumą nieko neliesta. Patikrinkite plokštelę ir nesėkmės atstumą.
+366|Zondavimas nepavyko: zondas jau prieš judesį buvo uždarytas. Patikrinkite laidus ir plokštelę.
+367|Padėkite plokštelę po įrankiu: įrankis leidžiasi žemyn, kol paliečia, tada Z nustatomas į plokštelės storį
+368|Pastatykite įrankį prie krašto: jis juda link jo, kol paliečia, ir kraštas tampa nuliu
+369|Greitas palietimas
+370|Perskaityti mašiną
+371|Skaityti nustatymus ($$)
+372|Skaitoma…
+373|Perskaito valdiklio programinę įrangą ($I) ir nustatymus ($$)
+374|Pašalinti šį žingsnį
+375|Atstatymas judant. Galėjo būti prarasta žingsnių: dar kartą atlikite mašinos nustatymą į pradinę padėtį.
+376|Atkurti iš failo…
+377|Atkurti gamyklinius nustatymus
+378|Atkurti nustatymus iš failo
+379|Atitraukimas tarp palietimų
+380|Saugos durys
+381|Nustatymai išsaugoti: {}
+382|Dar kartą nustatykite Z zondu: naujas įrankis paliečia plokštelę ir Z tampa plokštelės storiu
+383|Nustatymas
+384|Lėtas palietimas
+385|Programinės ribos
+386|Programinėms riboms reikia ir įjungto nustatymo į pradinę padėtį.
+387|Kai kurių žodžių nenaudoja jokia komanda.
+388|Greitis XY
+389|Greitis Z
+390|Verpstės sūkiai
+391|Ašių statmenumas
+392|Pradėti nuo čia
+393|Pradėti nuo eilutės
+394|Pradėti nuo eilutės…
+395|Šios mašinos statistika
+396|X ir Y žingsniai (mm)
+397|Z žingsniai (mm)
+398|Žingsnių vienam milimetrui
+399|Sustabdyti darbą
+400|Sustabdyti judėjimą
+401|Lanko negalima apskaičiuoti iš spindulio. Padalykite jį arba naudokite poslinkius.
+402|Lankui trūksta poslinkio I, J arba K.
+403|Ašys statmenos {} mm tikslumu per aukštį.
+404|Versijos informacija arba paleidimo eilutė per ilga.
+405|Valdiklis jau turi visus.
+406|Valdiklis peržiūri programą tikrinimo režimu ($C): niekas nejuda, o eilutės, kurių jis nesupranta, pranešamos prieš tikrąjį paleidimą
+407|Valdiklis praneša coliais ($13): padėtys skirtuke Valdymas nėra milimetrais.
+408|Darbas pristabdytas
+409|Judinimo komanda netinkama.
+410|Judinimas viršija mašinos eigą ir buvo ignoruotas.
+411|Eilutė per ilga.
+412|Eilutės numeris už ribų.
+413|Mašina dirbo {} val. per {} darbų.
+414|Mašina atvedama į būseną, kurią programa turi toje eilutėje: vienetai, suklys, greitis, padėtis. Įsitikinkite, kad įrankis ir ruošinys yra ten, kur buvo.
+415|Mašina pajuda jūsų nurodytu atstumu; išmatuokite, kiek iš tikrųjų nuėjo, ir bus apskaičiuotas teisingas žingsnių skaičius.
+416|Judesys viršija mašinos eigą. Padėtis išsaugota; atrakinkite, kad tęstumėte.
+417|Zondas leidžiasi žemyn, kol paliečia; Z nustatomas į zondo poslinkį
+418|Zondo įvestis jau uždaryta. Patikrinkite gnybtą, plokštelę ir laidus.
+419|Zondas turi būti prijungtas prie valdiklio zondo įvesties. Išbandykite jį paliesdami plokštelę: įvestis skirtuke Valdymas rodoma kaip uždaryta.
+420|Saugos durys atidarytos.
+421|Nustatymas viršija žingsnių dažnį, kurį palaiko šis GRBL.
+422|Nustatymų nepavyko perskaityti; atkurtos numatytosios reikšmės.
+423|Nustatymai dar neperskaityti.
+424|Nustatymai buvo išsaugoti prieš pirmą pakeitimą: {}
+425|Žingsnio impulso trukmė turi būti bent 3 µs.
+426|Judesio tikslas netinkamas.
+427|Įrankis čia: padarykite tai darbo nuliu
+428|Įrankio numeris per didelis.
+429|Šie nustatymai yra valdiklyje, o ne įrenginyje. Keiskite po vieną ir užsirašykite ankstesnę reikšmę: bloga reikšmė gali priversti mašiną pajudėti netinkamu atstumu. Pirmasis seanso pakeitimas išsaugo visus nustatymus faile.
+430|Šie failo nustatymai skiriasi nuo valdiklio. Niekas neįrašoma, kol nepaspausite Įrašyti visus.
+431|Jos šono storis
+432|Plokštelės storis
+433|Ši $ komanda veikia tik tada, kai mašina stovi.
+434|Tai įrašo $RST=$: visi valdiklio nustatymai grįžta į programinės įrangos numatytuosius. Žingsnių skaičius, eigos, greičiai ir nustatymas į pradinę padėtį pasikeis.
+435|Veikimo laikas
+436|Įrankio skersmuo
+437|Lietimo plokštelė
+438|X, Y, Z eiga
+439|Abiem eilutės komandoms reikia ašių žodžių.
+440|Dvi tos pačios grupės komandos yra vienoje eilutėje.
+441|Įveskite abi įstrižaines, kad pamatytumėte rezultatą.
+442|Įveskite išmatuotą atstumą, kad pamatytumėte naują reikšmę.
+443|Tipinė
+444|Vienetas
+445|Naudoti šias reikšmes įrenginiui
+446|Vertė
+447|Kintamieji: {}
+448|Ką daryti
+449|Darbas
+450|Įrašyti
+451|Įrašyti ${}
+452|Įrašyti ${} = {} į valdiklį? Dabar yra {}. Keiskite po vieną nustatymą ir užsirašykite seną vertę.
+453|Įrašyti nustatymą
+454|Įrašyti visus
+455|Įrašoma {} nustatymų; vėliau jie perskaitomi atgal
+456|X ribinis jungiklis
+457|X ribinis jungiklis
+458|Y ribinis jungiklis
+459|Y ribinis jungiklis
+460|Taip
+461|Z
+462|Z ribinis jungiklis
+463|Z ribinis jungiklis
+464|Z į saugų aukštį
+465|Nulinti X ir Y
+466|Nulinti viską
+467|zondo atstumas už ribų
+468|zondo dydis už ribų
+469|uždaryta
+470|durys
+471|kas
+472|sulaikymas
+473|įvestis {}
+474|nėra palietimo
+475|prieš šią eilutę pastūma nenustatyta
+476|iš {}
+477|išjungta
+478|įjungta
+479|atidaryta
+480|zondas
+481|atstatyti
+482|suklys išjungtas
+483|suklys įjungtas (M{}) ties {}
+484|startas
+485|nesėkmės atstumas turi būti ilgesnis nei dvigubas atitraukimas
+486|eilutė tęsia lanką (G2/G3) be G žodžio
+487|eilutė yra už programos pabaigos
+488|ankstesnės eilutės naudoja G53 arba G92, todėl padėties apskaičiuoti negalima
+489|programa prieš šią eilutę nejudėjo pagal X ir Y
+490|lėta zondavimo pastūma turi būti tarp 1 ir greitosios
+491|palietė
+492|Pirmiausia bus išsiųsta {} eilučių tam paruošti.
+493|Po įrašymo skiriasi {} iš {} nustatymų:
+494|{} {}: {}
+495|{}: pasibaigęs terminas (pavėluota {} val.)
+496|{}: liko {} val.
+497|1. Kur yra jutiklis
+498|2. Pirmasis įrankis, atskaitos
+499|3. Kiekvienas kitas įrankis
+500|Valdiklio nustatymų kopija laikoma kartu su įrenginiu. Ji padaroma pirmą kartą prisijungus prie mašinos ir vėliau kaskart, kai nustatymai skiriasi nuo naujausios kopijos; kopijos yra programos atsarginės kopijos dalis.
+501|Valdiklio {} nustatymų kopija išsaugota kartu su įrenginiu.
+502|{} nustatymų kopija išsaugota kartu su įrenginiu.
+503|Vykdomas darbas.
+504|Matavimas jau vyksta.
+505|Po jūsų pakeitimo išsaugota nauja nustatymų kopija ({} nustatymai skiriasi nuo ankstesnės).
+506|Įrankio ilgio jutiklis yra jungiklis pastovioje mašinos vietoje. Kiekvieno įrankio galiukas jį paliečia, todėl nauja freza gali gauti lygiai tokį pat Z kaip ankstesnė, vėl nelietusi ruošinio. Jo padėtis yra mašinos koordinatėmis: pirmiausia atlikite mašinos nustatymą į pradinę padėtį ir niekada nejudinkite jutiklio.
+507|Palietus Z nustatomas į atskaitos įrankio Z prie jutiklio
+508|Palyginti su valdikliu ir įrašyti skirtumus atgal
+509|Nustatymų kopijos ({})
+510|Pamiršti
+511|Nuveskite įrankį virš jutiklio vidurio, keliais milimetrais aukščiau, ir paspauskite mygtuką.
+512|Mašina X {}  Y {}, artėjimas nuo Z {}
+513|Padaryti kopiją dabar
+514|Išmatuoti atskaitos įrankį
+515|Pirmiausia išmatuokite atskaitos įrankį.
+516|Išmatuoti įrankį (jutiklis)
+517|Išmatuoti šį įrankį ir nustatyti Z
+518|Matuojama…
+519|Dar neišmatuota.
+520|Dar nenustatyta.
+521|Nieko nekeičiama; rodomas skirtumas nuo atskaitos
+522|Tik išmatuoti
+523|Įdėkite pirmąją frezą ir ja nustatykite Z ant ruošinio (skirtukas Valdymas: zonduoti Z arba paliesti paviršių ir Z0). Tada išmatuokite ją ant jutiklio.
+524|Atskaita: Z {} prie jutiklio
+525|Atkurti…
+526|Pirmiausia nustatykite jutiklio padėtį.
+527|Valdiklis dar nepranešė padėties.
+528|Nustatymai, kurie skiriasi nuo kopijos, išsaugotos kartu su įrenginiu: {}. Išsaugota nauja kopija.
+529|Pirmą kartą laikykite ranką arti sustabdymo: įrankis leidžiasi žemyn link jutiklio.
+530|Mašina važiuoja prie jutiklio, o įrankis jį paliečia du kartus
+531|Mašina važiuoja prie įrankio ilgio jutiklio; naujas įrankis gauna atskaitos įrankio Z
+532|Mašina nėra budėjimo būsenos.
+533|Jutiklis yra čia
+534|Įrankis tokio pat ilgio kaip atskaitos įrankis.
+535|Įrankis {} mm ilgesnis už atskaitos įrankį.
+536|Įrankis {} mm trumpesnis už atskaitos įrankį.
+537|Įrankio ilgio jutiklis
+538|Įrankio ilgio jutiklis…
+539|Pervažiavimo aukštis (mašinos Z)
+540|Kai darbas sustoja frezai pakeisti, lange siūloma Išmatuoti įrankį. Tai galima padaryti ir čia, bet kada.
+541|jutiklio padėtis už ribų
+542|po pakeitimo čia
+543|jungiantis
+544|rankiniu būdu
+545|nustatymų kopijos netinkamos
+546|atskaita netinkama
+547|artėjimo pradžia negali būti aukščiau už pervažiavimo aukštį
+548|{} nustatymai
+549|… ir dar {}

@@ -246,3 +246,305 @@
 245|Endurheimt mistókst: {}
 246|Endurheimta úr öryggisafriti
 247|Núverandi stillingar þínar verða leystar af hólmi með stillingum afritsins. Myndir þess bætast við sameiginlega safnið. Halda áfram?
+248|${} er núna {} skref/mm
+249|1. Gerðu merki þar sem verkfærið er (eða settu mælikvarða þar). 2. Ýttu á Færa. 3. Mældu vegalengdina og skrifaðu hana hér fyrir neðan.
+250|3D snertiskynjari
+251|G-kóða skipun er ekki studd eða er ógild.
+252|G-kóða orð vantar staf.
+253|Skipun vantar gildið P eða L.
+254|Skipun þarf heiltölu.
+255|Skipun þarf ásaorð en línan er ekki með nein.
+256|Endastopp var virkjað. Staðan gæti hafa tapast: stilltu vélina aftur á núllpunkt.
+257|Makró er G-kóði sem hnappur á flipanum Stjórnun sendir. Það getur notað breytur innan hornklofa.
+258|Neikvætt gildi þar sem jákvætt þarf.
+259|Tala er ógild eða vantar.
+260|Orð er endurtekið í línunni.
+261|Bæta við fjölva
+262|Bæta við áminningu
+263|Bæta við skrefi
+264|Eftir verkið (lokið eða stöðvað)
+265|Viðvörun
+266|Viðvörun {}: {}
+267|Viðvaranir
+268|Allar {} stillingar skrárinnar eru nú í stýringunni.
+269|Boga vantar ásaorð í sléttu sinni.
+270|Inntak sem er virkt þótt ekkert snerti það bendir til vandamáls með raflögn eða stillingar ($5, $6).
+271|Í kringum verk
+272|Örvatakkar færa X og Y, Page Up og Page Down færa Z. Slökkt sjálfgefið: örvarnar færa líka valin form.
+273|Í þessari línu: X {} Y {} Z {}, {}, mötun {}
+274|Ásaorð eru eftir meðan G80 er virkt.
+275|Taktu fyrst afrit af stillingunum. Til að halda áfram skaltu slá inn {}:
+276|Afrita í skrá…
+277|Áður en verkið hefst
+278|Kvörðun
+279|Kvörðun…
+280|Ekki er hægt að byrja hér: {}
+281|Ekki er hægt að nota skrána: {}
+282|Skiptu um verkfæri eða penna núna. Vélin bíður; ekkert hreyfist fyrr en þú heldur áfram.
+283|Athuga forritið fyrir hverja keyrslu
+284|Hreinsa viðvörun ($X)
+285|Hreinsa tölfræði
+286|Smelltu til að slá inn stöðu verkfærisins í vinnuhnitum
+287|Tengstu fyrst við vélina (flipinn Tæki)
+288|Tengdu við vélina til að sjá inntök hennar.
+289|Halda verkinu áfram
+290|Stýring
+291|Hnit
+292|Ræsing lotu
+293|Eyða þessum fjölva
+294|Eyða þessari áminningu
+295|Greining og tölfræði
+296|Greining vistuð: {}
+297|Hornalína A
+298|Hornalína A er lengri: Y-ásinn hallar í átt að +X.
+299|Hornalína B
+300|Hornalína B er lengri: Y-ásinn hallar í átt að −X.
+301|Þvermál kúlunnar
+302|Fjarlægð
+303|Lokið
+304|Villa
+305|Villur
+306|Flytja út greiningu (zip)…
+307|Útflutningur mistókst: {}
+308|Verksmiðjustillingar ($RST=$)…
+309|Verksmiðjustillingar skrifaðar ($RST=$)
+310|Bilunarfjarlægð
+311|Hraðasta hreyfing X og Y
+312|Stöðva mötun
+313|Skrá
+314|Fastbúnaðarstillingar ($$)
+315|Frá stýringunni
+316|G-kóði er læstur meðan á viðvörun eða færslu stendur. Aflæstu fyrst.
+317|G43.1 getur aðeins hliðrað ás verkfæralengdar.
+318|G53 virkar aðeins með G0 eða G1.
+319|GRBL þekkir ekki þessa $-skipun.
+320|Fara á X0 Y0
+321|Hæð
+322|Haltu inni til að færa
+323|Núllstilling á endastoppum
+324|Núllstilling mistókst: endurræst meðan á lotu stóð.
+325|Núllstilling mistókst: enginn endastoppari fannst. Athugaðu rofana og raflögnina.
+326|Núllstilling mistókst: öryggishurðin var opnuð meðan á lotu stóð.
+327|Núllstilling mistókst: rofinn losnaði ekki við frádrátt. Athugaðu frádráttinn og raflögnina.
+328|Núllstilling á endastoppum er ekki virk í stillingunum ($22).
+329|Inntök
+330|Virk inntök: {}
+331|Í stað eins skrefs á smell færist verkfærið meðan hnappurinn er haldið niðri
+332|Rétt núna gert
+333|Verk
+334|Handvirk færsla
+335|Lyklaborð
+336|Leysistilling þarf PWM-úttak.
+337|Síðasta mæling: X {} Y {} Z {} ({})
+338|Síðasta mæling: Z {} ({})
+339|Lyfting eftir að núllið er sett
+340|Lyftu í öruggu hæðina og farðu síðan á núllpunkt verksins
+341|Lína
+342|Vél
+343|Fjölvi {}
+344|Fjölvi {}: {}
+345|Makró {}: {} línur sendar
+346|Fjölvar
+347|Viðhald
+348|Merktu eða skerðu rétthyrning og mældu hornalínurnar tvær: frá vinstra framhorni í hægra afturhorn (A) og frá hægra framhorni í vinstra afturhorn (B). Þær eru jafnar þegar ásarnir eru hornréttir.
+349|Mælt
+350|Færa
+351|Færa {} um vegalengdina
+352|Nýtt gildi: ${} = {} (var {})
+353|Mötun hefur ekki enn verið sett.
+354|Engar áminningar. Bættu þeim við í stillingum tækisins (Viðhald).
+355|Ekki lesið enn (Vél → Fastbúnaðarstillingar).
+356|Ekkert lesið enn.
+357|Hliðrun Z við snertingu
+358|Smyrja sleðana
+359|Aðeins vinnuhnitakerfin G54 til G59 eru studd.
+360|Aðeins þær sem eru frábrugðnar dæmigerðu gildi
+361|Ekki hornrétt um {}°: annar endi Y-ássins er {} mm til hliðar yfir alla hæðina.
+362|Staða
+363|Skynjari
+364|Mæla Z
+365|Mæling mistókst: ekkert var snert innan vegalengdarinnar. Athugaðu plötuna og bilunarfjarlægðina.
+366|Mæling mistókst: skynjarinn var þegar lokaður fyrir hreyfinguna. Athugaðu raflögnina og plötuna.
+367|Settu plötuna undir verkfærið: verkfærið fer niður þar til það snertir, síðan er Z stillt á þykkt plötunnar
+368|Settu verkfærið við hliðina á brúninni: það færist að henni þar til það snertir og brúnin verður núll
+369|Snögg snerting
+370|Lesa vélina
+371|Lesa stillingar ($$)
+372|Les…
+373|Les fastbúnað ($I) og stillingar ($$) stýringarinnar
+374|Fjarlægja þetta skref
+375|Endurræsing á hreyfingu. Skref gætu hafa tapast: stilltu vélina aftur á núllpunkt.
+376|Endurheimta úr skrá…
+377|Endurheimta verksmiðjustillingar
+378|Endurheimta stillingar úr skrá
+379|Afturdráttur milli snertinga
+380|Öryggishurð
+381|Stillingar vistaðar í {}
+382|Stilltu Z aftur með skynjaranum: nýja verkfærið snertir plötuna og Z verður þykkt plötunnar
+383|Stilling
+384|Hæg snerting
+385|Hugbúnaðarmörk
+386|Hugbúnaðarmörk þurfa líka að núllstilling á endastoppum sé virk.
+387|Sum orð eru ekki notuð af neinni skipun.
+388|Hraði XY
+389|Hraði Z
+390|Snúningshraði snældu
+391|Hornréttleiki ásanna
+392|Byrja héðan
+393|Byrja í línu
+394|Byrja í línu…
+395|Tölfræði þessarar vélar
+396|Skref X og Y (mm)
+397|Skref Z (mm)
+398|Skref á millimetra
+399|Stöðva verkið
+400|Stöðva hreyfinguna
+401|Ekki er hægt að reikna bogann út frá radíus. Skiptu honum eða notaðu hliðranir.
+402|Bogann vantar hliðrunina I, J eða K.
+403|Ásarnir eru hornréttir innan {} mm yfir hæðina.
+404|Útgáfuupplýsingarnar eða ræsilínan er of löng.
+405|Stýringin hefur þær allar nú þegar.
+406|Stýringin fer í gegnum forritið í athugunarham ($C): ekkert hreyfist og línur sem hún skilur ekki eru tilkynntar fyrir raunverulega keyrslu
+407|Stýringin skilar í tommum ($13): stöðurnar á flipanum Stjórnun eru ekki í millimetrum.
+408|Verkið er í bið
+409|Færsluskipunin er ógild.
+410|Færslan fer út fyrir hreyfisvið vélarinnar og var hunsuð.
+411|Línan er of löng.
+412|Línunúmerið er utan marka.
+413|Vélin hefur keyrt í {} klukkustundir í {} verkum.
+414|Vélin er færð í það ástand sem forritið er í á þeirri línu: einingar, snælda, hraði, staða. Gættu þess að verkfæri og verk séu þar sem þau voru.
+415|Vélin færist þá vegalengd sem þú biður um; mældu hversu langt hún fór í raun og rétt skrefafjölda er reiknaður.
+416|Hreyfingin fer út fyrir hreyfisvið vélarinnar. Staðan er geymd; aflæstu til að halda áfram.
+417|Skynjarinn fer niður þar til hann snertir; Z er stillt á hliðrun skynjarans
+418|Inntak skynjarans er þegar lokað. Athugaðu klemmuna, plötuna og raflögnina.
+419|Skynjarinn verður að vera tengdur við skynjarainntak stýringarinnar. Prófaðu hann með því að snerta plötuna: inntakið birtist sem lokað á flipanum Stjórnun.
+420|Öryggishurðin er opin.
+421|Stillingin er yfir skrefatíðninni sem þessi GRBL styður.
+422|Ekki tókst að lesa stillingarnar; sjálfgefin gildi voru endurheimt.
+423|Stillingarnar hafa ekki verið lesnar enn.
+424|Stillingarnar voru vistaðar fyrir fyrstu breytingu: {}
+425|Skrefpúlstíminn verður að vera að minnsta kosti 3 µs.
+426|Skotmark hreyfingarinnar er ógilt.
+427|Verkfærið er hér: gerðu þetta að núllpunkti verksins
+428|Númer verkfærisins er of hátt.
+429|Þessar stillingar eru í stýringunni, ekki í tækinu. Breyttu einni í einu og skrifaðu niður fyrra gildið: rangt gildi getur látið vélina færast ranga vegalengd. Fyrsta breyting lotu vistar allar stillingar í skrá.
+430|Þessar stillingar skrárinnar eru frábrugðnar stýringunni. Ekkert er skrifað fyrr en þú ýtir á Skrifa allt.
+431|Þykkt hliðar hennar
+432|Þykkt plötunnar
+433|Þessi $-skipun virkar aðeins þegar vélin er í hvíld.
+434|Þetta skrifar $RST=$: allar stillingar stýringarinnar fara aftur í sjálfgefin gildi fastbúnaðarins. Skrefafjöldi, hreyfisvið, hraði og núllstilling á endastoppum breytast öll.
+435|Gangtími
+436|Þvermál verkfærisins
+437|Snertiplata
+438|Hreyfisvið X, Y, Z
+439|Tvær skipanir í línunni þurfa báðar ásaorð.
+440|Tvær skipanir úr sama hópi eru í einni línu.
+441|Sláðu inn báðar hornalínurnar til að sjá niðurstöðuna.
+442|Sláðu inn mældu vegalengdina til að sjá nýja gildið.
+443|Dæmigert
+444|Eining
+445|Nota þessi gildi fyrir tækið
+446|Gildi
+447|Breytur: {}
+448|Hvað á að gera
+449|Verk
+450|Skrifa
+451|Skrifa ${}
+452|Skrifa ${} = {} í stýringuna? Nú er það {}. Breyttu einni stillingu í einu og skrifaðu niður gamla gildið.
+453|Skrifa stillingu
+454|Skrifa allt
+455|Skrifa {} stillingar; þær eru lesnar til baka á eftir
+456|X-endastoppari
+457|X-endastoppari
+458|Y-endastoppari
+459|Y-endastoppari
+460|Já
+461|Z
+462|Z-endastoppari
+463|Z-endastoppari
+464|Z í örugga hæð
+465|Núllstilla X og Y
+466|Núllstilla allt
+467|vegalengd skynjara er utan marka
+468|stærð skynjara er utan marka
+469|lokað
+470|hurð
+471|á hverjum
+472|bið
+473|inntak {}
+474|engin snerting
+475|engin mötun var stillt fyrir þessa línu
+476|af {}
+477|slökkt
+478|kveikt
+479|opið
+480|skynjari
+481|endurstilla
+482|snælda slökkt
+483|snælda kveikt (M{}) á {}
+484|ræsa
+485|bilunarfjarlægðin þarf að vera lengri en tvöfaldur afturdráttur
+486|línan heldur áfram boga (G2/G3) án G-orðs
+487|línan er aftan við lok forritsins
+488|fyrri línur nota G53 eða G92, svo ekki er hægt að reikna stöðuna
+489|forritið hefur ekki hreyfst í X og Y fyrir þessa línu
+490|hæg mötun skynjara þarf að vera milli 1 og þeirrar hröðu
+491|snerti
+492|Fyrst verða {} línur sendar til að undirbúa þetta.
+493|{} af {} stillingum eru ólíkar eftir skrif:
+494|{} {}: {}
+495|{}: á gjalddaga ({} klst. of seint)
+496|{}: {} klst. eftir
+497|1. Hvar skynjarinn er
+498|2. Fyrsta verkfærið, viðmiðið
+499|3. Hvert verkfæri eftir það
+500|Afrit af stillingum stýringarinnar er geymt með tækinu. Það er gert þegar vélin er tengd í fyrsta sinn og aftur í hvert skipti sem stillingarnar eru ólíkar nýjasta afritinu; afritin eru hluti af öryggisafriti forritsins.
+501|Afrit af {} stillingum stýringarinnar var vistað með tækinu.
+502|Afrit af {} stillingum var vistað með tækinu.
+503|Verk er í gangi.
+504|Mæling er þegar í gangi.
+505|Nýtt afrit af stillingunum var vistað eftir breytingu þína ({} stillingar eru ólíkar því fyrra).
+506|Lengdarskynjari verkfæris er rofi á föstum stað á vélinni. Oddur hvers verkfæris snertir hann, svo nýr fræs getur fengið nákvæmlega sama Z og sá fyrri án þess að snerta verkið aftur. Staða hans er í hnitum vélarinnar: stilltu vélina fyrst á núllpunkt og færðu skynjarann aldrei.
+507|Eftir snertinguna er Z stillt á Z viðmiðsverkfærisins við skynjarann
+508|Bera saman við stýringuna og skrifa muninn til baka
+509|Afrit af stillingum ({})
+510|Gleyma
+511|Færðu verkfærið yfir miðju skynjarans, nokkra millimetra fyrir ofan hann, og ýttu á hnappinn.
+512|Vél X {}  Y {}, aðflug frá Z {}
+513|Gera afrit núna
+514|Mæla viðmiðsverkfærið
+515|Mældu fyrst viðmiðsverkfærið.
+516|Mæla verkfærið (skynjari)
+517|Mæla þetta verkfæri og stilla Z
+518|Mæli…
+519|Ekki mælt enn.
+520|Ekki stillt enn.
+521|Engu er breytt; munurinn frá viðmiðinu er sýndur
+522|Aðeins mæla
+523|Settu fyrsta fræsinn í og stilltu Z á verkinu með honum (flipinn Stjórnun: mæla Z, eða snerta yfirborðið og Z0). Mældu hann síðan á skynjaranum.
+524|Viðmið: Z {} við skynjarann
+525|Endurheimta…
+526|Stilltu fyrst stöðu skynjarans.
+527|Stýringin hefur ekki enn tilkynnt stöðuna.
+528|Stillingar sem eru frábrugðnar afritinu sem var vistað með tækinu: {}. Nýtt afrit var vistað.
+529|Í fyrsta skipti: hafðu hönd nærri stöðvuninni; verkfærið fer niður að skynjaranum.
+530|Vélin fer að skynjaranum og verkfærið snertir hann tvisvar
+531|Vélin fer að lengdarskynjara verkfærisins; nýja verkfærið fær Z viðmiðsverkfærisins
+532|Vélin er ekki í hvíld.
+533|Skynjarinn er hér
+534|Verkfærið er jafn langt og viðmiðsverkfærið.
+535|Verkfærið er {} mm lengra en viðmiðsverkfærið.
+536|Verkfærið er {} mm styttra en viðmiðsverkfærið.
+537|Lengdarskynjari verkfæris
+538|Lengdarskynjari verkfæris…
+539|Ferðahæð (Z vélarinnar)
+540|Þegar verk stöðvast vegna skipta á fræs býður glugginn Mæla verkfærið. Það er líka hægt hér, hvenær sem er.
+541|staða skynjarans er utan marka
+542|eftir breytingu hér
+543|við tengingu
+544|í höndunum
+545|afritin af stillingunum eru ógild
+546|viðmiðið er ógilt
+547|upphaf aðflugsins má ekki vera hærra en ferðahæðin
+548|{} stillingar
+549|… og {} í viðbót

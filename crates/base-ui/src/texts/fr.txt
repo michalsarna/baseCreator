@@ -246,3 +246,305 @@
 245|Échec de la restauration : {}
 246|Restaurer depuis une sauvegarde
 247|Vos paramètres actuels seront remplacés par ceux de la sauvegarde. Ses images sont ajoutées à la galerie partagée. Continuer ?
+248|${} vaut maintenant {} pas/mm
+249|1. Faites un repère là où se trouve l'outil (ou posez-y un comparateur). 2. Appuyez sur Déplacer. 3. Mesurez la distance et saisissez-la ci-dessous.
+250|Palpeur 3D
+251|Une commande G-code n'est pas prise en charge ou n'est pas valide.
+252|Un mot G-code n'a pas de lettre.
+253|Il manque la valeur P ou L à une commande.
+254|Une commande exige un nombre entier.
+255|Une commande exige des mots d'axe mais la ligne n'en a pas.
+256|Un fin de course a été touché. La position peut être perdue : refaites la prise d'origine de la machine.
+257|Une macro est du G-code qu'envoie un bouton de l'onglet Contrôle. Elle peut utiliser des variables entre crochets.
+258|Une valeur négative là où une positive est nécessaire.
+259|Un nombre n'est pas valide ou manque.
+260|Un mot est répété dans la ligne.
+261|Ajouter une macro
+262|Ajouter un rappel
+263|Ajouter un pas
+264|Après le travail (terminé ou arrêté)
+265|Alarme
+266|Alarme {} : {}
+267|Alarmes
+268|Les {} réglages du fichier sont maintenant dans le contrôleur.
+269|Un arc n'a pas de mots d'axe dans son plan.
+270|Une entrée active alors que rien ne la touche indique un problème de câblage ou de réglage ($5, $6).
+271|Autour d'un travail
+272|Les flèches déplacent X et Y, Page précédente et Page suivante déplacent Z. Désactivé par défaut : les flèches déplacent aussi les formes sélectionnées.
+273|À cette ligne : X {} Y {} Z {}, {}, avance {}
+274|Il reste des mots d'axe alors que G80 est actif.
+275|Sauvegardez d'abord les réglages. Pour continuer, tapez {} :
+276|Sauvegarder dans un fichier…
+277|Avant le début du travail
+278|Étalonnage
+279|Étalonnage…
+280|Impossible de démarrer ici : {}
+281|Impossible d'utiliser le fichier : {}
+282|Changez l'outil ou le stylo maintenant. La machine attend ; rien ne bouge tant que vous ne continuez pas.
+283|Vérifier le programme avant chaque exécution
+284|Effacer l'alarme ($X)
+285|Effacer les statistiques
+286|Cliquez pour saisir la position de l'outil dans les coordonnées de travail
+287|Connectez-vous d'abord à la machine (onglet Appareil)
+288|Connectez-vous à la machine pour voir ses entrées.
+289|Continuer le travail
+290|Contrôleur
+291|Coordonnées
+292|Démarrage du cycle
+293|Supprimer cette macro
+294|Supprimer ce rappel
+295|Diagnostic et statistiques
+296|Diagnostic enregistré : {}
+297|Diagonale A
+298|La diagonale A est la plus longue : l'axe Y penche vers +X.
+299|Diagonale B
+300|La diagonale B est la plus longue : l'axe Y penche vers −X.
+301|Diamètre de la bille
+302|Distance
+303|Fait
+304|Erreur
+305|Erreurs
+306|Exporter le diagnostic (zip)…
+307|Échec de l'exportation : {}
+308|Réglages d'usine ($RST=$)…
+309|Réglages d'usine écrits ($RST=$)
+310|Distance d'échec
+311|Déplacement le plus rapide de X et Y
+312|Arrêt de l'avance
+313|Fichier
+314|Réglages du firmware ($$)
+315|Depuis le contrôleur
+316|Le G-code est verrouillé pendant une alarme ou un jog. Déverrouillez d'abord.
+317|G43.1 ne peut décaler que l'axe de longueur d'outil.
+318|G53 ne fonctionne qu'avec G0 ou G1.
+319|GRBL ne connaît pas cette commande $.
+320|Aller à X0 Y0
+321|Hauteur
+322|Maintenez pour déplacer
+323|Prise d'origine
+324|Échec de la prise d'origine : réinitialisation pendant le cycle.
+325|Échec de la prise d'origine : aucun fin de course trouvé. Vérifiez les fins de course et le câblage.
+326|Échec de la prise d'origine : la porte de sécurité a été ouverte pendant le cycle.
+327|Échec de la prise d'origine : le fin de course ne s'est pas libéré au dégagement. Vérifiez le dégagement et le câblage.
+328|La prise d'origine n'est pas activée dans les réglages ($22).
+329|Entrées
+330|Entrées actives : {}
+331|Au lieu d'un pas par clic, l'outil se déplace tant que le bouton est maintenu
+332|Tout juste fait
+333|Travaux
+334|Déplacement manuel
+335|Clavier
+336|Le mode laser demande une sortie PWM.
+337|Dernier palpage : X {} Y {} Z {} ({})
+338|Dernier palpage : Z {} ({})
+339|Relevé après la mise à zéro
+340|Relevez à la hauteur de sécurité, puis allez au zéro du travail
+341|Ligne
+342|Machine
+343|Macro {}
+344|Macro {} : {}
+345|Macro {} : {} lignes envoyées
+346|Macros
+347|Entretien
+348|Marquez ou découpez un rectangle et mesurez ses deux diagonales : du coin avant gauche au coin arrière droit (A) et de l'avant droit à l'arrière gauche (B). Elles sont égales quand les axes sont perpendiculaires.
+349|Mesuré
+350|Déplacer
+351|Déplacer {} de la distance
+352|Nouvelle valeur : ${} = {} (était {})
+353|Aucune avance n'est encore définie.
+354|Aucun rappel. Ajoutez-en dans les réglages du dispositif (Maintenance).
+355|Pas encore lu (Machine → Réglages du firmware).
+356|Rien de lu pour l'instant.
+357|Décalage de Z au contact
+358|Huiler les rails
+359|Seuls les systèmes de coordonnées de travail G54 à G59 sont pris en charge.
+360|Seulement ceux qui diffèrent de la valeur typique
+361|Défaut d'équerrage de {}° : une extrémité de l'axe Y est décalée de {} mm sur toute la hauteur.
+362|Position
+363|Palpeur
+364|Palper Z
+365|Échec du palpage : rien n'a été touché dans la distance. Vérifiez la plaque et la distance d'échec.
+366|Échec du palpage : le palpeur était déjà fermé avant le mouvement. Vérifiez le câblage et la plaque.
+367|Placez la plaque sous l'outil : l'outil descend jusqu'au contact, puis Z est réglé sur l'épaisseur de la plaque
+368|Placez l'outil à côté du bord : il avance vers lui jusqu'au contact, et le bord devient zéro
+369|Contact rapide
+370|Lire la machine
+371|Lire les réglages ($$)
+372|Lecture…
+373|Lit le firmware ($I) et les réglages ($$) du contrôleur
+374|Supprimer ce pas
+375|Réinitialisation pendant le mouvement. Des pas ont pu être perdus : refaites la prise d'origine.
+376|Restaurer depuis un fichier…
+377|Restaurer les réglages d'usine
+378|Restaurer les réglages depuis un fichier
+379|Recul entre les contacts
+380|Porte de sécurité
+381|Réglages enregistrés dans {}
+382|Réglez Z de nouveau avec le palpeur : le nouvel outil touche la plaque et Z devient l'épaisseur de la plaque
+383|Réglage
+384|Contact lent
+385|Limites logicielles
+386|Les limites logicielles demandent aussi que la prise d'origine soit activée.
+387|Certains mots ne sont utilisés par aucune commande.
+388|Vitesse XY
+389|Vitesse Z
+390|Vitesse de la broche
+391|Équerrage des axes
+392|Démarrer d'ici
+393|Démarrer à la ligne
+394|Démarrer à la ligne…
+395|Statistiques de cette machine
+396|Pas de X et Y (mm)
+397|Pas de Z (mm)
+398|Pas par millimètre
+399|Arrêter le travail
+400|Arrêter le mouvement
+401|L'arc ne peut pas être calculé à partir du rayon. Divisez-le ou utilisez des décalages.
+402|Il manque à l'arc le décalage I, J ou K.
+403|Les axes sont perpendiculaires à {} mm près sur la hauteur.
+404|Les informations de version ou la ligne de démarrage sont trop longues.
+405|Le contrôleur les a déjà tous.
+406|Le contrôleur parcourt le programme en mode contrôle ($C) : rien ne bouge, et les lignes qu'il ne comprend pas sont signalées avant l'exécution réelle
+407|Le contrôleur rapporte en pouces ($13) : les positions de l'onglet Contrôle ne sont pas en millimètres.
+408|Le travail est en pause
+409|La commande de jog n'est pas valide.
+410|Le jog dépasse la course de la machine et a été ignoré.
+411|La ligne est trop longue.
+412|Le numéro de ligne est hors limites.
+413|La machine a tourné {} heures sur {} travaux.
+414|La machine est amenée à l'état que le programme a à cette ligne : unités, broche, vitesse, position. Vérifiez que l'outil et la pièce sont là où ils étaient.
+415|La machine se déplace de la distance demandée ; mesurez jusqu'où elle est vraiment allée et le bon nombre de pas est calculé.
+416|Le mouvement dépasse la course de la machine. La position est conservée ; déverrouillez pour continuer.
+417|Le palpeur descend jusqu'au contact ; Z est réglé sur le décalage du palpeur
+418|L'entrée du palpeur est déjà fermée. Vérifiez la pince, la plaque et le câblage.
+419|Le palpeur doit être branché sur l'entrée palpeur du contrôleur. Testez-le en touchant la plaque : l'entrée apparaît fermée dans l'onglet Contrôle.
+420|La porte de sécurité est ouverte.
+421|Le réglage dépasse la fréquence de pas que ce GRBL gère.
+422|Les réglages n'ont pas pu être lus ; les valeurs par défaut ont été rétablies.
+423|Les réglages n'ont pas encore été lus.
+424|Les réglages ont été enregistrés avant le premier changement : {}
+425|La durée de l'impulsion de pas doit être d'au moins 3 µs.
+426|La cible du mouvement n'est pas valide.
+427|L'outil est ici : en faire le zéro du travail
+428|Le numéro d'outil est trop élevé.
+429|Ces réglages sont dans le contrôleur, pas dans le dispositif. Changez-en un à la fois et notez l'ancienne valeur : une mauvaise valeur peut faire bouger la machine d'une mauvaise distance. Le premier changement d'une session enregistre tous les réglages dans un fichier.
+430|Ces réglages du fichier diffèrent du contrôleur. Rien n'est écrit tant que vous n'appuyez pas sur Tout écrire.
+431|Épaisseur de son côté
+432|Épaisseur de la plaque
+433|Cette commande $ ne fonctionne que lorsque la machine est au repos.
+434|Ceci écrit $RST=$ : chaque réglage du contrôleur revient aux valeurs par défaut du firmware. Les pas, les courses, les vitesses et la prise d'origine changeront tous.
+435|Temps de fonctionnement
+436|Diamètre de l'outil
+437|Plaque de contact
+438|Course de X, Y, Z
+439|Deux commandes de la ligne ont toutes deux besoin de mots d'axe.
+440|Deux commandes du même groupe sont dans une ligne.
+441|Saisissez les deux diagonales pour voir le résultat.
+442|Saisissez la distance mesurée pour voir la nouvelle valeur.
+443|Typique
+444|Unité
+445|Utiliser ces valeurs pour le dispositif
+446|Valeur
+447|Variables : {}
+448|Que faire
+449|Travail
+450|Écrire
+451|Écrire ${}
+452|Écrire ${} = {} dans le contrôleur ? Il vaut {} actuellement. Changez un réglage à la fois et notez l'ancienne valeur.
+453|Écrire un réglage
+454|Tout écrire
+455|Écriture de {} réglages ; ils sont relus ensuite
+456|fin de course X
+457|Fin de course X
+458|fin de course Y
+459|Fin de course Y
+460|Oui
+461|Z
+462|fin de course Z
+463|Fin de course Z
+464|Z à la hauteur de sécurité
+465|Mettre X et Y à zéro
+466|Tout mettre à zéro
+467|une distance du palpeur est hors limites
+468|une taille du palpeur est hors limites
+469|fermée
+470|porte
+471|toutes les
+472|maintien
+473|entrée {}
+474|aucun contact
+475|aucune avance n'a été définie avant cette ligne
+476|sur {}
+477|désactivé
+478|activé
+479|ouverte
+480|palpeur
+481|réinitialisation
+482|broche arrêtée
+483|broche en marche (M{}) à {}
+484|démarrage
+485|la distance d'échec doit être supérieure à deux fois le recul
+486|la ligne continue un arc (G2/G3) sans mot G
+487|la ligne est après la fin du programme
+488|les lignes précédentes utilisent G53 ou G92, la position ne peut donc pas être calculée
+489|le programme ne s'est pas déplacé en X et Y avant cette ligne
+490|l'avance lente du palpeur doit être comprise entre 1 et l'avance rapide
+491|touché
+492|{} lignes seront d'abord envoyées pour préparer cela.
+493|{} réglages sur {} diffèrent après l'écriture :
+494|{} {} : {}
+495|{} : dû ({} h de retard)
+496|{} : encore {} h
+497|1. Où est le capteur
+498|2. Le premier outil, la référence
+499|3. Chaque outil suivant
+500|Une copie des réglages du contrôleur est conservée avec le dispositif. Il en est fait une à la première connexion de la machine, puis chaque fois que les réglages diffèrent de la copie la plus récente ; les copies font partie de la sauvegarde du programme.
+501|Une copie des {} réglages du contrôleur a été enregistrée avec le dispositif.
+502|Une copie des {} réglages a été enregistrée avec le dispositif.
+503|Un travail est en cours.
+504|Une mesure est déjà en cours.
+505|Une nouvelle copie des réglages a été enregistrée après votre changement ({} réglages diffèrent de la précédente).
+506|Un capteur de longueur d'outil est un interrupteur à un endroit fixe de la machine. La pointe de chaque outil le touche, si bien qu'une nouvelle fraise peut recevoir exactement le même Z que la précédente sans retoucher la pièce. Sa position est en coordonnées machine : faites d'abord la prise d'origine et ne déplacez jamais le capteur.
+507|Après le contact, Z est réglé sur le Z de l'outil de référence au capteur
+508|Comparer avec le contrôleur et réécrire les différences
+509|Copies des réglages ({})
+510|Oublier
+511|Amenez l'outil au-dessus du milieu du capteur, quelques millimètres au-dessus, et appuyez sur le bouton.
+512|Machine X {}  Y {}, approche depuis Z {}
+513|Faire une copie maintenant
+514|Mesurer l'outil de référence
+515|Mesurez d'abord l'outil de référence.
+516|Mesurer l'outil (capteur)
+517|Mesurer cet outil et régler Z
+518|Mesure en cours…
+519|Pas encore mesuré.
+520|Pas encore réglé.
+521|Rien n'est changé ; la différence avec la référence est affichée
+522|Seulement mesurer
+523|Mettez la première fraise et réglez Z sur la pièce avec elle (onglet Contrôle : palper Z, ou toucher la surface et Z0). Mesurez-la ensuite sur le capteur.
+524|Référence : Z {} au capteur
+525|Restaurer…
+526|Réglez d'abord la position du capteur.
+527|Le contrôleur n'a pas encore rapporté la position.
+528|Réglages qui diffèrent de la copie enregistrée avec le dispositif : {}. Une nouvelle copie a été enregistrée.
+529|La première fois, gardez une main près de l'arrêt : l'outil descend vers le capteur.
+530|La machine va au capteur et l'outil le touche deux fois
+531|La machine va au capteur de longueur d'outil ; le nouvel outil reçoit le Z de l'outil de référence
+532|La machine n'est pas au repos.
+533|Le capteur est ici
+534|L'outil est aussi long que l'outil de référence.
+535|L'outil est plus long de {} mm que l'outil de référence.
+536|L'outil est plus court de {} mm que l'outil de référence.
+537|Capteur de longueur d'outil
+538|Capteur de longueur d'outil…
+539|Hauteur de déplacement (Z machine)
+540|Quand un travail s'arrête pour un changement de fraise, la fenêtre propose Mesurer l'outil. Cela peut aussi se faire ici, à tout moment.
+541|une position du capteur est hors limites
+542|après un changement ici
+543|à la connexion
+544|à la main
+545|les copies des réglages ne sont pas valides
+546|la référence n'est pas valide
+547|le début de l'approche ne doit pas être plus haut que la hauteur de déplacement
+548|{} réglages
+549|… et {} de plus

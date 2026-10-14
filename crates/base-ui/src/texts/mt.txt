@@ -246,3 +246,305 @@
 245|Ir-restawr falla: {}
 246|Irrestawra minn backup
 247|L-issettings preżenti tiegħek se jiġu mibdula b'dawk tal-backup. L-istampi tiegħu se jiżdiedu mal-gallerija maqsuma. Tkompli?
+248|${} issa huwa {} passi/mm
+249|1. Agħmel marka fejn hu l-għodda (jew qiegħed hemm arloġġ tal-kwadrant). 2. Agħfas Mexxi. 3. Kejjel id-distanza u ittajpjaha hawn taħt.
+250|Sonda tat-tgħawwiġ 3D
+251|Kmand G-code mhuwiex appoġġat jew mhuwiex validu.
+252|Kelma G-code m'għandhiex ittra.
+253|Kmand jonqsu l-valur P jew L.
+254|Kmand jeħtieġ numru sħiħ.
+255|Kmand jeħtieġ kliem tal-assi imma r-riga m'għandhiex.
+256|Intlaqat swiċċ tal-limitu. Il-pożizzjoni tista' tkun intilfet: erġa' agħmel il-homing tal-magna.
+257|Makro hija G-code li tibgħat buttuna fuq it-tab Kontroll. Tista' tuża varjabbli bejn parentesi kwadri.
+258|Valur negattiv fejn hemm bżonn wieħed pożittiv.
+259|Numru mhuwiex validu jew nieqes.
+260|Kelma hija ripetuta fir-rigi.
+261|Żid makro
+262|Żid tfakkira
+263|Żid pass
+264|Wara x-xogħol (spiċċa jew twaqqaf)
+265|Allarm
+266|Allarm {}: {}
+267|Allarmi
+268|L-{} issettjar kollha tal-fajl issa qegħdin fil-kontrollur.
+269|Qaws m'għandux kliem tal-assi fil-pjan tiegħu.
+270|Input li huwa attiv waqt li xejn ma jmissu jindika problema bil-wajers jew bl-issettjar ($5, $6).
+271|Madwar xogħol
+272|Il-vleġeġ jċaqalqu X u Y, Page Up u Page Down iċċaqalqu Z. Mitfi awtomatikament: il-vleġeġ iċċaqalqu wkoll il-forom magħżula.
+273|F'din ir-rigi: X {} Y {} Z {}, {}, avanz {}
+274|Fadal kliem tal-assi waqt li G80 huwa attiv.
+275|Ħu kopja tal-issettjar l-ewwel. Biex tkompli, ikteb {}:
+276|Ħu kopja f'fajl…
+277|Qabel jibda x-xogħol
+278|Kalibrazzjoni
+279|Kalibrazzjoni…
+280|Ma jistax jibda hawn: {}
+281|Il-fajl ma jistax jintuża: {}
+282|Biddel l-għodda jew il-pinna issa. Il-magna qed tistenna; xejn ma jiċċaqlaq sakemm tkompli.
+283|Iċċekkja l-programm qabel kull tħaddim
+284|Naddaf l-allarm ($X)
+285|Neħħi l-istatistika
+286|Ikklikkja biex tikteb il-pożizzjoni tal-għodda f'koordinati tax-xogħol
+287|Qabbad l-ewwel mal-magna (tab Apparat)
+288|Qabbad mal-magna biex tara l-inputs tagħha.
+289|Kompli x-xogħol
+290|Kontrollur
+291|Koordinati
+292|Bidu taċ-ċiklu
+293|Ħassar din il-makro
+294|Ħassar din it-tfakkira
+295|Dijanjostika u statistika
+296|Id-dijanjostika nżammet: {}
+297|Dijagonali A
+298|Id-dijagonali A hija l-itwal: l-assi Y hija mgħawġa lejn +X.
+299|Dijagonali B
+300|Id-dijagonali B hija l-itwal: l-assi Y hija mgħawġa lejn −X.
+301|Dijametru tal-ballun
+302|Distanza
+303|Magħmul
+304|Żball
+305|Żbalji
+306|Esporta d-dijanjostika (zip)…
+307|L-esportazzjoni fallet: {}
+308|Issettjar tal-fabbrika ($RST=$)…
+309|Is-settings tal-fabbrika nkitbu ($RST=$)
+310|Distanza tal-falliment
+311|L-aktar moviment mgħaġġel ta' X u Y
+312|Żomm l-avanz
+313|Fajl
+314|Settings tal-firmware ($$)
+315|Mill-kontrollur
+316|G-code huwa msakkar waqt allarm jew jog. Iftaħ l-ewwel.
+317|G43.1 jista' jċaqlaq biss l-assi tat-tul tal-għodda.
+318|G53 jaħdem biss ma' G0 jew G1.
+319|GRBL ma tafx dan il-kmand $.
+320|Mur għal X0 Y0
+321|Għoli
+322|Żomm imbuttunat biex tiċċaqlaq
+323|Homing
+324|Il-homing falla: irrisettjar waqt iċ-ċiklu.
+325|Il-homing falla: ma nstab ebda swiċċ tal-limitu. Iċċekkja s-swiċċijiet u l-wajers.
+326|Il-homing falla: il-bieb tas-sigurtà nfetaħ waqt iċ-ċiklu.
+327|Il-homing falla: is-swiċċ ma ħarasx meta nġibed lura. Iċċekkja l-ġibda lura u l-wajers.
+328|L-homing mhuwiex attivat fis-settings ($22).
+329|Inputs
+330|Inputs attivi: {}
+331|Minflok pass wieħed għal kull klikk, l-għodda tiċċaqlaq sakemm il-buttuna tinżamm imbuttunata
+332|Għadu kemm sar
+333|Xogħlijiet
+334|Jogging
+335|Tastiera
+336|Il-modalità tal-laser teħtieġ output PWM.
+337|L-aħħar sonda: X {} Y {} Z {} ({})
+338|L-aħħar sonda: Z {} ({})
+339|Għoli wara li jiġi ssettjat iż-żero
+340|Għolli sal-għoli sigur, imbagħad mur liż-żero tax-xogħol
+341|Linja
+342|Magna
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: intbagħtu {} linji
+346|Makro
+347|Manutenzjoni
+348|Immarka jew aqta' rettangolu u kejjel iż-żewġ dijagonali tiegħu: mill-ewwel kantuniera tax-xellug sal-kantuniera ta' wara tal-lemin (A) u mill-ewwel tal-lemin sal-ewwel ta' wara tax-xellug (B). Huma indaqs meta l-assi jkunu perpendikolari.
+349|Imkejjel
+350|Mexxi
+351|Mexxi {} bid-distanza
+352|Valur ġdid: ${} = {} (kien {})
+353|L-avanz għadu ma ġiex issettjat.
+354|Ebda tfakkiriet. Żidhom fis-settings tal-apparat (Manutenzjoni).
+355|Għadu ma nqarax (Magna → Settings tal-firmware).
+356|Għadu ma nqara xejn.
+357|Offset ta' Z mal-messa
+358|Żejjet ir-rotob
+359|Huma appoġġati biss is-sistemi tal-koordinati tax-xogħol minn G54 sa G59.
+360|Dawk biss li jvarjaw mill-valur tipiku
+361|Barra mill-kwadru b'{}°: tarf wieħed tal-assi Y huwa {} mm barra tul l-għoli kollu.
+362|Pożizzjoni
+363|Sonda
+364|Sonda Z
+365|Is-sonda falliet: xejn ma tmess fil-limitu tad-distanza. Iċċekkja l-pjanċa u d-distanza tal-falliment.
+366|Is-sonda falliet: is-sonda kienet diġà magħluqa qabel il-moviment. Iċċekkja l-wajers u l-pjanċa.
+367|Poġġi l-pjanċa taħt l-għodda: l-għodda tinżel sakemm tmiss, imbagħad Z jiġi ssettjat fuq il-ħxuna tal-pjanċa
+368|Poġġi l-għodda ħdejn it-tarf: tiċċaqlaq lejh sakemm tmiss, u t-tarf isir żero
+369|Messa mgħaġġla
+370|Aqra l-magna
+371|Aqra l-issettjar ($$)
+372|Qed taqra…
+373|Taqra l-firmware ($I) u s-settings ($$) tal-kontrollur
+374|Neħħi dan il-pass
+375|Irrisettjar waqt il-moviment. Jista' jkun li intilfu passi: erġa' agħmel il-homing tal-magna.
+376|Irrestawra minn fajl…
+377|Irrestawra l-issettjar tal-fabbrika
+378|Irrestawra l-issettjar minn fajl
+379|Ġibda lura bejn il-messiet
+380|Bieb tas-sigurtà
+381|Issettjar salvat f'{}
+382|Issettja Z mill-ġdid bis-sonda: l-għodda l-ġdida tmiss il-pjanċa u Z isir il-ħxuna tal-pjanċa
+383|Issettjar
+384|Messa bil-mod
+385|Limiti tas-software
+386|Il-limiti tas-software jeħtieġu wkoll homing attivat.
+387|Xi kliem ma jintuża minn ebda kmand.
+388|Veloċità XY
+389|Veloċità Z
+390|Veloċità tal-ispindil
+391|Perpendikolarità tal-assi
+392|Ibda minn hawn
+393|Ibda minn linja
+394|Ibda minn linja…
+395|Statistika ta' din il-magna
+396|Passi ta' X u Y (mm)
+397|Passi ta' Z (mm)
+398|Passi għal kull millimetru
+399|Waqqaf ix-xogħol
+400|Waqqaf il-moviment
+401|Il-qaws ma jistax jiġi kkalkulat mir-raġġ. Aqsmu jew uża offsets.
+402|Il-qaws jonqsu l-offset I, J jew K.
+403|L-assi huma perpendikolari fi ħdan {} mm tul l-għoli.
+404|L-informazzjoni tal-bini jew il-linja tal-bidu twila wisq.
+405|Il-kontrollur diġà għandu kollha.
+406|Il-kontrollur jgħaddi mill-programm fil-modalità ta' kontroll ($C): xejn ma jiċċaqlaq, u l-linji li ma jifhimx jiġu rrappurtati qabel it-tħaddim reali
+407|Il-kontrollur jirrapporta f'pulzieri ($13): il-pożizzjonijiet fit-tab Kontroll mhumiex f'millimetri.
+408|Ix-xogħol hu fuq pawża
+409|Il-kmand tal-jog mhuwiex validu.
+410|Il-jog imur lil hinn mill-ġirja tal-magna u ġie injorat.
+411|Ir-riga twila wisq.
+412|In-numru tar-riga huwa barra mill-medda.
+413|Il-magna ħadmet {} sigħat f'{} xogħlijiet.
+414|Il-magna tinġieb fl-istat li l-programm għandu f'dik ir-riga: unitajiet, spindle, veloċità, pożizzjoni. Kun ċert li l-għodda u x-xogħol huma fejn kienu.
+415|Il-magna tiċċaqlaq bid-distanza li titlob; kejjel kemm marret verament u jiġi kkalkulat in-numru korrett ta' passi.
+416|Il-moviment imur lil hinn mill-ġirja tal-magna. Il-pożizzjoni tinżamm; iftaħ biex tkompli.
+417|Is-sonda tinżel sakemm tmiss; Z jiġi ssettjat fuq l-offset tas-sonda
+418|L-input tas-sonda diġà magħluq. Iċċekkja l-klamp, il-pjanċa u l-wajers.
+419|Is-sonda trid tkun imqabbda mal-input tas-sonda tal-kontrollur. Ittestjaha billi tmiss il-pjanċa: l-input jidher magħluq fuq it-tab Kontroll.
+420|Il-bieb tas-sigurtà hu miftuħ.
+421|L-issettjar huwa 'l fuq mill-frekwenza tal-passi li jappoġġa dan il-GRBL.
+422|Is-settings ma setgħux jinqraw; ġew restawrati l-valuri awtomatiċi.
+423|Is-settings għadhom ma nqrawx.
+424|Is-settings tħaddmu qabel l-ewwel bidla: {}
+425|Il-ħin tal-impuls tal-pass irid ikun mill-inqas 3 µs.
+426|L-għan tal-moviment mhuwiex validu.
+427|L-għodda hi hawn: agħmel minn dan iż-żero tax-xogħol
+428|In-numru tal-għodda huwa għoli wisq.
+429|Dawn is-settings jgħixu fil-kontrollur, mhux fl-apparat. Biddel waħda kull darba u kteb il-valur ta' qabel: valur ħażin jista' jġiegħel il-magna titħarrek id-distanza ħażina. L-ewwel bidla ta' sessjoni tiżgura s-settings kollha f'fajl.
+430|Dawn l-issettjar tal-fajl huma differenti mill-kontrollur. Xejn ma jinkiteb sakemm ma tagħfasx Ikteb kollox.
+431|Il-ħxuna tal-ġenb tagħha
+432|Il-ħxuna tal-pjanċa
+433|Dan il-kmand $ jaħdem biss meta l-magna tkun inattiva.
+434|Dan jikteb $RST=$: kull setting tal-kontrollur jerġa' għall-valuri awtomatiċi tal-firmware. In-numru ta' passi, il-ġirjiet, il-veloċitajiet u l-homing se jinbidlu kollha.
+435|Ħin tat-tħaddim
+436|Dijametru tal-għodda
+437|Pjanċa tat-tmiss
+438|Ġirja ta' X, Y, Z
+439|Iż-żewġ kmandi fir-riga jeħtieġu kliem tal-assi.
+440|Żewġ kmandi mill-istess grupp huma f'riga waħda.
+441|Ittajpja ż-żewġ dijagonali biex tara r-riżultat.
+442|Ittajpja d-distanza mkejla biex tara l-valur il-ġdid.
+443|Tipiku
+444|Unità
+445|Uża dawn il-valuri għall-apparat
+446|Valur
+447|Varjabbli: {}
+448|X'għandek tagħmel
+449|Xogħol
+450|Ikteb
+451|Ikteb ${}
+452|Tikteb ${} = {} fil-kontrollur? Issa huwa {}. Biddel issettjar wieħed kull darba u nota l-valur l-antik.
+453|Ikteb issettjar
+454|Ikteb kollox
+455|Qed jinkitbu {} settings; wara jinqraw lura
+456|limitu X
+457|Swiċċ tal-limitu X
+458|limitu Y
+459|Swiċċ tal-limitu Y
+460|Iva
+461|Z
+462|limitu Z
+463|Swiċċ tal-limitu Z
+464|Z għall-għoli sigur
+465|Żero X u Y
+466|Żero kollox
+467|distanza tas-sonda hi barra mill-medda
+468|daqs tas-sonda huwa barra mill-medda
+469|magħluq
+470|bieb
+471|kull
+472|żamma
+473|input {}
+474|ebda messa
+475|qabel din ir-riga ma ġie ssettjat l-ebda avanz
+476|minn {}
+477|mitfi
+478|mixgħul
+479|miftuħ
+480|sonda
+481|irrisettja
+482|spindle mitfi
+483|spindle mixgħul (M{}) fuq {}
+484|bidu
+485|id-distanza tal-falliment trid tkun itwal mid-doppju tal-ġibda lura
+486|ir-riga tkompli qaws (G2/G3) mingħajr kelma G
+487|ir-riga hija wara t-tmiem tal-programm
+488|ir-righi ta' qabel jużaw G53 jew G92, mela l-pożizzjoni ma tistax tiġi kkalkulata
+489|il-programm ma ċċaqlaqx f'X u Y qabel din ir-riga
+490|l-avanz bil-mod tas-sonda jrid ikun bejn 1 u dak mgħaġġel
+491|tmiss
+492|L-ewwel jintbagħtu {} linji biex dan jiġi ppreparat.
+493|{} minn {} issettjar huma differenti wara l-kitba:
+494|{} {}: {}
+495|{}: dovut ({} h tard)
+496|{}: fadal {} h
+497|1. Fejn hu s-sensor
+498|2. L-ewwel għodda, ir-referenza
+499|3. Kull għodda oħra
+500|Kopja tas-settings tal-kontrollur tinżamm mal-apparat. Issir l-ewwel darba li l-magna tkun imqabbda u wara kull darba li s-settings ikunu differenti mill-aktar kopja riċenti; il-kopji huma parti mill-backup tal-programm.
+501|Kopja ta' {} settings tal-kontrollur inżammet mal-apparat.
+502|Kopja ta' {} settings inżammet mal-apparat.
+503|Xogħol qed jaħdem.
+504|Kejl diġà qed jaħdem.
+505|Wara t-tibdil tiegħek inżammet kopja ġdida tas-settings ({} settings huma differenti mill-preċedenti).
+506|Sensor tat-tul tal-għodda huwa swiċċ f'post fiss tal-magna. It-tarf ta' kull għodda jmissu, u b'hekk frīża ġdida tista' tikseb eżattament l-istess Z bħal dik ta' qabel mingħajr ma terġa' tmiss ix-xogħol. Il-pożizzjoni tiegħu hija f'koordinati tal-magna: l-ewwel agħmel il-homing tal-magna u qatt ma tmexxi s-sensor.
+507|Wara l-messa Z jiġi ssettjat fuq Z tal-għodda ta' referenza fis-sensor
+508|Qabbel mal-kontrollur u ikteb id-differenzi lura
+509|Kopji tas-settings ({})
+510|Insa
+511|Qiegħed l-għodda fuq nofs is-sensor, ftit millimetri fuqu, u agħfas il-buttuna.
+512|Magna X {}  Y {}, avviċinament minn Z {}
+513|Agħmel kopja issa
+514|Kejjel l-għodda ta' referenza
+515|L-ewwel kejjel l-għodda ta' referenza.
+516|Kejjel l-għodda (sensor)
+517|Kejjel din l-għodda u ssettja Z
+518|Qed jitkejjel…
+519|Għadu ma ġiex imkejjel.
+520|Għadu ma ġiex issettjat.
+521|Xejn ma jinbidel; tintwera d-differenza mir-referenza
+522|Kejjel biss
+523|Qiegħed l-ewwel frīża u ssettja biha Z fuq ix-xogħol (tab Kontroll: sonda Z, jew mess il-wiċċ u Z0). Imbagħad kejlilha fuq is-sensor.
+524|Referenza: Z {} fis-sensor
+525|Irrestawra…
+526|L-ewwel ssettja l-pożizzjoni tas-sensor.
+527|Il-kontrollur għadu ma rrapportax il-pożizzjoni.
+528|Settings differenti mill-kopja miżmuma mal-apparat: {}. Inżammet kopja ġdida.
+529|L-ewwel darba żomm id qrib it-twaqqif: l-għodda tinżel lejn is-sensor.
+530|Il-magna tmur lejn is-sensor u l-għodda tmissu darbtejn
+531|Il-magna tmur lejn is-sensor tat-tul tal-għodda; l-għodda l-ġdida tikseb Z tal-għodda ta' referenza
+532|Il-magna mhix inattiva.
+533|Is-sensor hu hawn
+534|L-għodda twila daqs l-għodda ta' referenza.
+535|L-għodda hija {} mm itwal mill-għodda ta' referenza.
+536|L-għodda hija {} mm iqsar mill-għodda ta' referenza.
+537|Sensor tat-tul tal-għodda
+538|Sensor tat-tul tal-għodda…
+539|Għoli tal-ivvjaġġar (Z tal-magna)
+540|Meta xogħol jieqaf għal bidla ta' frīża, it-tieqa toffri Kejjel l-għodda. Jista' jsir ukoll hawn, f'kull ħin.
+541|pożizzjoni tas-sensor hi barra mill-medda
+542|wara bidla hawn
+543|meta jitqabbad
+544|bl-id
+545|il-kopji tas-settings mhumiex validi
+546|ir-referenza mhijiex valida
+547|il-bidu tal-avviċinament ma jistax ikun aktar għoli mill-għoli tal-ivvjaġġar
+548|{} settings
+549|… u {} oħra
