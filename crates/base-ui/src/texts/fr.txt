@@ -605,3 +605,22 @@
 604|Le projet non enregistré a été récupéré
 605|{} — cliquer pour y placer la sélection / le rendre actif ; double-clic pour les options
 606|Afficher les {} calques
+607|Rechercher des mises à jour…
+608|Options du programme…
+609|Options du programme
+610|Rechercher une version plus récente au démarrage du programme
+611|Plus tôt dans le travail
+612|Plus tard dans le travail
+613|De combien un clic déplace l'outil, en millimètres
+614|Vitesse
+615|Les flèches déplacent X et Y, Page Haut et Page Bas déplacent Z, du pas choisi ci-dessus. Désactivé par défaut : les flèches déplacent aussi les formes sélectionnées.
+616|Broche
+617|Allumer
+618|Allume la broche pour l'essayer (M3 S…) et l'éteint (M5). Un travail le fait tout seul.
+619|Éteindre
+620|Regardez pourquoi elle s'est arrêtée avant de débloquer la machine : l'outil peut être dans la matière.
+621|Stop
+622|Arrêter le travail et la broche
+623|Le travail s'est arrêté
+624|Pas de réponse de la machine
+625|La vitesse de broche est envoyée comme S{} pour {} tr/min : la plage du contrôleur ($30) est répartie sur la vitesse maximale de l'appareil ({} tr/min).

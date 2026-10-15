@@ -605,3 +605,22 @@
 604|Het niet-opgeslagen project is hersteld
 605|{} — klik om de selectie toe te wijzen / actief te maken; dubbelklik voor opties
 606|Alle {} lagen tonen
+607|Controleren op updates…
+608|Programma-opties…
+609|Programma-opties
+610|Bij het starten van het programma naar een nieuwere versie zoeken
+611|Eerder in de opdracht
+612|Later in de opdracht
+613|Hoe ver één klik het gereedschap verplaatst, in millimeters
+614|Snelheid
+615|De pijltjestoetsen verplaatsen X en Y, Page Up en Page Down verplaatsen Z, met de hierboven gekozen stap. Standaard uit: de pijlen verplaatsen ook de geselecteerde vormen.
+616|Spindel
+617|Aan
+618|Zet de spindel aan om te proberen (M3 S…) en weer uit (M5). Een opdracht doet dit zelf.
+619|Uit
+620|Zoek uit waarom hij stopte voordat je de machine ontgrendelt: het gereedschap kan in het materiaal zitten.
+621|Stop
+622|Stop de opdracht en de spindel
+623|De opdracht is gestopt
+624|Geen antwoord van de machine
+625|Het spiltoerental wordt verzonden als S{} voor {} tpm: het bereik van de besturing ($30) wordt verdeeld over het maximale toerental van het apparaat ({} tpm).

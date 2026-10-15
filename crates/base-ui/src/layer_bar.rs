@@ -94,7 +94,10 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
                             c.gamma_multiply(0.35)
                         }
                     };
-                    let (r, resp) = ui.allocate_exact_size(egui::vec2(SWATCH, SWATCH), Sense::click());
+                    // The cell is taller than the swatch: the outline of the active one is drawn outside it and would be cut
+                    // off at the edge of the scrolling row.
+                    let (cell, resp) = ui.allocate_exact_size(egui::vec2(SWATCH, SWATCH + 10.0), Sense::click());
+                    let r = egui::Rect::from_center_size(cell.center(), egui::vec2(SWATCH, SWATCH));
                     ui.painter().rect_filled(r, 3.0, fill);
                     if used[i] {
                         // A dot: there are shapes on this layer.

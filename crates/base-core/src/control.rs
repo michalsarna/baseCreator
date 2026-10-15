@@ -11,18 +11,38 @@ pub const MAX_REMINDERS: usize = 8;
 #[serde(default)]
 pub struct Jog {
     /// The distances of the step buttons for X and Y, mm.
+    #[serde(deserialize_with = "de_xy_steps")]
     pub xy_steps: Vec<f64>,
     /// The distances for Z, mm.
+    #[serde(deserialize_with = "de_z_steps")]
     pub z_steps: Vec<f64>,
     /// Feed of X and Y jogs, mm/min.
     pub xy_feed: f64,
     pub z_feed: f64,
 }
 
+/// The step buttons a device starts with.
+pub const XY_STEPS: [f64; 5] = [0.1, 1.0, 10.0, 50.0, 100.0];
+pub const Z_STEPS: [f64; 7] = [0.1, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0];
+
 impl Default for Jog {
     fn default() -> Jog {
-        Jog { xy_steps: vec![0.1, 1.0, 10.0, 50.0], z_steps: vec![0.05, 0.5, 5.0, 20.0], xy_feed: 3000.0, z_feed: 500.0 }
+        Jog { xy_steps: XY_STEPS.to_vec(), z_steps: Z_STEPS.to_vec(), xy_feed: 3000.0, z_feed: 500.0 }
     }
+}
+
+/// Devices saved with the buttons of the first versions (never changed by the person) get the new ones.
+fn de_steps<'de, D: serde::Deserializer<'de>>(d: D, old: &[f64], new: &[f64]) -> Result<Vec<f64>, D::Error> {
+    let v = Vec::<f64>::deserialize(d)?;
+    Ok(if v == old { new.to_vec() } else { v })
+}
+
+fn de_xy_steps<'de, D: serde::Deserializer<'de>>(d: D) -> Result<Vec<f64>, D::Error> {
+    de_steps(d, &[0.1, 1.0, 10.0, 50.0], &XY_STEPS)
+}
+
+fn de_z_steps<'de, D: serde::Deserializer<'de>>(d: D) -> Result<Vec<f64>, D::Error> {
+    de_steps(d, &[0.05, 0.5, 5.0, 20.0], &Z_STEPS)
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -636,6 +656,12 @@ mod tests {
         assert!(c.check().is_ok());
         c.jog.xy_steps.clear();
         assert!(c.check().is_err());
+        // The first buttons, never changed, become the new ones; the person's own stay.
+        let old: Control = serde_json::from_str(r#"{"jog":{"xy_steps":[0.1,1.0,10.0,50.0],"z_steps":[0.05,0.5,5.0,20.0]}}"#).unwrap();
+        assert_eq!(old.jog.xy_steps, XY_STEPS.to_vec());
+        assert_eq!(old.jog.z_steps, Z_STEPS.to_vec());
+        let own: Control = serde_json::from_str(r#"{"jog":{"xy_steps":[0.5,5.0],"z_steps":[0.2]}}"#).unwrap();
+        assert_eq!((own.jog.xy_steps, own.jog.z_steps), (vec![0.5, 5.0], vec![0.2]));
         assert_eq!(set_position_lines(2, &[(Axis::X, 0.0), (Axis::Z, 1.25)]), vec!["G10 L20 P2 X0 Z1.25"]);
         assert!(set_position_lines(1, &[]).is_empty());
     }

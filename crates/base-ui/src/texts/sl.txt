@@ -605,3 +605,22 @@
 604|Neshranjeni projekt je obnovljen
 605|{} — kliknite za dodelitev izbora / aktiviranje; dvojni klik za možnosti
 606|Pokaži vseh {} slojev
+607|Preveri posodobitve…
+608|Možnosti programa…
+609|Možnosti programa
+610|Ob zagonu programa poišči novejšo različico
+611|Prej v opravilu
+612|Kasneje v opravilu
+613|Za koliko milimetrov en klik premakne orodje
+614|Hitrost
+615|Puščice premikajo X in Y, Page Up in Page Down premikata Z, za korak, izbran zgoraj. Privzeto izklopljeno: puščice premikajo tudi izbrane oblike.
+616|Vreteno
+617|Vklopi
+618|Vklopi vreteno za preizkus (M3 S…) in ga spet izklopi (M5). Opravilo to naredi samo.
+619|Izklopi
+620|Preverite, zakaj se je ustavil, preden stroj odklenete: orodje je lahko v materialu.
+621|Stop
+622|Ustavi opravilo in vreteno
+623|Opravilo se je ustavilo
+624|Stroj ne odgovarja
+625|Hitrost vretena se pošlje kot S{} za {} vrt/min: obseg krmilnika ($30) je razporejen na najvišjo hitrost naprave ({} vrt/min).

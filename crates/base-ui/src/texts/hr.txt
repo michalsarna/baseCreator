@@ -605,3 +605,22 @@
 604|Nespremljeni projekt je oporavljen
 605|{} — kliknite za dodjelu odabira / aktiviranje; dvostruki klik za mogućnosti
 606|Prikaži svih {} slojeva
+607|Provjeri ažuriranja…
+608|Opcije programa…
+609|Opcije programa
+610|Traži noviju verziju pri pokretanju programa
+611|Ranije u poslu
+612|Kasnije u poslu
+613|Koliko jedan klik pomiče alat, u milimetrima
+614|Brzina
+615|Strelice pomiču X i Y, Page Up i Page Down pomiču Z, za korak odabran gore. Prema zadanom isključeno: strelice pomiču i odabrane oblike.
+616|Vreteno
+617|Uključi
+618|Uključuje vreteno radi isprobavanja (M3 S…) i isključuje ga (M5). Posao to radi sam.
+619|Isključi
+620|Provjerite zašto se stroj zaustavio prije otključavanja: alat može biti u materijalu.
+621|Stop
+622|Zaustavi posao i vreteno
+623|Posao je zaustavljen
+624|Stroj ne odgovara
+625|Brzina vretena šalje se kao S{} za {} o/min: raspon upravljača ($30) raspoređen je na najveću brzinu uređaja ({} o/min).

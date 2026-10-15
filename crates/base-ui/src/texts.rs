@@ -612,6 +612,25 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Recovered the project that was not saved", "Odzyskano projekt, który nie został zapisany", "Das nicht gespeicherte Projekt wurde wiederhergestellt", "Il progetto non salvato è stato recuperato", "Tallentamaton projekti palautettiin", "已恢复未保存的项目", "असहेजा प्रोजेक्ट पुनर्प्राप्त किया गया"],
     ["{} — click to assign selection / set active; double-click for options", "{} — kliknij, aby przypisać zaznaczenie / ustawić jako aktywną; dwukrotnie, aby zobaczyć opcje", "{} — klicken, um die Auswahl zuzuweisen / zu aktivieren; doppelklicken für Optionen", "{} — clic per assegnare la selezione / impostare come attivo; doppio clic per le opzioni", "{} — napsauta määrittääksesi valinnan / asettaaksesi aktiiviseksi; kaksoisnapsautus avaa asetukset", "{} — 点击以分配所选对象 / 设为当前图层；双击打开选项", "{} — चयन असाइन करने / सक्रिय सेट करने के लिए क्लिक करें; विकल्पों के लिए डबल-क्लिक करें"],
     ["Show all {} layers", "Pokaż wszystkie {} warstw", "Alle {} Ebenen anzeigen", "Mostra tutti i {} livelli", "Näytä kaikki {} tasoa", "显示全部 {} 个图层", "सभी {} लेयर दिखाएँ"],
+    ["Check for updates…", "Sprawdź aktualizacje…", "Nach Updates suchen…", "Controlla gli aggiornamenti…", "Tarkista päivitykset…", "检查更新…", "अपडेट जाँचें…"],
+    ["Program options…", "Opcje programu…", "Programmoptionen…", "Opzioni del programma…", "Ohjelman asetukset…", "程序选项…", "प्रोग्राम विकल्प…"],
+    ["Program options", "Opcje programu", "Programmoptionen", "Opzioni del programma", "Ohjelman asetukset", "程序选项", "प्रोग्राम विकल्प"],
+    ["Look for a newer version when the program starts", "Szukaj nowszej wersji przy uruchamianiu programu", "Beim Start nach einer neueren Version suchen", "Cerca una versione più recente all'avvio", "Etsi uudempaa versiota käynnistettäessä", "启动时检查新版本", "प्रोग्राम शुरू होने पर नया संस्करण खोजें"],
+    ["Earlier in the job", "Wcześniej w zadaniu", "Früher im Auftrag", "Prima nel lavoro", "Aiemmin työssä", "在作业中提前", "जॉब में पहले"],
+    ["Later in the job", "Później w zadaniu", "Später im Auftrag", "Dopo nel lavoro", "Myöhemmin työssä", "在作业中靠后", "जॉब में बाद में"],
+    ["How far one click moves the tool, in millimetres", "O ile przesuwa narzędzie jedno kliknięcie, w milimetrach", "Wie weit ein Klick das Werkzeug bewegt, in Millimetern", "Di quanto si sposta l'utensile a ogni clic, in millimetri", "Kuinka pitkälle yksi napsautus siirtää työkalua, millimetreinä", "点击一次工具移动的距离（毫米）", "एक क्लिक से टूल कितना हिलता है, मिलीमीटर में"],
+    ["Speed", "Prędkość", "Geschwindigkeit", "Velocità", "Nopeus", "速度", "गति"],
+    ["Arrow keys move X and Y, Page Up and Page Down move Z, by the step chosen above. Off by default: the arrows also move the selected shapes.", "Strzałki przesuwają X i Y, Page Up i Page Down przesuwają Z, o krok wybrany wyżej. Domyślnie wyłączone: strzałki przesuwają też zaznaczone kształty.", "Die Pfeiltasten bewegen X und Y, Bild auf und Bild ab bewegen Z, um den oben gewählten Schritt. Standardmäßig aus: Die Pfeile verschieben auch die gewählten Formen.", "Le frecce muovono X e Y, Pag su e Pag giù muovono Z, del passo scelto sopra. Disattivato di default: le frecce muovono anche le forme selezionate.", "Nuolinäppäimet siirtävät X:ää ja Y:tä, Page Up ja Page Down siirtävät Z:ta ylhäällä valitun askeleen verran. Oletuksena pois: nuolet siirtävät myös valittuja muotoja.", "方向键按上面选择的步长移动 X 和 Y，Page Up 和 Page Down 移动 Z。默认关闭：方向键也会移动选中的形状。", "ऊपर चुने गए चरण के अनुसार तीर कुंजियाँ X और Y को, Page Up और Page Down Z को हिलाती हैं। डिफ़ॉल्ट रूप से बंद: तीर चुने हुए आकारों को भी हिलाते हैं।"],
+    ["Spindle", "Wrzeciono", "Spindel", "Mandrino", "Karamoottori", "主轴", "स्पिंडल"],
+    ["Switch on", "Włącz", "Einschalten", "Accendi", "Kytke päälle", "开启", "चालू करें"],
+    ["Switches the spindle on to try it (M3 S…) and off again (M5). A job does this by itself.", "Włącza wrzeciono do próby (M3 S…) i wyłącza je (M5). Zadanie robi to samo.", "Schaltet die Spindel zum Ausprobieren ein (M3 S…) und wieder aus (M5). Ein Auftrag macht das selbst.", "Accende il mandrino per provarlo (M3 S…) e lo spegne (M5). Un lavoro lo fa da solo.", "Kytkee karan päälle kokeilua varten (M3 S…) ja pois (M5). Työ tekee tämän itse.", "开启主轴进行试验（M3 S…），并再次关闭（M5）。作业会自动执行此操作。", "आज़माने के लिए स्पिंडल चालू करता है (M3 S…) और फिर बंद करता है (M5)। जॉब यह खुद करता है।"],
+    ["Switch off", "Wyłącz", "Ausschalten", "Spegni", "Kytke pois", "关闭", "बंद करें"],
+    ["Look why it stopped before you unlock the machine: the tool may be in the material.", "Sprawdź, dlaczego się zatrzymało, zanim odblokujesz maszynę: narzędzie może tkwić w materiale.", "Prüfe, warum die Maschine gestoppt hat, bevor du sie entsperrst: Das Werkzeug kann im Material stecken.", "Controlla perché si è fermata prima di sbloccare la macchina: l'utensile può essere nel materiale.", "Tarkista, miksi kone pysähtyi, ennen kuin avaat lukituksen: työkalu voi olla materiaalissa.", "解锁机器前请先查明停机原因：刀具可能还在材料中。", "मशीन अनलॉक करने से पहले देखें कि वह क्यों रुकी: टूल सामग्री में फँसा हो सकता है।"],
+    ["Stop", "Stop", "Stopp", "Stop", "Pysäytä", "停止", "रोकें"],
+    ["Stop the job and the spindle", "Zatrzymaj zadanie i wrzeciono", "Auftrag und Spindel anhalten", "Ferma il lavoro e il mandrino", "Pysäytä työ ja kara", "停止作业和主轴", "जॉब और स्पिंडल रोकें"],
+    ["The job stopped", "Zadanie zatrzymane", "Der Auftrag wurde gestoppt", "Il lavoro si è fermato", "Työ pysähtyi", "作业已停止", "जॉब रुक गया"],
+    ["No answer from the machine", "Brak odpowiedzi od maszyny", "Keine Antwort von der Maschine", "Nessuna risposta dalla macchina", "Kone ei vastaa", "机器没有响应", "मशीन से कोई उत्तर नहीं"],
+    ["The spindle speed is sent as S{} for {} rpm: the controller's range ($30) is spread over the top speed of the device ({} rpm).", "Prędkość wrzeciona jest wysyłana jako S{} dla {} obr/min: zakres sterownika ($30) jest rozłożony na maksymalną prędkość urządzenia ({} obr/min).", "Die Spindeldrehzahl wird als S{} für {} U/min gesendet: Der Bereich der Steuerung ($30) wird auf die Höchstdrehzahl des Geräts ({} U/min) verteilt.", "La velocità del mandrino viene inviata come S{} per {} giri/min: l'intervallo del controller ($30) è distribuito sulla velocità massima del dispositivo ({} giri/min).", "Karan nopeus lähetetään arvona S{} nopeudelle {} rpm: ohjaimen alue ($30) jaetaan laitteen huippunopeudelle ({} rpm).", "主轴转速以 S{} 发送（对应 {} 转/分）：控制器的范围（$30）被分配到设备的最高转速（{} 转/分）上。", "स्पिंडल की गति {} rpm के लिए S{} के रूप में भेजी जाती है: कंट्रोलर की सीमा ($30) डिवाइस की अधिकतम गति ({} rpm) पर फैलाई जाती है।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
@@ -649,7 +668,7 @@ mod tests {
     use crate::i18n::Lang;
 
     /// The sources that call `tr` or `trf`.
-    const SOURCES: [&str; 26] = [
+    const SOURCES: [&str; 27] = [
         include_str!("editor/host.rs"),
         include_str!("editor/commands.rs"),
         include_str!("editor/canvas.rs"),
@@ -676,6 +695,7 @@ mod tests {
         include_str!("plugins_ui.rs"),
         include_str!("autosave_ui.rs"),
         include_str!("layer_bar.rs"),
+        include_str!("alert_ui.rs"),
     ];
 
     fn literals() -> Vec<String> {

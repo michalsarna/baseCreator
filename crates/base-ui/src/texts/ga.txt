@@ -605,3 +605,22 @@
 604|Aisghabhadh an tionscadal nár sábháladh
 605|{} — cliceáil chun an roghnúchán a shannadh / a dhéanamh gníomhach; déchliceáil le haghaidh roghanna
 606|Taispeáin gach ceann de na {} ciseal
+607|Seiceáil le haghaidh nuashonruithe…
+608|Roghanna an chláir…
+609|Roghanna an chláir
+610|Cuardaigh leagan níos nuaí nuair a thosaíonn an clár
+611|Níos luaithe san obair
+612|Níos déanaí san obair
+613|An fhad a ghluaiseann cliceáil amháin an uirlis, i milliméadair
+614|Luas
+615|Gluaiseann na saigheada X agus Y, gluaiseann Page Up agus Page Down Z, de réir an chéim a roghnaíodh thuas. As de réir réamhshocraithe: gluaiseann na saigheada na cruthanna roghnaithe freisin.
+616|Spuaic
+617|Cuir air
+618|Cuireann sé an spuaic ar siúl le triail (M3 S…) agus cuireann as arís í (M5). Déanann post é seo leis féin.
+619|Cuir as
+620|Seiceáil cén fáth ar stop sé sula díghlasálann tú an mheaisín: b'fhéidir go bhfuil an uirlis san ábhar.
+621|Stad
+622|Stad an post agus an spuaic
+623|Stop an post
+624|Níl aon fhreagra ón meaisín
+625|Seoltar luas na spuaice mar S{} do {} rpm: scaiptear raon an rialaitheora ($30) ar uasluas an ghléis ({} rpm).

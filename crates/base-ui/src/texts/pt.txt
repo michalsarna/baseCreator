@@ -605,3 +605,22 @@
 604|O projeto que não foi guardado foi recuperado
 605|{} — clique para lhe atribuir a seleção / torná-la ativa; duplo clique para as opções
 606|Mostrar as {} camadas
+607|Procurar atualizações…
+608|Opções do programa…
+609|Opções do programa
+610|Procurar uma versão mais recente ao iniciar o programa
+611|Mais cedo no trabalho
+612|Mais tarde no trabalho
+613|Quanto um clique move a ferramenta, em milímetros
+614|Velocidade
+615|As setas movem X e Y, Page Up e Page Down movem Z, pelo passo escolhido acima. Desligado por predefinição: as setas também movem as formas selecionadas.
+616|Fuso
+617|Ligar
+618|Liga o fuso para o experimentar (M3 S…) e desliga-o (M5). Um trabalho fá-lo sozinho.
+619|Desligar
+620|Veja porque parou antes de desbloquear a máquina: a ferramenta pode estar no material.
+621|Parar
+622|Parar o trabalho e o fuso
+623|O trabalho parou
+624|Sem resposta da máquina
+625|A velocidade do fuso é enviada como S{} para {} rpm: o intervalo do controlador ($30) é distribuído pela velocidade máxima do dispositivo ({} rpm).

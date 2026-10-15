@@ -605,3 +605,22 @@
 604|S'ha recuperat el projecte sense desar
 605|{} — fes clic per assignar-hi la selecció / activar-la; doble clic per a les opcions
 606|Mostra les {} capes
+607|Cerca actualitzacions…
+608|Opcions del programa…
+609|Opcions del programa
+610|Cerca una versió més nova en iniciar el programa
+611|Abans a la feina
+612|Després a la feina
+613|Quant mou l'eina un clic, en mil·límetres
+614|Velocitat
+615|Les fletxes mouen X i Y, Re Pàg i Av Pàg mouen Z, pel pas triat a dalt. Desactivat per defecte: les fletxes també mouen les formes seleccionades.
+616|Broca
+617|Encén
+618|Encén la broca per provar-la (M3 S…) i la torna a apagar (M5). Una feina ho fa sola.
+619|Apaga
+620|Mira per què s'ha aturat abans de desbloquejar la màquina: l'eina pot estar dins del material.
+621|Atura
+622|Atura la feina i la broca
+623|La feina s'ha aturat
+624|La màquina no respon
+625|La velocitat de la broca s'envia com a S{} per a {} rpm: el rang del controlador ($30) es reparteix sobre la velocitat màxima del dispositiu ({} rpm).

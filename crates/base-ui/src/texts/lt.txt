@@ -605,3 +605,22 @@
 604|Neišsaugotas projektas atkurtas
 605|{} — spustelėkite, kad priskirtumėte pažymėtą / padarytumėte aktyvų; dukart spustelėkite parinktims
 606|Rodyti visus {} sluoksnių
+607|Tikrinti, ar yra naujinimų…
+608|Programos parinktys…
+609|Programos parinktys
+610|Paleidžiant programą ieškoti naujesnės versijos
+611|Darbe anksčiau
+612|Darbe vėliau
+613|Kiek vienas spustelėjimas perkelia įrankį, milimetrais
+614|Greitis
+615|Rodyklės perkelia X ir Y, Page Up ir Page Down perkelia Z, aukščiau pasirinktu žingsniu. Pagal numatytąją išjungta: rodyklės perkelia ir pažymėtas formas.
+616|Suklys
+617|Įjungti
+618|Įjungia suklį išbandyti (M3 S…) ir vėl išjungia (M5). Darbas tai daro pats.
+619|Išjungti
+620|Prieš atrakindami stakles išsiaiškinkite, kodėl jos sustojo: įrankis gali būti medžiagoje.
+621|Stop
+622|Sustabdyti darbą ir suklį
+623|Darbas sustojo
+624|Staklės neatsako
+625|Besisukimo greitis siunčiamas kaip S{} esant {} aps./min: valdiklio diapazonas ($30) paskirstomas įrenginio didžiausiam greičiui ({} aps./min).
