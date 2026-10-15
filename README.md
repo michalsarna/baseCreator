@@ -33,7 +33,7 @@ camera overlay of a bed, the job check). They stay in the application.
 
 ### Plugins
 
-Plugins add presets, clipart, translations, importers, generators (shapes from a form) and G-code postprocessors to every program: Rhai scripts in a sandbox, packs without code, installed from a folder or a zip. See [docs/PLUGINS.md](docs/PLUGINS.md) and the examples in `examples/plugins/`.
+Plugins add presets, clipart, translations, importers, generators (shapes from a form) and G-code postprocessors to every program: Rhai scripts in a sandbox, packs without code, installed from a folder or a zip. They can be installed from the **official list** ([baseCreator-plugins](https://github.com/michalsarna/baseCreator-plugins), with a guide for authors) inside the programs. See [docs/PLUGINS.md](docs/PLUGINS.md) and the examples in `examples/plugins/`.
 
 ## Using it
 

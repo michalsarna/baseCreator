@@ -580,3 +580,21 @@
 579|Importar con un complemento…
 580|Ningún complemento lee archivos: instala uno en la ventana Complementos
 581|El postprocesador falló, no se guardó nada: {}
+582|Buscar actualizaciones de complementos al iniciar
+583|Buscar actualizaciones
+584|Comprobando la lista…
+585|No se pudo obtener la lista: {}
+586|Descargando {}…
+587|Para: {}
+588|Instalar
+589|Instalados
+590|Requiere la versión {} del programa o posterior
+591|Complementos oficiales
+592|Complemento actualizado: {}
+593|Hay actualizaciones de complementos: {}
+594|Repositorio de complementos
+595|La lista aún no está cargada. Pulsa Buscar actualizaciones.
+596|Al día
+597|Actualizar
+598|Actualización disponible: {} → {}
+599|{} complementos en la lista, {} se pueden actualizar

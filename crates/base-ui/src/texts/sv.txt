@@ -580,3 +580,21 @@
 579|Importera med ett tillägg…
 580|Inget tillägg läser filer: installera ett i fönstret Tillägg
 581|Efterbehandlaren misslyckades, inget sparades: {}
+582|Sök efter tilläggsuppdateringar vid start
+583|Sök efter uppdateringar
+584|Kontrollerar listan…
+585|Listan kunde inte hämtas: {}
+586|Hämtar {}…
+587|För: {}
+588|Installera
+589|Installerade
+590|Kräver programversion {} eller senare
+591|Officiella tillägg
+592|Tillägg uppdaterat: {}
+593|Tilläggsuppdateringar finns: {}
+594|Tilläggsarkiv
+595|Listan är inte inläst ännu. Tryck på Sök efter uppdateringar.
+596|Uppdaterad
+597|Uppdatera
+598|Uppdatering finns: {} → {}
+599|{} tillägg i listan, {} kan uppdateras

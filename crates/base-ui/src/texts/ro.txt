@@ -580,3 +580,21 @@
 579|Importă cu un plugin…
 580|Niciun plugin nu citește fișiere: instalează unul în fereastra Pluginuri
 581|Postprocesorul a eșuat, nu s-a salvat nimic: {}
+582|Caută actualizări ale pluginurilor la pornire
+583|Caută actualizări
+584|Se verifică lista…
+585|Lista nu a putut fi obținută: {}
+586|Se descarcă {}…
+587|Pentru: {}
+588|Instalează
+589|Instalate
+590|Necesită versiunea {} a programului sau mai nouă
+591|Pluginuri oficiale
+592|Plugin actualizat: {}
+593|Actualizări de pluginuri disponibile: {}
+594|Depozitul de pluginuri
+595|Lista nu este încă încărcată. Apasă Caută actualizări.
+596|La zi
+597|Actualizează
+598|Actualizare disponibilă: {} → {}
+599|{} pluginuri în listă, {} pot fi actualizate

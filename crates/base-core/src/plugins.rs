@@ -150,6 +150,9 @@ pub struct Manifest {
     pub license: String,
     #[serde(default)]
     pub description: String,
+    /// The oldest baseCreator (the programs' shared version) the plugin works with, like `0.9.8`.
+    #[serde(default)]
+    pub min_base: String,
     /// The programs the plugin is for; empty means all.
     #[serde(default)]
     pub programs: Vec<String>,
@@ -196,6 +199,9 @@ impl Manifest {
         }
         if self.name.trim().is_empty() || self.name.len() > 120 || self.description.len() > 4000 || self.version.len() > 40 || self.author.len() > 120 || self.license.len() > 120 {
             return Err("the name, version, author, licence or description is empty or too long".into());
+        }
+        if !self.min_base.is_empty() && crate::registry::compare_versions(&self.min_base, crate::registry::base_version()) == std::cmp::Ordering::Greater {
+            return Err(format!("the plugin needs baseCreator {} or newer (update the program)", self.min_base));
         }
         if let Some(p) = self.programs.iter().find(|p| !PROGRAMS.contains(&p.as_str())) {
             return Err(format!("unknown program {p:?}; use {}", PROGRAMS.join(", ")));
@@ -283,12 +289,16 @@ pub struct Broken {
 struct State {
     #[serde(default)]
     disabled: Vec<String>,
+    /// Look for newer plugins in the official list at the start of a program (off unless the person switches it on).
+    #[serde(default)]
+    auto_check: bool,
 }
 
 /// The plugins found in the folder.
 #[derive(Debug, Default)]
 pub struct Registry {
     dir: PathBuf,
+    auto_check: bool,
     pub plugins: Vec<Plugin>,
     pub broken: Vec<Broken>,
 }
@@ -303,7 +313,7 @@ impl Registry {
     pub fn load(dir: impl Into<PathBuf>) -> Registry {
         let dir = dir.into();
         let state: State = std::fs::read_to_string(dir.join("state.json")).ok().and_then(|s| serde_json::from_str(&s).ok()).unwrap_or_default();
-        let mut r = Registry { dir: dir.clone(), plugins: vec![], broken: vec![] };
+        let mut r = Registry { dir: dir.clone(), auto_check: state.auto_check, plugins: vec![], broken: vec![] };
         let Ok(rd) = std::fs::read_dir(&dir) else { return r };
         let mut folders: Vec<PathBuf> = rd.flatten().map(|e| e.path()).filter(|p| p.is_dir()).collect();
         folders.sort();
@@ -333,9 +343,19 @@ impl Registry {
     }
 
     fn save_state(&self) -> Result<(), String> {
-        let state = State { disabled: self.plugins.iter().filter(|p| !p.enabled).map(|p| p.manifest.id.clone()).collect() };
+        let state = State { disabled: self.plugins.iter().filter(|p| !p.enabled).map(|p| p.manifest.id.clone()).collect(), auto_check: self.auto_check };
         std::fs::create_dir_all(&self.dir).map_err(|e| e.to_string())?;
         std::fs::write(self.dir.join("state.json"), serde_json::to_string_pretty(&state).map_err(|e| e.to_string())?).map_err(|e| e.to_string())
+    }
+
+    /// Is the check for newer plugins at the start of a program on? (Shared by all programs.)
+    pub fn auto_check(&self) -> bool {
+        self.auto_check
+    }
+
+    pub fn set_auto_check(&mut self, on: bool) -> Result<(), String> {
+        self.auto_check = on;
+        self.save_state()
     }
 
     pub fn set_enabled(&mut self, id: &str, on: bool) -> Result<(), String> {
@@ -360,6 +380,15 @@ impl Registry {
     /// Install a plugin from a `.zip` (the manifest at the top, or inside a single top folder). A plugin of the same id
     /// is replaced. Returns the id.
     pub fn install_zip(&mut self, zip_path: &Path) -> Result<String, String> {
+        self.install_zip_checked(zip_path, None)
+    }
+
+    /// Install a zip that must hold the plugin `id` in `version` (what the official list promised).
+    pub fn install_zip_expecting(&mut self, zip_path: &Path, id: &str, version: &str) -> Result<String, String> {
+        self.install_zip_checked(zip_path, Some((id, version)))
+    }
+
+    fn install_zip_checked(&mut self, zip_path: &Path, expect: Option<(&str, &str)>) -> Result<String, String> {
         let file = std::fs::File::open(zip_path).map_err(|e| e.to_string())?;
         let mut zip = zip::ZipArchive::new(file).map_err(|e| format!("this is not a zip file: {e}"))?;
         if zip.len() > MAX_ZIP_FILES {
@@ -403,6 +432,11 @@ impl Registry {
             return Err("the manifest is too big".into());
         }
         let m = Manifest::parse(&String::from_utf8(manifest.1.clone()).map_err(|_| "the manifest is not text".to_string())?)?;
+        if let Some((id, version)) = expect {
+            if m.id != id || crate::registry::compare_versions(&m.version, version) != std::cmp::Ordering::Equal {
+                return Err(format!("the zip holds {} {}, not {id} {version}", m.id, m.version));
+            }
+        }
         // The files the manifest names must be in the zip.
         for rel in m.referenced_files() {
             if !files.iter().any(|(n, _)| *n == rel) {

@@ -580,3 +580,21 @@
 579|Flytja inn með viðbót…
 580|Engin viðbót les skrár: settu upp eina í Viðbætur-glugganum
 581|Eftirvinnslan mistókst, engu var vistað: {}
+582|Leita að uppfærslum viðbóta við ræsingu
+583|Leita að uppfærslum
+584|Athuga listann…
+585|Ekki tókst að sækja listann: {}
+586|Sæki {}…
+587|Fyrir: {}
+588|Setja upp
+589|Uppsett
+590|Krefst útgáfu {} af forritinu eða nýrri
+591|Opinberar viðbætur
+592|Viðbót uppfærð: {}
+593|Uppfærslur viðbóta í boði: {}
+594|Viðbótasafn
+595|Listinn er ekki hlaðinn enn. Ýttu á Leita að uppfærslum.
+596|Uppfært
+597|Uppfæra
+598|Uppfærsla í boði: {} → {}
+599|{} viðbætur á listanum, {} hægt að uppfæra

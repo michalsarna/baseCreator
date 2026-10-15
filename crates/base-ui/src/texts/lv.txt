@@ -580,3 +580,21 @@
 579|Importēt ar spraudni…
 580|Neviens spraudnis nelasa failus: instalē vienu logā Spraudņi
 581|Pēcapstrādātājs neizdevās, nekas netika saglabāts: {}
+582|Startējot meklēt spraudņu atjauninājumus
+583|Meklēt atjauninājumus
+584|Pārbauda sarakstu…
+585|Sarakstu neizdevās iegūt: {}
+586|Lejupielādē {}…
+587|Programmām: {}
+588|Instalēt
+589|Instalētie
+590|Nepieciešama programmas versija {} vai jaunāka
+591|Oficiālie spraudņi
+592|Spraudnis atjaunināts: {}
+593|Pieejami spraudņu atjauninājumi: {}
+594|Spraudņu krātuve
+595|Saraksts vēl nav ielādēts. Nospiediet Meklēt atjauninājumus.
+596|Atjaunināts
+597|Atjaunināt
+598|Pieejams atjauninājums: {} → {}
+599|Sarakstā {} spraudņi, {} var atjaunināt

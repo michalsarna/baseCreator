@@ -14,6 +14,16 @@ A plugin can bring four kinds of things. They can be mixed in one plugin.
 | **Generator** | script | a form with parameters; returns shapes |
 | **Postprocessor** | script | rewrites the lines of a G-code program for another controller |
 
+## The official list
+
+Plugins can also be installed from the official list: **Settings → Plugins… → Official plugins**. The list is built from the
+repository [baseCreator-plugins](https://github.com/michalsarna/baseCreator-plugins) (with a guide for authors and the way
+to send a plugin) and published at `https://michalsarna.github.io/baseCreator-plugins/index.json`. It shows every plugin,
+also those for another program; **Install** downloads the zip from that site only, checks its SHA-256 and that it holds the
+plugin and version the list names, and **Update** appears when the list has a newer `version`. A plugin whose `min_base` is
+newer than the program is not offered. Looking for updates at the start of a program is off until the person switches it
+on (the switch is shared by the programs).
+
 ## Safety
 
 Scripts are written in [Rhai](https://rhai.rs) and run in a sandbox: **no files, no network, no system, no machine**. They
@@ -127,6 +137,8 @@ Not supported (yet): parameters for postprocessors, plugins that add operations 
   and `sync_clipart()`.
 * `base_core::plugin_script`: `import`, `generate`, `postprocess` run a script and return `Shapes { scene, warnings }` or
   the lines; `check_output` is the check of the G-code lines.
+* `base_core::registry` reads the official list (`parse_index`, `Entry::status`, `install`, `compare_versions`); the fetching is in `plugins_ui`.
+* `cargo run -p base-core --example check_plugins -- <folder>` loads a folder of plugins and runs their scripts (the CI of the plugins repository uses it).
 * `base_core::presets::with_plugins` adds the presets of plugins to a built-in list.
 * `base_ui::plugins_ui::PluginsUi` is the state for the two windows (`window`, `generator_window`) and also
   `import_file(path, area)`, `import_extensions()`, `post_combo(ui)` and `postprocess(lines, area)`. A program shows the

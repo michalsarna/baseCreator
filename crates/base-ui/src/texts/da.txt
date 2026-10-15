@@ -580,3 +580,21 @@
 579|Importér med et plugin…
 580|Intet plugin læser filer: installér et i vinduet Plugins
 581|Postprocessoren fejlede, intet blev gemt: {}
+582|Søg efter opdateringer til plugins ved start
+583|Søg efter opdateringer
+584|Tjekker listen…
+585|Listen kunne ikke hentes: {}
+586|Henter {}…
+587|Til: {}
+588|Installér
+589|Installeret
+590|Kræver programversion {} eller nyere
+591|Officielle plugins
+592|Plugin opdateret: {}
+593|Opdateringer til plugins er tilgængelige: {}
+594|Plugin-lager
+595|Listen er ikke hentet endnu. Tryk på Søg efter opdateringer.
+596|Opdateret
+597|Opdatér
+598|Opdatering tilgængelig: {} → {}
+599|{} plugins på listen, {} kan opdateres

@@ -580,3 +580,21 @@
 579|Importa amb un connector…
 580|Cap connector llegeix fitxers: n'has d'instal·lar un a la finestra Connectors
 581|El postprocessador ha fallat, no s'ha desat res: {}
+582|Cerca actualitzacions dels connectors a l'inici
+583|Cerca actualitzacions
+584|S'està comprovant la llista…
+585|No s'ha pogut obtenir la llista: {}
+586|S'està baixant {}…
+587|Per a: {}
+588|Instal·la
+589|Instal·lats
+590|Requereix la versió {} del programa o posterior
+591|Connectors oficials
+592|Connector actualitzat: {}
+593|Actualitzacions de connectors disponibles: {}
+594|Repositori de connectors
+595|La llista encara no està carregada. Prem Cerca actualitzacions.
+596|Al dia
+597|Actualitza
+598|Actualització disponible: {} → {}
+599|{} connectors a la llista, {} es poden actualitzar

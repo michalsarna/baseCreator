@@ -580,3 +580,21 @@
 579|Importar com um plugin…
 580|Nenhum plugin lê ficheiros: instale um na janela Plugins
 581|O pós-processador falhou, nada foi guardado: {}
+582|Procurar atualizações de plugins ao iniciar
+583|Procurar atualizações
+584|A verificar a lista…
+585|Não foi possível obter a lista: {}
+586|A transferir {}…
+587|Para: {}
+588|Instalar
+589|Instalados
+590|Requer a versão {} do programa ou mais recente
+591|Plugins oficiais
+592|Plugin atualizado: {}
+593|Atualizações de plugins disponíveis: {}
+594|Repositório de plugins
+595|A lista ainda não está carregada. Prima Procurar atualizações.
+596|Atualizado
+597|Atualizar
+598|Atualização disponível: {} → {}
+599|{} plugins na lista, {} podem ser atualizados

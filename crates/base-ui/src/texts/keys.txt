@@ -580,3 +580,21 @@
 579	Import with a plugin…
 580	No plugin reads files: install one in the Plugins window
 581	The postprocessor failed, nothing was saved: {}
+582	Check for plugin updates at start
+583	Check for updates
+584	Checking the list…
+585	Could not get the list: {}
+586	Downloading {}…
+587	For: {}
+588	Install
+589	Installed
+590	Needs program version {} or newer
+591	Official plugins
+592	Plugin updated: {}
+593	Plugin updates available: {}
+594	Plugins repository
+595	The list is not loaded yet. Press Check for updates.
+596	Up to date
+597	Update
+598	Update available: {} → {}
+599	{} plugins in the list, {} can be updated
