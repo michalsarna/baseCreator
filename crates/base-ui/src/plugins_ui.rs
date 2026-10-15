@@ -42,10 +42,10 @@ struct NetState {
 }
 
 fn get(url: &str, max: u64) -> Result<Vec<u8>, String> {
-    let agent = ureq::AgentBuilder::new().timeout_connect(Duration::from_secs(8)).timeout_read(Duration::from_secs(20)).user_agent("baseCreator-plugins").build();
+    let agent: ureq::Agent = ureq::Agent::config_builder().timeout_connect(Some(Duration::from_secs(8))).timeout_recv_response(Some(Duration::from_secs(20))).timeout_recv_body(Some(Duration::from_secs(60))).user_agent("baseCreator-plugins").build().into();
     let resp = agent.get(url).call().map_err(|e| e.to_string())?;
     let mut buf = Vec::new();
-    resp.into_reader().take(max + 1).read_to_end(&mut buf).map_err(|e| e.to_string())?;
+    resp.into_body().into_reader().take(max + 1).read_to_end(&mut buf).map_err(|e| e.to_string())?;
     if buf.len() as u64 > max {
         return Err("the answer is too large".into());
     }
@@ -747,5 +747,25 @@ mod tests {
         assert_eq!(st.postprocess(lines.clone(), (1.0, 1.0)).unwrap().0, lines, "none chosen: unchanged");
         st.post = Some("gcode-tools/line-numbers".into());
         assert_eq!(st.postprocess(lines, (1.0, 1.0)).unwrap().0, vec!["N10 G21".to_string(), "N20 M5".to_string()]);
+    }
+
+    /// Against the real official list: `cargo test -p base-ui -- --ignored real_network` (needs the internet).
+    #[test]
+    #[ignore = "uses the internet"]
+    fn real_network_the_official_list_and_a_plugin_install() {
+        use base_core::plugins::Registry;
+        let text = String::from_utf8(get(registry::INDEX_URL, registry::MAX_INDEX as u64).expect("the list")).unwrap();
+        let index = registry::parse_index(&text).expect("a valid list");
+        assert!(!index.plugins.is_empty());
+        let dir = std::env::temp_dir().join(format!("bc-real-net-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        let mut reg = Registry::load(dir.join("plugins"));
+        for e in &index.plugins {
+            let bytes = get(&e.url, registry::MAX_ZIP).expect("the zip");
+            registry::install(&mut reg, e, &bytes).unwrap_or_else(|err| panic!("{}: {err}", e.id));
+            assert_eq!(e.status(&reg), registry::Status::UpToDate);
+        }
+        assert!(reg.generators("millcreator").len() >= 3);
+        std::fs::remove_dir_all(dir).ok();
     }
 }

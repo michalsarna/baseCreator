@@ -40,14 +40,14 @@ pub fn spawn(url: String, ctx: egui::Context) -> StreamWorker {
     let stop = Arc::new(AtomicBool::new(false));
     let flag = stop.clone();
     std::thread::spawn(move || {
-        let agent = ureq::AgentBuilder::new().timeout_connect(Duration::from_secs(5)).timeout_read(Duration::from_secs(3)).build();
+        let agent = ureq::Agent::from(ureq::Agent::config_builder().timeout_connect(Some(Duration::from_secs(5))).timeout_recv_response(Some(Duration::from_secs(5))).timeout_recv_body(None).build());
         let mut last_error = String::new();
         let mut last_frame = Instant::now() - Duration::from_secs(1);
         while !flag.load(Ordering::Relaxed) {
             match agent.get(&url).call() {
                 Ok(resp) => {
                     last_error.clear();
-                    let mut reader = resp.into_reader();
+                    let mut reader = resp.into_body().into_reader();
                     let mut buf: Vec<u8> = Vec::new();
                     let mut chunk = vec![0u8; 32 * 1024];
                     while !flag.load(Ordering::Relaxed) {
