@@ -598,3 +598,10 @@
 597|Atnaujinti
 598|Yra naujinimas: {} → {}
 599|Sąraše {} papildinių, {} galima atnaujinti
+600|Rastas neišsaugotas projektas
+601|{} formų, išsaugota automatiškai
+602|Atkurti
+603|Atmesti
+604|Neišsaugotas projektas atkurtas
+605|{} — spustelėkite, kad priskirtumėte pažymėtą / padarytumėte aktyvų; dukart spustelėkite parinktims
+606|Rodyti visus {} sluoksnių

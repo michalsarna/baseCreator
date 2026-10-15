@@ -22,6 +22,8 @@ use std::rc::Rc;
 use std::time::{Duration, Instant};
 
 pub const MAX_SECONDS: u64 = 10;
+/// The biggest file an importer is given.
+pub const MAX_IMPORT_BYTES: u64 = 64_000_000;
 pub const MAX_SHAPES: usize = 200_000;
 pub const MAX_NODES: usize = 2_000_000;
 pub const MAX_LINES: usize = 5_000_000;
@@ -386,7 +388,7 @@ fn into_shapes(run: &Run, value: Dynamic) -> Result<Shapes, String> {
 
 /// Read `bytes` with the importer `def` of `plugin`.
 pub fn import(plugin: &Plugin, def: &ImporterDef, bytes: &[u8], ctx: &Ctx) -> Result<Shapes, String> {
-    if bytes.len() > 64_000_000 {
+    if bytes.len() as u64 > MAX_IMPORT_BYTES {
         return Err("the file is too big".into());
     }
     let run = engine();

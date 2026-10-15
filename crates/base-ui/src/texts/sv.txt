@@ -598,3 +598,10 @@
 597|Uppdatera
 598|Uppdatering finns: {} → {}
 599|{} tillägg i listan, {} kan uppdateras
+600|Ett projekt som inte sparades hittades
+601|{} former, sparade automatiskt
+602|Återställ
+603|Kassera det
+604|Projektet som inte sparades har återställts
+605|{} — klicka för att tilldela markeringen / göra aktivt; dubbelklicka för alternativ
+606|Visa alla {} lager

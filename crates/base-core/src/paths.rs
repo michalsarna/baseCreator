@@ -78,3 +78,69 @@ pub fn merge_gallery(from: &Path, to: &Path) -> usize {
     }
     added
 }
+
+/// Write `bytes` to a new file that only this user can reach, in a new folder of its own with an unpredictable name.
+/// (A file with a fixed name in the shared temporary folder can be replaced by another user between writing and using it,
+/// or be a link to some other file.) Returns the path; remove the folder (`path.parent()`) when done.
+pub fn private_temp_file(prefix: &str, file_name: &str, bytes: &[u8]) -> Result<PathBuf, String> {
+    use std::io::Write;
+    if file_name.contains(['/', '\\']) || file_name.is_empty() || file_name.starts_with('.') {
+        return Err("not a plain file name".into());
+    }
+    let nanos = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_nanos()).unwrap_or(0);
+    for attempt in 0..20u32 {
+        let dir = std::env::temp_dir().join(format!("{prefix}-{}-{:x}-{attempt}", std::process::id(), nanos));
+        let mut b = std::fs::DirBuilder::new();
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::DirBuilderExt;
+            b.mode(0o700);
+        }
+        match b.create(&dir) {
+            Ok(()) => {
+                let path = dir.join(file_name);
+                let mut o = std::fs::OpenOptions::new();
+                o.write(true).create_new(true);
+                #[cfg(unix)]
+                {
+                    use std::os::unix::fs::OpenOptionsExt;
+                    o.mode(0o600);
+                }
+                let r = o.open(&path).and_then(|mut f| f.write_all(bytes));
+                return match r {
+                    Ok(()) => Ok(path),
+                    Err(e) => {
+                        let _ = std::fs::remove_dir_all(&dir);
+                        Err(e.to_string())
+                    }
+                };
+            }
+            Err(e) if e.kind() == std::io::ErrorKind::AlreadyExists => continue,
+            Err(e) => return Err(e.to_string()),
+        }
+    }
+    Err("could not make a private temporary folder".into())
+}
+
+#[cfg(test)]
+mod private_tests {
+    use super::*;
+
+    #[test]
+    fn a_private_temp_file_is_new_and_only_for_the_user() {
+        let a = private_temp_file("bc-priv-test", "x.conf", b"one").unwrap();
+        let b = private_temp_file("bc-priv-test", "x.conf", b"two").unwrap();
+        assert_ne!(a, b, "never the same place twice");
+        assert_eq!(std::fs::read(&a).unwrap(), b"one");
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            assert_eq!(std::fs::metadata(&a).unwrap().permissions().mode() & 0o777, 0o600);
+            assert_eq!(std::fs::metadata(a.parent().unwrap()).unwrap().permissions().mode() & 0o777, 0o700);
+        }
+        assert!(private_temp_file("bc-priv-test", "../x", b"").is_err());
+        for p in [a, b] {
+            let _ = std::fs::remove_dir_all(p.parent().unwrap());
+        }
+    }
+}

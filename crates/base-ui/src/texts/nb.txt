@@ -598,3 +598,10 @@
 597|Oppdater
 598|Oppdatering tilgjengelig: {} → {}
 599|{} programtillegg i listen, {} kan oppdateres
+600|Et prosjekt som ikke ble lagret, ble funnet
+601|{} former, bevart automatisk
+602|Gjenopprett
+603|Forkast det
+604|Prosjektet som ikke ble lagret, er gjenopprettet
+605|{} — klikk for å tildele utvalget / gjøre aktivt; dobbeltklikk for valg
+606|Vis alle {} lag

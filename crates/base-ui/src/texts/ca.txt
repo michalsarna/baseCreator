@@ -598,3 +598,10 @@
 597|Actualitza
 598|Actualització disponible: {} → {}
 599|{} connectors a la llista, {} es poden actualitzar
+600|S'ha trobat un projecte sense desar
+601|{} formes, conservades automàticament
+602|Recupera
+603|Descarta'l
+604|S'ha recuperat el projecte sense desar
+605|{} — fes clic per assignar-hi la selecció / activar-la; doble clic per a les opcions
+606|Mostra les {} capes

@@ -264,3 +264,15 @@ fn a_plugin_of_the_official_list_is_installed_and_updated() {
     assert!(Registry::load(dir.join("plugins")).auto_check());
     std::fs::remove_dir_all(dir).ok();
 }
+
+#[test]
+fn a_file_over_the_limit_is_not_read() {
+    let dir = std::env::temp_dir().join(format!("bc-plugins-limit-{}", std::process::id()));
+    std::fs::create_dir_all(&dir).unwrap();
+    let f = dir.join("big.bin");
+    std::fs::write(&f, vec![0u8; 100]).unwrap();
+    assert_eq!(base_core::plugins::read_limited(&f, 100).unwrap().len(), 100);
+    assert!(base_core::plugins::read_limited(&f, 99).is_err());
+    assert!(base_core::plugins::read_limited(&dir, 100).is_err(), "a folder is not a file");
+    std::fs::remove_dir_all(dir).ok();
+}

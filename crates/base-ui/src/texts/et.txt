@@ -598,3 +598,10 @@
 597|Uuenda
 598|Uuendus saadaval: {} → {}
 599|Loendis on {} pluginat, {} saab uuendada
+600|Leiti salvestamata projekt
+601|{} kujundit, säilitatud automaatselt
+602|Taasta
+603|Loobu sellest
+604|Salvestamata projekt taastati
+605|{} — klõpsake, et määrata valik / teha aktiivseks; valikute jaoks topeltklõps
+606|Näita kõiki {} kihti

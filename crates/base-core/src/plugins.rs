@@ -21,6 +21,8 @@ pub const MAX_PLUGINS: usize = 200;
 const MAX_MANIFEST: u64 = 1_000_000;
 const MAX_FILE: u64 = 8_000_000;
 const MAX_ZIP_TOTAL: u64 = 64_000_000;
+/// The biggest zip file that is read.
+const MAX_ZIP_FILE: u64 = 32_000_000;
 const MAX_ZIP_FILES: usize = 2000;
 
 /// The programs a plugin can name in `programs`.
@@ -380,16 +382,18 @@ impl Registry {
     /// Install a plugin from a `.zip` (the manifest at the top, or inside a single top folder). A plugin of the same id
     /// is replaced. Returns the id.
     pub fn install_zip(&mut self, zip_path: &Path) -> Result<String, String> {
-        self.install_zip_checked(zip_path, None)
+        let bytes = read_limited(zip_path, MAX_ZIP_FILE)?;
+        self.install_zip_bytes(&bytes, None)
     }
 
-    /// Install a zip that must hold the plugin `id` in `version` (what the official list promised).
-    pub fn install_zip_expecting(&mut self, zip_path: &Path, id: &str, version: &str) -> Result<String, String> {
-        self.install_zip_checked(zip_path, Some((id, version)))
+    /// Install a zip that must hold the plugin `id` in `version` (what the official list promised). The bytes are what
+    /// was checked, so nothing can be swapped between the check and the installation.
+    pub fn install_zip_expecting(&mut self, bytes: &[u8], id: &str, version: &str) -> Result<String, String> {
+        self.install_zip_bytes(bytes, Some((id, version)))
     }
 
-    fn install_zip_checked(&mut self, zip_path: &Path, expect: Option<(&str, &str)>) -> Result<String, String> {
-        let file = std::fs::File::open(zip_path).map_err(|e| e.to_string())?;
+    fn install_zip_bytes(&mut self, bytes: &[u8], expect: Option<(&str, &str)>) -> Result<String, String> {
+        let file = std::io::Cursor::new(bytes);
         let mut zip = zip::ZipArchive::new(file).map_err(|e| format!("this is not a zip file: {e}"))?;
         if zip.len() > MAX_ZIP_FILES {
             return Err("the zip has too many files".into());
@@ -410,6 +414,7 @@ impl Registry {
         }
         let root = root.ok_or_else(|| format!("there is no {MANIFEST} in the zip"))?;
         let mut files: Vec<(String, Vec<u8>)> = vec![];
+        let mut read_total = 0u64;
         for i in 0..zip.len() {
             let mut f = zip.by_index(i).map_err(|e| e.to_string())?;
             let name = f.name().map(|n| n.to_string()).unwrap_or_default();
@@ -423,8 +428,16 @@ impl Registry {
             if f.size() > MAX_FILE {
                 return Err(format!("{rel} is too big"));
             }
-            let mut data = Vec::with_capacity(f.size() as usize);
+            let mut data = Vec::new();
             std::io::Read::read_to_end(&mut std::io::Read::take(&mut f, MAX_FILE + 1), &mut data).map_err(|e| e.to_string())?;
+            // The sizes in the headers of a zip can lie: count what was really read.
+            if data.len() as u64 > MAX_FILE {
+                return Err(format!("{rel} is too big"));
+            }
+            read_total += data.len() as u64;
+            if read_total > MAX_ZIP_TOTAL {
+                return Err("the zip is too big".into());
+            }
             files.push((rel, data));
         }
         let manifest = files.iter().find(|(n, _)| n == MANIFEST).ok_or("no manifest")?;
@@ -569,6 +582,23 @@ impl Plugin {
         }
         std::fs::read_to_string(&p).map_err(|e| format!("{rel}: {e}"))
     }
+}
+
+/// Read a file that is at most `max` bytes (a bigger one is an error, and is not read).
+pub fn read_limited(path: &Path, max: u64) -> Result<Vec<u8>, String> {
+    let meta = std::fs::metadata(path).map_err(|e| e.to_string())?;
+    if !meta.is_file() {
+        return Err("this is not a file".into());
+    }
+    if meta.len() > max {
+        return Err(format!("the file is bigger than {} MB", max / 1_000_000));
+    }
+    let mut out = Vec::new();
+    std::io::Read::read_to_end(&mut std::io::Read::take(std::fs::File::open(path).map_err(|e| e.to_string())?, max + 1), &mut out).map_err(|e| e.to_string())?;
+    if out.len() as u64 > max {
+        return Err(format!("the file is bigger than {} MB", max / 1_000_000));
+    }
+    Ok(out)
 }
 
 fn read_manifest(dir: &Path) -> Result<Manifest, String> {

@@ -598,3 +598,10 @@
 597|Nadogradi
 598|Dostupna nadogradnja: {} → {}
 599|{} dodataka na popisu, {} se može nadograditi
+600|Pronađen je nespremljeni projekt
+601|{} oblika, automatski sačuvano
+602|Oporavi
+603|Odbaci ga
+604|Nespremljeni projekt je oporavljen
+605|{} — kliknite za dodjelu odabira / aktiviranje; dvostruki klik za mogućnosti
+606|Prikaži svih {} slojeva

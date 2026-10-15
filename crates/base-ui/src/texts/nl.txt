@@ -598,3 +598,10 @@
 597|Bijwerken
 598|Update beschikbaar: {} → {}
 599|{} plug-ins in de lijst, {} kunnen worden bijgewerkt
+600|Er is een niet-opgeslagen project gevonden
+601|{} vormen, automatisch bewaard
+602|Herstellen
+603|Weggooien
+604|Het niet-opgeslagen project is hersteld
+605|{} — klik om de selectie toe te wijzen / actief te maken; dubbelklik voor opties
+606|Alle {} lagen tonen

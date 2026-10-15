@@ -93,6 +93,12 @@ pub struct Restored {
     pub pictures: usize,
 }
 
+/// Limits of what a backup may hold (a zip can claim anything).
+const MAX_SETTINGS: u64 = 8_000_000;
+const MAX_PICTURE: u64 = 20_000_000;
+const MAX_TOTAL: u64 = 500_000_000;
+const MAX_ENTRIES: usize = 50_000;
+
 /// Read the settings of the backup in `src` and add its pictures to `gallery`. A backup made by another program
 /// is refused; one without a program mark (made by LightCreator before it was shared) is accepted.
 pub fn restore(src: &Path, title: &str, gallery: &Path) -> Result<Restored, String> {
@@ -101,9 +107,12 @@ pub fn restore(src: &Path, title: &str, gallery: &Path) -> Result<Restored, Stri
     let mut zip = zip::ZipArchive::new(file).map_err(|e| e.to_string())?;
     // Settings first: a file without them is not one of ours.
     let mut settings: BTreeMap<String, String> = {
-        let mut f = zip.by_name(SETTINGS).map_err(|_| format!("{SETTINGS} not found in the file"))?;
+        let f = zip.by_name(SETTINGS).map_err(|_| format!("{SETTINGS} not found in the file"))?;
         let mut text = String::new();
-        f.read_to_string(&mut text).map_err(|e| e.to_string())?;
+        f.take(MAX_SETTINGS + 1).read_to_string(&mut text).map_err(|e| e.to_string())?;
+        if text.len() as u64 > MAX_SETTINGS {
+            return Err("the settings in the backup are too big".into());
+        }
         ron::from_str(&text).map_err(|e| e.to_string())?
     };
     if let Some(p) = settings.remove(PROGRAM_KEY) {
@@ -114,6 +123,11 @@ pub fn restore(src: &Path, title: &str, gallery: &Path) -> Result<Restored, Stri
     // The pictures go to a temporary folder first and are merged from there.
     let tmp = std::env::temp_dir().join(format!("baseCreator-restore-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_nanos()).unwrap_or(0)));
     let result: Result<usize, String> = (|| {
+        if zip.len() > MAX_ENTRIES {
+            return Err("the backup has too many files".into());
+        }
+        // The sizes in a zip can lie: count what is really written.
+        let mut written = 0u64;
         for i in 0..zip.len() {
             let mut f = zip.by_index(i).map_err(|e| e.to_string())?;
             if f.is_dir() {
@@ -129,7 +143,11 @@ pub fn restore(src: &Path, title: &str, gallery: &Path) -> Result<Restored, Stri
                 std::fs::create_dir_all(parent).map_err(|e| e.to_string())?;
             }
             let mut out = std::fs::File::create(&target).map_err(|e| format!("{}: {}", target.display(), e))?;
-            std::io::copy(&mut f, &mut out).map_err(|e| e.to_string())?;
+            let n = std::io::copy(&mut std::io::Read::take(&mut f, MAX_PICTURE + 1), &mut out).map_err(|e| e.to_string())?;
+            written += n;
+            if n > MAX_PICTURE || written > MAX_TOTAL {
+                return Err("the pictures in the backup are too big".into());
+            }
         }
         Ok(merge_gallery(&tmp, gallery))
     })();

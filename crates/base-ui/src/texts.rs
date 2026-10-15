@@ -605,6 +605,13 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Update", "Zaktualizuj", "Aktualisieren", "Aggiorna", "Päivitä", "更新", "अपडेट करें"],
     ["Update available: {} → {}", "Dostępna aktualizacja: {} → {}", "Update verfügbar: {} → {}", "Aggiornamento disponibile: {} → {}", "Päivitys saatavilla: {} → {}", "有可用更新：{} → {}", "अपडेट उपलब्ध: {} → {}"],
     ["{} plugins in the list, {} can be updated", "{} wtyczek na liście, do aktualizacji: {}", "{} Plugins in der Liste, {} können aktualisiert werden", "{} plugin nell'elenco, {} aggiornabili", "{} lisäosaa luettelossa, {} päivitettävissä", "列表中有 {} 个插件，{} 个可更新", "सूची में {} प्लगइन, {} अपडेट हो सकते हैं"],
+    ["A project that was not saved was found", "Znaleziono projekt, który nie został zapisany", "Ein nicht gespeichertes Projekt wurde gefunden", "È stato trovato un progetto non salvato", "Löytyi tallentamaton projekti", "发现了一个未保存的项目", "एक असहेजा प्रोजेक्ट मिला"],
+    ["{} shapes, kept automatically", "{} kształtów, zachowane automatycznie", "{} Formen, automatisch gesichert", "{} forme, conservate automaticamente", "{} muotoa, säilytetty automaattisesti", "{} 个形状，已自动保留", "{} आकार, अपने-आप सुरक्षित"],
+    ["Recover", "Odzyskaj", "Wiederherstellen", "Recupera", "Palauta", "恢复", "पुनर्प्राप्त करें"],
+    ["Discard it", "Odrzuć go", "Verwerfen", "Scartalo", "Hylkää se", "丢弃", "इसे हटाएँ"],
+    ["Recovered the project that was not saved", "Odzyskano projekt, który nie został zapisany", "Das nicht gespeicherte Projekt wurde wiederhergestellt", "Il progetto non salvato è stato recuperato", "Tallentamaton projekti palautettiin", "已恢复未保存的项目", "असहेजा प्रोजेक्ट पुनर्प्राप्त किया गया"],
+    ["{} — click to assign selection / set active; double-click for options", "{} — kliknij, aby przypisać zaznaczenie / ustawić jako aktywną; dwukrotnie, aby zobaczyć opcje", "{} — klicken, um die Auswahl zuzuweisen / zu aktivieren; doppelklicken für Optionen", "{} — clic per assegnare la selezione / impostare come attivo; doppio clic per le opzioni", "{} — napsauta määrittääksesi valinnan / asettaaksesi aktiiviseksi; kaksoisnapsautus avaa asetukset", "{} — 点击以分配所选对象 / 设为当前图层；双击打开选项", "{} — चयन असाइन करने / सक्रिय सेट करने के लिए क्लिक करें; विकल्पों के लिए डबल-क्लिक करें"],
+    ["Show all {} layers", "Pokaż wszystkie {} warstw", "Alle {} Ebenen anzeigen", "Mostra tutti i {} livelli", "Näytä kaikki {} tasoa", "显示全部 {} 个图层", "सभी {} लेयर दिखाएँ"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
@@ -642,7 +649,7 @@ mod tests {
     use crate::i18n::Lang;
 
     /// The sources that call `tr` or `trf`.
-    const SOURCES: [&str; 24] = [
+    const SOURCES: [&str; 26] = [
         include_str!("editor/host.rs"),
         include_str!("editor/commands.rs"),
         include_str!("editor/canvas.rs"),
@@ -667,6 +674,8 @@ mod tests {
         include_str!("tools_ui.rs"),
         include_str!("tls_ui.rs"),
         include_str!("plugins_ui.rs"),
+        include_str!("autosave_ui.rs"),
+        include_str!("layer_bar.rs"),
     ];
 
     fn literals() -> Vec<String> {

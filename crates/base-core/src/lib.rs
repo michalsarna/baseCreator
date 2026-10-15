@@ -1,6 +1,7 @@
 //! Shared core of LightCreator and MillCreator: geometry, Bezier paths, boolean operations, text outlines,
 //! bitmaps, tracing, camera calibration and the GRBL / ser2net helpers. No GUI, no machine-specific types.
 pub mod arcs;
+pub mod autosave;
 pub mod backup;
 pub mod bezier;
 pub mod calibration;
@@ -16,6 +17,7 @@ pub mod grbl_settings;
 pub mod grbl_status;
 pub mod image;
 pub mod machine;
+pub mod layers;
 pub mod lightburn;
 pub mod ops;
 pub mod paths;

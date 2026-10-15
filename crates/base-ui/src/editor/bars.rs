@@ -33,7 +33,8 @@ fn separator(ui: &mut egui::Ui) {
 }
 
 /// The tool palette: selecting and node editing, the tools that insert objects, then what `between` adds (the
-/// application's own operations on the selection), then view navigation with the two fit buttons.
+/// application's own operations on the selection), then view navigation with the two fit buttons, then the generators and
+/// the clipart from the internet.
 pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option<&mut dyn FnMut(&mut H, &mut egui::Ui)>) {
     ui.add_space(6.0);
     let out = egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| {
@@ -72,6 +73,31 @@ pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option
             }
             if let Some(a) = act {
                 a.run(h);
+            }
+            // Where shapes come from besides the tools: generators (plugins) and clipart from the internet.
+            separator(ui);
+            let mut open_generators = false;
+            let mut open_clipart = false;
+            for (icon, tip) in [("shapes", tr("Generate shape…")), ("globe", tr("Online clipart"))] {
+                let (rect, resp) = ui.allocate_exact_size(egui::vec2(36.0, 36.0), egui::Sense::click());
+                if resp.hovered() {
+                    ui.painter().rect_filled(rect, 6.0, theme::panel_dark());
+                }
+                icons::paint(ui, rect.shrink(7.0), icon, ink);
+                if resp.on_hover_text(tip).clicked() {
+                    if icon == "shapes" {
+                        open_generators = true;
+                    } else {
+                        open_clipart = true;
+                    }
+                }
+                ui.add_space(2.0);
+            }
+            if open_generators {
+                h.open_shape_generators();
+            }
+            if open_clipart {
+                h.open_online_clipart_search(ui.ctx());
             }
         })
     });

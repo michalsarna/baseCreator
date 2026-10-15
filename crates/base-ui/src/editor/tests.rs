@@ -63,6 +63,8 @@ impl EditorHost for Host {
     fn drop_checkpoint(&mut self) {
         self.undo.pop();
     }
+    fn open_shape_generators(&mut self) {}
+    fn open_online_clipart_search(&mut self, _ctx: &egui::Context) {}
     fn say(&mut self, msg: String) {
         self.status = msg;
     }

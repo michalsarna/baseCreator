@@ -598,3 +598,10 @@
 597|Actualizează
 598|Actualizare disponibilă: {} → {}
 599|{} pluginuri în listă, {} pot fi actualizate
+600|A fost găsit un proiect nesalvat
+601|{} forme, păstrate automat
+602|Recuperează
+603|Renunță la el
+604|Proiectul nesalvat a fost recuperat
+605|{} — clic pentru a-i atribui selecția / a-l face activ; dublu clic pentru opțiuni
+606|Arată toate cele {} de straturi

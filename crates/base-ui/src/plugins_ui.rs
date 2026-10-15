@@ -89,9 +89,10 @@ impl PluginsUi {
     pub fn import_file(&self, path: &Path, area: (f64, f64)) -> Option<Result<Shapes, String>> {
         let ext = path.extension()?.to_string_lossy().to_lowercase();
         let (p, def) = self.registry.importer_for(&self.app, &ext)?;
-        let bytes = match std::fs::read(path) {
+        // A file of a few hundred MB is not read into memory just to be refused by the script.
+        let bytes = match base_core::plugins::read_limited(path, plugin_script::MAX_IMPORT_BYTES) {
             Ok(b) => b,
-            Err(e) => return Some(Err(e.to_string())),
+            Err(e) => return Some(Err(e)),
         };
         Some(plugin_script::import(p, def, &bytes, &Ctx { app: self.app.clone(), area_w: area.0, area_h: area.1 }))
     }
@@ -265,6 +266,12 @@ fn pt(reg: &Registry, s: &str) -> String {
     reg.translate(crate::i18n::lang().code(), s).unwrap_or(s).to_string()
 }
 
+/// How tall a list in the window may be: a part of the screen. (A list that asks for "all the height there is" makes a window
+/// grow by the spacing under it on every frame, up to the height of the screen.)
+fn list_height(ui: &egui::Ui) -> f32 {
+    (ui.ctx().content_rect().height() * 0.55).max(200.0)
+}
+
 fn open_folder(dir: &Path) {
     let _ = std::fs::create_dir_all(dir);
     let cmd = if cfg!(target_os = "macos") {
@@ -330,7 +337,7 @@ pub fn window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<String> {
             ui.label(RichText::new(&st.message).color(theme::accent()));
         }
         ui.separator();
-        egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| {
+        egui::ScrollArea::vertical().max_height(list_height(ui)).auto_shrink([false, true]).show(ui, |ui| {
             if st.registry.plugins.is_empty() && st.registry.broken.is_empty() {
                 ui.label(RichText::new(tr("No plugins yet. Put a plugin folder into the plugins folder or install a zip.")).color(theme::text_dim()));
             }
@@ -459,7 +466,7 @@ fn official_tab(ui: &mut egui::Ui, st: &mut PluginsUi, download: &mut Option<Ent
     let updates = index.updates(&st.registry).len();
     ui.label(RichText::new(trf("{} plugins in the list, {} can be updated", &[&index.plugins.len(), &updates])).small().color(theme::text_dim()));
     ui.separator();
-    egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| {
+    egui::ScrollArea::vertical().max_height(list_height(ui)).auto_shrink([false, true]).show(ui, |ui| {
         let mut entries: Vec<&Entry> = index.plugins.iter().collect();
         entries.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
         for e in entries {
@@ -688,6 +695,34 @@ mod tests {
                 window(ui.ctx(), &mut st);
             });
             out.textures_delta.clear();
+        }
+    }
+
+    /// The window keeps its size: a list that takes "all the height there is" made it grow to the height of the screen,
+    /// and grow back after the person made it smaller.
+    #[test]
+    fn the_plugins_window_does_not_stretch_to_the_whole_height() {
+        for official in [false, true] {
+            let mut st = ui_with_examples();
+            st.open = true;
+            if official {
+                st.tab = Tab::Official;
+            }
+            let ctx = egui::Context::default();
+            let mut heights = vec![];
+            for _ in 0..12 {
+                let input = egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1280.0, 900.0))), ..Default::default() };
+                let mut out = ctx.run_ui(input, |ui| {
+                    window(ui.ctx(), &mut st);
+                });
+                out.textures_delta.clear();
+                if let Some(r) = ctx.memory(|m| m.area_rect(egui::Id::new(Some("plugins_window")))) {
+                    heights.push(r.height());
+                }
+            }
+            let last = *heights.last().expect("the window is shown");
+            assert!(last < 700.0, "official={official}: {heights:?}");
+            assert!((heights[4] - last).abs() < 1.0, "the size is stable: {heights:?}");
         }
     }
 

@@ -598,3 +598,10 @@
 597|Frissítés
 598|Frissítés érhető el: {} → {}
 599|{} bővítmény a listában, {} frissíthető
+600|Mentetlen projektet találtunk
+601|{} alakzat, automatikusan megőrizve
+602|Visszaállítás
+603|Elvetés
+604|A mentetlen projekt visszaállítva
+605|{} — kattintson, hogy a kijelölést ide rendelje / aktívvá tegye; dupla kattintás a beállításokhoz
+606|Mind a {} réteg megjelenítése

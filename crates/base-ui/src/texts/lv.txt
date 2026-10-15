@@ -598,3 +598,10 @@
 597|Atjaunināt
 598|Pieejams atjauninājums: {} → {}
 599|Sarakstā {} spraudņi, {} var atjaunināt
+600|Atrasts nesaglabāts projekts
+601|{} formas, saglabātas automātiski
+602|Atjaunot
+603|Atmest
+604|Nesaglabātais projekts atjaunots
+605|{} — noklikšķiniet, lai piešķirtu atlasi / padarītu aktīvu; dubultklikšķis opcijām
+606|Rādīt visus {} slāņus
