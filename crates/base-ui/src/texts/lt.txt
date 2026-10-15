@@ -580,3 +580,21 @@
 579|Importuoti papildiniu…
 580|Joks papildinys neskaito failų: įdiekite vieną lange Papildiniai
 581|Postprocesorius nepavyko, nieko neišsaugota: {}
+582|Paleidžiant ieškoti papildinių naujinimų
+583|Ieškoti naujinimų
+584|Tikrinamas sąrašas…
+585|Sąrašo gauti nepavyko: {}
+586|Atsisiunčiama {}…
+587|Programoms: {}
+588|Įdiegti
+589|Įdiegti
+590|Reikia programos versijos {} ar naujesnės
+591|Oficialūs papildiniai
+592|Papildinys atnaujintas: {}
+593|Yra papildinių naujinimų: {}
+594|Papildinių saugykla
+595|Sąrašas dar neįkeltas. Paspauskite Ieškoti naujinimų.
+596|Naujausias
+597|Atnaujinti
+598|Yra naujinimas: {} → {}
+599|Sąraše {} papildinių, {} galima atnaujinti

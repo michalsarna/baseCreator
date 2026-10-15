@@ -580,3 +580,21 @@
 579|Importálás bővítménnyel…
 580|Egyetlen bővítmény sem olvas fájlokat: telepíts egyet a Bővítmények ablakban
 581|Az utófeldolgozó hibával leállt, semmi nem lett mentve: {}
+582|Bővítményfrissítések keresése indításkor
+583|Frissítések keresése
+584|A lista ellenőrzése…
+585|A listát nem sikerült lekérni: {}
+586|{} letöltése…
+587|Programok: {}
+588|Telepítés
+589|Telepítve
+590|A program {} vagy újabb verzióját igényli
+591|Hivatalos bővítmények
+592|Bővítmény frissítve: {}
+593|Bővítményfrissítések érhetők el: {}
+594|Bővítménytár
+595|A lista még nincs betöltve. Nyomd meg a Frissítések keresése gombot.
+596|Naprakész
+597|Frissítés
+598|Frissítés érhető el: {} → {}
+599|{} bővítmény a listában, {} frissíthető

@@ -580,3 +580,21 @@
 579|Iompórtáil le breiseán…
 580|Ní léann aon bhreiseán comhaid: suiteáil ceann i bhfuinneog na mBreiseán
 581|Theip ar an iarphróiseálaí, níor sábháladh aon rud: {}
+582|Seiceáil nuashonruithe breiseán ag tosú
+583|Seiceáil nuashonruithe
+584|Ag seiceáil an liosta…
+585|Níorbh fhéidir an liosta a fháil: {}
+586|Ag íoslódáil {}…
+587|Do: {}
+588|Suiteáil
+589|Suiteáilte
+590|Éilíonn sé leagan {} den chlár nó níos nuaí
+591|Breiseáin oifigiúla
+592|Nuashonraíodh an breiseán: {}
+593|Nuashonruithe breiseán ar fáil: {}
+594|Stór na mbreiseán
+595|Níl an liosta luchtaithe fós. Brúigh Seiceáil nuashonruithe.
+596|Cothrom le dáta
+597|Nuashonraigh
+598|Nuashonrú ar fáil: {} → {}
+599|{} breiseán ar an liosta, {} le nuashonrú

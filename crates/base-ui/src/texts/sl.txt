@@ -580,3 +580,21 @@
 579|Uvozi z vtičnikom…
 580|Noben vtičnik ne bere datotek: namestite ga v oknu Vtičniki
 581|Postprocesor ni uspel, nič ni bilo shranjeno: {}
+582|Ob zagonu išči posodobitve vtičnikov
+583|Preveri posodobitve
+584|Preverjam seznam…
+585|Seznama ni bilo mogoče pridobiti: {}
+586|Prenašam {}…
+587|Za: {}
+588|Namesti
+589|Nameščeni
+590|Zahteva različico programa {} ali novejšo
+591|Uradni vtičniki
+592|Vtičnik posodobljen: {}
+593|Na voljo so posodobitve vtičnikov: {}
+594|Repozitorij vtičnikov
+595|Seznam še ni naložen. Pritisnite Preveri posodobitve.
+596|Posodobljeno
+597|Posodobi
+598|Na voljo je posodobitev: {} → {}
+599|{} vtičnikov na seznamu, {} je mogoče posodobiti

@@ -580,3 +580,21 @@
 579|Importer med et programtillegg…
 580|Ingen programtillegg leser filer: installer ett i vinduet Programtillegg
 581|Postprosessoren feilet, ingenting ble lagret: {}
+582|Se etter oppdateringer av programtillegg ved start
+583|Se etter oppdateringer
+584|Sjekker listen…
+585|Kunne ikke hente listen: {}
+586|Laster ned {}…
+587|For: {}
+588|Installer
+589|Installert
+590|Krever programversjon {} eller nyere
+591|Offisielle programtillegg
+592|Programtillegg oppdatert: {}
+593|Oppdateringer av programtillegg er tilgjengelige: {}
+594|Arkiv for programtillegg
+595|Listen er ikke lastet ennå. Trykk Se etter oppdateringer.
+596|Oppdatert
+597|Oppdater
+598|Oppdatering tilgjengelig: {} → {}
+599|{} programtillegg i listen, {} kan oppdateres

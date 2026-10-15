@@ -193,3 +193,74 @@ fn presets_of_plugins_follow_the_built_in_ones() {
     let none = base_core::presets::with_plugins(&[], &r, "lightcreator", PresetClass::Pen);
     assert_eq!(none.len(), 1, "the example pack is for all programs");
 }
+
+fn zip_of(manifest: &str) -> Vec<u8> {
+    use std::io::Write;
+    let mut buf = std::io::Cursor::new(Vec::new());
+    {
+        let mut z = zip::ZipWriter::new(&mut buf);
+        let o = zip::write::SimpleFileOptions::default();
+        z.start_file("plugin.json", o).unwrap();
+        z.write_all(manifest.as_bytes()).unwrap();
+        z.finish().unwrap();
+    }
+    buf.into_inner()
+}
+
+fn entry(version: &str, bytes: &[u8]) -> base_core::registry::Entry {
+    use sha2::{Digest, Sha256};
+    let sum: String = Sha256::digest(bytes).iter().map(|b| format!("{b:02x}")).collect();
+    base_core::registry::Entry {
+        id: "listed".into(),
+        name: "Listed".into(),
+        description: String::new(),
+        author: String::new(),
+        license: String::new(),
+        programs: vec![],
+        provides: vec![],
+        version: version.into(),
+        min_base: String::new(),
+        url: format!("{}zips/listed-{version}.zip", base_core::registry::TRUSTED_PREFIX),
+        sha256: sum,
+        size: bytes.len() as u64,
+        homepage: String::new(),
+        changelog: String::new(),
+    }
+}
+
+#[test]
+fn a_plugin_of_the_official_list_is_installed_and_updated() {
+    use base_core::registry::{self, Status};
+    let dir = std::env::temp_dir().join(format!("bc-plugins-list-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&dir);
+    let mut r = Registry::load(dir.join("plugins"));
+    let v1 = zip_of(r#"{"id":"listed","name":"Listed","version":"1.0.0"}"#);
+    let e1 = entry("1.0.0", &v1);
+    assert_eq!(e1.status(&r), Status::NotInstalled);
+    assert_eq!(registry::install(&mut r, &e1, &v1).unwrap(), "listed");
+    assert_eq!(e1.status(&r), Status::UpToDate);
+    // The list gets a newer version.
+    let v2 = zip_of(r#"{"id":"listed","name":"Listed","version":"1.1.0"}"#);
+    let e2 = entry("1.1.0", &v2);
+    assert_eq!(e2.status(&r), Status::Update { installed: "1.0.0".into() });
+    // A file that is not what the list says is refused: wrong checksum, wrong version inside.
+    assert!(registry::install(&mut r, &e2, &v1).unwrap_err().contains("checksum"));
+    let lie = entry("1.1.0", &v1);
+    assert!(registry::install(&mut r, &lie, &v1).unwrap_err().contains("not listed 1.1.0"));
+    assert_eq!(registry::install(&mut r, &e2, &v2).unwrap(), "listed");
+    assert_eq!(r.find("listed").unwrap().manifest.version, "1.1.0");
+    assert_eq!(e1.status(&r), Status::Newer);
+    // A plugin that needs a newer program is not loaded, and the list says so.
+    let mut needy = entry("2.0.0", &v2);
+    needy.min_base = "99.0.0".into();
+    assert!(matches!(needy.status(&r), Status::NeedsNewerProgram { .. }));
+    let new_zip = zip_of(r#"{"id":"needy","name":"N","min_base":"99.0.0"}"#);
+    let tmp = dir.join("n.zip");
+    std::fs::write(&tmp, new_zip).unwrap();
+    assert!(r.install_zip(&tmp).unwrap_err().contains("baseCreator 99.0.0"));
+    // The switch for the check at the start is remembered by all programs.
+    assert!(!r.auto_check());
+    r.set_auto_check(true).unwrap();
+    assert!(Registry::load(dir.join("plugins")).auto_check());
+    std::fs::remove_dir_all(dir).ok();
+}

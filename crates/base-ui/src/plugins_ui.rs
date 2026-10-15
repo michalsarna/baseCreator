@@ -5,16 +5,57 @@ use crate::theme;
 use crate::window::{delete_button, import_button, popup};
 use base_core::plugin_script::{self, Ctx, Shapes};
 use base_core::plugins::{ParamKind, Registry};
+use base_core::registry::{self, Entry, Index, Status};
 use egui::RichText;
+use std::io::Read;
 use std::path::{Path, PathBuf};
+use std::sync::mpsc::{channel, Receiver};
+use std::time::Duration;
 
 /// Menu labels (English; the menu translates them).
 pub const MENU_PLUGINS: &str = "Plugins…";
 pub const MENU_GENERATE: &str = "Generate shape…";
 pub const MENU_IMPORT: &str = "Import with a plugin…";
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum Tab {
+    Installed,
+    Official,
+}
+
+enum Net {
+    Index(Result<Index, String>),
+    Zip(String, Result<Vec<u8>, String>),
+}
+
+#[derive(Default)]
+struct NetState {
+    rx: Option<Receiver<Net>>,
+    index: Option<Index>,
+    error: String,
+    loading: bool,
+    /// The id of the plugin being downloaded.
+    busy: Option<String>,
+    auto_done: bool,
+    /// The list was asked for by the person (not by the check at the start).
+    manual: bool,
+}
+
+fn get(url: &str, max: u64) -> Result<Vec<u8>, String> {
+    let agent = ureq::AgentBuilder::new().timeout_connect(Duration::from_secs(8)).timeout_read(Duration::from_secs(20)).user_agent("baseCreator-plugins").build();
+    let resp = agent.get(url).call().map_err(|e| e.to_string())?;
+    let mut buf = Vec::new();
+    resp.into_reader().take(max + 1).read_to_end(&mut buf).map_err(|e| e.to_string())?;
+    if buf.len() as u64 > max {
+        return Err("the answer is too large".into());
+    }
+    Ok(buf)
+}
+
 pub struct PluginsUi {
     app: String,
+    tab: Tab,
+    net: NetState,
     pub registry: Registry,
     pub open: bool,
     pub gen_open: bool,
@@ -30,7 +71,7 @@ pub struct PluginsUi {
 impl PluginsUi {
     /// `app` is `lightcreator`, `millcreator` or `pencreator`; `base` is the shared data folder.
     pub fn new(app: &str, base: &Path) -> PluginsUi {
-        PluginsUi { app: app.to_string(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, gen_sel: 0, values: Default::default(), post: None, confirm_remove: None, message: String::new(), log: vec![] }
+        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, gen_sel: 0, values: Default::default(), post: None, confirm_remove: None, message: String::new(), log: vec![] }
     }
 
     pub fn reload(&mut self) {
@@ -65,6 +106,98 @@ impl PluginsUi {
         let Some(sel) = &self.post else { return Ok((lines, vec![])) };
         let Some((p, d)) = self.registry.postprocessors(&self.app).into_iter().find(|(pl, d)| format!("{}/{}", pl.manifest.id, d.id) == *sel) else { return Ok((lines, vec![])) };
         plugin_script::postprocess(p, d, &lines, &Ctx { app: self.app.clone(), area_w: area.0, area_h: area.1 })
+    }
+
+    /// Ask the official list (in the background; the answer is read by `poll`).
+    fn fetch_index(&mut self, ctx: &egui::Context, manual: bool) {
+        if self.net.loading {
+            return;
+        }
+        let (tx, rx) = channel();
+        self.net.rx = Some(rx);
+        self.net.loading = true;
+        self.net.manual = manual;
+        self.net.error.clear();
+        let ctx = ctx.clone();
+        std::thread::spawn(move || {
+            let r = get(registry::INDEX_URL, registry::MAX_INDEX as u64).and_then(|b| String::from_utf8(b).map_err(|_| "the list is not text".to_string())).and_then(|t| registry::parse_index(&t));
+            let _ = tx.send(Net::Index(r));
+            ctx.request_repaint();
+        });
+    }
+
+    fn fetch_zip(&mut self, ctx: &egui::Context, e: &Entry) {
+        if self.net.busy.is_some() {
+            return;
+        }
+        let (tx, rx) = channel();
+        self.net.rx = Some(rx);
+        self.net.busy = Some(e.id.clone());
+        let (id, url) = (e.id.clone(), e.url.clone());
+        let ctx = ctx.clone();
+        std::thread::spawn(move || {
+            let r = if registry::url_allowed(&url) { get(&url, registry::MAX_ZIP) } else { Err("this address is not official".into()) };
+            let _ = tx.send(Net::Zip(id, r));
+            ctx.request_repaint();
+        });
+    }
+
+    /// Read what the background threads found out; returns a line for the status bar. Also starts the check at the start of
+    /// the program when the person switched it on.
+    pub fn poll(&mut self, ctx: &egui::Context) -> Option<String> {
+        if !self.net.auto_done {
+            self.net.auto_done = true;
+            if self.registry.auto_check() {
+                self.fetch_index(ctx, false);
+            }
+        }
+        let mut said = None;
+        let mut msgs = vec![];
+        if let Some(rx) = &self.net.rx {
+            while let Ok(m) = rx.try_recv() {
+                msgs.push(m);
+            }
+        }
+        for m in msgs {
+            match m {
+                Net::Index(r) => {
+                    self.net.loading = false;
+                    match r {
+                        Ok(idx) => {
+                            if !self.net.manual {
+                                let n = idx.updates(&self.registry).len();
+                                if n > 0 {
+                                    said = Some(trf("Plugin updates available: {}", &[&n]));
+                                }
+                            }
+                            self.net.index = Some(idx);
+                        }
+                        Err(e) => self.net.error = trf("Could not get the list: {}", &[&e]),
+                    }
+                }
+                Net::Zip(id, r) => {
+                    self.net.busy = None;
+                    let entry = self.net.index.as_ref().and_then(|i| i.plugins.iter().find(|e| e.id == id)).cloned();
+                    let was = self.registry.find(&id).map(|p| p.manifest.version.clone());
+                    let done = match (r, entry) {
+                        (Ok(bytes), Some(e)) => registry::install(&mut self.registry, &e, &bytes),
+                        (Err(e), _) => Err(e),
+                        (_, None) => Err("the plugin is not in the list any more".into()),
+                    };
+                    match done {
+                        Ok(id) => {
+                            self.reload();
+                            said = Some(if was.is_some() { trf("Plugin updated: {}", &[&id]) } else { trf("Plugin installed: {}", &[&id]) });
+                        }
+                        Err(e) => said = Some(trf("Download failed: {}", &[&e])),
+                    }
+                    if let Some(s) = &said {
+                        self.message = s.clone();
+                    }
+                }
+            }
+        }
+        said
     }
 
     /// The name of the generator chosen in the generator window.
@@ -156,19 +289,31 @@ fn provides(m: &base_core::plugins::Manifest) -> Vec<String> {
 
 /// The window with the installed plugins. Returns a line for the status bar when something was installed or removed.
 pub fn window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<String> {
+    let mut say = st.poll(ctx);
     if !st.open {
-        return None;
+        return say;
     }
-    let mut say = None;
     let mut open = st.open;
     let mut reload = false;
     let mut install: Option<PathBuf> = None;
     let mut remove: Option<String> = None;
     let mut toggle: Option<(String, bool)> = None;
     let dir = st.registry.dir().to_path_buf();
-    popup(ctx, "plugins_window", &tr("Plugins"), [640.0, 560.0], &mut open, |ui| {
+    let mut download: Option<Entry> = None;
+    let mut check = false;
+    let mut auto = st.registry.auto_check();
+    popup(ctx, "plugins_window", &tr("Plugins"), [680.0, 600.0], &mut open, |ui| {
         ui.label(RichText::new(tr("Plugins run scripts that can create shapes and change G-code. Install only plugins you trust.")).color(theme::text_dim()));
         ui.add_space(4.0);
+        ui.horizontal(|ui| {
+            ui.selectable_value(&mut st.tab, Tab::Installed, tr("Installed"));
+            ui.selectable_value(&mut st.tab, Tab::Official, tr("Official plugins"));
+        });
+        ui.separator();
+        if st.tab == Tab::Official {
+            official_tab(ui, st, &mut download, &mut check, &mut auto);
+            return;
+        }
         ui.horizontal(|ui| {
             if import_button(ui, &tr("Install plugin from zip…")).clicked() {
                 install = rfd::FileDialog::new().add_filter("Zip", &["zip"]).pick_file();
@@ -243,6 +388,15 @@ pub fn window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<String> {
         });
     });
     st.open = open;
+    if auto != st.registry.auto_check() {
+        let _ = st.registry.set_auto_check(auto);
+    }
+    if check {
+        st.fetch_index(ctx, true);
+    }
+    if let Some(e) = download {
+        st.fetch_zip(ctx, &e);
+    }
     if let Some((id, on)) = toggle {
         if let Err(e) = st.registry.set_enabled(&id, on) {
             st.message = e;
@@ -276,6 +430,93 @@ pub fn window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<String> {
         st.reload();
     }
     say
+}
+
+fn official_tab(ui: &mut egui::Ui, st: &mut PluginsUi, download: &mut Option<Entry>, check: &mut bool, auto: &mut bool) {
+    ui.horizontal(|ui| {
+        if import_button(ui, &tr("Check for updates")).clicked() {
+            *check = true;
+        }
+        if ui.button(tr("Plugins repository")).clicked() {
+            ui.ctx().open_url(egui::OpenUrl::new_tab(registry::REPO_URL));
+        }
+        ui.checkbox(auto, tr("Check for plugin updates at start"));
+    });
+    if st.net.loading {
+        ui.label(RichText::new(tr("Checking the list…")).color(theme::text_dim()));
+    }
+    if !st.net.error.is_empty() {
+        ui.label(RichText::new(&st.net.error).color(egui::Color32::from_rgb(0xc0, 0x30, 0x30)));
+    }
+    if !st.message.is_empty() {
+        ui.label(RichText::new(&st.message).color(theme::accent()));
+    }
+    let Some(index) = &st.net.index else {
+        ui.add_space(8.0);
+        ui.label(RichText::new(tr("The list is not loaded yet. Press Check for updates.")).color(theme::text_dim()));
+        return;
+    };
+    let updates = index.updates(&st.registry).len();
+    ui.label(RichText::new(trf("{} plugins in the list, {} can be updated", &[&index.plugins.len(), &updates])).small().color(theme::text_dim()));
+    ui.separator();
+    egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| {
+        let mut entries: Vec<&Entry> = index.plugins.iter().collect();
+        entries.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+        for e in entries {
+            let status = e.status(&st.registry);
+            ui.horizontal(|ui| {
+                ui.label(RichText::new(&e.name).strong());
+                ui.label(RichText::new(format!("v{}", e.version)).color(theme::text_dim()));
+                ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                    let busy = st.net.busy.as_deref() == Some(e.id.as_str());
+                    if busy {
+                        ui.label(trf("Downloading {}…", &[&e.name]));
+                        return;
+                    }
+                    match &status {
+                        Status::NotInstalled => {
+                            if import_button(ui, &tr("Install")).clicked() {
+                                *download = Some(e.clone());
+                            }
+                        }
+                        Status::Update { installed } => {
+                            if import_button(ui, &tr("Update")).on_hover_text(&e.changelog).clicked() {
+                                *download = Some(e.clone());
+                            }
+                            ui.label(RichText::new(trf("Update available: {} → {}", &[installed, &e.version])).color(theme::accent()));
+                        }
+                        Status::UpToDate | Status::Newer => {
+                            ui.label(RichText::new(tr("Up to date")).color(theme::text_dim()));
+                        }
+                        Status::NeedsNewerProgram { min } => {
+                            ui.label(RichText::new(trf("Needs program version {} or newer", &[min])).color(egui::Color32::from_rgb(0xc0, 0x30, 0x30)));
+                        }
+                    }
+                });
+            });
+            if !e.description.is_empty() {
+                ui.label(RichText::new(&e.description).color(theme::text_dim()));
+            }
+            let mut meta: Vec<String> = vec![];
+            if !e.author.is_empty() {
+                meta.push(e.author.clone());
+            }
+            if !e.license.is_empty() {
+                meta.push(e.license.clone());
+            }
+            if !e.programs.is_empty() {
+                meta.push(trf("For: {}", &[&e.programs.join(", ")]));
+            }
+            if !e.provides.is_empty() {
+                meta.push(e.provides.join(", "));
+            }
+            if e.size > 0 {
+                meta.push(format!("{:.0} kB", e.size as f64 / 1000.0));
+            }
+            ui.label(RichText::new(meta.join("  ·  ")).small().color(theme::text_dim()));
+            ui.separator();
+        }
+    });
 }
 
 /// The window of the generators: choose one, fill in its form, Create. Returns the shapes when the script made them.
@@ -414,6 +655,40 @@ mod tests {
             out.textures_delta.clear();
         }
         assert!(made.is_none(), "nothing is made until Create is pressed");
+    }
+
+    #[test]
+    fn the_official_tab_draws_a_list_with_its_states() {
+        use base_core::registry::{Entry, Index};
+        let mut st = ui_with_examples();
+        let mk = |id: &str, version: &str, min: &str| Entry {
+            id: id.into(),
+            name: id.to_uppercase(),
+            description: "d".into(),
+            author: "a".into(),
+            license: "MIT".into(),
+            programs: vec!["millcreator".into()],
+            provides: vec!["generators".into()],
+            version: version.into(),
+            min_base: min.into(),
+            url: format!("{}zips/{id}.zip", registry::TRUSTED_PREFIX),
+            sha256: "a".repeat(64),
+            size: 5000,
+            homepage: String::new(),
+            changelog: "more".into(),
+        };
+        // `gcode-tools` is installed in 1.0.0: a newer one is an update; the other two are new or too new for the program.
+        st.net.index = Some(Index { format: 1, updated: String::new(), plugins: vec![mk("gcode-tools", "1.1.0", ""), mk("fresh", "1.0.0", ""), mk("future", "1.0.0", "99.0.0")] });
+        assert_eq!(st.net.index.as_ref().unwrap().updates(&st.registry).len(), 1);
+        st.open = true;
+        st.tab = Tab::Official;
+        let ctx = egui::Context::default();
+        for _ in 0..2 {
+            let mut out = ctx.run_ui(Default::default(), |ui| {
+                window(ui.ctx(), &mut st);
+            });
+            out.textures_delta.clear();
+        }
     }
 
     #[test]

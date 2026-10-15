@@ -580,3 +580,21 @@
 579|Importeren met een plug-in…
 580|Geen plug-in leest bestanden: installeer er een in het venster Plug-ins
 581|De postprocessor is mislukt, er is niets opgeslagen: {}
+582|Bij het starten zoeken naar plug-in-updates
+583|Controleren op updates
+584|Lijst wordt gecontroleerd…
+585|De lijst kon niet worden opgehaald: {}
+586|{} wordt gedownload…
+587|Voor: {}
+588|Installeren
+589|Geïnstalleerd
+590|Vereist programmaversie {} of nieuwer
+591|Officiële plug-ins
+592|Plug-in bijgewerkt: {}
+593|Plug-in-updates beschikbaar: {}
+594|Plug-in-repository
+595|De lijst is nog niet geladen. Druk op Controleren op updates.
+596|Bijgewerkt
+597|Bijwerken
+598|Update beschikbaar: {} → {}
+599|{} plug-ins in de lijst, {} kunnen worden bijgewerkt

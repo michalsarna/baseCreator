@@ -580,3 +580,21 @@
 579|Uvezi dodatkom…
 580|Nijedan dodatak ne čita datoteke: instalirajte ga u prozoru Dodaci
 581|Postprocesor nije uspio, ništa nije spremljeno: {}
+582|Provjeri nadogradnje dodataka pri pokretanju
+583|Provjeri nadogradnje
+584|Provjeravam popis…
+585|Popis se nije mogao dohvatiti: {}
+586|Preuzimam {}…
+587|Za: {}
+588|Instaliraj
+589|Instalirano
+590|Zahtijeva verziju programa {} ili noviju
+591|Službeni dodaci
+592|Dodatak je nadograđen: {}
+593|Dostupne nadogradnje dodataka: {}
+594|Repozitorij dodataka
+595|Popis još nije učitan. Pritisnite Provjeri nadogradnje.
+596|Ažurno
+597|Nadogradi
+598|Dostupna nadogradnja: {} → {}
+599|{} dodataka na popisu, {} se može nadograditi

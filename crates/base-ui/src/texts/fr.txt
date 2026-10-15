@@ -580,3 +580,21 @@
 579|Importer avec un plugin…
 580|Aucun plugin ne lit de fichiers : installez-en un dans la fenêtre Plugins
 581|Le post-processeur a échoué, rien n'a été enregistré : {}
+582|Chercher les mises à jour des plugins au démarrage
+583|Rechercher des mises à jour
+584|Vérification de la liste…
+585|Impossible d'obtenir la liste : {}
+586|Téléchargement de {}…
+587|Pour : {}
+588|Installer
+589|Installés
+590|Nécessite la version {} du programme ou plus récente
+591|Plugins officiels
+592|Plugin mis à jour : {}
+593|Mises à jour de plugins disponibles : {}
+594|Dépôt des plugins
+595|La liste n'est pas encore chargée. Appuyez sur Rechercher des mises à jour.
+596|À jour
+597|Mettre à jour
+598|Mise à jour disponible : {} → {}
+599|{} plugins dans la liste, {} peuvent être mis à jour

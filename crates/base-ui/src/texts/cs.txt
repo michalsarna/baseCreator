@@ -580,3 +580,21 @@
 579|Importovat pluginem…
 580|Žádný plugin nečte soubory: nainstalujte jej v okně Pluginy
 581|Postprocesor selhal, nic se neuložilo: {}
+582|Při spuštění hledat aktualizace pluginů
+583|Zkontrolovat aktualizace
+584|Kontroluji seznam…
+585|Seznam se nepodařilo získat: {}
+586|Stahuji {}…
+587|Pro: {}
+588|Nainstalovat
+589|Nainstalované
+590|Vyžaduje verzi programu {} nebo novější
+591|Oficiální pluginy
+592|Plugin aktualizován: {}
+593|Dostupné aktualizace pluginů: {}
+594|Repozitář pluginů
+595|Seznam ještě není načten. Stiskněte Zkontrolovat aktualizace.
+596|Aktuální
+597|Aktualizovat
+598|Dostupná aktualizace: {} → {}
+599|{} pluginů v seznamu, {} lze aktualizovat

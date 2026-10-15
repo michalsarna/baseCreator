@@ -580,3 +580,21 @@
 579|Impordi pluginaga…
 580|Ükski plugin ei loe faile: paigalda üks aknas Pluginad
 581|Järeltöötleja ebaõnnestus, midagi ei salvestatud: {}
+582|Otsi käivitamisel pluginate uuendusi
+583|Otsi uuendusi
+584|Loendit kontrollitakse…
+585|Loendit ei saanud kätte: {}
+586|Laaditakse alla {}…
+587|Programmidele: {}
+588|Paigalda
+589|Paigaldatud
+590|Nõuab programmi versiooni {} või uuemat
+591|Ametlikud pluginad
+592|Plugin uuendatud: {}
+593|Pluginate uuendusi on saadaval: {}
+594|Pluginate hoidla
+595|Loendit pole veel laaditud. Vajuta Otsi uuendusi.
+596|Ajakohane
+597|Uuenda
+598|Uuendus saadaval: {} → {}
+599|Loendis on {} pluginat, {} saab uuendada

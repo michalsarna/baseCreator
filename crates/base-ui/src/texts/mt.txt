@@ -580,3 +580,21 @@
 579|Importa b'plugin…
 580|L-ebda plugin ma jaqra fajls: installa wieħed fit-tieqa Plugins
 581|Il-post-proċessur falla, ma ġie ssejvjat xejn: {}
+582|Fittex aġġornamenti tal-plugins mal-bidu
+583|Fittex aġġornamenti
+584|Qed jiġi ċċekkjat il-lista…
+585|Il-lista ma setgħetx tinkiseb: {}
+586|Qed jitniżżel {}…
+587|Għal: {}
+588|Installa
+589|Installati
+590|Teħtieġ il-verżjoni {} tal-programm jew aktar ġdida
+591|Plugins uffiċjali
+592|Plugin aġġornat: {}
+593|Aġġornamenti tal-plugins disponibbli: {}
+594|Repożitorju tal-plugins
+595|Il-lista għadha ma tgħabbietx. Agħfas Fittex aġġornamenti.
+596|Aġġornat
+597|Aġġorna
+598|Aġġornament disponibbli: {} → {}
+599|{} plugins fil-lista, {} jistgħu jiġu aġġornati

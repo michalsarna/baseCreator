@@ -580,3 +580,21 @@
 579|Importovať pluginom…
 580|Žiadny plugin nečíta súbory: nainštalujte ho v okne Pluginy
 581|Postprocesor zlyhal, nič sa neuložilo: {}
+582|Pri spustení hľadať aktualizácie pluginov
+583|Skontrolovať aktualizácie
+584|Kontrolujem zoznam…
+585|Zoznam sa nepodarilo získať: {}
+586|Sťahujem {}…
+587|Pre: {}
+588|Nainštalovať
+589|Nainštalované
+590|Vyžaduje verziu programu {} alebo novšiu
+591|Oficiálne pluginy
+592|Plugin aktualizovaný: {}
+593|Dostupné aktualizácie pluginov: {}
+594|Repozitár pluginov
+595|Zoznam ešte nie je načítaný. Stlačte Skontrolovať aktualizácie.
+596|Aktuálne
+597|Aktualizovať
+598|Dostupná aktualizácia: {} → {}
+599|{} pluginov v zozname, {} možno aktualizovať
