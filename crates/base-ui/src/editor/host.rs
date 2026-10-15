@@ -31,6 +31,10 @@ pub trait EditorHost: Sized {
     fn delete_button(&self, ui: &mut egui::Ui, enabled: bool, text: &str) -> egui::Response {
         ui.add_enabled(enabled, egui::Button::new(text))
     }
+    /// The two buttons at the bottom of the tool palette: open the window of the shape generators (plugins), and the search
+    /// for clipart on the internet.
+    fn open_shape_generators(&mut self);
+    fn open_online_clipart_search(&mut self, ctx: &egui::Context);
     /// Show a message in the status line.
     fn say(&mut self, msg: String);
     /// The message now shown in the status line.

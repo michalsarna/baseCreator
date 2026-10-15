@@ -598,3 +598,10 @@
 597|Aktualizovať
 598|Dostupná aktualizácia: {} → {}
 599|{} pluginov v zozname, {} možno aktualizovať
+600|Bol nájdený neuložený projekt
+601|{} tvarov, uchované automaticky
+602|Obnoviť
+603|Zahodiť
+604|Neuložený projekt bol obnovený
+605|{} — kliknutím sem priradíte výber / nastavíte ako aktívnu; dvojité kliknutie otvorí možnosti
+606|Zobraziť všetkých {} vrstiev

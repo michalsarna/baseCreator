@@ -598,3 +598,10 @@
 597	Update
 598	Update available: {} → {}
 599	{} plugins in the list, {} can be updated
+600	A project that was not saved was found
+601	{} shapes, kept automatically
+602	Recover
+603	Discard it
+604	Recovered the project that was not saved
+605	{} — click to assign selection / set active; double-click for options
+606	Show all {} layers

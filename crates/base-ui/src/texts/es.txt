@@ -598,3 +598,10 @@
 597|Actualizar
 598|Actualización disponible: {} → {}
 599|{} complementos en la lista, {} se pueden actualizar
+600|Se encontró un proyecto sin guardar
+601|{} formas, conservadas automáticamente
+602|Recuperar
+603|Descartarlo
+604|Se recuperó el proyecto que no se guardó
+605|{} — clic para asignarle la selección / activarla; doble clic para las opciones
+606|Mostrar las {} capas

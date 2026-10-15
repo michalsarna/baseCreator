@@ -598,3 +598,10 @@
 597|Opdatér
 598|Opdatering tilgængelig: {} → {}
 599|{} plugins på listen, {} kan opdateres
+600|Et projekt, der ikke blev gemt, blev fundet
+601|{} former, gemt automatisk
+602|Gendan
+603|Kassér det
+604|Det projekt, der ikke blev gemt, er gendannet
+605|{} — klik for at tildele markeringen / gøre aktivt; dobbeltklik for indstillinger
+606|Vis alle {} lag

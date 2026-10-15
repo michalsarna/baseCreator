@@ -598,3 +598,10 @@
 597|Mettre à jour
 598|Mise à jour disponible : {} → {}
 599|{} plugins dans la liste, {} peuvent être mis à jour
+600|Un projet non enregistré a été trouvé
+601|{} formes, conservées automatiquement
+602|Récupérer
+603|L'abandonner
+604|Le projet non enregistré a été récupéré
+605|{} — cliquer pour y placer la sélection / le rendre actif ; double-clic pour les options
+606|Afficher les {} calques

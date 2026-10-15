@@ -598,3 +598,10 @@
 597|Nuashonraigh
 598|Nuashonrú ar fáil: {} → {}
 599|{} breiseán ar an liosta, {} le nuashonrú
+600|Fuarthas tionscadal nár sábháladh
+601|{} cruth, caomhnaithe go huathoibríoch
+602|Aisghabh
+603|Caith amach é
+604|Aisghabhadh an tionscadal nár sábháladh
+605|{} — cliceáil chun an roghnúchán a shannadh / a dhéanamh gníomhach; déchliceáil le haghaidh roghanna
+606|Taispeáin gach ceann de na {} ciseal

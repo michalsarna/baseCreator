@@ -598,3 +598,10 @@
 597|Aġġorna
 598|Aġġornament disponibbli: {} → {}
 599|{} plugins fil-lista, {} jistgħu jiġu aġġornati
+600|Nstab proġett li ma ġiex issejvjat
+601|{} forom, miżmuma awtomatikament
+602|Irkupra
+603|Armih
+604|Il-proġett li ma ġiex issejvjat ġie rkuprat
+605|{} — ikklikkja biex tassenja l-għażla / tagħmlu attiv; ikklikkja darbtejn għall-għażliet
+606|Uri t-{} saff kollha

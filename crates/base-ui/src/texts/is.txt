@@ -598,3 +598,10 @@
 597|Uppfæra
 598|Uppfærsla í boði: {} → {}
 599|{} viðbætur á listanum, {} hægt að uppfæra
+600|Óvistað verkefni fannst
+601|{} form, geymd sjálfkrafa
+602|Endurheimta
+603|Hafna því
+604|Óvistaða verkefnið var endurheimt
+605|{} — smelltu til að úthluta vali / gera virkt; tvísmelltu fyrir valkosti
+606|Sýna öll {} lögin

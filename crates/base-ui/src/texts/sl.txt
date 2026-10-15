@@ -598,3 +598,10 @@
 597|Posodobi
 598|Na voljo je posodobitev: {} → {}
 599|{} vtičnikov na seznamu, {} je mogoče posodobiti
+600|Najden je bil neshranjen projekt
+601|{} oblik, samodejno ohranjeno
+602|Obnovi
+603|Zavrzi
+604|Neshranjeni projekt je obnovljen
+605|{} — kliknite za dodelitev izbora / aktiviranje; dvojni klik za možnosti
+606|Pokaži vseh {} slojev

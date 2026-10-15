@@ -598,3 +598,10 @@
 597|Atualizar
 598|Atualização disponível: {} → {}
 599|{} plugins na lista, {} podem ser atualizados
+600|Foi encontrado um projeto que não foi guardado
+601|{} formas, guardadas automaticamente
+602|Recuperar
+603|Descartar
+604|O projeto que não foi guardado foi recuperado
+605|{} — clique para lhe atribuir a seleção / torná-la ativa; duplo clique para as opções
+606|Mostrar as {} camadas

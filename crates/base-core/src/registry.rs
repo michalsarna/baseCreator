@@ -158,11 +158,7 @@ pub fn install(reg: &mut Registry, e: &Entry, bytes: &[u8]) -> Result<String, St
     if !verify(bytes, &e.sha256) {
         return Err("the downloaded file does not match its checksum".into());
     }
-    let tmp = std::env::temp_dir().join(format!("bc-plugin-{}-{}.zip", std::process::id(), e.id));
-    std::fs::write(&tmp, bytes).map_err(|x| x.to_string())?;
-    let r = reg.install_zip_expecting(&tmp, &e.id, &e.version);
-    let _ = std::fs::remove_file(&tmp);
-    r
+    reg.install_zip_expecting(bytes, &e.id, &e.version)
 }
 
 #[cfg(test)]
