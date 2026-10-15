@@ -151,7 +151,20 @@ pub const RESET_WORD: &str = "RESET";
 /// How long an answer to `$$`, `$I` or `$G` may take.
 const ASK_TIMEOUT: Duration = Duration::from_secs(6);
 
+/// Why the machine stopped, for the window that asks for the person's attention.
+#[derive(Clone, Debug, PartialEq)]
+pub struct Problem {
+    /// An alarm: the window goes away by itself when the alarm is cleared.
+    pub alarm: bool,
+    pub title: String,
+    pub text: String,
+    /// The line of the job that was running, when there was one.
+    pub line: Option<String>,
+}
+
 pub struct Machine {
+    /// What the person has to look at now (an alarm, an error in a job, a controller that does not answer).
+    pub problem: Option<Problem>,
     link: LaserLink,
     pub connected: bool,
     /// The user asked for the link (so a lost one is worth opening again).
@@ -198,6 +211,7 @@ struct Job {
 impl Machine {
     pub fn new(ctx: &Context) -> Machine {
         Machine {
+            problem: None,
             link: LaserLink::spawn(ctx.clone()),
             connected: false,
             want_link: false,
@@ -297,6 +311,17 @@ impl Machine {
 
     pub fn home(&mut self) {
         self.line("$H");
+    }
+
+    /// The S value that makes the spindle run at `rpm`, when the machine's top speed is `max_rpm`: the controller's own
+    /// range (`$30`, when it is known) is spread over the spindle's, so 12000 of 24000 rpm is half of the range whatever it is.
+    /// Without `$30`, or when it is the same as the top speed, the S value is the speed.
+    pub fn spindle_s(&self, rpm: f64, max_rpm: f64) -> f64 {
+        let s_max = self.fw.values.get(&30).and_then(|v| v.trim().parse::<f64>().ok()).filter(|v| *v > 0.0);
+        match s_max {
+            Some(s) if max_rpm > 0.0 && (s - max_rpm).abs() > max_rpm * 0.01 => (rpm / max_rpm * s).round().clamp(0.0, s),
+            _ => rpm,
+        }
     }
 
     pub fn unlock(&mut self) {

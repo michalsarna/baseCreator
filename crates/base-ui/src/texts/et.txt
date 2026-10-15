@@ -605,3 +605,22 @@
 604|Salvestamata projekt taastati
 605|{} — klõpsake, et määrata valik / teha aktiivseks; valikute jaoks topeltklõps
 606|Näita kõiki {} kihti
+607|Otsi uuendusi…
+608|Programmi valikud…
+609|Programmi valikud
+610|Otsi programmi käivitamisel uuemat versiooni
+611|Töös varem
+612|Töös hiljem
+613|Kui kaugele üks klõps tööriista liigutab, millimeetrites
+614|Kiirus
+615|Nooleklahvid liigutavad X-i ja Y-t, Page Up ja Page Down liigutavad Z-i ülal valitud sammu võrra. Vaikimisi väljas: nooled liigutavad ka valitud kujundeid.
+616|Spindel
+617|Lülita sisse
+618|Lülitab spindli proovimiseks sisse (M3 S…) ja uuesti välja (M5). Töö teeb seda ise.
+619|Lülita välja
+620|Uuri enne masina lukust vabastamist, miks see peatus: tööriist võib olla materjalis.
+621|Peata
+622|Peata töö ja spindel
+623|Töö peatus
+624|Masin ei vasta
+625|Spindli kiirus saadetakse kui S{} kiirusele {} p/min: kontrolleri vahemik ($30) jaotatakse seadme tippkiiruse ({} p/min) peale.

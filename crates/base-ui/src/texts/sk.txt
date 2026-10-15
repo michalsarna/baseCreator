@@ -605,3 +605,22 @@
 604|Neuložený projekt bol obnovený
 605|{} — kliknutím sem priradíte výber / nastavíte ako aktívnu; dvojité kliknutie otvorí možnosti
 606|Zobraziť všetkých {} vrstiev
+607|Skontrolovať aktualizácie…
+608|Možnosti programu…
+609|Možnosti programu
+610|Pri spustení programu hľadať novšiu verziu
+611|Skôr v úlohe
+612|Neskôr v úlohe
+613|O koľko milimetrov posunie nástroj jedno kliknutie
+614|Rýchlosť
+615|Šípky posúvajú X a Y, Page Up a Page Down posúvajú Z, o krok zvolený vyššie. Predvolene vypnuté: šípky posúvajú aj vybrané tvary.
+616|Vreteno
+617|Zapnúť
+618|Zapne vreteno na skúšku (M3 S…) a opäť ho vypne (M5). Úloha to robí sama.
+619|Vypnúť
+620|Zistite, prečo sa zastavil, skôr ako stroj odomknete: nástroj môže byť v materiáli.
+621|Stop
+622|Zastaviť úlohu a vreteno
+623|Úloha sa zastavila
+624|Stroj neodpovedá
+625|Otáčky vretena sa posielajú ako S{} pre {} ot/min: rozsah radiča ($30) je rozložený na najvyššiu rýchlosť zariadenia ({} ot/min).

@@ -605,3 +605,22 @@
 604|Se recuperó el proyecto que no se guardó
 605|{} — clic para asignarle la selección / activarla; doble clic para las opciones
 606|Mostrar las {} capas
+607|Buscar actualizaciones…
+608|Opciones del programa…
+609|Opciones del programa
+610|Buscar una versión más reciente al iniciar el programa
+611|Antes en el trabajo
+612|Después en el trabajo
+613|Cuánto mueve la herramienta un clic, en milímetros
+614|Velocidad
+615|Las flechas mueven X e Y, Re Pág y Av Pág mueven Z, con el paso elegido arriba. Desactivado por defecto: las flechas también mueven las formas seleccionadas.
+616|Husillo
+617|Encender
+618|Enciende el husillo para probarlo (M3 S…) y lo apaga (M5). Un trabajo lo hace solo.
+619|Apagar
+620|Mira por qué se ha parado antes de desbloquear la máquina: la herramienta puede estar en el material.
+621|Parar
+622|Parar el trabajo y el husillo
+623|El trabajo se ha detenido
+624|La máquina no responde
+625|La velocidad del husillo se envía como S{} para {} rpm: el rango del controlador ($30) se reparte sobre la velocidad máxima del dispositivo ({} rpm).

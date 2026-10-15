@@ -605,3 +605,22 @@
 604|Il-proġett li ma ġiex issejvjat ġie rkuprat
 605|{} — ikklikkja biex tassenja l-għażla / tagħmlu attiv; ikklikkja darbtejn għall-għażliet
 606|Uri t-{} saff kollha
+607|Iċċekkja għal aġġornamenti…
+608|Għażliet tal-programm…
+609|Għażliet tal-programm
+610|Fittex verżjoni aktar ġdida meta jinbeda l-programm
+611|Aktar kmieni fil-ħidma
+612|Aktar tard fil-ħidma
+613|Kemm ċaqlaq wieħed jċaqlaq l-għodda, f'millimetri
+614|Veloċità
+615|Is-sagħat jċaqilqu X u Y, Page Up u Page Down iċaqilqu Z, bil-pass magħżul hawn fuq. B'mod awtomatiku mitfi: is-sagħat iċaqilqu wkoll il-forom magħżula.
+616|Spindle
+617|Ixgħel
+618|Jixgħel l-ispindle biex tipprovah (M3 S…) u jerġa' jtfih (M5). Ħidma tagħmel dan waħedha.
+619|Itfi
+620|Ara għaliex waqfet qabel ma tiftaħ il-magna: l-għodda tista' tkun fil-materjal.
+621|Waqqaf
+622|Waqqaf il-ħidma u l-ispindle
+623|Il-ħidma waqfet
+624|Ebda tweġiba mill-magna
+625|Il-veloċità tal-ispindle tintbagħat bħala S{} għal {} rpm: il-medda tal-kontrollur ($30) hija mqassma fuq il-veloċità massima tal-apparat ({} rpm).

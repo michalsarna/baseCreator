@@ -605,3 +605,22 @@
 604|Óvistaða verkefnið var endurheimt
 605|{} — smelltu til að úthluta vali / gera virkt; tvísmelltu fyrir valkosti
 606|Sýna öll {} lögin
+607|Leita að uppfærslum…
+608|Valkostir forrits…
+609|Valkostir forrits
+610|Leita að nýrri útgáfu þegar forritið ræsist
+611|Fyrr í verkinu
+612|Síðar í verkinu
+613|Hversu langt einn smellur færir verkfærið, í millimetrum
+614|Hraði
+615|Örvarnar færa X og Y, Page Up og Page Down færa Z, um skrefið sem valið er hér að ofan. Sjálfgefið slökkt: örvarnar færa líka valin form.
+616|Snælda
+617|Kveikja
+618|Kveikir á snældunni til prófunar (M3 S…) og slekkur aftur (M5). Verk gerir þetta sjálft.
+619|Slökkva
+620|Athugaðu hvers vegna hún stöðvaðist áður en þú aflæsir vélinni: verkfærið getur verið í efninu.
+621|Stöðva
+622|Stöðva verkið og snælduna
+623|Verkið stöðvaðist
+624|Ekkert svar frá vélinni
+625|Snúningshraði snældunnar er sendur sem S{} fyrir {} sn./mín.: svið stýringarinnar ($30) dreifist yfir hámarkshraða tækisins ({} sn./mín.).

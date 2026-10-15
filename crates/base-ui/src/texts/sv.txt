@@ -605,3 +605,22 @@
 604|Projektet som inte sparades har återställts
 605|{} — klicka för att tilldela markeringen / göra aktivt; dubbelklicka för alternativ
 606|Visa alla {} lager
+607|Sök efter uppdateringar…
+608|Programinställningar…
+609|Programinställningar
+610|Sök efter en nyare version när programmet startar
+611|Tidigare i jobbet
+612|Senare i jobbet
+613|Hur långt ett klick flyttar verktyget, i millimeter
+614|Hastighet
+615|Piltangenterna flyttar X och Y, Page Up och Page Down flyttar Z, med steget som valts ovan. Av som standard: pilarna flyttar också de markerade formerna.
+616|Spindel
+617|Slå på
+618|Slår på spindeln för att prova den (M3 S…) och av igen (M5). Ett jobb gör det själv.
+619|Slå av
+620|Ta reda på varför den stannade innan du låser upp maskinen: verktyget kan sitta i materialet.
+621|Stopp
+622|Stoppa jobbet och spindeln
+623|Jobbet stoppade
+624|Inget svar från maskinen
+625|Spindelhastigheten skickas som S{} för {} varv/min: kontrollerns område ($30) fördelas över enhetens maxhastighet ({} varv/min).

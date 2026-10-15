@@ -605,3 +605,22 @@
 604|Nesaglabātais projekts atjaunots
 605|{} — noklikšķiniet, lai piešķirtu atlasi / padarītu aktīvu; dubultklikšķis opcijām
 606|Rādīt visus {} slāņus
+607|Meklēt atjauninājumus…
+608|Programmas opcijas…
+609|Programmas opcijas
+610|Programmas startēšanas laikā meklēt jaunāku versiju
+611|Darbā agrāk
+612|Darbā vēlāk
+613|Cik tālu viens klikšķis pārvieto rīku, milimetros
+614|Ātrums
+615|Bultiņas pārvieto X un Y, Page Up un Page Down pārvieto Z, par augstāk izvēlēto soli. Pēc noklusējuma izslēgts: bultiņas pārvieto arī atlasītās formas.
+616|Vārpsta
+617|Ieslēgt
+618|Ieslēdz vārpstu izmēģinājumam (M3 S…) un atkal izslēdz (M5). Darbs to izdara pats.
+619|Izslēgt
+620|Pirms atbloķējat iekārtu, noskaidrojiet, kāpēc tā apstājās: rīks var būt materiālā.
+621|Stop
+622|Apturēt darbu un vārpstu
+623|Darbs apstājās
+624|Iekārta neatbild
+625|Vārpstas ātrums tiek sūtīts kā S{} {} apgr./min: kontroliera diapazons ($30) tiek sadalīts pa ierīces maksimālo ātrumu ({} apgr./min).

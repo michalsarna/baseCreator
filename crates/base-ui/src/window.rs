@@ -217,6 +217,14 @@ pub fn delete_icon(ui: &mut egui::Ui, tip: &str) -> egui::Response {
     ui.add(egui::Button::image(icons::slot(Some("trash"), egui::Color32::WHITE)).fill(DELETE_RED)).on_hover_text(tip)
 }
 
+/// The size a widget may take to fill what is left of a window or a panel: everything that is available, less the spacing
+/// of the layout that follows every widget. A widget of the full `available_size` makes the window grow by that spacing on
+/// every frame, up to the size of the screen.
+pub fn fill_size(ui: &egui::Ui) -> egui::Vec2 {
+    let s = ui.spacing().item_spacing;
+    (ui.available_size_before_wrap() - egui::vec2(0.0, s.y)).max(egui::vec2(1.0, 1.0))
+}
+
 /// A pop-up window in the common style: slim title line, close button, movable and resizable both ways.
 /// `size` is the starting size; `open` is cleared by the close button.
 pub fn popup<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open: &mut bool, add: impl FnOnce(&mut egui::Ui) -> R) -> Option<R> {
@@ -244,4 +252,47 @@ pub fn popup<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open
         *open = false;
     }
     r.and_then(|r| r.inner)
+}
+
+#[cfg(test)]
+mod size_tests {
+    use super::*;
+
+    fn heights(content: impl Fn(&mut egui::Ui)) -> Vec<f32> {
+        let ctx = egui::Context::default();
+        let mut out = vec![];
+        let mut open = true;
+        for _ in 0..8 {
+            let input = egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1000.0))), ..Default::default() };
+            let mut o = ctx.run_ui(input, |ui| {
+                popup(ui.ctx(), "t", "Test", [600.0, 400.0], &mut open, |ui| content(ui));
+            });
+            o.textures_delta.clear();
+            if let Some(r) = ctx.memory(|m| m.area_rect(egui::Id::new(Some("t")))) {
+                out.push(r.height());
+            }
+        }
+        out
+    }
+
+    #[test]
+    fn a_popup_keeps_its_size_with_little_in_it_or_with_a_widget_that_fills_it() {
+        let small = heights(|ui| {
+            ui.label("hello");
+        });
+        assert!((small[7] - small[2]).abs() < 1.0 && small[7] > 350.0, "{small:?}");
+        let filling = heights(|ui| {
+            let (r, _) = ui.allocate_exact_size(fill_size(ui), egui::Sense::hover());
+            ui.painter().rect_filled(r, 0.0, egui::Color32::RED);
+        });
+        assert!((filling[7] - filling[2]).abs() < 1.0, "{filling:?}");
+        let list = heights(|ui| {
+            egui::ScrollArea::vertical().max_height(fill_size(ui).y).auto_shrink([false, false]).show(ui, |ui| {
+                for i in 0..100 {
+                    ui.label(format!("{i}"));
+                }
+            });
+        });
+        assert!((list[7] - list[2]).abs() < 1.0, "{list:?}");
+    }
 }

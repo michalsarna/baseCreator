@@ -605,3 +605,22 @@
 604|A mentetlen projekt visszaállítva
 605|{} — kattintson, hogy a kijelölést ide rendelje / aktívvá tegye; dupla kattintás a beállításokhoz
 606|Mind a {} réteg megjelenítése
+607|Frissítések keresése…
+608|Programbeállítások…
+609|Programbeállítások
+610|Újabb verzió keresése a program indulásakor
+611|Korábban a munkában
+612|Később a munkában
+613|Egy kattintás mennyivel mozgatja a szerszámot, milliméterben
+614|Sebesség
+615|A nyilak az X és Y tengelyt, a Page Up és Page Down a Z tengelyt mozgatják a fent választott lépéssel. Alapból kikapcsolva: a nyilak a kijelölt alakzatokat is mozgatják.
+616|Orsó
+617|Bekapcsolás
+618|Bekapcsolja az orsót kipróbálásra (M3 S…), és újra kikapcsolja (M5). A munka ezt magától megteszi.
+619|Kikapcsolás
+620|Nézd meg, miért állt meg, mielőtt feloldod a gépet: a szerszám az anyagban lehet.
+621|Leállítás
+622|A munka és az orsó leállítása
+623|A munka leállt
+624|A gép nem válaszol
+625|Az orsó fordulatszáma S{} értékként megy el {} ford./perchez: a vezérlő tartománya ($30) az eszköz legnagyobb fordulatszámára ({} ford./perc) van elosztva.

@@ -605,3 +605,22 @@
 604	Recovered the project that was not saved
 605	{} — click to assign selection / set active; double-click for options
 606	Show all {} layers
+607	Check for updates…
+608	Program options…
+609	Program options
+610	Look for a newer version when the program starts
+611	Earlier in the job
+612	Later in the job
+613	How far one click moves the tool, in millimetres
+614	Speed
+615	Arrow keys move X and Y, Page Up and Page Down move Z, by the step chosen above. Off by default: the arrows also move the selected shapes.
+616	Spindle
+617	Switch on
+618	Switches the spindle on to try it (M3 S…) and off again (M5). A job does this by itself.
+619	Switch off
+620	Look why it stopped before you unlock the machine: the tool may be in the material.
+621	Stop
+622	Stop the job and the spindle
+623	The job stopped
+624	No answer from the machine
+625	The spindle speed is sent as S{} for {} rpm: the controller's range ($30) is spread over the top speed of the device ({} rpm).

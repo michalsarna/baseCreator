@@ -605,3 +605,22 @@
 604|Proiectul nesalvat a fost recuperat
 605|{} — clic pentru a-i atribui selecția / a-l face activ; dublu clic pentru opțiuni
 606|Arată toate cele {} de straturi
+607|Caută actualizări…
+608|Opțiunile programului…
+609|Opțiunile programului
+610|Caută o versiune mai nouă la pornirea programului
+611|Mai devreme în lucrare
+612|Mai târziu în lucrare
+613|Cât mută unealta un clic, în milimetri
+614|Viteză
+615|Săgețile mută X și Y, Page Up și Page Down mută Z, cu pasul ales mai sus. Oprit implicit: săgețile mută și formele selectate.
+616|Ax principal
+617|Pornește
+618|Pornește axul pentru încercare (M3 S…) și îl oprește (M5). O lucrare face asta singură.
+619|Oprește
+620|Vezi de ce s-a oprit înainte să deblochezi mașina: scula poate fi în material.
+621|Stop
+622|Oprește lucrarea și axul
+623|Lucrarea s-a oprit
+624|Mașina nu răspunde
+625|Viteza axului este trimisă ca S{} pentru {} rpm: intervalul controlerului ($30) este distribuit pe viteza maximă a dispozitivului ({} rpm).
