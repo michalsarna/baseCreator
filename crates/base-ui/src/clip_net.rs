@@ -33,7 +33,7 @@ fn get(agent: &ureq::Agent, url: &str, max: u64) -> Result<Vec<u8>, String> {
     }
     let resp = agent.get(url).call().map_err(|e| e.to_string())?;
     let mut buf = Vec::new();
-    resp.into_reader().take(max + 1).read_to_end(&mut buf).map_err(|e| e.to_string())?;
+    resp.into_body().into_reader().take(max + 1).read_to_end(&mut buf).map_err(|e| e.to_string())?;
     if buf.len() as u64 > max {
         return Err("the answer is too large".into());
     }
@@ -49,7 +49,7 @@ impl ClipNet {
         for _ in 0..3 {
             let (rx_req, tx_rep, ctx, base) = (rx_req.clone(), tx_rep.clone(), ctx.clone(), base.to_string());
             std::thread::spawn(move || {
-                let agent = ureq::AgentBuilder::new().timeout_connect(Duration::from_secs(6)).timeout_read(Duration::from_secs(10)).user_agent("LightCreator").build();
+                let agent = ureq::Agent::from(ureq::Agent::config_builder().timeout_connect(Some(Duration::from_secs(6))).timeout_recv_response(Some(Duration::from_secs(10))).timeout_recv_body(Some(Duration::from_secs(30))).user_agent("LightCreator").build());
                 loop {
                     let req = match rx_req.lock() {
                         Ok(r) => r.recv(),
@@ -143,6 +143,24 @@ mod tests {
                 Reply::Svg { result, .. } => assert!(result.is_err()),
                 _ => panic!("unexpected reply"),
             }
+        }
+    }
+
+    /// Against the real Iconify service: `cargo test -p base-ui -- --ignored real_network` (needs the internet).
+    #[test]
+    #[ignore = "uses the internet"]
+    fn real_network_iconify_search_and_download() {
+        let net = ClipNet::spawn(egui::Context::default(), iconify::API);
+        net.send(Req::Search { query: "cat".into() });
+        let hits = match net.rx.recv_timeout(Duration::from_secs(20)).expect("search answer") {
+            Reply::Hits { result, .. } => result.expect("hits"),
+            _ => panic!("unexpected reply"),
+        };
+        assert!(!hits.is_empty());
+        net.send(Req::Fetch { key: hits[0].key(), url: hits[0].svg_url(net.base()) });
+        match net.rx.recv_timeout(Duration::from_secs(20)).expect("svg answer") {
+            Reply::Svg { result, .. } => assert!(base_core::clipart::normalize_svg(&String::from_utf8(result.expect("bytes")).unwrap()).is_ok()),
+            _ => panic!("unexpected reply"),
         }
     }
 }

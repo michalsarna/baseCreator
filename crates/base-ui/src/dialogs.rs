@@ -145,13 +145,15 @@ pub fn latest_tag_from_json(body: &str) -> Option<String> {
 }
 
 fn fetch_latest(cfg: &UpdateConfig) -> Result<String, String> {
-    let resp = ureq::get(&cfg.api_url())
-        .set("User-Agent", cfg.app_name)
-        .set("Accept", "application/vnd.github+json")
-        .timeout(Duration::from_secs(8))
+    let mut resp = ureq::get(&cfg.api_url())
+        .header("User-Agent", cfg.app_name)
+        .header("Accept", "application/vnd.github+json")
+        .config()
+        .timeout_global(Some(Duration::from_secs(8)))
+        .build()
         .call()
         .map_err(|e| e.to_string())?;
-    let body = resp.into_string().map_err(|e| e.to_string())?;
+    let body = resp.body_mut().read_to_string().map_err(|e| e.to_string())?;
     latest_tag_from_json(&body).ok_or_else(|| "no release found".to_string())
 }
 
@@ -278,5 +280,15 @@ mod tests {
         st.tick(&ctx, &CFG);
         assert!(st.window.is_none());
         assert_eq!(CFG.releases_url(), "https://github.com/owner/name/releases/latest");
+    }
+
+    /// Against the real GitHub API: `cargo test -p base-ui -- --ignored real_network` (needs the internet).
+    #[test]
+    #[ignore = "uses the internet"]
+    fn real_network_latest_release_of_a_repository() {
+        static REAL: UpdateConfig = UpdateConfig { app_name: "baseCreator-test", repo: "michalsarna/LightCreator", version: "v0.0.1" };
+        let tag = fetch_latest(&REAL).expect("the newest release");
+        assert!(parse_version(&tag).is_some(), "{tag}");
+        assert!(is_newer(&tag, REAL.version));
     }
 }
