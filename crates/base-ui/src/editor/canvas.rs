@@ -227,6 +227,8 @@ pub trait EditorCanvas: EditorHost {
         let hpos = resp.interact_pointer_pos().or(mouse);
         let press = if resp.drag_started() { ui.input(|i| i.pointer.press_origin()).or(hpos) } else { hpos };
         let shift = ui.input(|i| i.modifiers.shift);
+        // Shift or Ctrl (Cmd on macOS) adds to the selection (and takes out what is already in it) instead of replacing it.
+        let multi = shift || ui.input(|i| i.modifiers.command);
         // Right click selects what is under the pointer, then the context menu offers the usual commands.
         if resp.secondary_clicked() && self.ed().tool == Tool::Select {
             if let Some(m) = hpos {
@@ -291,7 +293,7 @@ pub trait EditorCanvas: EditorHost {
                             });
                         } else if let Some(id) = self.hit_shape(w) {
                             if !self.ed().sel.contains(&id) {
-                                if !shift {
+                                if !multi {
                                     self.ed_mut().sel.clear();
                                 }
                                 for m in self.scene().group_of(id) {
@@ -304,7 +306,7 @@ pub trait EditorCanvas: EditorHost {
                             let orig = self.ed().sel.iter().filter_map(|i| self.scene().shape(*i).filter(|s| !s.locked).map(|s| (*i, s.xf))).collect();
                             self.ed_mut().drag = Some(Drag::Move { start: w, orig });
                         } else {
-                            if !shift {
+                            if !multi {
                                 self.ed_mut().sel.clear();
                             }
                             self.ed_mut().drag = Some(Drag::Marquee { start: w });
@@ -317,7 +319,7 @@ pub trait EditorCanvas: EditorHost {
                     if let Some(m) = hpos {
                         let hit = self.hit_shape(self.s2w(o, m));
                         match hit {
-                            Some(id) if shift => {
+                            Some(id) if multi => {
                                 let members = self.scene().group_of(id);
                                 if self.ed().sel.contains(&id) {
                                     self.ed_mut().sel.retain(|x| !members.contains(x));
@@ -346,7 +348,7 @@ pub trait EditorCanvas: EditorHost {
                             self.ed_mut().drag = Some(Drag::HandleMove { node: nr, out });
                         } else if let Some(nr) = self.hit_node(o, m) {
                             if !self.ed().node_sel.contains(&nr) {
-                                if !shift {
+                                if !multi {
                                     self.ed_mut().node_sel.clear();
                                 }
                                 self.ed_mut().node_sel.push(nr);
@@ -356,7 +358,7 @@ pub trait EditorCanvas: EditorHost {
                             let orig: Vec<(NodeRef, Node)> = self.ed().node_sel.iter().filter_map(|r| self.node_at(*r).map(|n| (*r, n))).collect();
                             self.ed_mut().drag = Some(Drag::NodeMove { start: w, orig });
                         } else {
-                            if !shift {
+                            if !multi {
                                 self.ed_mut().node_sel.clear();
                             }
                             self.ed_mut().active_seg = None;
@@ -373,7 +375,7 @@ pub trait EditorCanvas: EditorHost {
                     if let Some(m) = hpos {
                         let w = self.s2w(o, m);
                         if let Some(nr) = self.hit_node(o, m) {
-                            if shift {
+                            if multi {
                                 if let Some(i) = self.ed().node_sel.iter().position(|x| *x == nr) {
                                     self.ed_mut().node_sel.remove(i);
                                 } else {
