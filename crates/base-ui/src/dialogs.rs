@@ -282,6 +282,40 @@ mod tests {
         assert_eq!(CFG.releases_url(), "https://github.com/owner/name/releases/latest");
     }
 
+    #[test]
+    fn the_button_of_the_newer_version_window_opens_the_download_page() {
+        static CFG: UpdateConfig = UpdateConfig { app_name: "Test", repo: "owner/name", version: "v0.1.5" };
+        let ctx = egui::Context::default();
+        let mut st = UpdateState::default();
+        st.window = Some(Outcome::Newer("v9.9.9".into()));
+        let opened = std::cell::RefCell::new(Vec::<String>::new());
+        let frame = |st: &mut UpdateState, events: Vec<egui::Event>| {
+            let input = egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1000.0, 700.0))), events, ..Default::default() };
+            let mut out = ctx.run_ui(input, |ui| st.tick(ui.ctx(), &CFG));
+            out.textures_delta.clear();
+            for c in &out.platform_output.commands {
+                if let egui::OutputCommand::OpenUrl(u) = c {
+                    opened.borrow_mut().push(u.url.clone());
+                }
+            }
+        };
+        frame(&mut st, vec![]);
+        frame(&mut st, vec![]);
+        // Click down the middle of the screen until something happens: the button is somewhere in the window.
+        let mut y = 100.0;
+        while y < 600.0 && opened.borrow().is_empty() && st.window.is_some() {
+            let at = egui::pos2(500.0, y);
+            let button = |pressed| egui::Event::PointerButton { pos: at, button: egui::PointerButton::Primary, pressed, modifiers: Default::default() };
+            frame(&mut st, vec![egui::Event::PointerMoved(at)]);
+            frame(&mut st, vec![button(true)]);
+            frame(&mut st, vec![button(false)]);
+            frame(&mut st, vec![]);
+            y += 8.0;
+        }
+        assert_eq!(*opened.borrow(), vec!["https://github.com/owner/name/releases/latest".to_string()]);
+        assert!(st.window.is_none(), "the window closes");
+    }
+
     /// Against the real GitHub API: `cargo test -p base-ui -- --ignored real_network` (needs the internet).
     #[test]
     #[ignore = "uses the internet"]
