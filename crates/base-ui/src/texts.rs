@@ -633,6 +633,9 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["The spindle speed is sent as S{} for {} rpm: the controller's range ($30) is spread over the top speed of the device ({} rpm).", "Prędkość wrzeciona jest wysyłana jako S{} dla {} obr/min: zakres sterownika ($30) jest rozłożony na maksymalną prędkość urządzenia ({} obr/min).", "Die Spindeldrehzahl wird als S{} für {} U/min gesendet: Der Bereich der Steuerung ($30) wird auf die Höchstdrehzahl des Geräts ({} U/min) verteilt.", "La velocità del mandrino viene inviata come S{} per {} giri/min: l'intervallo del controller ($30) è distribuito sulla velocità massima del dispositivo ({} giri/min).", "Karan nopeus lähetetään arvona S{} nopeudelle {} rpm: ohjaimen alue ($30) jaetaan laitteen huippunopeudelle ({} rpm).", "主轴转速以 S{} 发送（对应 {} 转/分）：控制器的范围（$30）被分配到设备的最高转速（{} 转/分）上。", "स्पिंडल की गति {} rpm के लिए S{} के रूप में भेजी जाती है: कंट्रोलर की सीमा ($30) डिवाइस की अधिकतम गति ({} rpm) पर फैलाई जाती है।"],
     ["Hide the panel (the tabs stay on a narrow strip)", "Ukryj panel (zakładki zostają na wąskim pasku)", "Panel ausblenden (die Reiter bleiben in einer schmalen Leiste)", "Nascondi il pannello (le schede restano su una stretta barra)", "Piilota paneeli (välilehdet jäävät kapealle palkille)", "隐藏面板（标签页保留在窄条上）", "पैनल छिपाएँ (टैब एक संकरी पट्टी पर रहते हैं)"],
     ["Show the panel", "Pokaż panel", "Panel anzeigen", "Mostra il pannello", "Näytä paneeli", "显示面板", "पैनल दिखाएँ"],
+    ["Import image…", "Import obrazu…", "Bild importieren…", "Importa immagine…", "Tuo kuva…", "导入图像…", "छवि आयात…"],
+    ["Adjust image…", "Dostosuj obraz…", "Bild anpassen…", "Regola immagine…", "Säädä kuvaa…", "调整图像…", "छवि समायोजन…"],
+    ["Trace image…", "Wektoryzacja obrazu…", "Bild nachzeichnen…", "Vettorializzazione immagine…", "Kuvan jäljitys…", "描摹图像…", "छवि ट्रेस…"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

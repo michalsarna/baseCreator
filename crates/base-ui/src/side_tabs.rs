@@ -207,7 +207,7 @@ mod tests {
             input.screen_rect = Some(egui::Rect::from_min_size(egui::pos2(0.0, 0.0), egui::vec2(400.0, 400.0)));
             input.events = events;
             let mut out = ctx.run_ui(input, |ui| {
-                egui::CentralPanel::default().show_inside(ui, |ui| {
+                egui::CentralPanel::default().show(ui, |ui| {
                     let label = |id: &str| id.to_string();
                     let p = if t.collapsed { t.strip(ui, "a", &[], &label) } else { t.bar(ui, "a", &[], &label) };
                     picked = p.or(picked);
