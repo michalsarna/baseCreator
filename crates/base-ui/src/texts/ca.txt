@@ -649,3 +649,4 @@
 648|Arrodoneix les cantonades…
 649|Converteix en corbes
 650|Operacions amb formes
+651|Imatge

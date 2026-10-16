@@ -649,3 +649,4 @@
 648|Noapaļot stūrus…
 649|Pārvērst par līknēm
 650|Formu darbības
+651|Attēls

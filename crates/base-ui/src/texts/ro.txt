@@ -649,3 +649,4 @@
 648|Rotunjește colțurile…
 649|Convertește în curbe
 650|Operații cu forme
+651|Imagine

@@ -649,3 +649,4 @@
 648|Sarkok lekerekítése…
 649|Átalakítás görbékké
 650|Alakzatműveletek
+651|Kép

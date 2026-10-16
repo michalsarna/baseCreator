@@ -649,3 +649,4 @@
 648|Arrondir les angles…
 649|Convertir en courbes
 650|Opérations sur les formes
+651|Image

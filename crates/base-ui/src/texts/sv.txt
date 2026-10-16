@@ -649,3 +649,4 @@
 648|Runda hörn…
 649|Konvertera till kurvor
 650|Formoperationer
+651|Bild

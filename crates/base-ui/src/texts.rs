@@ -656,6 +656,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Round corners…", "Zaokrąglij rogi…", "Ecken abrunden…", "Arrotonda angoli…", "Pyöristä kulmat…", "圆角…", "कोने गोल करें…"],
     ["Convert to curves", "Zamień na krzywe", "In Kurven umwandeln", "Converti in curve", "Muunna käyriksi", "转换为曲线", "वक्रों में बदलें"],
     ["Shape operations", "Operacje na kształtach", "Formoperationen", "Operazioni sulle forme", "Muotojen toiminnot", "形状运算", "आकार संचालन"],
+    ["Image", "Obraz", "Bild", "Immagine", "Kuva", "图像", "छवि"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

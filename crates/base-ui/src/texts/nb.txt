@@ -649,3 +649,4 @@
 648|Avrund hjørner…
 649|Konverter til kurver
 650|Formoperasjoner
+651|Bilde

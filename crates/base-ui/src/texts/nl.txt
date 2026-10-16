@@ -649,3 +649,4 @@
 648|Hoeken afronden…
 649|Omzetten naar curven
 650|Vormbewerkingen
+651|Afbeelding

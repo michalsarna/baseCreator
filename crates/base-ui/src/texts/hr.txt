@@ -649,3 +649,4 @@
 648|Zaobli kutove…
 649|Pretvori u krivulje
 650|Operacije s oblicima
+651|Slika

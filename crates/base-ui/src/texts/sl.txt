@@ -649,3 +649,4 @@
 648|Zaobli vogale…
 649|Pretvori v krivulje
 650|Operacije z oblikami
+651|Slika

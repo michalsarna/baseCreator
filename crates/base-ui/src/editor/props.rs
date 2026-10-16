@@ -5,6 +5,7 @@ use crate::i18n::tr;
 use crate::units_ui::drag_len;
 use crate::widgets::{button_grid, section_title};
 use crate::{icons, theme};
+use crate::menu::StdAct;
 use base_core::geom::Xf;
 
 /// Draw the sections for the selection. Returns false (and draws nothing) when nothing is selected.
@@ -103,6 +104,26 @@ pub fn properties_sections<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) -> bool 
     ];
     if let Some(i) = button_grid(ui, "props_align", &aligns) {
         h.align(i as u8);
+    }
+    // A picture: adjust it, or trace it into outlines.
+    let single_image = h.ed().sel.len() == 1 && h.scene().shape(h.ed().sel[0]).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_)));
+    if single_image {
+        ui.separator();
+        section_title(ui, "image", &tr("Image"));
+        let bw = (ui.available_width() - ui.spacing().item_spacing.x) / 2.0;
+        let ink = theme::text();
+        let mut act = None;
+        ui.horizontal(|ui| {
+            for (a, label) in [(StdAct::AdjustImage, "Adjust image…"), (StdAct::TraceImage, "Trace image…")] {
+                let btn = egui::Button::image_and_text(icons::slot(Some(a.icon()), ink), tr(label)).truncate();
+                if ui.add_sized([bw, 24.0], btn).on_hover_text(tr(label)).clicked() {
+                    act = Some(a);
+                }
+            }
+        });
+        if let Some(a) = act {
+            a.run(h);
+        }
     }
     true
 }
