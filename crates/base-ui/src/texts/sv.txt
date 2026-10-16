@@ -629,3 +629,23 @@
 628|Importera bild…
 629|Justera bild…
 630|Vektorisera bild…
+631|Markera minst två former (inte bilder).
+632|Linjerna kan inte förenas (parallella, eller så ryms inte radien).
+633|De två linjerna förenades med ett rundat hörn.
+634|Markera först formerna som ska rundas.
+635|Runda hörn
+636|Radie
+637|Två raka linjer är markerade: de förenas med ett rundat hörn.
+638|Varje rakt hörn i de markerade formerna rundas.
+639|Förskjut form
+640|Positivt värde förstorar konturen, negativt förminskar den.
+641|Behåll originalet
+642|Skapa förskjutning
+643|Union
+644|Snitt
+645|Subtrahera
+646|Exklusiv eller
+647|Förskjut form…
+648|Runda hörn…
+649|Konvertera till kurvor
+650|Formoperationer

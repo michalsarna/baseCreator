@@ -629,3 +629,23 @@
 628|Attēla imports…
 629|Attēla pielāgošana…
 630|Attēla vektorizēšana…
+631|Atlasiet vismaz divas formas (ne attēlus).
+632|Šīs līnijas nevar savienot (paralēlas, vai rādiuss neietilpst).
+633|Abas līnijas savienotas ar noapaļotu stūri.
+634|Vispirms atlasiet formas noapaļošanai.
+635|Noapaļot stūrus
+636|Rādiuss
+637|Atlasītas divas taisnas līnijas: tās tiek savienotas ar noapaļotu stūri.
+638|Katrs atlasīto formu taisnais stūris tiks noapaļots.
+639|Nobīdīt formu
+640|Pozitīva vērtība palielina kontūru, negatīva samazina.
+641|Saglabāt oriģinālu
+642|Izveidot nobīdi
+643|Apvienojums
+644|Šķēlums
+645|Atņemšana
+646|Izslēdzošais VAI
+647|Nobīdīt formu…
+648|Noapaļot stūrus…
+649|Pārvērst par līknēm
+650|Formu darbības

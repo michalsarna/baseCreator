@@ -629,3 +629,23 @@
 628|Uvoz slike…
 629|Prilagodi sliko…
 630|Vektorizacija slike…
+631|Izberite vsaj dve obliki (ne slik).
+632|Teh črt ni mogoče povezati (vzporedni sta ali polmer ne gre).
+633|Obe črti sta povezani z zaobljenim vogalom.
+634|Najprej izberite oblike za zaobljenje.
+635|Zaobli vogale
+636|Polmer
+637|Izbrani sta dve ravni črti: povezani bosta z zaobljenim vogalom.
+638|Vsak raven vogal izbranih oblik bo zaobljen.
+639|Zamakni obliko
+640|Pozitivna vrednost poveča obris, negativna ga zmanjša.
+641|Ohrani izvirnik
+642|Ustvari zamik
+643|Unija
+644|Presek
+645|Odštevanje
+646|Izključujoči ALI
+647|Zamakni obliko…
+648|Zaobli vogale…
+649|Pretvori v krivulje
+650|Operacije z oblikami

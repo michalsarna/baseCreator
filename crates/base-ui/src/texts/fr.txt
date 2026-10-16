@@ -629,3 +629,23 @@
 628|Importer une image…
 629|Ajuster l'image…
 630|Vectoriser l'image…
+631|Sélectionnez au moins deux formes (pas d'images).
+632|Ces lignes ne peuvent pas être reliées (parallèles, ou le rayon ne convient pas).
+633|Les deux lignes sont reliées par un angle arrondi.
+634|Sélectionnez d'abord les formes à arrondir.
+635|Arrondir les angles
+636|Rayon
+637|Deux lignes droites sont sélectionnées : elles sont reliées par un angle arrondi.
+638|Chaque angle droit des formes sélectionnées est arrondi.
+639|Décalage de la forme
+640|Une valeur positive agrandit le contour, une valeur négative le réduit.
+641|Conserver l'original
+642|Créer le décalage
+643|Union
+644|Intersection
+645|Soustraction
+646|Ou exclusif
+647|Décalage de la forme…
+648|Arrondir les angles…
+649|Convertir en courbes
+650|Opérations sur les formes

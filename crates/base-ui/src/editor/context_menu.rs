@@ -37,7 +37,9 @@ fn allowed<H: EditorHost>(h: &H, s: &Sel, act: StdAct) -> bool {
         StdAct::Delete | StdAct::FlipH | StdAct::FlipV | StdAct::RotCw | StdAct::RotCcw | StdAct::ToFront | StdAct::ToBack | StdAct::Align(_) | StdAct::CenterOnBed | StdAct::EditNodes | StdAct::ToPath => s.unlocked,
         StdAct::Group | StdAct::CenterEachOther => s.several,
         StdAct::Ungroup => s.grouped,
-        StdAct::Lock => s.unlocked,
+        StdAct::Lock | StdAct::RoundCorners | StdAct::ToCurves => s.unlocked,
+        StdAct::BoolUnion | StdAct::BoolIntersect | StdAct::BoolSubtract | StdAct::BoolXor => s.several,
+        StdAct::OffsetShape => s.any,
         StdAct::Unlock => s.locked,
         StdAct::AdjustImage | StdAct::TraceImage => s.image,
         _ => act.enabled(h),
@@ -88,6 +90,21 @@ fn arrange_entries() -> Vec<Option<(StdAct, &'static str)>> {
     ]
 }
 
+/// The submenu "Shape operations".
+fn shape_op_entries() -> Vec<Option<(StdAct, &'static str)>> {
+    use StdAct::*;
+    vec![
+        Some((BoolUnion, "Union")),
+        Some((BoolIntersect, "Intersection")),
+        Some((BoolSubtract, "Subtract")),
+        Some((BoolXor, "Exclusive or")),
+        None,
+        Some((OffsetShape, "Offset shape…")),
+        Some((RoundCorners, "Round corners…")),
+        Some((ToCurves, "Convert to curves")),
+    ]
+}
+
 /// Draw the menu on a right click and run the command that was chosen.
 pub fn context_menu<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, resp: &egui::Response) {
     let mut chosen: Option<StdAct> = None;
@@ -121,6 +138,16 @@ pub fn context_menu<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, resp: &egui::Re
                 }
             }
         });
+        ui.menu_button((icons::slot(Some("squares-unite"), theme::text()), tr("Shape operations")), |ui| {
+            for e in shape_op_entries() {
+                match e {
+                    Some((act, label)) => item(ui, act, label),
+                    None => {
+                        ui.separator();
+                    }
+                }
+            }
+        });
         if sel.image {
             ui.separator();
             item(ui, StdAct::AdjustImage, "Adjust image…");
@@ -142,7 +169,7 @@ mod tests {
         let have: std::collections::HashSet<&str> = icons::all_names().into_iter().collect();
         assert!(have.contains("shapes"), "icon of the Arrange submenu");
         let mut seen: Vec<StdAct> = vec![];
-        for (act, label) in entries().into_iter().chain(arrange_entries()).flatten() {
+        for (act, label) in entries().into_iter().chain(arrange_entries()).chain(shape_op_entries()).flatten() {
             assert!(have.contains(act.icon()), "icon of {act:?}");
             assert!(!seen.contains(&act), "{act:?} twice");
             assert!(!label.is_empty());

@@ -629,3 +629,23 @@
 628|Iompórtáil íomhá…
 629|Coigeartaigh an íomhá…
 630|Veicteoriú íomhá…
+631|Roghnaigh dhá chruth ar a laghad (gan íomhánna).
+632|Ní féidir na línte seo a cheangal (comhthreomhar, nó ní oireann an ga).
+633|Ceanglaíodh an dá líne le cúinne cruinn.
+634|Roghnaigh na cruthanna le cruinniú ar dtús.
+635|Cruinnigh cúinní
+636|Ga
+637|Tá dhá líne dhíreacha roghnaithe: ceanglaítear iad le cúinne cruinn.
+638|Cruinneofar gach cúinne díreach de na cruthanna roghnaithe.
+639|Díláithrigh an cruth
+640|Méadaíonn luach dearfach an imlíne, laghdaíonn luach diúltach í.
+641|Coinnigh an bunchruth
+642|Cruthaigh an díláithriú
+643|Aontas
+644|Trasnú
+645|Dealú
+646|Nó eisiach
+647|Díláithrigh an cruth…
+648|Cruinnigh cúinní…
+649|Tiontaigh ina gcuair
+650|Oibríochtaí cruthanna

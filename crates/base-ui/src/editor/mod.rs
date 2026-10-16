@@ -8,12 +8,14 @@ mod host;
 mod image_ui;
 mod prefs;
 mod props;
+mod shape_ops;
 
 pub use bars::{arrange_bar, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use context_menu::context_menu;
 pub use host::EditorHost;
+pub use shape_ops::EditorShapeOps;
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
 pub use bars::{control_name, grid_toggles, selection_size, zoom_and_cursor};
 pub use prefs::view_options_window;
@@ -206,6 +208,11 @@ pub struct EditorState {
     pub spiral_turns: u32,
     /// Radius (mm) for rounding corners.
     pub fillet_radius: f64,
+    /// The small windows of the offset and of rounding the corners of whole shapes, and what the offset window holds.
+    pub show_offset: bool,
+    pub show_round: bool,
+    pub offset_dist: f64,
+    pub offset_keep: bool,
     /// The small window with the number of sides (polygon) or turns (spiral).
     pub show_shape_popup: bool,
     /// The last polygon or spiral drawn: tool, shape id and the box it was drawn in. The popup edits it.
@@ -254,6 +261,10 @@ impl EditorState {
             polygon_sides: 6,
             spiral_turns: 3,
             fillet_radius: 2.0,
+            show_offset: false,
+            show_round: false,
+            offset_dist: -1.0,
+            offset_keep: true,
             show_shape_popup: false,
             last_param: None,
             node_bar_active: true,

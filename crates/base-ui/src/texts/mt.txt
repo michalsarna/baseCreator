@@ -629,3 +629,23 @@
 628|Importazzjoni tal-istampa…
 629|Aġġusta l-istampa…
 630|Vettorizzazzjoni tal-istampa…
+631|Agħżel mill-inqas żewġ forom (mhux stampi).
+632|Dawn il-linji ma jistgħux jinġabru (paralleli, jew ir-raġġ ma jidħolx).
+633|Iż-żewġ linji ngħaqdu b'kantuniera mdawra.
+634|Agħżel l-ewwel il-forom li għandhom jiġu mdawra.
+635|Dawwar il-kantunieri
+636|Raġġ
+637|Żewġ linji dritti huma magħżula: jinġabru b'kantuniera mdawra.
+638|Kull kantuniera dritta tal-forom magħżula tiġi mdawra.
+639|Ċaqlaq il-forma
+640|Valur pożittiv ikabbar il-kontorn, wieħed negattiv inaqqsu.
+641|Żomm l-oriġinal
+642|Oħloq l-offset
+643|Għaqda
+644|Intersezzjoni
+645|Tnaqqis
+646|JEW esklussiv
+647|Ċaqlaq il-forma…
+648|Dawwar il-kantunieri…
+649|Ikkonverti f'kurvi
+650|Operazzjonijiet tal-forom

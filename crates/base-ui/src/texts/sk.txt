@@ -629,3 +629,23 @@
 628|Import obrázka…
 629|Úprava obrázka…
 630|Vektorizácia obrázka…
+631|Vyberte aspoň dva tvary (nie obrázky).
+632|Tieto priamky nemožno spojiť (sú rovnobežné, alebo sa polomer nezmestí).
+633|Obe priamky boli spojené zaobleným rohom.
+634|Najprv vyberte tvary, ktoré sa majú zaobliť.
+635|Zaobliť rohy
+636|Polomer
+637|Sú vybrané dve priamky: spoja sa zaobleným rohom.
+638|Každý priamy roh vybraných tvarov sa zaobli.
+639|Odsadiť tvar
+640|Kladná hodnota obrys zväčší, záporná zmenší.
+641|Ponechať originál
+642|Vytvoriť odsadenie
+643|Zjednotenie
+644|Prienik
+645|Rozdiel
+646|Exkluzívne alebo
+647|Odsadiť tvar…
+648|Zaobliť rohy…
+649|Previesť na krivky
+650|Operácie s tvarmi

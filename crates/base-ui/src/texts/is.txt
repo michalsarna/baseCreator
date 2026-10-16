@@ -629,3 +629,23 @@
 628|Innflutningur myndar…
 629|Laga mynd…
 630|Vigurgerð myndar…
+631|Veldu að minnsta kosti tvö form (ekki myndir).
+632|Ekki er hægt að tengja þessar línur (samsíða eða radíusinn passar ekki).
+633|Línurnar tvær voru tengdar með ávölu horni.
+634|Veldu fyrst form til að ávala.
+635|Ávala horn
+636|Radíus
+637|Tvær beinar línur eru valdar: þær eru tengdar með ávölu horni.
+638|Hvert beint horn valinna forma er ávalað.
+639|Færa form til
+640|Jákvætt gildi stækkar útlínuna, neikvætt minnkar hana.
+641|Halda upprunalegu
+642|Búa til tilfærslu
+643|Sameining
+644|Sniðmengi
+645|Frádráttur
+646|Útilokandi EÐA
+647|Færa form til…
+648|Ávala horn…
+649|Breyta í ferla
+650|Formaðgerðir

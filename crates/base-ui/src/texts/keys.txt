@@ -629,3 +629,23 @@
 628	Import image…
 629	Adjust image…
 630	Trace image…
+631	Select at least two shapes (not images).
+632	These lines cannot be joined (parallel, or the radius does not fit).
+633	Joined the two lines with a rounded corner.
+634	Select shapes to round first.
+635	Round corners
+636	Radius
+637	Two straight lines are selected: they are joined with a rounded corner.
+638	Every straight corner of the selected shapes is rounded.
+639	Offset shape
+640	Positive grows the outline, negative shrinks it.
+641	Keep the original
+642	Create offset
+643	Union
+644	Intersection
+645	Subtract
+646	Exclusive or
+647	Offset shape…
+648	Round corners…
+649	Convert to curves
+650	Shape operations

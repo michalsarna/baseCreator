@@ -629,3 +629,23 @@
 628|Uvoz slike…
 629|Prilagodi sliku…
 630|Vektorizacija slike…
+631|Odaberite barem dva oblika (ne slike).
+632|Ove se crte ne mogu spojiti (paralelne su ili polumjer ne stane).
+633|Dvije su crte spojene zaobljenim kutom.
+634|Prvo odaberite oblike koje treba zaobliti.
+635|Zaobli kutove
+636|Polumjer
+637|Odabrane su dvije ravne crte: spajaju se zaobljenim kutom.
+638|Svaki ravni kut odabranih oblika bit će zaobljen.
+639|Pomakni oblik
+640|Pozitivna vrijednost povećava obris, negativna ga smanjuje.
+641|Zadrži izvornik
+642|Stvori pomak
+643|Unija
+644|Presjek
+645|Oduzimanje
+646|Isključivo ILI
+647|Pomakni oblik…
+648|Zaobli kutove…
+649|Pretvori u krivulje
+650|Operacije s oblicima

@@ -629,3 +629,23 @@
 628|Pildi import…
 629|Pildi kohandamine…
 630|Pildi vektoriseerimine…
+631|Valige vähemalt kaks kuju (mitte pilte).
+632|Neid jooni ei saa ühendada (paralleelsed või raadius ei mahu).
+633|Kaks joont ühendati ümardatud nurgaga.
+634|Valige esmalt ümardatavad kujundid.
+635|Ümarda nurgad
+636|Raadius
+637|Valitud on kaks sirget: need ühendatakse ümardatud nurgaga.
+638|Iga valitud kujundi sirge nurk ümardatakse.
+639|Nihuta kuju
+640|Positiivne väärtus suurendab piirjoont, negatiivne vähendab.
+641|Säilita originaal
+642|Loo nihe
+643|Ühend
+644|Ühisosa
+645|Lahutamine
+646|Välistav VÕI
+647|Nihuta kuju…
+648|Ümarda nurgad…
+649|Teisenda kõverateks
+650|Kujundite toimingud

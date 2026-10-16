@@ -629,3 +629,23 @@
 628|Importa una imatge…
 629|Ajusta la imatge…
 630|Vectoritza la imatge…
+631|Seleccioneu com a mínim dues formes (no imatges).
+632|Aquestes línies no es poden unir (són paral·leles, o el radi no hi cap).
+633|Les dues línies s'han unit amb una cantonada arrodonida.
+634|Seleccioneu primer les formes que cal arrodonir.
+635|Arrodoneix les cantonades
+636|Radi
+637|Hi ha dues línies rectes seleccionades: s'uneixen amb una cantonada arrodonida.
+638|Cada cantonada recta de les formes seleccionades s'arrodoneix.
+639|Desplaça la forma
+640|Un valor positiu fa créixer el contorn, un de negatiu l'encongeix.
+641|Conserva l'original
+642|Crea el desplaçament
+643|Unió
+644|Intersecció
+645|Resta
+646|O exclusiu
+647|Desplaça la forma…
+648|Arrodoneix les cantonades…
+649|Converteix en corbes
+650|Operacions amb formes
