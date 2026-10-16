@@ -631,6 +631,8 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["The job stopped", "Zadanie zatrzymane", "Der Auftrag wurde gestoppt", "Il lavoro si è fermato", "Työ pysähtyi", "作业已停止", "जॉब रुक गया"],
     ["No answer from the machine", "Brak odpowiedzi od maszyny", "Keine Antwort von der Maschine", "Nessuna risposta dalla macchina", "Kone ei vastaa", "机器没有响应", "मशीन से कोई उत्तर नहीं"],
     ["The spindle speed is sent as S{} for {} rpm: the controller's range ($30) is spread over the top speed of the device ({} rpm).", "Prędkość wrzeciona jest wysyłana jako S{} dla {} obr/min: zakres sterownika ($30) jest rozłożony na maksymalną prędkość urządzenia ({} obr/min).", "Die Spindeldrehzahl wird als S{} für {} U/min gesendet: Der Bereich der Steuerung ($30) wird auf die Höchstdrehzahl des Geräts ({} U/min) verteilt.", "La velocità del mandrino viene inviata come S{} per {} giri/min: l'intervallo del controller ($30) è distribuito sulla velocità massima del dispositivo ({} giri/min).", "Karan nopeus lähetetään arvona S{} nopeudelle {} rpm: ohjaimen alue ($30) jaetaan laitteen huippunopeudelle ({} rpm).", "主轴转速以 S{} 发送（对应 {} 转/分）：控制器的范围（$30）被分配到设备的最高转速（{} 转/分）上。", "स्पिंडल की गति {} rpm के लिए S{} के रूप में भेजी जाती है: कंट्रोलर की सीमा ($30) डिवाइस की अधिकतम गति ({} rpm) पर फैलाई जाती है।"],
+    ["Hide the panel (the tabs stay on a narrow strip)", "Ukryj panel (zakładki zostają na wąskim pasku)", "Panel ausblenden (die Reiter bleiben in einer schmalen Leiste)", "Nascondi il pannello (le schede restano su una stretta barra)", "Piilota paneeli (välilehdet jäävät kapealle palkille)", "隐藏面板（标签页保留在窄条上）", "पैनल छिपाएँ (टैब एक संकरी पट्टी पर रहते हैं)"],
+    ["Show the panel", "Pokaż panel", "Panel anzeigen", "Mostra il pannello", "Näytä paneeli", "显示面板", "पैनल दिखाएँ"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
@@ -668,7 +670,8 @@ mod tests {
     use crate::i18n::Lang;
 
     /// The sources that call `tr` or `trf`.
-    const SOURCES: [&str; 27] = [
+    const SOURCES: [&str; 28] = [
+        include_str!("side_tabs.rs"),
         include_str!("editor/host.rs"),
         include_str!("editor/commands.rs"),
         include_str!("editor/canvas.rs"),

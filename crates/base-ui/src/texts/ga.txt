@@ -624,3 +624,5 @@
 623|Stop an post
 624|Níl aon fhreagra ón meaisín
 625|Seoltar luas na spuaice mar S{} do {} rpm: scaiptear raon an rialaitheora ($30) ar uasluas an ghléis ({} rpm).
+626|Folaigh an painéal (fanann na cluaisíní ar stiall chaol)
+627|Taispeáin an painéal

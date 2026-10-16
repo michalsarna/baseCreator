@@ -624,3 +624,5 @@
 623|Úloha se zastavila
 624|Stroj neodpovídá
 625|Otáčky vřetena se posílají jako S{} pro {} ot/min: rozsah řadiče ($30) je rozložen na nejvyšší rychlost zařízení ({} ot/min).
+626|Skrýt panel (karty zůstanou na úzkém pruhu)
+627|Zobrazit panel

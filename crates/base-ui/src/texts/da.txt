@@ -624,3 +624,5 @@
 623|Jobbet stoppede
 624|Intet svar fra maskinen
 625|Spindelhastigheden sendes som S{} for {} omdr./min: controllerens område ($30) fordeles over enhedens tophastighed ({} omdr./min).
+626|Skjul panelet (fanerne bliver på en smal bjælke)
+627|Vis panelet

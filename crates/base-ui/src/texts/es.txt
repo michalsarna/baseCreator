@@ -624,3 +624,5 @@
 623|El trabajo se ha detenido
 624|La máquina no responde
 625|La velocidad del husillo se envía como S{} para {} rpm: el rango del controlador ($30) se reparte sobre la velocidad máxima del dispositivo ({} rpm).
+626|Ocultar el panel (las pestañas quedan en una franja estrecha)
+627|Mostrar el panel

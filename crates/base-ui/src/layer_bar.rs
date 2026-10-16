@@ -7,7 +7,9 @@ use crate::{icons, theme};
 use egui::{Color32, Sense};
 
 const SWATCH: f32 = 22.0;
-const GAP: f32 = 3.0;
+const GAP: f32 = 7.0;
+/// Room before the first and after the last swatch, so the outline of the active one is not cut off at the ends of the row.
+const PAD: f32 = 6.0;
 const ARROW: f32 = 24.0;
 
 pub trait LayerBarHost: EditorHost {
@@ -70,7 +72,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
     };
     let offset_id = egui::Id::new("layer_bar_offset");
     let mut offset: f32 = ui.data(|d| d.get_temp(offset_id)).unwrap_or(0.0);
-    let content_w = total as f32 * (SWATCH + GAP);
+    let content_w = total as f32 * (SWATCH + GAP) + 2.0 * PAD;
     let mut clicked = None;
     let mut double = None;
     ui.horizontal_centered(|ui| {
@@ -85,6 +87,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
         let out = area.show(ui, |ui| {
             ui.horizontal_centered(|ui| {
                 ui.spacing_mut().item_spacing.x = GAP;
+                ui.add_space(PAD - GAP);
                 for i in 0..total {
                     let fill = {
                         let c = h.layer_color(i);
@@ -115,6 +118,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
                         clicked = Some(i);
                     }
                 }
+                ui.add_space(PAD - GAP);
             });
         });
         offset = out.state.offset.x;
@@ -135,7 +139,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
     let was: Option<usize> = ui.data(|d| d.get_temp(seen_id));
     if was != Some(active) {
         ui.data_mut(|d| d.insert_temp(seen_id, active));
-        let x = active as f32 * (SWATCH + GAP);
+        let x = PAD + active as f32 * (SWATCH + GAP);
         let view = (ui.max_rect().width() - 2.0 * (ARROW + GAP)).max(60.0);
         if x < offset || x + SWATCH > offset + view {
             offset = (x - view / 2.0).clamp(0.0, (content_w - view).max(0.0));

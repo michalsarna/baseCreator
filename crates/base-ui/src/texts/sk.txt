@@ -624,3 +624,5 @@
 623|Úloha sa zastavila
 624|Stroj neodpovedá
 625|Otáčky vretena sa posielajú ako S{} pre {} ot/min: rozsah radiča ($30) je rozložený na najvyššiu rýchlosť zariadenia ({} ot/min).
+626|Skryť panel (karty zostanú na úzkom pruhu)
+627|Zobraziť panel

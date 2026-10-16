@@ -624,3 +624,5 @@
 623|Le travail s'est arrêté
 624|Pas de réponse de la machine
 625|La vitesse de broche est envoyée comme S{} pour {} tr/min : la plage du contrôleur ($30) est répartie sur la vitesse maximale de l'appareil ({} tr/min).
+626|Masquer le panneau (les onglets restent sur une bande étroite)
+627|Afficher le panneau

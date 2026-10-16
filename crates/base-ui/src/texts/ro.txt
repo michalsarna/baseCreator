@@ -624,3 +624,5 @@
 623|Lucrarea s-a oprit
 624|Mașina nu răspunde
 625|Viteza axului este trimisă ca S{} pentru {} rpm: intervalul controlerului ($30) este distribuit pe viteza maximă a dispozitivului ({} rpm).
+626|Ascunde panoul (filele rămân pe o bandă îngustă)
+627|Arată panoul

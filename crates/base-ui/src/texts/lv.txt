@@ -624,3 +624,5 @@
 623|Darbs apstājās
 624|Iekārta neatbild
 625|Vārpstas ātrums tiek sūtīts kā S{} {} apgr./min: kontroliera diapazons ($30) tiek sadalīts pa ierīces maksimālo ātrumu ({} apgr./min).
+626|Paslēpt paneli (cilnes paliek šaurā joslā)
+627|Rādīt paneli

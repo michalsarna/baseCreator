@@ -624,3 +624,5 @@
 623|A munka leállt
 624|A gép nem válaszol
 625|Az orsó fordulatszáma S{} értékként megy el {} ford./perchez: a vezérlő tartománya ($30) az eszköz legnagyobb fordulatszámára ({} ford./perc) van elosztva.
+626|Panel elrejtése (a lapok egy keskeny sávon maradnak)
+627|Panel megjelenítése

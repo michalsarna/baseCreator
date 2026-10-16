@@ -624,3 +624,5 @@
 623|Darbas sustojo
 624|Staklės neatsako
 625|Besisukimo greitis siunčiamas kaip S{} esant {} aps./min: valdiklio diapazonas ($30) paskirstomas įrenginio didžiausiam greičiui ({} aps./min).
+626|Slėpti skydelį (skirtukai lieka siaurame ruože)
+627|Rodyti skydelį
