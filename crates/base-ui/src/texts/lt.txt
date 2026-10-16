@@ -649,3 +649,4 @@
 648|Suapvalinti kampus…
 649|Konvertuoti į kreives
 650|Formų operacijos
+651|Paveikslėlis

@@ -649,3 +649,4 @@
 648|Zaobliť rohy…
 649|Previesť na krivky
 650|Operácie s tvarmi
+651|Obrázok

@@ -649,3 +649,4 @@
 648|Arredondar cantos…
 649|Converter em curvas
 650|Operações com formas
+651|Imagem

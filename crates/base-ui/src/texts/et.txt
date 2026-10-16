@@ -649,3 +649,4 @@
 648|Ümarda nurgad…
 649|Teisenda kõverateks
 650|Kujundite toimingud
+651|Pilt
