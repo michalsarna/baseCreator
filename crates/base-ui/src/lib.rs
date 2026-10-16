@@ -27,6 +27,7 @@ pub mod playback;
 pub mod plugins_ui;
 #[cfg(target_os = "macos")]
 pub mod native_menu;
+pub mod side_tabs;
 pub mod start;
 pub mod texts;
 pub mod theme;

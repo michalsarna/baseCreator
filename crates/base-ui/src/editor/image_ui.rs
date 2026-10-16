@@ -13,6 +13,14 @@ use egui::{Color32, RichText, Stroke};
 
 const PREVIEW_PX: u32 = 520;
 
+/// The picture files that can be imported (what a dropped file is checked against too).
+pub const IMAGE_EXTENSIONS: &[&str] = &["png", "jpg", "jpeg", "bmp", "gif", "webp"];
+
+/// Is the file a picture that can be imported?
+pub fn is_image_file(p: &std::path::Path) -> bool {
+    p.extension().is_some_and(|e| IMAGE_EXTENSIONS.iter().any(|x| e.eq_ignore_ascii_case(x)))
+}
+
 /// Import of a new picture, or adjusting an existing image shape.
 pub struct ImgDlg {
     /// `None` imports a new picture; `Some(id)` replaces the pixels of that shape.
@@ -65,6 +73,13 @@ pub trait EditorImages: EditorHost {
         match std::fs::read(&p).map_err(|e| e.to_string()).and_then(|b| ImageData::from_bytes(&b, &name, longest)) {
             Ok(im) => self.ed_mut().img_dlg = Some(ImgDlg::new(None, im)),
             Err(e) => self.say(trf("Import failed: {}", &[&e])),
+        }
+    }
+
+    /// Ask for a picture file and open the import dialog.
+    fn import_image_dialog(&mut self) {
+        if let Some(p) = rfd::FileDialog::new().add_filter("Images", IMAGE_EXTENSIONS).pick_file() {
+            self.open_image_dialog(p);
         }
     }
 

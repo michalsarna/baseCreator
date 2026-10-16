@@ -8,6 +8,9 @@ use lopdf::{Dictionary, Document as Pdf, Object, ObjectId};
 
 const PT_TO_MM: f64 = 25.4 / 72.0;
 
+/// The biggest file read (a PDF can be made to unpack to much more than its size, so the file itself is kept small).
+const MAX_FILE: usize = 64_000_000;
+
 #[derive(Clone)]
 struct State {
     ctm: Xf,
@@ -230,8 +233,18 @@ fn media_box(pdf: &Pdf, page: ObjectId) -> Option<[f64; 4]> {
 
 /// Read the first page of a PDF / Illustrator file into outlines (stroke colour, else fill colour).
 pub fn parse(data: &[u8]) -> Result<Vec<crate::svg::Outline>, String> {
+    if data.len() > MAX_FILE {
+        return Err(format!("the file is too big ({} MB; the limit is {} MB)", data.len() / 1_000_000, MAX_FILE / 1_000_000));
+    }
     // Illustrator files may carry bytes before the PDF header.
-    let start = data.windows(5).position(|w| w == b"%PDF-").unwrap_or(0);
+    let Some(start) = data.windows(5).take(4096).position(|w| w == b"%PDF-") else {
+        let postscript = data.starts_with(b"%!PS-Adobe") || data.starts_with(b"%!");
+        return Err(if postscript {
+            "this is a PostScript-only Illustrator file; open it in Illustrator and save it again with \"Create PDF Compatible File\"".into()
+        } else {
+            "this is not a PDF or a PDF-compatible Illustrator file".into()
+        });
+    };
     let pdf = Pdf::load_mem(&data[start..]).map_err(|e| e.to_string())?;
     let pages = pdf.get_pages();
     let (_, page) = pages.iter().next().ok_or("the file has no pages")?;

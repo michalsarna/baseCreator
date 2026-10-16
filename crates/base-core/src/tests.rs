@@ -520,3 +520,17 @@ fn backup_restores_settings_and_adds_pictures_to_the_shared_gallery() {
     assert_eq!(backup::file_name("pencreator", 1_791_676_800), "pencreator-backup-20261011.zip");
     let _ = std::fs::remove_dir_all(&root);
 }
+
+#[test]
+fn an_illustrator_file_without_a_pdf_inside_gets_a_clear_message() {
+    let ps = crate::pdf::parse(b"%!PS-Adobe-3.0 EPSF-3.0\n%%Creator: Adobe Illustrator(R) 8.0\n").err().unwrap();
+    assert!(ps.contains("PostScript-only") && ps.contains("PDF Compatible"), "{ps}");
+    let other = crate::pdf::parse(b"just some text").err().unwrap();
+    assert!(other.contains("not a PDF"), "{other}");
+    let big = vec![0u8; 64_000_001];
+    assert!(crate::pdf::parse(&big).err().unwrap().contains("too big"));
+    // Bytes before the header (as Illustrator writes them) are still fine.
+    let mut with_junk = b"junk bytes\n".to_vec();
+    with_junk.extend(tiny_pdf("0 0 m 10 0 l 10 10 l h S"));
+    assert!(crate::pdf::parse(&with_junk).is_ok());
+}

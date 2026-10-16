@@ -1,28 +1,40 @@
 //! The window that says the machine stopped: an alarm, an error in the middle of a job, a controller that does not
 //! answer. Big enough to be seen from across the workshop, with STOP (red) and UNLOCK (orange).
 use crate::i18n::tr;
-use crate::machine_ctl::Machine;
+use crate::machine_ctl::{Machine, Problem};
 use egui::{Color32, RichText};
 
 const RED: Color32 = Color32::from_rgb(0xc0, 0x30, 0x30);
 const ORANGE: Color32 = Color32::from_rgb(0xe8, 0x7a, 0x14);
 
-/// Show the window while the machine has a problem. Returns true when a button was used.
-pub fn window(ctx: &egui::Context, m: &mut Machine) -> bool {
-    // An alarm that was cleared (or a link that went away) is no problem any more. The state report comes a little after the
-    // alarm itself, so "not in alarm" only counts after the alarm state was seen.
+/// What the person chose in the window.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Choice {
+    Nothing,
+    Stop,
+    Unlock,
+    Close,
+}
+
+/// An alarm that was cleared (or a link that went away) is no problem any more: forget the problem then. The state report
+/// comes a little after the alarm itself, so "not in alarm" only counts after the alarm state was seen. For programs that
+/// keep their `Problem` themselves; call it every frame.
+pub fn forget_cleared_alarm(ctx: &egui::Context, problem: &mut Option<Problem>, in_alarm: bool, connected: bool) {
     let seen_id = egui::Id::new("machine_alert_seen_alarm");
     let seen: bool = ctx.data(|d| d.get_temp(seen_id)).unwrap_or(false);
-    if m.is_alarm() {
+    if in_alarm {
         ctx.data_mut(|d| d.insert_temp(seen_id, true));
     }
-    if m.problem.as_ref().is_some_and(|p| p.alarm) && (!m.connected || (seen && !m.is_alarm())) {
-        m.problem = None;
+    if problem.as_ref().is_some_and(|p| p.alarm) && (!connected || (seen && !in_alarm)) {
+        *problem = None;
         ctx.data_mut(|d| d.insert_temp(seen_id, false));
     }
-    let Some(p) = m.problem.clone() else { return false };
-    let mut used = false;
-    let mut close = false;
+}
+
+/// Draw the window for `p` and say what was chosen. Works for any program: it only draws, the program does the stopping and
+/// the unlocking.
+pub fn show(ctx: &egui::Context, p: &Problem) -> Choice {
+    let mut choice = Choice::Nothing;
     let frame = egui::Frame::window(&ctx.global_style()).inner_margin(egui::Margin::same(22)).stroke(egui::Stroke::new(3.0, RED));
     egui::Window::new("machine_alert").title_bar(false).collapsible(false).resizable(false).anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]).frame(frame).order(egui::Order::Foreground).show(ctx, |ui| {
         ui.set_width(460.0);
@@ -42,30 +54,47 @@ pub fn window(ctx: &egui::Context, m: &mut Machine) -> bool {
             let size = egui::vec2((ui.available_width() - ui.spacing().item_spacing.x) / 2.0, 56.0);
             let stop = egui::Button::new(RichText::new(tr("Stop").to_uppercase()).size(24.0).strong().color(Color32::WHITE)).fill(RED);
             if ui.add_sized(size, stop).on_hover_text(tr("Stop the job and the spindle")).clicked() {
-                m.stop_job();
-                if !p.alarm {
-                    close = true;
-                }
-                used = true;
+                choice = Choice::Stop;
             }
             let unlock = egui::Button::new(RichText::new(tr("Unlock").to_uppercase()).size(24.0).strong().color(Color32::WHITE)).fill(ORANGE);
             if ui.add_sized(size, unlock).on_hover_text(tr("Clear an alarm ($X)")).clicked() {
-                m.unlock();
-                close = true;
-                used = true;
+                choice = Choice::Unlock;
             }
         });
         ui.add_space(6.0);
         ui.vertical_centered(|ui| {
             if ui.small_button(tr("Close")).clicked() {
-                close = true;
+                choice = Choice::Close;
             }
         });
     });
-    if close {
-        m.problem = None;
+    choice
+}
+
+/// Show the window while the machine has a problem. Returns true when a button was used.
+pub fn window(ctx: &egui::Context, m: &mut Machine) -> bool {
+    let (alarm, connected) = (m.is_alarm(), m.connected);
+    forget_cleared_alarm(ctx, &mut m.problem, alarm, connected);
+    let Some(p) = m.problem.clone() else { return false };
+    match show(ctx, &p) {
+        Choice::Nothing => false,
+        Choice::Stop => {
+            m.stop_job();
+            if !p.alarm {
+                m.problem = None;
+            }
+            true
+        }
+        Choice::Unlock => {
+            m.unlock();
+            m.problem = None;
+            true
+        }
+        Choice::Close => {
+            m.problem = None;
+            false
+        }
     }
-    used
 }
 
 /// An alarm of the controller: the window stays until it is unlocked.

@@ -175,6 +175,9 @@ pub enum StdAct {
     ZoomIn,
     ZoomOut,
     ToggleAutoFit,
+    ImportImage,
+    AdjustImage,
+    TraceImage,
 }
 
 use Entry::{Item, Sep};
@@ -219,6 +222,9 @@ impl StdAct {
             }
             StdAct::ZoomIn => h.zoom_about_centre(1.5),
             StdAct::ZoomOut => h.zoom_about_centre(1.0 / 1.5),
+            StdAct::ImportImage => crate::editor::EditorImages::import_image_dialog(h),
+            StdAct::AdjustImage => crate::editor::EditorImages::open_adjust(h),
+            StdAct::TraceImage => crate::editor::EditorImages::open_trace(h),
             StdAct::ToggleAutoFit => {
                 let v = &mut h.ed_mut().view;
                 v.auto_fit = !v.auto_fit;
@@ -234,6 +240,7 @@ impl StdAct {
             StdAct::Undo => h.can_undo(),
             StdAct::Redo => h.can_redo(),
             StdAct::CenterEachOther => h.ed().sel.len() >= 2,
+            StdAct::AdjustImage | StdAct::TraceImage => h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_))),
             _ => true,
         }
     }
@@ -284,6 +291,9 @@ impl StdAct {
             StdAct::FitAll => "expand",
             StdAct::ZoomIn => "zoom-in",
             StdAct::ZoomOut => "zoom-out",
+            StdAct::ImportImage => "image",
+            StdAct::AdjustImage => "sliders-horizontal",
+            StdAct::TraceImage => "portrait",
         }
     }
 }
@@ -343,6 +353,14 @@ pub mod std_entries {
     pub fn grid() -> Vec<Entry<StdAct>> {
         vec![Item(StdAct::ToggleGrid, "Grid", None), Item(StdAct::ToggleSnap, "Snap to grid", None), Item(StdAct::ToggleSnapObjects, "Snap to objects", None)]
     }
+    /// Import a picture (for the Import menu).
+    pub fn import_image() -> Vec<Entry<StdAct>> {
+        vec![Item(StdAct::ImportImage, "Import image…", None)]
+    }
+    /// Adjust and trace a picture that is on the page.
+    pub fn image_tools() -> Vec<Entry<StdAct>> {
+        vec![Item(StdAct::AdjustImage, "Adjust image…", None), Item(StdAct::TraceImage, "Trace image…", None)]
+    }
     /// Zoom and fit.
     pub fn zoom() -> Vec<Entry<StdAct>> {
         vec![
@@ -360,7 +378,7 @@ mod tests {
     use super::*;
 
     fn all_std_entries() -> Vec<Entry<StdAct>> {
-        [std_entries::edit(), std_entries::align(), std_entries::place(), std_entries::group(), std_entries::order(), std_entries::nodes(), std_entries::grid(), std_entries::zoom()].concat()
+        [std_entries::edit(), std_entries::align(), std_entries::place(), std_entries::group(), std_entries::order(), std_entries::nodes(), std_entries::grid(), std_entries::zoom(), std_entries::import_image(), std_entries::image_tools()].concat()
     }
 
     #[test]

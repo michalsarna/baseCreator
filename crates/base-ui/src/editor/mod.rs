@@ -12,7 +12,7 @@ pub use bars::{arrange_bar, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use host::EditorHost;
-pub use image_ui::{EditorImages, ImgDlg, TraceDlg};
+pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
 pub use bars::{control_name, grid_toggles, selection_size, zoom_and_cursor};
 pub use prefs::view_options_window;
 pub use props::properties_sections;
