@@ -629,3 +629,23 @@
 628|Importă imagine…
 629|Ajustează imaginea…
 630|Vectorizează imaginea…
+631|Selectați cel puțin două forme (nu imagini).
+632|Aceste linii nu pot fi unite (sunt paralele, sau raza nu încape).
+633|Cele două linii au fost unite cu un colț rotunjit.
+634|Selectați mai întâi formele de rotunjit.
+635|Rotunjește colțurile
+636|Rază
+637|Sunt selectate două linii drepte: se unesc cu un colț rotunjit.
+638|Fiecare colț drept al formelor selectate este rotunjit.
+639|Decalează forma
+640|Valoarea pozitivă mărește conturul, cea negativă îl micșorează.
+641|Păstrează originalul
+642|Creează decalajul
+643|Reuniune
+644|Intersecție
+645|Scădere
+646|SAU exclusiv
+647|Decalează forma…
+648|Rotunjește colțurile…
+649|Convertește în curbe
+650|Operații cu forme

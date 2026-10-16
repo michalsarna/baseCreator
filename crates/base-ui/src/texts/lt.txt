@@ -629,3 +629,23 @@
 628|Paveikslėlio importas…
 629|Paveikslėlio koregavimas…
 630|Paveikslėlio vektorizavimas…
+631|Pasirinkite bent dvi formas (ne paveikslėlius).
+632|Šių linijų sujungti negalima (lygiagrečios arba spindulys netelpa).
+633|Dvi linijos sujungtos suapvalintu kampu.
+634|Pirmiausia pasirinkite formas apvalinimui.
+635|Suapvalinti kampus
+636|Spindulys
+637|Pažymėtos dvi tiesios linijos: jos sujungiamos suapvalintu kampu.
+638|Kiekvienas tiesus pažymėtų formų kampas bus suapvalintas.
+639|Pastumti formą
+640|Teigiama reikšmė didina kontūrą, neigiama — mažina.
+641|Palikti originalą
+642|Sukurti postūmį
+643|Sąjunga
+644|Sankirta
+645|Atimtis
+646|Išskirtinis ARBA
+647|Pastumti formą…
+648|Suapvalinti kampus…
+649|Konvertuoti į kreives
+650|Formų operacijos

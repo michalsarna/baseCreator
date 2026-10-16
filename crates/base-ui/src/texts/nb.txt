@@ -629,3 +629,23 @@
 628|Importer bilde…
 629|Juster bilde…
 630|Vektoriser bilde…
+631|Merk minst to former (ikke bilder).
+632|Disse linjene kan ikke forbindes (parallelle, eller radiusen passer ikke).
+633|De to linjene ble forbundet med et avrundet hjørne.
+634|Merk først formene som skal avrundes.
+635|Avrund hjørner
+636|Radius
+637|To rette linjer er merket: de forbindes med et avrundet hjørne.
+638|Hvert rette hjørne på de merkede formene avrundes.
+639|Forskyv form
+640|Positivt forstørrer omrisset, negativt forminsker det.
+641|Behold originalen
+642|Lag forskyvning
+643|Union
+644|Snitt
+645|Trekk fra
+646|Eksklusiv eller
+647|Forskyv form…
+648|Avrund hjørner…
+649|Konverter til kurver
+650|Formoperasjoner

@@ -629,3 +629,23 @@
 628|Importar imagem…
 629|Ajustar imagem…
 630|Vetorizar imagem…
+631|Selecione pelo menos duas formas (não imagens).
+632|Estas linhas não podem ser unidas (são paralelas, ou o raio não cabe).
+633|As duas linhas foram unidas por um canto arredondado.
+634|Selecione primeiro as formas a arredondar.
+635|Arredondar cantos
+636|Raio
+637|Estão selecionadas duas linhas retas: são unidas por um canto arredondado.
+638|Cada canto reto das formas selecionadas é arredondado.
+639|Desfasar forma
+640|Um valor positivo aumenta o contorno, um negativo reduz.
+641|Manter o original
+642|Criar desfasamento
+643|União
+644|Interseção
+645|Subtração
+646|Ou exclusivo
+647|Desfasar forma…
+648|Arredondar cantos…
+649|Converter em curvas
+650|Operações com formas

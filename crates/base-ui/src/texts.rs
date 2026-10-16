@@ -636,6 +636,26 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Import image…", "Import obrazu…", "Bild importieren…", "Importa immagine…", "Tuo kuva…", "导入图像…", "छवि आयात…"],
     ["Adjust image…", "Dostosuj obraz…", "Bild anpassen…", "Regola immagine…", "Säädä kuvaa…", "调整图像…", "छवि समायोजन…"],
     ["Trace image…", "Wektoryzacja obrazu…", "Bild nachzeichnen…", "Vettorializzazione immagine…", "Kuvan jäljitys…", "描摹图像…", "छवि ट्रेस…"],
+    ["Select at least two shapes (not images).", "Zaznacz co najmniej dwa kształty (nie obrazy).", "Wähle mindestens zwei Formen (keine Bilder).", "Seleziona almeno due forme (non immagini).", "Valitse vähintään kaksi muotoa (ei kuvia).", "请至少选择两个形状（不含图像）。", "कम से कम दो आकार चुनें (छवियाँ नहीं)।"],
+    ["These lines cannot be joined (parallel, or the radius does not fit).", "Tych prostych nie można połączyć (są równoległe albo promień się nie mieści).", "Diese Linien lassen sich nicht verbinden (parallel oder der Radius passt nicht).", "Queste linee non si possono unire (parallele, o il raggio non ci sta).", "Näitä suoria ei voi yhdistää (yhdensuuntaisia tai säde ei mahdu).", "无法连接这些直线（平行，或半径放不下）。", "इन रेखाओं को नहीं जोड़ा जा सकता (समानांतर, या त्रिज्या समाती नहीं)।"],
+    ["Joined the two lines with a rounded corner.", "Połączono dwie proste zaokrąglonym narożnikiem.", "Die beiden Linien wurden mit einer abgerundeten Ecke verbunden.", "Le due linee sono state unite con un angolo arrotondato.", "Kaksi suoraa yhdistettiin pyöristetyllä kulmalla.", "已用圆角连接两条直线。", "दोनों रेखाओं को गोल कोने से जोड़ा गया।"],
+    ["Select shapes to round first.", "Najpierw zaznacz kształty do zaokrąglenia.", "Zuerst abzurundende Formen auswählen.", "Seleziona prima le forme da arrotondare.", "Valitse ensin pyöristettävät muodot.", "请先选择要圆角的形状。", "पहले गोल करने के लिए आकृतियाँ चुनें।"],
+    ["Round corners", "Zaokrąglij rogi", "Ecken abrunden", "Arrotonda angoli", "Pyöristä kulmat", "圆角", "कोने गोल करें"],
+    ["Radius", "Promień", "Radius", "Raggio", "Säde", "半径", "त्रिज्या"],
+    ["Two straight lines are selected: they are joined with a rounded corner.", "Zaznaczono dwie proste: zostaną połączone zaokrąglonym narożnikiem.", "Zwei gerade Linien sind ausgewählt: Sie werden mit einer abgerundeten Ecke verbunden.", "Sono selezionate due linee rette: verranno unite con un angolo arrotondato.", "Valittuna on kaksi suoraa: ne yhdistetään pyöristetyllä kulmalla.", "已选择两条直线：将用圆角连接它们。", "दो सीधी रेखाएँ चुनी गई हैं: उन्हें गोल कोने से जोड़ा जाएगा।"],
+    ["Every straight corner of the selected shapes is rounded.", "Każdy prosty narożnik zaznaczonych kształtów zostanie zaokrąglony.", "Jede gerade Ecke der ausgewählten Formen wird abgerundet.", "Ogni angolo retto delle forme selezionate viene arrotondato.", "Valittujen muotojen jokainen suora kulma pyöristetään.", "所选形状的每个直线角都会被圆角处理。", "चयनित आकृतियों का हर सीधा कोना गोल किया जाएगा।"],
+    ["Offset shape", "Przesuń obrys", "Form versetzen", "Sposta contorno", "Siirrä muodon ääriviivaa", "偏移形状", "आकार ऑफ़सेट"],
+    ["Positive grows the outline, negative shrinks it.", "Wartość dodatnia powiększa obrys, ujemna go zmniejsza.", "Positiv vergrößert die Kontur, negativ verkleinert sie.", "Un valore positivo allarga il contorno, uno negativo lo restringe.", "Positiivinen suurentaa ääriviivaa, negatiivinen pienentää sitä.", "正值扩大轮廓，负值缩小轮廓。", "धनात्मक मान रूपरेखा बढ़ाता है, ऋणात्मक घटाता है।"],
+    ["Keep the original", "Zachowaj oryginał", "Original behalten", "Mantieni l'originale", "Säilytä alkuperäinen", "保留原图形", "मूल रखें"],
+    ["Create offset", "Utwórz obrys przesunięty", "Versatz erstellen", "Crea contorno spostato", "Luo siirretty ääriviiva", "创建偏移", "ऑफ़सेट बनाएँ"],
+    ["Union", "Suma", "Vereinigung", "Unione", "Yhdiste", "合并", "संघ"],
+    ["Intersection", "Część wspólna", "Schnittmenge", "Intersezione", "Leikkaus", "相交", "प्रतिच्छेदन"],
+    ["Subtract", "Odejmij", "Subtrahieren", "Sottrai", "Vähennä", "相减", "घटाएँ"],
+    ["Exclusive or", "Różnica symetryczna", "Exklusiv-Oder", "Or esclusivo", "Poissulkeva tai", "异或", "एक्सक्लूसिव ऑर"],
+    ["Offset shape…", "Przesuń obrys…", "Form versetzen…", "Sposta contorno…", "Siirrä muodon ääriviivaa…", "偏移形状…", "आकार ऑफ़सेट…"],
+    ["Round corners…", "Zaokrąglij rogi…", "Ecken abrunden…", "Arrotonda angoli…", "Pyöristä kulmat…", "圆角…", "कोने गोल करें…"],
+    ["Convert to curves", "Zamień na krzywe", "In Kurven umwandeln", "Converti in curve", "Muunna käyriksi", "转换为曲线", "वक्रों में बदलें"],
+    ["Shape operations", "Operacje na kształtach", "Formoperationen", "Operazioni sulle forme", "Muotojen toiminnot", "形状运算", "आकार संचालन"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
@@ -673,7 +693,8 @@ mod tests {
     use crate::i18n::Lang;
 
     /// The sources that call `tr` or `trf`.
-    const SOURCES: [&str; 28] = [
+    const SOURCES: [&str; 29] = [
+        include_str!("editor/shape_ops.rs"),
         include_str!("side_tabs.rs"),
         include_str!("editor/host.rs"),
         include_str!("editor/commands.rs"),

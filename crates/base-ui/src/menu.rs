@@ -178,6 +178,13 @@ pub enum StdAct {
     ImportImage,
     AdjustImage,
     TraceImage,
+    BoolUnion,
+    BoolIntersect,
+    BoolSubtract,
+    BoolXor,
+    OffsetShape,
+    RoundCorners,
+    ToCurves,
 }
 
 use Entry::{Item, Sep};
@@ -225,6 +232,13 @@ impl StdAct {
             StdAct::ImportImage => crate::editor::EditorImages::import_image_dialog(h),
             StdAct::AdjustImage => crate::editor::EditorImages::open_adjust(h),
             StdAct::TraceImage => crate::editor::EditorImages::open_trace(h),
+            StdAct::BoolUnion => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Union),
+            StdAct::BoolIntersect => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Intersect),
+            StdAct::BoolSubtract => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Difference),
+            StdAct::BoolXor => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Xor),
+            StdAct::OffsetShape => h.ed_mut().show_offset = true,
+            StdAct::RoundCorners => h.ed_mut().show_round = true,
+            StdAct::ToCurves => crate::editor::EditorShapeOps::to_curves(h),
             StdAct::ToggleAutoFit => {
                 let v = &mut h.ed_mut().view;
                 v.auto_fit = !v.auto_fit;
@@ -294,6 +308,13 @@ impl StdAct {
             StdAct::ImportImage => "image",
             StdAct::AdjustImage => "sliders-horizontal",
             StdAct::TraceImage => "portrait",
+            StdAct::BoolUnion => "squares-unite",
+            StdAct::BoolIntersect => "squares-intersect",
+            StdAct::BoolSubtract => "squares-subtract",
+            StdAct::BoolXor => "squares-exclude",
+            StdAct::OffsetShape => "maximize",
+            StdAct::RoundCorners => "square-round-corner",
+            StdAct::ToCurves => "spline",
         }
     }
 }
@@ -361,6 +382,19 @@ pub mod std_entries {
     pub fn image_tools() -> Vec<Entry<StdAct>> {
         vec![Item(StdAct::AdjustImage, "Adjust image…", None), Item(StdAct::TraceImage, "Trace image…", None)]
     }
+    /// The operations on whole shapes: boolean operations, offset, rounding the corners, conversion to curves.
+    pub fn shape_ops() -> Vec<Entry<StdAct>> {
+        vec![
+            Item(StdAct::BoolUnion, "Union", None),
+            Item(StdAct::BoolIntersect, "Intersection", None),
+            Item(StdAct::BoolSubtract, "Subtract", None),
+            Item(StdAct::BoolXor, "Exclusive or", None),
+            Sep,
+            Item(StdAct::OffsetShape, "Offset shape…", None),
+            Item(StdAct::RoundCorners, "Round corners…", None),
+            Item(StdAct::ToCurves, "Convert to curves", None),
+        ]
+    }
     /// Zoom and fit.
     pub fn zoom() -> Vec<Entry<StdAct>> {
         vec![
@@ -378,7 +412,7 @@ mod tests {
     use super::*;
 
     fn all_std_entries() -> Vec<Entry<StdAct>> {
-        [std_entries::edit(), std_entries::align(), std_entries::place(), std_entries::group(), std_entries::order(), std_entries::nodes(), std_entries::grid(), std_entries::zoom(), std_entries::import_image(), std_entries::image_tools()].concat()
+        [std_entries::edit(), std_entries::align(), std_entries::place(), std_entries::group(), std_entries::order(), std_entries::nodes(), std_entries::grid(), std_entries::zoom(), std_entries::import_image(), std_entries::image_tools(), std_entries::shape_ops()].concat()
     }
 
     #[test]

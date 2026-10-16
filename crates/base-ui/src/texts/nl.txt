@@ -629,3 +629,23 @@
 628|Afbeelding importeren…
 629|Afbeelding aanpassen…
 630|Afbeelding vectoriseren…
+631|Selecteer minstens twee vormen (geen afbeeldingen).
+632|Deze lijnen kunnen niet worden verbonden (evenwijdig, of de straal past niet).
+633|De twee lijnen zijn verbonden met een afgeronde hoek.
+634|Selecteer eerst de vormen om af te ronden.
+635|Hoeken afronden
+636|Straal
+637|Twee rechte lijnen zijn geselecteerd: ze worden verbonden met een afgeronde hoek.
+638|Elke rechte hoek van de geselecteerde vormen wordt afgerond.
+639|Vorm verschuiven
+640|Positief vergroot de omtrek, negatief verkleint hem.
+641|Origineel behouden
+642|Verschuiving maken
+643|Vereniging
+644|Doorsnede
+645|Aftrekken
+646|Exclusieve of
+647|Vorm verschuiven…
+648|Hoeken afronden…
+649|Omzetten naar curven
+650|Vormbewerkingen

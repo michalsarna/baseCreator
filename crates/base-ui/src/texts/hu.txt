@@ -629,3 +629,23 @@
 628|Kép importálása…
 629|Kép beállítása…
 630|Kép vektorizálása…
+631|Jelöljön ki legalább két alakzatot (nem képet).
+632|Ezek a vonalak nem köthetők össze (párhuzamosak, vagy a sugár nem fér el).
+633|A két vonal lekerekített sarokkal összekötve.
+634|Először jelölje ki a lekerekítendő alakzatokat.
+635|Sarkok lekerekítése
+636|Sugár
+637|Két egyenes van kijelölve: lekerekített sarokkal kapcsolódnak.
+638|A kijelölt alakzatok minden egyenes sarka lekerekítésre kerül.
+639|Alakzat eltolása
+640|A pozitív érték növeli a körvonalat, a negatív csökkenti.
+641|Az eredeti megtartása
+642|Eltolás létrehozása
+643|Egyesítés
+644|Metszet
+645|Kivonás
+646|Kizáró vagy
+647|Alakzat eltolása…
+648|Sarkok lekerekítése…
+649|Átalakítás görbékké
+650|Alakzatműveletek

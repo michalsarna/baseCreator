@@ -629,3 +629,23 @@
 628|Importar imagen…
 629|Ajustar imagen…
 630|Vectorizar imagen…
+631|Seleccione al menos dos formas (no imágenes).
+632|Estas líneas no se pueden unir (son paralelas, o el radio no cabe).
+633|Se unieron las dos líneas con una esquina redondeada.
+634|Seleccione primero las formas que redondear.
+635|Redondear esquinas
+636|Radio
+637|Hay dos líneas rectas seleccionadas: se unen con una esquina redondeada.
+638|Se redondea cada esquina recta de las formas seleccionadas.
+639|Desplazar forma
+640|Un valor positivo agranda el contorno, uno negativo lo reduce.
+641|Conservar el original
+642|Crear desplazamiento
+643|Unión
+644|Intersección
+645|Sustracción
+646|O exclusivo
+647|Desplazar forma…
+648|Redondear esquinas…
+649|Convertir en curvas
+650|Operaciones con formas

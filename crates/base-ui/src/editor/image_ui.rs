@@ -104,6 +104,7 @@ pub trait EditorImages: EditorHost {
     fn image_dialogs(&mut self, ctx: &egui::Context) {
         self.import_dialog(ctx);
         self.trace_dialog(ctx);
+        super::EditorShapeOps::shape_op_windows(self, ctx);
     }
 
     fn import_dialog(&mut self, ctx: &egui::Context) {
