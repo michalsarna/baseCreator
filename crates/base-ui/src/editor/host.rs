@@ -78,8 +78,14 @@ pub trait EditorHost: Sized {
     fn pointer_claimed(&mut self, _resp: &egui::Response, _origin: Pos2, _press: Option<Pos2>, _hover: Option<Pos2>) -> bool {
         false
     }
-    /// The context menu of the canvas (the application draws it and runs the command chosen).
-    fn canvas_context_menu(&mut self, _ui: &mut egui::Ui, _resp: &egui::Response) {}
+    /// The context menu of the canvas. The standard one (copy, paste, group, lock, flip, arrange, pictures) unless the
+    /// application draws its own.
+    fn canvas_context_menu(&mut self, ui: &mut egui::Ui, resp: &egui::Response)
+    where
+        Self: Sized,
+    {
+        super::context_menu(self, ui, resp);
+    }
     /// The text tool was clicked at `at`.
     fn place_text(&mut self, _at: Pt) {}
 

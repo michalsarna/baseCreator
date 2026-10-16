@@ -3,6 +3,7 @@
 mod bars;
 mod canvas;
 mod commands;
+mod context_menu;
 mod host;
 mod image_ui;
 mod prefs;
@@ -11,6 +12,7 @@ mod props;
 pub use bars::{arrange_bar, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
+pub use context_menu::context_menu;
 pub use host::EditorHost;
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
 pub use bars::{control_name, grid_toggles, selection_size, zoom_and_cursor};
