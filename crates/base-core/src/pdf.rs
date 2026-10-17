@@ -122,6 +122,11 @@ struct Ctx<'a> {
     /// Page height in points, to flip y.
     height: f64,
     out: Vec<(Vec<Contour>, [u8; 3])>,
+    /// How much may still be unpacked in all (shared by every stream of the file), and the most for one stream.
+    budget: usize,
+    stream_limit: usize,
+    /// Something unpacked to more than it may: the file is refused.
+    bomb: bool,
 }
 
 impl Ctx<'_> {
@@ -208,7 +213,16 @@ impl Ctx<'_> {
         let m = stream.dict.get(b"Matrix").ok().and_then(|o| o.as_array().ok()).map(|a| matrix(&nums(a))).unwrap_or(Xf::IDENTITY);
         let mut inner = st.clone();
         inner.ctm = m.then(st.ctm);
-        let Ok(data) = stream.decompressed_content() else { return };
+        let cap = self.stream_limit.min(self.budget);
+        let data = match stream.decompressed_content_with_limit(cap) {
+            Ok(d) => d,
+            Err(lopdf::Error::Decompress(_)) => {
+                self.bomb = true;
+                return;
+            }
+            Err(_) => return,
+        };
+        self.budget = self.budget.saturating_sub(data.len());
         let form_res = stream.dict.get_deref(b"Resources", self.pdf).ok().and_then(|o| o.as_dict().ok()).or(Some(res));
         self.run(&data, form_res, inner, depth + 1);
     }
@@ -231,8 +245,22 @@ fn media_box(pdf: &Pdf, page: ObjectId) -> Option<[f64; 4]> {
     None
 }
 
-/// Read the first page of a PDF / Illustrator file into outlines (stroke colour, else fill colour).
-pub fn parse(data: &[u8]) -> Result<Vec<crate::svg::Outline>, String> {
+/// How much a file may unpack to: for one stream, and for all of them together. A small file can be made to unpack to
+/// gigabytes (a decompression bomb), so both are limited.
+#[derive(Clone, Copy, Debug)]
+pub struct Limits {
+    pub stream: usize,
+    pub total: usize,
+}
+
+pub const LIMITS: Limits = Limits { stream: 64_000_000, total: 256_000_000 };
+
+/// The most pages that are read.
+pub const MAX_PAGES: usize = 50;
+/// The space between pages that are put side by side, millimetres.
+pub const PAGE_GAP_MM: f64 = 10.0;
+
+fn load(data: &[u8], limits: &Limits) -> Result<Pdf, String> {
     if data.len() > MAX_FILE {
         return Err(format!("the file is too big ({} MB; the limit is {} MB)", data.len() / 1_000_000, MAX_FILE / 1_000_000));
     }
@@ -245,19 +273,62 @@ pub fn parse(data: &[u8]) -> Result<Vec<crate::svg::Outline>, String> {
             "this is not a PDF or a PDF-compatible Illustrator file".into()
         });
     };
-    let pdf = Pdf::load_mem(&data[start..]).map_err(|e| e.to_string())?;
-    let pages = pdf.get_pages();
-    let (_, page) = pages.iter().next().ok_or("the file has no pages")?;
-    let mb = media_box(&pdf, *page).unwrap_or([0.0, 0.0, 612.0, 792.0]);
-    let content = pdf.get_page_content(*page);
-    let res = pdf.get_page_resources(*page).ok().and_then(|(d, _)| d);
-    let mut ctx = Ctx { pdf: &pdf, height: mb[3], out: vec![] };
+    Pdf::load_mem_with_options(&data[start..], lopdf::LoadOptions::with_max_decompressed_size(limits.stream)).map_err(|e| e.to_string())
+}
+
+/// How many pages (artboards of an Illustrator file) the file has.
+pub fn page_count(data: &[u8]) -> Result<usize, String> {
+    Ok(load(data, &LIMITS)?.get_pages().len())
+}
+
+/// Read one page (1 is the first) into outlines (stroke colour, else fill colour) in millimetres, the top left corner of the
+/// page at (0, 0).
+fn read_page(pdf: &Pdf, page: ObjectId, limits: &Limits, budget: &mut usize) -> Result<(Vec<(Vec<Contour>, [u8; 3])>, f64), String> {
+    let mb = media_box(pdf, page).unwrap_or([0.0, 0.0, 612.0, 792.0]);
+    let bomb = || format!("the file unpacks to far more than it should (more than {} MB): it is refused", limits.stream / 1_000_000);
+    let content = pdf.get_page_content_with_limit(page, limits.stream.min(*budget)).map_err(|e| match e {
+        lopdf::Error::Decompress(_) => bomb(),
+        other => other.to_string(),
+    })?;
+    *budget = budget.saturating_sub(content.len());
+    let res = pdf.get_page_resources(page).ok().and_then(|(d, _)| d);
+    let mut ctx = Ctx { pdf, height: mb[3] - mb[1], out: vec![], budget: *budget, stream_limit: limits.stream, bomb: false };
     // Move the page origin to (0, 0): translate by the box origin before the page content's own matrices.
     let st = State { ctm: Xf::translate(-mb[0], -(mb[1])), stroke: [0, 0, 0], fill: [0, 0, 0] };
-    ctx.height = mb[3] - mb[1];
     ctx.run(&content, res, st, 0);
-    if ctx.out.is_empty() {
+    if ctx.bomb {
+        return Err(bomb());
+    }
+    *budget = ctx.budget;
+    Ok((ctx.out, (mb[2] - mb[0]) * PT_TO_MM))
+}
+
+/// Read the pages of a PDF / Illustrator file into outlines. More than one page (the artboards of an Illustrator file) are put
+/// side by side, in the order of the pages, with a gap between them.
+pub fn parse(data: &[u8]) -> Result<Vec<crate::svg::Outline>, String> {
+    parse_with(data, &LIMITS)
+}
+
+pub fn parse_with(data: &[u8], limits: &Limits) -> Result<Vec<crate::svg::Outline>, String> {
+    let pdf = load(data, limits)?;
+    let pages = pdf.get_pages();
+    if pages.is_empty() {
+        return Err("the file has no pages".into());
+    }
+    let mut budget = limits.total;
+    let mut out: Vec<crate::svg::Outline> = vec![];
+    let mut x = 0.0;
+    for (_, page) in pages.iter().take(MAX_PAGES) {
+        let (paths, width) = read_page(&pdf, *page, limits, &mut budget)?;
+        let shift = Xf::translate(x, 0.0);
+        for (contours, color) in paths {
+            let contours = if x == 0.0 { contours } else { contours.iter().map(|c| c.transformed(&shift)).collect() };
+            out.push(crate::svg::Outline { contours, color });
+        }
+        x += width + PAGE_GAP_MM;
+    }
+    if out.is_empty() {
         return Err("no vector paths found".into());
     }
-    Ok(ctx.out.into_iter().map(|(contours, color)| crate::svg::Outline { contours, color }).collect())
+    Ok(out)
 }
