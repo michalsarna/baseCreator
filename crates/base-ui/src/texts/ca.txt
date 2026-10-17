@@ -650,3 +650,16 @@
 649|Converteix en corbes
 650|Operacions amb formes
 651|Imatge
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordenada
+657|Escala de grisos
+658|Només blanc o negre, dividit a mitja lluminositat. Nítid: bo per a dibuixos de línia i text.
+659|Reparteix l'error d'arrodoniment als punts veïns. Una bona opció general per a fotos.
+660|Reparteix l'error per una àrea més gran: tons més suaus, una mica més lent.
+661|Com Jarvis, amb detalls més nítids.
+662|Manté netes les llums i alt el contrast; perd una mica dels detalls més foscos i més clars.
+663|Un patró fix de punts 8×8: regular i ràpid, sense soroll.
+664|Sense punts: cada píxel rep una intensitat entre el mínim i la intensitat plena de la capa.

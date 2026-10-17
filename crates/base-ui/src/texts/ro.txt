@@ -650,3 +650,16 @@
 649|Convertește în curbe
 650|Operații cu forme
 651|Imagine
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordonată
+657|Tonuri de gri
+658|Doar alb sau negru, împărțit la jumătate de luminozitate. Clar: bun pentru desene în linii și text.
+659|Împarte eroarea de rotunjire punctelor vecine. O alegere generală bună pentru fotografii.
+660|Împarte eroarea pe o zonă mai largă: tonuri mai fine, puțin mai lent.
+661|Ca Jarvis, cu detalii mai clare.
+662|Păstrează luminile curate și contrastul ridicat; pierde o parte din detaliile cele mai întunecate și mai luminoase.
+663|Un model fix de puncte 8×8: regulat și rapid, fără zgomot.
+664|Fără puncte: fiecare pixel primește o intensitate între minim și intensitatea completă a stratului.

@@ -650,3 +650,16 @@
 649|Omzetten naar curven
 650|Vormbewerkingen
 651|Afbeelding
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Geordend
+657|Grijswaarden
+658|Alleen zwart of wit, gesplitst bij halve helderheid. Scherp: goed voor lijntekeningen en tekst.
+659|Verdeelt de afrondingsfout over de naburige punten. Een goede algemene keuze voor foto's.
+660|Verdeelt de fout over een groter gebied: zachtere tinten, iets langzamer.
+661|Zoals Jarvis, met scherpere details.
+662|Houdt hooglichten schoon en het contrast hoog; verliest wat van de donkerste en lichtste details.
+663|Een vast 8×8-patroon van punten: regelmatig en snel, zonder ruis.
+664|Geen stippen: elke pixel krijgt een sterkte tussen het minimum en de volle sterkte van de laag.

@@ -650,3 +650,16 @@
 649|Átalakítás görbékké
 650|Alakzatműveletek
 651|Kép
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Rendezett
+657|Szürkeárnyalat
+658|Csak fekete vagy fehér, a fényesség felénél osztva. Éles: vonalrajzokhoz és szöveghez jó.
+659|A kerekítési hibát a szomszédos pontokra osztja szét. Jó általános választás fényképekhez.
+660|A hibát nagyobb területre osztja szét: simább tónusok, kicsit lassabb.
+661|Mint a Jarvis, de élesebb részletekkel.
+662|A fényeket tisztán, a kontrasztot magasan tartja; elveszít valamennyit a legsötétebb és legvilágosabb részletekből.
+663|Rögzített 8×8-as pontminta: szabályos és gyors, zaj nélkül.
+664|Nincsenek pontok: minden pixel a minimum és a réteg teljes erőssége közötti erősséget kap.
