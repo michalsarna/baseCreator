@@ -228,6 +228,12 @@ pub fn fill_size(ui: &egui::Ui) -> egui::Vec2 {
 /// A pop-up window in the common style: slim title line, close button, movable and resizable both ways.
 /// `size` is the starting size; `open` is cleared by the close button.
 pub fn popup<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open: &mut bool, add: impl FnOnce(&mut egui::Ui) -> R) -> Option<R> {
+    popup_with(ctx, id, title, size, open, |_| {}, add)
+}
+
+/// Like [`popup`], with icon buttons (or other small widgets) in the title line, next to the close button. They are added right
+/// to left: the first one is the one at the right.
+pub fn popup_with<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open: &mut bool, tools: impl FnOnce(&mut egui::Ui), add: impl FnOnce(&mut egui::Ui) -> R) -> Option<R> {
     if !*open {
         return None;
     }
@@ -242,7 +248,7 @@ pub fn popup<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open
         .default_pos(pos)
         .resizable(true)
         .show(ctx, |ui| {
-            mini_title(ui, title, &mut keep, |_| {});
+            mini_title(ui, title, &mut keep, tools);
             let r = add(ui);
             // Take the rest of the size the window was given, so it keeps a height taller than its content.
             ui.allocate_space(ui.available_size_before_wrap().max(egui::Vec2::ZERO));
