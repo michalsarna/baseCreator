@@ -281,31 +281,22 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
         ui.horizontal(|ui| {
             ui.add_space(((ui.available_width() - total) / 2.0).max(0.0));
             ui.spacing_mut().item_spacing = egui::vec2(3.0, 3.0);
-            egui::Grid::new("jog_xy").spacing([3.0, 3.0]).show(ui, |ui| {
-                // The picture of the machine seen from above: Y up is towards the back.
-                let cells: [[(&str, [i8; 3]); 3]; 3] = [[("↖", [-1, 1, 0]), ("▲", [0, 1, 0]), ("↗", [1, 1, 0])], [("◀", [-1, 0, 0]), ("•", [0, 0, 0]), ("▶", [1, 0, 0])], [("↙", [-1, -1, 0]), ("▼", [0, -1, 0]), ("↘", [1, -1, 0])]];
-                for row in cells {
-                    for (t, d) in row {
-                        if d == [0, 0, 0] {
-                            if ui.add_sized(JOG, egui::Button::new(RichText::new("■").size(26.0).color(Color32::from_rgb(0xc0, 0x30, 0x30)))).on_hover_text(tr("Stop the move")).clicked() {
-                                m.cancel_jog();
-                            }
-                        } else if let Some(w) = jog_button(ui, t, d, continuous) {
-                            if continuous {
-                                want = Some(w);
-                            } else {
-                                m.jog(d[0] as f64 * step_xy, d[1] as f64 * step_xy, 0.0, feed_xy);
-                            }
-                        }
-                    }
-                    ui.end_row();
+            let hit = xy_pad(ui, continuous);
+            if hit.stop {
+                m.cancel_jog();
+            }
+            if let Some(d) = hit.dir {
+                if continuous {
+                    want = Some(d);
+                } else {
+                    m.jog(d[0] as f64 * step_xy, d[1] as f64 * step_xy, 0.0, feed_xy);
                 }
-            });
+            }
             ui.add_space(14.0);
             ui.vertical(|ui| {
                 ui.spacing_mut().item_spacing.y = 3.0;
                 for (t, d) in [("Z▲", [0, 0, 1]), ("Z▼", [0, 0, -1])] {
-                    if let Some(w) = jog_button(ui, t, d, continuous) {
+                    if let Some(w) = jog_button(ui, t, d, continuous, None) {
                         if continuous {
                             want = Some(w);
                         } else {
@@ -428,8 +419,57 @@ fn pins_text(pins: &str) -> String {
 
 /// A big jog button. One step per click (`continuous` off): only the click counts, not the frames the mouse button is down
 /// (that sent the move five times). Hold to move: `Some(direction)` while it is pressed.
-fn jog_button(ui: &mut Ui, text: &str, dir: [i8; 3], continuous: bool) -> Option<[i8; 3]> {
-    let r = ui.add_sized(JOG, egui::Button::new(RichText::new(text).size(26.0)).sense(Sense::click_and_drag()));
+/// What the person did on the XY pad this frame.
+#[derive(Default)]
+pub struct PadHit {
+    /// The direction of a click (or, when holding, of a button that is down): -1, 0 or 1 for X and Y (the third is 0).
+    pub dir: Option<[i8; 3]>,
+    /// The square in the middle was clicked: stop the move.
+    pub stop: bool,
+}
+
+/// The nine buttons of the XY jog pad, the same in every program: arrows (Y up is towards the back of the machine), the
+/// four diagonals and a stop square in the middle. With `continuous` a button reports on every frame it is held down,
+/// otherwise once per click.
+pub fn xy_pad(ui: &mut Ui, continuous: bool) -> PadHit {
+    let mut hit = PadHit::default();
+    egui::Grid::new("jog_xy").spacing([3.0, 3.0]).show(ui, |ui| {
+        let cells: [[(&str, [i8; 3]); 3]; 3] = [[("arrow-up-left", [-1, 1, 0]), ("arrow-up", [0, 1, 0]), ("arrow-up-right", [1, 1, 0])], [("arrow-left", [-1, 0, 0]), ("square", [0, 0, 0]), ("arrow-right", [1, 0, 0])], [("arrow-down-left", [-1, -1, 0]), ("arrow-down", [0, -1, 0]), ("arrow-down-right", [1, -1, 0])]];
+        for row in cells {
+            for (icon, d) in row {
+                if d == [0, 0, 0] {
+                    if jog_button(ui, icon, d, false, Some(Color32::from_rgb(0xe8, 0x8a, 0x1f))).is_some() {
+                        hit.stop = true;
+                    }
+                } else if let Some(w) = jog_button(ui, icon, d, continuous, None) {
+                    hit.dir = Some(w);
+                }
+            }
+            ui.end_row();
+        }
+    });
+    hit
+}
+
+/// One jog button: an icon of the shared store (or a short text when there is no such icon). `accent` fills it.
+fn jog_button(ui: &mut Ui, what: &str, dir: [i8; 3], continuous: bool, accent: Option<Color32>) -> Option<[i8; 3]> {
+    let (rect, r) = ui.allocate_exact_size(egui::vec2(JOG[0], JOG[1]), Sense::click_and_drag());
+    let hovered = r.hovered() && ui.is_enabled();
+    let fill = match (accent, hovered) {
+        (Some(c), true) => c.gamma_multiply(0.85),
+        (Some(c), false) => c,
+        (None, true) => theme::panel_dark(),
+        (None, false) => ui.visuals().widgets.inactive.weak_bg_fill,
+    };
+    ui.painter().rect_filled(rect, 4.0, fill);
+    ui.painter().rect_stroke(rect, 4.0, egui::Stroke::new(1.0, theme::border()), egui::StrokeKind::Inside);
+    let ink = if accent.is_some() { Color32::WHITE } else if ui.is_enabled() { theme::text() } else { theme::text().gamma_multiply(0.4) };
+    if crate::icons::svg_text(what).is_some() {
+        crate::icons::paint(ui, egui::Rect::from_center_size(rect.center(), egui::vec2(30.0, 30.0)), what, ink);
+    } else {
+        ui.painter().text(rect.center(), egui::Align2::CENTER_CENTER, what, egui::FontId::proportional(26.0), ink);
+    }
+    let r = if what == "square" { r.on_hover_text(tr("Stop the move")) } else { r };
     let hit = if continuous { r.clicked() || r.is_pointer_button_down_on() } else { r.clicked() };
     hit.then_some(dir)
 }
@@ -512,10 +552,10 @@ mod tests {
                 egui::CentralPanel::default().show(ui, |ui| {
                     let at = ui.cursor().min;
                     *pos = at + egui::vec2(JOG[0] / 2.0, JOG[1] / 2.0);
-                    if jog_button(ui, "▲", [0, 1, 0], false).is_some() {
+                    if jog_button(ui, "▲", [0, 1, 0], false, None).is_some() {
                         moves.0 += 1;
                     }
-                    if jog_button(ui, "▼", [0, -1, 0], true).is_some() {
+                    if jog_button(ui, "▼", [0, -1, 0], true, None).is_some() {
                         moves.1 += 1;
                     }
                 });
