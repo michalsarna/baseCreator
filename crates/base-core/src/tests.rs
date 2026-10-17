@@ -534,3 +534,64 @@ fn an_illustrator_file_without_a_pdf_inside_gets_a_clear_message() {
     with_junk.extend(tiny_pdf("0 0 m 10 0 l 10 10 l h S"));
     assert!(crate::pdf::parse(&with_junk).is_ok());
 }
+
+/// A PDF with one page for each entry of `pages`: its content, and whether the content is deflated.
+fn pdf_pages(pages: &[(Vec<u8>, bool)], width: i64) -> Vec<u8> {
+    use lopdf::{dictionary, Document as Pdf, Object, Stream};
+    use std::io::Write;
+    let mut pdf = Pdf::with_version("1.5");
+    let pages_id = pdf.new_object_id();
+    let mut kids: Vec<Object> = vec![];
+    for (content, deflate) in pages {
+        let stream = if *deflate {
+            let mut enc = flate2::write::ZlibEncoder::new(Vec::new(), flate2::Compression::default());
+            enc.write_all(content).unwrap();
+            Stream::new(dictionary! { "Filter" => "FlateDecode" }, enc.finish().unwrap())
+        } else {
+            Stream::new(dictionary! {}, content.clone())
+        };
+        let content_id = pdf.add_object(stream);
+        let page_id = pdf.add_object(dictionary! {
+            "Type" => "Page", "Parent" => pages_id, "MediaBox" => vec![0.into(), 0.into(), width.into(), 100.into()], "Contents" => content_id,
+        });
+        kids.push(page_id.into());
+    }
+    pdf.objects.insert(pages_id, Object::Dictionary(dictionary! { "Type" => "Pages", "Count" => kids.len() as i64, "Kids" => kids }));
+    let catalog = pdf.add_object(dictionary! { "Type" => "Catalog", "Pages" => pages_id });
+    pdf.trailer.set("Root", catalog);
+    let mut out = Vec::new();
+    pdf.save_to(&mut out).unwrap();
+    out
+}
+
+#[test]
+fn the_pages_of_a_pdf_are_put_side_by_side() {
+    let one = b"0 0 m 10 0 l 10 10 l h S".to_vec();
+    let data = pdf_pages(&[(one.clone(), false), (one.clone(), true), (Vec::new(), false), (one, false)], 200);
+    assert_eq!(pdf::page_count(&data).unwrap(), 4);
+    let out = pdf::parse(&data).unwrap();
+    // Three pages have a path; the empty one adds nothing, and each page is 200 pt wide (70.56 mm) with a gap.
+    assert_eq!(out.len(), 3);
+    let xs: Vec<f64> = out.iter().map(|o| Polyline::bounds(&o.contours[0].flatten(0.01)).unwrap().min.x).collect();
+    let page = 200.0 * 25.4 / 72.0 + pdf::PAGE_GAP_MM;
+    assert!(xs[0].abs() < 1e-6 && (xs[1] - page).abs() < 1e-6 && (xs[2] - 3.0 * page).abs() < 1e-6, "{xs:?}");
+}
+
+#[test]
+fn a_pdf_that_unpacks_to_far_too_much_is_refused() {
+    // 5 MB of zeros deflate to a few KB. With a limit of 1 MB for a stream the page is refused; with the real limit it is read.
+    let mut content = b"0 0 m 10 0 l 10 10 l h S\n".to_vec();
+    content.extend(std::iter::repeat(b' ').take(5_000_000));
+    let data = pdf_pages(&[(content, true)], 200);
+    assert!(data.len() < 100_000, "{}", data.len());
+    let tight = pdf::Limits { stream: 1_000_000, total: 10_000_000 };
+    let err = pdf::parse_with(&data, &tight).err().unwrap();
+    assert!(err.contains("unpacks") && err.contains("refused"), "{err}");
+    assert!(pdf::parse(&data).is_ok());
+    // The total is limited as well: two pages of 5 MB are too much for 8 MB in all.
+    let mut content = b"0 0 m 10 0 l 10 10 l h S\n".to_vec();
+    content.extend(std::iter::repeat(b' ').take(5_000_000));
+    let data = pdf_pages(&[(content.clone(), true), (content, true)], 200);
+    let total = pdf::Limits { stream: 6_000_000, total: 8_000_000 };
+    assert!(pdf::parse_with(&data, &total).err().unwrap().contains("unpacks"));
+}
