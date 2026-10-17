@@ -650,3 +650,6 @@
 649|Ikkonverti f'kurvi
 650|Operazzjonijiet tal-forom
 651|Stampa
+652|Qed jiġi kkalkulat…
+653|Importa {}
+654|{} forom, {} × {} mm

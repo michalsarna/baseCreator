@@ -650,3 +650,6 @@
 649|Pārvērst par līknēm
 650|Formu darbības
 651|Attēls
+652|Notiek aprēķins…
+653|Importēt {}
+654|{} formas, {} × {} mm

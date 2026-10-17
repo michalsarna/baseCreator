@@ -650,3 +650,6 @@
 649|Omzetten naar curven
 650|Vormbewerkingen
 651|Afbeelding
+652|Bezig met berekenen…
+653|{} importeren
+654|{} vormen, {} × {} mm

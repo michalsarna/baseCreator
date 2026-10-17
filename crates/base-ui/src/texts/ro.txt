@@ -650,3 +650,6 @@
 649|Convertește în curbe
 650|Operații cu forme
 651|Imagine
+652|Se calculează…
+653|Importă {}
+654|{} forme, {} × {} mm

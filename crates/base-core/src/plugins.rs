@@ -86,6 +86,27 @@ pub struct ImporterDef {
     /// File extensions without the dot, lowercase.
     pub extensions: Vec<String>,
     pub script: String,
+    #[serde(default)]
+    pub description: String,
+    /// The script gets the file as a blob of bytes (a binary format) instead of as a text.
+    #[serde(default)]
+    pub binary: bool,
+    /// A form shown before the shapes are made; its values reach the script in `ctx.p`.
+    #[serde(default)]
+    pub params: Vec<ParamDef>,
+    /// The script also has `fn form(data, ctx)` that returns more fields of the form, made from the contents of the file.
+    #[serde(default)]
+    pub form: bool,
+    /// Show the import window, with a preview of the shapes, also when there is no form.
+    #[serde(default)]
+    pub preview: bool,
+}
+
+impl ImporterDef {
+    /// Does the import go through a window (a form, a preview) instead of making the shapes at once?
+    pub fn interactive(&self) -> bool {
+        !self.params.is_empty() || self.form || self.preview
+    }
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -179,6 +200,27 @@ fn ok_id(s: &str) -> bool {
     !s.is_empty() && s.len() <= 64 && s.chars().all(|c| c.is_ascii_lowercase() || c.is_ascii_digit() || c == '-' || c == '_')
 }
 
+/// The fields of a form: at most 40, with ids that are valid and not repeated and defaults of the right kind.
+pub fn check_params(owner: &str, params: &[ParamDef]) -> Result<(), String> {
+    if params.len() > 40 {
+        return Err(format!("{owner}: at most 40 parameters"));
+    }
+    let mut seen = BTreeSet::new();
+    for p in params {
+        if !ok_id(&p.id) || !seen.insert(&p.id) {
+            return Err(format!("{owner}: parameter {:?} has a bad or repeated id", p.id));
+        }
+        match p.kind {
+            ParamKind::Number if !(p.default.is_number() || p.default.is_null()) => return Err(format!("parameter {:?}: the default of a number must be a number", p.id)),
+            ParamKind::Bool if !(p.default.is_boolean() || p.default.is_null()) => return Err(format!("parameter {:?}: the default of a bool must be true or false", p.id)),
+            ParamKind::Text if !(p.default.is_string() || p.default.is_null()) => return Err(format!("parameter {:?}: the default of a text must be a text", p.id)),
+            ParamKind::Choice if p.options.is_empty() || p.options.len() > 100 => return Err(format!("parameter {:?}: a choice needs 1-100 options", p.id)),
+            _ => {}
+        }
+    }
+    Ok(())
+}
+
 /// A path inside the plugin folder: relative, without `..`.
 pub fn safe_rel(p: &str) -> bool {
     let path = Path::new(p);
@@ -237,6 +279,7 @@ impl Manifest {
             if let Some(e) = i.extensions.iter().find(|e| RESERVED_EXTENSIONS.contains(&e.to_ascii_lowercase().as_str())) {
                 return Err(format!("importer {:?}: .{e} is read by the program itself", i.id));
             }
+            check_params(&format!("importer {:?}", i.id), &i.params)?;
             if i.name.trim().is_empty() || i.extensions.is_empty() || i.extensions.iter().any(|e| e.is_empty() || e.len() > 16 || !e.chars().all(|c| c.is_ascii_alphanumeric())) {
                 return Err(format!("importer {:?}: needs a name and extensions (letters and digits)", i.id));
             }
@@ -245,19 +288,7 @@ impl Manifest {
             if g.name.trim().is_empty() || g.params.len() > 40 {
                 return Err(format!("generator {:?}: needs a name and at most 40 parameters", g.id));
             }
-            let mut seen = BTreeSet::new();
-            for p in &g.params {
-                if !ok_id(&p.id) || !seen.insert(&p.id) {
-                    return Err(format!("generator {:?}: parameter {:?} has a bad or repeated id", g.id, p.id));
-                }
-                match p.kind {
-                    ParamKind::Number if !(p.default.is_number() || p.default.is_null()) => return Err(format!("parameter {:?}: the default of a number must be a number", p.id)),
-                    ParamKind::Bool if !(p.default.is_boolean() || p.default.is_null()) => return Err(format!("parameter {:?}: the default of a bool must be true or false", p.id)),
-                    ParamKind::Text if !(p.default.is_string() || p.default.is_null()) => return Err(format!("parameter {:?}: the default of a text must be a text", p.id)),
-                    ParamKind::Choice if p.options.is_empty() || p.options.len() > 100 => return Err(format!("parameter {:?}: a choice needs 1-100 options", p.id)),
-                    _ => {}
-                }
-            }
+            check_params(&format!("generator {:?}", g.id), &g.params)?;
         }
         for p in &self.postprocessors {
             if p.name.trim().is_empty() {

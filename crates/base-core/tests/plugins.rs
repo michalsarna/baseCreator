@@ -276,3 +276,248 @@ fn a_file_over_the_limit_is_not_read() {
     assert!(base_core::plugins::read_limited(&dir, 100).is_err(), "a folder is not a file");
     std::fs::remove_dir_all(dir).ok();
 }
+
+// ---- binary importers with a form (fixtures/plugins/binary-demo) ----
+
+fn demo() -> Registry {
+    Registry::load(PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/plugins"))
+}
+
+fn f32s(count: u32, values: &[f32]) -> Vec<u8> {
+    let mut b = count.to_le_bytes().to_vec();
+    for v in values {
+        b.extend(v.to_le_bytes());
+    }
+    b
+}
+
+#[test]
+fn a_binary_importer_gets_a_blob_and_the_values_of_its_form() {
+    let r = demo();
+    assert!(r.broken.is_empty(), "{:?}", r.broken);
+    let (p, def) = r.importer_for("millcreator", "pts").unwrap();
+    assert!(def.binary && def.interactive());
+    let data = f32s(3, &[0.0, 0.0, 10.0, 0.0, 10.0, 5.0]);
+    // The form made from the file: one field for each point and one of the manifest.
+    let extra = plugin_script::form_for(p, def, &data, &ctx()).unwrap();
+    assert_eq!(extra.len(), 4, "{extra:?}");
+    assert_eq!(extra[0].id, "closed");
+    assert_eq!(extra[3].label, "Keep point 3");
+    // The start values: all the points, closed, scale 1.
+    let mut given = plugin_script::defaults_of(&def.params.iter().chain(extra.iter()).cloned().collect::<Vec<_>>());
+    let out = plugin_script::import_with(p, def, &data, &given, &extra, &ctx()).unwrap();
+    assert_eq!(out.scene.shapes.len(), 1);
+    let b = out.scene.shapes[0].bounds().unwrap();
+    assert!((b.width() - 10.0).abs() < 1e-6 && (b.height() - 5.0).abs() < 1e-6, "{b:?}");
+    assert!(out.scene.shapes[0].local_polys()[0].closed);
+    // A different form: scaled by 2, open, the third point left out.
+    given.insert("scale".into(), serde_json::json!(2.0));
+    given.insert("closed".into(), serde_json::json!(false));
+    given.insert("keep_2".into(), serde_json::json!(false));
+    let out = plugin_script::import_with(p, def, &data, &given, &extra, &ctx()).unwrap();
+    let b = out.scene.shapes[0].bounds().unwrap();
+    assert!((b.width() - 20.0).abs() < 1e-6 && b.height() < 1e-6, "{b:?}");
+    assert!(!out.scene.shapes[0].local_polys()[0].closed);
+    // The plain import (no window) works as well, with the start values.
+    assert_eq!(plugin_script::import(p, def, &data, &ctx()).unwrap().scene.shapes.len(), 1);
+}
+
+#[test]
+fn the_fields_a_script_makes_are_checked() {
+    let r = demo();
+    let (p, def) = r.importer_for("millcreator", "pts").unwrap();
+    // 150 points make 151 fields: too many.
+    let many = f32s(150, &vec![1.0; 300]);
+    let err = plugin_script::form_for(p, def, &many, &ctx()).unwrap_err();
+    assert!(err.contains("more than"), "{err}");
+    // An importer without `form` has no extra fields, and a file the script cannot read is an error, not a crash.
+    let (p2, def2) = r.importer_for("millcreator", "tris").unwrap();
+    assert!(plugin_script::form_for(p2, def2, &[], &ctx()).unwrap().is_empty());
+    assert!(plugin_script::form_for(p, def, &[1, 2], &ctx()).is_err());
+}
+
+#[test]
+fn many_triangles_are_merged_into_outlines_by_the_script() {
+    let r = demo();
+    let (p, def) = r.importer_for("pencreator", "tris").unwrap();
+    // A strip of 5 000 squares (10 000 triangles) side by side is one outline.
+    let mut v = vec![];
+    for i in 0..5000 {
+        let x = i as f32;
+        v.extend([x, 0.0, x + 1.0, 0.0, x + 1.0, 1.0, x, 0.0, x + 1.0, 1.0, x, 1.0]);
+    }
+    let out = plugin_script::import(p, def, &f32s(10_000, &v), &Ctx { app: "pencreator".into(), area_w: 300.0, area_h: 200.0 }).unwrap();
+    assert_eq!(out.scene.shapes.len(), 1);
+    let b = out.scene.shapes[0].bounds().unwrap();
+    assert!((b.width() - 5000.0).abs() < 1e-3 && (b.height() - 1.0).abs() < 1e-6, "{b:?}");
+}
+
+// ---- the STL plugin (fixtures/plugins/stl-projection) ----
+
+type V3 = [f64; 3];
+
+fn stl_of(tris: &[[V3; 3]]) -> Vec<u8> {
+    let mut b = vec![0u8; 80];
+    b.extend((tris.len() as u32).to_le_bytes());
+    for t in tris {
+        b.extend([0u8; 12]);
+        for p in t {
+            for c in p {
+                b.extend((*c as f32).to_le_bytes());
+            }
+        }
+        b.extend([0u8; 2]);
+    }
+    b
+}
+
+/// A box from (x, y, z) of size (w, d, h) as 12 triangles.
+fn boxed(x: f64, y: f64, z: f64, w: f64, d: f64, h: f64) -> Vec<[V3; 3]> {
+    let v = |a: f64, b: f64, c: f64| [x + a * w, y + b * d, z + c * h];
+    let quad = |a: V3, b: V3, c: V3, e: V3| vec![[a, b, c], [a, c, e]];
+    let mut t = vec![];
+    t.extend(quad(v(0., 0., 0.), v(0., 1., 0.), v(1., 1., 0.), v(1., 0., 0.)));
+    t.extend(quad(v(0., 0., 1.), v(1., 0., 1.), v(1., 1., 1.), v(0., 1., 1.)));
+    t.extend(quad(v(0., 0., 0.), v(1., 0., 0.), v(1., 0., 1.), v(0., 0., 1.)));
+    t.extend(quad(v(0., 1., 0.), v(0., 1., 1.), v(1., 1., 1.), v(1., 1., 0.)));
+    t.extend(quad(v(0., 0., 0.), v(0., 0., 1.), v(0., 1., 1.), v(0., 1., 0.)));
+    t.extend(quad(v(1., 0., 0.), v(1., 1., 0.), v(1., 1., 1.), v(1., 0., 1.)));
+    t
+}
+
+fn run_stl(app: &str, data: &[u8], set: &[(&str, serde_json::Value)]) -> base_core::plugin_script::Shapes {
+    let r = demo();
+    let (p, def) = r.importer_for(app, "stl").unwrap();
+    let c = Ctx { app: app.into(), area_w: 300.0, area_h: 200.0 };
+    let extra = plugin_script::form_for(p, def, data, &c).unwrap();
+    let all: Vec<_> = def.params.iter().chain(extra.iter()).cloned().collect();
+    let mut given = plugin_script::defaults_of(&all);
+    for (k, v) in set {
+        given.insert((*k).to_string(), v.clone());
+    }
+    plugin_script::import_with(p, def, data, &given, &extra, &c).unwrap()
+}
+
+fn total_box(out: &base_core::plugin_script::Shapes) -> (f64, f64, f64, f64) {
+    let (mut x0, mut y0, mut x1, mut y1) = (f64::MAX, f64::MAX, f64::MIN, f64::MIN);
+    for s in &out.scene.shapes {
+        let b = s.bounds().unwrap();
+        x0 = x0.min(b.min.x);
+        y0 = y0.min(b.min.y);
+        x1 = x1.max(b.max.x);
+        y1 = y1.max(b.max.y);
+    }
+    (x0, y0, x1, y1)
+}
+
+#[test]
+fn the_stl_plugin_has_a_form_made_from_the_planes_of_the_model() {
+    let r = demo();
+    let (p, def) = r.importer_for("millcreator", "stl").unwrap();
+    // A box on a bigger plate: planes at three heights face up (the plate top, the box top) and more.
+    let mut tris = boxed(0.0, 0.0, 0.0, 30.0, 30.0, 2.0);
+    tris.extend(boxed(5.0, 5.0, 2.0, 10.0, 10.0, 6.0));
+    let data = stl_of(&tris);
+    let fields = plugin_script::form_for(p, def, &data, &ctx()).unwrap();
+    let ids: Vec<&str> = fields.iter().map(|f| f.id.as_str()).collect();
+    assert_eq!(&ids[..5], ["mode", "below", "depth", "facing", "min_area"]);
+    assert!(ids.iter().filter(|i| i.starts_with("plane_")).count() >= 10, "{ids:?}");
+    // The router starts with the slice, the others with the shadow of the whole model.
+    let mode = |app: &str| {
+        let (p, def) = demo().importer_for(app, "stl").map(|(p, d)| (p.clone(), d.clone())).unwrap();
+        plugin_script::form_for(&p, &def, &data, &Ctx { app: app.into(), area_w: 1.0, area_h: 1.0 }).unwrap()[0].default.clone()
+    };
+    assert_eq!(mode("millcreator"), serde_json::json!("Slice at a depth"));
+    assert_eq!(mode("pencreator"), serde_json::json!("Shadow of the whole model"));
+    // The labels of the planes show the direction, the area and the heights.
+    let top = fields.iter().find(|f| f.label.contains("↑") && f.label.ends_with("z 8")).unwrap_or_else(|| panic!("{:?}", fields.iter().map(|f| &f.label).collect::<Vec<_>>()));
+    assert!(top.label.contains("100 mm²"), "{}", top.label);
+}
+
+#[test]
+fn the_stl_plugin_makes_the_shadow_of_the_model_the_chosen_planes_and_a_slice() {
+    let mut tris = boxed(0.0, 0.0, 0.0, 30.0, 20.0, 2.0);
+    tris.extend(boxed(1.0, 4.0, 2.0, 4.0, 6.0, 6.0));
+    let data = stl_of(&tris);
+    // The shadow of the whole model: the big plate, in the corner (the box of the model starts at 0, 0).
+    let out = run_stl("pencreator", &data, &[]);
+    assert_eq!(out.scene.shapes.len(), 1);
+    let (x0, y0, x1, y1) = total_box(&out);
+    assert!(x0.abs() < 1e-6 && y0.abs() < 1e-6 && (x1 - 30.0).abs() < 1e-6 && (y1 - 20.0).abs() < 1e-6, "{x0} {y0} {x1} {y1}");
+    // Only the planes facing up that are 8 mm high: the top of the little box (4 x 6), seen from above and from below.
+    let form_fields = {
+        let r = demo();
+        let (p, def) = r.importer_for("pencreator", "stl").unwrap();
+        plugin_script::form_for(p, def, &data, &Ctx { app: "pencreator".into(), area_w: 1.0, area_h: 1.0 }).unwrap()
+    };
+    let top_id = form_fields.iter().find(|f| f.label.ends_with("z 8") && f.label.contains("↑")).map(|f| f.id.clone()).unwrap();
+    let mut set: Vec<(&str, serde_json::Value)> = vec![("mode", serde_json::json!("Shadow of the chosen planes"))];
+    let ids: Vec<String> = form_fields.iter().filter(|f| f.id.starts_with("plane_")).map(|f| f.id.clone()).collect();
+    for id in &ids {
+        set.push((id.as_str(), serde_json::json!(*id == top_id)));
+    }
+    let out = run_stl("pencreator", &data, &set);
+    assert_eq!(out.scene.shapes.len(), 1);
+    let (x0, y0, x1, y1) = total_box(&out);
+    // The outlines keep their place in the box of the model (its top left corner is at 0, 0; Y is turned over: 4..10 of a 20 mm
+    // deep model is 10..16 from the top).
+    assert!((x0 - 1.0).abs() < 1e-6 && (y0 - 10.0).abs() < 1e-6 && (x1 - 5.0).abs() < 1e-6 && (y1 - 16.0).abs() < 1e-6, "{x0} {y0} {x1} {y1}");
+    // From below the model is seen mirrored: 1..5 from the left of a 30 mm plate is 25..29.
+    set.push(("below", serde_json::json!(true)));
+    let from_below = run_stl("pencreator", &data, &set);
+    let (x0, _, x1, _) = total_box(&from_below);
+    assert!((x0 - 25.0).abs() < 1e-6 && (x1 - 29.0).abs() < 1e-6, "{x0} {x1}");
+    // Nothing is chosen: a warning and no shapes.
+    let none: Vec<(&str, serde_json::Value)> = std::iter::once(("mode", serde_json::json!("Shadow of the chosen planes"))).chain(ids.iter().map(|i| (i.as_str(), serde_json::json!(false)))).collect();
+    let out = run_stl("pencreator", &data, &none);
+    assert!(out.scene.shapes.is_empty() && out.warnings.iter().any(|w| w.contains("No plane")));
+    // A slice 5 mm below the top (z = 3) goes through the little box only; one at 7 mm (z = 1) through the plate.
+    let slice = |depth: f64| run_stl("millcreator", &data, &[("depth", serde_json::json!(depth))]);
+    let (x0, y0, x1, y1) = total_box(&slice(5.0));
+    assert!((x0 - 1.0).abs() < 1e-6 && (y0 - 10.0).abs() < 1e-6 && (x1 - 5.0).abs() < 1e-6 && (y1 - 16.0).abs() < 1e-6, "{x0} {y0} {x1} {y1}");
+    let (_, _, x1, y1) = total_box(&slice(7.0));
+    assert!((x1 - 30.0).abs() < 1e-6 && (y1 - 20.0).abs() < 1e-6);
+    // Above the model there is nothing to cut: a warning.
+    assert!(slice(0.0).scene.shapes.is_empty());
+}
+
+#[test]
+fn the_stl_plugin_handles_a_big_mesh_in_time() {
+    // A flat sheet of 20 000 triangles (a grid of 100 x 100 squares): one outline, read and merged by native code.
+    let mut tris = vec![];
+    for i in 0..100 {
+        for j in 0..100 {
+            let (x, y) = (i as f64, j as f64);
+            tris.push([[x, y, 0.0], [x + 1.0, y, 0.0], [x + 1.0, y + 1.0, 0.0]]);
+            tris.push([[x, y, 0.0], [x + 1.0, y + 1.0, 0.0], [x, y + 1.0, 0.0]]);
+        }
+    }
+    let data = stl_of(&tris);
+    let start = std::time::Instant::now();
+    let out = run_stl("lightcreator", &data, &[]);
+    assert_eq!(out.scene.shapes.len(), 1);
+    assert!(start.elapsed().as_secs() < 8, "{:?}", start.elapsed());
+}
+
+/// How long a big model takes: `cargo test -p base-core --release --test plugins -- --ignored --nocapture timing`.
+#[test]
+#[ignore = "a measurement"]
+fn timing_of_a_big_stl() {
+    for side in [100usize, 300, 450] {
+        let mut tris = vec![];
+        for i in 0..side {
+            for j in 0..side {
+                let (x, y, z) = (i as f64, j as f64, ((i * j) % 7) as f64 * 0.1);
+                tris.push([[x, y, z], [x + 1.0, y, z], [x + 1.0, y + 1.0, z]]);
+                tris.push([[x, y, z], [x + 1.0, y + 1.0, z], [x, y + 1.0, z]]);
+            }
+        }
+        let data = stl_of(&tris);
+        for (mode, app) in [("whole", "lightcreator"), ("slice", "millcreator")] {
+            let start = std::time::Instant::now();
+            let set: Vec<(&str, serde_json::Value)> = if mode == "slice" { vec![("depth", serde_json::json!(0.2))] } else { vec![] };
+            let out = run_stl(app, &data, &set);
+            println!("TIMING {} triangles {mode}: {} shapes in {:.2}s ({} MB)", tris.len(), out.scene.shapes.len(), start.elapsed().as_secs_f64(), data.len() / 1_000_000);
+        }
+    }
+}

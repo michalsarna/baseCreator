@@ -650,3 +650,6 @@
 649|Breyta í ferla
 650|Formaðgerðir
 651|Mynd
+652|Reikna…
+653|Flytja inn {}
+654|{} form, {} × {} mm

@@ -650,3 +650,6 @@
 649|Převést na křivky
 650|Operace s tvary
 651|Obrázek
+652|Počítá se…
+653|Import: {}
+654|{} tvarů, {} × {} mm

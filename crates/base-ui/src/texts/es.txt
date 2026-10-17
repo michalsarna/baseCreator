@@ -650,3 +650,6 @@
 649|Convertir en curvas
 650|Operaciones con formas
 651|Imagen
+652|Calculando…
+653|Importar {}
+654|{} formas, {} × {} mm

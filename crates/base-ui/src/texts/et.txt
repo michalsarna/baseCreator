@@ -650,3 +650,6 @@
 649|Teisenda kõverateks
 650|Kujundite toimingud
 651|Pilt
+652|Arvutan…
+653|Impordi {}
+654|{} kujundit, {} × {} mm

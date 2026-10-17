@@ -650,3 +650,6 @@
 649|Konvertér til kurver
 650|Formoperationer
 651|Billede
+652|Beregner…
+653|Importér {}
+654|{} former, {} × {} mm

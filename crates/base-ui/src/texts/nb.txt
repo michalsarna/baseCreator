@@ -650,3 +650,6 @@
 649|Konverter til kurver
 650|Formoperasjoner
 651|Bilde
+652|Beregner…
+653|Importer {}
+654|{} former, {} × {} mm

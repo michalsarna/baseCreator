@@ -650,3 +650,6 @@
 649|Tiontaigh ina gcuair
 650|Oibríochtaí cruthanna
 651|Íomhá
+652|Á ríomh…
+653|Iompórtáil {}
+654|{} cruth, {} × {} mm

@@ -650,3 +650,6 @@
 649|Konvertuoti į kreives
 650|Formų operacijos
 651|Paveikslėlis
+652|Skaičiuojama…
+653|Importuoti {}
+654|{} figūrų, {} × {} mm

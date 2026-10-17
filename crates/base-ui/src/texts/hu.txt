@@ -650,3 +650,6 @@
 649|Átalakítás görbékké
 650|Alakzatműveletek
 651|Kép
+652|Számítás…
+653|Importálás: {}
+654|{} alakzat, {} × {} mm

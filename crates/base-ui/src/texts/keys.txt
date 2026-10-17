@@ -650,3 +650,6 @@
 649	Convert to curves
 650	Shape operations
 651	Image
+652	Working…
+653	Import {}
+654	{} shapes, {} × {} mm

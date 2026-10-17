@@ -650,3 +650,6 @@
 649|Pretvori v krivulje
 650|Operacije z oblikami
 651|Slika
+652|Računam…
+653|Uvozi {}
+654|{} oblik, {} × {} mm

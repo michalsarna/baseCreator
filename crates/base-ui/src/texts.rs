@@ -657,6 +657,9 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Convert to curves", "Zamień na krzywe", "In Kurven umwandeln", "Converti in curve", "Muunna käyriksi", "转换为曲线", "वक्रों में बदलें"],
     ["Shape operations", "Operacje na kształtach", "Formoperationen", "Operazioni sulle forme", "Muotojen toiminnot", "形状运算", "आकार संचालन"],
     ["Image", "Obraz", "Bild", "Immagine", "Kuva", "图像", "छवि"],
+    ["Working…", "Trwa obliczanie…", "Wird berechnet…", "Elaborazione in corso…", "Lasketaan…", "正在计算…", "गणना हो रही है…"],
+    ["Import {}", "Import: {}", "Import: {}", "Importa {}", "Tuo {}", "导入 {}", "आयात करें: {}"],
+    ["{} shapes, {} × {} mm", "Kształtów: {}, {} × {} mm", "{} Formen, {} × {} mm", "{} forme, {} × {} mm", "{} muotoa, {} × {} mm", "{} 个形状，{} × {} 毫米", "{} आकृतियाँ, {} × {} मिमी"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
