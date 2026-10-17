@@ -55,7 +55,17 @@ fn main() {
             for ext in &i.extensions {
                 let sample = p.dir.join("tests").join(format!("sample.{ext}"));
                 if let Ok(bytes) = std::fs::read(&sample) {
-                    match plugin_script::import(p, i, &bytes, &ctx) {
+                    // The way a program does it: the form first, then the import with the start values of the form.
+                    let extra = match plugin_script::form_for(p, i, &bytes, &ctx) {
+                        Ok(f) => f,
+                        Err(e) => {
+                            fail(format!("importer {}: the form for {} failed: {e}", i.id, sample.display()));
+                            continue;
+                        }
+                    };
+                    let all: Vec<_> = i.params.iter().chain(extra.iter()).cloned().collect();
+                    let given = plugin_script::defaults_of(&all);
+                    match plugin_script::import_with(p, i, &bytes, &given, &extra, &ctx) {
                         Ok(s) if s.scene.shapes.is_empty() => fail(format!("importer {} read no shapes from {}", i.id, sample.display())),
                         Ok(_) => {}
                         Err(e) => fail(format!("importer {} failed on {}: {e}", i.id, sample.display())),
