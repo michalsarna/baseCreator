@@ -18,6 +18,11 @@ pub struct AboutInfo<'a> {
     pub licence: &'a str,
 }
 
+/// The version of baseCreator that the program is built with (the shared code: core, interface, plugins).
+pub fn base_version() -> &'static str {
+    env!("CARGO_PKG_VERSION")
+}
+
 /// The About window. `logo` is the picture shown next to the name.
 pub fn about_window(ctx: &egui::Context, open: &mut bool, info: &AboutInfo, logo: Option<&egui::TextureHandle>) {
     if !*open {
@@ -31,6 +36,7 @@ pub fn about_window(ctx: &egui::Context, open: &mut bool, info: &AboutInfo, logo
             ui.vertical(|ui| {
                 ui.heading(info.name);
                 ui.label(trf("Version {}", &[&info.version]));
+                ui.label(RichText::new(format!("baseCreator {}", base_version())).color(theme::text_dim()));
             });
         });
         for (i, line) in info.lines.iter().enumerate() {
@@ -314,6 +320,16 @@ mod tests {
         }
         assert_eq!(*opened.borrow(), vec!["https://github.com/owner/name/releases/latest".to_string()]);
         assert!(st.window.is_none(), "the window closes");
+    }
+
+    #[test]
+    fn the_about_window_shows_the_version_of_base() {
+        assert!(parse_version(&format!("v{}", base_version())).is_some(), "{}", base_version());
+        let ctx = egui::Context::default();
+        let mut open = true;
+        let info = AboutInfo { title: "About", name: "App", version: "v1.0.0", lines: vec!["a".into()], url: "https://example.org", licence: "MIT" };
+        let mut out = ctx.run_ui(egui::RawInput::default(), |ui| about_window(ui.ctx(), &mut open, &info, None));
+        out.textures_delta.clear();
     }
 
     /// Against the real GitHub API: `cargo test -p base-ui -- --ignored real_network` (needs the internet).
