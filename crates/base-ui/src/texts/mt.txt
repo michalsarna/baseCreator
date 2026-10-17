@@ -650,6 +650,19 @@
 649|Ikkonverti f'kurvi
 650|Operazzjonijiet tal-forom
 651|Stampa
-652|Qed jiġi kkalkulat…
-653|Importa {}
-654|{} forom, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordnat
+657|Skala tal-griż
+658|Iswed jew abjad biss, maqsum f'nofs il-luminożità. Ħarxa: tajba għal disinji bil-linja u test.
+659|Jipproċessa l-iżball tat-tqarrib fuq il-punti ġirien. Għażla ġenerali tajba għar-ritratti.
+660|Jinfirex l-iżball fuq żona usa': ċrieki aktar bil-mod, ftit aktar bil-mod.
+661|Bħal Jarvis, b'dettalji aktar ċari.
+662|Iżomm id-dwal nodfa u l-kuntrast għoli; titlef xi dettalji mill-aktar skuri u mill-aktar ċari.
+663|Mudell fiss ta' punti 8×8: regolari u mgħaġġel, mingħajr storbju.
+664|L-ebda tikek: kull pixel jirċievi saħħa bejn il-minimu u s-saħħa sħiħa tas-saff.
+665|Qed jiġi kkalkulat…
+666|Importa {}
+667|{} forom, {} × {} mm

@@ -650,6 +650,19 @@
 649|Konvertuoti į kreives
 650|Formų operacijos
 651|Paveikslėlis
-652|Skaičiuojama…
-653|Importuoti {}
-654|{} figūrų, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Sutvarkytas
+657|Pilkumo tonai
+658|Tik juoda arba balta, skiriama ties pusės ryškumo. Aštru: tinka brėžiniams ir tekstui.
+659|Paskirsto apvalinimo paklaidą kaimyniniams taškams. Geras bendras pasirinkimas nuotraukoms.
+660|Paskirsto paklaidą didesniam plotui: lygesni tonai, šiek tiek lėčiau.
+661|Kaip Jarvis, su ryškesnėmis detalėmis.
+662|Išlaiko švarias šviesas ir didelį kontrastą; netenka dalies tamsiausių ir šviesiausių detalių.
+663|Fiksuotas 8×8 taškų raštas: taisyklingas ir greitas, be triukšmo.
+664|Be taškų: kiekvienas pikselis gauna stiprumą tarp minimumo ir viso sluoksnio stiprumo.
+665|Skaičiuojama…
+666|Importuoti {}
+667|{} figūrų, {} × {} mm

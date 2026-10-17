@@ -650,6 +650,19 @@
 649|Tiontaigh ina gcuair
 650|Oibríochtaí cruthanna
 651|Íomhá
-652|Á ríomh…
-653|Iompórtáil {}
-654|{} cruth, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordaithe
+657|Scála liath
+658|Dubh nó bán amháin, roinnte ag leath-gile. Géar: maith do líníocht líne agus téacs.
+659|Scaipeann sé an earráid chruinnithe ar na poncanna comharsanacha. Rogha mhaith ghinearálta do ghrianghraif.
+660|Scaipeann sé an earráid thar limistéar níos leithne: tonnta níos míne, beagán níos moille.
+661|Cosúil le Jarvis, le mionsonraí níos géire.
+662|Coinníonn sé na buaicphointí glan agus an codarsnacht ard; cailleann sé cuid de na mionsonraí is dorcha agus is gile.
+663|Patrún seasta poncanna 8×8: rialta agus tapa, gan torann.
+664|Gan poncanna: faigheann gach picteilín neart idir an t-íosmhéid agus lánneart an chiseal.
+665|Á ríomh…
+666|Iompórtáil {}
+667|{} cruth, {} × {} mm

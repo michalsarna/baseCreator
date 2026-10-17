@@ -650,6 +650,19 @@
 649|Převést na křivky
 650|Operace s tvary
 651|Obrázek
-652|Počítá se…
-653|Import: {}
-654|{} tvarů, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Uspořádané
+657|Odstíny šedi
+658|Jen černá nebo bílá, dělení v polovině jasu. Ostré: vhodné pro perokresbu a text.
+659|Rozděluje chybu zaokrouhlení na sousední body. Dobrá univerzální volba pro fotografie.
+660|Rozděluje chybu na větší oblast: jemnější tóny, o něco pomalejší.
+661|Jako Jarvis, s ostřejším detailem.
+662|Udržuje světla čistá a kontrast vysoký; ztrácí část nejtmavších a nejsvětlejších detailů.
+663|Pevný vzor bodů 8×8: pravidelný a rychlý, bez šumu.
+664|Žádné body: každý pixel dostane sílu mezi minimem a plnou silou vrstvy.
+665|Počítá se…
+666|Import: {}
+667|{} tvarů, {} × {} mm

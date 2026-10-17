@@ -650,6 +650,19 @@
 649|Convertir en courbes
 650|Opérations sur les formes
 651|Image
-652|Calcul en cours…
-653|Importer {}
-654|{} formes, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordonné
+657|Niveaux de gris
+658|Noir ou blanc seulement, séparé à mi-luminosité. Net : bon pour le trait et le texte.
+659|Répartit l'erreur d'arrondi sur les points voisins. Un bon choix général pour les photos.
+660|Répartit l'erreur sur une zone plus large : tons plus doux, un peu plus lent.
+661|Comme Jarvis, avec des détails plus nets.
+662|Garde les hautes lumières propres et le contraste élevé ; perd un peu des détails les plus sombres et les plus clairs.
+663|Une trame fixe de points 8×8 : régulière et rapide, sans bruit.
+664|Pas de points : chaque pixel reçoit une intensité entre le minimum et l'intensité maximale du calque.
+665|Calcul en cours…
+666|Importer {}
+667|{} formes, {} × {} mm

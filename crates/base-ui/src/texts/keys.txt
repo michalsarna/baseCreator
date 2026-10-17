@@ -650,6 +650,19 @@
 649	Convert to curves
 650	Shape operations
 651	Image
-652	Working…
-653	Import {}
-654	{} shapes, {} × {} mm
+652	Floyd-Steinberg
+653	Jarvis
+654	Stucki
+655	Atkinson
+656	Ordered
+657	Grayscale
+658	Black or white only, split at half brightness. Sharp: good for line art and text.
+659	Spreads the rounding error to the neighbouring dots. A good all-round choice for photos.
+660	Spreads the error over a wider area: smoother tones, a little slower.
+661	Like Jarvis, with crisper detail.
+662	Keeps highlights clean and contrast high; loses some of the darkest and lightest detail.
+663	A fixed 8×8 pattern of dots: regular and fast, without noise.
+664	No dots: every pixel gets a strength between the minimum and the full strength of the layer.
+665	Working…
+666	Import {}
+667	{} shapes, {} × {} mm

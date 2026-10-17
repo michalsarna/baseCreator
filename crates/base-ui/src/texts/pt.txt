@@ -650,6 +650,19 @@
 649|Converter em curvas
 650|Operações com formas
 651|Imagem
-652|A calcular…
-653|Importar {}
-654|{} formas, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordenado
+657|Tons de cinzento
+658|Apenas preto ou branco, dividido a meia luminosidade. Nítido: bom para desenhos de linha e texto.
+659|Distribui o erro de arredondamento pelos pontos vizinhos. Uma boa escolha geral para fotografias.
+660|Distribui o erro por uma área maior: tons mais suaves, um pouco mais lento.
+661|Como o Jarvis, com detalhes mais nítidos.
+662|Mantém as luzes limpas e o contraste alto; perde um pouco dos detalhes mais escuros e mais claros.
+663|Um padrão fixo de pontos 8×8: regular e rápido, sem ruído.
+664|Sem pontos: cada pixel recebe uma intensidade entre o mínimo e a intensidade total da camada.
+665|A calcular…
+666|Importar {}
+667|{} formas, {} × {} mm

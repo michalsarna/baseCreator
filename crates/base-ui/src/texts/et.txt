@@ -650,6 +650,19 @@
 649|Teisenda kõverateks
 650|Kujundite toimingud
 651|Pilt
-652|Arvutan…
-653|Impordi {}
-654|{} kujundit, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Korrastatud
+657|Halltoonid
+658|Ainult must või valge, jaotus poole heleduse juures. Terav: sobib joonisteks ja tekstiks.
+659|Jaotab ümardusvea naaberpunktidele. Hea üldvalik fotodele.
+660|Jaotab vea suuremale alale: pehmemad toonid, veidi aeglasem.
+661|Nagu Jarvis, kuid teravamate detailidega.
+662|Hoiab heledad kohad puhtad ja kontrasti kõrge; kaotab veidi kõige tumedamaid ja heledamaid detaile.
+663|Kindel 8×8 punktimuster: korrapärane ja kiire, müratu.
+664|Punkte pole: iga piksel saab tugevuse miinimumi ja kihi täistugevuse vahel.
+665|Arvutan…
+666|Impordi {}
+667|{} kujundit, {} × {} mm

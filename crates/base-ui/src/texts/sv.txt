@@ -650,6 +650,19 @@
 649|Konvertera till kurvor
 650|Formoperationer
 651|Bild
-652|Beräknar…
-653|Importera {}
-654|{} former, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordnad
+657|Gråskala
+658|Bara svart eller vitt, delat vid halv ljusstyrka. Skarpt: bra för streckteckningar och text.
+659|Sprider avrundningsfelet till närliggande punkter. Ett bra allroundval för foton.
+660|Sprider felet över ett större område: mjukare toner, något långsammare.
+661|Som Jarvis, med skarpare detaljer.
+662|Håller högdagrar rena och kontrasten hög; förlorar en del av de mörkaste och ljusaste detaljerna.
+663|Ett fast 8×8-mönster av punkter: regelbundet och snabbt, utan brus.
+664|Inga punkter: varje pixel får en styrka mellan minimum och lagrets fulla styrka.
+665|Beräknar…
+666|Importera {}
+667|{} former, {} × {} mm

@@ -650,6 +650,19 @@
 649|Konvertér til kurver
 650|Formoperationer
 651|Billede
-652|Beregner…
-653|Importér {}
-654|{} former, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordnet
+657|Gråtoner
+658|Kun sort eller hvid, delt ved halv lysstyrke. Skarp: god til stregtegninger og tekst.
+659|Spreder afrundingsfejlen til nabopunkterne. Et godt alsidigt valg til fotos.
+660|Spreder fejlen over et større område: blødere toner, lidt langsommere.
+661|Som Jarvis, med skarpere detaljer.
+662|Holder højlys rene og kontrasten høj; mister lidt af de mørkeste og lyseste detaljer.
+663|Et fast 8×8-mønster af punkter: regelmæssigt og hurtigt, uden støj.
+664|Ingen prikker: hver pixel får en styrke mellem minimum og lagets fulde styrke.
+665|Beregner…
+666|Importér {}
+667|{} former, {} × {} mm

@@ -27,6 +27,7 @@ pub mod plugin_script;
 pub mod plugins;
 pub mod presets;
 pub mod project;
+pub mod raster;
 pub mod registry;
 pub mod resume;
 pub mod scene;

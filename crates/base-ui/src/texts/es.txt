@@ -650,6 +650,19 @@
 649|Convertir en curvas
 650|Operaciones con formas
 651|Imagen
-652|Calculando…
-653|Importar {}
-654|{} formas, {} × {} mm
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Ordenado
+657|Escala de grises
+658|Solo negro o blanco, dividido a media luminosidad. Nítido: bueno para dibujos de línea y texto.
+659|Reparte el error de redondeo entre los puntos vecinos. Una buena opción general para fotos.
+660|Reparte el error en un área mayor: tonos más suaves, algo más lento.
+661|Como Jarvis, con detalles más nítidos.
+662|Mantiene limpias las luces y alto el contraste; pierde algo de los detalles más oscuros y más claros.
+663|Un patrón fijo de puntos de 8×8: regular y rápido, sin ruido.
+664|Sin puntos: cada píxel recibe una intensidad entre el mínimo y la intensidad total de la capa.
+665|Calculando…
+666|Importar {}
+667|{} formas, {} × {} mm
