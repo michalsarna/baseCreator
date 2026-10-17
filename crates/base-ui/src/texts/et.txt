@@ -663,3 +663,6 @@
 662|Hoiab heledad kohad puhtad ja kontrasti kõrge; kaotab veidi kõige tumedamaid ja heledamaid detaile.
 663|Kindel 8×8 punktimuster: korrapärane ja kiire, müratu.
 664|Punkte pole: iga piksel saab tugevuse miinimumi ja kihi täistugevuse vahel.
+665|Arvutan…
+666|Impordi {}
+667|{} kujundit, {} × {} mm

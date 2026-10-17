@@ -17,6 +17,7 @@ pub mod grbl_settings;
 pub mod grbl_status;
 pub mod image;
 pub mod machine;
+pub mod mesh;
 pub mod layers;
 pub mod lightburn;
 pub mod ops;

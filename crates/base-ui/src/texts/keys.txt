@@ -663,3 +663,6 @@
 662	Keeps highlights clean and contrast high; loses some of the darkest and lightest detail.
 663	A fixed 8×8 pattern of dots: regular and fast, without noise.
 664	No dots: every pixel gets a strength between the minimum and the full strength of the layer.
+665	Working…
+666	Import {}
+667	{} shapes, {} × {} mm

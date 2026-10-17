@@ -663,3 +663,6 @@
 662|Coinníonn sé na buaicphointí glan agus an codarsnacht ard; cailleann sé cuid de na mionsonraí is dorcha agus is gile.
 663|Patrún seasta poncanna 8×8: rialta agus tapa, gan torann.
 664|Gan poncanna: faigheann gach picteilín neart idir an t-íosmhéid agus lánneart an chiseal.
+665|Á ríomh…
+666|Iompórtáil {}
+667|{} cruth, {} × {} mm

@@ -663,3 +663,6 @@
 662|Išlaiko švarias šviesas ir didelį kontrastą; netenka dalies tamsiausių ir šviesiausių detalių.
 663|Fiksuotas 8×8 taškų raštas: taisyklingas ir greitas, be triukšmo.
 664|Be taškų: kiekvienas pikselis gauna stiprumą tarp minimumo ir viso sluoksnio stiprumo.
+665|Skaičiuojama…
+666|Importuoti {}
+667|{} figūrų, {} × {} mm

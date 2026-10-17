@@ -663,3 +663,6 @@
 662|Udržuje světla čistá a kontrast vysoký; ztrácí část nejtmavších a nejsvětlejších detailů.
 663|Pevný vzor bodů 8×8: pravidelný a rychlý, bez šumu.
 664|Žádné body: každý pixel dostane sílu mezi minimem a plnou silou vrstvy.
+665|Počítá se…
+666|Import: {}
+667|{} tvarů, {} × {} mm

@@ -92,6 +92,28 @@ The script gets the values in the map `p` (`p.count`, `p.centre`, …). Numbers 
 `max`; use `p.count.to_int()` for a loop. `id`s are letters, digits, `-` and `_` (so `p.my_value`; avoid words that are
 keywords in Rhai, such as `module`, `import`, `private`).
 
+### Importers: a form, a preview, binary files
+
+An importer entry can have more than the script:
+
+```json
+{ "id": "stl", "name": "STL model", "extensions": ["stl"], "script": "stl.rhai",
+  "binary": true, "form": true, "preview": true, "description": "…",
+  "params": [ { "id": "scale", "label": "Scale", "kind": "number", "default": 1 } ] }
+```
+
+* `binary`: the script gets the file as a **blob** of bytes instead of a text. `data.len()`, `data.parse_le_int(pos, len)` read
+  integers, `read_f32(data, pos)` and `read_f64(data, pos)` read floats (Rhai's own `parse_le_float` does not read a 4-byte float).
+* `params`: a form like the one of a generator. The values reach the script in `ctx.p` (`ctx.p.scale`).
+* `form`: the script also has `fn form(data, ctx)` that returns more fields of the form, made from the contents of the file: an
+  array of maps `#{ id, label, kind, "default", min, max, options, unit }` (up to 100; write `"default"` in quotes, it is a keyword).
+* `preview` (or any of the above): the program opens an **import window** with the form and a preview of the shapes instead of
+  importing at once. The preview is made by running `read` in the background after each change of the form (a moment after the
+  last one); the button **Import** puts the shapes that are shown into the drawing.
+
+A plugin that needs these (they came with baseCreator 1.6.0) says `"min_base": "1.6.0"`: older programs then refuse to load it
+and the official list does not offer it to them.
+
 ## The scripts
 
 Each script defines one function. `ctx` is `#{ app, area_w, area_h }`: the program (`"millcreator"`…) and the size of the
@@ -99,7 +121,7 @@ work area in mm. (A function that does not need `ctx` may leave the parameter ou
 
 | Kind | Function | Gets | Returns |
 |---|---|---|---|
-| importer | `fn read(text, ctx)` | the file as text | shapes |
+| importer | `fn read(text, ctx)` | the file as text (a blob of bytes for a `binary` importer) | shapes |
 | generator | `fn generate(p, ctx)` | the values of the form | shapes |
 | postprocessor | `fn post(lines, ctx)` | the lines of the program (array of strings) | the new lines (array of strings) |
 
@@ -118,6 +140,15 @@ left of the work area, Y down** — the same as the drawing. (An importer for a 
 | `group([shapes])` | shapes that move together |
 | `translate(s, dx, dy)`, `rotate(s, degrees, cx, cy)`, `scale(s, sx, sy)` | return the moved shape |
 | `warn("…")` | adds a message shown to the user (`print` does the same) |
+
+| `union_polygons(polys)` | merges any number of overlapping closed polygons (`[[x, y], …]`) into the outlines of the area they cover |
+| `xf_rings(rings, sx, sy, dx, dy)` | moves and mirrors rings in one pass: `x' = sx * x + dx`, `y' = sy * y + dy` |
+| `read_stl(data)` | reads an STL mesh (binary or ASCII) from a blob: a `Mesh` with `tri_count()`, `bounds()` (min x, y, z, max x, y, z), `groups(angle, dist)` (the planes of the model, largest first, as maps `#{ id, nx, ny, nz, d, area, tris, min_z, max_z }`), `project()` and `project(ids)` (the shadow on the floor of the whole model or of the chosen planes, as rings) and `section(z)` (the outlines where the plane at height `z` cuts it) |
+
+**Big data and Rhai.** Rhai checks the size of every array after each change, so a script that pushes thousands of items into an
+array gets slower and slower (the time grows with the square of the count). That is why the loops over the triangles of a mesh and
+the union of thousands of polygons are done by the functions above, in native code; a script keeps its arrays small (the planes of
+a model, the rings of an outline) and builds the shapes from them.
 
 Put a shape on a layer with `s.layer = 3;` (0 is the first layer). Rhai strings are changed in place by `trim()` and
 friends: `let t = line; t.trim();`.

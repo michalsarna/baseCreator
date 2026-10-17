@@ -663,3 +663,6 @@
 662|Garde les hautes lumières propres et le contraste élevé ; perd un peu des détails les plus sombres et les plus clairs.
 663|Une trame fixe de points 8×8 : régulière et rapide, sans bruit.
 664|Pas de points : chaque pixel reçoit une intensité entre le minimum et l'intensité maximale du calque.
+665|Calcul en cours…
+666|Importer {}
+667|{} formes, {} × {} mm

@@ -663,3 +663,6 @@
 662|Manté netes les llums i alt el contrast; perd una mica dels detalls més foscos i més clars.
 663|Un patró fix de punts 8×8: regular i ràpid, sense soroll.
 664|Sense punts: cada píxel rep una intensitat entre el mínim i la intensitat plena de la capa.
+665|S'està calculant…
+666|Importa {}
+667|{} formes, {} × {} mm

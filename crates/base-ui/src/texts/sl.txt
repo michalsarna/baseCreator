@@ -663,3 +663,6 @@
 662|Ohranja čiste svetle dele in visok kontrast; izgubi nekaj najtemnejših in najsvetlejših podrobnosti.
 663|Stalen vzorec točk 8×8: pravilen in hiter, brez šuma.
 664|Brez pik: vsak piksel dobi moč med minimumom in polno močjo sloja.
+665|Računam…
+666|Uvozi {}
+667|{} oblik, {} × {} mm

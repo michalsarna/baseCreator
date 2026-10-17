@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "id": "stl-projection",
+  "name": "STL projection",
+  "version": "0.1.0",
+  "author": "baseCreator",
+  "license": "MIT",
+  "description": "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.",
+  "min_base": "1.6.0",
+  "importers": [
+    { "id": "stl", "name": "STL model", "extensions": ["stl"], "script": "stl.rhai", "binary": true, "form": true, "preview": true,
+      "description": "The model is looked at from above (Z up); the outlines keep their place in the box of the model, whose top left corner is at (0, 0)." }
+  ],
+  "texts": {
+    "pl": {
+      "STL model": "Model STL",
+      "What to make": "Co zrobić",
+      "Shadow of the whole model": "Rzut całego modelu",
+      "Shadow of the chosen planes": "Rzut wybranych płaszczyzn",
+      "Slice at a depth": "Przekrój na głębokości",
+      "Depth of the slice below the top": "Głębokość przekroju od góry",
+      "View from below": "Widok od spodu",
+      "Show only planes facing": "Pokaż tylko płaszczyzny skierowane",
+      "up": "w górę",
+      "down": "w dół",
+      "any way": "dowolnie",
+      "sideways": "na boki",
+      "Smallest plane": "Najmniejsza płaszczyzna",
+      "Planes: tick the ones to project": "Płaszczyzny: zaznacz te do rzutowania",
+      "The model is looked at from above (Z up); the outlines keep their place in the box of the model, whose top left corner is at (0, 0).": "Model oglądany jest z góry (oś Z w górę); kontury zachowują swoje miejsce w obrysie modelu, którego lewy górny róg jest w punkcie (0, 0)."
+    }
+  }
+}

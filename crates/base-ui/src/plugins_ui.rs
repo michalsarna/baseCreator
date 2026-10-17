@@ -59,6 +59,8 @@ pub struct PluginsUi {
     pub registry: Registry,
     pub open: bool,
     pub gen_open: bool,
+    /// An import that waits in its window (a form, a preview).
+    pending: Option<Pending>,
     gen_sel: usize,
     values: serde_json::Map<String, serde_json::Value>,
     /// The postprocessor chosen for the next export: `plugin-id/postprocessor-id`.
@@ -71,7 +73,7 @@ pub struct PluginsUi {
 impl PluginsUi {
     /// `app` is `lightcreator`, `millcreator` or `pencreator`; `base` is the shared data folder.
     pub fn new(app: &str, base: &Path) -> PluginsUi {
-        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, gen_sel: 0, values: Default::default(), post: None, confirm_remove: None, message: String::new(), log: vec![] }
+        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, pending: None, gen_sel: 0, values: Default::default(), post: None, confirm_remove: None, message: String::new(), log: vec![] }
     }
 
     pub fn reload(&mut self) {
@@ -85,16 +87,29 @@ impl PluginsUi {
         }
     }
 
-    /// Read a file with the importer of a plugin for its extension. `None` when no plugin reads this kind of file.
-    pub fn import_file(&self, path: &Path, area: (f64, f64)) -> Option<Result<Shapes, String>> {
+    /// Read a file with the importer of a plugin for its extension. `None` when no plugin reads this kind of file. An importer
+    /// with a form or a preview opens a window instead of making the shapes at once (`import_window` draws it).
+    pub fn import_file(&mut self, path: &Path, area: (f64, f64)) -> Option<ImportStart> {
         let ext = path.extension()?.to_string_lossy().to_lowercase();
         let (p, def) = self.registry.importer_for(&self.app, &ext)?;
+        let (p, def) = (p.clone(), def.clone());
         // A file of a few hundred MB is not read into memory just to be refused by the script.
         let bytes = match base_core::plugins::read_limited(path, plugin_script::MAX_IMPORT_BYTES) {
             Ok(b) => b,
-            Err(e) => return Some(Err(e)),
+            Err(e) => return Some(ImportStart::Done(Err(e))),
         };
-        Some(plugin_script::import(p, def, &bytes, &Ctx { app: self.app.clone(), area_w: area.0, area_h: area.1 }))
+        let ctx = Ctx { app: self.app.clone(), area_w: area.0, area_h: area.1 };
+        if !def.interactive() {
+            return Some(ImportStart::Done(plugin_script::import(&p, &def, &bytes, &ctx)));
+        }
+        let extra = match plugin_script::form_for(&p, &def, &bytes, &ctx) {
+            Ok(e) => e,
+            Err(e) => return Some(ImportStart::Done(Err(e))),
+        };
+        let all: Vec<_> = def.params.iter().chain(extra.iter()).cloned().collect();
+        let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+        self.pending = Some(Pending { name, plugin: p, def, bytes: std::sync::Arc::new(bytes), extra, values: plugin_script::defaults_of(&all), ctx, version: 0, shown: u64::MAX, started: None, changed_at: 0.0, running: None, result: None });
+        Some(ImportStart::Window)
     }
 
     /// The extensions the importers of the plugins read, for a file dialog.
@@ -231,7 +246,7 @@ impl PluginsUi {
     }
 
     /// Ask for a file one of the importers reads, and read it. `None` when the person cancels or no plugin imports.
-    pub fn import_dialog(&self, area: (f64, f64)) -> Option<(PathBuf, Result<Shapes, String>)> {
+    pub fn import_dialog(&mut self, area: (f64, f64)) -> Option<(PathBuf, ImportStart)> {
         let exts = self.import_extensions();
         if exts.is_empty() {
             return None;
@@ -526,6 +541,58 @@ fn official_tab(ui: &mut egui::Ui, st: &mut PluginsUi, download: &mut Option<Ent
     });
 }
 
+/// Draw the fields of a form and keep the values in `values`. Returns true when one was changed.
+pub fn form_ui(ui: &mut egui::Ui, id: &str, registry: &Registry, params: &[base_core::plugins::ParamDef], values: &mut serde_json::Map<String, serde_json::Value>) -> bool {
+    let mut changed = false;
+    egui::Grid::new(id).num_columns(2).spacing([10.0, 6.0]).show(ui, |ui| {
+        for p in params {
+            ui.label(pt(registry, if p.label.is_empty() { &p.id } else { &p.label }));
+            match p.kind {
+                ParamKind::Number => {
+                    let mut v = values.get(&p.id).and_then(|v| v.as_f64()).unwrap_or(0.0);
+                    let mut d = egui::DragValue::new(&mut v).speed(0.1).range(p.min.unwrap_or(f64::MIN)..=p.max.unwrap_or(f64::MAX));
+                    if !p.unit.is_empty() {
+                        d = d.suffix(format!(" {}", p.unit));
+                    }
+                    if ui.add(d).changed() {
+                        values.insert(p.id.clone(), serde_json::json!(v));
+                        changed = true;
+                    }
+                }
+                ParamKind::Bool => {
+                    let mut v = values.get(&p.id).and_then(|v| v.as_bool()).unwrap_or(false);
+                    if ui.checkbox(&mut v, "").changed() {
+                        values.insert(p.id.clone(), serde_json::json!(v));
+                        changed = true;
+                    }
+                }
+                ParamKind::Text => {
+                    let mut v = values.get(&p.id).and_then(|v| v.as_str()).unwrap_or("").to_string();
+                    if ui.text_edit_singleline(&mut v).changed() {
+                        values.insert(p.id.clone(), serde_json::json!(v));
+                        changed = true;
+                    }
+                }
+                ParamKind::Choice => {
+                    let before = values.get(&p.id).and_then(|v| v.as_str()).unwrap_or("").to_string();
+                    let mut v = before.clone();
+                    egui::ComboBox::from_id_salt(format!("{id}_{}", p.id)).selected_text(pt(registry, &v)).show_ui(ui, |ui| {
+                        for o in &p.options {
+                            ui.selectable_value(&mut v, o.clone(), pt(registry, o));
+                        }
+                    });
+                    if v != before {
+                        changed = true;
+                    }
+                    values.insert(p.id.clone(), serde_json::json!(v));
+                }
+            }
+            ui.end_row();
+        }
+    });
+    changed
+}
+
 /// The window of the generators: choose one, fill in its form, Create. Returns the shapes when the script made them.
 pub fn generator_window(ctx: &egui::Context, st: &mut PluginsUi, area: (f64, f64)) -> Option<Shapes> {
     if !st.gen_open {
@@ -562,45 +629,7 @@ pub fn generator_window(ctx: &egui::Context, st: &mut PluginsUi, area: (f64, f64
             ui.label(RichText::new(pt(&st.registry, &def.description)).color(theme::text_dim()));
         }
         ui.add_space(6.0);
-        egui::Grid::new("gen_form").num_columns(2).spacing([10.0, 6.0]).show(ui, |ui| {
-            for p in &def.params {
-                ui.label(pt(&st.registry, if p.label.is_empty() { &p.id } else { &p.label }));
-                match p.kind {
-                    ParamKind::Number => {
-                        let mut v = st.values.get(&p.id).and_then(|v| v.as_f64()).unwrap_or(0.0);
-                        let mut d = egui::DragValue::new(&mut v).speed(0.1).range(p.min.unwrap_or(f64::MIN)..=p.max.unwrap_or(f64::MAX));
-                        if !p.unit.is_empty() {
-                            d = d.suffix(format!(" {}", p.unit));
-                        }
-                        if ui.add(d).changed() {
-                            st.values.insert(p.id.clone(), serde_json::json!(v));
-                        }
-                    }
-                    ParamKind::Bool => {
-                        let mut v = st.values.get(&p.id).and_then(|v| v.as_bool()).unwrap_or(false);
-                        if ui.checkbox(&mut v, "").changed() {
-                            st.values.insert(p.id.clone(), serde_json::json!(v));
-                        }
-                    }
-                    ParamKind::Text => {
-                        let mut v = st.values.get(&p.id).and_then(|v| v.as_str()).unwrap_or("").to_string();
-                        if ui.text_edit_singleline(&mut v).changed() {
-                            st.values.insert(p.id.clone(), serde_json::json!(v));
-                        }
-                    }
-                    ParamKind::Choice => {
-                        let mut v = st.values.get(&p.id).and_then(|v| v.as_str()).unwrap_or("").to_string();
-                        egui::ComboBox::from_id_salt(format!("gen_{}", p.id)).selected_text(&v).show_ui(ui, |ui| {
-                            for o in &p.options {
-                                ui.selectable_value(&mut v, o.clone(), o);
-                            }
-                        });
-                        st.values.insert(p.id.clone(), serde_json::json!(v));
-                    }
-                }
-                ui.end_row();
-            }
-        });
+        form_ui(ui, "gen_form", &st.registry, &def.params, &mut st.values);
         ui.add_space(8.0);
         if import_button(ui, &tr("Create")).clicked() {
             create = true;
@@ -635,6 +664,174 @@ pub fn generator_window(ctx: &egui::Context, st: &mut PluginsUi, area: (f64, f64
         }
     }
     out
+}
+
+/// What happened when a file was handed to an importer.
+pub enum ImportStart {
+    /// The importer made the shapes (or failed) at once.
+    Done(Result<Shapes, String>),
+    /// The importer has a form or a preview: its window is open (`import_window`).
+    Window,
+}
+
+/// An import waiting in its window: the file, the importer, the form and the preview that is made in the background.
+struct Pending {
+    name: String,
+    plugin: base_core::plugins::Plugin,
+    def: base_core::plugins::ImporterDef,
+    bytes: std::sync::Arc<Vec<u8>>,
+    /// The fields the script made from the file.
+    extra: Vec<base_core::plugins::ParamDef>,
+    values: serde_json::Map<String, serde_json::Value>,
+    ctx: Ctx,
+    /// Counts the changes of the form; the preview shows the form of the version `shown`.
+    version: u64,
+    shown: u64,
+    /// The version the running preview was started for.
+    started: Option<u64>,
+    /// When the form was last changed (the preview waits a moment for more).
+    changed_at: f64,
+    running: Option<Receiver<Result<Shapes, String>>>,
+    result: Option<Result<Shapes, String>>,
+}
+
+impl Pending {
+    /// Import was pressed: the shapes that are shown, or, when the form changed after them, shapes made again.
+    fn finish(self) -> Option<(String, Shapes)> {
+        if self.shown == self.version {
+            if let Some(Ok(s)) = self.result {
+                return Some((self.name, s));
+            }
+        }
+        plugin_script::import_with(&self.plugin, &self.def, &self.bytes, &self.values, &self.extra, &self.ctx).ok().map(|s| (self.name, s))
+    }
+
+    fn start(&mut self) {
+        let (tx, rx) = channel();
+        let (plugin, def, bytes, extra, values, ctx) = (self.plugin.clone(), self.def.clone(), self.bytes.clone(), self.extra.clone(), self.values.clone(), self.ctx.clone());
+        std::thread::spawn(move || {
+            let _ = tx.send(plugin_script::import_with(&plugin, &def, &bytes, &values, &extra, &ctx));
+        });
+        self.started = Some(self.version);
+        self.running = Some(rx);
+    }
+}
+
+/// The box round some polylines.
+fn box_of(polys: &[base_core::geom::Polyline]) -> Option<base_core::geom::Rect> {
+    polys.iter().filter_map(|p| p.bounds()).reduce(|a, b| a.union(b))
+}
+
+/// Draw the shapes of a preview, fitted into `rect`.
+fn draw_preview(ui: &egui::Ui, rect: egui::Rect, shapes: &Shapes) {
+    let polys: Vec<base_core::geom::Polyline> = shapes.scene.shapes.iter().flat_map(|s| s.polys()).collect();
+    let painter = ui.painter_at(rect);
+    painter.rect_filled(rect, 4.0, theme::panel_dark());
+    let Some(b) = box_of(&polys) else { return };
+    let (w, h) = (b.width().max(1e-9), b.height().max(1e-9));
+    let k = ((rect.width() - 16.0) as f64 / w).min((rect.height() - 16.0) as f64 / h);
+    let o = rect.center() - egui::vec2((w * k / 2.0) as f32, (h * k / 2.0) as f32);
+    let to = |p: base_core::geom::Pt| egui::pos2(o.x + ((p.x - b.min.x) * k) as f32, o.y + ((p.y - b.min.y) * k) as f32);
+    let stroke = egui::Stroke::new(1.0, theme::accent());
+    // A very detailed outline is drawn with fewer points: the preview is only to look at.
+    let step = (polys.iter().map(|p| p.pts.len()).sum::<usize>() / 20_000).max(1);
+    for p in &polys {
+        let pts: Vec<egui::Pos2> = p.pts.iter().step_by(step).map(|q| to(*q)).collect();
+        if pts.len() >= 2 {
+            painter.add(egui::Shape::line(if p.closed { pts.iter().copied().chain(pts.first().copied()).collect() } else { pts }, stroke));
+        }
+    }
+}
+
+/// The window of an import that has a form and a preview. Returns the name of the file and the shapes when Import was pressed.
+pub fn import_window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<(String, Shapes)> {
+    let PluginsUi { registry, pending: slot, .. } = st;
+    let registry: &Registry = registry;
+    let pending = slot.as_mut()?;
+    let now = ctx.input(|i| i.time);
+    // The answer of the background run.
+    if let Some(rx) = &pending.running {
+        match rx.try_recv() {
+            Ok(r) => {
+                pending.shown = pending.started.unwrap_or(0);
+                pending.result = Some(r);
+                pending.running = None;
+            }
+            Err(std::sync::mpsc::TryRecvError::Disconnected) => {
+                pending.result = Some(Err("the preview stopped".into()));
+                pending.running = None;
+                pending.shown = pending.version;
+            }
+            Err(std::sync::mpsc::TryRecvError::Empty) => ctx.request_repaint_after(Duration::from_millis(100)),
+        }
+    }
+    // A new run when the form changed and nothing has been changed for a moment.
+    if pending.running.is_none() && pending.shown != pending.version {
+        if now - pending.changed_at > 0.25 || pending.result.is_none() {
+            pending.start();
+        }
+        ctx.request_repaint_after(Duration::from_millis(100));
+    }
+    let mut open = true;
+    let (mut go, mut cancel) = (false, false);
+    let title = trf("Import {}", &[&pending.name]);
+    popup(ctx, "plugin_import_window", &title, [760.0, 520.0], &mut open, |ui| {
+        if !pending.def.description.is_empty() {
+            ui.label(RichText::new(pt(registry, &pending.def.description)).color(theme::text_dim()));
+        }
+        ui.horizontal_top(|ui| {
+            ui.vertical(|ui| {
+                ui.set_width(340.0);
+                let all: Vec<_> = pending.def.params.iter().chain(pending.extra.iter()).cloned().collect();
+                egui::ScrollArea::vertical().id_salt("plugin_import_form").max_height(400.0).auto_shrink([false, false]).show(ui, |ui| {
+                    if form_ui(ui, "plugin_import_grid", registry, &all, &mut pending.values) {
+                        pending.version += 1;
+                        pending.changed_at = now;
+                    }
+                });
+            });
+            ui.vertical(|ui| {
+                let (rect, _) = ui.allocate_exact_size(egui::vec2(380.0, 330.0), egui::Sense::hover());
+                match &pending.result {
+                    Some(Ok(s)) => draw_preview(ui, rect, s),
+                    _ => {
+                        ui.painter().rect_filled(rect, 4.0, theme::panel_dark());
+                    }
+                }
+                if pending.running.is_some() || pending.shown != pending.version {
+                    ui.label(RichText::new(tr("Working…")).color(theme::text_dim()));
+                }
+                match &pending.result {
+                    Some(Ok(s)) => {
+                        let polys: Vec<_> = s.scene.shapes.iter().flat_map(|x| x.polys()).collect();
+                        if let Some(b) = box_of(&polys) {
+                            ui.label(trf("{} shapes, {} × {} mm", &[&s.scene.shapes.len(), &format!("{:.1}", b.width()), &format!("{:.1}", b.height())]));
+                        }
+                        for w in &s.warnings {
+                            ui.label(RichText::new(w).color(theme::accent()));
+                        }
+                    }
+                    Some(Err(e)) => {
+                        ui.label(RichText::new(trf("The script failed: {}", &[e])).color(theme::accent()));
+                    }
+                    None => {}
+                }
+            });
+        });
+        ui.separator();
+        ui.horizontal(|ui| {
+            let ready = matches!(&pending.result, Some(Ok(s)) if !s.scene.shapes.is_empty());
+            go = ui.add_enabled(ready, egui::Button::new(RichText::new(tr("Import")).strong())).clicked();
+            cancel = ui.button(tr("Cancel")).clicked();
+        });
+    });
+    if go {
+        return slot.take()?.finish();
+    }
+    if cancel || !open {
+        *slot = None;
+    }
+    None
 }
 
 #[cfg(test)]
@@ -728,12 +925,12 @@ mod tests {
 
     #[test]
     fn files_are_read_by_the_plugin_of_their_extension() {
-        let st = ui_with_examples();
+        let mut st = ui_with_examples();
         let dir = std::env::temp_dir().join(format!("bc-pui-{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
         let f = dir.join("a.csv");
         std::fs::write(&f, "0,0\n10,10\n").unwrap();
-        let s = st.import_file(&f, (100.0, 100.0)).expect("a plugin reads csv").unwrap();
+        let Some(ImportStart::Done(Ok(s))) = st.import_file(&f, (100.0, 100.0)) else { panic!("a plugin reads csv at once") };
         assert_eq!(s.scene.shapes.len(), 1);
         assert!(st.import_file(&dir.join("a.unknown"), (100.0, 100.0)).is_none());
         assert!(st.import_extensions().contains(&"csv".to_string()));
@@ -766,6 +963,90 @@ mod tests {
             assert_eq!(e.status(&reg), registry::Status::UpToDate);
         }
         assert!(reg.generators("millcreator").len() >= 3);
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    /// A binary STL of two boxes: a plate 30 x 20 x 2 and a box 4 x 6 x 6 on it.
+    fn two_boxes() -> Vec<u8> {
+        let boxed = |x: f32, y: f32, z: f32, w: f32, d: f32, h: f32| {
+            let v = |a: f32, b: f32, c: f32| [x + a * w, y + b * d, z + c * h];
+            let quad = |a: [f32; 3], b: [f32; 3], c: [f32; 3], e: [f32; 3]| vec![[a, b, c], [a, c, e]];
+            let mut t = vec![];
+            t.extend(quad(v(0., 0., 0.), v(0., 1., 0.), v(1., 1., 0.), v(1., 0., 0.)));
+            t.extend(quad(v(0., 0., 1.), v(1., 0., 1.), v(1., 1., 1.), v(0., 1., 1.)));
+            t.extend(quad(v(0., 0., 0.), v(1., 0., 0.), v(1., 0., 1.), v(0., 0., 1.)));
+            t.extend(quad(v(0., 1., 0.), v(0., 1., 1.), v(1., 1., 1.), v(1., 1., 0.)));
+            t.extend(quad(v(0., 0., 0.), v(0., 0., 1.), v(0., 1., 1.), v(0., 1., 0.)));
+            t.extend(quad(v(1., 0., 0.), v(1., 1., 0.), v(1., 1., 1.), v(1., 0., 1.)));
+            t
+        };
+        let mut tris = boxed(0.0, 0.0, 0.0, 30.0, 20.0, 2.0);
+        tris.extend(boxed(1.0, 4.0, 2.0, 4.0, 6.0, 6.0));
+        let mut b = vec![0u8; 80];
+        b.extend((tris.len() as u32).to_le_bytes());
+        for t in &tris {
+            b.extend([0u8; 12]);
+            for p in t {
+                for c in p {
+                    b.extend(c.to_le_bytes());
+                }
+            }
+            b.extend([0u8; 2]);
+        }
+        b
+    }
+
+    #[test]
+    fn an_importer_with_a_form_opens_a_window_with_a_preview_made_in_the_background() {
+        let base = Path::new(env!("CARGO_MANIFEST_DIR")).join("../base-core/tests/fixtures");
+        let mut st = PluginsUi::new("pencreator", &base);
+        assert!(st.registry.broken.is_empty(), "{:?}", st.registry.broken);
+        let dir = std::env::temp_dir().join(format!("bc-stl-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        let f = dir.join("model.stl");
+        std::fs::write(&f, two_boxes()).unwrap();
+        assert!(matches!(st.import_file(&f, (300.0, 200.0)), Some(ImportStart::Window)), "a form: a window");
+        let ctx = egui::Context::default();
+        // The first runs start the preview; it arrives from another thread.
+        let mut shapes_seen = 0;
+        for i in 0..400 {
+            let input = egui::RawInput { time: Some(i as f64 * 0.05), ..Default::default() };
+            let mut out = ctx.run_ui(input, |ui| {
+                assert!(import_window(ui.ctx(), &mut st).is_none(), "nothing is imported until the button is pressed");
+            });
+            out.textures_delta.clear();
+            if let Some(Pending { result: Some(Ok(s)), shown, version, .. }) = &st.pending {
+                if shown == version {
+                    shapes_seen = s.scene.shapes.len();
+                    break;
+                }
+            }
+            std::thread::sleep(Duration::from_millis(5));
+        }
+        assert_eq!(shapes_seen, 1, "the shadow of the whole model is the plate");
+        // A change of the form makes the preview again: the slice (not the default of this program) of the little box.
+        {
+            let p = st.pending.as_mut().unwrap();
+            p.values.insert("mode".into(), serde_json::json!("Slice at a depth"));
+            p.values.insert("depth".into(), serde_json::json!(5.0));
+            p.version += 1;
+            p.changed_at = -10.0;
+        }
+        for i in 0..400 {
+            let input = egui::RawInput { time: Some(100.0 + i as f64 * 0.05), ..Default::default() };
+            let mut out = ctx.run_ui(input, |ui| {
+                import_window(ui.ctx(), &mut st);
+            });
+            out.textures_delta.clear();
+            if matches!(&st.pending, Some(p) if p.shown == p.version) {
+                break;
+            }
+            std::thread::sleep(Duration::from_millis(5));
+        }
+        let (name, s) = st.pending.take().unwrap().finish().expect("the shapes of the last form");
+        assert_eq!(name, "model.stl");
+        let b = s.scene.shapes[0].bounds().unwrap();
+        assert!((b.width() - 4.0).abs() < 1e-3 && (b.height() - 6.0).abs() < 1e-3, "the slice through the little box only: {b:?}");
         std::fs::remove_dir_all(dir).ok();
     }
 }

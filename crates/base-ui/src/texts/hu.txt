@@ -663,3 +663,6 @@
 662|A fényeket tisztán, a kontrasztot magasan tartja; elveszít valamennyit a legsötétebb és legvilágosabb részletekből.
 663|Rögzített 8×8-as pontminta: szabályos és gyors, zaj nélkül.
 664|Nincsenek pontok: minden pixel a minimum és a réteg teljes erőssége közötti erősséget kap.
+665|Számítás…
+666|Importálás: {}
+667|{} alakzat, {} × {} mm

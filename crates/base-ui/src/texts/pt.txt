@@ -663,3 +663,6 @@
 662|Mantém as luzes limpas e o contraste alto; perde um pouco dos detalhes mais escuros e mais claros.
 663|Um padrão fixo de pontos 8×8: regular e rápido, sem ruído.
 664|Sem pontos: cada pixel recebe uma intensidade entre o mínimo e a intensidade total da camada.
+665|A calcular…
+666|Importar {}
+667|{} formas, {} × {} mm

@@ -663,3 +663,6 @@
 662|Păstrează luminile curate și contrastul ridicat; pierde o parte din detaliile cele mai întunecate și mai luminoase.
 663|Un model fix de puncte 8×8: regulat și rapid, fără zgomot.
 664|Fără puncte: fiecare pixel primește o intensitate între minim și intensitatea completă a stratului.
+665|Se calculează…
+666|Importă {}
+667|{} forme, {} × {} mm

@@ -663,3 +663,6 @@
 662|Mantiene limpias las luces y alto el contraste; pierde algo de los detalles más oscuros y más claros.
 663|Un patrón fijo de puntos de 8×8: regular y rápido, sin ruido.
 664|Sin puntos: cada píxel recibe una intensidad entre el mínimo y la intensidad total de la capa.
+665|Calculando…
+666|Importar {}
+667|{} formas, {} × {} mm

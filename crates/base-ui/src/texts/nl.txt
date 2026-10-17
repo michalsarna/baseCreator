@@ -663,3 +663,6 @@
 662|Houdt hooglichten schoon en het contrast hoog; verliest wat van de donkerste en lichtste details.
 663|Een vast 8×8-patroon van punten: regelmatig en snel, zonder ruis.
 664|Geen stippen: elke pixel krijgt een sterkte tussen het minimum en de volle sterkte van de laag.
+665|Bezig met berekenen…
+666|{} importeren
+667|{} vormen, {} × {} mm

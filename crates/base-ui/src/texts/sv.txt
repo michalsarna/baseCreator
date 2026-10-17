@@ -663,3 +663,6 @@
 662|Håller högdagrar rena och kontrasten hög; förlorar en del av de mörkaste och ljusaste detaljerna.
 663|Ett fast 8×8-mönster av punkter: regelbundet och snabbt, utan brus.
 664|Inga punkter: varje pixel får en styrka mellan minimum och lagrets fulla styrka.
+665|Beräknar…
+666|Importera {}
+667|{} former, {} × {} mm

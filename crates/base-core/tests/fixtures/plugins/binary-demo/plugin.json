@@ -1,0 +1,14 @@
+{
+  "format": 1,
+  "id": "binary-demo",
+  "name": "Binary importer demo",
+  "version": "1.0.0",
+  "author": "baseCreator tests",
+  "license": "MIT",
+  "description": "A binary importer with a form, a form made from the file, and a union of triangles. Used by the tests.",
+  "importers": [
+    { "id": "pts", "name": "Points", "extensions": ["pts"], "script": "pts.rhai", "binary": true, "form": true, "preview": true,
+      "params": [ { "id": "scale", "label": "Scale", "kind": "number", "default": 1, "min": 0.1, "max": 100 } ] },
+    { "id": "tris", "name": "Triangles", "extensions": ["tris"], "script": "tris.rhai", "binary": true }
+  ]
+}

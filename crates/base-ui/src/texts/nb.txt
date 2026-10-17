@@ -663,3 +663,6 @@
 662|Holder høylys rene og kontrasten høy; mister noe av de mørkeste og lyseste detaljene.
 663|Et fast 8×8-mønster av punkter: regelmessig og raskt, uten støy.
 664|Ingen prikker: hver piksel får en styrke mellom minimum og lagets full styrke.
+665|Beregner…
+666|Importer {}
+667|{} former, {} × {} mm

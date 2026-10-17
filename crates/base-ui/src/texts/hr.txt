@@ -663,3 +663,6 @@
 662|Čuva čista svjetla i visok kontrast; gubi nešto najtamnijih i najsvjetlijih detalja.
 663|Fiksni uzorak točaka 8×8: pravilan i brz, bez šuma.
 664|Bez točkica: svaki piksel dobiva jačinu između minimuma i pune jačine sloja.
+665|Računa se…
+666|Uvoz: {}
+667|{} oblika, {} × {} mm
