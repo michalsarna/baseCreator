@@ -650,3 +650,16 @@
 649|Pretvori v krivulje
 650|Operacije z oblikami
 651|Slika
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Urejeno
+657|Sivine
+658|Samo črna ali bela, razdelitev pri polovični svetlosti. Ostro: dobro za črtne risbe in besedilo.
+659|Napako zaokroževanja razporedi na sosednje točke. Dobra splošna izbira za fotografije.
+660|Napako razporedi na večje območje: mehkejši toni, nekoliko počasneje.
+661|Kot Jarvis, z ostrejšimi podrobnostmi.
+662|Ohranja čiste svetle dele in visok kontrast; izgubi nekaj najtemnejših in najsvetlejših podrobnosti.
+663|Stalen vzorec točk 8×8: pravilen in hiter, brez šuma.
+664|Brez pik: vsak piksel dobi moč med minimumom in polno močjo sloja.

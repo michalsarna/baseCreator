@@ -650,3 +650,16 @@
 649|Pārvērst par līknēm
 650|Formu darbības
 651|Attēls
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Sakārtots
+657|Pelēktoņi
+658|Tikai melns vai balts, dalījums pie pusi spilgtuma. Asi: der līniju zīmējumiem un tekstam.
+659|Sadala noapaļošanas kļūdu uz kaimiņu punktiem. Laba vispārīga izvēle fotogrāfijām.
+660|Sadala kļūdu lielākā apgabalā: maigāki toņi, nedaudz lēnāk.
+661|Kā Jarvis, ar asākām detaļām.
+662|Saglabā tīras gaišās vietas un augstu kontrastu; zaudē daļu tumšāko un gaišāko detaļu.
+663|Fiksēts 8×8 punktu raksts: regulārs un ātrs, bez trokšņa.
+664|Bez punktiem: katrs pikselis saņem stiprumu starp minimumu un slāņa pilno stiprumu.

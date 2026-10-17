@@ -650,3 +650,16 @@
 649|Pretvori u krivulje
 650|Operacije s oblicima
 651|Slika
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Uređeno
+657|Sivi tonovi
+658|Samo crno ili bijelo, podjela na pola svjetline. Oštro: dobro za crteže i tekst.
+659|Širi pogrešku zaokruživanja na susjedne točke. Dobar opći izbor za fotografije.
+660|Širi pogrešku na veće područje: glađi tonovi, malo sporije.
+661|Kao Jarvis, s oštrijim detaljima.
+662|Čuva čista svjetla i visok kontrast; gubi nešto najtamnijih i najsvjetlijih detalja.
+663|Fiksni uzorak točaka 8×8: pravilan i brz, bez šuma.
+664|Bez točkica: svaki piksel dobiva jačinu između minimuma i pune jačine sloja.

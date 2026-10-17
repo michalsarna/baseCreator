@@ -650,3 +650,16 @@
 649|Breyta í ferla
 650|Formaðgerðir
 651|Mynd
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Raðað
+657|Grátóna
+658|Aðeins svart eða hvítt, skipt við hálfa birtu. Skarpt: gott fyrir línuteikningar og texta.
+659|Dreifir námundunarskekkjunni á nágrannapunkta. Góður almennur kostur fyrir ljósmyndir.
+660|Dreifir skekkjunni yfir stærra svæði: mýkri tónar, aðeins hægara.
+661|Eins og Jarvis, með skarpari smáatriðum.
+662|Heldur ljósum svæðum hreinum og birtuskilum háum; tapar einhverjum af dekkstu og ljósustu smáatriðum.
+663|Fast 8×8 punktamynstur: reglulegt og hraðvirkt, án suðs.
+664|Engir punktar: hver mynddepill fær styrk á milli lágmarks og fulls styrks lagsins.
