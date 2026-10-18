@@ -666,3 +666,6 @@
 665	Working…
 666	Import {}
 667	{} shapes, {} × {} mm
+668	Front
+669	Back
+670	Drag the model to turn it. The outlines below are what its view gives.

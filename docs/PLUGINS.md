@@ -110,6 +110,10 @@ An importer entry can have more than the script:
 * `preview` (or any of the above): the program opens an **import window** with the form and a preview of the shapes instead of
   importing at once. The preview is made by running `read` in the background after each change of the form (a moment after the
   last one); the button **Import** puts the shapes that are shown into the drawing.
+* `view3d` (STL files, baseCreator 1.10.0): the import window also shows the model in 3D. The person turns it with the mouse or
+  picks a view (top, bottom, front, back, left, right), and the turn reaches `read` as `ctx.p.view_yaw` and `ctx.p.view_pitch`
+  (degrees; 0 and 0 is the view from above). `m.rotated(yaw, pitch)` gives the mesh seen that way, so the outlines can be those of
+  the model as it is seen. The window can be resized.
 
 A plugin that needs these (they came with baseCreator 1.6.0) says `"min_base": "1.6.0"`: older programs then refuse to load it
 and the official list does not offer it to them.
@@ -143,7 +147,7 @@ left of the work area, Y down** — the same as the drawing. (An importer for a 
 
 | `union_polygons(polys)` | merges any number of overlapping closed polygons (`[[x, y], …]`) into the outlines of the area they cover |
 | `xf_rings(rings, sx, sy, dx, dy)` | moves and mirrors rings in one pass: `x' = sx * x + dx`, `y' = sy * y + dy` |
-| `read_stl(data)` | reads an STL mesh (binary or ASCII) from a blob: a `Mesh` with `tri_count()`, `bounds()` (min x, y, z, max x, y, z), `groups(angle, dist)` (the planes of the model, largest first, as maps `#{ id, nx, ny, nz, d, area, tris, min_z, max_z }`), `project()` and `project(ids)` (the shadow on the floor of the whole model or of the chosen planes, as rings) and `section(z)` (the outlines where the plane at height `z` cuts it) |
+| `read_stl(data)` | reads an STL mesh (binary or ASCII) from a blob: a `Mesh` with `tri_count()`, `bounds()` (min x, y, z, max x, y, z), `rotated(yaw, pitch)` (the mesh seen from another side: turned about Z, then tilted; the planes found by `groups` before keep their triangles), `groups(angle, dist)` (the planes of the model, largest first, as maps `#{ id, nx, ny, nz, d, area, tris, min_z, max_z }`), `project()` and `project(ids)` (the shadow on the floor of the whole model or of the chosen planes, as rings) and `section(z)` (the outlines where the plane at height `z` cuts it) |
 
 **Big data and Rhai.** Rhai checks the size of every array after each change, so a script that pushes thousands of items into an
 array gets slower and slower (the time grows with the square of the count). That is why the loops over the triangles of a mesh and

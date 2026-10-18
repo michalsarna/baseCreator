@@ -100,12 +100,16 @@ pub struct ImporterDef {
     /// Show the import window, with a preview of the shapes, also when there is no form.
     #[serde(default)]
     pub preview: bool,
+    /// The import window also shows the model in 3D (an STL file), which the person can turn; the turn reaches the script as
+    /// `ctx.p.view_yaw` and `ctx.p.view_pitch` (degrees, see `Mesh::rotated`), 0 and 0 being the view from above.
+    #[serde(default)]
+    pub view3d: bool,
 }
 
 impl ImporterDef {
     /// Does the import go through a window (a form, a preview) instead of making the shapes at once?
     pub fn interactive(&self) -> bool {
-        !self.params.is_empty() || self.form || self.preview
+        !self.params.is_empty() || self.form || self.preview || self.view3d
     }
 }
 

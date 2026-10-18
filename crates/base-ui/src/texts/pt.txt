@@ -666,3 +666,6 @@
 665|A calcular…
 666|Importar {}
 667|{} formas, {} × {} mm
+668|Frente
+669|Trás
+670|Arraste o modelo para o rodar. Os contornos abaixo são a sua vista.

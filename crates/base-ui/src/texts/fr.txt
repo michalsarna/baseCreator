@@ -666,3 +666,6 @@
 665|Calcul en cours…
 666|Importer {}
 667|{} formes, {} × {} mm
+668|Face
+669|Dos
+670|Faites glisser le modèle pour le tourner. Les contours ci-dessous sont sa vue.

@@ -108,7 +108,8 @@ impl PluginsUi {
         };
         let all: Vec<_> = def.params.iter().chain(extra.iter()).cloned().collect();
         let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
-        self.pending = Some(Pending { name, plugin: p, def, bytes: std::sync::Arc::new(bytes), extra, values: plugin_script::defaults_of(&all), ctx, version: 0, shown: u64::MAX, started: None, changed_at: 0.0, running: None, result: None });
+        let model = if def.view3d { Model3d::new(&bytes) } else { None };
+        self.pending = Some(Pending { name, plugin: p, def, bytes: std::sync::Arc::new(bytes), extra, values: plugin_script::defaults_of(&all), ctx, version: 0, shown: u64::MAX, started: None, changed_at: 0.0, running: None, result: None, model });
         Some(ImportStart::Window)
     }
 
@@ -693,6 +694,8 @@ struct Pending {
     changed_at: f64,
     running: Option<Receiver<Result<Shapes, String>>>,
     result: Option<Result<Shapes, String>>,
+    /// The model of the 3D view, for an importer with `view3d`.
+    model: Option<Model3d>,
 }
 
 impl Pending {
@@ -715,6 +718,124 @@ impl Pending {
         self.started = Some(self.version);
         self.running = Some(rx);
     }
+}
+
+/// The most triangles the 3D view draws (the biggest ones, when the model has more): it has no depth buffer, so they are sorted
+/// by depth in every frame.
+const MAX_DRAWN: usize = 80_000;
+
+/// The model of a 3D view of an import: what is drawn, and how it is turned (`Mesh::rotated`: 0, 0 is the view from above).
+struct Model3d {
+    tris: Vec<[[f32; 3]; 3]>,
+    normals: Vec<[f32; 3]>,
+    center: [f32; 3],
+    /// Half the diagonal of the box of the model: the scale does not change when the model is turned.
+    radius: f32,
+    yaw: f64,
+    pitch: f64,
+}
+
+/// The views a button gives: the label, the turn about Z and the tilt.
+const VIEWS: [(&str, f64, f64); 6] = [("Top", 0.0, 0.0), ("Bottom", 0.0, 180.0), ("Front", 0.0, 90.0), ("Back", 180.0, 90.0), ("Left", 90.0, 90.0), ("Right", -90.0, 90.0)];
+
+/// An angle in degrees brought to -180…180.
+fn wrap_deg(a: f64) -> f64 {
+    let a = a.rem_euclid(360.0);
+    if a > 180.0 {
+        a - 360.0
+    } else {
+        a
+    }
+}
+
+impl Model3d {
+    fn new(bytes: &[u8]) -> Option<Model3d> {
+        let mesh = base_core::mesh::Mesh::from_stl(bytes).ok()?;
+        let b = mesh.bounds()?;
+        let mut faces: Vec<(usize, [f64; 3], f64)> = (0..mesh.len()).filter_map(|i| mesh.normal_area(i).map(|(n, a)| (i, n, a))).collect();
+        if faces.len() > MAX_DRAWN {
+            faces.sort_by(|x, y| y.2.total_cmp(&x.2));
+            faces.truncate(MAX_DRAWN);
+        }
+        let f3 = |v: [f64; 3]| [v[0] as f32, v[1] as f32, v[2] as f32];
+        let tris = faces.iter().map(|(i, _, _)| mesh.tris[*i].map(f3)).collect();
+        let normals = faces.iter().map(|(_, n, _)| f3(*n)).collect();
+        let center = [((b[0] + b[3]) / 2.0) as f32, ((b[1] + b[4]) / 2.0) as f32, ((b[2] + b[5]) / 2.0) as f32];
+        let radius = (((b[3] - b[0]).powi(2) + (b[4] - b[1]).powi(2) + (b[5] - b[2]).powi(2)).sqrt() / 2.0).max(1e-6) as f32;
+        Some(Model3d { tris, normals, center, radius, yaw: 0.0, pitch: 0.0 })
+    }
+
+    fn is_view(&self, yaw: f64, pitch: f64) -> bool {
+        (wrap_deg(self.yaw - yaw)).abs() < 0.5 && (wrap_deg(self.pitch - pitch)).abs() < 0.5
+    }
+
+    /// The model seen from above after the turn, as a mesh of flat triangles in `rect` (far ones first).
+    fn paint(&self, painter: &egui::Painter, rect: egui::Rect) {
+        let r = base_core::mesh::view_rot(self.yaw, self.pitch).map(|row| row.map(|v| v as f32));
+        let turn = |p: [f32; 3]| [0, 1, 2].map(|i| r[i][0] * p[0] + r[i][1] * p[1] + r[i][2] * p[2]);
+        let k = rect.width().min(rect.height()) * 0.45 / self.radius;
+        let c = rect.center();
+        let light = {
+            let l = [-0.3f32, 0.4, 0.85];
+            let n = (l[0] * l[0] + l[1] * l[1] + l[2] * l[2]).sqrt();
+            l.map(|v| v / n)
+        };
+        let base = theme::accent();
+        let mut order: Vec<(f32, usize, [egui::Pos2; 3])> = Vec::with_capacity(self.tris.len());
+        for (i, t) in self.tris.iter().enumerate() {
+            let q = t.map(|p| turn([p[0] - self.center[0], p[1] - self.center[1], p[2] - self.center[2]]));
+            let depth = (q[0][2] + q[1][2] + q[2][2]) / 3.0;
+            order.push((depth, i, q.map(|v| egui::pos2(c.x + v[0] * k, c.y - v[1] * k))));
+        }
+        order.sort_by(|a, b| a.0.total_cmp(&b.0));
+        let mut mesh = egui::Mesh::default();
+        mesh.reserve_triangles(order.len());
+        mesh.reserve_vertices(order.len() * 3);
+        for (_, i, pos) in order {
+            let n = turn(self.normals[i]);
+            // Both sides are lit the same way: a mesh with some triangles turned inside out is still readable.
+            let lit = (n[0] * light[0] + n[1] * light[1] + n[2] * light[2]).abs();
+            let shade = 0.25 + 0.75 * lit;
+            let color = egui::Color32::from_rgb((base.r() as f32 * shade) as u8, (base.g() as f32 * shade) as u8, (base.b() as f32 * shade) as u8);
+            let at = mesh.vertices.len() as u32;
+            for p in pos {
+                mesh.vertices.push(egui::epaint::Vertex { pos: p, uv: egui::epaint::WHITE_UV, color });
+            }
+            mesh.indices.extend([at, at + 1, at + 2]);
+        }
+        painter.add(egui::Shape::mesh(mesh));
+    }
+}
+
+/// The 3D view: the buttons of the views and the model, which turns when it is dragged. True when a new view was chosen (a button,
+/// or the end of a drag), the moment to make the outlines again.
+fn view3d_ui(ui: &mut egui::Ui, height: f32, m: &mut Model3d) -> bool {
+    let mut chosen = false;
+    ui.horizontal_wrapped(|ui| {
+        for (label, yaw, pitch) in VIEWS {
+            if ui.selectable_label(m.is_view(yaw, pitch), tr(label)).clicked() {
+                (m.yaw, m.pitch) = (yaw, pitch);
+                chosen = true;
+            }
+        }
+    });
+    let size = egui::vec2(ui.available_width(), height.max(60.0));
+    let (rect, resp) = ui.allocate_exact_size(size, egui::Sense::drag());
+    if resp.dragged() {
+        let d = resp.drag_delta();
+        m.yaw = wrap_deg(m.yaw + d.x as f64 * 0.5);
+        m.pitch = wrap_deg(m.pitch - d.y as f64 * 0.5);
+    }
+    if resp.drag_stopped() {
+        chosen = true;
+    }
+    if resp.hovered() || resp.dragged() {
+        ui.ctx().set_cursor_icon(egui::CursorIcon::Grab);
+    }
+    let painter = ui.painter_at(rect);
+    painter.rect_filled(rect, 4.0, theme::panel_dark());
+    m.paint(&painter, rect);
+    chosen
 }
 
 /// The box round some polylines.
@@ -775,15 +896,17 @@ pub fn import_window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<(String,
     let mut open = true;
     let (mut go, mut cancel) = (false, false);
     let title = trf("Import {}", &[&pending.name]);
-    popup(ctx, "plugin_import_window", &title, [760.0, 520.0], &mut open, |ui| {
+    popup(ctx, "plugin_import_window", &title, [900.0, 640.0], &mut open, |ui| {
         if !pending.def.description.is_empty() {
             ui.label(RichText::new(pt(registry, &pending.def.description)).color(theme::text_dim()));
         }
+        // The window can be resized: the form takes the height that is left above the buttons, the preview the rest of the width.
+        let body_h = (ui.available_height() - 46.0).max(240.0);
         ui.horizontal_top(|ui| {
             ui.vertical(|ui| {
-                ui.set_width(340.0);
+                ui.set_width(330.0);
                 let all: Vec<_> = pending.def.params.iter().chain(pending.extra.iter()).cloned().collect();
-                egui::ScrollArea::vertical().id_salt("plugin_import_form").max_height(400.0).auto_shrink([false, false]).show(ui, |ui| {
+                egui::ScrollArea::vertical().id_salt("plugin_import_form").max_height(body_h).auto_shrink([false, false]).show(ui, |ui| {
                     if form_ui(ui, "plugin_import_grid", registry, &all, &mut pending.values) {
                         pending.version += 1;
                         pending.changed_at = now;
@@ -791,31 +914,49 @@ pub fn import_window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<(String,
                 });
             });
             ui.vertical(|ui| {
-                let (rect, _) = ui.allocate_exact_size(egui::vec2(380.0, 330.0), egui::Sense::hover());
+                let w = (ui.available_width() - 2.0).max(200.0);
+                // Under the preview: "Working…", the size, the warnings. A fixed height, so that a long list of warnings does not make the
+                // window grow (and the preview with it).
+                let notes_h = 56.0;
+                if let Some(m) = pending.model.as_mut() {
+                    // The 3D view takes a part of the height; the outlines get what is left.
+                    let view_h = ((body_h - notes_h - 70.0) * 0.5).max(80.0);
+                    if view3d_ui(ui, view_h, m) {
+                        pending.values.insert("view_yaw".into(), serde_json::json!(m.yaw));
+                        pending.values.insert("view_pitch".into(), serde_json::json!(m.pitch));
+                        pending.version += 1;
+                        pending.changed_at = now;
+                    }
+                    ui.label(RichText::new(tr("Drag the model to turn it. The outlines below are what its view gives.")).color(theme::text_dim()));
+                }
+                let plot_h = (body_h - notes_h - ui.min_rect().height() - 2.0 * ui.spacing().item_spacing.y).max(80.0);
+                let (rect, _) = ui.allocate_exact_size(egui::vec2(w, plot_h), egui::Sense::hover());
                 match &pending.result {
                     Some(Ok(s)) => draw_preview(ui, rect, s),
                     _ => {
                         ui.painter().rect_filled(rect, 4.0, theme::panel_dark());
                     }
                 }
-                if pending.running.is_some() || pending.shown != pending.version {
-                    ui.label(RichText::new(tr("Working…")).color(theme::text_dim()));
-                }
-                match &pending.result {
-                    Some(Ok(s)) => {
-                        let polys: Vec<_> = s.scene.shapes.iter().flat_map(|x| x.polys()).collect();
-                        if let Some(b) = box_of(&polys) {
-                            ui.label(trf("{} shapes, {} × {} mm", &[&s.scene.shapes.len(), &format!("{:.1}", b.width()), &format!("{:.1}", b.height())]));
-                        }
-                        for w in &s.warnings {
-                            ui.label(RichText::new(w).color(theme::accent()));
-                        }
+                egui::ScrollArea::vertical().id_salt("plugin_import_notes").max_height(notes_h).auto_shrink([false, false]).show(ui, |ui| {
+                    if pending.running.is_some() || pending.shown != pending.version {
+                        ui.label(RichText::new(tr("Working…")).color(theme::text_dim()));
                     }
-                    Some(Err(e)) => {
-                        ui.label(RichText::new(trf("The script failed: {}", &[e])).color(theme::accent()));
+                    match &pending.result {
+                        Some(Ok(s)) => {
+                            let polys: Vec<_> = s.scene.shapes.iter().flat_map(|x| x.polys()).collect();
+                            if let Some(b) = box_of(&polys) {
+                                ui.label(trf("{} shapes, {} × {} mm", &[&s.scene.shapes.len(), &format!("{:.1}", b.width()), &format!("{:.1}", b.height())]));
+                            }
+                            for w in &s.warnings {
+                                ui.label(RichText::new(w).color(theme::accent()));
+                            }
+                        }
+                        Some(Err(e)) => {
+                            ui.label(RichText::new(trf("The script failed: {}", &[e])).color(theme::accent()));
+                        }
+                        None => {}
                     }
-                    None => {}
-                }
+                });
             });
         });
         ui.separator();
@@ -1047,6 +1188,94 @@ mod tests {
         assert_eq!(name, "model.stl");
         let b = s.scene.shapes[0].bounds().unwrap();
         assert!((b.width() - 4.0).abs() < 1e-3 && (b.height() - 6.0).abs() < 1e-3, "the slice through the little box only: {b:?}");
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    /// An import window of the little STL model with the 3D view, with its first outlines made.
+    fn stl_window(name: &str) -> (PluginsUi, egui::Context, std::path::PathBuf) {
+        let base = Path::new(env!("CARGO_MANIFEST_DIR")).join("../base-core/tests/fixtures");
+        let mut st = PluginsUi::new("pencreator", &base);
+        let dir = std::env::temp_dir().join(format!("bc-{name}-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        let f = dir.join("model.stl");
+        std::fs::write(&f, two_boxes()).unwrap();
+        assert!(matches!(st.import_file(&f, (300.0, 200.0)), Some(ImportStart::Window)));
+        let ctx = egui::Context::default();
+        let mut t = 0.0;
+        wait_for_preview(&mut st, &ctx, &mut t);
+        (st, ctx, dir)
+    }
+
+    /// Draw the window until the outlines of the last form have arrived. Returns the height of the window.
+    fn wait_for_preview(st: &mut PluginsUi, ctx: &egui::Context, t: &mut f64) -> f32 {
+        let mut height = 0.0;
+        for _ in 0..600 {
+            *t += 0.05;
+            let input = egui::RawInput { time: Some(*t), screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1400.0, 900.0))), ..Default::default() };
+            let mut out = ctx.run_ui(input, |ui| {
+                import_window(ui.ctx(), st);
+            });
+            out.textures_delta.clear();
+            height = ctx.memory(|m| m.area_rect(egui::Id::new(Some("plugin_import_window")))).map(|r| r.height()).unwrap_or(0.0);
+            if matches!(&st.pending, Some(p) if p.shown == p.version && p.result.is_some()) {
+                break;
+            }
+            std::thread::sleep(Duration::from_millis(5));
+        }
+        height
+    }
+
+    #[test]
+    fn the_3d_view_turns_the_model_and_the_outlines_follow_the_view() {
+        let (mut st, ctx, dir) = stl_window("view3d");
+        let mut t = 100.0;
+        {
+            let p = st.pending.as_mut().unwrap();
+            let m = p.model.as_mut().expect("an importer with view3d has a model to show");
+            assert!(m.is_view(0.0, 0.0), "it starts seen from above");
+            // From above the shadow is the plate; from the front it is the plate seen edge on with the little box on it.
+            let (_, yaw, pitch) = VIEWS.iter().copied().find(|v| v.0 == "Front").unwrap();
+            (m.yaw, m.pitch) = (yaw, pitch);
+            p.values.insert("view_yaw".into(), serde_json::json!(yaw));
+            p.values.insert("view_pitch".into(), serde_json::json!(pitch));
+            p.version += 1;
+            p.changed_at = -10.0;
+        }
+        wait_for_preview(&mut st, &ctx, &mut t);
+        let (_, s) = st.pending.take().unwrap().finish().expect("the outlines of the front view");
+        let b = s.scene.shapes[0].bounds().unwrap();
+        assert!((b.width() - 30.0).abs() < 1e-3 && (b.height() - 8.0).abs() < 1e-3, "30 wide, 2 + 6 high: {b:?}");
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    #[test]
+    fn the_import_window_keeps_its_size_while_the_view_is_turned_and_warnings_come() {
+        let (mut st, ctx, dir) = stl_window("view3d-size");
+        let mut t = 100.0;
+        let first = wait_for_preview(&mut st, &ctx, &mut t);
+        assert!(first > 300.0 && first <= 900.0, "{first}");
+        // Many messages from the script, and a turned model: the height does not run away.
+        {
+            let p = st.pending.as_mut().unwrap();
+            if let Some(Ok(s)) = p.result.as_mut() {
+                s.warnings = (0..40).map(|i| format!("a long warning of the script number {i}, long enough to be wrapped in the narrow column")).collect();
+            }
+            let m = p.model.as_mut().unwrap();
+            m.yaw = 33.0;
+            m.pitch = 61.0;
+        }
+        let mut heights = vec![];
+        for _ in 0..12 {
+            t += 0.05;
+            let input = egui::RawInput { time: Some(t), screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1400.0, 900.0))), ..Default::default() };
+            let mut out = ctx.run_ui(input, |ui| {
+                import_window(ui.ctx(), &mut st);
+            });
+            out.textures_delta.clear();
+            heights.push(ctx.memory(|m| m.area_rect(egui::Id::new(Some("plugin_import_window")))).unwrap().height());
+        }
+        assert!(heights.windows(2).all(|w| (w[0] - w[1]).abs() < 0.5), "{heights:?}");
+        assert!((heights[0] - first).abs() < 1.0, "{heights:?} after {first}");
         std::fs::remove_dir_all(dir).ok();
     }
 }

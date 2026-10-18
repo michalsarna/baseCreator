@@ -666,3 +666,6 @@
 665|Reikna…
 666|Flytja inn {}
 667|{} form, {} × {} mm
+668|Framan
+669|Aftan
+670|Dragðu líkanið til að snúa því. Útlínurnar fyrir neðan eru sýn þess.

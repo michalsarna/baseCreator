@@ -8,7 +8,7 @@
   "description": "Imports an STL model as outlines: the shadow of the whole model or of the chosen planes (laser, plotter), or a slice at a chosen depth (router), with a preview.",
   "min_base": "1.6.0",
   "importers": [
-    { "id": "stl", "name": "STL model", "extensions": ["stl"], "script": "stl.rhai", "binary": true, "form": true, "preview": true,
+    { "id": "stl", "name": "STL model", "extensions": ["stl"], "script": "stl.rhai", "binary": true, "form": true, "preview": true, "view3d": true,
       "description": "The model is looked at from above (Z up); the outlines keep their place in the box of the model, whose top left corner is at (0, 0)." }
   ],
   "texts": {

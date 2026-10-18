@@ -666,3 +666,6 @@
 665|Beregner…
 666|Importer {}
 667|{} former, {} × {} mm
+668|Foran
+669|Bakfra
+670|Dra modellen for å dreie den. Konturene under er visningen av den.

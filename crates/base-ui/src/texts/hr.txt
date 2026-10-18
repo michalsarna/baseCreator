@@ -666,3 +666,6 @@
 665|Računa se…
 666|Uvoz: {}
 667|{} oblika, {} × {} mm
+668|Sprijeda
+669|Straga
+670|Povucite model da ga zakrenete. Obrisi ispod njegov su prikaz.

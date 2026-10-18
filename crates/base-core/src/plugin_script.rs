@@ -14,7 +14,7 @@
 //! layer with `s.layer = n`; `group([...])` makes shapes move together. `warn("...")` adds a message. `union_polygons(polys)`
 //! merges any number of overlapping closed polygons (`[[x, y], ...]`) into the outlines of the area they cover. `read_f32(data, pos)` and
 //! `read_f64(data, pos)` read a little-endian float out of a blob (integers: `data.parse_le_int(pos, len)`). `read_stl(data)` reads an
-//! STL mesh; it has `tri_count()`, `bounds()`, `groups(angle, dist)`, `project()`, `project(ids)` and `section(z)` (rings as arrays of
+//! STL mesh; it has `tri_count()`, `bounds()`, `rotated(yaw, pitch)` (the mesh seen from another side), `groups(angle, dist)`, `project()`, `project(ids)` and `section(z)` (rings as arrays of
 //! `[x, y]`), and `xf_rings(rings, sx, sy, dx, dy)` moves and mirrors rings.
 use crate::bezier::{Contour, Node};
 use crate::geom::{Pt, Xf};
@@ -238,6 +238,8 @@ fn engine_for(file_bytes: usize) -> Run {
         }
         Ok(out)
     });
+    // The mesh as seen from another side (the planes found before keep their triangles).
+    e.register_fn("rotated", |m: &mut MeshH, yaw: FLOAT, pitch: FLOAT| MeshH { mesh: Rc::new(m.mesh.rotated(yaw, pitch)), groups: m.groups.clone() });
     e.register_fn("project", |m: &mut MeshH| -> Array { ring_array(&m.mesh.project(None)) });
     e.register_fn("project", |m: &mut MeshH, ids: Array| -> Result<Array, Box<EvalAltResult>> {
         let groups = m.groups.borrow();
@@ -530,10 +532,18 @@ pub fn import_with(plugin: &Plugin, def: &ImporterDef, bytes: &[u8], given: &ser
     }
     let run = engine_for(if def.binary { bytes.len() } else { 0 });
     let ast = compile(&run, plugin, &def.script)?;
-    let all: Vec<ParamDef> = def.params.iter().chain(extra.iter()).cloned().collect();
+    let mut all: Vec<ParamDef> = def.params.iter().chain(extra.iter()).cloned().collect();
+    if def.view3d {
+        all.extend(view_params());
+    }
     let p = values_map(&all, given);
     let v = call_with(&run, &ast, "read", file_arg(def, bytes), ctx.map_with(p))?;
     into_shapes(&run, v)
+}
+
+/// The two numbers the 3D view of an importer gives the script: the turn about Z and the tilt (degrees), 0 and 0 from above.
+fn view_params() -> Vec<ParamDef> {
+    ["view_yaw", "view_pitch"].iter().map(|id| ParamDef { id: id.to_string(), label: String::new(), kind: ParamKind::Number, default: serde_json::json!(0.0), min: Some(-360.0), max: Some(360.0), options: vec![], unit: String::new() }).collect()
 }
 
 /// The most fields the script of an importer may add to the form.

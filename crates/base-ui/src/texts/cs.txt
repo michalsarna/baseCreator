@@ -666,3 +666,6 @@
 665|Počítá se…
 666|Import: {}
 667|{} tvarů, {} × {} mm
+668|Zepředu
+669|Zezadu
+670|Přetažením model otočíte. Obrysy níže jsou jeho pohled.
