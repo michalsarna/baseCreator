@@ -666,3 +666,6 @@
 665|Bezig met berekenen…
 666|{} importeren
 667|{} vormen, {} × {} mm
+668|Voor
+669|Achter
+670|Sleep het model om het te draaien. De contouren hieronder zijn het beeld ervan.

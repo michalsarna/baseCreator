@@ -673,6 +673,9 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Working…", "Trwa obliczanie…", "Wird berechnet…", "Elaborazione in corso…", "Lasketaan…", "正在计算…", "गणना हो रही है…"],
     ["Import {}", "Import: {}", "Import: {}", "Importa {}", "Tuo {}", "导入 {}", "आयात करें: {}"],
     ["{} shapes, {} × {} mm", "Kształtów: {}, {} × {} mm", "{} Formen, {} × {} mm", "{} forme, {} × {} mm", "{} muotoa, {} × {} mm", "{} 个形状，{} × {} 毫米", "{} आकृतियाँ, {} × {} मिमी"],
+    ["Front", "Przód", "Vorne", "Fronte", "Edestä", "正面", "सामने"],
+    ["Back", "Tył", "Hinten", "Retro", "Takaa", "背面", "पीछे"],
+    ["Drag the model to turn it. The outlines below are what its view gives.", "Przeciągnij model, aby go obrócić. Poniższe kontury to jego widok z wybranej strony.", "Ziehe das Modell, um es zu drehen. Die Umrisse darunter zeigen seine Ansicht.", "Trascina il modello per ruotarlo. I contorni qui sotto sono la sua vista.", "Käännä mallia vetämällä. Alla olevat ääriviivat ovat mallin näkymä.", "拖动模型进行旋转。下方轮廓即为该视角下的结果。", "मॉडल को घुमाने के लिए खींचें। नीचे की रूपरेखाएँ उसके दृश्य से बनी हैं।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

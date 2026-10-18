@@ -666,3 +666,6 @@
 665|Beregner…
 666|Importér {}
 667|{} former, {} × {} mm
+668|Forfra
+669|Bagfra
+670|Træk i modellen for at dreje den. Konturerne nedenfor er dens visning.

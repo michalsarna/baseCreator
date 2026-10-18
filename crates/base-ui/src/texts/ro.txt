@@ -666,3 +666,6 @@
 665|Se calculează…
 666|Importă {}
 667|{} forme, {} × {} mm
+668|Față
+669|Spate
+670|Trage modelul pentru a-l roti. Contururile de mai jos sunt vederea lui.

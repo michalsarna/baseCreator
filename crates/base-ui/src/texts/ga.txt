@@ -666,3 +666,6 @@
 665|Á ríomh…
 666|Iompórtáil {}
 667|{} cruth, {} × {} mm
+668|Tosach
+669|Cúl
+670|Tarraing an tsamhail chun í a chasadh. Is iad na cruthanna thíos a radharc.

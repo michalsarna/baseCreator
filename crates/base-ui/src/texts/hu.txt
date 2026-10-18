@@ -666,3 +666,6 @@
 665|Számítás…
 666|Importálás: {}
 667|{} alakzat, {} × {} mm
+668|Elölről
+669|Hátulról
+670|Húzd a modellt a forgatáshoz. Az alábbi körvonalak a nézetét adják.

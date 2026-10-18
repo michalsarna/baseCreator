@@ -666,3 +666,6 @@
 665|S'està calculant…
 666|Importa {}
 667|{} formes, {} × {} mm
+668|Davant
+669|Darrere
+670|Arrossega el model per girar-lo. Els contorns de sota són la seva vista.

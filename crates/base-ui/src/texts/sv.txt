@@ -666,3 +666,6 @@
 665|Beräknar…
 666|Importera {}
 667|{} former, {} × {} mm
+668|Framifrån
+669|Bakifrån
+670|Dra i modellen för att vrida den. Konturerna nedan är dess vy.

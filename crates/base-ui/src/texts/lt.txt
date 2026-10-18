@@ -666,3 +666,6 @@
 665|Skaičiuojama…
 666|Importuoti {}
 667|{} figūrų, {} × {} mm
+668|Priekis
+669|Galas
+670|Tempkite modelį, kad jį pasuktumėte. Žemiau esantys kontūrai yra jo vaizdas.

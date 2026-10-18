@@ -666,3 +666,6 @@
 665|Qed jiġi kkalkulat…
 666|Importa {}
 667|{} forom, {} × {} mm
+668|Quddiem
+669|Wara
+670|Kaxkar il-mudell biex iddawru. Il-kontorni hawn taħt huma l-veduta tiegħu.

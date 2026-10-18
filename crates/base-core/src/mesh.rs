@@ -42,6 +42,27 @@ fn len(a: V3) -> f64 {
     dot(a, a).sqrt()
 }
 
+/// The turn of a view: about Z by `yaw` degrees, then about X by `-pitch` degrees. The viewer looks down the Z axis of the result
+/// (the image has X to the right and Y up).
+pub fn view_rot(yaw: f64, pitch: f64) -> [[f64; 3]; 3] {
+    let (sy, cy) = yaw.to_radians().sin_cos();
+    let (sp, cp) = (-pitch).to_radians().sin_cos();
+    let rz = [[cy, -sy, 0.0], [sy, cy, 0.0], [0.0, 0.0, 1.0]];
+    let rx = [[1.0, 0.0, 0.0], [0.0, cp, -sp], [0.0, sp, cp]];
+    let mut m = [[0.0; 3]; 3];
+    for i in 0..3 {
+        for j in 0..3 {
+            m[i][j] = (0..3).map(|k| rx[i][k] * rz[k][j]).sum();
+        }
+    }
+    m
+}
+
+/// A point turned by a matrix of [`view_rot`].
+pub fn rot(m: &[[f64; 3]; 3], p: V3) -> V3 {
+    [0, 1, 2].map(|i| m[i][0] * p[0] + m[i][1] * p[1] + m[i][2] * p[2])
+}
+
 impl Mesh {
     /// Read an STL file, binary or ASCII. The numbers must be finite.
     pub fn from_stl(bytes: &[u8]) -> Result<Mesh, String> {
@@ -122,6 +143,14 @@ impl Mesh {
             }
         }
         Some(b)
+    }
+
+    /// The mesh turned for a view: first about Z by `yaw` degrees, then tilted by `pitch` degrees about X, so that the view from
+    /// above of the result is the view of the mesh from the direction (0, 0 is the view from above, 0, 90 from the front). The
+    /// triangles keep their order, so the planes found by `plane_groups` still name the same triangles.
+    pub fn rotated(&self, yaw: f64, pitch: f64) -> Mesh {
+        let r = view_rot(yaw, pitch);
+        Mesh { tris: self.tris.iter().map(|t| [rot(&r, t[0]), rot(&r, t[1]), rot(&r, t[2])]).collect() }
     }
 
     /// The unit normal of triangle `i` and its area; `None` for a triangle with no area.
@@ -364,5 +393,23 @@ mod tests {
         frame.tris.extend(hole.tris);
         let (rings, open) = frame.section(2.0);
         assert_eq!((rings.len(), open), (2, 0));
+    }
+
+    #[test]
+    fn a_view_turns_the_mesh_before_it_is_projected() {
+        let m = cube(10.0, 20.0, 5.0);
+        // From above nothing changes.
+        assert_eq!(m.rotated(0.0, 0.0).bounds().unwrap(), m.bounds().unwrap());
+        // From the front the shadow is the face seen from the front: X to the right, Z up (the height of the box is the new Y).
+        let front = m.rotated(0.0, 90.0);
+        let b = front.bounds().unwrap();
+        assert!((b[3] - b[0] - 10.0).abs() < 1e-9 && (b[4] - b[1] - 5.0).abs() < 1e-9 && (b[5] - b[2] - 20.0).abs() < 1e-9, "{b:?}");
+        assert!((area(&front.project(None)) - 50.0).abs() < 1e-6);
+        // From the side (a quarter turn about Z first) it is the other face.
+        assert!((area(&m.rotated(90.0, 90.0).project(None)) - 100.0).abs() < 1e-6);
+        // The planes keep their triangles: the top of the box has the same two triangles after the turn.
+        let g = m.plane_groups(1.0, 0.01);
+        let top = g.iter().find(|g| g.n[2] > 0.99).unwrap();
+        assert!((area(&front.project(Some(&top.tris))) - 0.0).abs() < 1e-6, "the top seen from the front is an edge");
     }
 }

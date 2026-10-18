@@ -666,3 +666,6 @@
 665|Arvutan…
 666|Impordi {}
 667|{} kujundit, {} × {} mm
+668|Eest
+669|Tagant
+670|Mudeli pööramiseks lohista seda. Allolevad kontuurid on selle vaade.
