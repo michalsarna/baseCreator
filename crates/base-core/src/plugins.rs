@@ -12,7 +12,7 @@
 //! only compute and return data, which the program then checks like everything else. See `docs/PLUGINS.md`.
 use crate::clipart;
 use serde::{Deserialize, Serialize};
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Component, Path, PathBuf};
 
 pub const MANIFEST: &str = "plugin.json";
@@ -152,6 +152,24 @@ pub struct GeneratorDef {
     pub script: String,
     #[serde(default)]
     pub params: Vec<ParamDef>,
+    /// Pictures shown beside the form (an SVG drawing with the lengths marked): the first whose `when` fits the values is shown.
+    #[serde(default)]
+    pub figures: Vec<FigureDef>,
+}
+
+/// A picture of a generator: `when` lists choices (`parameter id → option`) that must all be set so, empty fits every form.
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+pub struct FigureDef {
+    #[serde(default)]
+    pub when: BTreeMap<String, String>,
+    pub file: String,
+}
+
+impl GeneratorDef {
+    /// The picture for the values of the form, if there is one.
+    pub fn figure_for(&self, values: &serde_json::Map<String, serde_json::Value>) -> Option<&FigureDef> {
+        self.figures.iter().find(|f| f.when.iter().all(|(k, v)| values.get(k).and_then(|x| x.as_str()) == Some(v.as_str())))
+    }
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -293,6 +311,9 @@ impl Manifest {
                 return Err(format!("generator {:?}: needs a name and at most 40 parameters", g.id));
             }
             check_params(&format!("generator {:?}", g.id), &g.params)?;
+            if g.figures.len() > 40 || g.figures.iter().any(|f| !safe_rel(&f.file) || !f.file.ends_with(".svg") || f.when.len() > 20) {
+                return Err(format!("generator {:?}: at most 40 figures, each an .svg file inside the plugin", g.id));
+            }
         }
         for p in &self.postprocessors {
             if p.name.trim().is_empty() {
@@ -599,6 +620,7 @@ impl Manifest {
         let mut v: Vec<String> = self.clipart.iter().map(|c| c.file.clone()).chain(self.data.iter().map(|d| d.file.clone())).collect();
         v.extend(self.importers.iter().map(|i| i.script.clone()));
         v.extend(self.generators.iter().map(|g| g.script.clone()));
+        v.extend(self.generators.iter().flat_map(|g| g.figures.iter().map(|f| f.file.clone())));
         v.extend(self.postprocessors.iter().map(|p| p.script.clone()));
         v
     }

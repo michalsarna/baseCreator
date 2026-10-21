@@ -521,3 +521,37 @@ fn timing_of_a_big_stl() {
         }
     }
 }
+
+#[test]
+fn a_generator_picture_follows_the_choices_and_polygon_is_simple_tells_crossings() {
+    let manifest = r#"{ "format": 1, "id": "figs", "name": "Figs", "version": "1.0.0", "generators": [ { "id": "g", "name": "G", "script": "g.rhai",
+        "params": [ { "id": "kind", "label": "Kind", "kind": "choice", "default": "a", "options": ["a", "b"] } ],
+        "figures": [ { "when": { "kind": "b" }, "file": "b.svg" }, { "file": "any.svg" } ] } ] }"#;
+    let script = "fn generate(p, ctx) { let ok = polygon_is_simple([[0,0],[4,0],[4,4],[0,4]]); let bad = polygon_is_simple([[0,0],[4,4],[4,0],[0,4]]); if ok && !bad { rect(0, 0, 1, 1) } else { [] } }";
+    let dir = std::env::temp_dir().join(format!("bc-plugins-figs-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&dir);
+    let pd = dir.join("figs");
+    std::fs::create_dir_all(&pd).unwrap();
+    std::fs::write(pd.join("plugin.json"), manifest).unwrap();
+    std::fs::write(pd.join("g.rhai"), script).unwrap();
+    for f in ["b.svg", "any.svg"] {
+        std::fs::write(pd.join(f), "<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10'/>").unwrap();
+    }
+    let reg = Registry::load(&dir);
+    assert!(reg.broken.is_empty(), "{:?}", reg.broken);
+    let (p, def) = reg.generators("millcreator").into_iter().next().unwrap();
+    let mut v = plugin_script::defaults(def);
+    assert_eq!(def.figure_for(&v).unwrap().file, "any.svg");
+    v.insert("kind".into(), serde_json::json!("b"));
+    assert_eq!(def.figure_for(&v).unwrap().file, "b.svg");
+    assert_eq!(plugin_script::generate(p, def, &v, &ctx()).unwrap().scene.shapes.len(), 1);
+}
+
+#[test]
+fn a_picture_that_is_not_an_svg_inside_the_plugin_is_refused() {
+    let bad = |file: &str| format!(r#"{{ "format": 1, "id": "figs", "name": "Figs", "version": "1.0.0", "generators": [ {{ "id": "g", "name": "G", "script": "g.rhai", "figures": [ {{ "file": "{file}" }} ] }} ] }}"#);
+    for f in ["../x.svg", "x.png", "/abs.svg"] {
+        assert!(base_core::plugins::Manifest::parse(&bad(f)).is_err(), "{f}");
+    }
+    assert!(base_core::plugins::Manifest::parse(&bad("figures/a.svg")).is_ok());
+}

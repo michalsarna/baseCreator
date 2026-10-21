@@ -287,6 +287,34 @@ fn engine_for(file_bytes: usize) -> Run {
         let out = crate::ops::union_all(&rings);
         Ok(out.into_iter().map(|r| Dynamic::from(r.pts.iter().map(|q| Dynamic::from(vec![f(q.x), f(q.y)])).collect::<Array>())).collect())
     });
+    // Is a closed outline free of crossings and touches? (The net of a box is checked with it: a script that tries layouts needs it
+    // fast, and a script loop over the pairs of edges is slow.)
+    e.register_fn("polygon_is_simple", |pts: Array| -> Result<bool, Box<EvalAltResult>> {
+        let pts: Vec<Pt> = pts.iter().map(|q| pt_of(q).ok_or("a point is [x, y]")).collect::<Result<_, _>>()?;
+        let n = pts.len();
+        if n > 20_000 {
+            return Err("polygon_is_simple: too many points".into());
+        }
+        let boxes: Vec<(f64, f64, f64, f64)> = (0..n).map(|i| {
+            let (a, b) = (pts[i], pts[(i + 1) % n]);
+            (a.x.min(b.x), a.y.min(b.y), a.x.max(b.x), a.y.max(b.y))
+        }).collect();
+        for i in 0..n {
+            for j in i + 2..n {
+                if i == 0 && j == n - 1 {
+                    continue;
+                }
+                let (p, q) = (boxes[i], boxes[j]);
+                if p.0 > q.2 || q.0 > p.2 || p.1 > q.3 || q.1 > p.3 {
+                    continue;
+                }
+                if crate::geom::segments_cross(pts[i], pts[(i + 1) % n], pts[j], pts[(j + 1) % n]) {
+                    return Ok(false);
+                }
+            }
+        }
+        Ok(true)
+    });
     // Integers where the script has a whole number: `rect(0, 0, 10, 5)` works too.
     e.register_fn("rect", |x: INT, y: INT, w: INT, h: INT| shape("rect", &[("x", f(x as f64)), ("y", f(y as f64)), ("w", f(w as f64)), ("h", f(h as f64))]));
     e.register_fn("circle", |cx: INT, cy: INT, r: INT| shape("ellipse", &[("x", f((cx - r) as f64)), ("y", f((cy - r) as f64)), ("w", f(2.0 * r as f64)), ("h", f(2.0 * r as f64))]));
