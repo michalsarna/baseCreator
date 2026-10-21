@@ -555,3 +555,16 @@ fn a_picture_that_is_not_an_svg_inside_the_plugin_is_refused() {
     }
     assert!(base_core::plugins::Manifest::parse(&bad("figures/a.svg")).is_ok());
 }
+
+#[test]
+fn a_field_with_show_is_shown_only_for_the_listed_choices() {
+    let m = base_core::plugins::Manifest::parse(r#"{ "format": 1, "id": "sh", "name": "Sh", "version": "1.0.0", "generators": [ { "id": "g", "name": "G", "script": "g.rhai",
+        "params": [ { "id": "kind", "kind": "choice", "default": "a", "options": ["a", "b", "c"] },
+                    { "id": "w", "kind": "number", "default": 1, "show": { "kind": ["b", "c"] } } ] } ] }"#).unwrap();
+    let w = &m.generators[0].params[1];
+    let mut v = plugin_script::defaults(&m.generators[0]);
+    assert!(!w.shown(&v));
+    v.insert("kind".into(), serde_json::json!("c"));
+    assert!(w.shown(&v));
+    assert!(m.generators[0].params[0].shown(&v));
+}
