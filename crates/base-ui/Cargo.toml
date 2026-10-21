@@ -14,6 +14,7 @@ ureq = "3"
 serialport = { version = "4", default-features = false }
 egui_extras = { version = "0.36", default-features = false, features = ["svg"] }
 image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+resvg = { version = "0.48.1", default-features = false }
 nokhwa = { version = "0.10", default-features = false, features = ["input-native"], optional = true }
 
 [features]
@@ -26,4 +27,3 @@ muda = { version = "=0.21.2", default-features = false }
 objc2 = "0.6"
 objc2-app-kit = { version = "0.3", default-features = false, features = ["std", "NSApplication", "NSResponder", "NSImage"] }
 objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSData"] }
-resvg = { version = "0.48.1", default-features = false }
