@@ -1,6 +1,6 @@
 //! Import of PDF-compatible Adobe Illustrator (`.ai`) files, and plain PDFs: vector paths of the first page.
 //! Illustrator files saved with "Create PDF Compatible File" (the default since CS) carry a PDF page; very old
-//! PostScript-only files are not supported.
+//! PostScript-only files are not supported. The Illustrator layers (optional content groups) are kept as the `layer` of each outline.
 use crate::bezier::{Contour, Node};
 use crate::geom::*;
 use lopdf::content::Content;
@@ -121,7 +121,9 @@ struct Ctx<'a> {
     pdf: &'a Pdf,
     /// Page height in points, to flip y.
     height: f64,
-    out: Vec<(Vec<Contour>, [u8; 3])>,
+    out: Vec<(Vec<Contour>, [u8; 3], Option<String>)>,
+    /// The marked-content sections that are open (`BMC` / `BDC` ... `EMC`): the layer of each, when it is one.
+    marks: Vec<Option<String>>,
     /// How much may still be unpacked in all (shared by every stream of the file), and the most for one stream.
     budget: usize,
     stream_limit: usize,
@@ -129,7 +131,36 @@ struct Ctx<'a> {
     bomb: bool,
 }
 
+/// A PDF text string (UTF-16 with a byte order mark, or PDFDocEncoding ~ Latin-1).
+fn text_string(b: &[u8]) -> String {
+    if b.len() >= 2 && b[0] == 0xFE && b[1] == 0xFF {
+        let u: Vec<u16> = b[2..].chunks_exact(2).map(|c| u16::from_be_bytes([c[0], c[1]])).collect();
+        String::from_utf16_lossy(&u)
+    } else if b.len() >= 3 && b[0] == 0xEF && b[1] == 0xBB && b[2] == 0xBF {
+        String::from_utf8_lossy(&b[3..]).into_owned()
+    } else {
+        b.iter().map(|&c| c as char).collect()
+    }
+}
+
 impl Ctx<'_> {
+    /// The layer named by the operands of a `BDC`: `/OC /Name` with the group in the `Properties` of the resources, or the group inline.
+    fn layer_of(&self, operands: &[Object], res: Option<&Dictionary>) -> Option<String> {
+        if operands.first().and_then(|o| o.as_name().ok()) != Some(b"OC") {
+            return None;
+        }
+        let group = match operands.get(1)? {
+            Object::Name(n) => res?.get_deref(b"Properties", self.pdf).ok()?.as_dict().ok()?.get_deref(n, self.pdf).ok()?.as_dict().ok()?,
+            Object::Dictionary(d) => d,
+            _ => return None,
+        };
+        match group.get_deref(b"Name", self.pdf).ok()? {
+            Object::String(b, _) => Some(text_string(b)),
+            Object::Name(n) => Some(String::from_utf8_lossy(n).into_owned()),
+            _ => None,
+        }
+    }
+
     fn run(&mut self, data: &[u8], res: Option<&Dictionary>, mut st: State, depth: u32) {
         let Ok(content) = Content::decode(data) else { return };
         let mut stack: Vec<State> = vec![];
@@ -186,11 +217,19 @@ impl Ctx<'_> {
                     let cs = path.take(closes);
                     if !cs.is_empty() {
                         let color = if strokes { st.stroke } else { st.fill };
-                        self.out.push((cs, color));
+                        self.out.push((cs, color, self.marks.iter().flatten().next().cloned()));
                     }
                 }
                 "n" => {
                     path.take(false);
+                }
+                "BMC" => self.marks.push(None),
+                "BDC" => {
+                    let l = self.layer_of(&op.operands, res);
+                    self.marks.push(l);
+                }
+                "EMC" => {
+                    self.marks.pop();
                 }
                 "Do" if depth < 8 => {
                     if let Some(Object::Name(n)) = op.operands.first() {
@@ -283,7 +322,7 @@ pub fn page_count(data: &[u8]) -> Result<usize, String> {
 
 /// Read one page (1 is the first) into outlines (stroke colour, else fill colour) in millimetres, the top left corner of the
 /// page at (0, 0).
-fn read_page(pdf: &Pdf, page: ObjectId, limits: &Limits, budget: &mut usize) -> Result<(Vec<(Vec<Contour>, [u8; 3])>, f64), String> {
+fn read_page(pdf: &Pdf, page: ObjectId, limits: &Limits, budget: &mut usize) -> Result<(Vec<(Vec<Contour>, [u8; 3], Option<String>)>, f64), String> {
     let mb = media_box(pdf, page).unwrap_or([0.0, 0.0, 612.0, 792.0]);
     let bomb = || format!("the file unpacks to far more than it should (more than {} MB): it is refused", limits.stream / 1_000_000);
     let content = pdf.get_page_content_with_limit(page, limits.stream.min(*budget)).map_err(|e| match e {
@@ -292,7 +331,7 @@ fn read_page(pdf: &Pdf, page: ObjectId, limits: &Limits, budget: &mut usize) -> 
     })?;
     *budget = budget.saturating_sub(content.len());
     let res = pdf.get_page_resources(page).ok().and_then(|(d, _)| d);
-    let mut ctx = Ctx { pdf, height: mb[3] - mb[1], out: vec![], budget: *budget, stream_limit: limits.stream, bomb: false };
+    let mut ctx = Ctx { pdf, height: mb[3] - mb[1], out: vec![], marks: vec![], budget: *budget, stream_limit: limits.stream, bomb: false };
     // Move the page origin to (0, 0): translate by the box origin before the page content's own matrices.
     let st = State { ctm: Xf::translate(-mb[0], -(mb[1])), stroke: [0, 0, 0], fill: [0, 0, 0] };
     ctx.run(&content, res, st, 0);
@@ -321,9 +360,9 @@ pub fn parse_with(data: &[u8], limits: &Limits) -> Result<Vec<crate::svg::Outlin
     for (_, page) in pages.iter().take(MAX_PAGES) {
         let (paths, width) = read_page(&pdf, *page, limits, &mut budget)?;
         let shift = Xf::translate(x, 0.0);
-        for (contours, color) in paths {
+        for (contours, color, layer) in paths {
             let contours = if x == 0.0 { contours } else { contours.iter().map(|c| c.transformed(&shift)).collect() };
-            out.push(crate::svg::Outline { contours, color });
+            out.push(crate::svg::Outline { contours, color, layer });
         }
         x += width + PAGE_GAP_MM;
     }

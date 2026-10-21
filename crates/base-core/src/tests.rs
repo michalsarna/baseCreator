@@ -595,3 +595,32 @@ fn a_pdf_that_unpacks_to_far_too_much_is_refused() {
     let total = pdf::Limits { stream: 6_000_000, total: 8_000_000 };
     assert!(pdf::parse_with(&data, &total).err().unwrap().contains("unpacks"));
 }
+
+#[test]
+fn illustrator_layers_are_kept_on_the_outlines() {
+    use lopdf::{dictionary, Document as Pdf, Object, Stream, StringFormat};
+    let mut pdf = Pdf::with_version("1.5");
+    let pages_id = pdf.new_object_id();
+    let cut = pdf.add_object(dictionary! { "Type" => "OCG", "Name" => Object::String(b"Cut".to_vec(), StringFormat::Literal) });
+    // "Gravur" with a UTF-16 byte order mark, the way Illustrator writes names.
+    let engrave = pdf.add_object(dictionary! { "Type" => "OCG", "Name" => Object::String(vec![0xFE, 0xFF, 0, b'G', 0, b'r', 0, b'a'], StringFormat::Hexadecimal) });
+    let content = pdf.add_object(Stream::new(
+        dictionary! {},
+        b"/OC /MC0 BDC 0 0 m 10 0 l 10 10 l h S /Span BMC 1 1 m 2 2 l S EMC EMC /OC /MC1 BDC 20 0 m 30 0 l 30 10 l h S EMC 5 5 m 8 5 l S".to_vec(),
+    ));
+    let page = pdf.add_object(dictionary! {
+        "Type" => "Page", "Parent" => pages_id, "MediaBox" => vec![0.into(), 0.into(), 100.into(), 100.into()], "Contents" => content,
+        "Resources" => dictionary! { "Properties" => dictionary! { "MC0" => cut, "MC1" => engrave } },
+    });
+    pdf.objects.insert(pages_id, Object::Dictionary(dictionary! { "Type" => "Pages", "Count" => 1, "Kids" => vec![page.into()] }));
+    let catalog = pdf.add_object(dictionary! { "Type" => "Catalog", "Pages" => pages_id });
+    pdf.trailer.set("Root", catalog);
+    let mut data = Vec::new();
+    pdf.save_to(&mut data).unwrap();
+    let out = pdf::parse(&data).unwrap();
+    let layers: Vec<Option<&str>> = out.iter().map(|o| o.layer.as_deref()).collect();
+    assert_eq!(layers, vec![Some("Cut"), Some("Cut"), Some("Gra"), None]);
+    assert_eq!(svg::layer_names(&out), vec!["Cut".to_string(), "Gra".to_string()]);
+    // Without layers nothing is named.
+    assert!(pdf::parse(&tiny_pdf("0 0 m 5 5 l S")).unwrap()[0].layer.is_none());
+}
