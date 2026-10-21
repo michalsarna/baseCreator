@@ -9,6 +9,21 @@ const PX_TO_MM: f64 = 25.4 / 96.0;
 pub struct Outline {
     pub contours: Vec<Contour>,
     pub color: [u8; 3],
+    /// The Illustrator layer (a PDF optional content group) it is on: the outermost one, `None` for SVG and for content outside of layers.
+    pub layer: Option<String>,
+}
+
+/// The names of the layers of some outlines, each once, in the order they first appear.
+pub fn layer_names(outlines: &[Outline]) -> Vec<String> {
+    let mut names: Vec<String> = vec![];
+    for o in outlines {
+        if let Some(l) = &o.layer {
+            if !names.contains(l) {
+                names.push(l.clone());
+            }
+        }
+    }
+    names
 }
 
 /// Read an SVG into outlines, in document order.
@@ -40,7 +55,7 @@ fn walk(g: &usvg::Group, out: &mut Vec<Outline>) {
                         _ => None,
                     })
                     .unwrap_or([0, 0, 0]);
-                out.push(Outline { contours: polys, color });
+                out.push(Outline { contours: polys, color, layer: None });
             }
             _ => {}
         }
