@@ -62,6 +62,7 @@ pub struct PluginsUi {
     /// An import that waits in its window (a form, a preview).
     pending: Option<Pending>,
     gen_sel: usize,
+    gen_preview: GenPreview,
     values: serde_json::Map<String, serde_json::Value>,
     /// The postprocessor chosen for the next export: `plugin-id/postprocessor-id`.
     pub post: Option<String>,
@@ -73,7 +74,7 @@ pub struct PluginsUi {
 impl PluginsUi {
     /// `app` is `lightcreator`, `millcreator` or `pencreator`; `base` is the shared data folder.
     pub fn new(app: &str, base: &Path) -> PluginsUi {
-        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, pending: None, gen_sel: 0, values: Default::default(), post: None, confirm_remove: None, message: String::new(), log: vec![] }
+        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, pending: None, gen_sel: 0, gen_preview: GenPreview::default(), values: Default::default(), post: None, confirm_remove: None, message: String::new(), log: vec![] }
     }
 
     pub fn reload(&mut self) {
@@ -594,75 +595,253 @@ pub fn form_ui(ui: &mut egui::Ui, id: &str, registry: &Registry, params: &[base_
     changed
 }
 
-/// The window of the generators: choose one, fill in its form, Create. Returns the shapes when the script made them.
+/// The preview of the generator window: the script is run in the background after each change of the form, the way the preview
+/// of an import is, and the picture of the chosen kind of shape (an SVG of the plugin) is drawn beside it.
+#[derive(Default)]
+struct GenPreview {
+    /// Counts the changes of the form; the preview shows the form of the version `shown`.
+    version: u64,
+    shown: u64,
+    started: Option<u64>,
+    changed_at: f64,
+    running: Option<Receiver<Result<Shapes, String>>>,
+    result: Option<Result<Shapes, String>>,
+    /// The picture: what it was drawn for (file, colours, size), the texture and the size of the drawing.
+    figure: Option<(String, egui::TextureHandle, egui::Vec2)>,
+}
+
+fn hex(c: egui::Color32) -> String {
+    format!("#{:02x}{:02x}{:02x}", c.r(), c.g(), c.b())
+}
+
+/// Draw the SVG `file` of a plugin as a texture about `width` points wide (`currentColor` becomes the colour of the text,
+/// `accentColor` the accent of the theme). Cached in `slot` until the file, the colours or the size change.
+fn figure_texture(ctx: &egui::Context, plugin: &base_core::plugins::Plugin, file: &str, width: f32, slot: &mut Option<(String, egui::TextureHandle, egui::Vec2)>) -> Option<(egui::TextureId, egui::Vec2)> {
+    let ink = hex(theme::text());
+    let accent = hex(theme::accent());
+    let px = ((width * ctx.pixels_per_point()).clamp(64.0, 1600.0) / 64.0).ceil() as u32 * 64;
+    let key = format!("{}/{}/{ink}/{accent}/{px}", plugin.manifest.id, file);
+    if let Some((k, tex, size)) = slot {
+        if *k == key {
+            return Some((tex.id(), *size));
+        }
+    }
+    let text = plugin.read_text(file).ok()?.replace("currentColor", &ink).replace("accentColor", &accent);
+    let tree = resvg::usvg::Tree::from_str(&text, &resvg::usvg::Options::default()).ok()?;
+    let (w, h) = (tree.size().width(), tree.size().height());
+    if !(w > 0.0 && h > 0.0) {
+        return None;
+    }
+    let k = px as f32 / w;
+    let ph = ((h * k).ceil() as u32).clamp(1, 2400);
+    let mut pm = resvg::tiny_skia::Pixmap::new(px, ph)?;
+    resvg::render(&tree, resvg::tiny_skia::Transform::from_scale(k, k), &mut pm.as_mut());
+    let mut rgba = Vec::with_capacity((px * ph * 4) as usize);
+    for p in pm.pixels() {
+        let c = p.demultiply();
+        rgba.extend_from_slice(&[c.red(), c.green(), c.blue(), c.alpha()]);
+    }
+    let img = egui::ColorImage::from_rgba_unmultiplied([px as usize, ph as usize], &rgba);
+    let tex = ctx.load_texture(format!("plugin-figure-{key}"), img, egui::TextureOptions::LINEAR);
+    let size = egui::vec2(w, h);
+    let id = tex.id();
+    *slot = Some((key, tex, size));
+    Some((id, size))
+}
+
+/// The window of the generators: choose one, fill in its form (a picture of the shape with the lengths marked and a preview of
+/// the result are beside it), Create. Returns the shapes when the script made them; the window closes then.
 pub fn generator_window(ctx: &egui::Context, st: &mut PluginsUi, area: (f64, f64)) -> Option<Shapes> {
     if !st.gen_open {
         return None;
     }
     let gens: Vec<(String, String, String)> = st.registry.generators(&st.app).iter().map(|(p, g)| (p.manifest.id.clone(), g.id.clone(), g.name.clone())).collect();
+    let now = ctx.input(|i| i.time);
+    let run_ctx = Ctx { app: st.app.clone(), area_w: area.0, area_h: area.1 };
+    // The answer of the background run, and a new run when the form changed and nothing has been changed for a moment.
+    if !gens.is_empty() && !st.values.is_empty() {
+        let (pid, gid, _) = gens[st.gen_sel.min(gens.len() - 1)].clone();
+        let pv = &mut st.gen_preview;
+        if let Some(rx) = &pv.running {
+            match rx.try_recv() {
+                Ok(r) => {
+                    pv.shown = pv.started.unwrap_or(0);
+                    pv.result = Some(r);
+                    pv.running = None;
+                }
+                Err(std::sync::mpsc::TryRecvError::Disconnected) => {
+                    pv.result = Some(Err("the preview stopped".into()));
+                    pv.running = None;
+                    pv.shown = pv.version;
+                }
+                Err(std::sync::mpsc::TryRecvError::Empty) => ctx.request_repaint_after(Duration::from_millis(100)),
+            }
+        }
+        if pv.running.is_none() && (pv.result.is_none() || pv.shown != pv.version) {
+            if pv.result.is_none() || now - pv.changed_at > 0.25 {
+                if let Some(plugin) = st.registry.find(&pid) {
+                    if let Some(def) = plugin.manifest.generators.iter().find(|g| g.id == gid) {
+                        let (tx, rx) = channel();
+                        let (plugin, def, values, c) = (plugin.clone(), def.clone(), st.values.clone(), run_ctx.clone());
+                        std::thread::spawn(move || {
+                            let _ = tx.send(plugin_script::generate(&plugin, &def, &values, &c));
+                        });
+                        pv.started = Some(pv.version);
+                        pv.running = Some(rx);
+                    }
+                }
+            }
+            ctx.request_repaint_after(Duration::from_millis(100));
+        }
+    }
     let mut out = None;
     let mut open = st.gen_open;
     let mut create = false;
+    let mut cancel = false;
     let mut changed_sel = false;
-    popup(ctx, "generator_window", &tr("Generate shape…"), [460.0, 520.0], &mut open, |ui| {
+    let PluginsUi { registry, values, gen_sel, gen_preview: pv, message, log, .. } = st;
+    let registry: &Registry = registry;
+    popup(ctx, "generator_window", &tr("Generate shape…"), [900.0, 620.0], &mut open, |ui| {
         if gens.is_empty() {
             ui.label(RichText::new(tr("No generators installed. Plugins can add them (Plugins window).")).color(theme::text_dim()));
             return;
         }
-        st.gen_sel = st.gen_sel.min(gens.len() - 1);
+        *gen_sel = (*gen_sel).min(gens.len() - 1);
         ui.horizontal(|ui| {
             ui.label(tr("Generator"));
-            egui::ComboBox::from_id_salt("gen_combo").selected_text(pt(&st.registry, &gens[st.gen_sel].2)).show_ui(ui, |ui| {
+            egui::ComboBox::from_id_salt("gen_combo").selected_text(pt(registry, &gens[*gen_sel].2)).show_ui(ui, |ui| {
                 for (i, g) in gens.iter().enumerate() {
-                    if ui.selectable_value(&mut st.gen_sel, i, pt(&st.registry, &g.2)).changed() {
+                    if ui.selectable_value(gen_sel, i, pt(registry, &g.2)).changed() {
                         changed_sel = true;
                     }
                 }
             });
         });
-        let (pid, gid, _) = gens[st.gen_sel].clone();
-        let Some(plugin) = st.registry.find(&pid) else { return };
+        let (pid, gid, _) = gens[*gen_sel].clone();
+        let Some(plugin) = registry.find(&pid) else { return };
         let Some(def) = plugin.manifest.generators.iter().find(|g| g.id == gid) else { return };
-        if st.values.is_empty() || changed_sel {
-            st.values = plugin_script::defaults(def);
+        if values.is_empty() || changed_sel {
+            *values = plugin_script::defaults(def);
+            *pv = GenPreview::default();
+            ui.ctx().request_repaint();
         }
         if !def.description.is_empty() {
-            ui.label(RichText::new(pt(&st.registry, &def.description)).color(theme::text_dim()));
+            ui.label(RichText::new(pt(registry, &def.description)).color(theme::text_dim()));
         }
-        ui.add_space(6.0);
-        form_ui(ui, "gen_form", &st.registry, &def.params, &mut st.values);
-        ui.add_space(8.0);
-        if import_button(ui, &tr("Create")).clicked() {
-            create = true;
-        }
-        if !st.message.is_empty() {
-            ui.label(RichText::new(&st.message).color(theme::accent()));
-        }
-        if !st.log.is_empty() {
-            ui.label(RichText::new(tr("Messages of the script:")).strong());
-            for l in &st.log {
-                ui.label(l);
+        ui.add_space(4.0);
+        let body_h = (ui.available_height() - 46.0).max(240.0);
+        ui.horizontal_top(|ui| {
+            ui.vertical(|ui| {
+                ui.set_width(340.0);
+                egui::ScrollArea::vertical().id_salt("gen_form_scroll").max_height(body_h).auto_shrink([false, false]).show(ui, |ui| {
+                    if form_ui(ui, "gen_form", registry, &def.params, values) {
+                        pv.version += 1;
+                        pv.changed_at = now;
+                    }
+                });
+            });
+            ui.vertical(|ui| {
+                let w = (ui.available_width() - 2.0).max(200.0);
+                // Under the preview: "Working…", the size, the warnings. A fixed height, so that a long list of warnings does not make the
+                // window grow.
+                let notes_h = 56.0;
+                let figure = def.figure_for(values).map(|f| f.file.clone());
+                let has_figure = figure.is_some();
+                if let Some(file) = figure {
+                    let fig_h = ((body_h - notes_h) * 0.45).max(100.0);
+                    let (rect, _) = ui.allocate_exact_size(egui::vec2(w, fig_h), egui::Sense::hover());
+                    let painter = ui.painter_at(rect);
+                    painter.rect_filled(rect, 4.0, theme::panel_dark());
+                    if let Some((id, size)) = figure_texture(ui.ctx(), plugin, &file, rect.width(), &mut pv.figure) {
+                        let k = ((rect.width() - 12.0) / size.x).min((rect.height() - 12.0) / size.y);
+                        let img = egui::Rect::from_center_size(rect.center(), size * k);
+                        painter.image(id, img, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), egui::Color32::WHITE);
+                    }
+                }
+                let plot_h = (body_h - notes_h - if has_figure { ui.min_rect().height() } else { 0.0 } - 2.0 * ui.spacing().item_spacing.y).max(80.0);
+                let (rect, _) = ui.allocate_exact_size(egui::vec2(w, plot_h), egui::Sense::hover());
+                match &pv.result {
+                    Some(Ok(s)) => draw_preview(ui, rect, s),
+                    _ => {
+                        ui.painter().rect_filled(rect, 4.0, theme::panel_dark());
+                    }
+                }
+                egui::ScrollArea::vertical().id_salt("gen_notes").max_height(notes_h).auto_shrink([false, false]).show(ui, |ui| {
+                    if pv.running.is_some() || pv.shown != pv.version {
+                        ui.label(RichText::new(tr("Working…")).color(theme::text_dim()));
+                    }
+                    match &pv.result {
+                        Some(Ok(s)) => {
+                            let polys: Vec<_> = s.scene.shapes.iter().flat_map(|x| x.polys()).collect();
+                            if let Some(b) = box_of(&polys) {
+                                ui.label(trf("{} shapes, {} × {} mm", &[&s.scene.shapes.len(), &format!("{:.1}", b.width()), &format!("{:.1}", b.height())]));
+                            }
+                            for w in &s.warnings {
+                                ui.label(RichText::new(w).color(theme::accent()));
+                            }
+                        }
+                        Some(Err(e)) => {
+                            ui.label(RichText::new(trf("The script failed: {}", &[e])).color(theme::accent()));
+                        }
+                        None => {}
+                    }
+                    if !message.is_empty() {
+                        ui.label(RichText::new(message.as_str()).color(theme::accent()));
+                    }
+                    for l in log.iter() {
+                        ui.label(l);
+                    }
+                });
+            });
+        });
+        ui.separator();
+        ui.horizontal(|ui| {
+            let ready = matches!(&pv.result, Some(Ok(s)) if !s.scene.shapes.is_empty()) || pv.result.is_none();
+            if ui.add_enabled(ready, egui::Button::new(RichText::new(tr("Create")).strong())).clicked() {
+                create = true;
             }
-        }
+            if ui.button(tr("Cancel")).clicked() {
+                cancel = true;
+            }
+        });
     });
-    st.gen_open = open;
+    st.gen_open = open && !cancel;
     if create && !gens.is_empty() {
-        let (pid, gid, _) = gens[st.gen_sel].clone();
-        if let Some(plugin) = st.registry.find(&pid) {
-            if let Some(def) = plugin.manifest.generators.iter().find(|g| g.id == gid) {
-                match plugin_script::generate(plugin, def, &st.values, &Ctx { app: st.app.clone(), area_w: area.0, area_h: area.1 }) {
-                    Ok(s) => {
-                        st.message = trf("Generated {} shapes", &[&s.scene.shapes.len()]);
-                        st.log = s.warnings.clone();
-                        out = Some(s);
-                    }
-                    Err(e) => {
-                        st.message = trf("The script failed: {}", &[&e]);
-                        st.log.clear();
-                    }
+        out = create_shapes(st, &gens[st.gen_sel].0, &gens[st.gen_sel].1, &run_ctx);
+    }
+    if !st.gen_open {
+        st.gen_preview = GenPreview::default();
+    }
+    out
+}
+
+/// Create was pressed: the shapes of the preview, or, when the form changed after them, shapes made again. The window closes when
+/// they were made.
+fn create_shapes(st: &mut PluginsUi, pid: &str, gid: &str, run_ctx: &Ctx) -> Option<Shapes> {
+    let mut out = None;
+    if let Some(plugin) = st.registry.find(pid) {
+        if let Some(def) = plugin.manifest.generators.iter().find(|g| g.id == gid) {
+            let shown = match st.gen_preview.result.take() {
+                Some(Ok(s)) if st.gen_preview.shown == st.gen_preview.version => Ok(s),
+                _ => plugin_script::generate(plugin, def, &st.values, run_ctx),
+            };
+            match shown {
+                Ok(s) => {
+                    st.message.clear();
+                    st.log = s.warnings.clone();
+                    out = Some(s);
+                }
+                Err(e) => {
+                    st.message = trf("The script failed: {}", &[&e]);
+                    st.log.clear();
                 }
             }
         }
+    }
+    if out.is_some() {
+        st.gen_open = false;
+    } else {
+        st.gen_preview.result = None;
     }
     out
 }
@@ -1000,6 +1179,65 @@ mod tests {
             out.textures_delta.clear();
         }
         assert!(made.is_none(), "nothing is made until Create is pressed");
+    }
+
+    #[test]
+    fn the_generator_window_shows_a_picture_and_a_preview_and_closes_when_the_shapes_are_made() {
+        let dir = std::env::temp_dir().join(format!("bc-genwin-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        let pd = dir.join("plugins").join("figs");
+        std::fs::create_dir_all(&pd).unwrap();
+        std::fs::write(pd.join("plugin.json"), r#"{ "format": 1, "id": "figs", "name": "Figs", "version": "1.0.0", "generators": [ { "id": "g", "name": "G", "script": "g.rhai",
+            "params": [ { "id": "kind", "label": "Kind", "kind": "choice", "default": "a", "options": ["a", "b"] }, { "id": "w", "label": "Width", "kind": "number", "default": 10, "min": 1, "max": 100 } ],
+            "figures": [ { "when": { "kind": "b" }, "file": "b.svg" }, { "file": "a.svg" } ] } ] }"#).unwrap();
+        std::fs::write(pd.join("g.rhai"), "fn generate(p, ctx) { [group([rect(0.0, 0.0, p.w, 5.0), rect(0.0, 10.0, p.w, 5.0)])] }").unwrap();
+        for f in ["a.svg", "b.svg"] {
+            std::fs::write(pd.join(f), "<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20'><rect width='40' height='20' stroke='currentColor' fill='none'/><path d='M0 0L40 20' stroke='accentColor'/></svg>").unwrap();
+        }
+        let mut st = PluginsUi::new("millcreator", &dir);
+        assert!(st.registry.broken.is_empty(), "{:?}", st.registry.broken);
+        st.gen_open = true;
+        let ctx = egui::Context::default();
+        let mut t = 10.0;
+        for _ in 0..400 {
+            t += 0.05;
+            let input = egui::RawInput { time: Some(t), screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1400.0, 900.0))), ..Default::default() };
+            let mut out = ctx.run_ui(input, |ui| {
+                assert!(generator_window(ui.ctx(), &mut st, (300.0, 200.0)).is_none());
+            });
+            out.textures_delta.clear();
+            if st.gen_preview.result.is_some() && st.gen_preview.figure.is_some() {
+                break;
+            }
+            std::thread::sleep(Duration::from_millis(5));
+        }
+        let shapes = match &st.gen_preview.result {
+            Some(Ok(s)) => s.scene.shapes.len(),
+            other => panic!("no preview: {:?}", other.as_ref().map(|r| r.as_ref().map(|_| ()))),
+        };
+        assert_eq!(shapes, 2);
+        let key = st.gen_preview.figure.as_ref().map(|f| f.0.clone()).expect("the picture was drawn");
+        assert!(key.contains("a.svg"), "{key}");
+        // A change of the choice shows the other picture.
+        st.values.insert("kind".into(), serde_json::json!("b"));
+        st.gen_preview.version += 1;
+        for _ in 0..400 {
+            t += 0.05;
+            let input = egui::RawInput { time: Some(t), screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1400.0, 900.0))), ..Default::default() };
+            let mut out = ctx.run_ui(input, |ui| {
+                generator_window(ui.ctx(), &mut st, (300.0, 200.0));
+            });
+            out.textures_delta.clear();
+            if st.gen_preview.figure.as_ref().is_some_and(|f| f.0.contains("b.svg")) && st.gen_preview.shown == st.gen_preview.version {
+                break;
+            }
+            std::thread::sleep(Duration::from_millis(5));
+        }
+        assert!(st.gen_preview.figure.as_ref().is_some_and(|f| f.0.contains("b.svg")));
+        // Create takes the shapes of the preview and closes the window.
+        let made = create_shapes(&mut st, "figs", "g", &Ctx { app: "millcreator".into(), area_w: 300.0, area_h: 200.0 });
+        assert_eq!(made.map(|s| s.scene.shapes.len()), Some(2));
+        assert!(!st.gen_open, "the window closes after the shapes were made");
     }
 
     #[test]

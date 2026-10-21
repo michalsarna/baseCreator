@@ -29,6 +29,17 @@ fn main() {
             fail("the manifest needs a description, an author and a license".into());
         }
         for g in &m.generators {
+            for f in &g.figures {
+                match p.read_text(&f.file) {
+                    Ok(t) => {
+                        let t = t.replace("currentColor", "#000000").replace("accentColor", "#cc0000");
+                        if let Err(e) = usvg::Tree::from_str(&t, &usvg::Options::default()) {
+                            fail(format!("figure {} of generator {} is not a valid SVG: {e}", f.file, g.id));
+                        }
+                    }
+                    Err(e) => fail(format!("figure {} of generator {}: {e}", f.file, g.id)),
+                }
+            }
             let mut variants = vec![plugin_script::defaults(g)];
             for param in g.params.iter().filter(|x| x.kind == ParamKind::Choice) {
                 for o in &param.options {

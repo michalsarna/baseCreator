@@ -92,6 +92,24 @@ The script gets the values in the map `p` (`p.count`, `p.centre`, …). Numbers 
 `max`; use `p.count.to_int()` for a loop. `id`s are letters, digits, `-` and `_` (so `p.my_value`; avoid words that are
 keywords in Rhai, such as `module`, `import`, `private`).
 
+A generator can also have pictures (baseCreator 1.11.0), shown beside the form in the generator window:
+
+```json
+"figures": [
+  { "when": { "base": "Triangle", "solid": "Prism" }, "file": "figures/triangle-prism.svg" },
+  { "file": "figures/other.svg" }
+]
+```
+
+The first picture whose `when` fits the values of the form (each `parameter id → option` is a choice that must be set so; no
+`when` fits all) is shown. A picture is an SVG file inside the plugin, drawn for the kind of shape with the lengths marked by
+the letters the labels of the form use; it changes when the person changes the choice. In the SVG `currentColor` is drawn in the
+colour of the text and `accentColor` in the accent colour of the theme (so the drawing reads in a light and a dark theme); text
+elements are not drawn (the program has no fonts for them), so make the letters of paths.
+
+The generator window also shows a preview of the result, made in the background after each change of the form, and closes when
+**Create** has put the shapes into the drawing. Shapes made with `group([...])` are inserted as one group.
+
 ### Importers: a form, a preview, binary files
 
 An importer entry can have more than the script:
@@ -145,6 +163,7 @@ left of the work area, Y down** — the same as the drawing. (An importer for a 
 | `translate(s, dx, dy)`, `rotate(s, degrees, cx, cy)`, `scale(s, sx, sy)` | return the moved shape |
 | `warn("…")` | adds a message shown to the user (`print` does the same) |
 
+| `polygon_is_simple(points)` | true when a closed outline `[[x, y], …]` has no edges that cross or touch (except neighbours), for scripts that try layouts |
 | `union_polygons(polys)` | merges any number of overlapping closed polygons (`[[x, y], …]`) into the outlines of the area they cover |
 | `xf_rings(rings, sx, sy, dx, dy)` | moves and mirrors rings in one pass: `x' = sx * x + dx`, `y' = sy * y + dy` |
 | `read_stl(data)` | reads an STL mesh (binary or ASCII) from a blob: a `Mesh` with `tri_count()`, `bounds()` (min x, y, z, max x, y, z), `rotated(yaw, pitch)` (the mesh seen from another side: turned about Z, then tilted; the planes found by `groups` before keep their triangles), `groups(angle, dist)` (the planes of the model, largest first, as maps `#{ id, nx, ny, nz, d, area, tris, min_z, max_z }`), `project()` and `project(ids)` (the shadow on the floor of the whole model or of the chosen planes, as rings) and `section(z)` (the outlines where the plane at height `z` cuts it) |
