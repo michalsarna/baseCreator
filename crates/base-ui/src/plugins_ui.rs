@@ -704,7 +704,10 @@ pub fn generator_window(ctx: &egui::Context, st: &mut PluginsUi, area: (f64, f64
     let mut changed_sel = false;
     let PluginsUi { registry, values, gen_sel, gen_preview: pv, message, log, .. } = st;
     let registry: &Registry = registry;
-    popup(ctx, "generator_window", &tr("Generate shape…"), [900.0, 620.0], &mut open, |ui| {
+    // About 70 % of the height of the program window (a window of 620 points filled the whole of a small one). The id is new, so the
+    // size that older versions saved is not used.
+    let height = (ctx.content_rect().height() * 0.7).clamp(380.0, 620.0);
+    popup(ctx, "generator_window_v2", &tr("Generate shape…"), [900.0, height], &mut open, |ui| {
         if gens.is_empty() {
             ui.label(RichText::new(tr("No generators installed. Plugins can add them (Plugins window).")).color(theme::text_dim()));
             return;
@@ -1241,6 +1244,45 @@ mod tests {
         let made = create_shapes(&mut st, "figs", "g", &Ctx { app: "millcreator".into(), area_w: 300.0, area_h: 200.0 });
         assert_eq!(made.map(|s| s.scene.shapes.len()), Some(2));
         assert!(!st.gen_open, "the window closes after the shapes were made");
+    }
+
+    #[test]
+    fn the_generator_window_is_not_as_high_as_the_program_window_and_does_not_grow() {
+        let dir = std::env::temp_dir().join(format!("bc-genwin-size-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        let pd = dir.join("plugins").join("big");
+        std::fs::create_dir_all(&pd).unwrap();
+        let long = "A long description that wraps over several lines of the window, like the one of a plugin with many shapes and many words. ".repeat(4);
+        std::fs::write(pd.join("plugin.json"), format!(r#"{{ "format": 1, "id": "big", "name": "Big", "version": "1.0.0", "generators": [ {{ "id": "g", "name": "G", "script": "g.rhai", "description": "{long}",
+            "params": [ {{ "id": "kind", "label": "Kind", "kind": "choice", "default": "a", "options": ["a", "b"] }}, {{ "id": "w", "label": "Width", "kind": "number", "default": 10, "min": 1, "max": 100 }} ],
+            "figures": [ {{ "file": "a.svg" }} ] }} ] }}"#)).unwrap();
+        std::fs::write(pd.join("g.rhai"), "fn generate(p, ctx) { [rect(0.0, 0.0, p.w, 5.0)] }").unwrap();
+        std::fs::write(pd.join("a.svg"), "<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20'><rect width='40' height='20' stroke='currentColor' fill='none'/></svg>").unwrap();
+        for screen_h in [700.0_f32, 1000.0] {
+            let mut st = PluginsUi::new("millcreator", &dir);
+            st.gen_open = true;
+            let ctx = egui::Context::default();
+            let mut t = 0.0;
+            let mut bottoms = vec![];
+            for frame in 0..100 {
+                if frame == 50 {
+                    st.values.insert("kind".into(), serde_json::json!("b"));
+                    st.gen_preview.version += 1;
+                }
+                t += 0.05;
+                let input = egui::RawInput { time: Some(t), screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1400.0, screen_h))), ..Default::default() };
+                let mut out = ctx.run_ui(input, |ui| {
+                    generator_window(ui.ctx(), &mut st, (300.0, 200.0));
+                });
+                out.textures_delta.clear();
+                bottoms.push(ctx.globally_used_rect().max.y);
+                std::thread::sleep(Duration::from_millis(2));
+            }
+            // The window is centred, so its height is 2 * bottom - screen height.
+            let height = 2.0 * bottoms[99] - screen_h;
+            assert!(height <= screen_h * 0.75, "the window is {height} points high in a window of {screen_h}");
+            assert!(bottoms[10..].iter().all(|b| (b - bottoms[99]).abs() < 0.5), "the window changed its height: {bottoms:?}");
+        }
     }
 
     #[test]
