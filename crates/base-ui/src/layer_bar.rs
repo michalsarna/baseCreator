@@ -70,7 +70,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
         }
         u
     };
-    let offset_id = egui::Id::new("layer_bar_offset");
+    let offset_id = egui::Id::unique("layer_bar_offset");
     let mut offset: f32 = ui.data(|d| d.get_temp(offset_id)).unwrap_or(0.0);
     let content_w = total as f32 * (SWATCH + GAP) + 2.0 * PAD;
     let mut clicked = None;
@@ -121,7 +121,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
                 ui.add_space(PAD - GAP);
             });
         });
-        offset = out.state.offset.x;
+        offset = out.state.clamped_offset().x;
         // The wheel moves the row sideways too.
         if ui.rect_contains_pointer(out.inner_rect) {
             let d = ui.input(|i| i.smooth_scroll_delta);
@@ -135,7 +135,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
     });
     // Keep the active layer in view when it changes from elsewhere (a click on a shape, the list of layers).
     let active = h.ed().active_layer;
-    let seen_id = egui::Id::new("layer_bar_active");
+    let seen_id = egui::Id::unique("layer_bar_active");
     let was: Option<usize> = ui.data(|d| d.get_temp(seen_id));
     if was != Some(active) {
         ui.data_mut(|d| d.insert_temp(seen_id, active));

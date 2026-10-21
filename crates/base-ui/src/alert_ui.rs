@@ -20,7 +20,7 @@ pub enum Choice {
 /// comes a little after the alarm itself, so "not in alarm" only counts after the alarm state was seen. For programs that
 /// keep their `Problem` themselves; call it every frame.
 pub fn forget_cleared_alarm(ctx: &egui::Context, problem: &mut Option<Problem>, in_alarm: bool, connected: bool) {
-    let seen_id = egui::Id::new("machine_alert_seen_alarm");
+    let seen_id = egui::Id::unique("machine_alert_seen_alarm");
     let seen: bool = ctx.data(|d| d.get_temp(seen_id)).unwrap_or(false);
     if in_alarm {
         ctx.data_mut(|d| d.insert_temp(seen_id, true));

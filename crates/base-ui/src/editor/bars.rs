@@ -166,7 +166,7 @@ pub fn control_name<H: EditorHost>(h: &H, ui: &mut egui::Ui) {
         ui.add(egui::Label::new(egui::RichText::new(tr(name).split(" (").next().unwrap_or("")).strong()).truncate());
     });
     // Where the box ends, for the test that checks it does not move.
-    ui.ctx().data_mut(|d| d.insert_temp(egui::Id::new("tool_name_right"), ui.cursor().left()));
+    ui.ctx().data_mut(|d| d.insert_temp(egui::Id::unique("tool_name_right"), ui.cursor().left()));
 }
 
 /// The four toggles of the control bar: the grid, the secondary grid, snapping to the grid and to objects.

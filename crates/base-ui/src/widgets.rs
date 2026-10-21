@@ -5,7 +5,7 @@ use egui::{Color32, RichText};
 /// Double chevrons at the top and / or bottom edge of a scrolled icon strip when more icons lie beyond it.
 pub fn scroll_hints<R>(ui: &egui::Ui, out: &egui::scroll_area::ScrollAreaOutput<R>) {
     let view = out.inner_rect;
-    let (up, down) = (out.state.offset.y > 1.0, out.state.offset.y + view.height() < out.content_size.y - 1.0);
+    let (up, down) = (out.state.clamped_offset().y > 1.0, out.state.clamped_offset().y + view.height() < out.content_size.y - 1.0);
     for (show, name, top) in [(up, "chevrons-up", true), (down, "chevrons-down", false)] {
         if !show {
             continue;
@@ -93,7 +93,7 @@ pub fn button_grid(ui: &mut egui::Ui, id: &str, cells: &[(&str, &str, &str)]) ->
 /// A row of widgets in the middle of the available width. The width of the row is measured while it is drawn and used
 /// for the next frame (the first frame has the row at the left), so any widgets work, not only text buttons.
 pub fn centered_row(ui: &mut egui::Ui, id_salt: &str, add: impl FnOnce(&mut egui::Ui)) {
-    let id = ui.id().with(("centered_row", id_salt));
+    let id = ui.scope_id().with(("centered_row", id_salt));
     let known: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(0.0);
     let pad = if known > 0.0 { ((ui.available_width() - known) / 2.0).max(0.0) } else { 0.0 };
     let mut start = 0.0;
@@ -156,7 +156,7 @@ pub fn drag_line_stroke(hot: bool) -> egui::Stroke {
 /// Lights up the dragged edge of a resizable panel (red and thicker) while the pointer is on it or drags it, so it is
 /// clear that the line moves. Call it with the rectangle of the panel after it was shown.
 pub fn panel_edge_highlight(ctx: &egui::Context, panel: egui::Rect, edge: Edge) {
-    let id = egui::Id::new(("panel_edge_hot", edge as u8));
+    let id = egui::Id::unique(("panel_edge_hot", edge as u8));
     let line = match edge {
         Edge::Left => [panel.left_top(), panel.left_bottom()],
         Edge::Right => [panel.right_top(), panel.right_bottom()],
@@ -176,7 +176,7 @@ pub fn panel_edge_highlight(ctx: &egui::Context, panel: egui::Rect, edge: Edge) 
     let hot = near || (was && down);
     ctx.data_mut(|d| d.insert_temp(id, hot));
     if hot {
-        let painter = ctx.layer_painter(egui::LayerId::new(egui::Order::Foreground, egui::Id::new("panel_edge_line")));
+        let painter = ctx.layer_painter(egui::LayerId::new(egui::Order::Foreground, egui::Id::unique("panel_edge_line")));
         painter.line_segment(line, drag_line_stroke(true));
     }
 }
@@ -201,7 +201,7 @@ pub fn horizontal_splitter(ui: &mut egui::Ui, id_salt: &str, height: &mut f32, m
 /// A scrolled list with a draggable line under it (the part below keeps the rest of the tab). The height of the list is
 /// kept for the session; the line is red and thicker under the pointer.
 pub fn list_with_splitter<R>(ui: &mut egui::Ui, id_salt: &str, default_height: f32, add: impl FnOnce(&mut egui::Ui) -> R) -> R {
-    let id = ui.id().with(("list_height", id_salt));
+    let id = ui.scope_id().with(("list_height", id_salt));
     let mut h: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(default_height);
     let max = (ui.ctx().content_rect().height() - 260.0).max(120.0);
     h = h.clamp(60.0, max);

@@ -546,7 +546,7 @@ mod tests {
         let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(400.0, 300.0));
         let mut pos = egui::pos2(10.0, 10.0);
         let mut moves = (0, 0);
-        let mut frame = |events: Vec<egui::Event>, moves: &mut (u32, u32), pos: &mut egui::Pos2| {
+        let frame = |events: Vec<egui::Event>, moves: &mut (u32, u32), pos: &mut egui::Pos2| {
             let input = egui::RawInput { screen_rect: Some(screen), events, ..Default::default() };
             let mut o = ctx.run_ui(input, |ui| {
                 egui::CentralPanel::default().show(ui, |ui| {
