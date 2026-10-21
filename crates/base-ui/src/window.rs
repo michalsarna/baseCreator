@@ -20,7 +20,7 @@ enum Glyph {
 
 /// One flat button of the title bar, drawn with a few lines so it needs no font or icon.
 fn caption_button(ui: &mut egui::Ui, rect: Rect, id: &str, glyph: Glyph, tip: &str) -> bool {
-    let r = ui.interact(rect, Id::new(id), Sense::click());
+    let r = ui.interact(rect, Id::unique(id), Sense::click());
     let close = glyph == Glyph::Close;
     if r.hovered() {
         let fill = if close { Color32::from_rgb(0xe8, 0x11, 0x23) } else { theme::text().gamma_multiply(0.12) };
@@ -61,7 +61,7 @@ pub fn title_bar(ui: &mut egui::Ui, title: &str, logo: Option<&egui::TextureHand
     let mut close = false;
     egui::Panel::top("title_bar").frame(frame).exact_size(BAR_H).show(ui, |ui| {
         let rect = ui.max_rect();
-        let drag = ui.interact(rect, Id::new("title_drag"), Sense::click_and_drag());
+        let drag = ui.interact(rect, Id::unique("title_drag"), Sense::click_and_drag());
         if drag.double_clicked() {
             ctx.send_viewport_cmd(ViewportCommand::Maximized(!maximized));
         } else if drag.drag_started_by(egui::PointerButton::Primary) {
@@ -98,7 +98,7 @@ pub fn window_edges(ctx: &egui::Context) {
     }
     let screen = ctx.content_rect();
     // Thin outline so the flat window stays visible against the desktop.
-    ctx.layer_painter(egui::LayerId::new(egui::Order::Foreground, Id::new("window_outline")))
+    ctx.layer_painter(egui::LayerId::new(egui::Order::Foreground, Id::unique("window_outline")))
         .rect_stroke(screen, 0.0, Stroke::new(1.0, theme::border()), egui::StrokeKind::Inside);
     let Some(p) = ctx.input(|i| i.pointer.hover_pos()) else { return };
     let (l, r, t, b) = (p.x - screen.left() < EDGE, screen.right() - p.x < EDGE, p.y - screen.top() < EDGE, screen.bottom() - p.y < EDGE);
@@ -129,7 +129,7 @@ pub fn window_edges(ctx: &egui::Context) {
     // edges by following the pointer instead.
     #[cfg(target_os = "macos")]
     {
-        let id = Id::new("edge_grab");
+        let id = Id::unique("edge_grab");
         if ctx.input(|i| i.pointer.primary_pressed()) && matches!(dir, D::East | D::South | D::SouthEast) {
             let grab = egui::vec2(screen.right() - p.x, screen.bottom() - p.y);
             ctx.data_mut(|d| d.insert_temp(id, (matches!(dir, D::East | D::SouthEast), matches!(dir, D::South | D::SouthEast), grab)));
@@ -140,7 +140,7 @@ pub fn window_edges(ctx: &egui::Context) {
 /// Continue a resize started on the right or bottom edge (macOS).
 #[cfg(target_os = "macos")]
 pub fn window_edge_drag(ctx: &egui::Context) {
-    let id = Id::new("edge_grab");
+    let id = Id::unique("edge_grab");
     let Some((east, south, grab)) = ctx.data(|d| d.get_temp::<(bool, bool, egui::Vec2)>(id)) else { return };
     let (down, pos) = ctx.input(|i| (i.pointer.primary_down(), i.pointer.latest_pos()));
     let (Some(p), true) = (pos, down) else {
@@ -274,7 +274,7 @@ mod size_tests {
                 popup(ui.ctx(), "t", "Test", [600.0, 400.0], &mut open, |ui| content(ui));
             });
             o.textures_delta.clear();
-            if let Some(r) = ctx.memory(|m| m.area_rect(egui::Id::new(Some("t")))) {
+            if let Some(r) = ctx.memory(|m| m.area_rect(egui::Id::unique(Some("t")))) {
                 out.push(r.height());
             }
         }

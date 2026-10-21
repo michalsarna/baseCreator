@@ -6,13 +6,13 @@ license.workspace = true
 
 [dependencies]
 base-core = { path = "../base-core" }
-egui = "0.36"
+egui = "0.37"
 rfd = "0.17"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 ureq = "3"
 serialport = { version = "4", default-features = false }
-egui_extras = { version = "0.36", default-features = false, features = ["svg"] }
+egui_extras = { version = "0.37", default-features = false, features = ["svg"] }
 image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
 resvg = { version = "0.48.1", default-features = false }
 nokhwa = { version = "0.10", default-features = false, features = ["input-native"], optional = true }

@@ -733,11 +733,11 @@ pub trait EditorCanvas: EditorHost {
         if self.ed().tool != Tool::Node {
             self.ed_mut().node_bar_active = true;
         } else if let Some(p) = ui.input(|i| if i.pointer.any_pressed() { i.pointer.interact_pos() } else { None }) {
-            self.ed_mut().node_bar_active = ui.ctx().layer_id_at(p).map_or(true, |l| l.order == egui::Order::Background || l.id == egui::Id::new("node_bar"));
+            self.ed_mut().node_bar_active = ui.ctx().layer_id_at(p).map_or(true, |l| l.order == egui::Order::Background || l.id == egui::Id::unique("node_bar"));
         }
         if self.ed().tool == Tool::Node && self.ed().node_bar_active {
             let ctx = ui.ctx().clone();
-            egui::Area::new(egui::Id::new("node_bar")).order(egui::Order::Middle).fixed_pos(rect.min + egui::vec2(28.0, 26.0)).show(&ctx, |ui| {
+            egui::Area::new(egui::Id::unique("node_bar")).order(egui::Order::Middle).fixed_pos(rect.min + egui::vec2(28.0, 26.0)).show(&ctx, |ui| {
                 egui::Frame::popup(ui.style()).show(ui, |ui| {
                     ui.horizontal(|ui| self.node_bar(ui));
                 });

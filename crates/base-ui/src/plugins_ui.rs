@@ -1337,7 +1337,7 @@ mod tests {
                     window(ui.ctx(), &mut st);
                 });
                 out.textures_delta.clear();
-                if let Some(r) = ctx.memory(|m| m.area_rect(egui::Id::new(Some("plugins_window")))) {
+                if let Some(r) = ctx.memory(|m| m.area_rect(egui::Id::unique(Some("plugins_window")))) {
                     heights.push(r.height());
                 }
             }
@@ -1499,7 +1499,7 @@ mod tests {
                 import_window(ui.ctx(), st);
             });
             out.textures_delta.clear();
-            height = ctx.memory(|m| m.area_rect(egui::Id::new(Some("plugin_import_window")))).map(|r| r.height()).unwrap_or(0.0);
+            height = ctx.memory(|m| m.area_rect(egui::Id::unique(Some("plugin_import_window")))).map(|r| r.height()).unwrap_or(0.0);
             if matches!(&st.pending, Some(p) if p.shown == p.version && p.result.is_some()) {
                 break;
             }
@@ -1555,7 +1555,7 @@ mod tests {
                 import_window(ui.ctx(), &mut st);
             });
             out.textures_delta.clear();
-            heights.push(ctx.memory(|m| m.area_rect(egui::Id::new(Some("plugin_import_window")))).unwrap().height());
+            heights.push(ctx.memory(|m| m.area_rect(egui::Id::unique(Some("plugin_import_window")))).unwrap().height());
         }
         assert!(heights.windows(2).all(|w| (w[0] - w[1]).abs() < 0.5), "{heights:?}");
         assert!((heights[0] - first).abs() < 1.0, "{heights:?} after {first}");
