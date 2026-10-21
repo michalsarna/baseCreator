@@ -571,7 +571,7 @@ pub fn import_with(plugin: &Plugin, def: &ImporterDef, bytes: &[u8], given: &ser
 
 /// The two numbers the 3D view of an importer gives the script: the turn about Z and the tilt (degrees), 0 and 0 from above.
 fn view_params() -> Vec<ParamDef> {
-    ["view_yaw", "view_pitch"].iter().map(|id| ParamDef { id: id.to_string(), label: String::new(), kind: ParamKind::Number, default: serde_json::json!(0.0), min: Some(-360.0), max: Some(360.0), options: vec![], unit: String::new() }).collect()
+    ["view_yaw", "view_pitch"].iter().map(|id| ParamDef { id: id.to_string(), label: String::new(), kind: ParamKind::Number, default: serde_json::json!(0.0), min: Some(-360.0), max: Some(360.0), options: vec![], unit: String::new(), show: Default::default() }).collect()
 }
 
 /// The most fields the script of an importer may add to the form.
@@ -624,7 +624,7 @@ fn param_of(m: &Map) -> Result<ParamDef, String> {
         (Some(d), _) => serde_json::Value::String(d.clone().into_string().map_err(|_| "the default must be a text")?.chars().take(1000).collect()),
     };
     let options: Vec<String> = m.get("options").and_then(|o| o.clone().try_cast::<Array>()).map(|a| a.iter().filter_map(|o| o.clone().into_string().ok()).map(|s| s.chars().take(200).collect()).collect()).unwrap_or_default();
-    Ok(ParamDef { id: text_of(m, "id"), label: text_of(m, "label"), kind, default, min: m.get("min").and_then(num), max: m.get("max").and_then(num), options, unit: text_of(m, "unit") })
+    Ok(ParamDef { id: text_of(m, "id"), label: text_of(m, "label"), kind, default, min: m.get("min").and_then(num), max: m.get("max").and_then(num), options, unit: text_of(m, "unit"), show: Default::default() })
 }
 
 /// The values of a form as the script gets them: numbers (limited to min and max), bools, texts and choices.

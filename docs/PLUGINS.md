@@ -88,6 +88,9 @@ look at a new postprocessor's output before you run it on a machine.
 ]
 ```
 
+A field can be shown only for some choices: `"show": { "kind": ["a", "b"] }` (parameter id → the options that show it; all
+entries must fit, the choice has to come before the field). A hidden field still gives its value to the script.
+
 The script gets the values in the map `p` (`p.count`, `p.centre`, …). Numbers are always floats and limited to `min` /
 `max`; use `p.count.to_int()` for a loop. `id`s are letters, digits, `-` and `_` (so `p.my_value`; avoid words that are
 keywords in Rhai, such as `module`, `import`, `private`).

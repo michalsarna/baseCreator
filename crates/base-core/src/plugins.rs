@@ -141,6 +141,16 @@ pub struct ParamDef {
     /// Shown after the number: `mm`, `°`, ...
     #[serde(default)]
     pub unit: String,
+    /// The field is shown only when every listed choice (`parameter id → options`) has one of its options set; empty: always.
+    #[serde(default)]
+    pub show: BTreeMap<String, Vec<String>>,
+}
+
+impl ParamDef {
+    /// Does the form with these values show this field?
+    pub fn shown(&self, values: &serde_json::Map<String, serde_json::Value>) -> bool {
+        self.show.iter().all(|(id, opts)| values.get(id).and_then(|v| v.as_str()).is_some_and(|v| opts.iter().any(|o| o == v)))
+    }
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]

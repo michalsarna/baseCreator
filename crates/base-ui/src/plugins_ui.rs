@@ -548,6 +548,9 @@ pub fn form_ui(ui: &mut egui::Ui, id: &str, registry: &Registry, params: &[base_
     let mut changed = false;
     egui::Grid::new(id).num_columns(2).spacing([10.0, 6.0]).show(ui, |ui| {
         for p in params {
+            if !p.shown(values) {
+                continue;
+            }
             ui.label(pt(registry, if p.label.is_empty() { &p.id } else { &p.label }));
             match p.kind {
                 ParamKind::Number => {
