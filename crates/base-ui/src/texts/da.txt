@@ -669,3 +669,12 @@
 668|Forfra
 669|Bagfra
 670|Træk i modellen for at dreje den. Konturerne nedenfor er dens visning.
+671|G-code-fremviser
+672|Nulstil visning
+673|Vis forflytninger
+674|Farv efter højde
+675|skærelængde
+676|{} bevægelser
+677|Træk: roter · højre træk eller Skift+træk: flyt · hjul: zoom
+678|Træk: flyt · hjul: zoom
+679|Kunne ikke åbne: {}

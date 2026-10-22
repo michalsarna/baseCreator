@@ -669,3 +669,12 @@
 668|Priekis
 669|Galas
 670|Tempkite modelį, kad jį pasuktumėte. Žemiau esantys kontūrai yra jo vaizdas.
+671|G-kodo peržiūra
+672|Atstatyti vaizdą
+673|Rodyti tuščiosios eigos judesius
+674|Spalva pagal aukštį
+675|pjūvio ilgis
+676|Judesių: {}
+677|Tempti: sukti · tempti dešiniuoju arba Shift+tempti: perstumti · ratukas: keisti mastelį
+678|Tempti: perstumti · ratukas: keisti mastelį
+679|Nepavyko atverti: {}

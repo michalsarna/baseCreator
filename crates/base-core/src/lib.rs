@@ -11,6 +11,7 @@ pub mod control;
 pub mod diag;
 pub mod fillet;
 pub mod firmware;
+pub mod gcode_view;
 pub mod geom;
 pub mod grbl_codes;
 pub mod grbl_settings;

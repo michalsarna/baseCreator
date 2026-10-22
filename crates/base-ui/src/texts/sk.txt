@@ -669,3 +669,12 @@
 668|Spredu
 669|Zozadu
 670|Potiahnutím model otočíte. Obrysy nižšie sú jeho pohľad.
+671|Prehliadač G-code
+672|Obnoviť pohľad
+673|Zobraziť presuny
+674|Farba podľa výšky
+675|dĺžka rezu
+676|Pohybov: {}
+677|Ťahanie: otáčanie · pravé tlačidlo alebo Shift+ťahanie: posun · koliesko: zoom
+678|Ťahanie: posun · koliesko: zoom
+679|Otvorenie zlyhalo: {}

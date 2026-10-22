@@ -669,3 +669,12 @@
 668|Spredaj
 669|Zadaj
 670|Povlecite model, da ga zasukate. Obrisi spodaj so njegov pogled.
+671|Pregledovalnik G-code
+672|Ponastavi pogled
+673|Pokaži prazne premike
+674|Barva po višini
+675|dolžina reza
+676|Gibov: {}
+677|Povleci: vrti · desni gumb ali Shift+povleci: premakni · kolesce: povečava
+678|Povleci: premakni · kolesce: povečava
+679|Odpiranje ni uspelo: {}

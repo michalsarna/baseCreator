@@ -669,3 +669,12 @@
 668|Eest
 669|Tagant
 670|Mudeli pööramiseks lohista seda. Allolevad kontuurid on selle vaade.
+671|G-koodi vaatur
+672|Lähtesta vaade
+673|Näita tühikäigu liikumisi
+674|Värvi kõrguse järgi
+675|lõike pikkus
+676|Liikumisi: {}
+677|Lohista: pööra · parem lohistamine või Shift+lohistamine: liiguta · ratas: suum
+678|Lohista: liiguta · ratas: suum
+679|Avamine ebaõnnestus: {}

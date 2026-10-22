@@ -14,6 +14,7 @@ pub mod device_pages;
 pub mod dialogs;
 pub mod editor;
 pub mod firmware_ui;
+pub mod gcode_view_ui;
 pub mod fonts;
 pub mod i18n;
 pub mod icons;

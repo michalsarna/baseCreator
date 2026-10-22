@@ -669,3 +669,12 @@
 668|Frente
 669|Trás
 670|Arraste o modelo para o rodar. Os contornos abaixo são a sua vista.
+671|Visualizador de G-code
+672|Repor vista
+673|Mostrar deslocações em vazio
+674|Colorir por altura
+675|comprimento de corte
+676|{} movimentos
+677|Arrastar: rodar · arrastar com o botão direito ou Shift+arrastar: mover · roda: zoom
+678|Arrastar: mover · roda: zoom
+679|Falha ao abrir: {}

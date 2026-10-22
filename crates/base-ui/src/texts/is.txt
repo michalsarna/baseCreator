@@ -669,3 +669,12 @@
 668|Framan
 669|Aftan
 670|Dragðu líkanið til að snúa því. Útlínurnar fyrir neðan eru sýn þess.
+671|G-kóða skoðari
+672|Endurstilla sýn
+673|Sýna tómagangshreyfingar
+674|Lita eftir hæð
+675|skurðlengd
+676|Hreyfingar: {}
+677|Draga: snúa · hægri draga eða Shift+draga: færa · hjól: aðdráttur
+678|Draga: færa · hjól: aðdráttur
+679|Ekki tókst að opna: {}

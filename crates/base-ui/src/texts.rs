@@ -676,6 +676,15 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Front", "Przód", "Vorne", "Fronte", "Edestä", "正面", "सामने"],
     ["Back", "Tył", "Hinten", "Retro", "Takaa", "背面", "पीछे"],
     ["Drag the model to turn it. The outlines below are what its view gives.", "Przeciągnij model, aby go obrócić. Poniższe kontury to jego widok z wybranej strony.", "Ziehe das Modell, um es zu drehen. Die Umrisse darunter zeigen seine Ansicht.", "Trascina il modello per ruotarlo. I contorni qui sotto sono la sua vista.", "Käännä mallia vetämällä. Alla olevat ääriviivat ovat mallin näkymä.", "拖动模型进行旋转。下方轮廓即为该视角下的结果。", "मॉडल को घुमाने के लिए खींचें। नीचे की रूपरेखाएँ उसके दृश्य से बनी हैं।"],
+    ["G-code viewer", "Podgląd G-code", "G-Code-Ansicht", "Visualizzatore G-code", "G-koodin katselu", "G 代码查看器", "G-कोड व्यूअर"],
+    ["Reset view", "Resetuj widok", "Ansicht zurücksetzen", "Reimposta vista", "Palauta näkymä", "重置视图", "दृश्य रीसेट करें"],
+    ["Show travel moves", "Pokaż przejazdy", "Leerfahrten anzeigen", "Mostra gli spostamenti", "Näytä siirtoliikkeet", "显示空走移动", "यात्रा गतियाँ दिखाएँ"],
+    ["Colour by height", "Kolor według wysokości", "Nach Höhe färben", "Colora per altezza", "Väritä korkeuden mukaan", "按高度着色", "ऊँचाई के अनुसार रंग"],
+    ["cut length", "długość cięcia", "Schnittlänge", "lunghezza taglio", "leikkauspituus", "切割长度", "कट लंबाई"],
+    ["{} moves", "{} ruchów", "{} Bewegungen", "{} movimenti", "{} liikettä", "{} 个移动", "{} गतियाँ"],
+    ["Drag: rotate · right drag or Shift+drag: move · wheel: zoom", "Przeciągnij: obrót · prawy przycisk lub Shift+przeciągnij: przesuwanie · kółko: zoom", "Ziehen: drehen · rechts ziehen oder Umschalt+Ziehen: verschieben · Rad: zoomen", "Trascina: ruota · trascina col tasto destro o Maiusc+trascina: sposta · rotella: zoom", "Vedä: kierrä · oikea painike tai Vaihto+veto: siirrä · rulla: zoomaa", "拖动：旋转 · 右键拖动或 Shift+拖动：平移 · 滚轮：缩放", "ड्रैग: घुमाएँ · राइट-ड्रैग या Shift+ड्रैग: खिसकाएँ · व्हील: ज़ूम"],
+    ["Drag: move · wheel: zoom", "Przeciągnij: przesuwanie · kółko: zoom", "Ziehen: verschieben · Rad: zoomen", "Trascina: sposta · rotella: zoom", "Vedä: siirrä · rulla: zoomaa", "拖动：平移 · 滚轮：缩放", "ड्रैग: खिसकाएँ · व्हील: ज़ूम"],
+    ["Open failed: {}", "Nie udało się otworzyć: {}", "Öffnen fehlgeschlagen: {}", "Apertura non riuscita: {}", "Avaus epäonnistui: {}", "打开失败：{}", "खोलना विफल: {}"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

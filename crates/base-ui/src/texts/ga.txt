@@ -669,3 +669,12 @@
 668|Tosach
 669|Cúl
 670|Tarraing an tsamhail chun í a chasadh. Is iad na cruthanna thíos a radharc.
+671|Amharcán G-code
+672|Athshocraigh an radharc
+673|Taispeáin gluaiseachtaí folamha
+674|Dathaigh de réir airde
+675|fad gearrtha
+676|Gluaiseachtaí: {}
+677|Tarraing: rothlaigh · tarraing dheas nó Shift+tarraing: bog · rotha: súmáil
+678|Tarraing: bog · rotha: súmáil
+679|Theip ar an oscailt: {}
