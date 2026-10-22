@@ -1021,6 +1021,30 @@ fn view3d_ui(ui: &mut egui::Ui, height: f32, m: &mut Model3d) -> bool {
     let painter = ui.painter_at(rect);
     painter.rect_filled(rect, 4.0, theme::panel_dark());
     m.paint(&painter, rect);
+    // The navigation cube. A click on it is a new view at once; a drag on it is one when it ends (the outlines are made again then).
+    let basis = base_core::mesh::view_rot(m.yaw, m.pitch).map(|row| row.map(|v| v as f32));
+    let dragged_id = ui.scope_id().with("navicube_dragged");
+    let nav = crate::navicube::show(ui, rect, &basis);
+    let down = ui.input(|i| i.pointer.any_down());
+    match nav {
+        Some(crate::navicube::Nav::LookFrom(d)) => {
+            let (y, p) = crate::navicube::yaw_pitch(d, m.yaw.to_radians() as f32);
+            (m.yaw, m.pitch) = (wrap_deg((y as f64).to_degrees()), wrap_deg((p as f64).to_degrees()));
+            if down {
+                ui.data_mut(|data| data.insert_temp(dragged_id, true));
+            } else {
+                chosen = true;
+            }
+        }
+        Some(crate::navicube::Nav::Home) => {
+            (m.yaw, m.pitch) = (0.0, 0.0);
+            chosen = true;
+        }
+        None => {}
+    }
+    if !down && ui.data_mut(|data| data.remove_temp::<bool>(dragged_id)).unwrap_or(false) {
+        chosen = true;
+    }
     chosen
 }
 
