@@ -669,3 +669,12 @@
 668|Framifrån
 669|Bakifrån
 670|Dra i modellen för att vrida den. Konturerna nedan är dess vy.
+671|G-code-visare
+672|Återställ vyn
+673|Visa förflyttningar
+674|Färglägg efter höjd
+675|skärlängd
+676|{} rörelser
+677|Dra: rotera · högerdra eller Skift+dra: flytta · hjul: zooma
+678|Dra: flytta · hjul: zooma
+679|Kunde inte öppna: {}

@@ -669,3 +669,12 @@
 668|Elölről
 669|Hátulról
 670|Húzd a modellt a forgatáshoz. Az alábbi körvonalak a nézetét adják.
+671|G-kód megjelenítő
+672|Nézet visszaállítása
+673|Üresjárati mozgások megjelenítése
+674|Színezés magasság szerint
+675|vágási hossz
+676|{} mozgás
+677|Húzás: forgatás · jobb gombos húzás vagy Shift+húzás: mozgatás · görgő: nagyítás
+678|Húzás: mozgatás · görgő: nagyítás
+679|A megnyitás nem sikerült: {}

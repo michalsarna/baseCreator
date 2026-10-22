@@ -669,3 +669,12 @@
 668|Față
 669|Spate
 670|Trage modelul pentru a-l roti. Contururile de mai jos sunt vederea lui.
+671|Vizualizator G-code
+672|Resetează vizualizarea
+673|Arată deplasările în gol
+674|Colorează după înălțime
+675|lungime de tăiere
+676|{} mișcări
+677|Trage: rotește · trage cu clic dreapta sau Shift+trage: mută · rotiță: zoom
+678|Trage: mută · rotiță: zoom
+679|Deschiderea a eșuat: {}

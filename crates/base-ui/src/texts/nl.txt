@@ -669,3 +669,12 @@
 668|Voor
 669|Achter
 670|Sleep het model om het te draaien. De contouren hieronder zijn het beeld ervan.
+671|G-codeviewer
+672|Weergave herstellen
+673|Verplaatsingen tonen
+674|Kleuren op hoogte
+675|snijlengte
+676|{} bewegingen
+677|Slepen: draaien · rechts slepen of Shift+slepen: verschuiven · wiel: zoomen
+678|Slepen: verschuiven · wiel: zoomen
+679|Openen mislukt: {}

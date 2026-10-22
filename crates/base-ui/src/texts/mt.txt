@@ -669,3 +669,12 @@
 668|Quddiem
 669|Wara
 670|Kaxkar il-mudell biex iddawru. Il-kontorni hawn taħt huma l-veduta tiegħu.
+671|Werrej tal-G-code
+672|Irrisettja l-veduta
+673|Uri l-movimenti vojta
+674|Ilwien skont l-għoli
+675|tul tal-qtugħ
+676|Movimenti: {}
+677|Kaxkar: dawwar · kaxkar bil-lemin jew Shift+kaxkar: ċaqlaq · rota: zoom
+678|Kaxkar: ċaqlaq · rota: zoom
+679|L-ftuħ falla: {}

@@ -669,3 +669,12 @@
 668|Foran
 669|Bakfra
 670|Dra modellen for å dreie den. Konturene under er visningen av den.
+671|G-code-visning
+672|Tilbakestill visning
+673|Vis forflytninger
+674|Farge etter høyde
+675|skjærelengde
+676|{} bevegelser
+677|Dra: roter · høyredra eller Shift+dra: flytt · hjul: zoom
+678|Dra: flytt · hjul: zoom
+679|Kunne ikke åpne: {}

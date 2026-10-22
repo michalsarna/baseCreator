@@ -669,3 +669,12 @@
 668|Priekšā
 669|Aizmugurē
 670|Velciet modeli, lai to pagrieztu. Zemāk redzamie kontūri ir tā skats.
+671|G-koda skatītājs
+672|Atiestatīt skatu
+673|Rādīt tukšgaitas pārvietojumus
+674|Krāsot pēc augstuma
+675|griezuma garums
+676|Kustības: {}
+677|Velciet: griezt · velciet ar labo pogu vai Shift+velciet: pārvietot · ritenītis: tālummaiņa
+678|Velciet: pārvietot · ritenītis: tālummaiņa
+679|Neizdevās atvērt: {}

@@ -669,3 +669,12 @@
 668|Face
 669|Dos
 670|Faites glisser le modèle pour le tourner. Les contours ci-dessous sont sa vue.
+671|Visionneuse G-code
+672|Réinitialiser la vue
+673|Afficher les déplacements à vide
+674|Colorer par hauteur
+675|longueur de coupe
+676|{} mouvements
+677|Glisser : tourner · glisser avec le bouton droit ou Maj+glisser : déplacer · molette : zoom
+678|Glisser : déplacer · molette : zoom
+679|Échec de l'ouverture : {}

@@ -669,3 +669,12 @@
 668|Sprijeda
 669|Straga
 670|Povucite model da ga zakrenete. Obrisi ispod njegov su prikaz.
+671|Preglednik G-codea
+672|Vrati pogled
+673|Prikaži prazne pomake
+674|Boja prema visini
+675|duljina reza
+676|Kretanja: {}
+677|Povuci: zakreni · desni gumb ili Shift+povuci: pomakni · kotačić: zoom
+678|Povuci: pomakni · kotačić: zoom
+679|Otvaranje nije uspjelo: {}

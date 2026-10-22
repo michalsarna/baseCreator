@@ -669,3 +669,12 @@
 668	Front
 669	Back
 670	Drag the model to turn it. The outlines below are what its view gives.
+671	G-code viewer
+672	Reset view
+673	Show travel moves
+674	Colour by height
+675	cut length
+676	{} moves
+677	Drag: rotate · right drag or Shift+drag: move · wheel: zoom
+678	Drag: move · wheel: zoom
+679	Open failed: {}

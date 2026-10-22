@@ -669,3 +669,12 @@
 668|Frente
 669|Atrás
 670|Arrastra el modelo para girarlo. Los contornos de abajo son su vista.
+671|Visor de G-code
+672|Restablecer vista
+673|Mostrar desplazamientos en vacío
+674|Colorear por altura
+675|longitud de corte
+676|{} movimientos
+677|Arrastrar: girar · arrastrar con el botón derecho o Mayús+arrastrar: mover · rueda: zoom
+678|Arrastrar: mover · rueda: zoom
+679|Error al abrir: {}
