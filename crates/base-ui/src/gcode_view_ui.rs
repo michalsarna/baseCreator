@@ -164,7 +164,7 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
         let d = resp.drag_delta();
         if v.tp.is_3d && !shift && !secondary {
             v.cam.yaw -= d.x * 0.01;
-            v.cam.pitch = (v.cam.pitch + d.y * 0.01).clamp(0.0, std::f32::consts::FRAC_PI_2);
+            v.cam.pitch = (v.cam.pitch + d.y * 0.01).clamp(0.0, std::f32::consts::PI);
         } else {
             v.cam.pan += d;
         }
@@ -232,6 +232,15 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
         shapes.push(Shape::line_segment([v.project([0.0; 3], centre, scale), v.project(d, centre, scale)], Stroke::new(1.5, col)));
     }
     painter.extend(shapes);
+    // The navigation cube (a flat file has nothing to turn).
+    if v.tp.is_3d {
+        let basis = crate::navicube::basis_of(v.cam.yaw, v.cam.pitch);
+        match crate::navicube::show(ui, rect, &basis) {
+            Some(crate::navicube::Nav::LookFrom(d)) => (v.cam.yaw, v.cam.pitch) = crate::navicube::yaw_pitch(d, v.cam.yaw),
+            Some(crate::navicube::Nav::Home) => v.cam = Cam::home(true),
+            None => {}
+        }
+    }
     if close {
         return false;
     }

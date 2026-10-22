@@ -24,6 +24,7 @@ pub mod link;
 pub mod machine_ctl;
 pub mod markdown_ui;
 pub mod menu;
+pub mod navicube;
 pub mod playback;
 pub mod plugins_ui;
 #[cfg(target_os = "macos")]
