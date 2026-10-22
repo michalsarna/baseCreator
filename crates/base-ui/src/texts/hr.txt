@@ -678,3 +678,4 @@
 677|Povuci: zakreni · desni gumb ili Shift+povuci: pomakni · kotačić: zoom
 678|Povuci: pomakni · kotačić: zoom
 679|Otvaranje nije uspjelo: {}
+680|Prikaži G-code datoteku…

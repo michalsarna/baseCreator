@@ -685,6 +685,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Drag: rotate · right drag or Shift+drag: move · wheel: zoom", "Przeciągnij: obrót · prawy przycisk lub Shift+przeciągnij: przesuwanie · kółko: zoom", "Ziehen: drehen · rechts ziehen oder Umschalt+Ziehen: verschieben · Rad: zoomen", "Trascina: ruota · trascina col tasto destro o Maiusc+trascina: sposta · rotella: zoom", "Vedä: kierrä · oikea painike tai Vaihto+veto: siirrä · rulla: zoomaa", "拖动：旋转 · 右键拖动或 Shift+拖动：平移 · 滚轮：缩放", "ड्रैग: घुमाएँ · राइट-ड्रैग या Shift+ड्रैग: खिसकाएँ · व्हील: ज़ूम"],
     ["Drag: move · wheel: zoom", "Przeciągnij: przesuwanie · kółko: zoom", "Ziehen: verschieben · Rad: zoomen", "Trascina: sposta · rotella: zoom", "Vedä: siirrä · rulla: zoomaa", "拖动：平移 · 滚轮：缩放", "ड्रैग: खिसकाएँ · व्हील: ज़ूम"],
     ["Open failed: {}", "Nie udało się otworzyć: {}", "Öffnen fehlgeschlagen: {}", "Apertura non riuscita: {}", "Avaus epäonnistui: {}", "打开失败：{}", "खोलना विफल: {}"],
+    ["View G-code file…", "Pokaż plik G-code…", "G-Code-Datei ansehen…", "Visualizza file G-code…", "Näytä G-koodi-tiedosto…", "查看 G 代码文件…", "G-कोड फ़ाइल देखें…"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -678,3 +678,4 @@
 677|Lohista: pööra · parem lohistamine või Shift+lohistamine: liiguta · ratas: suum
 678|Lohista: liiguta · ratas: suum
 679|Avamine ebaõnnestus: {}
+680|Vaata G-koodi faili…

@@ -678,3 +678,4 @@
 677|Tarraing: rothlaigh · tarraing dheas nó Shift+tarraing: bog · rotha: súmáil
 678|Tarraing: bog · rotha: súmáil
 679|Theip ar an oscailt: {}
+680|Féach ar chomhad G-code…

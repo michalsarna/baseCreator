@@ -678,3 +678,4 @@
 677|Ťahanie: otáčanie · pravé tlačidlo alebo Shift+ťahanie: posun · koliesko: zoom
 678|Ťahanie: posun · koliesko: zoom
 679|Otvorenie zlyhalo: {}
+680|Zobraziť súbor G-code…

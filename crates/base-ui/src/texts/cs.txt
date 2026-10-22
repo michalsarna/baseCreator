@@ -678,3 +678,4 @@
 677|Tažení: otáčení · pravé tlačítko nebo Shift+tažení: posun · kolečko: zoom
 678|Tažení: posun · kolečko: zoom
 679|Otevření se nezdařilo: {}
+680|Zobrazit soubor G-code…

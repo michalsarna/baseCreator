@@ -678,3 +678,4 @@
 677|Draga: snúa · hægri draga eða Shift+draga: færa · hjól: aðdráttur
 678|Draga: færa · hjól: aðdráttur
 679|Ekki tókst að opna: {}
+680|Skoða G-kóða skrá…

@@ -678,3 +678,4 @@
 677	Drag: rotate · right drag or Shift+drag: move · wheel: zoom
 678	Drag: move · wheel: zoom
 679	Open failed: {}
+680	View G-code file…

@@ -678,3 +678,4 @@
 677|Arrastrar: girar · arrastrar con el botón derecho o Mayús+arrastrar: mover · rueda: zoom
 678|Arrastrar: mover · rueda: zoom
 679|Error al abrir: {}
+680|Ver archivo G-code…

@@ -678,3 +678,4 @@
 677|Kaxkar: dawwar · kaxkar bil-lemin jew Shift+kaxkar: ċaqlaq · rota: zoom
 678|Kaxkar: ċaqlaq · rota: zoom
 679|L-ftuħ falla: {}
+680|Ara fajl G-code…
