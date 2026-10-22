@@ -286,7 +286,8 @@ fn pt(reg: &Registry, s: &str) -> String {
 /// How tall a list in the window may be: a part of the screen. (A list that asks for "all the height there is" makes a window
 /// grow by the spacing under it on every frame, up to the height of the screen.)
 fn list_height(ui: &egui::Ui) -> f32 {
-    (ui.ctx().content_rect().height() * 0.55).max(200.0)
+    // The window is 600 points high to start with and about 260 of that is above the list: a taller list makes it grow.
+    (ui.ctx().content_rect().height() * 0.55).clamp(150.0, 330.0)
 }
 
 fn open_folder(dir: &Path) {
