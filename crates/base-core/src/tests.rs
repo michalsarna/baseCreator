@@ -624,3 +624,17 @@ fn illustrator_layers_are_kept_on_the_outlines() {
     // Without layers nothing is named.
     assert!(pdf::parse(&tiny_pdf("0 0 m 5 5 l S")).unwrap()[0].layer.is_none());
 }
+
+#[test]
+fn an_importer_extension_may_have_an_underscore() {
+    let manifest = |ext: &str| -> crate::plugins::Manifest {
+        serde_json::from_value(serde_json::json!({
+            "format": 1, "id": "x", "name": "X", "version": "1.0.0", "author": "a", "license": "MIT", "description": "d",
+            "importers": [{ "id": "i", "name": "I", "extensions": [ext], "script": "read.rhai" }]
+        }))
+        .unwrap()
+    };
+    assert!(manifest("kicad_pcb").check().is_ok());
+    assert!(manifest("kicad pcb").check().is_err());
+    assert!(manifest("../x").check().is_err());
+}
