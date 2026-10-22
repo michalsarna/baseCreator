@@ -312,8 +312,8 @@ impl Manifest {
                 return Err(format!("importer {:?}: .{e} is read by the program itself", i.id));
             }
             check_params(&format!("importer {:?}", i.id), &i.params)?;
-            if i.name.trim().is_empty() || i.extensions.is_empty() || i.extensions.iter().any(|e| e.is_empty() || e.len() > 16 || !e.chars().all(|c| c.is_ascii_alphanumeric())) {
-                return Err(format!("importer {:?}: needs a name and extensions (letters and digits)", i.id));
+            if i.name.trim().is_empty() || i.extensions.is_empty() || i.extensions.iter().any(|e| e.is_empty() || e.len() > 16 || !e.chars().all(|c| c.is_ascii_alphanumeric() || c == '_')) {
+                return Err(format!("importer {:?}: needs a name and extensions (letters, digits and _)", i.id));
             }
         }
         for g in &self.generators {
