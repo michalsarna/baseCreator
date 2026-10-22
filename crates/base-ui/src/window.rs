@@ -231,6 +231,15 @@ pub fn popup<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open
     popup_with(ctx, id, title, size, open, |_| {}, add)
 }
 
+/// Is the pointer over a window, a menu or another layer above the panels (and no button held)? The edge of a resizable panel
+/// must not light up and take the drag then: the person is pointing at the window that covers it.
+pub fn pointer_over_window(ctx: &egui::Context) -> bool {
+    if ctx.input(|i| i.pointer.any_down()) {
+        return false;
+    }
+    ctx.pointer_hover_pos().and_then(|p| ctx.layer_id_at(p)).is_some_and(|l| l.order != egui::Order::Background)
+}
+
 /// Like [`popup`], with icon buttons (or other small widgets) in the title line, next to the close button. They are added right
 /// to left: the first one is the one at the right.
 pub fn popup_with<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open: &mut bool, tools: impl FnOnce(&mut egui::Ui), add: impl FnOnce(&mut egui::Ui) -> R) -> Option<R> {
