@@ -134,7 +134,7 @@ pub fn visible(places: &[Place], b: &Basis) -> Vec<(usize, Vec<Vec2>, f32)> {
     let mut out: Vec<(usize, Vec<Vec2>, f32)> = vec![];
     for (i, p) in places.iter().enumerate() {
         let d = to_view(b, p.dir);
-        if d[2] <= 0.02 {
+        if d[2] <= 0.08 {
             continue;
         }
         let pts = p.corners.iter().map(|c| to_view(b, *c)).map(|v| Vec2::new(v[0], -v[1])).collect();
