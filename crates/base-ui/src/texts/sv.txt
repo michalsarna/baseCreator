@@ -678,3 +678,4 @@
 677|Dra: rotera · högerdra eller Skift+dra: flytta · hjul: zooma
 678|Dra: flytta · hjul: zooma
 679|Kunde inte öppna: {}
+680|Visa G-code-fil…

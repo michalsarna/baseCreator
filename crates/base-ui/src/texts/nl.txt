@@ -678,3 +678,4 @@
 677|Slepen: draaien · rechts slepen of Shift+slepen: verschuiven · wiel: zoomen
 678|Slepen: verschuiven · wiel: zoomen
 679|Openen mislukt: {}
+680|G-codebestand bekijken…

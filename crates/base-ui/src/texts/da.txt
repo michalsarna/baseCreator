@@ -678,3 +678,4 @@
 677|Træk: roter · højre træk eller Skift+træk: flyt · hjul: zoom
 678|Træk: flyt · hjul: zoom
 679|Kunne ikke åbne: {}
+680|Vis G-code-fil…

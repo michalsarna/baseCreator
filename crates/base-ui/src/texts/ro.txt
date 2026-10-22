@@ -678,3 +678,4 @@
 677|Trage: rotește · trage cu clic dreapta sau Shift+trage: mută · rotiță: zoom
 678|Trage: mută · rotiță: zoom
 679|Deschiderea a eșuat: {}
+680|Vizualizează un fișier G-code…

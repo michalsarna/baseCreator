@@ -678,3 +678,4 @@
 677|Velciet: griezt · velciet ar labo pogu vai Shift+velciet: pārvietot · ritenītis: tālummaiņa
 678|Velciet: pārvietot · ritenītis: tālummaiņa
 679|Neizdevās atvērt: {}
+680|Skatīt G-koda failu…

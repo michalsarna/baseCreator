@@ -678,3 +678,4 @@
 677|Arrossega: gira · arrossega amb el botó dret o Maj+arrossega: mou · roda: zoom
 678|Arrossega: mou · roda: zoom
 679|No s'ha pogut obrir: {}
+680|Mostra un fitxer G-code…

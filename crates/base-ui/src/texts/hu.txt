@@ -678,3 +678,4 @@
 677|Húzás: forgatás · jobb gombos húzás vagy Shift+húzás: mozgatás · görgő: nagyítás
 678|Húzás: mozgatás · görgő: nagyítás
 679|A megnyitás nem sikerült: {}
+680|G-kód fájl megtekintése…

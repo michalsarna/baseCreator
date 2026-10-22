@@ -678,3 +678,4 @@
 677|Tempti: sukti · tempti dešiniuoju arba Shift+tempti: perstumti · ratukas: keisti mastelį
 678|Tempti: perstumti · ratukas: keisti mastelį
 679|Nepavyko atverti: {}
+680|Peržiūrėti G-kodo failą…

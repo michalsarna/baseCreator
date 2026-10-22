@@ -678,3 +678,4 @@
 677|Dra: roter · høyredra eller Shift+dra: flytt · hjul: zoom
 678|Dra: flytt · hjul: zoom
 679|Kunne ikke åpne: {}
+680|Vis G-code-fil…

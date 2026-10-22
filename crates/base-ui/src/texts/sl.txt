@@ -678,3 +678,4 @@
 677|Povleci: vrti · desni gumb ali Shift+povleci: premakni · kolesce: povečava
 678|Povleci: premakni · kolesce: povečava
 679|Odpiranje ni uspelo: {}
+680|Prikaži datoteko G-code…

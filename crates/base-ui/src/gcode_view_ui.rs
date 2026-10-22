@@ -8,6 +8,9 @@ use base_core::gcode_view::{self, Toolpath};
 use egui::{Color32, Pos2, Rect, Sense, Shape, Stroke, Vec2};
 use std::path::{Path, PathBuf};
 
+/// The label of the menu entry that opens a file into the viewer (the same in all programs).
+pub const MENU_VIEW: &str = "View G-code file…";
+
 /// Extensions that are taken for G-code when a file is opened or dropped.
 pub const EXTENSIONS: [&str; 7] = ["gcode", "nc", "gc", "gco", "ngc", "tap", "cnc"];
 

@@ -678,3 +678,4 @@
 677|Glisser : tourner · glisser avec le bouton droit ou Maj+glisser : déplacer · molette : zoom
 678|Glisser : déplacer · molette : zoom
 679|Échec de l'ouverture : {}
+680|Afficher un fichier G-code…
