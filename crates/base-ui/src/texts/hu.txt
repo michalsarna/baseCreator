@@ -687,3 +687,8 @@
 686|Új lap
 687|Lap bezárása
 688|Legfeljebb {} lap lehet nyitva.
+689|Alaphelyzet
+690|Folytatás
+691|Illesztés a munkaterülethez (Ctrl+Shift+0)
+692|Illesztés az összes objektumhoz (Ctrl+Shift+9)
+693|Vezérlés

@@ -687,3 +687,8 @@
 686|Nieuw tabblad
 687|Tabblad sluiten
 688|Er kunnen maximaal {} tabbladen open zijn.
+689|Home
+690|Hervatten
+691|Werkgebied passen (Ctrl+Shift+0)
+692|Alle objecten passen (Ctrl+Shift+9)
+693|Besturing

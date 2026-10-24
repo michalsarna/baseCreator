@@ -687,3 +687,8 @@
 686|Nová karta
 687|Zavřít kartu
 688|Lze otevřít nejvýše {} karet.
+689|Domů
+690|Pokračovat
+691|Přizpůsobit pracovní ploše (Ctrl+Shift+0)
+692|Přizpůsobit všem objektům (Ctrl+Shift+9)
+693|Ovládání

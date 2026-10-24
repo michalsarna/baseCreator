@@ -687,3 +687,8 @@
 686|Jauna cilne
 687|Aizvērt cilni
 688|Var atvērt ne vairāk kā {} cilnes.
+689|Sākums
+690|Turpināt
+691|Pielāgot darba apgabalam (Ctrl+Shift+0)
+692|Pielāgot visiem objektiem (Ctrl+Shift+9)
+693|Vadība

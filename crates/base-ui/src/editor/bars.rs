@@ -60,7 +60,7 @@ pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option
             }
             let ink = theme::text();
             let mut act = None;
-            for (a, icon, tip) in [(StdAct::FitBed, "scan", tr("Fit work area (Ctrl+0)")), (StdAct::FitAll, "expand", tr("Fit all objects (Ctrl+9)"))] {
+            for (a, icon, tip) in [(StdAct::FitBed, "scan", tr("Fit work area (Ctrl+Shift+0)")), (StdAct::FitAll, "expand", tr("Fit all objects (Ctrl+Shift+9)"))] {
                 let (rect, resp) = ui.allocate_exact_size(egui::vec2(36.0, 36.0), egui::Sense::click());
                 if resp.hovered() {
                     ui.painter().rect_filled(rect, 6.0, theme::panel_dark());

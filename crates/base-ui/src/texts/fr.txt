@@ -687,3 +687,8 @@
 686|Nouvel onglet
 687|Fermer l'onglet
 688|Au maximum {} onglets peuvent être ouverts.
+689|Origine
+690|Reprendre
+691|Ajuster à la zone de travail (Ctrl+Shift+0)
+692|Ajuster à tous les objets (Ctrl+Shift+9)
+693|Contrôle

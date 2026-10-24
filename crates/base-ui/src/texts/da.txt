@@ -687,3 +687,8 @@
 686|Ny fane
 687|Luk fane
 688|Der kan højst være {} faner åbne.
+689|Hjem
+690|Genoptag
+691|Tilpas til arbejdsområdet (Ctrl+Shift+0)
+692|Tilpas til alle objekter (Ctrl+Shift+9)
+693|Styring

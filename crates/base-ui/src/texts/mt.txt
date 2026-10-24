@@ -687,3 +687,8 @@
 686|Tab ġdid
 687|Agħlaq it-tab
 688|Jistgħu jinfetħu l-aktar {} tabs.
+689|Dar
+690|Kompli
+691|Adatta maż-żona tax-xogħol (Ctrl+Shift+0)
+692|Adatta mal-oġġetti kollha (Ctrl+Shift+9)
+693|Kontroll

@@ -687,3 +687,8 @@
 686|Pestanya nova
 687|Tanca la pestanya
 688|Es poden obrir com a màxim {} pestanyes.
+689|Inici
+690|Reprèn
+691|Ajusta a l'àrea de treball (Ctrl+Shift+0)
+692|Ajusta a tots els objectes (Ctrl+Shift+9)
+693|Control

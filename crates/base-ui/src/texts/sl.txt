@@ -687,3 +687,8 @@
 686|Nov zavihek
 687|Zapri zavihek
 688|Odprtih je lahko največ {} zavihkov.
+689|Domov
+690|Nadaljuj
+691|Prilagodi delovnemu območju (Ctrl+Shift+0)
+692|Prilagodi vsem predmetom (Ctrl+Shift+9)
+693|Upravljanje

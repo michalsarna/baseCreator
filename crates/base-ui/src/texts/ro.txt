@@ -687,3 +687,8 @@
 686|Filă nouă
 687|Închide fila
 688|Pot fi deschise cel mult {} file.
+689|Acasă
+690|Reia
+691|Potrivește la zona de lucru (Ctrl+Shift+0)
+692|Potrivește la toate obiectele (Ctrl+Shift+9)
+693|Control

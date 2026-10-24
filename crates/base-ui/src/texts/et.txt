@@ -687,3 +687,8 @@
 686|Uus vaheleht
 687|Sulge vaheleht
 688|Avada saab kuni {} vahelehte.
+689|Algasend
+690|Jätka
+691|Sobita tööalaga (Ctrl+Shift+0)
+692|Sobita kõigi objektidega (Ctrl+Shift+9)
+693|Juhtimine

@@ -687,3 +687,8 @@
 686|Novo separador
 687|Fechar separador
 688|No máximo {} separadores podem estar abertos.
+689|Origem
+690|Retomar
+691|Ajustar à área de trabalho (Ctrl+Shift+0)
+692|Ajustar a todos os objetos (Ctrl+Shift+9)
+693|Controlo

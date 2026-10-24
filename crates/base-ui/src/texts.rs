@@ -694,6 +694,11 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["New tab", "Nowa karta", "Neuer Tab", "Nuova scheda", "Uusi välilehti", "新建标签页", "नया टैब"],
     ["Close tab", "Zamknij kartę", "Tab schließen", "Chiudi scheda", "Sulje välilehti", "关闭标签页", "टैब बंद करें"],
     ["At most {} tabs can be open.", "Można otworzyć najwyżej {} kart.", "Es können höchstens {} Tabs geöffnet sein.", "Si possono aprire al massimo {} schede.", "Enintään {} välilehteä voi olla auki.", "最多只能打开 {} 个标签页。", "अधिकतम {} टैब खुले रह सकते हैं।"],
+    ["Home", "Bazuj", "Referenzfahrt", "Home", "Kotiutus", "回零", "होम"],
+    ["Resume", "Wznów", "Fortsetzen", "Riprendi", "Jatka", "继续", "फिर शुरू करें"],
+    ["Fit work area (Ctrl+Shift+0)", "Dopasuj obszar roboczy (Ctrl+Shift+0)", "Arbeitsbereich einpassen (Strg+Umschalt+0)", "Adatta l'area di lavoro (Ctrl+Shift+0)", "Sovita työalue (Ctrl+Shift+0)", "适应工作区域 (Ctrl+Shift+0)", "कार्य क्षेत्र फ़िट करें (Ctrl+Shift+0)"],
+    ["Fit all objects (Ctrl+Shift+9)", "Dopasuj do wszystkich obiektów (Ctrl+Shift+9)", "Alle Objekte einpassen (Strg+Umschalt+9)", "Adatta a tutti gli oggetti (Ctrl+Shift+9)", "Sovita kaikki kohteet (Ctrl+Shift+9)", "适应所有对象 (Ctrl+Shift+9)", "सभी ऑब्जेक्ट फ़िट करें (Ctrl+Shift+9)"],
+    ["Control", "Sterowanie", "Steuerung", "Controllo", "Ohjaus", "控制", "नियंत्रण"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
