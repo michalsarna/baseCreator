@@ -106,6 +106,31 @@ pub fn tab_bar(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize) -> Option<Tab
     action
 }
 
+/// What a tab shortcut asks for.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TabKey {
+    /// Show the tab with this index (Ctrl+1 … Ctrl+9 are the tabs 1 … 9, Ctrl+0 the tenth).
+    Select(usize),
+    /// Close the shown tab (Ctrl+W), asking when it has unsaved work.
+    Close,
+}
+
+/// The digit keys in the order of the tabs: 1 … 9, then 0.
+const DIGITS: [egui::Key; MAX_TABS] = [egui::Key::Num1, egui::Key::Num2, egui::Key::Num3, egui::Key::Num4, egui::Key::Num5, egui::Key::Num6, egui::Key::Num7, egui::Key::Num8, egui::Key::Num9, egui::Key::Num0];
+
+/// Ctrl+digit (Cmd on a Mac) shows a tab, Ctrl+W closes the shown one. Nothing while a field has the keyboard.
+pub fn shortcut(ctx: &egui::Context) -> Option<TabKey> {
+    if ctx.egui_wants_keyboard_input() {
+        return None;
+    }
+    ctx.input_mut(|i| {
+        if i.consume_key(egui::Modifiers::COMMAND, egui::Key::W) {
+            return Some(TabKey::Close);
+        }
+        DIGITS.iter().position(|k| i.consume_key(egui::Modifiers::COMMAND, *k)).map(TabKey::Select)
+    })
+}
+
 /// What the person answered when asked about a tab with unsaved work.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Answer {
@@ -326,6 +351,24 @@ mod tests {
         assert_eq!(free_slot(&[]), 0);
         assert_eq!(free_slot(&[0, 1, 3]), 2);
         assert_eq!(free_slot(&[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), 0, "never happens: the tabs are at most ten");
+    }
+
+    #[test]
+    fn ctrl_digits_pick_the_tabs_and_ctrl_w_closes() {
+        let ctx = egui::Context::default();
+        let press = |key: egui::Key, mods: egui::Modifiers| {
+            let input = egui::RawInput { events: vec![egui::Event::Key { key, physical_key: Some(key), pressed: true, repeat: false, modifiers: mods }], ..Default::default() };
+            let mut got = None;
+            let mut out = ctx.run_ui(input, |_| got = shortcut(&ctx));
+            out.textures_delta.clear();
+            got
+        };
+        assert_eq!(press(egui::Key::Num1, egui::Modifiers::COMMAND), Some(TabKey::Select(0)));
+        assert_eq!(press(egui::Key::Num9, egui::Modifiers::COMMAND), Some(TabKey::Select(8)));
+        assert_eq!(press(egui::Key::Num0, egui::Modifiers::COMMAND), Some(TabKey::Select(9)));
+        assert_eq!(press(egui::Key::W, egui::Modifiers::COMMAND), Some(TabKey::Close));
+        assert_eq!(press(egui::Key::Num1, egui::Modifiers::NONE), None, "a digit alone is not a shortcut");
+        assert_eq!(press(egui::Key::W, egui::Modifiers::NONE), None);
     }
 
     #[test]

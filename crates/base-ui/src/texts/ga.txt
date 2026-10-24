@@ -687,3 +687,8 @@
 686|Cluaisín nua
 687|Dún an cluaisín
 688|Is féidir {} cluaisín ar a mhéad a oscailt.
+689|Baile
+690|Lean ar aghaidh
+691|Oiriúnaigh don limistéar oibre (Ctrl+Shift+0)
+692|Oiriúnaigh do gach réad (Ctrl+Shift+9)
+693|Rialú

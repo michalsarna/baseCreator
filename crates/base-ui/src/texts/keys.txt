@@ -687,3 +687,8 @@
 686	New tab
 687	Close tab
 688	At most {} tabs can be open.
+689	Home
+690	Resume
+691	Fit work area (Ctrl+Shift+0)
+692	Fit all objects (Ctrl+Shift+9)
+693	Control

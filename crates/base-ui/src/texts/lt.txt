@@ -687,3 +687,8 @@
 686|Nauja kortelė
 687|Uždaryti kortelę
 688|Galima atidaryti daugiausia {} kortelių.
+689|Pradžia
+690|Tęsti
+691|Pritaikyti prie darbo srities (Ctrl+Shift+0)
+692|Pritaikyti prie visų objektų (Ctrl+Shift+9)
+693|Valdymas

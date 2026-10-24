@@ -687,3 +687,8 @@
 686|Ny flik
 687|Stäng fliken
 688|Högst {} flikar kan vara öppna.
+689|Hem
+690|Fortsätt
+691|Anpassa till arbetsytan (Ctrl+Shift+0)
+692|Anpassa till alla objekt (Ctrl+Shift+9)
+693|Styrning

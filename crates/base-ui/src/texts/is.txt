@@ -687,3 +687,8 @@
 686|Nýr flipi
 687|Loka flipa
 688|Hægt er að hafa í mesta lagi {} flipa opna.
+689|Heim
+690|Halda áfram
+691|Laga að vinnusvæði (Ctrl+Shift+0)
+692|Laga að öllum hlutum (Ctrl+Shift+9)
+693|Stjórnun

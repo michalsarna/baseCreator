@@ -400,8 +400,8 @@ pub mod std_entries {
         vec![
             Item(StdAct::ZoomIn, "Zoom in", key("CmdOrCtrl+=", "Ctrl++")),
             Item(StdAct::ZoomOut, "Zoom out", key("CmdOrCtrl+-", "Ctrl+-")),
-            Item(StdAct::FitBed, "Fit bed to window", key("CmdOrCtrl+0", "Ctrl+0")),
-            Item(StdAct::FitAll, "Fit all objects", key("CmdOrCtrl+9", "Ctrl+9")),
+            Item(StdAct::FitBed, "Fit bed to window", key("CmdOrCtrl+Shift+0", "Ctrl+Shift+0")),
+            Item(StdAct::FitAll, "Fit all objects", key("CmdOrCtrl+Shift+9", "Ctrl+Shift+9")),
             Item(StdAct::ToggleAutoFit, "Auto-fit work area to window", None),
         ]
     }

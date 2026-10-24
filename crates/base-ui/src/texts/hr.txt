@@ -687,3 +687,8 @@
 686|Nova kartica
 687|Zatvori karticu
 688|Može biti otvoreno najviše {} kartica.
+689|Početak
+690|Nastavi
+691|Prilagodi radnom području (Ctrl+Shift+0)
+692|Prilagodi svim objektima (Ctrl+Shift+9)
+693|Upravljanje

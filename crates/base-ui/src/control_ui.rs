@@ -58,6 +58,162 @@ pub struct ControlCtx<'a> {
     pub travel: [f64; 3],
     /// Show the spindle section (a machine with a spindle).
     pub spindle: Option<SpindleCtx>,
+    /// The buttons that move the work zero: Zero all, X0 Y0 Z0, typing a position, the coordinate system. A program whose
+    /// jobs count from the machine's zero shows the positions and leaves these out.
+    pub zeroing: bool,
+    /// The machine has a Z axis (the Z rows, the Z buttons and the lift before a move go with it).
+    pub z_axis: bool,
+    /// Hold to move works (it needs the jog cancel of GRBL).
+    pub hold_to_move: bool,
+}
+
+/// What the Control tab needs from the machine it drives: the `Machine` of the programs that stream a GRBL job themselves,
+/// and the laser of LightCreator, which has its own controllers and limits behind the same buttons.
+pub trait ControlTarget {
+    fn connected(&self) -> bool;
+    /// The state word of the last report (`Idle`, `Run`, `Alarm`…); empty when unknown.
+    fn state(&self) -> String;
+    /// The firmware, when it is known (`Grbl 1.1h`).
+    fn fw_label(&self) -> Option<String>;
+    fn alarm_code(&self) -> Option<u32>;
+    fn is_alarm(&self) -> bool;
+    fn wpos(&self) -> [f64; 3];
+    fn mpos(&self) -> [f64; 3];
+    fn pins(&self) -> String;
+    fn wcs(&self) -> u8;
+    /// A job is on and not at a pause: the machine must not be moved by hand.
+    fn busy(&self) -> bool;
+    fn keyboard_jog(&self) -> bool;
+    fn set_keyboard_jog(&mut self, on: bool);
+    /// The work position of the axes (`G10 L20`).
+    fn set_position(&mut self, values: &[(Axis, f64)]);
+    /// One relative move: x and y count Y up towards the back, as the pad does.
+    fn jog(&mut self, dx: f64, dy: f64, dz: f64, feed: f64);
+    fn cancel_jog(&mut self);
+    fn unlock(&mut self);
+    fn select_wcs(&mut self, n: u8);
+    fn lines(&mut self, ls: Vec<String>);
+    fn line(&mut self, l: String);
+    fn run_macro(&mut self, code: &str, safe_z: f64, job_box: Option<([f64; 3], [f64; 3])>) -> Result<usize, String>;
+    fn probe_closed(&self) -> bool;
+    fn last_probe(&self) -> Option<([f64; 3], bool)>;
+    fn probe(&mut self, c: &Control, axis: Axis, dir: i8, tool_diameter: f64) -> Result<(), String>;
+    fn spindle_s(&self, rpm: f64, max_rpm: f64) -> f64;
+}
+
+impl ControlTarget for Machine {
+    fn connected(&self) -> bool {
+        self.connected
+    }
+    fn state(&self) -> String {
+        self.state.clone()
+    }
+    fn fw_label(&self) -> Option<String> {
+        self.fw.info.is_known().then(|| self.fw.info.label())
+    }
+    fn alarm_code(&self) -> Option<u32> {
+        self.alarm
+    }
+    fn is_alarm(&self) -> bool {
+        Machine::is_alarm(self)
+    }
+    fn wpos(&self) -> [f64; 3] {
+        self.wpos
+    }
+    fn mpos(&self) -> [f64; 3] {
+        self.mpos
+    }
+    fn pins(&self) -> String {
+        self.pins.clone()
+    }
+    fn wcs(&self) -> u8 {
+        self.wcs
+    }
+    fn busy(&self) -> bool {
+        (self.job_running() || self.job_active()) && self.barrier.is_none()
+    }
+    fn keyboard_jog(&self) -> bool {
+        self.keyboard_jog
+    }
+    fn set_keyboard_jog(&mut self, on: bool) {
+        self.keyboard_jog = on;
+    }
+    fn set_position(&mut self, values: &[(Axis, f64)]) {
+        Machine::set_position(self, values)
+    }
+    fn jog(&mut self, dx: f64, dy: f64, dz: f64, feed: f64) {
+        Machine::jog(self, dx, dy, dz, feed)
+    }
+    fn cancel_jog(&mut self) {
+        Machine::cancel_jog(self)
+    }
+    fn unlock(&mut self) {
+        Machine::unlock(self)
+    }
+    fn select_wcs(&mut self, n: u8) {
+        Machine::select_wcs(self, n)
+    }
+    fn lines(&mut self, ls: Vec<String>) {
+        Machine::lines(self, ls)
+    }
+    fn line(&mut self, l: String) {
+        Machine::line(self, l)
+    }
+    fn run_macro(&mut self, code: &str, safe_z: f64, job_box: Option<([f64; 3], [f64; 3])>) -> Result<usize, String> {
+        Machine::run_macro(self, code, safe_z, job_box)
+    }
+    fn probe_closed(&self) -> bool {
+        Machine::probe_closed(self)
+    }
+    fn last_probe(&self) -> Option<([f64; 3], bool)> {
+        self.probe
+    }
+    fn probe(&mut self, c: &Control, axis: Axis, dir: i8, tool_diameter: f64) -> Result<(), String> {
+        Machine::probe(self, c, axis, dir, tool_diameter)
+    }
+    fn spindle_s(&self, rpm: f64, max_rpm: f64) -> f64 {
+        Machine::spindle_s(self, rpm, max_rpm)
+    }
+}
+
+/// What the four quick buttons ask for.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Quick {
+    Home,
+    Unlock,
+    Pause,
+    Resume,
+}
+
+/// Home, Unlock, Pause and Resume in a block of 2 × 2, each with an icon of its own colour (Home blue, Unlock red, Pause
+/// orange, Resume green). The same in the Device tab and at the top of the Control tab of every program. `moves` says that
+/// Home and Unlock may be used now (connected, no job), `link` that Pause and Resume may (connected).
+pub fn quick_buttons(ui: &mut Ui, moves: bool, link: bool) -> Option<Quick> {
+    use crate::window::{NEW_BLUE, OPEN_ORANGE, SAVE_GREEN};
+    let mut hit = None;
+    let width = ((ui.available_width() - ui.spacing().item_spacing.x) / 2.0).max(90.0);
+    let items = [
+        (Quick::Home, "house", NEW_BLUE, tr("Home"), moves, None),
+        (Quick::Unlock, "lock-open", Color32::from_rgb(0xc0, 0x30, 0x30), tr("Unlock"), moves, Some(tr("Clear an alarm ($X)"))),
+        (Quick::Pause, "pause", OPEN_ORANGE, tr("Pause"), link, Some(tr("Feed hold"))),
+        (Quick::Resume, "play", SAVE_GREEN, tr("Resume"), link, None),
+    ];
+    egui::Grid::new("quick_buttons").num_columns(2).spacing([ui.spacing().item_spacing.x, 4.0]).show(ui, |ui| {
+        for (i, (what, icon, ink, text, on, tooltip)) in items.into_iter().enumerate() {
+            let b = egui::Button::image_and_text(crate::icons::slot(Some(icon), if on { ink } else { ink.gamma_multiply(0.45) }), RichText::new(text).size(15.0));
+            let mut r = ui.add_enabled(on, b.min_size(egui::vec2(width, 32.0)));
+            if let Some(t) = tooltip {
+                r = r.on_hover_text(t).on_disabled_hover_text(t);
+            }
+            if r.clicked() {
+                hit = Some(what);
+            }
+            if i % 2 == 1 {
+                ui.end_row();
+            }
+        }
+    });
+    hit
 }
 
 const AXES: [(Axis, &str); 3] = [(Axis::X, "X"), (Axis::Y, "Y"), (Axis::Z, "Z")];
@@ -100,9 +256,9 @@ fn section_break(ui: &mut Ui) {
 }
 
 /// Draw the tab. Returns a line for the status bar when something was refused or went wrong.
-pub fn panel(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Option<String> {
+pub fn panel(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlCtx) -> Option<String> {
     let mut say = None;
-    let on = m.connected;
+    let on = m.connected();
     ui.add_enabled_ui(on, |ui| {
         say = body(ui, m, st, c);
     });
@@ -113,23 +269,24 @@ pub fn panel(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -
     say
 }
 
-fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Option<String> {
+fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlCtx) -> Option<String> {
     let mut say = None;
     // At a pause of the job (a change of the bit) the machine is free to be moved, probed and zeroed.
-    let busy = (m.job_running() || m.job_active()) && m.barrier.is_none();
+    let busy = m.busy();
+    let (wpos, mpos) = (m.wpos(), m.mpos());
     // ---- state ----
     ui.horizontal_wrapped(|ui| {
         let alarm = m.is_alarm();
-        let state = if m.state.is_empty() { "–".to_string() } else { m.state.clone() };
+        let state = if m.state().is_empty() { "–".to_string() } else { m.state() };
         ui.label(RichText::new(state).strong().size(17.0).color(if alarm { Color32::from_rgb(0xc0, 0x30, 0x30) } else { theme::text() }));
-        if m.fw.info.is_known() {
-            ui.label(RichText::new(m.fw.info.label()).color(theme::text_dim()));
+        if let Some(fw) = m.fw_label() {
+            ui.label(RichText::new(fw).color(theme::text_dim()));
         }
         if alarm && tip(ui.button(tr("Unlock")), &tr("Clear an alarm ($X)")).clicked() {
             m.unlock();
         }
     });
-    if let Some(code) = m.alarm.filter(|c| *c > 0) {
+    if let Some(code) = m.alarm_code().filter(|c| *c > 0) {
         if let Some(t) = base_core::grbl_codes::alarm(code) {
             ui.label(RichText::new(trf("Alarm {}: {}", &[&code, &tr(t)])).color(Color32::from_rgb(0xc0, 0x30, 0x30)));
         }
@@ -146,11 +303,18 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
         ui.label(RichText::new(tr("Machine")).color(theme::text_dim()));
         ui.end_row();
         for (i, (axis, name)) in AXES.iter().enumerate() {
-            if tip(ui.add_enabled(!busy, egui::Button::new(RichText::new(format!("{name}0")).size(16.0)).min_size(egui::vec2(46.0, 32.0))), &tr("The tool is here: make this the zero of the work")).clicked() {
+            if i == 2 && !c.z_axis {
+                continue;
+            }
+            if !c.zeroing {
+                ui.label("");
+            } else if tip(ui.add_enabled(!busy, egui::Button::new(RichText::new(format!("{name}0")).size(16.0)).min_size(egui::vec2(46.0, 32.0))), &tr("The tool is here: make this the zero of the work")).clicked() {
                 m.set_position(&[(*axis, 0.0)]);
             }
             ui.label(RichText::new(*name).strong().size(24.0));
-            if st.edit.as_ref().is_some_and(|e| e.0 == i) {
+            if !c.zeroing {
+                ui.label(RichText::new(fmt_pos(wpos[i])).font(egui::FontId::monospace(24.0)));
+            } else if st.edit.as_ref().is_some_and(|e| e.0 == i) {
                 let (_, text) = st.edit.as_mut().unwrap();
                 let r = ui.add(egui::TextEdit::singleline(text).desired_width(120.0).font(egui::FontId::monospace(22.0)));
                 r.request_focus();
@@ -165,22 +329,27 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
                     st.edit = None;
                 }
             } else if ui
-                .add(egui::Button::new(RichText::new(fmt_pos(m.wpos[i])).font(egui::FontId::monospace(24.0))).frame(false))
+                .add(egui::Button::new(RichText::new(fmt_pos(wpos[i])).font(egui::FontId::monospace(24.0))).frame(false))
                 .on_hover_text(tr("Click to type the position of the tool in the work coordinates"))
                 .clicked()
             {
-                st.edit = Some((i, if m.wpos[i].is_finite() { format!("{:.3}", m.wpos[i]) } else { "0".into() }));
+                st.edit = Some((i, if wpos[i].is_finite() { format!("{:.3}", wpos[i]) } else { "0".into() }));
             }
-            ui.label(RichText::new(fmt_pos(m.mpos[i])).font(egui::FontId::monospace(17.0)).color(theme::text_dim()));
+            ui.label(RichText::new(fmt_pos(mpos[i])).font(egui::FontId::monospace(17.0)).color(theme::text_dim()));
             ui.end_row();
         }
     });
     section_break(ui);
 
     // ---- the zero of the work and the ways to it ----
+    if c.zeroing {
     ui.horizontal_wrapped(|ui| {
         if ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Zero all")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
-            m.set_position(&[(Axis::X, 0.0), (Axis::Y, 0.0), (Axis::Z, 0.0)]);
+            let mut all = vec![(Axis::X, 0.0), (Axis::Y, 0.0)];
+            if c.z_axis {
+                all.push((Axis::Z, 0.0));
+            }
+            m.set_position(&all);
         }
         if ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Zero X and Y")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
             m.set_position(&[(Axis::X, 0.0), (Axis::Y, 0.0)]);
@@ -188,19 +357,26 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
     });
     ui.horizontal_wrapped(|ui| {
         if tip(ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Go to X0 Y0")).size(15.0)).min_size(egui::vec2(0.0, 32.0))), &tr("Lift to the safe height, then go to the work zero")).clicked() {
-            m.lines([format!("G90 G0 Z{}", c.safe_z), "G90 G0 X0 Y0".to_string()]);
+            let mut go = vec![];
+            if c.z_axis {
+                go.push(format!("G90 G0 Z{}", c.safe_z));
+            }
+            go.push("G90 G0 X0 Y0".to_string());
+            m.lines(go);
         }
-        if ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Z to safe height")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
-            m.lines([format!("G90 G0 Z{}", c.safe_z)]);
+        if c.z_axis && ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Z to safe height")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
+            m.lines(vec![format!("G90 G0 Z{}", c.safe_z)]);
         }
     });
     section_break(ui);
+    }
 
     // ---- the coordinate system ----
+    if c.zeroing {
     ui.horizontal_wrapped(|ui| {
         ui.label(RichText::new(tr("Coordinates")).color(theme::text_dim()));
         let names = ["G54", "G55", "G56", "G57", "G58", "G59"];
-        let mut wcs = m.wcs.clamp(1, 6) as usize - 1;
+        let mut wcs = m.wcs().clamp(1, 6) as usize - 1;
         egui::ComboBox::from_id_salt("wcs").selected_text(names[wcs]).width(70.0).show_ui(ui, |ui| {
             for (i, n) in names.iter().enumerate() {
                 if ui.selectable_value(&mut wcs, i, *n).clicked() {
@@ -209,8 +385,10 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
             }
         });
     });
-    if !m.pins.is_empty() {
-        ui.label(RichText::new(trf("Inputs active: {}", &[&pins_text(&m.pins)])).small().color(theme::text_dim()));
+    }
+    let pins = m.pins();
+    if !pins.is_empty() {
+        ui.label(RichText::new(trf("Inputs active: {}", &[&pins_text(&pins)])).small().color(theme::text_dim()));
     }
     section_break(ui);
 
@@ -241,7 +419,9 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
         });
     };
     pick(ui, "XY", &mut st.xy_text, &xy_steps);
-    pick(ui, "Z", &mut st.z_text, &z_steps);
+    if c.z_axis {
+        pick(ui, "Z", &mut st.z_text, &z_steps);
+    }
     let step_xy = parse_step(&st.xy_text).unwrap_or(1.0);
     let step_z = parse_step(&st.z_text).unwrap_or(1.0);
     section_break(ui);
@@ -260,9 +440,11 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
     ui.horizontal_wrapped(|ui| {
         ui.label(RichText::new("XY").strong());
         ui.add(egui::DragValue::new(&mut feed_xy).range(1.0..=100_000.0).speed(50.0).suffix(" mm/min"));
-        ui.add_space(10.0);
-        ui.label(RichText::new("Z").strong());
-        ui.add(egui::DragValue::new(&mut feed_z).range(1.0..=100_000.0).speed(10.0).suffix(" mm/min"));
+        if c.z_axis {
+            ui.add_space(10.0);
+            ui.label(RichText::new("Z").strong());
+            ui.add(egui::DragValue::new(&mut feed_z).range(1.0..=100_000.0).speed(10.0).suffix(" mm/min"));
+        }
     });
     if feed_xy != cfg.0 {
         st.feed_xy = Some(feed_xy);
@@ -274,6 +456,9 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
 
     // ---- the big jog buttons, in the middle ----
     let mut want: Option<[i8; 3]> = None;
+    if !c.hold_to_move {
+        st.continuous = false;
+    }
     let continuous = st.continuous;
     ui.add_enabled_ui(!busy, |ui| {
         let grid_w = 3.0 * JOG[0] + 2.0 * 3.0;
@@ -292,6 +477,7 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
                     m.jog(d[0] as f64 * step_xy, d[1] as f64 * step_xy, 0.0, feed_xy);
                 }
             }
+            if c.z_axis {
             ui.add_space(14.0);
             ui.vertical(|ui| {
                 ui.spacing_mut().item_spacing.y = 3.0;
@@ -305,6 +491,7 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
                     }
                 }
             });
+            }
         });
     });
     // Hold to move: short moves one after the other while the button is down, a jog cancel when it is let go.
@@ -315,15 +502,20 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
     }
     ui.add_space(4.0);
     ui.horizontal_wrapped(|ui| {
-        tip(ui.checkbox(&mut st.continuous, tr("Hold to move")), &tr("Instead of one step per click, the tool moves while the button is held down"));
-        tip(ui.checkbox(&mut m.keyboard_jog, tr("Keyboard")), &tr("Arrow keys move X and Y, Page Up and Page Down move Z, by the step chosen above. Off by default: the arrows also move the selected shapes."));
+        if c.hold_to_move {
+            tip(ui.checkbox(&mut st.continuous, tr("Hold to move")), &tr("Instead of one step per click, the tool moves while the button is held down"));
+        }
+        let mut kb = m.keyboard_jog();
+        tip(ui.checkbox(&mut kb, tr("Keyboard")), &tr("Arrow keys move X and Y, Page Up and Page Down move Z, by the step chosen above. Off by default: the arrows also move the selected shapes."));
+        m.set_keyboard_jog(kb);
     });
-    if m.keyboard_jog && !ui.ctx().egui_wants_keyboard_input() {
+    if m.keyboard_jog() && !ui.ctx().egui_wants_keyboard_input() {
         let (dx, dy, dz) = ui.input(|i| {
             let k = |key| i.key_pressed(key) as i8;
             (k(egui::Key::ArrowRight) - k(egui::Key::ArrowLeft), k(egui::Key::ArrowUp) - k(egui::Key::ArrowDown), k(egui::Key::PageUp) - k(egui::Key::PageDown))
         });
         if (dx, dy, dz) != (0, 0, 0) && !busy {
+            let dz = if c.z_axis { dz } else { 0 };
             m.jog(dx as f64 * step_xy, dy as f64 * step_xy, dz as f64 * step_z, if dz != 0 { feed_z } else { feed_xy });
         }
     }
@@ -339,10 +531,11 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
             ui.add(egui::DragValue::new(&mut rpm).range(0.0..=1_000_000.0).speed(100.0).suffix(" rpm"));
             let go = tip(ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Switch on")).size(15.0)).min_size(egui::vec2(0.0, 32.0))), &tr("Switches the spindle on to try it (M3 S…) and off again (M5). A job does this by itself."));
             if go.clicked() {
-                m.line(format!("M3 S{}", fmt_num(m.spindle_s(rpm, sp.max_rpm))));
+                let s_value = fmt_num(m.spindle_s(rpm, sp.max_rpm));
+                m.line(format!("M3 S{s_value}"));
             }
             if ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Switch off")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
-                m.line("M5");
+                m.line("M5".to_string());
             }
         });
         st.spindle_rpm = Some(rpm);
@@ -368,7 +561,7 @@ fn body(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, c: &ControlCtx) -> Opt
                 }
             }
         });
-        if let Some((p, touched)) = m.probe {
+        if let Some((p, touched)) = m.last_probe() {
             ui.label(
                 RichText::new(trf("Last probe: X {} Y {} Z {} ({})", &[&fmt_pos(p[0]), &fmt_pos(p[1]), &fmt_pos(p[2]), &if touched { tr("touched") } else { tr("no contact") }])).small().color(theme::text_dim()),
             );
@@ -474,7 +667,7 @@ fn jog_button(ui: &mut Ui, what: &str, dir: [i8; 3], continuous: bool, accent: O
     hit.then_some(dir)
 }
 
-fn drive_hold(ui: &mut Ui, m: &mut Machine, st: &mut ControlUi, want: Option<[i8; 3]>, feed_xy: f64, feed_z: f64) {
+fn drive_hold(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, want: Option<[i8; 3]>, feed_xy: f64, feed_z: f64) {
     match want {
         Some(d) => {
             let due = st.last_segment.map_or(true, |t| t.elapsed() >= Duration::from_millis(120));
@@ -520,6 +713,9 @@ mod tests {
             probe: true,
             travel: [300.0, 200.0, 40.0],
             spindle: Some(SpindleCtx { min_rpm: 1000.0, max_rpm: 24000.0 }),
+            zeroing: true,
+            z_axis: true,
+            hold_to_move: true,
         };
         for connected in [false, true] {
             m.connected = connected;
