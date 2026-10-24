@@ -262,6 +262,11 @@ impl Machine {
         self.job.is_some()
     }
 
+    /// The machine is at work: a job (also while it waits at a pause), a jog, homing or a held move.
+    pub fn working(&self) -> bool {
+        self.job_running() || self.job_active() || matches!(self.state.split(':').next().unwrap_or(""), "Run" | "Hold" | "Jog" | "Home")
+    }
+
     pub fn checking(&self) -> bool {
         self.job.as_ref().is_some_and(|j| j.check)
     }

@@ -176,6 +176,13 @@ impl ControlTarget for Machine {
     }
 }
 
+/// The wide red STOP button of the Control tab. Only live while the machine is working (`enabled`); returns true when pressed.
+pub fn stop_button(ui: &mut Ui, enabled: bool) -> bool {
+    let fill = if enabled { Color32::from_rgb(0xc0, 0x30, 0x30) } else { Color32::from_rgb(0xc0, 0x30, 0x30).gamma_multiply(0.35) };
+    let b = egui::Button::new(RichText::new(tr("STOP")).color(Color32::WHITE).strong()).fill(fill);
+    ui.add_enabled_ui(enabled, |ui| ui.add_sized([ui.available_width(), 40.0], b)).inner.clicked()
+}
+
 /// What the four quick buttons ask for.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Quick {
@@ -343,20 +350,21 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
 
     // ---- the zero of the work and the ways to it ----
     if c.zeroing {
-    ui.horizontal_wrapped(|ui| {
-        if ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Zero all")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
+    let half = ((ui.available_width() - ui.spacing().item_spacing.x) / 2.0).max(60.0);
+    let big = |t: String| egui::Button::new(RichText::new(t).size(15.0)).min_size(egui::vec2(half, 32.0));
+    egui::Grid::new("zero_grid").num_columns(2).show(ui, |ui| {
+        if ui.add_enabled(!busy, big(tr("Zero all").to_string())).clicked() {
             let mut all = vec![(Axis::X, 0.0), (Axis::Y, 0.0)];
             if c.z_axis {
                 all.push((Axis::Z, 0.0));
             }
             m.set_position(&all);
         }
-        if ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Zero X and Y")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
+        if ui.add_enabled(!busy, big(tr("Zero X and Y").to_string())).clicked() {
             m.set_position(&[(Axis::X, 0.0), (Axis::Y, 0.0)]);
         }
-    });
-    ui.horizontal_wrapped(|ui| {
-        if tip(ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Go to X0 Y0")).size(15.0)).min_size(egui::vec2(0.0, 32.0))), &tr("Lift to the safe height, then go to the work zero")).clicked() {
+        ui.end_row();
+        if tip(ui.add_enabled(!busy, big(tr("Go to X0 Y0").to_string())), &tr("Lift to the safe height, then go to the work zero")).clicked() {
             let mut go = vec![];
             if c.z_axis {
                 go.push(format!("G90 G0 Z{}", c.safe_z));
@@ -364,9 +372,10 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
             go.push("G90 G0 X0 Y0".to_string());
             m.lines(go);
         }
-        if c.z_axis && ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Z to safe height")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
+        if c.z_axis && ui.add_enabled(!busy, big(tr("Z to safe height").to_string())).clicked() {
             m.lines(vec![format!("G90 G0 Z{}", c.safe_z)]);
         }
+        ui.end_row();
     });
     section_break(ui);
     }
@@ -435,25 +444,6 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
     }
     let mut feed_xy = st.feed_xy.unwrap_or(cfg.0);
     let mut feed_z = st.feed_z.unwrap_or(cfg.1);
-    heading(ui, &tr("Speed"));
-    ui.add_space(2.0);
-    ui.horizontal_wrapped(|ui| {
-        ui.label(RichText::new("XY").strong());
-        ui.add(egui::DragValue::new(&mut feed_xy).range(1.0..=100_000.0).speed(50.0).suffix(" mm/min"));
-        if c.z_axis {
-            ui.add_space(10.0);
-            ui.label(RichText::new("Z").strong());
-            ui.add(egui::DragValue::new(&mut feed_z).range(1.0..=100_000.0).speed(10.0).suffix(" mm/min"));
-        }
-    });
-    if feed_xy != cfg.0 {
-        st.feed_xy = Some(feed_xy);
-    }
-    if feed_z != cfg.1 {
-        st.feed_z = Some(feed_z);
-    }
-    section_break(ui);
-
     // ---- the big jog buttons, in the middle ----
     let mut want: Option<[i8; 3]> = None;
     if !c.hold_to_move {
@@ -520,25 +510,24 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
         }
     }
 
-    // ---- the spindle ----
-    if let Some(sp) = c.spindle {
-        section_break(ui);
-        heading(ui, &tr("Spindle"));
-        ui.add_space(2.0);
-        let mut rpm = st.spindle_rpm.unwrap_or((sp.max_rpm * 0.5).max(sp.min_rpm));
-        ui.horizontal_wrapped(|ui| {
-            ui.label(RichText::new(tr("Spindle speed")).color(theme::text_dim()));
-            ui.add(egui::DragValue::new(&mut rpm).range(0.0..=1_000_000.0).speed(100.0).suffix(" rpm"));
-            let go = tip(ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Switch on")).size(15.0)).min_size(egui::vec2(0.0, 32.0))), &tr("Switches the spindle on to try it (M3 S…) and off again (M5). A job does this by itself."));
-            if go.clicked() {
-                let s_value = fmt_num(m.spindle_s(rpm, sp.max_rpm));
-                m.line(format!("M3 S{s_value}"));
-            }
-            if ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Switch off")).size(15.0)).min_size(egui::vec2(0.0, 32.0))).clicked() {
-                m.line("M5".to_string());
-            }
-        });
-        st.spindle_rpm = Some(rpm);
+    // ---- the speed of a move ----
+    section_break(ui);
+    heading(ui, &tr("Speed"));
+    ui.add_space(2.0);
+    ui.horizontal_wrapped(|ui| {
+        ui.label(RichText::new("XY").strong());
+        ui.add(egui::DragValue::new(&mut feed_xy).range(1.0..=100_000.0).speed(50.0).suffix(" mm/min"));
+        if c.z_axis {
+            ui.add_space(10.0);
+            ui.label(RichText::new("Z").strong());
+            ui.add(egui::DragValue::new(&mut feed_z).range(1.0..=100_000.0).speed(10.0).suffix(" mm/min"));
+        }
+    });
+    if feed_xy != cfg.0 {
+        st.feed_xy = Some(feed_xy);
+    }
+    if feed_z != cfg.1 {
+        st.feed_z = Some(feed_z);
     }
 
     // ---- the probe ----
@@ -566,6 +555,30 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
                 RichText::new(trf("Last probe: X {} Y {} Z {} ({})", &[&fmt_pos(p[0]), &fmt_pos(p[1]), &fmt_pos(p[2]), &if touched { tr("touched") } else { tr("no contact") }])).small().color(theme::text_dim()),
             );
         }
+    }
+
+    // ---- the spindle ----
+    if let Some(sp) = c.spindle {
+        section_break(ui);
+        heading(ui, &tr("Spindle"));
+        ui.add_space(2.0);
+        let mut rpm = st.spindle_rpm.unwrap_or((sp.max_rpm * 0.5).max(sp.min_rpm));
+        ui.horizontal_wrapped(|ui| {
+            ui.label(RichText::new(tr("Spindle speed")).color(theme::text_dim()));
+            ui.add(egui::DragValue::new(&mut rpm).range(0.0..=1_000_000.0).speed(100.0).suffix(" rpm"));
+        });
+        let half = ((ui.available_width() - ui.spacing().item_spacing.x) / 2.0).max(60.0);
+        egui::Grid::new("spindle_switch").num_columns(2).show(ui, |ui| {
+            let go = tip(ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Switch on")).size(15.0)).min_size(egui::vec2(half, 32.0))), &tr("Switches the spindle on to try it (M3 S…) and off again (M5). A job does this by itself."));
+            if go.clicked() {
+                let s_value = fmt_num(m.spindle_s(rpm, sp.max_rpm));
+                m.line(format!("M3 S{s_value}"));
+            }
+            if ui.add_enabled(!busy, egui::Button::new(RichText::new(tr("Switch off")).size(15.0)).min_size(egui::vec2(half, 32.0))).clicked() {
+                m.line("M5".to_string());
+            }
+        });
+        st.spindle_rpm = Some(rpm);
     }
 
     // ---- macros ----

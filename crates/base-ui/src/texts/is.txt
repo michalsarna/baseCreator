@@ -692,3 +692,4 @@
 691|Laga að vinnusvæði (Ctrl+Shift+0)
 692|Laga að öllum hlutum (Ctrl+Shift+9)
 693|Stjórnun
+694|STOPP

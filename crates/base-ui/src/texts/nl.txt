@@ -692,3 +692,4 @@
 691|Werkgebied passen (Ctrl+Shift+0)
 692|Alle objecten passen (Ctrl+Shift+9)
 693|Besturing
+694|STOP

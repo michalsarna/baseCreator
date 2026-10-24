@@ -692,3 +692,4 @@
 691|Ajusta a l'àrea de treball (Ctrl+Shift+0)
 692|Ajusta a tots els objectes (Ctrl+Shift+9)
 693|Control
+694|ATURA

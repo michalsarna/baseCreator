@@ -692,3 +692,4 @@
 691|Pritaikyti prie darbo srities (Ctrl+Shift+0)
 692|Pritaikyti prie visų objektų (Ctrl+Shift+9)
 693|Valdymas
+694|STOP
