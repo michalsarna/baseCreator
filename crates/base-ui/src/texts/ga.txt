@@ -692,3 +692,4 @@
 691|Oiriúnaigh don limistéar oibre (Ctrl+Shift+0)
 692|Oiriúnaigh do gach réad (Ctrl+Shift+9)
 693|Rialú
+694|STOP

@@ -692,3 +692,4 @@
 691|Anpassa till arbetsytan (Ctrl+Shift+0)
 692|Anpassa till alla objekt (Ctrl+Shift+9)
 693|Styrning
+694|STOPP

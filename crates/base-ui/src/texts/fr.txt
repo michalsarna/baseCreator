@@ -692,3 +692,4 @@
 691|Ajuster à la zone de travail (Ctrl+Shift+0)
 692|Ajuster à tous les objets (Ctrl+Shift+9)
 693|Contrôle
+694|ARRÊT

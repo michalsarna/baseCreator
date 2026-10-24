@@ -692,3 +692,4 @@
 691|Přizpůsobit pracovní ploše (Ctrl+Shift+0)
 692|Přizpůsobit všem objektům (Ctrl+Shift+9)
 693|Ovládání
+694|STOP

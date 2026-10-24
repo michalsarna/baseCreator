@@ -692,3 +692,4 @@
 691|Sobita tööalaga (Ctrl+Shift+0)
 692|Sobita kõigi objektidega (Ctrl+Shift+9)
 693|Juhtimine
+694|STOPP

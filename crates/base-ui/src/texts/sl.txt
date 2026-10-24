@@ -692,3 +692,4 @@
 691|Prilagodi delovnemu območju (Ctrl+Shift+0)
 692|Prilagodi vsem predmetom (Ctrl+Shift+9)
 693|Upravljanje
+694|STOP

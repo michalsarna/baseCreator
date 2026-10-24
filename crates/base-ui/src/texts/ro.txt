@@ -692,3 +692,4 @@
 691|Potrivește la zona de lucru (Ctrl+Shift+0)
 692|Potrivește la toate obiectele (Ctrl+Shift+9)
 693|Control
+694|STOP

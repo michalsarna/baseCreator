@@ -699,6 +699,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Fit work area (Ctrl+Shift+0)", "Dopasuj obszar roboczy (Ctrl+Shift+0)", "Arbeitsbereich einpassen (Strg+Umschalt+0)", "Adatta l'area di lavoro (Ctrl+Shift+0)", "Sovita työalue (Ctrl+Shift+0)", "适应工作区域 (Ctrl+Shift+0)", "कार्य क्षेत्र फ़िट करें (Ctrl+Shift+0)"],
     ["Fit all objects (Ctrl+Shift+9)", "Dopasuj do wszystkich obiektów (Ctrl+Shift+9)", "Alle Objekte einpassen (Strg+Umschalt+9)", "Adatta a tutti gli oggetti (Ctrl+Shift+9)", "Sovita kaikki kohteet (Ctrl+Shift+9)", "适应所有对象 (Ctrl+Shift+9)", "सभी ऑब्जेक्ट फ़िट करें (Ctrl+Shift+9)"],
     ["Control", "Sterowanie", "Steuerung", "Controllo", "Ohjaus", "控制", "नियंत्रण"],
+    ["STOP", "STOP", "STOPP", "STOP", "PYSÄYTÄ", "急停", "रुकें"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -692,3 +692,4 @@
 691|Adatta maż-żona tax-xogħol (Ctrl+Shift+0)
 692|Adatta mal-oġġetti kollha (Ctrl+Shift+9)
 693|Kontroll
+694|WAQQAF

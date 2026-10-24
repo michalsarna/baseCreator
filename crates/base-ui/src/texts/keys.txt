@@ -692,3 +692,4 @@
 691	Fit work area (Ctrl+Shift+0)
 692	Fit all objects (Ctrl+Shift+9)
 693	Control
+694	STOP
