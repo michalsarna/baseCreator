@@ -237,6 +237,43 @@ pub struct EditorState {
     pub trace_dlg: Option<TraceDlg>,
 }
 
+/// What of the editor belongs to one open drawing (a tab): the selection, the layer new shapes go to and the view.
+/// `EditorState::swap_doc_view` exchanges it with the live one when another tab is shown.
+pub struct DocView {
+    pub sel: Vec<u64>,
+    pub node_sel: Vec<NodeRef>,
+    pub active_seg: Option<NodeRef>,
+    pub active_layer: usize,
+    pub view: View,
+}
+
+impl Default for DocView {
+    fn default() -> Self {
+        DocView { sel: vec![], node_sel: vec![], active_seg: None, active_layer: 0, view: View { zoom: 2.0, pan: egui::vec2(40.0, 40.0), need_fit: true, auto_fit: true } }
+    }
+}
+
+impl EditorState {
+    /// Put the drawing-bound part of the editor into `other` and take what `other` held. Whatever refers to the shapes of the
+    /// drawing that was shown (a drag in progress, the guides, the textures of its pictures, the picture dialogs) is dropped.
+    pub fn swap_doc_view(&mut self, other: &mut DocView) {
+        std::mem::swap(&mut self.sel, &mut other.sel);
+        std::mem::swap(&mut self.node_sel, &mut other.node_sel);
+        std::mem::swap(&mut self.active_seg, &mut other.active_seg);
+        std::mem::swap(&mut self.active_layer, &mut other.active_layer);
+        std::mem::swap(&mut self.view, &mut other.view);
+        self.drag = None;
+        self.pen_pts.clear();
+        self.snap_targets = None;
+        self.snap_guides = (None, None);
+        self.last_param = None;
+        self.show_shape_popup = false;
+        self.img_dlg = None;
+        self.trace_dlg = None;
+        self.image_tex.clear();
+    }
+}
+
 impl EditorState {
     pub fn new() -> EditorState {
         EditorState {

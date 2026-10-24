@@ -679,3 +679,11 @@
 678|Húzás: mozgatás · görgő: nagyítás
 679|A megnyitás nem sikerült: {}
 680|G-kód fájl megtekintése…
+681|Mentés
+682|Menti a munkáját bezárás előtt?
+683|A terv nem lett fájlba mentve.
+684|Elvetés
+685|Névtelen
+686|Új lap
+687|Lap bezárása
+688|Legfeljebb {} lap lehet nyitva.

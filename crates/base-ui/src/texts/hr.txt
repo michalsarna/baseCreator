@@ -679,3 +679,11 @@
 678|Povuci: pomakni · kotačić: zoom
 679|Otvaranje nije uspjelo: {}
 680|Prikaži G-code datoteku…
+681|Spremi
+682|Spremiti rad prije zatvaranja?
+683|Dizajn nije spremljen u datoteku.
+684|Odbaci
+685|Bez naslova
+686|Nova kartica
+687|Zatvori karticu
+688|Može biti otvoreno najviše {} kartica.

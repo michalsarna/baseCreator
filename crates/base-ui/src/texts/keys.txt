@@ -679,3 +679,11 @@
 678	Drag: move · wheel: zoom
 679	Open failed: {}
 680	View G-code file…
+681	Save
+682	Save your work before closing?
+683	The design has not been saved to a file.
+684	Discard
+685	Untitled
+686	New tab
+687	Close tab
+688	At most {} tabs can be open.

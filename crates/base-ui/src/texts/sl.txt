@@ -679,3 +679,11 @@
 678|Povleci: premakni · kolesce: povečava
 679|Odpiranje ni uspelo: {}
 680|Prikaži datoteko G-code…
+681|Shrani
+682|Shraniti delo pred zaprtjem?
+683|Zasnova ni shranjena v datoteko.
+684|Zavrzi
+685|Brez naslova
+686|Nov zavihek
+687|Zapri zavihek
+688|Odprtih je lahko največ {} zavihkov.

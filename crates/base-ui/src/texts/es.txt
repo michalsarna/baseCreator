@@ -679,3 +679,11 @@
 678|Arrastrar: mover · rueda: zoom
 679|Error al abrir: {}
 680|Ver archivo G-code…
+681|Guardar
+682|¿Guardar su trabajo antes de cerrar?
+683|El diseño no se ha guardado en un archivo.
+684|Descartar
+685|Sin título
+686|Pestaña nueva
+687|Cerrar pestaña
+688|Se pueden abrir como máximo {} pestañas.

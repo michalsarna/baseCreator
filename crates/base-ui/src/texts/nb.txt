@@ -679,3 +679,11 @@
 678|Dra: flytt · hjul: zoom
 679|Kunne ikke åpne: {}
 680|Vis G-code-fil…
+681|Lagre
+682|Lagre arbeidet før du lukker?
+683|Designet er ikke lagret i en fil.
+684|Forkast
+685|Uten navn
+686|Ny fane
+687|Lukk fanen
+688|Maksimalt {} faner kan være åpne.

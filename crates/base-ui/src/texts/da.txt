@@ -679,3 +679,11 @@
 678|Træk: flyt · hjul: zoom
 679|Kunne ikke åbne: {}
 680|Vis G-code-fil…
+681|Gem
+682|Gem dit arbejde, før du lukker?
+683|Designet er ikke gemt i en fil.
+684|Kassér
+685|Unavngivet
+686|Ny fane
+687|Luk fane
+688|Der kan højst være {} faner åbne.

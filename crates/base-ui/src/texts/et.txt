@@ -679,3 +679,11 @@
 678|Lohista: liiguta · ratas: suum
 679|Avamine ebaõnnestus: {}
 680|Vaata G-koodi faili…
+681|Salvesta
+682|Kas salvestada töö enne sulgemist?
+683|Kavandit pole failina salvestatud.
+684|Loobu
+685|Nimetu
+686|Uus vaheleht
+687|Sulge vaheleht
+688|Avada saab kuni {} vahelehte.

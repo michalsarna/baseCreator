@@ -679,3 +679,11 @@
 678|Trage: mută · rotiță: zoom
 679|Deschiderea a eșuat: {}
 680|Vizualizează un fișier G-code…
+681|Salvează
+682|Salvați lucrarea înainte de a închide?
+683|Designul nu a fost salvat într-un fișier.
+684|Renunță
+685|Fără titlu
+686|Filă nouă
+687|Închide fila
+688|Pot fi deschise cel mult {} file.

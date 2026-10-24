@@ -679,3 +679,11 @@
 678|Arrossega: mou · roda: zoom
 679|No s'ha pogut obrir: {}
 680|Mostra un fitxer G-code…
+681|Desa
+682|Voleu desar la feina abans de tancar?
+683|El disseny no s'ha desat en cap fitxer.
+684|Descarta
+685|Sense títol
+686|Pestanya nova
+687|Tanca la pestanya
+688|Es poden obrir com a màxim {} pestanyes.

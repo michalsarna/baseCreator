@@ -686,6 +686,14 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Drag: move · wheel: zoom", "Przeciągnij: przesuwanie · kółko: zoom", "Ziehen: verschieben · Rad: zoomen", "Trascina: sposta · rotella: zoom", "Vedä: siirrä · rulla: zoomaa", "拖动：平移 · 滚轮：缩放", "ड्रैग: खिसकाएँ · व्हील: ज़ूम"],
     ["Open failed: {}", "Nie udało się otworzyć: {}", "Öffnen fehlgeschlagen: {}", "Apertura non riuscita: {}", "Avaus epäonnistui: {}", "打开失败：{}", "खोलना विफल: {}"],
     ["View G-code file…", "Pokaż plik G-code…", "G-Code-Datei ansehen…", "Visualizza file G-code…", "Näytä G-koodi-tiedosto…", "查看 G 代码文件…", "G-कोड फ़ाइल देखें…"],
+    ["Save", "Zapisz", "Speichern", "Salva", "Tallenna", "保存", "सहेजें"],
+    ["Save your work before closing?", "Zapisać pracę przed zamknięciem?", "Arbeit vor dem Schließen speichern?", "Salvare il lavoro prima di chiudere?", "Tallennetaanko työ ennen sulkemista?", "关闭前保存您的工作吗？", "बंद करने से पहले काम सहेजें?"],
+    ["The design has not been saved to a file.", "Projekt nie został zapisany do pliku.", "Der Entwurf wurde nicht in einer Datei gespeichert.", "Il progetto non è stato salvato in un file.", "Suunnitelmaa ei ole tallennettu tiedostoon.", "设计尚未保存到文件。", "डिज़ाइन फ़ाइल में सहेजा नहीं गया है।"],
+    ["Discard", "Odrzuć", "Verwerfen", "Scarta", "Hylkää", "放弃", "छोड़ें"],
+    ["Untitled", "Bez nazwy", "Unbenannt", "Senza titolo", "Nimetön", "未命名", "बिना नाम"],
+    ["New tab", "Nowa karta", "Neuer Tab", "Nuova scheda", "Uusi välilehti", "新建标签页", "नया टैब"],
+    ["Close tab", "Zamknij kartę", "Tab schließen", "Chiudi scheda", "Sulje välilehti", "关闭标签页", "टैब बंद करें"],
+    ["At most {} tabs can be open.", "Można otworzyć najwyżej {} kart.", "Es können höchstens {} Tabs geöffnet sein.", "Si possono aprire al massimo {} schede.", "Enintään {} välilehteä voi olla auki.", "最多只能打开 {} 个标签页。", "अधिकतम {} टैब खुले रह सकते हैं।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

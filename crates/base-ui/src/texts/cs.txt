@@ -679,3 +679,11 @@
 678|Tažení: posun · kolečko: zoom
 679|Otevření se nezdařilo: {}
 680|Zobrazit soubor G-code…
+681|Uložit
+682|Uložit práci před zavřením?
+683|Návrh nebyl uložen do souboru.
+684|Zahodit
+685|Bez názvu
+686|Nová karta
+687|Zavřít kartu
+688|Lze otevřít nejvýše {} karet.
