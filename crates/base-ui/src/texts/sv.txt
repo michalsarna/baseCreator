@@ -679,3 +679,11 @@
 678|Dra: flytta · hjul: zooma
 679|Kunde inte öppna: {}
 680|Visa G-code-fil…
+681|Spara
+682|Spara ditt arbete innan du stänger?
+683|Designen har inte sparats i en fil.
+684|Förkasta
+685|Namnlös
+686|Ny flik
+687|Stäng fliken
+688|Högst {} flikar kan vara öppna.

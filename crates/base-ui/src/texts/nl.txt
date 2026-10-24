@@ -679,3 +679,11 @@
 678|Slepen: verschuiven · wiel: zoomen
 679|Openen mislukt: {}
 680|G-codebestand bekijken…
+681|Opslaan
+682|Uw werk opslaan voor het sluiten?
+683|Het ontwerp is niet in een bestand opgeslagen.
+684|Verwerpen
+685|Naamloos
+686|Nieuw tabblad
+687|Tabblad sluiten
+688|Er kunnen maximaal {} tabbladen open zijn.

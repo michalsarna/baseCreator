@@ -679,3 +679,11 @@
 678|Arrastar: mover · roda: zoom
 679|Falha ao abrir: {}
 680|Ver ficheiro G-code…
+681|Guardar
+682|Guardar o trabalho antes de fechar?
+683|O desenho não foi guardado num ficheiro.
+684|Descartar
+685|Sem título
+686|Novo separador
+687|Fechar separador
+688|No máximo {} separadores podem estar abertos.

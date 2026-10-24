@@ -679,3 +679,11 @@
 678|Glisser : déplacer · molette : zoom
 679|Échec de l'ouverture : {}
 680|Afficher un fichier G-code…
+681|Enregistrer
+682|Enregistrer votre travail avant de fermer ?
+683|Le dessin n'a pas été enregistré dans un fichier.
+684|Abandonner
+685|Sans titre
+686|Nouvel onglet
+687|Fermer l'onglet
+688|Au maximum {} onglets peuvent être ouverts.

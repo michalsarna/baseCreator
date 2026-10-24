@@ -679,3 +679,11 @@
 678|Tempti: perstumti · ratukas: keisti mastelį
 679|Nepavyko atverti: {}
 680|Peržiūrėti G-kodo failą…
+681|Įrašyti
+682|Įrašyti darbą prieš uždarant?
+683|Dizainas neįrašytas į failą.
+684|Atmesti
+685|Be pavadinimo
+686|Nauja kortelė
+687|Uždaryti kortelę
+688|Galima atidaryti daugiausia {} kortelių.

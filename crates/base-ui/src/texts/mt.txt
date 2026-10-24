@@ -679,3 +679,11 @@
 678|Kaxkar: ċaqlaq · rota: zoom
 679|L-ftuħ falla: {}
 680|Ara fajl G-code…
+681|Salva
+682|Tissejvja x-xogħol qabel tagħlaq?
+683|Id-disinn ma ġiex salvat f'fajl.
+684|Skarta
+685|Bla titlu
+686|Tab ġdid
+687|Agħlaq it-tab
+688|Jistgħu jinfetħu l-aktar {} tabs.

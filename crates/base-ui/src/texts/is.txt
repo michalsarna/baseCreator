@@ -679,3 +679,11 @@
 678|Draga: færa · hjól: aðdráttur
 679|Ekki tókst að opna: {}
 680|Skoða G-kóða skrá…
+681|Vista
+682|Vista vinnuna áður en lokað er?
+683|Hönnunin hefur ekki verið vistuð í skrá.
+684|Henda
+685|Án titils
+686|Nýr flipi
+687|Loka flipa
+688|Hægt er að hafa í mesta lagi {} flipa opna.

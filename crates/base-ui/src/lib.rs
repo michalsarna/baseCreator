@@ -11,6 +11,7 @@ pub mod console_ui;
 pub mod control_ui;
 pub mod description_ui;
 pub mod device_pages;
+pub mod doc_tabs;
 pub mod dialogs;
 pub mod editor;
 pub mod firmware_ui;

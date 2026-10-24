@@ -679,3 +679,11 @@
 678|Tarraing: bog · rotha: súmáil
 679|Theip ar an oscailt: {}
 680|Féach ar chomhad G-code…
+681|Sábháil
+682|An bhfuil tú ag iarraidh d'obair a shábháil sula ndúnann tú?
+683|Níor sábháladh an dearadh i gcomhad.
+684|Caith uait
+685|Gan teideal
+686|Cluaisín nua
+687|Dún an cluaisín
+688|Is féidir {} cluaisín ar a mhéad a oscailt.

@@ -32,3 +32,11 @@ pub fn banner(ui: &mut egui::Ui, found: &Found, width: f32) -> Option<Recovery> 
     });
     chosen
 }
+
+/// The same for all the recovery files that were found (one for each tab that was open): the number of shapes is the sum,
+/// "Recover" opens every one of them in a tab of its own, and "Discard it" throws all of them away.
+pub fn banner_all(ui: &mut egui::Ui, found: &[Found], width: f32) -> Option<Recovery> {
+    let first = found.first()?;
+    let all = Found { path: first.path.clone(), shapes: found.iter().map(|f| f.shapes).sum(), slot: first.slot };
+    banner(ui, &all, width)
+}

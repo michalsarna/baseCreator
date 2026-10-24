@@ -679,3 +679,11 @@
 678|Velciet: pārvietot · ritenītis: tālummaiņa
 679|Neizdevās atvērt: {}
 680|Skatīt G-koda failu…
+681|Saglabāt
+682|Vai saglabāt darbu pirms aizvēršanas?
+683|Dizains nav saglabāts failā.
+684|Atmest
+685|Bez nosaukuma
+686|Jauna cilne
+687|Aizvērt cilni
+688|Var atvērt ne vairāk kā {} cilnes.
