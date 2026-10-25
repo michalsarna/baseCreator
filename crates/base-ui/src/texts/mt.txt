@@ -693,3 +693,11 @@
 692|Adatta mal-oġġetti kollha (Ctrl+Shift+9)
 693|Kontroll
 694|WAQQAF
+695|Milied (Skur)
+696|Milied (Ċar)
+697|Lejlet is-Sena l-Ġdida (Skur)
+698|Lejlet is-Sena l-Ġdida (Ċar)
+699|Halloween (Skur)
+700|Halloween (Ċar)
+701|L-Għid (Skur)
+702|L-Għid (Ċar)

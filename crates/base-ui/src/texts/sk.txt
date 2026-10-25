@@ -693,3 +693,11 @@
 692|Prispôsobiť všetkým objektom (Ctrl+Shift+9)
 693|Ovládanie
 694|STOP
+695|Vianoce (Tmavá)
+696|Vianoce (Svetlá)
+697|Silvester (Tmavá)
+698|Silvester (Svetlá)
+699|Halloween (Tmavá)
+700|Halloween (Svetlá)
+701|Veľká noc (Tmavá)
+702|Veľká noc (Svetlá)

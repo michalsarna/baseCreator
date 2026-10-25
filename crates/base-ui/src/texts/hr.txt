@@ -693,3 +693,11 @@
 692|Prilagodi svim objektima (Ctrl+Shift+9)
 693|Upravljanje
 694|STOP
+695|Božić (Tamna)
+696|Božić (Svijetla)
+697|Silvestrovo (Tamna)
+698|Silvestrovo (Svijetla)
+699|Noć vještica (Tamna)
+700|Noć vještica (Svijetla)
+701|Uskrs (Tamna)
+702|Uskrs (Svijetla)

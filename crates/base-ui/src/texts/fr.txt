@@ -693,3 +693,11 @@
 692|Ajuster à tous les objets (Ctrl+Shift+9)
 693|Contrôle
 694|ARRÊT
+695|Noël (Sombre)
+696|Noël (Clair)
+697|Saint-Sylvestre (Sombre)
+698|Saint-Sylvestre (Clair)
+699|Halloween (Sombre)
+700|Halloween (Clair)
+701|Pâques (Sombre)
+702|Pâques (Clair)

@@ -693,3 +693,11 @@
 692|Ajusta a tots els objectes (Ctrl+Shift+9)
 693|Control
 694|ATURA
+695|Nadal (Fosc)
+696|Nadal (Clar)
+697|Cap d'Any (Fosc)
+698|Cap d'Any (Clar)
+699|Halloween (Fosc)
+700|Halloween (Clar)
+701|Pasqua (Fosc)
+702|Pasqua (Clar)

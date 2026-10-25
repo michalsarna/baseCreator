@@ -693,3 +693,11 @@
 692|Pielāgot visiem objektiem (Ctrl+Shift+9)
 693|Vadība
 694|STOP
+695|Ziemassvētki (Tumša)
+696|Ziemassvētki (Gaiša)
+697|Vecgada vakars (Tumša)
+698|Vecgada vakars (Gaiša)
+699|Helovīns (Tumša)
+700|Helovīns (Gaiša)
+701|Lieldienas (Tumša)
+702|Lieldienas (Gaiša)

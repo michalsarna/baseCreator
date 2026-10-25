@@ -693,3 +693,11 @@
 692|Pritaikyti prie visų objektų (Ctrl+Shift+9)
 693|Valdymas
 694|STOP
+695|Kalėdos (Tamsi)
+696|Kalėdos (Šviesi)
+697|Naujųjų metų išvakarės (Tamsi)
+698|Naujųjų metų išvakarės (Šviesi)
+699|Helovinas (Tamsi)
+700|Helovinas (Šviesi)
+701|Velykos (Tamsi)
+702|Velykos (Šviesi)

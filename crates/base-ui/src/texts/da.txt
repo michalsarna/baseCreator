@@ -693,3 +693,11 @@
 692|Tilpas til alle objekter (Ctrl+Shift+9)
 693|Styring
 694|STOP
+695|Jul (Mørk)
+696|Jul (Lys)
+697|Nytårsaften (Mørk)
+698|Nytårsaften (Lys)
+699|Halloween (Mørk)
+700|Halloween (Lys)
+701|Påske (Mørk)
+702|Påske (Lys)

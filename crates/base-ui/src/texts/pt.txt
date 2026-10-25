@@ -693,3 +693,11 @@
 692|Ajustar a todos os objetos (Ctrl+Shift+9)
 693|Controlo
 694|PARAR
+695|Natal (Escuro)
+696|Natal (Claro)
+697|Passagem de Ano (Escuro)
+698|Passagem de Ano (Claro)
+699|Halloween (Escuro)
+700|Halloween (Claro)
+701|Páscoa (Escuro)
+702|Páscoa (Claro)

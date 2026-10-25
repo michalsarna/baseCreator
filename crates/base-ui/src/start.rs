@@ -42,7 +42,7 @@ pub fn start_prefs(ui: &mut egui::Ui, lang: Lang, scheme: Scheme) -> (Option<Lan
         ui.add_space(12.0);
         ui.label(tr("Colour scheme"));
         egui::ComboBox::from_id_salt("start_scheme").selected_text(tr(s.label())).show_ui(ui, |ui| {
-            for x in Scheme::ALL {
+            for x in Scheme::available() {
                 ui.selectable_value(&mut s, x, tr(x.label()));
             }
         });

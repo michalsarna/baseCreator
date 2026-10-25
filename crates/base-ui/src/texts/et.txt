@@ -693,3 +693,11 @@
 692|Sobita kõigi objektidega (Ctrl+Shift+9)
 693|Juhtimine
 694|STOPP
+695|Jõulud (Tume)
+696|Jõulud (Hele)
+697|Vana-aasta õhtu (Tume)
+698|Vana-aasta õhtu (Hele)
+699|Halloween (Tume)
+700|Halloween (Hele)
+701|Lihavõtted (Tume)
+702|Lihavõtted (Hele)

@@ -693,3 +693,11 @@
 692|Potrivește la toate obiectele (Ctrl+Shift+9)
 693|Control
 694|STOP
+695|Crăciun (Întunecat)
+696|Crăciun (Luminos)
+697|Revelion (Întunecat)
+698|Revelion (Luminos)
+699|Halloween (Întunecat)
+700|Halloween (Luminos)
+701|Paște (Întunecat)
+702|Paște (Luminos)

@@ -693,3 +693,11 @@
 692|Laga að öllum hlutum (Ctrl+Shift+9)
 693|Stjórnun
 694|STOPP
+695|Jól (Dökkt)
+696|Jól (Ljóst)
+697|Gamlárskvöld (Dökkt)
+698|Gamlárskvöld (Ljóst)
+699|Hrekkjavaka (Dökkt)
+700|Hrekkjavaka (Ljóst)
+701|Páskar (Dökkt)
+702|Páskar (Ljóst)
