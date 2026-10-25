@@ -163,6 +163,8 @@ pub struct Problem {
 }
 
 pub struct Machine {
+    /// The controller the next connection talks to (`Controller::GrblOld` or `Grbl07` for the older GRBLs).
+    controller: Controller,
     /// What the person has to look at now (an alarm, an error in a job, a controller that does not answer).
     pub problem: Option<Problem>,
     link: LaserLink,
@@ -211,6 +213,7 @@ struct Job {
 impl Machine {
     pub fn new(ctx: &Context) -> Machine {
         Machine {
+            controller: Controller::Grbl,
             problem: None,
             link: LaserLink::spawn(ctx.clone()),
             connected: false,
@@ -281,9 +284,14 @@ impl Machine {
         self.want_link = true;
         self.link.send(Cmd::Connect {
             target,
-            controller: Controller::Grbl,
+            controller: self.controller,
             streaming,
         });
+    }
+
+    /// Which GRBL the next connection talks to (see `GrblVersion`).
+    pub fn set_grbl_version(&mut self, dialect: base_core::machine::GrblVersion) {
+        self.controller = dialect.controller();
     }
 
     pub fn disconnect(&mut self) {
@@ -694,13 +702,24 @@ impl Machine {
                 words.push_str(&format!(" {l}{}", num(v)));
             }
         }
-        if !words.is_empty() {
+        if words.is_empty() {
+            return;
+        }
+        if matches!(self.controller, Controller::GrblOld | Controller::Grbl07) {
+            // No `$J=` before GRBL 1.1: the move is an ordinary one, relative for just this line.
+            self.line("G91 G21");
+            self.line(format!("G1{words} F{}", num(feed)));
+            self.line("G90");
+        } else {
             self.line(format!("$J=G91 G21{words} F{}", num(feed)));
         }
     }
 
+    /// Stop the jog that is running. GRBL 0.9 cannot: its moves run to the end.
     pub fn cancel_jog(&mut self) {
-        self.realtime(0x85);
+        if self.controller == Controller::Grbl {
+            self.realtime(0x85);
+        }
     }
 
     pub fn select_wcs(&mut self, n: u8) {
@@ -1075,6 +1094,82 @@ mod tests {
         assert_eq!(s.spindle, Some((1000.0, 24000.0)));
         // Their lines did not leak into the console as unexplained noise: they are all there as traffic.
         assert!(m.console.iter().any(|l| l.text == "$130=300.000"));
+    }
+
+    /// A GRBL 0.9: the status has commas, there is no `$J=`; it records what it is sent.
+    fn grbl09(listener: TcpListener, seen: std::sync::Arc<std::sync::Mutex<Vec<String>>>) {
+        std::thread::spawn(move || {
+            let (mut s, _) = listener.accept().unwrap();
+            let _ = s.set_read_timeout(Some(Duration::from_millis(10)));
+            let start = Instant::now();
+            let (mut buf, mut chunk) = (Vec::new(), [0u8; 64]);
+            while start.elapsed() < Duration::from_secs(8) {
+                match s.read(&mut chunk) {
+                    Ok(0) => break,
+                    Ok(n) => {
+                        for &b in &chunk[..n] {
+                            match b {
+                                b'?' => {
+                                    let _ = s.write_all(b"<Idle,MPos:5.529,0.560,7.000,WPos:1.529,-5.440,2.000>\n");
+                                }
+                                0x18 => {
+                                    let _ = s.write_all(b"\r\nGrbl 0.9i ['$' for help]\r\n");
+                                }
+                                b'\n' => {
+                                    let line = String::from_utf8_lossy(&buf).to_string();
+                                    buf.clear();
+                                    let reply: &[u8] = if line.starts_with("$J=") { b"error: Unsupported command\n" } else { b"ok\n" };
+                                    seen.lock().unwrap().push(line);
+                                    let _ = s.write_all(reply);
+                                }
+                                _ => buf.push(b),
+                            }
+                        }
+                    }
+                    _ => {}
+                }
+            }
+        });
+    }
+
+    #[test]
+    fn grbl_09_reports_with_commas_and_jogs_with_plain_moves() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let seen = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        grbl09(listener, seen.clone());
+        let mut m = Machine::new(&Context::default());
+        m.set_grbl_version(base_core::machine::GrblVersion::Grbl09);
+        connect(&mut m, port);
+        assert!(wait(&mut m, 3.0, |m, _| m.connected));
+        assert!(wait(&mut m, 3.0, |m, _| m.state == "Idle" && m.pos[0] == 1.529), "the work position of the report");
+        assert_eq!((m.mpos, m.wpos), ([5.529, 0.56, 7.0], [1.529, -5.44, 2.0]));
+        m.jog(1.0, 0.0, -0.5, 3000.0);
+        m.cancel_jog();
+        assert!(wait(&mut m, 3.0, |_, _| seen.lock().unwrap().iter().any(|l| l == "G90")));
+        let lines = seen.lock().unwrap().clone();
+        let at = lines.iter().position(|l| l == "G91 G21").expect("relative mode");
+        assert_eq!(lines[at + 1], "G1 X1 Z-0.5 F3000");
+        assert_eq!(lines[at + 2], "G90");
+        assert!(!lines.iter().any(|l| l.starts_with("$J=")), "{lines:?}");
+    }
+
+    #[test]
+    fn grbl_07_is_never_asked_for_a_status_and_still_jogs() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let seen = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        grbl09(listener, seen.clone());
+        let mut m = Machine::new(&Context::default());
+        m.set_grbl_version(base_core::machine::GrblVersion::Grbl07);
+        connect(&mut m, port);
+        assert!(wait(&mut m, 3.0, |m, _| m.connected));
+        m.jog(2.0, 3.0, 0.0, 600.0);
+        assert!(wait(&mut m, 3.0, |_, _| seen.lock().unwrap().iter().any(|l| l == "G90")));
+        // The fake would answer a `?` with a report; GRBL 0.7 has none, so none was asked for.
+        assert!(m.state.is_empty() && m.pos.iter().all(|v| v.is_nan()), "state {:?} pos {:?}", m.state, m.pos);
+        let lines = seen.lock().unwrap().clone();
+        assert!(lines.contains(&"G1 X2 Y3 F600".to_string()), "{lines:?}");
     }
 
     #[test]

@@ -701,3 +701,7 @@
 700|Halloween (Világos)
 701|Húsvét (Sötét)
 702|Húsvét (Világos)
+703|GRBL verziója
+704|GRBL 1.1 vagy újabb
+705|GRBL 0.7 vagy régebbi
+706|A régebbi GRBL (0.9) más formátumban jelzi a pozíciót, és nincs jog parancsa: a program hagyományos mozgásokkal viszi a fejet.

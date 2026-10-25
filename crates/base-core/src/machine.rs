@@ -17,6 +17,48 @@ pub enum Controller {
     Trocen,
     /// Smoothieware firmware over a serial port (streamed live like GRBL).
     Smoothieware,
+    /// GRBL 0.8 to 1.0 (for example 0.9i, 1.0c): the status report has commas instead of bars and there is no jog
+    /// command. Chosen through `GrblVersion`, not offered in `Controller::ALL`.
+    GrblOld,
+    /// GRBL 0.7 and older: no real-time commands at all (no status report, no pause, no reset) and no homing.
+    /// Chosen through `GrblVersion`, not offered in `Controller::ALL`.
+    Grbl07,
+}
+
+/// Which GRBL a device has; the apps that offer the choice keep it in the connection.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub enum GrblVersion {
+    /// GRBL 1.1 and newer (grblHAL, FluidNC).
+    #[default]
+    Grbl11,
+    /// GRBL 1.0 (1.0c): comma status report, no jog command, text errors.
+    Grbl10,
+    /// GRBL 0.9 (0.9a to 0.9j), as found on many plotters and small CNC machines.
+    Grbl09,
+    /// GRBL 0.8 (0.8c): the first with real-time commands and a status report.
+    Grbl08,
+    /// GRBL 0.7 and older: lines and `ok` only, nothing is real-time.
+    Grbl07,
+}
+
+impl GrblVersion {
+    pub const ALL: [GrblVersion; 5] = [GrblVersion::Grbl11, GrblVersion::Grbl10, GrblVersion::Grbl09, GrblVersion::Grbl08, GrblVersion::Grbl07];
+    pub fn label(self) -> &'static str {
+        match self {
+            GrblVersion::Grbl11 => "GRBL 1.1 or newer",
+            GrblVersion::Grbl10 => "GRBL 1.0",
+            GrblVersion::Grbl09 => "GRBL 0.9",
+            GrblVersion::Grbl08 => "GRBL 0.8",
+            GrblVersion::Grbl07 => "GRBL 0.7 or older",
+        }
+    }
+    pub fn controller(self) -> Controller {
+        match self {
+            GrblVersion::Grbl11 => Controller::Grbl,
+            GrblVersion::Grbl10 | GrblVersion::Grbl09 | GrblVersion::Grbl08 => Controller::GrblOld,
+            GrblVersion::Grbl07 => Controller::Grbl07,
+        }
+    }
 }
 
 impl Controller {
@@ -28,11 +70,13 @@ impl Controller {
             Controller::Ruida => "Ruida",
             Controller::Trocen => "Trocen",
             Controller::Smoothieware => "Smoothieware",
+            Controller::GrblOld => "GRBL 0.8 to 1.0",
+            Controller::Grbl07 => "GRBL 0.7",
         }
     }
     /// Can the program talk to this controller over a serial port?
     pub fn is_serial(self) -> bool {
-        matches!(self, Controller::Grbl | Controller::Marlin | Controller::Smoothieware)
+        matches!(self, Controller::Grbl | Controller::GrblOld | Controller::Grbl07 | Controller::Marlin | Controller::Smoothieware)
     }
 }
 
@@ -111,11 +155,14 @@ pub struct Connection {
     /// to be in a safe place.
     #[serde(default)]
     pub unlock_on_connect: bool,
+    /// The GRBL of the machine (1.1 or the older 0.9).
+    #[serde(default)]
+    pub grbl_version: GrblVersion,
 }
 
 impl Default for Connection {
     fn default() -> Self {
-        Connection { link: LinkKind::Serial, host: String::new(), tcp_port: 3333, port: String::new(), baud: 115_200, streaming: Streaming::Counting, usb_id: String::new(), auto_reconnect: false, home_on_connect: false, unlock_on_connect: false }
+        Connection { link: LinkKind::Serial, host: String::new(), tcp_port: 3333, port: String::new(), baud: 115_200, streaming: Streaming::Counting, usb_id: String::new(), auto_reconnect: false, home_on_connect: false, unlock_on_connect: false, grbl_version: GrblVersion::Grbl11 }
     }
 }
 
@@ -237,7 +284,7 @@ pub enum Action {
 impl Controller {
     pub fn status_poll(self) -> StatusPoll {
         match self {
-            Controller::Grbl | Controller::Smoothieware => StatusPoll::Byte(b'?'),
+            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => StatusPoll::Byte(b'?'),
             Controller::Marlin => StatusPoll::Line("M114"),
             _ => StatusPoll::None,
         }
@@ -251,7 +298,7 @@ impl Controller {
     }
     pub fn home(self) -> Action {
         match self {
-            Controller::Grbl | Controller::Smoothieware => Action::Lines(vec!["$H".into()]),
+            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => Action::Lines(vec!["$H".into()]),
             Controller::Marlin => Action::Lines(vec!["G28 X Y".into()]),
             _ => Action::None,
         }
@@ -259,25 +306,26 @@ impl Controller {
     /// Clear an alarm / halted state.
     pub fn unlock(self) -> Action {
         match self {
-            Controller::Grbl => Action::Lines(vec!["$X".into()]),
+            Controller::Grbl | Controller::GrblOld => Action::Lines(vec!["$X".into()]),
             Controller::Marlin | Controller::Smoothieware => Action::Lines(vec!["M999".into()]),
             _ => Action::None,
         }
     }
     pub fn pause(self) -> Action {
         match self {
-            Controller::Grbl | Controller::Smoothieware => Action::Byte(b'!'),
+            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => Action::Byte(b'!'),
             Controller::Marlin => Action::Lines(vec!["M25".into()]),
             _ => Action::None,
         }
     }
     pub fn resume(self) -> Action {
         match self {
-            Controller::Grbl | Controller::Smoothieware => Action::Byte(b'~'),
+            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => Action::Byte(b'~'),
             Controller::Marlin => Action::Lines(vec!["M24".into()]),
             _ => Action::None,
         }
     }
+    /// GRBL before 1.1 has no jog command and no jog cancel: its moves are plain `G1` moves that run to the end.
     pub fn cancel_jog(self) -> Action {
         match self {
             Controller::Grbl => Action::Byte(0x85),
@@ -288,6 +336,7 @@ impl Controller {
     /// Jog by (dx, dy) millimetres at `feed` mm/min.
     pub fn jog(self, dx: f64, dy: f64, feed: f64) -> Action {
         match self {
+            Controller::GrblOld | Controller::Grbl07 => Action::Lines(vec!["G91 G21".into(), format!("G1 X{dx} Y{dy} F{feed}"), "G90".into()]),
             Controller::Grbl => Action::Lines(vec![format!("$J=G91 G21 X{dx} Y{dy} F{feed}")]),
             Controller::Marlin | Controller::Smoothieware => Action::Lines(vec!["G91".into(), format!("G0 X{dx} Y{dy} F{feed}"), "G90".into()]),
             _ => Action::None,
@@ -296,6 +345,7 @@ impl Controller {
     /// Jog the Z axis by `dz` millimetres at `feed` mm/min.
     pub fn jog_z(self, dz: f64, feed: f64) -> Action {
         match self {
+            Controller::GrblOld | Controller::Grbl07 => Action::Lines(vec!["G91 G21".into(), format!("G1 Z{dz} F{feed}"), "G90".into()]),
             Controller::Grbl => Action::Lines(vec![format!("$J=G91 G21 Z{dz} F{feed}")]),
             Controller::Marlin | Controller::Smoothieware => Action::Lines(vec!["G91".into(), format!("G0 Z{dz} F{feed}"), "G90".into()]),
             _ => Action::None,
@@ -304,14 +354,14 @@ impl Controller {
     /// Byte(s) sent right after connecting.
     pub fn on_connect(self) -> Option<u8> {
         match self {
-            Controller::Grbl => Some(0x18),
+            Controller::Grbl | Controller::GrblOld => Some(0x18),
             _ => None,
         }
     }
     /// Emergency stop / abort byte, if the controller has a realtime one.
     pub fn abort_byte(self) -> Option<u8> {
         match self {
-            Controller::Grbl | Controller::Smoothieware => Some(0x18),
+            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => Some(0x18),
             _ => None,
         }
     }
@@ -384,3 +434,34 @@ pub fn parse_status(line: &str) -> Option<(String, f64, f64)> {
     None
 }
 
+#[cfg(test)]
+mod dialect_tests {
+    use super::*;
+
+    #[test]
+    fn the_older_grbls_jog_with_plain_moves_and_cannot_cancel() {
+        let Action::Lines(l) = Controller::GrblOld.jog(1.5, -2.0, 3000.0) else { panic!("lines") };
+        assert_eq!(l, ["G91 G21", "G1 X1.5 Y-2 F3000", "G90"]);
+        let Action::Lines(z) = Controller::GrblOld.jog_z(-1.0, 500.0) else { panic!("lines") };
+        assert_eq!(z[1], "G1 Z-1 F500");
+        assert!(matches!(Controller::GrblOld.cancel_jog(), Action::None));
+        assert!(matches!(Controller::Grbl.cancel_jog(), Action::Byte(0x85)));
+        assert!(Controller::GrblOld.is_serial() && Controller::GrblOld.on_connect() == Some(0x18));
+        assert!(!Controller::ALL.contains(&Controller::GrblOld));
+        let c = |d: GrblVersion| d.controller();
+        assert_eq!((c(GrblVersion::Grbl11), c(GrblVersion::Grbl10), c(GrblVersion::Grbl09), c(GrblVersion::Grbl08), c(GrblVersion::Grbl07)), (Controller::Grbl, Controller::GrblOld, Controller::GrblOld, Controller::GrblOld, Controller::Grbl07));
+        assert!(!Controller::ALL.contains(&Controller::Grbl07));
+        // GRBL 0.7 has nothing real-time: no status poll, no pause, no reset byte, no homing.
+        let g7 = Controller::Grbl07;
+        assert!(matches!(g7.status_poll(), StatusPoll::None) && matches!(g7.pause(), Action::None) && matches!(g7.home(), Action::None));
+        assert!(g7.on_connect().is_none() && g7.abort_byte().is_none() && g7.is_serial());
+        assert!(matches!(g7.jog(1.0, 0.0, 100.0), Action::Lines(_)));
+        assert_eq!(Connection::default().grbl_version, GrblVersion::Grbl11);
+    }
+
+    #[test]
+    fn an_old_connection_without_a_dialect_still_loads() {
+        let c: Connection = serde_json::from_str(r#"{"baud":115200}"#).unwrap();
+        assert_eq!(c.grbl_version, GrblVersion::Grbl11);
+    }
+}

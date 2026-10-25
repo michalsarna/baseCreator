@@ -701,3 +701,7 @@
 700|Halloween (Lys)
 701|Påske (Mørk)
 702|Påske (Lys)
+703|GRBL-version
+704|GRBL 1.1 eller nyere
+705|GRBL 0.7 eller ældre
+706|Ældre GRBL (0.9) melder positioner i et andet format og har ingen jog-kommando: programmet flytter hovedet med almindelige bevægelser.

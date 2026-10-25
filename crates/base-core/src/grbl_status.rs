@@ -69,6 +69,35 @@ pub fn parse(line: &str) -> Option<Report> {
     Some(r)
 }
 
+/// The status report of GRBL 0.9: `<Idle,MPos:0.000,0.000,0.000,WPos:0.000,0.000,0.000>`, with the buffer
+/// (`,Buf:0,RX:0`) and the limit pins (`,Lim:000`) when `$10` asks for them. `None` for anything else.
+pub fn parse_legacy(line: &str) -> Option<Report> {
+    let inner = line.trim().strip_prefix('<')?.strip_suffix('>')?;
+    if inner.contains('|') {
+        return None;
+    }
+    let parts: Vec<&str> = inner.split(',').collect();
+    let state = parts.first()?.trim().to_string();
+    if state.is_empty() || state.contains(':') {
+        return None;
+    }
+    let mut r = Report { state, ..Default::default() };
+    // The three numbers of a position are separate parts: `MPos:1.000` `2.000` `3.000`.
+    let triple_at = |i: usize| -> Option<[f64; 3]> {
+        let first = parts[i].split_once(':')?.1.trim().parse().ok()?;
+        Some([first, parts.get(i + 1)?.trim().parse().ok()?, parts.get(i + 2)?.trim().parse().ok()?])
+    };
+    for (i, p) in parts.iter().enumerate() {
+        match p.split_once(':').map(|(k, _)| k) {
+            Some("MPos") => r.mpos = triple_at(i),
+            Some("WPos") => r.wpos = triple_at(i),
+            Some("Lim") => r.pins = Some(p["Lim:".len()..].trim().to_string()).filter(|v| v.chars().any(|c| c == '1')),
+            _ => {}
+        }
+    }
+    (r.mpos.is_some() || r.wpos.is_some()).then_some(r)
+}
+
 /// Work position from a report and the last known offset.
 pub fn work_position(r: &Report, last_wco: Option<[f64; 3]>) -> Option<[f64; 3]> {
     if let Some(w) = r.wpos {
@@ -110,6 +139,21 @@ pub fn parse_probe(line: &str) -> Option<([f64; 3], bool)> {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn the_status_of_grbl_09_is_read() {
+        let r = super::parse_legacy("<Idle,MPos:5.529,0.560,7.000,WPos:1.529,-5.440,-0.000>").unwrap();
+        assert_eq!(r.state, "Idle");
+        assert_eq!(r.mpos, Some([5.529, 0.56, 7.0]));
+        assert_eq!(r.wpos, Some([1.529, -5.44, 0.0]));
+        let b = super::parse_legacy("<Run,MPos:1.000,2.000,3.000,WPos:1.000,2.000,3.000,Buf:0,RX:3,Lim:010>").unwrap();
+        assert_eq!((b.state.as_str(), b.pins.as_deref()), ("Run", Some("010")));
+        assert_eq!(super::parse_legacy("<Idle,MPos:1.000,2.000,3.000,WPos:0.000,0.000,0.000,Lim:000>").unwrap().pins, None);
+        assert!(super::parse_legacy("<Idle|MPos:1.000,2.000,3.000|FS:0,0>").is_none());
+        assert!(super::parse_legacy("<Idle>").is_none());
+        assert!(super::parse_legacy("ok").is_none());
+        assert!(super::parse_legacy("<Idle,MPos:1.0,x,3.0>").is_none_or(|r| r.mpos.is_none()));
+    }
+
     use super::*;
 
     #[test]
