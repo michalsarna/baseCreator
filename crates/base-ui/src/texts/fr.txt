@@ -703,5 +703,5 @@
 702|Pâques (Clair)
 703|Version de GRBL
 704|GRBL 1.1 ou plus récent
-705|GRBL 0.9 ou plus ancien
+705|GRBL 0.7 ou plus ancien
 706|Un GRBL ancien (0.9) indique les positions dans un autre format et n'a pas de commande jog : le programme déplace la tête avec des mouvements ordinaires.

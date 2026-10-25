@@ -703,5 +703,5 @@
 702|Pasqua (Clar)
 703|Versió de GRBL
 704|GRBL 1.1 o més nou
-705|GRBL 0.9 o més antic
+705|GRBL 0.7 o més antic
 706|El GRBL antic (0.9) informa de les posicions en un altre format i no té l'ordre jog: el programa mou el cap amb moviments normals.

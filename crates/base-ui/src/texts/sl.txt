@@ -703,5 +703,5 @@
 702|Velika noč (Svetla)
 703|Različica GRBL
 704|GRBL 1.1 ali novejši
-705|GRBL 0.9 ali starejši
+705|GRBL 0.7 ali starejši
 706|Starejši GRBL (0.9) sporoča položaj v drugi obliki in nima ukaza jog: program premika glavo z navadnimi premiki.

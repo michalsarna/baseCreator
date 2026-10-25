@@ -703,5 +703,5 @@
 702|Páskar (Ljóst)
 703|GRBL útgáfa
 704|GRBL 1.1 eða nýrra
-705|GRBL 0.9 eða eldra
+705|GRBL 0.7 eða eldra
 706|Eldra GRBL (0.9) skilar staðsetningu á öðru sniði og hefur ekki jog-skipun: forritið hreyfir hausinn með venjulegum hreyfingum.

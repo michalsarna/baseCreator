@@ -703,5 +703,5 @@
 702|L-Għid (Ċar)
 703|Verżjoni ta' GRBL
 704|GRBL 1.1 jew iktar ġdid
-705|GRBL 0.9 jew iktar qadim
+705|GRBL 0.7 jew iktar qadim
 706|GRBL iktar qadim (0.9) jirrapporta l-pożizzjonijiet f'format ieħor u m'għandux kmand jog: il-programm jċaqlaq ir-ras b'movimenti ordinarji.

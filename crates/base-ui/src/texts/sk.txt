@@ -703,5 +703,5 @@
 702|Veľká noc (Svetlá)
 703|Verzia GRBL
 704|GRBL 1.1 alebo novší
-705|GRBL 0.9 alebo starší
+705|GRBL 0.7 alebo starší
 706|Starší GRBL (0.9) hlási polohu v inom formáte a nemá príkaz jog: program posúva hlavu obyčajnými pohybmi.

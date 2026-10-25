@@ -163,7 +163,7 @@ pub struct Problem {
 }
 
 pub struct Machine {
-    /// The controller the next connection talks to (`Controller::Grbl09` for the older GRBL).
+    /// The controller the next connection talks to (`Controller::GrblOld` or `Grbl07` for the older GRBLs).
     controller: Controller,
     /// What the person has to look at now (an alarm, an error in a job, a controller that does not answer).
     pub problem: Option<Problem>,
@@ -705,7 +705,7 @@ impl Machine {
         if words.is_empty() {
             return;
         }
-        if self.controller == Controller::Grbl09 {
+        if matches!(self.controller, Controller::GrblOld | Controller::Grbl07) {
             // No `$J=` before GRBL 1.1: the move is an ordinary one, relative for just this line.
             self.line("G91 G21");
             self.line(format!("G1{words} F{}", num(feed)));
@@ -717,7 +717,7 @@ impl Machine {
 
     /// Stop the jog that is running. GRBL 0.9 cannot: its moves run to the end.
     pub fn cancel_jog(&mut self) {
-        if self.controller != Controller::Grbl09 {
+        if self.controller == Controller::Grbl {
             self.realtime(0x85);
         }
     }
@@ -1152,6 +1152,24 @@ mod tests {
         assert_eq!(lines[at + 1], "G1 X1 Z-0.5 F3000");
         assert_eq!(lines[at + 2], "G90");
         assert!(!lines.iter().any(|l| l.starts_with("$J=")), "{lines:?}");
+    }
+
+    #[test]
+    fn grbl_07_is_never_asked_for_a_status_and_still_jogs() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let seen = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+        grbl09(listener, seen.clone());
+        let mut m = Machine::new(&Context::default());
+        m.set_dialect(base_core::machine::Dialect::Grbl07);
+        connect(&mut m, port);
+        assert!(wait(&mut m, 3.0, |m, _| m.connected));
+        m.jog(2.0, 3.0, 0.0, 600.0);
+        assert!(wait(&mut m, 3.0, |_, _| seen.lock().unwrap().iter().any(|l| l == "G90")));
+        // The fake would answer a `?` with a report; GRBL 0.7 has none, so none was asked for.
+        assert!(m.state.is_empty() && m.pos.iter().all(|v| v.is_nan()), "state {:?} pos {:?}", m.state, m.pos);
+        let lines = seen.lock().unwrap().clone();
+        assert!(lines.contains(&"G1 X2 Y3 F600".to_string()), "{lines:?}");
     }
 
     #[test]

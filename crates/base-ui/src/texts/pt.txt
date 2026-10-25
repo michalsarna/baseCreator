@@ -703,5 +703,5 @@
 702|Páscoa (Claro)
 703|Versão do GRBL
 704|GRBL 1.1 ou mais recente
-705|GRBL 0.9 ou mais antigo
+705|GRBL 0.7 ou mais antigo
 706|O GRBL mais antigo (0.9) informa as posições noutro formato e não tem o comando jog: o programa move a cabeça com movimentos normais.

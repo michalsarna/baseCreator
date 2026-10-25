@@ -703,5 +703,5 @@
 702|Uskrs (Svijetla)
 703|Verzija GRBL-a
 704|GRBL 1.1 ili noviji
-705|GRBL 0.9 ili stariji
+705|GRBL 0.7 ili stariji
 706|Stariji GRBL (0.9) javlja položaj u drugom formatu i nema naredbu jog: program pomiče glavu običnim pomacima.

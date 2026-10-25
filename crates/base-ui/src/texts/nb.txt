@@ -703,5 +703,5 @@
 702|Påske (Lys)
 703|GRBL-versjon
 704|GRBL 1.1 eller nyere
-705|GRBL 0.9 eller eldre
+705|GRBL 0.7 eller eldre
 706|Eldre GRBL (0.9) melder posisjoner i et annet format og har ingen jog-kommando: programmet flytter hodet med vanlige bevegelser.

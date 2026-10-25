@@ -703,5 +703,5 @@
 702|Velikonoce (Světlé)
 703|Verze GRBL
 704|GRBL 1.1 nebo novější
-705|GRBL 0.9 nebo starší
+705|GRBL 0.7 nebo starší
 706|Starší GRBL (0.9) hlásí polohu v jiném formátu a nemá příkaz jog: program posouvá hlavu obyčejnými pohyby.

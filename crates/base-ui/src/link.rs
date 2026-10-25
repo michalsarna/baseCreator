@@ -348,7 +348,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     emit(traffic(Dir::Rx, line.clone(), true));
                     machine_state = state.clone();
                     emit(Evt::Status { state, x, y, z: base_core::machine::parse_status_z(&line).unwrap_or(f64::NAN) });
-                    let report = if controller == Controller::Grbl09 { base_core::grbl_status::parse_legacy(&line) } else { base_core::grbl_status::parse(&line) };
+                    let report = if controller == Controller::GrblOld { base_core::grbl_status::parse_legacy(&line) } else { base_core::grbl_status::parse(&line) };
                     if let Some(r) = report {
                         emit(Evt::Report(r));
                     }
