@@ -693,3 +693,11 @@
 692|Prilagodi vsem predmetom (Ctrl+Shift+9)
 693|Upravljanje
 694|STOP
+695|Božič (Temna)
+696|Božič (Svetla)
+697|Silvestrovo (Temna)
+698|Silvestrovo (Svetla)
+699|Noč čarovnic (Temna)
+700|Noč čarovnic (Svetla)
+701|Velika noč (Temna)
+702|Velika noč (Svetla)

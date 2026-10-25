@@ -693,3 +693,11 @@
 692|Oiriúnaigh do gach réad (Ctrl+Shift+9)
 693|Rialú
 694|STOP
+695|Nollaig (Dorcha)
+696|Nollaig (Éadrom)
+697|Oíche Chinn Bliana (Dorcha)
+698|Oíche Chinn Bliana (Éadrom)
+699|Oíche Shamhna (Dorcha)
+700|Oíche Shamhna (Éadrom)
+701|Cáisc (Dorcha)
+702|Cáisc (Éadrom)

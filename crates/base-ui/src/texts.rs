@@ -700,6 +700,14 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Fit all objects (Ctrl+Shift+9)", "Dopasuj do wszystkich obiektów (Ctrl+Shift+9)", "Alle Objekte einpassen (Strg+Umschalt+9)", "Adatta a tutti gli oggetti (Ctrl+Shift+9)", "Sovita kaikki kohteet (Ctrl+Shift+9)", "适应所有对象 (Ctrl+Shift+9)", "सभी ऑब्जेक्ट फ़िट करें (Ctrl+Shift+9)"],
     ["Control", "Sterowanie", "Steuerung", "Controllo", "Ohjaus", "控制", "नियंत्रण"],
     ["STOP", "STOP", "STOPP", "STOP", "PYSÄYTÄ", "急停", "रुकें"],
+    ["Christmas (Dark)", "Boże Narodzenie (Ciemny)", "Weihnachten (Dunkel)", "Natale (Scuro)", "Joulu (Tumma)", "圣诞节 (深色)", "क्रिसमस (गहरा)"],
+    ["Christmas (Light)", "Boże Narodzenie (Jasny)", "Weihnachten (Hell)", "Natale (Chiaro)", "Joulu (Vaalea)", "圣诞节 (浅色)", "क्रिसमस (हल्का)"],
+    ["New Year's Eve (Dark)", "Sylwester (Ciemny)", "Silvester (Dunkel)", "Capodanno (Scuro)", "Uudenvuodenaatto (Tumma)", "跨年夜 (深色)", "नववर्ष की पूर्व संध्या (गहरा)"],
+    ["New Year's Eve (Light)", "Sylwester (Jasny)", "Silvester (Hell)", "Capodanno (Chiaro)", "Uudenvuodenaatto (Vaalea)", "跨年夜 (浅色)", "नववर्ष की पूर्व संध्या (हल्का)"],
+    ["Halloween (Dark)", "Halloween (Ciemny)", "Halloween (Dunkel)", "Halloween (Scuro)", "Halloween (Tumma)", "万圣节 (深色)", "हैलोवीन (गहरा)"],
+    ["Halloween (Light)", "Halloween (Jasny)", "Halloween (Hell)", "Halloween (Chiaro)", "Halloween (Vaalea)", "万圣节 (浅色)", "हैलोवीन (हल्का)"],
+    ["Easter (Dark)", "Wielkanoc (Ciemny)", "Ostern (Dunkel)", "Pasqua (Scuro)", "Pääsiäinen (Tumma)", "复活节 (深色)", "ईस्टर (गहरा)"],
+    ["Easter (Light)", "Wielkanoc (Jasny)", "Ostern (Hell)", "Pasqua (Chiaro)", "Pääsiäinen (Vaalea)", "复活节 (浅色)", "ईस्टर (हल्का)"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -693,3 +693,11 @@
 692	Fit all objects (Ctrl+Shift+9)
 693	Control
 694	STOP
+695	Christmas (Dark)
+696	Christmas (Light)
+697	New Year's Eve (Dark)
+698	New Year's Eve (Light)
+699	Halloween (Dark)
+700	Halloween (Light)
+701	Easter (Dark)
+702	Easter (Light)

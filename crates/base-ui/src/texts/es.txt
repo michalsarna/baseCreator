@@ -693,3 +693,11 @@
 692|Ajustar a todos los objetos (Ctrl+Shift+9)
 693|Control
 694|PARAR
+695|Navidad (Oscuro)
+696|Navidad (Claro)
+697|Nochevieja (Oscuro)
+698|Nochevieja (Claro)
+699|Halloween (Oscuro)
+700|Halloween (Claro)
+701|Pascua (Oscuro)
+702|Pascua (Claro)

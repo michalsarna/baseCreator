@@ -693,3 +693,11 @@
 692|Přizpůsobit všem objektům (Ctrl+Shift+9)
 693|Ovládání
 694|STOP
+695|Vánoce (Tmavé)
+696|Vánoce (Světlé)
+697|Silvestr (Tmavé)
+698|Silvestr (Světlé)
+699|Halloween (Tmavé)
+700|Halloween (Světlé)
+701|Velikonoce (Tmavé)
+702|Velikonoce (Světlé)

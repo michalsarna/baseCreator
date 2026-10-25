@@ -693,3 +693,11 @@
 692|Anpassa till alla objekt (Ctrl+Shift+9)
 693|Styrning
 694|STOPP
+695|Jul (Mörkt)
+696|Jul (Ljust)
+697|Nyårsafton (Mörkt)
+698|Nyårsafton (Ljust)
+699|Halloween (Mörkt)
+700|Halloween (Ljust)
+701|Påsk (Mörkt)
+702|Påsk (Ljust)

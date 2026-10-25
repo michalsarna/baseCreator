@@ -693,3 +693,11 @@
 692|Alle objecten passen (Ctrl+Shift+9)
 693|Besturing
 694|STOP
+695|Kerst (Donker)
+696|Kerst (Licht)
+697|Oudejaarsavond (Donker)
+698|Oudejaarsavond (Licht)
+699|Halloween (Donker)
+700|Halloween (Licht)
+701|Pasen (Donker)
+702|Pasen (Licht)

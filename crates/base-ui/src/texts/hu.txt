@@ -693,3 +693,11 @@
 692|Illesztés az összes objektumhoz (Ctrl+Shift+9)
 693|Vezérlés
 694|STOP
+695|Karácsony (Sötét)
+696|Karácsony (Világos)
+697|Szilveszter (Sötét)
+698|Szilveszter (Világos)
+699|Halloween (Sötét)
+700|Halloween (Világos)
+701|Húsvét (Sötét)
+702|Húsvét (Világos)
