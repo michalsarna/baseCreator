@@ -701,3 +701,7 @@
 700	Halloween (Light)
 701	Easter (Dark)
 702	Easter (Light)
+703	GRBL version
+704	GRBL 1.1 or newer
+705	GRBL 0.9 or older
+706	Older GRBL (0.9) reports positions in another format and has no jog command: the program moves the head with ordinary moves instead.

@@ -701,3 +701,7 @@
 700|Halloween (Luminos)
 701|Paște (Întunecat)
 702|Paște (Luminos)
+703|Versiunea GRBL
+704|GRBL 1.1 sau mai nou
+705|GRBL 0.9 sau mai vechi
+706|GRBL mai vechi (0.9) raportează pozițiile într-un alt format și nu are comanda jog: programul mută capul cu mișcări obișnuite.

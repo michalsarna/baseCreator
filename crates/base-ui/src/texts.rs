@@ -708,6 +708,10 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Halloween (Light)", "Halloween (Jasny)", "Halloween (Hell)", "Halloween (Chiaro)", "Halloween (Vaalea)", "万圣节 (浅色)", "हैलोवीन (हल्का)"],
     ["Easter (Dark)", "Wielkanoc (Ciemny)", "Ostern (Dunkel)", "Pasqua (Scuro)", "Pääsiäinen (Tumma)", "复活节 (深色)", "ईस्टर (गहरा)"],
     ["Easter (Light)", "Wielkanoc (Jasny)", "Ostern (Hell)", "Pasqua (Chiaro)", "Pääsiäinen (Vaalea)", "复活节 (浅色)", "ईस्टर (हल्का)"],
+    ["GRBL version", "Wersja GRBL", "GRBL-Version", "Versione GRBL", "GRBL-versio", "GRBL 版本", "GRBL संस्करण"],
+    ["GRBL 1.1 or newer", "GRBL 1.1 lub nowszy", "GRBL 1.1 oder neuer", "GRBL 1.1 o più recente", "GRBL 1.1 tai uudempi", "GRBL 1.1 或更新", "GRBL 1.1 या नया"],
+    ["GRBL 0.9 or older", "GRBL 0.9 lub starszy", "GRBL 0.9 oder älter", "GRBL 0.9 o precedente", "GRBL 0.9 tai vanhempi", "GRBL 0.9 或更旧", "GRBL 0.9 या पुराना"],
+    ["Older GRBL (0.9) reports positions in another format and has no jog command: the program moves the head with ordinary moves instead.", "Starszy GRBL (0.9) podaje położenie w innym formacie i nie ma polecenia jog: program przesuwa głowicę zwykłymi ruchami.", "Ältere GRBL-Versionen (0.9) melden Positionen in einem anderen Format und haben keinen Jog-Befehl: Das Programm fährt den Kopf stattdessen mit normalen Bewegungen.", "GRBL più vecchio (0.9) riporta le posizioni in un altro formato e non ha il comando jog: il programma sposta la testa con movimenti normali.", "Vanhempi GRBL (0.9) ilmoittaa sijainnit toisessa muodossa eikä siinä ole jog-komentoa: ohjelma siirtää päätä tavallisilla liikkeillä.", "较旧的 GRBL（0.9）以另一种格式报告位置，且没有点动（jog）命令：程序改用普通移动来移动机头。", "पुराना GRBL (0.9) स्थिति दूसरे प्रारूप में बताता है और उसमें जॉग कमांड नहीं है: प्रोग्राम हेड को सामान्य मूव से चलाता है।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
