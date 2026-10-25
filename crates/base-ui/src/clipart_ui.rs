@@ -268,7 +268,7 @@ pub trait ClipGallery: ClipHost {
         tiles.sort_by(|a, b| (tr_owned(&a.category).to_lowercase(), a.name.to_lowercase()).cmp(&(tr_owned(&b.category).to_lowercase(), b.name.to_lowercase())));
         let mut action: Option<Action> = None;
         let mut collapsed = std::mem::take(&mut self.clip_mut().collapsed);
-        egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| {
+        egui::ScrollArea::vertical().max_height(crate::window::fill_size(ui).y).auto_shrink([false, false]).show(ui, |ui| {
             if tiles.is_empty() {
                 ui.label(RichText::new(tr("No pictures here. Use Online… to find some.")).color(theme::text_dim()));
             }
