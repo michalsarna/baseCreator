@@ -289,8 +289,8 @@ impl Machine {
         });
     }
 
-    /// Which GRBL the next connection talks to (see `Dialect`).
-    pub fn set_dialect(&mut self, dialect: base_core::machine::Dialect) {
+    /// Which GRBL the next connection talks to (see `GrblVersion`).
+    pub fn set_grbl_version(&mut self, dialect: base_core::machine::GrblVersion) {
         self.controller = dialect.controller();
     }
 
@@ -1139,7 +1139,7 @@ mod tests {
         let seen = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
         grbl09(listener, seen.clone());
         let mut m = Machine::new(&Context::default());
-        m.set_dialect(base_core::machine::Dialect::Grbl09);
+        m.set_grbl_version(base_core::machine::GrblVersion::Grbl09);
         connect(&mut m, port);
         assert!(wait(&mut m, 3.0, |m, _| m.connected));
         assert!(wait(&mut m, 3.0, |m, _| m.state == "Idle" && m.pos[0] == 1.529), "the work position of the report");
@@ -1161,7 +1161,7 @@ mod tests {
         let seen = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
         grbl09(listener, seen.clone());
         let mut m = Machine::new(&Context::default());
-        m.set_dialect(base_core::machine::Dialect::Grbl07);
+        m.set_grbl_version(base_core::machine::GrblVersion::Grbl07);
         connect(&mut m, port);
         assert!(wait(&mut m, 3.0, |m, _| m.connected));
         m.jog(2.0, 3.0, 0.0, 600.0);
