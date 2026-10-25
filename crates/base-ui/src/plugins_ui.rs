@@ -736,7 +736,8 @@ pub fn generator_window(ctx: &egui::Context, st: &mut PluginsUi, area: (f64, f64
             ui.label(RichText::new(pt(registry, &def.description)).color(theme::text_dim()));
         }
         ui.add_space(4.0);
-        let body_h = (ui.available_height() - 46.0).max(240.0);
+        let body_top = ui.cursor().top();
+        let body_h = (ui.available_height() - body_overhead(ui, "gen_footer")).max(180.0);
         ui.horizontal_top(|ui| {
             ui.vertical(|ui| {
                 ui.set_width(340.0);
@@ -811,6 +812,7 @@ pub fn generator_window(ctx: &egui::Context, st: &mut PluginsUi, area: (f64, f64
                 cancel = true;
             }
         });
+        overhead_measured(ui, "gen_footer", body_top, body_h);
     });
     st.gen_open = open && !cancel;
     if create && !gens.is_empty() {
@@ -1074,6 +1076,22 @@ fn draw_preview(ui: &egui::Ui, rect: egui::Rect, shapes: &Shapes) {
     }
 }
 
+/// What a window needs besides the height of its body (the spacing round it, the separator and the buttons under it, what the
+/// body takes beyond the height it was given): what that came to in the last frame, plus a little. A guess that is too small
+/// makes the window a few points taller in every frame until it fills the program window.
+fn body_overhead(ui: &egui::Ui, key: &str) -> f32 {
+    ui.data(|d| d.get_temp::<f32>(ui.make_persistent_id(key))).unwrap_or(60.0)
+}
+
+/// Remember the overhead of this frame: `body_top` is where the body started, `body_h` its height, and the window is drawn to
+/// its end.
+fn overhead_measured(ui: &egui::Ui, key: &str, body_top: f32, body_h: f32) {
+    // The cursor (it holds the spacing the window adds after the last widget), not `min_rect`: the window sets a minimum size on its ui,
+    // which would feed itself.
+    let used = (ui.cursor().top() - body_top - body_h).max(0.0) + 1.0;
+    ui.data_mut(|d| d.insert_temp(ui.make_persistent_id(key), used));
+}
+
 /// The window of an import that has a form and a preview. Returns the name of the file and the shapes when Import was pressed.
 pub fn import_window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<(String, Shapes)> {
     let PluginsUi { registry, pending: slot, .. } = st;
@@ -1106,12 +1124,13 @@ pub fn import_window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<(String,
     let mut open = true;
     let (mut go, mut cancel) = (false, false);
     let title = trf("Import {}", &[&pending.name]);
-    popup(ctx, "plugin_import_window", &title, [900.0, 640.0], &mut open, |ui| {
+    popup(ctx, "plugin_import_window", &title, [900.0, (ctx.content_rect().height() * 0.7).clamp(380.0, 640.0)], &mut open, |ui| {
         if !pending.def.description.is_empty() {
             ui.label(RichText::new(pt(registry, &pending.def.description)).color(theme::text_dim()));
         }
         // The window can be resized: the form takes the height that is left above the buttons, the preview the rest of the width.
-        let body_h = (ui.available_height() - 46.0).max(240.0);
+        let body_top = ui.cursor().top();
+        let body_h = (ui.available_height() - body_overhead(ui, "import_footer")).max(180.0);
         ui.horizontal_top(|ui| {
             ui.vertical(|ui| {
                 ui.set_width(330.0);
@@ -1175,6 +1194,7 @@ pub fn import_window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<(String,
             go = ui.add_enabled(ready, egui::Button::new(RichText::new(tr("Import")).strong())).clicked();
             cancel = ui.button(tr("Cancel")).clicked();
         });
+        overhead_measured(ui, "import_footer", body_top, body_h);
     });
     if go {
         return slot.take()?.finish();
@@ -1283,10 +1303,15 @@ mod tests {
             "figures": [ {{ "file": "a.svg" }} ] }} ] }}"#)).unwrap();
         std::fs::write(pd.join("g.rhai"), "fn generate(p, ctx) { [rect(0.0, 0.0, p.w, 5.0)] }").unwrap();
         std::fs::write(pd.join("a.svg"), "<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20'><rect width='40' height='20' stroke='currentColor' fill='none'/></svg>").unwrap();
-        for screen_h in [700.0_f32, 1000.0] {
+        // Roomier spacing than egui's own, like the programs have: a reserve for the buttons that was a guess made the window grow.
+        for (screen_h, spacing) in [(700.0_f32, 4.0_f32), (1000.0, 4.0), (800.0, 9.0), (1000.0, 12.0)] {
             let mut st = PluginsUi::new("millcreator", &dir);
             st.gen_open = true;
             let ctx = egui::Context::default();
+            ctx.global_style_mut(|s| {
+                s.spacing.item_spacing = egui::vec2(8.0, spacing);
+                s.spacing.interact_size.y = 20.0 + spacing;
+            });
             let mut t = 0.0;
             let mut bottoms = vec![];
             for frame in 0..100 {

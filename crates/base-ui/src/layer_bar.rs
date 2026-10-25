@@ -8,6 +8,8 @@ use egui::{Color32, Sense};
 
 const SWATCH: f32 = 22.0;
 const GAP: f32 = 7.0;
+/// The width of the ring round the active swatch.
+const RING: f32 = 2.0;
 /// Room before the first and after the last swatch, so the outline of the active one is not cut off at the ends of the row.
 const PAD: f32 = 6.0;
 const ARROW: f32 = 24.0;
@@ -72,7 +74,8 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
     };
     let offset_id = egui::Id::unique("layer_bar_offset");
     let mut offset: f32 = ui.data(|d| d.get_temp(offset_id)).unwrap_or(0.0);
-    let content_w = total as f32 * (SWATCH + GAP) + 2.0 * PAD;
+    // Room, the gap, the swatches with a gap after each, room.
+    let content_w = total as f32 * (SWATCH + GAP) + 2.0 * PAD + GAP;
     let mut clicked = None;
     let mut double = None;
     ui.horizontal_centered(|ui| {
@@ -87,7 +90,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
         let out = area.show(ui, |ui| {
             ui.horizontal_centered(|ui| {
                 ui.spacing_mut().item_spacing.x = GAP;
-                ui.add_space(PAD - GAP);
+                ui.add_space(PAD);
                 for i in 0..total {
                     let fill = {
                         let c = h.layer_color(i);
@@ -100,14 +103,17 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
                     // The cell is taller than the swatch: the outline of the active one is drawn outside it and would be cut
                     // off at the edge of the scrolling row.
                     let (cell, resp) = ui.allocate_exact_size(egui::vec2(SWATCH, SWATCH + 10.0), Sense::click());
-                    let r = egui::Rect::from_center_size(cell.center(), egui::vec2(SWATCH, SWATCH));
+                    // The swatch is a little smaller than its cell and the ring of the active one is drawn inside the cell: the scrolling
+                    // row clips whatever goes beyond it, which cut the ring off at the sides.
+                    let ring = egui::Rect::from_center_size(cell.center(), egui::vec2(SWATCH, SWATCH));
+                    let r = ring.shrink(RING + 1.0);
                     ui.painter().rect_filled(r, 3.0, fill);
                     if used[i] {
                         // A dot: there are shapes on this layer.
                         ui.painter().circle_filled(r.center(), 2.5, ink_on(fill));
                     }
                     if h.ed().active_layer == i {
-                        ui.painter().rect_stroke(r.expand(1.5), 4.0, egui::Stroke::new(2.0, theme::accent()), egui::StrokeKind::Outside);
+                        ui.painter().rect_stroke(ring, 4.0, egui::Stroke::new(RING, theme::accent()), egui::StrokeKind::Inside);
                     }
                     let name = h.layer_label(i);
                     let tip = trf("{} — click to assign selection / set active; double-click for options", &[&format!("{}: {}", i + 1, name)]);
@@ -118,7 +124,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
                         clicked = Some(i);
                     }
                 }
-                ui.add_space(PAD - GAP);
+                ui.add_space(PAD);
             });
         });
         offset = out.state.clamped_offset().x;
@@ -139,7 +145,7 @@ pub fn layer_bar<H: LayerBarHost>(h: &mut H, ui: &mut egui::Ui) {
     let was: Option<usize> = ui.data(|d| d.get_temp(seen_id));
     if was != Some(active) {
         ui.data_mut(|d| d.insert_temp(seen_id, active));
-        let x = PAD + active as f32 * (SWATCH + GAP);
+        let x = PAD + GAP + active as f32 * (SWATCH + GAP);
         let view = (ui.max_rect().width() - 2.0 * (ARROW + GAP)).max(60.0);
         if x < offset || x + SWATCH > offset + view {
             offset = (x - view / 2.0).clamp(0.0, (content_w - view).max(0.0));
