@@ -187,6 +187,7 @@ pub fn page(ui: &mut egui::Ui, m: &mut Machine) -> Option<String> {
     let only = m.fw.only_changed;
     let mut ask = None;
     egui::ScrollArea::vertical()
+        .max_height(crate::window::fill_size(ui).y)
         .auto_shrink([false, false])
         .show(ui, |ui| {
             egui::Grid::new("fw_table")
@@ -467,5 +468,26 @@ mod tests {
         m.fw.reset_open = true;
         run(&mut m, &mut open);
         assert!(open);
+    }
+
+    #[test]
+    fn the_window_keeps_its_height_while_it_is_drawn_again_and_again() {
+        let ctx = egui::Context::default();
+        let mut m = Machine::new(&ctx);
+        m.connected = true;
+        m.fw.values = (0..40).map(|i| (100 + i, "1.000".to_string())).collect();
+        let mut open = true;
+        let mut heights = vec![];
+        for _ in 0..12 {
+            let input = egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1000.0))), ..Default::default() };
+            let mut out = ctx.run_ui(input, |_ui| {
+                window(&ctx, &mut m, &mut FwCopies::default(), &mut open);
+            });
+            out.textures_delta.clear();
+            if let Some(r) = ctx.memory(|mem| mem.area_rect(egui::Id::unique(Some("firmware_window")))) {
+                heights.push(r.height());
+            }
+        }
+        assert!((heights[11] - heights[3]).abs() < 1.0 && heights[11] < 700.0, "{heights:?}");
     }
 }

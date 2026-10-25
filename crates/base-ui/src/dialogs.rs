@@ -73,7 +73,7 @@ pub fn guide_window(ctx: &egui::Context, show: &mut bool, filter: &mut String, s
         }
         ui.add_space(4.0);
         let q = filter.to_lowercase();
-        egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| {
+        egui::ScrollArea::vertical().max_height(crate::window::fill_size(ui).y).auto_shrink([false, false]).show(ui, |ui| {
             for s in sections {
                 let hits: Vec<&&str> = s.lines.iter().filter(|l| q.is_empty() || l.to_lowercase().contains(&q) || s.title.to_lowercase().contains(&q)).collect();
                 if hits.is_empty() {
