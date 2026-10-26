@@ -705,3 +705,4 @@
 704|GRBL 1.1 alebo novší
 705|GRBL 0.7 alebo starší
 706|Starší GRBL (0.9) hlási polohu v inom formáte a nemá príkaz jog: program posúva hlavu obyčajnými pohybmi.
+707|Karta v pracovnej oblasti

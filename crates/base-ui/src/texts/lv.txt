@@ -705,3 +705,4 @@
 704|GRBL 1.1 vai jaunāks
 705|GRBL 0.7 vai vecāks
 706|Vecāks GRBL (0.9) ziņo pozīcijas citā formātā un tam nav jog komandas: programma pārvieto galviņu ar parastām kustībām.
+707|Cilne darba zonā

@@ -705,3 +705,4 @@
 704|GRBL 1.1 ou plus récent
 705|GRBL 0.7 ou plus ancien
 706|Un GRBL ancien (0.9) indique les positions dans un autre format et n'a pas de commande jog : le programme déplace la tête avec des mouvements ordinaires.
+707|Onglet dans la zone de travail

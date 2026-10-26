@@ -705,3 +705,4 @@
 704|GRBL 1.1 arba naujesnis
 705|GRBL 0.7 arba senesnis
 706|Senesnis GRBL (0.9) praneša pozicijas kitu formatu ir neturi jog komandos: programa judina galvutę paprastais judesiais.
+707|Skirtukas darbo srityje

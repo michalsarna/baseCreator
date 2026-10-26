@@ -21,6 +21,9 @@ pub enum TabAction {
     Select(usize),
     Close(usize),
     New,
+    /// The extra tab (see [`ExtraTab`]) was picked, or closed.
+    Extra,
+    CloseExtra,
 }
 
 /// The title of a tab: the name of the file, or "Untitled".
@@ -44,53 +47,75 @@ fn shorten(s: &str) -> String {
     }
 }
 
+/// A tab that is not a drawing (the live view of the camera): it comes after the drawings and has no unsaved work.
+pub struct ExtraTab {
+    pub title: String,
+    /// Shown instead of the drawing at `active`.
+    pub shown: bool,
+}
+
+/// Draws one tab; returns (clicked, closed).
+fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title: &str, dirty: bool, is_active: bool) -> (bool, bool) {
+    let font = egui::FontId::proportional(13.0);
+    let text = shorten(title);
+    let galley = ui.painter().layout_no_wrap(text, font, if is_active { theme::text() } else { theme::text_dim() });
+    let w = galley.size().x + 14.0 + 22.0;
+    let (rect, resp) = ui.allocate_exact_size(egui::vec2(w, TAB_H), Sense::click());
+    let close_rect = egui::Rect::from_min_size(egui::pos2(rect.right() - 22.0, rect.top()), egui::vec2(22.0, TAB_H));
+    let close = ui.interact(close_rect, ui.make_persistent_id(("doc_tab_close", id)), Sense::click());
+    let fill = if is_active {
+        theme::workspace()
+    } else if resp.hovered() {
+        theme::panel_dark()
+    } else {
+        theme::panel()
+    };
+    ui.painter().rect_filled(rect, egui::CornerRadius { nw: 5, ne: 5, sw: 0, se: 0 }, fill);
+    if is_active {
+        ui.painter().rect_filled(egui::Rect::from_min_size(rect.min, egui::vec2(rect.width(), 2.0)), 0.0, theme::accent());
+    }
+    ui.painter().galley(egui::pos2(rect.left() + 8.0, rect.center().y - galley.size().y / 2.0), galley, Color32::PLACEHOLDER);
+    // A dot for unsaved work, which turns into the cross while the pointer is on the close button.
+    let (mark, colour) = if close.hovered() {
+        ("×", theme::text())
+    } else if dirty {
+        ("●", theme::accent())
+    } else {
+        ("×", theme::text_dim())
+    };
+    ui.painter().text(close_rect.center(), egui::Align2::CENTER_CENTER, mark, egui::FontId::proportional(if mark == "●" { 9.0 } else { 15.0 }), colour);
+    let resp = if title.chars().count() > MAX_CHARS { resp.on_hover_text(title) } else { resp };
+    close.clone().on_hover_text(tr("Close tab"));
+    (resp.clicked() || resp.middle_clicked(), close.clicked() || resp.middle_clicked())
+}
+
 /// The bar: a tab for each drawing (a dot when it has unsaved work, a cross to close it) and a "+" for a new one. A middle
 /// click closes a tab.
 pub fn tab_bar(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize) -> Option<TabAction> {
+    tab_bar_with(ui, tabs, active, None)
+}
+
+/// [`tab_bar`] with one more tab after the drawings. While it is shown no drawing is the active one.
+pub fn tab_bar_with(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize, extra: Option<&ExtraTab>) -> Option<TabAction> {
     let mut action = None;
     egui::ScrollArea::horizontal().id_salt("doc_tabs_scroll").scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(ui, |ui| {
         ui.horizontal(|ui| {
             ui.spacing_mut().item_spacing.x = 2.0;
-            let font = egui::FontId::proportional(13.0);
             for (i, t) in tabs.iter().enumerate() {
-                let is_active = i == active;
-                let text = shorten(&t.title);
-                let galley = ui.painter().layout_no_wrap(text, font.clone(), if is_active { theme::text() } else { theme::text_dim() });
-                let w = galley.size().x + 14.0 + 22.0;
-                let (rect, resp) = ui.allocate_exact_size(egui::vec2(w, TAB_H), Sense::click());
-                let close_rect = egui::Rect::from_min_size(egui::pos2(rect.right() - 22.0, rect.top()), egui::vec2(22.0, TAB_H));
-                let close = ui.interact(close_rect, ui.make_persistent_id(("doc_tab_close", i)), Sense::click());
-                let fill = if is_active {
-                    theme::workspace()
-                } else if resp.hovered() {
-                    theme::panel_dark()
-                } else {
-                    theme::panel()
-                };
-                ui.painter().rect_filled(rect, egui::CornerRadius { nw: 5, ne: 5, sw: 0, se: 0 }, fill);
-                if is_active {
-                    ui.painter().rect_filled(egui::Rect::from_min_size(rect.min, egui::vec2(rect.width(), 2.0)), 0.0, theme::accent());
-                }
-                ui.painter().galley(egui::pos2(rect.left() + 8.0, rect.center().y - galley.size().y / 2.0), galley, Color32::PLACEHOLDER);
-                // A dot for unsaved work, which turns into the cross while the pointer is on the close button.
-                let (mark, colour) = if close.hovered() {
-                    ("×", theme::text())
-                } else if t.dirty {
-                    ("●", theme::accent())
-                } else {
-                    ("×", theme::text_dim())
-                };
-                ui.painter().text(close_rect.center(), egui::Align2::CENTER_CENTER, mark, egui::FontId::proportional(if mark == "●" { 9.0 } else { 15.0 }), colour);
-                let full = if t.title.chars().count() > MAX_CHARS { Some(t.title.clone()) } else { None };
-                let resp = match full {
-                    Some(f) => resp.on_hover_text(f),
-                    None => resp,
-                };
-                close.clone().on_hover_text(tr("Close tab"));
-                if close.clicked() || resp.middle_clicked() {
+                let is_active = i == active && !extra.is_some_and(|e| e.shown);
+                let (clicked, closed) = one_tab(ui, i, &t.title, t.dirty, is_active);
+                if closed {
                     action = Some(TabAction::Close(i));
-                } else if resp.clicked() && !is_active {
+                } else if clicked && !is_active {
                     action = Some(TabAction::Select(i));
+                }
+            }
+            if let Some(e) = extra {
+                let (clicked, closed) = one_tab(ui, "extra", &e.title, false, e.shown);
+                if closed {
+                    action = Some(TabAction::CloseExtra);
+                } else if clicked && !e.shown {
+                    action = Some(TabAction::Extra);
                 }
             }
             let (rect, resp) = ui.allocate_exact_size(egui::vec2(TAB_H, TAB_H), Sense::click());
@@ -104,6 +129,16 @@ pub fn tab_bar(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize) -> Option<Tab
         });
     });
     action
+}
+
+/// The name of the way to show the camera view as a tab of the work area.
+pub fn work_tab_label() -> &'static str {
+    tr("Tab in the work area")
+}
+
+/// The button that puts the camera view in a tab of the work area (or takes it out); true when it was clicked.
+pub fn work_tab_toggle(ui: &mut egui::Ui, on: bool) -> bool {
+    crate::widgets::toggle_icon(ui, "panel-top", work_tab_label(), on)
 }
 
 /// What a tab shortcut asks for.
@@ -259,6 +294,19 @@ pub fn quit_tick<H: TabHost>(h: &mut H, ctx: &egui::Context, green: Color32) -> 
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn the_extra_tab_is_drawn_after_the_drawings_and_takes_the_active_mark() {
+        let ctx = egui::Context::default();
+        let tabs = [TabInfo { title: "a".into(), dirty: false }, TabInfo { title: "b".into(), dirty: true }];
+        let extra = ExtraTab { title: "Camera".into(), shown: true };
+        let mut out = ctx.run_ui(Default::default(), |ui| {
+            assert_eq!(tab_bar_with(ui, &tabs, 0, Some(&extra)), None);
+            assert_eq!(tab_bar(ui, &tabs, 0), None);
+        });
+        out.textures_delta.clear();
+        assert_eq!(work_tab_label(), "Tab in the work area");
+    }
+
     use super::*;
 
     /// Tabs with a title and unsaved work (or not), the one shown, and what a Save does: `saves` is what the file dialog
