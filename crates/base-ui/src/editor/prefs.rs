@@ -94,6 +94,7 @@ pub fn view_options_window<H: EditorHost>(h: &mut H, ctx: &egui::Context, show: 
             h.ed_mut().grid = 10.0;
             h.ed_mut().show_grid = true;
         }
+        h.view_options_extra(ui);
     });
     *show = open;
 }

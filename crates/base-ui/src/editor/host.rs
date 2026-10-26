@@ -49,6 +49,8 @@ pub trait EditorHost: Sized {
     /// Colour of the space around the work area, and of the work area itself.
     fn workspace_fill(&self) -> egui::Color32;
     fn bed_fill(&self) -> egui::Color32;
+    /// More options of the program, at the end of the window with the view options.
+    fn view_options_extra(&mut self, _ui: &mut egui::Ui) {}
     /// The colour a layer's shapes are drawn in, or `None` when the layer is hidden. Dimmed layers return a dimmed colour.
     fn shape_color(&self, layer: usize) -> Option<egui::Color32>;
     /// The plain colour of a layer (for the outline of a shape being drawn).

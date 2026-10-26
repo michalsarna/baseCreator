@@ -107,11 +107,15 @@ pub struct CameraSource {
     /// Points that fix the picture to the work area; at least three (four recommended) align it.
     #[serde(default)]
     pub reference: Vec<RefPoint>,
+    /// Where the live view of this camera opens: 0 = floating window, 1 = separate window, 2 = tab of the side panel. `None`
+    /// until chosen (the way the device's view was last left, `CameraView::mode`, is used then).
+    #[serde(default)]
+    pub view_mode: Option<u8>,
 }
 
 impl CameraSource {
     pub fn url(name: &str, url: &str, rotation: u8) -> CameraSource {
-        CameraSource { name: name.into(), enabled: true, kind: CameraKind::Url(url.into()), rotation: rotation % 4, image: ImageSettings::default(), lens: Lens::default(), reference: vec![] }
+        CameraSource { name: name.into(), enabled: true, kind: CameraKind::Url(url.into()), rotation: rotation % 4, image: ImageSettings::default(), lens: Lens::default(), reference: vec![], view_mode: None }
     }
 
     /// Is the address a usable http / https URL (or a local camera chosen)? A camera that is not valid cannot be
