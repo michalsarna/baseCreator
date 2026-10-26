@@ -243,11 +243,16 @@ pub fn pointer_over_window(ctx: &egui::Context) -> bool {
 /// Like [`popup`], with icon buttons (or other small widgets) in the title line, next to the close button. They are added right
 /// to left: the first one is the one at the right.
 pub fn popup_with<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open: &mut bool, tools: impl FnOnce(&mut egui::Ui), add: impl FnOnce(&mut egui::Ui) -> R) -> Option<R> {
+    popup_at(ctx, id, title, size, None, open, tools, add).map(|(r, _)| r)
+}
+
+/// [`popup_with`] that opens at `pos` (its top-left corner) when it is given, and also returns the rectangle of the window.
+pub fn popup_at<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], pos: Option<Pos2>, open: &mut bool, tools: impl FnOnce(&mut egui::Ui), add: impl FnOnce(&mut egui::Ui) -> R) -> Option<(R, Rect)> {
     if !*open {
         return None;
     }
     let frame = egui::Frame::window(&ctx.global_style()).inner_margin(egui::Margin { left: 10, right: 10, top: 6, bottom: 8 });
-    let pos = ctx.content_rect().center() - egui::vec2(size[0], size[1]) / 2.0;
+    let pos = pos.unwrap_or_else(|| ctx.content_rect().center() - egui::vec2(size[0], size[1]) / 2.0);
     let mut keep = true;
     let r = egui::Window::new(id)
         .title_bar(false)
@@ -266,7 +271,103 @@ pub fn popup_with<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2],
     if !keep {
         *open = false;
     }
-    r.and_then(|r| r.inner)
+    r.and_then(|r| r.inner.map(|i| (i, r.response.rect)))
+}
+
+/// A window that shrinks to the picture it shows: the picture is fitted to the window, so a window of another shape than the
+/// picture has an empty strip beside it or under it. The drawing code of the picture reports that strip in `slack`; once
+/// the mouse is let go the window is made smaller by it. (A window of egui cannot be resized from code: it is opened again
+/// under a new id, at the same place, with the new size.)
+#[derive(Clone, Debug, Default)]
+pub struct FitWindow {
+    generation: u32,
+    pos: Option<Pos2>,
+    size: Option<[f32; 2]>,
+    /// The empty width and height beside and under the picture, set by [`FitWindow::measure`].
+    pub slack: egui::Vec2,
+    under: Option<f32>,
+}
+
+/// An empty strip thinner than this is left alone (rounding, the border of the picture).
+const SLACK_MIN: f32 = 3.0;
+/// The smallest window the fitting makes.
+const FIT_MIN: [f32; 2] = [240.0, 160.0];
+
+impl FitWindow {
+    /// The id of the window: the same as long as it keeps its size.
+    pub fn id(&self, base: &str) -> String {
+        format!("{base}_{}", self.generation)
+    }
+
+    /// Where the window opens, if it was moved by a fitting.
+    pub fn pos(&self) -> Option<Pos2> {
+        self.pos
+    }
+
+    /// The size the window opens with: the fitted one, else `default`.
+    pub fn size_or(&self, default: [f32; 2]) -> [f32; 2] {
+        self.size.unwrap_or(default)
+    }
+
+    fn wanted(&self, ctx: &egui::Context, size: egui::Vec2) -> Option<egui::Vec2> {
+        if ctx.input(|i| i.pointer.any_down()) || (self.slack.x < SLACK_MIN && self.slack.y < SLACK_MIN) {
+            return None;
+        }
+        let (dx, dy) = (self.slack.x.max(0.0), self.slack.y.max(0.0));
+        let w = egui::vec2((size.x - dx).max(FIT_MIN[0]), (size.y - dy).max(FIT_MIN[1]));
+        ((w - size).abs().max_elem() >= SLACK_MIN).then_some(w)
+    }
+
+    /// The height of what stands under the picture: measured by the last frame, `guess` before there was one.
+    pub fn under(&self, guess: f32) -> f32 {
+        self.under.unwrap_or(guess)
+    }
+
+    /// Call at the end of the content, after everything under the picture was drawn: `picture` is where the picture went and
+    /// `slack_x` the empty width beside it (from [`fit_picture`]). What stands under the picture is measured, for the next
+    /// frame, and what is left of the window is the empty strip under it.
+    pub fn measure(&mut self, ui: &egui::Ui, picture: Rect, slack_x: f32) {
+        self.under = Some((ui.min_rect().bottom() - picture.bottom()).max(0.0));
+        self.slack = egui::vec2(slack_x, ui.available_height().max(0.0));
+    }
+
+    /// Call after the window was shown, with its rectangle: when it is bigger than the picture needs, it is opened again
+    /// smaller at the next frame.
+    pub fn settle(&mut self, ctx: &egui::Context, rect: Rect) {
+        if let Some(w) = self.wanted(ctx, rect.size()) {
+            self.generation += 1;
+            self.pos = Some(rect.min);
+            self.size = Some([w.x, w.y]);
+            self.slack = egui::Vec2::ZERO;
+            ctx.request_repaint();
+        }
+    }
+
+    /// For a window of its own (a viewport): the inner size it should take now, once the mouse is let go.
+    pub fn viewport_size(&mut self, ctx: &egui::Context, inner: egui::Vec2) -> Option<egui::Vec2> {
+        let w = self.wanted(ctx, inner)?;
+        self.slack = egui::Vec2::ZERO;
+        Some(w)
+    }
+}
+
+/// A pop-up window of the common style that shrinks to its picture (see [`FitWindow`]).
+pub fn popup_fit<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open: &mut bool, fit: &mut FitWindow, add: impl FnOnce(&mut egui::Ui, &mut FitWindow) -> R) -> Option<R> {
+    let (id, size, pos) = (fit.id(id), fit.size_or(size), fit.pos());
+    let r = popup_at(ctx, &id, title, size, pos, open, |_| {}, |ui| add(ui, fit));
+    r.map(|(r, rect)| {
+        fit.settle(ctx, rect);
+        r
+    })
+}
+
+/// The scale at which a picture of `size` fills what is left of the window (up as well as down), leaving `under` points of
+/// height for what stands under it (a guess is enough: [`FitWindow::measure`] looks at what really is left), and the empty
+/// width that remains beside it.
+pub fn fit_picture(ui: &egui::Ui, size: egui::Vec2, under: f32) -> (f32, f32) {
+    let room = egui::vec2(ui.available_width().max(60.0), (ui.available_height() - under).max(60.0));
+    let k = (room.x / size.x).min(room.y / size.y);
+    (k, room.x - size.x * k)
 }
 
 #[cfg(test)]
@@ -309,5 +410,37 @@ mod size_tests {
             });
         });
         assert!((list[7] - list[2]).abs() < 1.0, "{list:?}");
+    }
+
+    #[test]
+    fn a_fit_window_shrinks_to_its_picture_and_then_stays() {
+        let ctx = egui::Context::default();
+        let mut fit = FitWindow::default();
+        let mut open = true;
+        let mut frame = |fit: &mut FitWindow| {
+            let input = egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1200.0))), ..Default::default() };
+            let mut out = ctx.run_ui(input, |ui| {
+                popup_fit(ui.ctx(), "pic", "Test", [900.0, 700.0], &mut open, fit, |ui, fit| {
+                    let size = egui::vec2(320.0, 180.0);
+                    let (k, slack_x) = fit_picture(ui, size, fit.under(30.0));
+                    let (picture, _) = ui.allocate_exact_size(size * k, egui::Sense::hover());
+                    ui.label("under the picture");
+                    fit.measure(ui, picture, slack_x);
+                });
+            });
+            out.textures_delta.clear();
+        };
+        for _ in 0..10 {
+            frame(&mut fit);
+        }
+        assert!(fit.generation >= 1, "the window was never fitted");
+        // The picture is 16:9: the window is no longer the 900 x 700 it was opened with.
+        let last = fit.size.expect("a fitted size");
+        assert!(last[1] < 600.0 && last[0] / last[1] < 2.2, "{last:?}");
+        let g = fit.generation;
+        for _ in 0..6 {
+            frame(&mut fit);
+        }
+        assert!(fit.generation <= g + 1, "the window keeps being resized: {g} -> {}", fit.generation);
     }
 }
