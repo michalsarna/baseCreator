@@ -283,8 +283,9 @@ pub struct FitWindow {
     generation: u32,
     pos: Option<Pos2>,
     size: Option<[f32; 2]>,
-    /// The empty width and height beside and under the picture, set while it is drawn.
+    /// The empty width and height beside and under the picture, set by [`FitWindow::measure`].
     pub slack: egui::Vec2,
+    under: Option<f32>,
 }
 
 /// An empty strip thinner than this is left alone (rounding, the border of the picture).
@@ -315,6 +316,19 @@ impl FitWindow {
         let (dx, dy) = (self.slack.x.max(0.0), self.slack.y.max(0.0));
         let w = egui::vec2((size.x - dx).max(FIT_MIN[0]), (size.y - dy).max(FIT_MIN[1]));
         ((w - size).abs().max_elem() >= SLACK_MIN).then_some(w)
+    }
+
+    /// The height of what stands under the picture: measured by the last frame, `guess` before there was one.
+    pub fn under(&self, guess: f32) -> f32 {
+        self.under.unwrap_or(guess)
+    }
+
+    /// Call at the end of the content, after everything under the picture was drawn: `picture` is where the picture went and
+    /// `slack_x` the empty width beside it (from [`fit_picture`]). What stands under the picture is measured, for the next
+    /// frame, and what is left of the window is the empty strip under it.
+    pub fn measure(&mut self, ui: &egui::Ui, picture: Rect, slack_x: f32) {
+        self.under = Some((ui.min_rect().bottom() - picture.bottom()).max(0.0));
+        self.slack = egui::vec2(slack_x, ui.available_height().max(0.0));
     }
 
     /// Call after the window was shown, with its rectangle: when it is bigger than the picture needs, it is opened again
@@ -348,11 +362,12 @@ pub fn popup_fit<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], 
 }
 
 /// The scale at which a picture of `size` fills what is left of the window (up as well as down), leaving `under` points of
-/// height for what stands under it, and the empty width and height that remain beside and under it.
-pub fn fit_picture(ui: &egui::Ui, size: egui::Vec2, under: f32) -> (f32, egui::Vec2) {
+/// height for what stands under it (a guess is enough: [`FitWindow::measure`] looks at what really is left), and the empty
+/// width that remains beside it.
+pub fn fit_picture(ui: &egui::Ui, size: egui::Vec2, under: f32) -> (f32, f32) {
     let room = egui::vec2(ui.available_width().max(60.0), (ui.available_height() - under).max(60.0));
     let k = (room.x / size.x).min(room.y / size.y);
-    (k, room - size * k)
+    (k, room.x - size.x * k)
 }
 
 #[cfg(test)]
@@ -407,9 +422,10 @@ mod size_tests {
             let mut out = ctx.run_ui(input, |ui| {
                 popup_fit(ui.ctx(), "pic", "Test", [900.0, 700.0], &mut open, fit, |ui, fit| {
                     let size = egui::vec2(320.0, 180.0);
-                    let (k, slack) = fit_picture(ui, size, 4.0);
-                    fit.slack = slack;
-                    ui.allocate_exact_size(size * k, egui::Sense::hover());
+                    let (k, slack_x) = fit_picture(ui, size, fit.under(30.0));
+                    let (picture, _) = ui.allocate_exact_size(size * k, egui::Sense::hover());
+                    ui.label("under the picture");
+                    fit.measure(ui, picture, slack_x);
                 });
             });
             out.textures_delta.clear();
