@@ -286,12 +286,19 @@ pub struct FitWindow {
     /// The empty width and height beside and under the picture, set by [`FitWindow::measure`].
     pub slack: egui::Vec2,
     under: Option<f32>,
+    /// For a window of its own: the size it had at the last look, since when (seconds) it has not changed, and the size
+    /// at which it was last asked to shrink.
+    seen: egui::Vec2,
+    still_since: f64,
+    asked_at: Option<egui::Vec2>,
 }
 
 /// An empty strip thinner than this is left alone (rounding, the border of the picture).
 const SLACK_MIN: f32 = 3.0;
 /// The smallest window the fitting makes.
 const FIT_MIN: [f32; 2] = [240.0, 160.0];
+/// How long a window of its own keeps its size before it is made smaller (seconds).
+const STILL: f64 = 0.6;
 
 impl FitWindow {
     /// The id of the window: the same as long as it keeps its size.
@@ -309,12 +316,12 @@ impl FitWindow {
         self.size.unwrap_or(default)
     }
 
-    fn wanted(&self, ctx: &egui::Context, size: egui::Vec2) -> Option<egui::Vec2> {
+    fn wanted(&self, ctx: &egui::Context, size: egui::Vec2, min: [f32; 2]) -> Option<egui::Vec2> {
         if ctx.input(|i| i.pointer.any_down()) || (self.slack.x < SLACK_MIN && self.slack.y < SLACK_MIN) {
             return None;
         }
         let (dx, dy) = (self.slack.x.max(0.0), self.slack.y.max(0.0));
-        let w = egui::vec2((size.x - dx).max(FIT_MIN[0]), (size.y - dy).max(FIT_MIN[1]));
+        let w = egui::vec2((size.x - dx).max(min[0]), (size.y - dy).max(min[1]));
         ((w - size).abs().max_elem() >= SLACK_MIN).then_some(w)
     }
 
@@ -334,7 +341,7 @@ impl FitWindow {
     /// Call after the window was shown, with its rectangle: when it is bigger than the picture needs, it is opened again
     /// smaller at the next frame.
     pub fn settle(&mut self, ctx: &egui::Context, rect: Rect) {
-        if let Some(w) = self.wanted(ctx, rect.size()) {
+        if let Some(w) = self.wanted(ctx, rect.size(), FIT_MIN) {
             self.generation += 1;
             self.pos = Some(rect.min);
             self.size = Some([w.x, w.y]);
@@ -343,9 +350,25 @@ impl FitWindow {
         }
     }
 
-    /// For a window of its own (a viewport): the inner size it should take now, once the mouse is let go.
-    pub fn viewport_size(&mut self, ctx: &egui::Context, inner: egui::Vec2) -> Option<egui::Vec2> {
-        let w = self.wanted(ctx, inner)?;
+    /// For a window of its own (a viewport), whose size the person changes at its edge (egui does not see that as a held
+    /// button): the inner size it should take now. Only when it has kept its size for a moment, so that the person can make it
+    /// bigger; and once for a size, so that a window that cannot get that small (`min`) is not asked again and again.
+    pub fn viewport_size(&mut self, ctx: &egui::Context, inner: egui::Vec2, min: [f32; 2]) -> Option<egui::Vec2> {
+        let now = ctx.input(|i| i.time);
+        if (inner - self.seen).abs().max_elem() >= 1.0 {
+            self.seen = inner;
+            self.still_since = now;
+        }
+        let wait = STILL - (now - self.still_since);
+        if wait > 0.0 {
+            ctx.request_repaint_after(std::time::Duration::from_secs_f64(wait));
+            return None;
+        }
+        if self.asked_at.is_some_and(|a| (a - inner).abs().max_elem() < 1.0) {
+            return None;
+        }
+        let w = self.wanted(ctx, inner, min)?;
+        self.asked_at = Some(inner);
         self.slack = egui::Vec2::ZERO;
         Some(w)
     }
@@ -442,5 +465,41 @@ mod size_tests {
             frame(&mut fit);
         }
         assert!(fit.generation <= g + 1, "the window keeps being resized: {g} -> {}", fit.generation);
+    }
+
+    #[test]
+    fn a_window_of_its_own_shrinks_only_after_it_kept_its_size_and_is_asked_once() {
+        let ctx = egui::Context::default();
+        let mut fit = FitWindow::default();
+        let mut time = 0.0;
+        let mut look = |fit: &mut FitWindow, inner: egui::Vec2, slack: egui::Vec2| {
+            time += 0.1;
+            let input = egui::RawInput { time: Some(time), ..Default::default() };
+            let mut r = None;
+            let mut out = ctx.run_ui(input, |ui| {
+                fit.slack = slack;
+                r = fit.viewport_size(ui.ctx(), inner, [320.0, 240.0]);
+            });
+            out.textures_delta.clear();
+            r
+        };
+        // The person drags the edge: the size keeps changing, nothing is asked.
+        for i in 0..10 {
+            assert_eq!(look(&mut fit, egui::vec2(500.0 + i as f32 * 20.0, 400.0), egui::vec2(100.0, 0.0)), None);
+        }
+        // It rests: asked once, for the width without the empty strip.
+        let inner = egui::vec2(680.0, 400.0);
+        let mut asked = vec![];
+        for _ in 0..20 {
+            asked.extend(look(&mut fit, inner, egui::vec2(100.0, 0.0)));
+        }
+        assert_eq!(asked, vec![egui::vec2(580.0, 400.0)]);
+        // A window that cannot get smaller than its minimum is not asked again and again.
+        let small = egui::vec2(330.0, 250.0);
+        let mut asked = 0;
+        for _ in 0..30 {
+            asked += look(&mut fit, small, egui::vec2(60.0, 60.0)).is_some() as u32;
+        }
+        assert_eq!(asked, 1);
     }
 }

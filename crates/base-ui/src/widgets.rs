@@ -173,10 +173,10 @@ pub fn panel_edge_highlight(ctx: &egui::Context, panel: egui::Rect, edge: Edge) 
     });
     let was: bool = ctx.data(|d| d.get_temp(id)).unwrap_or(false);
     // Once the drag has begun on the edge it stays lit until the button is released, wherever the pointer goes.
-    let hot = near || (was && down);
+    let hot = (near && !crate::window::pointer_over_window(ctx)) || (was && down);
     ctx.data_mut(|d| d.insert_temp(id, hot));
     if hot {
-        let painter = ctx.layer_painter(egui::LayerId::new(egui::Order::Foreground, egui::Id::unique("panel_edge_line")));
+        let painter = ctx.layer_painter(egui::LayerId::new(egui::Order::Background, egui::Id::unique("panel_edge_line")));
         painter.line_segment(line, drag_line_stroke(true));
     }
 }
