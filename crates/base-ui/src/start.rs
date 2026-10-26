@@ -21,7 +21,7 @@ pub fn window_icon(png: &[u8]) -> Option<egui::IconData> {
 pub fn start_header(ui: &mut egui::Ui, logo: Option<&egui::TextureHandle>, name: &str, version: &str) {
     ui.add_space((ui.available_height() * 0.06).max(12.0));
     if let Some(logo) = logo {
-        ui.image((logo.id(), egui::vec2(96.0, 96.0)));
+        ui.image((logo.id(), egui::vec2(144.0, 144.0)));
     }
     ui.label(RichText::new(name).size(28.0).strong());
     ui.label(RichText::new(version).color(theme::text_dim()));

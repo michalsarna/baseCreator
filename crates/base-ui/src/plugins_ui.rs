@@ -283,11 +283,10 @@ fn pt(reg: &Registry, s: &str) -> String {
     reg.translate(crate::i18n::lang().code(), s).unwrap_or(s).to_string()
 }
 
-/// How tall a list in the window may be: a part of the screen. (A list that asks for "all the height there is" makes a window
-/// grow by the spacing under it on every frame, up to the height of the screen.)
+/// How tall a list in the window may be: all that is left of the window (less the spacing, so the window does not grow by it on
+/// every frame). The list is the last thing in the window, so it fills it whatever size the window is given.
 fn list_height(ui: &egui::Ui) -> f32 {
-    // The window is 600 points high to start with and about 260 of that is above the list: a taller list makes it grow.
-    (ui.ctx().content_rect().height() * 0.55).clamp(150.0, 330.0)
+    crate::window::fill_size(ui).y.max(150.0)
 }
 
 fn open_folder(dir: &Path) {
@@ -355,7 +354,7 @@ pub fn window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<String> {
             ui.label(RichText::new(&st.message).color(theme::accent()));
         }
         ui.separator();
-        egui::ScrollArea::vertical().max_height(list_height(ui)).auto_shrink([false, true]).show(ui, |ui| {
+        egui::ScrollArea::vertical().max_height(list_height(ui)).auto_shrink([false, false]).show(ui, |ui| {
             if st.registry.plugins.is_empty() && st.registry.broken.is_empty() {
                 ui.label(RichText::new(tr("No plugins yet. Put a plugin folder into the plugins folder or install a zip.")).color(theme::text_dim()));
             }
@@ -484,7 +483,7 @@ fn official_tab(ui: &mut egui::Ui, st: &mut PluginsUi, download: &mut Option<Ent
     let updates = index.updates(&st.registry).len();
     ui.label(RichText::new(trf("{} plugins in the list, {} can be updated", &[&index.plugins.len(), &updates])).small().color(theme::text_dim()));
     ui.separator();
-    egui::ScrollArea::vertical().max_height(list_height(ui)).auto_shrink([false, true]).show(ui, |ui| {
+    egui::ScrollArea::vertical().max_height(list_height(ui)).auto_shrink([false, false]).show(ui, |ui| {
         let mut entries: Vec<&Entry> = index.plugins.iter().collect();
         entries.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
         for e in entries {
