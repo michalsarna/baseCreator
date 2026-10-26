@@ -225,6 +225,29 @@ pub fn fill_size(ui: &egui::Ui) -> egui::Vec2 {
     (ui.available_size_before_wrap() - egui::vec2(0.0, s.y)).max(egui::vec2(1.0, 1.0))
 }
 
+/// The height a scrolling part may have when `total` (usually the height that is left of the window) also holds something under it
+/// that [`bottom`] drew: `total`, less that part as it was the last time, less the spacing. A part of this height, with
+/// `auto_shrink([false, false])`, fills the window down to what is drawn under it.
+pub fn height_above(ui: &egui::Ui, id: &str, total: f32) -> f32 {
+    let under = ui.ctx().data(|d| d.get_temp::<f32>(Id::unique(("bottom_height", id)))).unwrap_or(48.0);
+    (total - under - ui.spacing().item_spacing.y).max(80.0)
+}
+
+/// Draw what stands under a part that fills the window ([`height_above`]); the height it takes is kept for the next frame.
+pub fn bottom(ui: &mut egui::Ui, id: &str, add: impl FnOnce(&mut egui::Ui)) {
+    let r = ui.scope(add);
+    ui.ctx().data_mut(|d| d.insert_temp(Id::unique(("bottom_height", id)), r.response.rect.height()));
+}
+
+/// The footer of a dialog: a horizontal line and then what `add` draws (messages, buttons), kept at the bottom of the window.
+/// The page above it takes `height_above(ui, id, fill_size(ui).y)`.
+pub fn footer(ui: &mut egui::Ui, id: &str, add: impl FnOnce(&mut egui::Ui)) {
+    bottom(ui, id, |ui| {
+        ui.separator();
+        add(ui);
+    });
+}
+
 /// A pop-up window in the common style: slim title line, close button, movable and resizable both ways.
 /// `size` is the starting size; `open` is cleared by the close button.
 pub fn popup<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open: &mut bool, add: impl FnOnce(&mut egui::Ui) -> R) -> Option<R> {
@@ -261,6 +284,7 @@ pub fn popup_at<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], p
         .default_size(size)
         .default_pos(pos)
         .resizable(true)
+        .movable(ctx.input(|i| i.pointer.primary_down()))
         .show(ctx, |ui| {
             mini_title(ui, title, &mut keep, tools);
             let r = add(ui);
@@ -412,6 +436,35 @@ mod size_tests {
             }
         }
         out
+    }
+
+    #[test]
+    fn a_page_fills_the_window_down_to_its_footer_and_the_window_keeps_its_size() {
+        let ctx = egui::Context::default();
+        let mut open = true;
+        let (mut page_bottom, mut foot_top, mut sizes) = (0.0, 0.0, vec![]);
+        for _ in 0..10 {
+            let input = egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1000.0))), ..Default::default() };
+            let mut o = ctx.run_ui(input, |ui| {
+                popup(ui.ctx(), "t", "Test", [600.0, 400.0], &mut open, |ui| {
+                    let h = height_above(ui, "t", fill_size(ui).y);
+                    page_bottom = egui::ScrollArea::vertical().max_height(h).min_scrolled_height(h).auto_shrink([false, false]).show(ui, |ui| ui.label("page")).inner_rect.bottom();
+                    footer(ui, "t", |ui| {
+                        foot_top = ui.cursor().top();
+                        ui.button("Save");
+                    });
+                });
+            });
+            o.textures_delta.clear();
+            if let Some(r) = ctx.memory(|m| m.area_rect(egui::Id::unique(Some("t")))) {
+                sizes.push((r.height(), r.bottom()));
+            }
+        }
+        let (h, bottom) = sizes[9];
+        assert!((h - sizes[3].0).abs() < 1.0 && h > 380.0, "the window keeps its size: {sizes:?}");
+        // The footer is at the foot of the window: the button row ends a margin above the bottom edge.
+        assert!(bottom - foot_top < 70.0, "footer top {foot_top}, window bottom {bottom}");
+        assert!(foot_top - page_bottom < 20.0, "the page reaches the footer: {page_bottom} {foot_top}");
     }
 
     #[test]
