@@ -705,3 +705,4 @@
 704	GRBL 1.1 or newer
 705	GRBL 0.7 or older
 706	Older GRBL (0.9) reports positions in another format and has no jog command: the program moves the head with ordinary moves instead.
+707	Tab in the work area

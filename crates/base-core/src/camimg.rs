@@ -107,7 +107,7 @@ pub struct CameraSource {
     /// Points that fix the picture to the work area; at least three (four recommended) align it.
     #[serde(default)]
     pub reference: Vec<RefPoint>,
-    /// Where the live view of this camera opens: 0 = floating window, 1 = separate window, 2 = tab of the side panel. `None`
+    /// Where the live view of this camera opens: 0 = floating window, 1 = separate window, 2 = tab of the side panel, 3 = tab of the work area. `None`
     /// until chosen (the way the device's view was last left, `CameraView::mode`, is used then).
     #[serde(default)]
     pub view_mode: Option<u8>,
@@ -330,7 +330,7 @@ pub fn points_from_corners(c: &[Pt; 4], w: f64, h: f64) -> Vec<RefPoint> {
 /// How the camera view of a device opens: the same way every time.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CameraView {
-    /// 0 = floating window, 1 = separate window, 2 = tab of the side panel.
+    /// 0 = floating window, 1 = separate window, 2 = tab of the side panel, 3 = tab of the work area.
     #[serde(default)]
     pub mode: u8,
     /// 1.0 = the whole picture.
@@ -361,6 +361,6 @@ impl CameraView {
     /// Are the numbers sane (for a profile that comes from a file)?
     pub fn is_valid(&self) -> bool {
         let pair = |p: &Option<[f32; 2]>, lo: f32, hi: f32| p.is_none_or(|v| v.iter().all(|x| x.is_finite() && *x >= lo && *x <= hi));
-        self.mode <= 2 && self.zoom.is_finite() && (1.0..=8.0).contains(&self.zoom) && pair(&self.float_pos, -20_000.0, 20_000.0) && pair(&self.win_pos, -20_000.0, 20_000.0) && pair(&self.float_size, 100.0, 20_000.0) && pair(&self.win_size, 100.0, 20_000.0)
+        self.mode <= 3 && self.zoom.is_finite() && (1.0..=8.0).contains(&self.zoom) && pair(&self.float_pos, -20_000.0, 20_000.0) && pair(&self.win_pos, -20_000.0, 20_000.0) && pair(&self.float_size, 100.0, 20_000.0) && pair(&self.win_size, 100.0, 20_000.0)
     }
 }
