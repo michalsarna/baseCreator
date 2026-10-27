@@ -380,7 +380,9 @@ impl FitWindow {
     /// `slack_x` the empty width beside it (from [`fit_picture`]). What stands under the picture is measured, for the next
     /// frame, and what is left of the window is the empty strip under it.
     pub fn measure(&mut self, ui: &egui::Ui, picture: Rect, slack_x: f32) {
-        self.under = Some((ui.min_rect().bottom() - picture.bottom()).max(0.0));
+        // The cursor, not the used rectangle: in a panel that fills the window the used rectangle is the whole panel, and the empty
+        // strip under the picture would count as something that stands under it (the picture then shrinks, frame by frame).
+        self.under = Some((ui.cursor().top() - ui.spacing().item_spacing.y - picture.bottom()).max(0.0));
         self.slack = egui::vec2(slack_x, ui.available_height().max(0.0));
     }
 
