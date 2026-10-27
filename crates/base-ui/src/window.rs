@@ -153,9 +153,34 @@ pub fn window_edge_drag(ctx: &egui::Context) {
     ctx.send_viewport_cmd(ViewportCommand::InnerSize(egui::vec2(w.max(900.0), h.max(560.0))));
 }
 
-/// A slim title line for floating tool windows (preview, camera): small text and a small close button. `extra`
+/// Move the window of `layer` by what its title line ([`mini_title`]) was dragged by in this frame. A window that is movable by its
+/// title line only calls this right after it was shown.
+pub fn move_by_title(ctx: &egui::Context, layer: egui::LayerId) {
+    let key = Id::unique(("title_drag", layer.id));
+    let Some(delta) = ctx.data_mut(|d| d.remove_temp::<egui::Vec2>(key)) else { return };
+    if let Some(mut state) = egui::AreaState::load(ctx, layer.id) {
+        state.set_left_top_pos(state.left_top_pos() + delta);
+        ctx.memory_mut(|m| m.areas_mut().set_state(layer, state));
+    }
+}
+
+/// A slim title line for floating tool windows (preview, camera): small text and a small close button, and the handle that moves the window. `extra`
 /// adds widgets next to the close button, right-aligned.
 pub fn mini_title(ui: &mut egui::Ui, title: &str, open: &mut bool, extra: impl FnOnce(&mut egui::Ui)) {
+    // The title line is the handle of the window: dragging it moves the window (a window that is not movable by its body, see
+    // `popup_at`). The handle lies under the buttons of the line, which take their own clicks.
+    let line = Rect::from_min_size(ui.cursor().min, egui::vec2(ui.available_width(), 22.0));
+    let layer = ui.layer_id();
+    let grab = ui.interact(line, Id::unique(("title_grab", layer)), Sense::drag());
+    if grab.hovered() || grab.dragged() {
+        ui.ctx().set_cursor_icon(if grab.dragged() { CursorIcon::Grabbing } else { CursorIcon::Grab });
+    }
+    if grab.dragged() {
+        // The window writes its own place when it is done with the frame, so the move is made after it (`move_by_title`).
+        let key = Id::unique(("title_drag", layer.id));
+        let delta = grab.drag_delta();
+        ui.ctx().data_mut(|d| *d.get_temp_mut_or_insert_with(key, || egui::Vec2::ZERO) += delta);
+    }
     ui.horizontal(|ui| {
         ui.spacing_mut().item_spacing.y = 0.0;
         ui.label(egui::RichText::new(title).size(13.0).strong().color(theme::text()));
@@ -284,7 +309,8 @@ pub fn popup_at<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], p
         .default_size(size)
         .default_pos(pos)
         .resizable(true)
-        .movable(ctx.input(|i| i.pointer.primary_down()))
+        // Moved by its title line only (see `mini_title`), never by its body.
+        .movable(false)
         .show(ctx, |ui| {
             mini_title(ui, title, &mut keep, tools);
             let r = add(ui);
@@ -294,6 +320,9 @@ pub fn popup_at<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], p
         });
     if !keep {
         *open = false;
+    }
+    if let Some(r) = &r {
+        move_by_title(ctx, r.response.layer_id);
     }
     r.and_then(|r| r.inner.map(|i| (i, r.response.rect)))
 }
@@ -310,19 +339,12 @@ pub struct FitWindow {
     /// The empty width and height beside and under the picture, set by [`FitWindow::measure`].
     pub slack: egui::Vec2,
     under: Option<f32>,
-    /// For a window of its own: the size it had at the last look, since when (seconds) it has not changed, and the size
-    /// at which it was last asked to shrink.
-    seen: egui::Vec2,
-    still_since: f64,
-    asked_at: Option<egui::Vec2>,
 }
 
 /// An empty strip thinner than this is left alone (rounding, the border of the picture).
 const SLACK_MIN: f32 = 3.0;
 /// The smallest window the fitting makes.
 const FIT_MIN: [f32; 2] = [240.0, 160.0];
-/// How long a window of its own keeps its size before it is made smaller (seconds).
-const STILL: f64 = 0.6;
 
 impl FitWindow {
     /// The id of the window: the same as long as it keeps its size.
@@ -372,29 +394,6 @@ impl FitWindow {
             self.slack = egui::Vec2::ZERO;
             ctx.request_repaint();
         }
-    }
-
-    /// For a window of its own (a viewport), whose size the person changes at its edge (egui does not see that as a held
-    /// button): the inner size it should take now. Only when it has kept its size for a moment, so that the person can make it
-    /// bigger; and once for a size, so that a window that cannot get that small (`min`) is not asked again and again.
-    pub fn viewport_size(&mut self, ctx: &egui::Context, inner: egui::Vec2, min: [f32; 2]) -> Option<egui::Vec2> {
-        let now = ctx.input(|i| i.time);
-        if (inner - self.seen).abs().max_elem() >= 1.0 {
-            self.seen = inner;
-            self.still_since = now;
-        }
-        let wait = STILL - (now - self.still_since);
-        if wait > 0.0 {
-            ctx.request_repaint_after(std::time::Duration::from_secs_f64(wait));
-            return None;
-        }
-        if self.asked_at.is_some_and(|a| (a - inner).abs().max_elem() < 1.0) {
-            return None;
-        }
-        let w = self.wanted(ctx, inner, min)?;
-        self.asked_at = Some(inner);
-        self.slack = egui::Vec2::ZERO;
-        Some(w)
     }
 }
 
@@ -451,7 +450,7 @@ mod size_tests {
                     page_bottom = egui::ScrollArea::vertical().max_height(h).min_scrolled_height(h).auto_shrink([false, false]).show(ui, |ui| ui.label("page")).inner_rect.bottom();
                     footer(ui, "t", |ui| {
                         foot_top = ui.cursor().top();
-                        ui.button("Save");
+                        let _ = ui.button("Save");
                     });
                 });
             });
@@ -465,6 +464,53 @@ mod size_tests {
         // The footer is at the foot of the window: the button row ends a margin above the bottom edge.
         assert!(bottom - foot_top < 70.0, "footer top {foot_top}, window bottom {bottom}");
         assert!(foot_top - page_bottom < 20.0, "the page reaches the footer: {page_bottom} {foot_top}");
+    }
+
+    #[test]
+    fn a_popup_is_moved_by_its_title_line_and_not_by_its_body() {
+        let ctx = egui::Context::default();
+        let mut open = true;
+        let mut frame = |events: Vec<egui::Event>| {
+            let input = egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1000.0))), events, ..Default::default() };
+            let mut o = ctx.run_ui(input, |ui| {
+                popup(ui.ctx(), "t", "Test", [600.0, 400.0], &mut open, |ui| {
+                    ui.label("body");
+                });
+            });
+            o.textures_delta.clear();
+        };
+        let rect = |ctx: &egui::Context| ctx.memory(|m| m.area_rect(egui::Id::unique(Some("t")))).expect("the window");
+        let press = |p: egui::Pos2, down: bool| egui::Event::PointerButton { pos: p, button: egui::PointerButton::Primary, pressed: down, modifiers: Default::default() };
+        for _ in 0..3 {
+            frame(vec![]);
+        }
+        let start = rect(&ctx);
+        // Drag by the body: nothing moves.
+        let body = start.center();
+        frame(vec![egui::Event::PointerMoved(body)]);
+        frame(vec![press(body, true)]);
+        for i in 1..=5 {
+            frame(vec![egui::Event::PointerMoved(body + egui::vec2(10.0 * i as f32, 0.0))]);
+        }
+        frame(vec![press(body + egui::vec2(50.0, 0.0), false)]);
+        frame(vec![]);
+        assert_eq!(rect(&ctx).min, start.min, "the body does not move the window");
+        // Drag by the title line: the window follows the pointer.
+        let title = start.min + egui::vec2(120.0, 16.0);
+        frame(vec![egui::Event::PointerMoved(title)]);
+        frame(vec![press(title, true)]);
+        for i in 1..=5 {
+            frame(vec![egui::Event::PointerMoved(title + egui::vec2(10.0 * i as f32, 5.0 * i as f32))]);
+        }
+        frame(vec![press(title + egui::vec2(50.0, 25.0), false)]);
+        frame(vec![]);
+        let moved = rect(&ctx).min - start.min;
+        assert!(moved.x > 30.0 && moved.y > 15.0, "the title line moves the window: {moved:?}");
+        // And once the button is up it stays where it is, with the pointer still moving.
+        let there = rect(&ctx).min;
+        frame(vec![egui::Event::PointerMoved(title + egui::vec2(200.0, 200.0))]);
+        frame(vec![]);
+        assert_eq!(rect(&ctx).min, there);
     }
 
     #[test]
@@ -518,41 +564,5 @@ mod size_tests {
             frame(&mut fit);
         }
         assert!(fit.generation <= g + 1, "the window keeps being resized: {g} -> {}", fit.generation);
-    }
-
-    #[test]
-    fn a_window_of_its_own_shrinks_only_after_it_kept_its_size_and_is_asked_once() {
-        let ctx = egui::Context::default();
-        let mut fit = FitWindow::default();
-        let mut time = 0.0;
-        let mut look = |fit: &mut FitWindow, inner: egui::Vec2, slack: egui::Vec2| {
-            time += 0.1;
-            let input = egui::RawInput { time: Some(time), ..Default::default() };
-            let mut r = None;
-            let mut out = ctx.run_ui(input, |ui| {
-                fit.slack = slack;
-                r = fit.viewport_size(ui.ctx(), inner, [320.0, 240.0]);
-            });
-            out.textures_delta.clear();
-            r
-        };
-        // The person drags the edge: the size keeps changing, nothing is asked.
-        for i in 0..10 {
-            assert_eq!(look(&mut fit, egui::vec2(500.0 + i as f32 * 20.0, 400.0), egui::vec2(100.0, 0.0)), None);
-        }
-        // It rests: asked once, for the width without the empty strip.
-        let inner = egui::vec2(680.0, 400.0);
-        let mut asked = vec![];
-        for _ in 0..20 {
-            asked.extend(look(&mut fit, inner, egui::vec2(100.0, 0.0)));
-        }
-        assert_eq!(asked, vec![egui::vec2(580.0, 400.0)]);
-        // A window that cannot get smaller than its minimum is not asked again and again.
-        let small = egui::vec2(330.0, 250.0);
-        let mut asked = 0;
-        for _ in 0..30 {
-            asked += look(&mut fit, small, egui::vec2(60.0, 60.0)).is_some() as u32;
-        }
-        assert_eq!(asked, 1);
     }
 }
