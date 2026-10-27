@@ -172,15 +172,14 @@ pub fn mini_title(ui: &mut egui::Ui, title: &str, open: &mut bool, extra: impl F
     let line = Rect::from_min_size(ui.cursor().min, egui::vec2(ui.available_width(), 22.0));
     let layer = ui.layer_id();
     let grab = ui.interact(line, Id::unique(("title_grab", layer)), Sense::drag());
-    if grab.hovered() || grab.dragged() {
-        ui.ctx().set_cursor_icon(if grab.dragged() { CursorIcon::Grabbing } else { CursorIcon::Grab });
-    }
     if grab.dragged() {
         // The window writes its own place when it is done with the frame, so the move is made after it (`move_by_title`).
         let key = Id::unique(("title_drag", layer.id));
         let delta = grab.drag_delta();
         ui.ctx().data_mut(|d| *d.get_temp_mut_or_insert_with(key, || egui::Vec2::ZERO) += delta);
     }
+    // Where the buttons of the line begin: left of it the line is the handle (the hand), over the buttons the pointer is the usual one.
+    let mut buttons_left = f32::INFINITY;
     ui.horizontal(|ui| {
         ui.spacing_mut().item_spacing.y = 0.0;
         ui.label(egui::RichText::new(title).size(13.0).strong().color(theme::text()));
@@ -194,8 +193,15 @@ pub fn mini_title(ui: &mut egui::Ui, title: &str, open: &mut bool, extra: impl F
                 *open = false;
             }
             extra(ui);
+            buttons_left = ui.min_rect().left();
         });
     });
+    let over_buttons = ui.ctx().pointer_hover_pos().is_some_and(|p| p.x >= buttons_left - 2.0);
+    if grab.dragged() {
+        ui.ctx().set_cursor_icon(CursorIcon::Grabbing);
+    } else if grab.hovered() && !over_buttons {
+        ui.ctx().set_cursor_icon(CursorIcon::Grab);
+    }
     ui.separator();
 }
 
@@ -437,6 +443,30 @@ mod size_tests {
             }
         }
         out
+    }
+
+    #[test]
+    fn the_pointer_is_a_hand_over_the_title_line_and_the_usual_one_over_its_buttons() {
+        let ctx = egui::Context::default();
+        let mut open = true;
+        let mut cursor = |pos: Option<egui::Pos2>| {
+            let events = pos.map(egui::Event::PointerMoved).into_iter().collect();
+            let input = egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1000.0))), events, ..Default::default() };
+            let mut o = ctx.run_ui(input, |ui| {
+                popup(ui.ctx(), "t", "Test", [600.0, 400.0], &mut open, |_| {});
+            });
+            o.textures_delta.clear();
+            o.platform_output.cursor_icon
+        };
+        for _ in 0..3 {
+            cursor(None);
+        }
+        let win = ctx.memory(|m| m.area_rect(egui::Id::unique(Some("t")))).expect("the window");
+        let (title, close) = (win.min + egui::vec2(200.0, 16.0), egui::pos2(win.max.x - 19.0, win.min.y + 16.0));
+        cursor(Some(title));
+        assert_eq!(cursor(Some(title)), CursorIcon::Grab);
+        cursor(Some(close));
+        assert_ne!(cursor(Some(close)), CursorIcon::Grab);
     }
 
     #[test]
