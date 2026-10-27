@@ -369,7 +369,17 @@ impl FitWindow {
     }
 
     fn wanted(&self, ctx: &egui::Context, size: egui::Vec2, min: [f32; 2]) -> Option<egui::Vec2> {
-        if ctx.input(|i| i.pointer.any_down()) || (self.slack.x < SLACK_MIN && self.slack.y < SLACK_MIN) {
+        if ctx.input(|i| i.pointer.any_down()) {
+            return None;
+        }
+        self.fitted(size, min)
+    }
+
+    /// The size a window of `size` shrinks to so that it holds just the picture (never smaller than `min`), if it is bigger
+    /// than that by more than a few points. For windows of the system, whose resizing egui does not see: the caller waits until
+    /// the user has let the edge go.
+    pub fn fitted(&self, size: egui::Vec2, min: [f32; 2]) -> Option<egui::Vec2> {
+        if self.slack.x < SLACK_MIN && self.slack.y < SLACK_MIN {
             return None;
         }
         let (dx, dy) = (self.slack.x.max(0.0), self.slack.y.max(0.0));
@@ -417,11 +427,32 @@ pub fn popup_fit<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], 
 
 /// The scale at which a picture of `size` fills what is left of the window (up as well as down), leaving `under` points of
 /// height for what stands under it (a guess is enough: [`FitWindow::measure`] looks at what really is left), and the empty
-/// width that remains beside it.
+/// width that remains beside it. The scale is rounded down to two decimals: a window being resized then makes the picture
+/// jump by a small step now and then instead of changing its size by a hair at every frame (which looked like trembling).
 pub fn fit_picture(ui: &egui::Ui, size: egui::Vec2, under: f32) -> (f32, f32) {
     let room = egui::vec2(ui.available_width().max(60.0), (ui.available_height() - under).max(60.0));
-    let k = (room.x / size.x).min(room.y / size.y);
+    let k = quantize_scale((room.x / size.x).min(room.y / size.y));
     (k, room.x - size.x * k)
+}
+
+/// A scale rounded down to a hundredth (a hair of tolerance, so that a window cut to the size of the picture keeps its scale).
+pub fn quantize_scale(k: f32) -> f32 {
+    ((k * 100.0 + 0.01).floor() / 100.0).max(0.01)
+}
+
+#[cfg(test)]
+mod scale_tests {
+    use super::*;
+
+    #[test]
+    fn the_scale_is_rounded_down_to_two_decimals_and_a_picture_cut_out_of_a_window_keeps_it() {
+        assert_eq!(quantize_scale(1.2389), 1.23);
+        assert_eq!(quantize_scale(0.5), 0.5);
+        // A window shrunk by the empty strip is exactly as big as the picture: the same scale again, not one step less.
+        for k in [0.37_f32, 0.83, 1.07, 2.5] {
+            assert_eq!(quantize_scale(640.0 * k / 640.0), k, "{k}");
+        }
+    }
 }
 
 #[cfg(test)]
