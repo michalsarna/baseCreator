@@ -28,3 +28,19 @@ jobs:
             exit 1
           }
 
+      # End-to-end tests of the serial link against the real GRBL 1.1h firmware compiled for the PC (grbl-sim).
+      - name: Cache grbl-sim
+        uses: actions/cache@v6
+        with:
+          path: target/grbl-sim
+          key: grbl-sim-${{ runner.os }}-${{ hashFiles('tools/grbl-sim/*') }}
+      - name: Build grbl-sim
+        run: tools/grbl-sim/build.sh
+      - name: GRBL simulator tests
+        run: |
+          set -o pipefail
+          cargo test -p base-ui --features sim-tests sim_test -- --ignored --test-threads=1 2>&1 | tee grbl-sim-tests.log || {
+            # One annotation per failed test (test name and panic message) on the pull request.
+            awk '/^---- .* stdout ----$/ { t=$2 } p { print "::error title=grbl-sim::" t ": " $0; p=0 } /panicked at/ { p=1 }' grbl-sim-tests.log
+            exit 1
+          }
