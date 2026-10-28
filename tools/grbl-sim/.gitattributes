@@ -1,0 +1,2 @@
+# The patch keeps grbl-sim's CRLF line endings byte for byte.
+*.patch -text

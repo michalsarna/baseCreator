@@ -1,0 +1,25 @@
+--- a/platform_OSX.c
++++ b/platform_OSX.c
+@@ -47,18 +47,14 @@
+ }
+ 
+ //returns a free-running 32 bit nanosecond counter which rolls over
++// (clock_get_time() of the Mach clock service costs a message to the kernel for every call; the simulator asks for the
++// time once per simulated clock tick and ran about a hundred times slower than real time)
+ uint32_t platform_ns()
+ {
+   static uint32_t gTimeBase = 0;
+-  static uint32_t timestamp;
+-
+-  mach_timespec_t ts;
+-
+-  clock_get_time(cclock, &ts);
+-
+-  timestamp = ts.tv_sec*1e9+ts.tv_nsec;
++  uint32_t timestamp = (uint32_t)clock_gettime_nsec_np(CLOCK_UPTIME_RAW);
+   if (gTimeBase== 0){gTimeBase=timestamp;}
+-  return timestamp - gTimeBase;;
++  return timestamp - gTimeBase;
+ }
+ 
+ //sleep in microseconds

@@ -31,6 +31,8 @@ pub mod plugins_ui;
 pub mod seasonal;
 #[cfg(target_os = "macos")]
 pub mod native_menu;
+#[cfg(any(test, feature = "sim-tests"))]
+pub mod sim_test;
 pub mod side_tabs;
 pub mod start;
 pub mod texts;

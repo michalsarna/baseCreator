@@ -1,0 +1,113 @@
+diff --git a/avr/interrupt.c b/avr/interrupt.c
+index bf66458..45100bd 100644
+--- a/avr/interrupt.c
++++ b/avr/interrupt.c
+@@ -32,8 +32,12 @@ isr_fp ovf_vect[6]={0};
+ isr_fp wdt_vect = 0;
+ isr_fp pc_vect = 0;
+ 
+-void sei() {io.sreg|=SEI;}
+-void cli() {io.sreg&=~SEI;}
++__thread uint8_t *sim_sreg = &io.sreg;
++static uint8_t isr_sreg = SEI;
++void sim_interrupt_thread(void) {sim_sreg = &isr_sreg;}
++
++void sei() {*sim_sreg|=SEI;}
++void cli() {*sim_sreg&=~SEI;}
+ 
+ 
+ 
+diff --git a/avr/interrupt.h b/avr/interrupt.h
+index 3722b3e..6c75e73 100644
+--- a/avr/interrupt.h
++++ b/avr/interrupt.h
+@@ -50,6 +50,8 @@ extern isr_fp pc_vect; //pin change
+ #define SEI 0x80
+ void sei();
+ void cli();
++// Call on the thread that runs the interrupts: gives it its own SREG.
++void sim_interrupt_thread(void);
+ 
+ //simulate timer operation
+ void timer_interrupts();
+diff --git a/avr/io.h b/avr/io.h
+index 5dea8c4..e34d2c5 100644
+--- a/avr/io.h
++++ b/avr/io.h
+@@ -223,7 +223,11 @@ volatile extern io_sim_t io;
+ #define JTRF 4
+ 
+ //Interrupt Status
+-#define SREG io.sreg
++// Interrupts run on the simulator thread, concurrently with grbl's main loop. Each thread has its own SREG (see
++// interrupt.c) so an ISR's `sreg = SREG; cli(); ... SREG = sreg;` cannot interleave with the same pattern in the main
++// loop and leave interrupts disabled for good. Only the main thread's I flag (io.sreg) gates the interrupts.
++extern __thread uint8_t *sim_sreg;
++#define SREG (*sim_sreg)
+ 
+ 
+ 
+diff --git a/platform_LINUX.c b/platform_LINUX.c
+index 426d6c3..d12164a 100644
+--- a/platform_LINUX.c
++++ b/platform_LINUX.c
+@@ -128,10 +128,8 @@ void platform_kill_thread(plat_thread_t* th){
+ //return char if one available.
+ uint8_t platform_poll_stdin() {
+   uint8_t char_in=0;
+-  enable_kbhit(1);
+   if ( kbhit()) {
+-	 char_in = getchar();
++	 { unsigned char c; if (read(STDIN_FILENO, &c, 1) == 1) char_in = c; else exit(0); } // readable but no byte: hung up
+   }
+-  enable_kbhit(0);
+   return char_in;
+ }
+diff --git a/platform_OSX.c b/platform_OSX.c
+index cad3202..4454ede 100644
+--- a/platform_OSX.c
++++ b/platform_OSX.c
+@@ -137,10 +137,8 @@ void platform_kill_thread(plat_thread_t* th){
+ //return char if one available.
+ uint8_t platform_poll_stdin() {
+   uint8_t char_in=0;
+-  enable_kbhit(1);
+   if ( kbhit()) {
+-	 char_in = getchar();
++	 { unsigned char c; if (read(STDIN_FILENO, &c, 1) == 1) char_in = c; else exit(0); } // readable but no byte: hung up
+   }
+-  enable_kbhit(0);
+   return char_in;
+ }
+diff --git a/simulator.c b/simulator.c
+index b863d13..7364740 100644
+--- a/simulator.c
++++ b/simulator.c
+@@ -84,6 +84,8 @@ void sim_loop(){
+   uint32_t ns_prev = platform_ns();
+   uint64_t next_byte_tick = F_CPU;   //wait 1 sec before reading IO.
+ 
++  sim_interrupt_thread();
++
+ 
+   while (sim.exit != exit_OK  ) { //don't quit until idle
+ 
+diff --git a/serial.c b/serial.c
+index 5fd57db..bbba170 100644
+--- a/serial.c
++++ b/serial.c
+@@ -70,9 +70,11 @@ extern volatile uint8_t serial_rx_buffer_head;
+ extern volatile uint8_t serial_rx_buffer_tail;
+ void simulate_serial(){
+   simulate_write_interrupt();
+-  uint8_t head = serial_rx_buffer_head+1;
+-  if (head==RX_BUFFER_SIZE) { head = 0; }
+-  if (head!=serial_rx_buffer_tail) {
++  // Read a byte only when the ring has room for it. The ring of GRBL has RX_BUFFER_SIZE + 1 slots (RX_RING_BUFFER in serial.c), the test
++  // here used RX_BUFFER_SIZE: with the ring full at the end of the array it let a byte through that GRBL then dropped.
++  uint8_t head = __atomic_load_n(&serial_rx_buffer_head, __ATOMIC_ACQUIRE)+1;
++  if (head==(RX_BUFFER_SIZE+1)) { head = 0; }
++  if (head!=__atomic_load_n(&serial_rx_buffer_tail, __ATOMIC_ACQUIRE)) {
+ 	 simulate_read_interrupt();
+   }
+ }

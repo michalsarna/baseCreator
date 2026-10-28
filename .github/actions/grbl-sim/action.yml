@@ -1,0 +1,14 @@
+name: GRBL simulator
+description: >
+  Builds grbl-sim (the real GRBL 1.1h firmware compiled for the PC) into target/grbl-sim of the workspace, for the tests
+  that use the sim_test harness of base-ui (feature sim-tests). Use it at the tag of baseCreator the program is pinned to.
+runs:
+  using: composite
+  steps:
+    - uses: actions/cache@v6
+      with:
+        path: target/grbl-sim
+        key: grbl-sim-${{ runner.os }}-${{ github.action_ref }}
+    - name: Build grbl-sim
+      shell: bash
+      run: ${{ github.action_path }}/../../../tools/grbl-sim/build.sh "$GITHUB_WORKSPACE/target/grbl-sim"

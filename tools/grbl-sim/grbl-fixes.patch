@@ -1,0 +1,103 @@
+diff --git a/grbl/serial.c b/grbl/serial.c
+index cf5f35e..ade3480 100644
+--- a/grbl/serial.c
++++ b/grbl/serial.c
+@@ -96,10 +96,10 @@ void serial_write(uint8_t data) {
+ 
+   // Store data and advance head
+   serial_tx_buffer[serial_tx_buffer_head] = data;
+-  serial_tx_buffer_head = next_head;
++  __atomic_store_n(&serial_tx_buffer_head, next_head, __ATOMIC_RELEASE); // grbl-sim: the interrupt thread reads the data after the head
+ 
+   // Enable Data Register Empty Interrupt to make sure tx-streaming is running
+-  UCSR0B |=  (1 << UDRIE0);
++  __atomic_or_fetch(&UCSR0B, (1 << UDRIE0), __ATOMIC_SEQ_CST); // grbl-sim: read-modify-write shared with the interrupt thread
+ }
+ 
+ 
+@@ -107,6 +107,7 @@ void serial_write(uint8_t data) {
+ ISR(SERIAL_UDRE)
+ {
+   uint8_t tail = serial_tx_buffer_tail; // Temporary serial_tx_buffer_tail (to optimize for volatile)
++  (void)__atomic_load_n(&serial_tx_buffer_head, __ATOMIC_ACQUIRE); // grbl-sim: the data of the bytes up to the head are visible now
+ 
+   // Send a byte from the buffer
+   UDR0 = serial_tx_buffer[tail];
+@@ -118,7 +119,12 @@ ISR(SERIAL_UDRE)
+   serial_tx_buffer_tail = tail;
+ 
+   // Turn off Data Register Empty Interrupt to stop tx-streaming if this concludes the transfer
+-  if (tail == serial_tx_buffer_head) { UCSR0B &= ~(1 << UDRIE0); }
++  if (tail == __atomic_load_n(&serial_tx_buffer_head, __ATOMIC_ACQUIRE)) {
++    __atomic_and_fetch(&UCSR0B, ~(1 << UDRIE0), __ATOMIC_SEQ_CST);
++    // grbl-sim: a byte written between the test and the clearing would wait until the next write; on an AVR the interrupt
++    // cannot be interrupted by the main program, so there this cannot happen.
++    if (tail != __atomic_load_n(&serial_tx_buffer_head, __ATOMIC_SEQ_CST)) { __atomic_or_fetch(&UCSR0B, (1 << UDRIE0), __ATOMIC_SEQ_CST); }
++  }
+ }
+ 
+ 
+@@ -126,14 +132,14 @@ ISR(SERIAL_UDRE)
+ uint8_t serial_read()
+ {
+   uint8_t tail = serial_rx_buffer_tail; // Temporary serial_rx_buffer_tail (to optimize for volatile)
+-  if (serial_rx_buffer_head == tail) {
++  if (__atomic_load_n(&serial_rx_buffer_head, __ATOMIC_ACQUIRE) == tail) { // grbl-sim: the data are read after the head, by another thread
+     return SERIAL_NO_DATA;
+   } else {
+     uint8_t data = serial_rx_buffer[tail];
+ 
+     tail++;
+     if (tail == RX_RING_BUFFER) { tail = 0; }
+-    serial_rx_buffer_tail = tail;
++    __atomic_store_n(&serial_rx_buffer_tail, tail, __ATOMIC_RELEASE);
+ 
+     return data;
+   }
+@@ -191,7 +197,7 @@ ISR(SERIAL_RX)
+         // Write data to buffer unless it is full.
+         if (next_head != serial_rx_buffer_tail) {
+           serial_rx_buffer[serial_rx_buffer_head] = data;
+-          serial_rx_buffer_head = next_head;
++          __atomic_store_n(&serial_rx_buffer_head, next_head, __ATOMIC_RELEASE); // grbl-sim: the main thread reads the data after the head
+         }
+       }
+   }
+diff --git a/grbl/system.c b/grbl/system.c
+index 55e6c40..58f47ef 100644
+--- a/grbl/system.c
++++ b/grbl/system.c
+@@ -356,14 +356,14 @@ uint8_t system_check_travel_limits(float *target)
+ void system_set_exec_state_flag(uint8_t mask) {
+   uint8_t sreg = SREG;
+   cli();
+-  sys_rt_exec_state |= (mask);
++  __atomic_or_fetch(&sys_rt_exec_state, (mask), __ATOMIC_SEQ_CST); // grbl-sim: cli() does not stop the interrupt thread
+   SREG = sreg;
+ }
+ 
+ void system_clear_exec_state_flag(uint8_t mask) {
+   uint8_t sreg = SREG;
+   cli();
+-  sys_rt_exec_state &= ~(mask);
++  __atomic_and_fetch(&sys_rt_exec_state, ~(mask), __ATOMIC_SEQ_CST); // grbl-sim: cli() does not stop the interrupt thread
+   SREG = sreg;
+ }
+ 
+@@ -384,14 +384,14 @@ void system_clear_exec_alarm() {
+ void system_set_exec_motion_override_flag(uint8_t mask) {
+   uint8_t sreg = SREG;
+   cli();
+-  sys_rt_exec_motion_override |= (mask);
++  __atomic_or_fetch(&sys_rt_exec_motion_override, (mask), __ATOMIC_SEQ_CST); // grbl-sim: cli() does not stop the interrupt thread
+   SREG = sreg;
+ }
+ 
+ void system_set_exec_accessory_override_flag(uint8_t mask) {
+   uint8_t sreg = SREG;
+   cli();
+-  sys_rt_exec_accessory_override |= (mask);
++  __atomic_or_fetch(&sys_rt_exec_accessory_override, (mask), __ATOMIC_SEQ_CST); // grbl-sim: cli() does not stop the interrupt thread
+   SREG = sreg;
+ }
+ 
