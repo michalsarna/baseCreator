@@ -15,6 +15,8 @@ const PREVIEW_PX: u32 = 800;
 /// Width of the column with the controls and of the one with the histogram.
 const CONTROLS_W: f32 = 250.0;
 const HIST_W: f32 = 240.0;
+/// The controls of the trace dialog (sliders with their value boxes) are wider.
+const TRACE_CONTROLS_W: f32 = 300.0;
 
 /// The picture files that can be imported (what a dropped file is checked against too).
 pub const IMAGE_EXTENSIONS: &[&str] = &["png", "jpg", "jpeg", "bmp", "gif", "webp"];
@@ -307,7 +309,7 @@ pub trait EditorImages: EditorHost {
             ui.allocate_ui(egui::vec2(ui.available_width(), page_h), |ui| {
                 ui.horizontal_top(|ui| {
                     let gap = ui.spacing().item_spacing.x;
-                    let pw = (ui.available_width() - CONTROLS_W - gap).max(160.0);
+                    let pw = (ui.available_width() - TRACE_CONTROLS_W - gap).max(160.0);
                     let (rect, resp) = ui.allocate_exact_size(egui::vec2(pw, page_h.max(160.0)), egui::Sense::click_and_drag());
                     let painter = ui.painter_at(rect);
                     painter.rect_filled(rect, 4.0, Color32::WHITE);
@@ -348,7 +350,7 @@ pub trait EditorImages: EditorHost {
                         painter.text(rect.left_bottom() + egui::vec2(8.0, -6.0), egui::Align2::LEFT_BOTTOM, format!("×{:.1}", d.zoom), egui::FontId::proportional(12.0), Color32::from_gray(0x60));
                     }
                     ui.vertical(|ui| {
-                        ui.set_width(CONTROLS_W);
+                        ui.set_width(TRACE_CONTROLS_W);
                         egui::Grid::new("trace_params").num_columns(2).spacing([8.0, 6.0]).show(ui, |ui| {
                             let mut th = d.params.threshold as i32;
                             ui.label(tr("Threshold"));
