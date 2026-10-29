@@ -710,3 +710,4 @@
 709	Levels
 710	Everything darker than this turns black
 711	Everything lighter than this turns white
+712	Scroll to zoom, drag to move, double click to see the whole picture

@@ -710,3 +710,4 @@
 709|Stig
 710|Allt sem er dekkra en þetta verður svart
 711|Allt sem er ljósara en þetta verður hvítt
+712|Skrunaðu til að stækka, dragðu til að færa, tvísmelltu til að sjá alla myndina

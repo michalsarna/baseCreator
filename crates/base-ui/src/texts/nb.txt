@@ -710,3 +710,4 @@
 709|Nivåer
 710|Alt som er mørkere enn dette, blir svart
 711|Alt som er lysere enn dette, blir hvitt
+712|Rull for å zoome, dra for å flytte, dobbeltklikk for å se hele bildet

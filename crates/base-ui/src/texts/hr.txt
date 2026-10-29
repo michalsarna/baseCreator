@@ -710,3 +710,4 @@
 709|Razine
 710|Sve tamnije od ove vrijednosti postaje crno
 711|Sve svjetlije od ove vrijednosti postaje bijelo
+712|Pomičite za zumiranje, povucite za pomicanje, dvaput kliknite za cijelu sliku

@@ -710,3 +710,4 @@
 709|Tasemed
 710|Kõik sellest tumedam muutub mustaks
 711|Kõik sellest heledam muutub valgeks
+712|Keri suumimiseks, lohista liigutamiseks, topeltklõps näitab kogu pilti

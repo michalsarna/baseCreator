@@ -710,3 +710,4 @@
 709|Szintek
 710|Minden, ami ennél sötétebb, fekete lesz
 711|Minden, ami ennél világosabb, fehér lesz
+712|Görgessen a nagyításhoz, húzzon a mozgatáshoz, dupla kattintás a teljes képhez

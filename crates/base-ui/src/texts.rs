@@ -717,6 +717,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Levels", "Poziomy", "Tonwerte", "Livelli", "Tasot", "色阶", "स्तर"],
     ["Everything darker than this turns black", "Wszystko ciemniejsze od tej wartości staje się czarne", "Alles, was dunkler ist, wird schwarz", "Tutto ciò che è più scuro diventa nero", "Kaikki tätä tummempi muuttuu mustaksi", "比此值更暗的部分变为黑色", "इससे गहरा सब कुछ काला हो जाता है"],
     ["Everything lighter than this turns white", "Wszystko jaśniejsze od tej wartości staje się białe", "Alles, was heller ist, wird weiß", "Tutto ciò che è più chiaro diventa bianco", "Kaikki tätä vaaleampi muuttuu valkoiseksi", "比此值更亮的部分变为白色", "इससे हल्का सब कुछ सफेद हो जाता है"],
+    ["Scroll to zoom, drag to move, double click to see the whole picture", "Przewijaj, aby przybliżać, przeciągaj, aby przesuwać, kliknij dwukrotnie, aby zobaczyć cały obraz", "Mit dem Mausrad zoomen, ziehen zum Verschieben, Doppelklick zeigt das ganze Bild", "Scorri per ingrandire, trascina per spostare, doppio clic per vedere tutta l'immagine", "Vieritä zoomataksesi, vedä siirtääksesi, kaksoisnapsauta nähdäksesi koko kuvan", "滚动缩放，拖动移动，双击显示整幅图片", "ज़ूम के लिए स्क्रॉल करें, खिसकाने के लिए खींचें, पूरी तस्वीर देखने के लिए डबल क्लिक करें"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

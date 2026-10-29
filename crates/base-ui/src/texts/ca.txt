@@ -710,3 +710,4 @@
 709|Nivells
 710|Tot el que és més fosc que això es torna negre
 711|Tot el que és més clar que això es torna blanc
+712|Desplaça per ampliar, arrossega per moure, fes doble clic per veure tota la imatge

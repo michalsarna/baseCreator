@@ -710,3 +710,4 @@
 709|Níveis
 710|Tudo o que é mais escuro do que isto fica preto
 711|Tudo o que é mais claro do que isto fica branco
+712|Percorra para ampliar, arraste para mover, duplo clique para ver a imagem inteira

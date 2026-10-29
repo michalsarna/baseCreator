@@ -710,3 +710,4 @@
 709|Úrovně
 710|Vše tmavší než tato hodnota zčerná
 711|Vše světlejší než tato hodnota zbělá
+712|Kolečkem přibližujte, tažením posouvejte, dvojklikem zobrazíte celý obrázek

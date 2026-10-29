@@ -710,3 +710,4 @@
 709|Niveaux
 710|Tout ce qui est plus sombre devient noir
 711|Tout ce qui est plus clair devient blanc
+712|Défiler pour zoomer, glisser pour déplacer, double-clic pour voir toute l'image

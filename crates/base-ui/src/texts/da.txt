@@ -710,3 +710,4 @@
 709|Niveauer
 710|Alt, der er mørkere end dette, bliver sort
 711|Alt, der er lysere end dette, bliver hvidt
+712|Rul for at zoome, træk for at flytte, dobbeltklik for at se hele billedet

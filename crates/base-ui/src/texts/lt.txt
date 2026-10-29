@@ -710,3 +710,4 @@
 709|Lygiai
 710|Viskas, kas tamsiau, tampa juoda
 711|Viskas, kas šviesiau, tampa balta
+712|Slinkite norėdami keisti mastelį, vilkite norėdami perkelti, dukart spustelėkite, kad matytumėte visą paveikslą

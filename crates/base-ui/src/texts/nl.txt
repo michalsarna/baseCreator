@@ -710,3 +710,4 @@
 709|Niveaus
 710|Alles wat donkerder is dan dit wordt zwart
 711|Alles wat lichter is dan dit wordt wit
+712|Scrol om te zoomen, sleep om te verplaatsen, dubbelklik om de hele afbeelding te zien

@@ -710,3 +710,4 @@
 709|Niveluri
 710|Tot ce este mai întunecat decât această valoare devine negru
 711|Tot ce este mai deschis decât această valoare devine alb
+712|Derulați pentru zoom, trageți pentru mutare, dublu clic pentru întreaga imagine
