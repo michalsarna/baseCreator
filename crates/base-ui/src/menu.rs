@@ -185,6 +185,10 @@ pub enum StdAct {
     OffsetShape,
     RoundCorners,
     ToCurves,
+    AutoJoin,
+    ClosePath,
+    ExportSelectionSvg,
+    ExportSelectionDxf,
 }
 
 use Entry::{Item, Sep};
@@ -239,6 +243,9 @@ impl StdAct {
             StdAct::OffsetShape => h.ed_mut().show_offset = true,
             StdAct::RoundCorners => h.ed_mut().show_round = true,
             StdAct::ToCurves => crate::editor::EditorShapeOps::to_curves(h),
+            StdAct::AutoJoin | StdAct::ClosePath => h.ed_mut().show_join = true,
+            StdAct::ExportSelectionSvg => crate::editor::EditorShapeOps::export_selection(h, false),
+            StdAct::ExportSelectionDxf => crate::editor::EditorShapeOps::export_selection(h, true),
             StdAct::ToggleAutoFit => {
                 let v = &mut h.ed_mut().view;
                 v.auto_fit = !v.auto_fit;
@@ -315,6 +322,8 @@ impl StdAct {
             StdAct::OffsetShape => "maximize",
             StdAct::RoundCorners => "square-round-corner",
             StdAct::ToCurves => "spline",
+            StdAct::AutoJoin | StdAct::ClosePath => "route",
+            StdAct::ExportSelectionSvg | StdAct::ExportSelectionDxf => "file-output",
         }
     }
 }
@@ -393,6 +402,9 @@ pub mod std_entries {
             Item(StdAct::OffsetShape, "Offset shape…", None),
             Item(StdAct::RoundCorners, "Round corners…", None),
             Item(StdAct::ToCurves, "Convert to curves", None),
+            Sep,
+            Item(StdAct::AutoJoin, "Auto-join paths…", None),
+            Item(StdAct::ClosePath, "Close path with tolerance…", None),
         ]
     }
     /// Zoom and fit.

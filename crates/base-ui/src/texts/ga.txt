@@ -713,3 +713,16 @@
 712|Scrollaigh chun zúmáil, tarraing chun bogadh, déchliceáil chun an pictiúr iomlán a fheiceáil
 713|Athraíonn an tar-phróiseálaí roghnaithe G-code Easpórtáil G-code…; ní athraítear tasc a sheoltar chuig an meaisín.
 714|Tá cluaisín dá gcuid féin ag breiseáin le socruithe sa phainéal ar dheis.
+715|Ceangail cosáin go huathoibríoch…
+716|Dún cosán le caoinfhulaingt…
+717|Easpórtáil an roghnú mar SVG…
+718|Easpórtáil an roghnú mar DXF…
+719|Ceangail cosáin
+720|Caoinfhulaingt
+721|Ceangail go huathoibríoch
+722|Dún cosáin
+723|Ceanglaítear cosáin a bhfuil a gcuid foircinn níos gaire ná an caoinfhulaingt; dúntar cosán a bhfuil a dhá cheann chomh gar sin.
+724|Níor ceanglaíodh ná níor dúnadh aon rud.
+725|Ceangailte i {} chosán ({} fós oscailte)
+726|Sábháladh {}
+727|Níorbh fhéidir a shábháil: {}

@@ -713,3 +713,16 @@
 712|Pomičite za zumiranje, povucite za pomicanje, dvaput kliknite za cijelu sliku
 713|Odabrani postprocesor mijenja G-kod izvoza G-koda…; posao poslan stroju ne mijenja se.
 714|Dodaci s postavkama imaju vlastitu karticu u desnoj ploči.
+715|Automatski spoji putanje…
+716|Zatvori putanju s tolerancijom…
+717|Izvezi odabir kao SVG…
+718|Izvezi odabir kao DXF…
+719|Spajanje putanja
+720|Tolerancija
+721|Automatski spoji
+722|Zatvori putanje
+723|Putanje čiji su krajevi bliže od tolerancije spajaju se; putanja čija su oba kraja tako blizu zatvara se.
+724|Ništa nije spojeno ni zatvoreno.
+725|Spojeno u {} putanja ({} ostalo otvoreno)
+726|Spremljeno: {}
+727|Spremanje nije uspjelo: {}

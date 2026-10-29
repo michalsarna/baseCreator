@@ -713,3 +713,16 @@
 712|Défiler pour zoomer, glisser pour déplacer, double-clic pour voir toute l'image
 713|Le post-processeur choisi modifie le G-code de Exporter le G-code… ; un travail envoyé à la machine n'est pas modifié.
 714|Les extensions avec réglages ont leur propre onglet dans le panneau de droite.
+715|Joindre les tracés automatiquement…
+716|Fermer le tracé avec tolérance…
+717|Exporter la sélection en SVG…
+718|Exporter la sélection en DXF…
+719|Joindre les tracés
+720|Tolérance
+721|Joindre automatiquement
+722|Fermer les tracés
+723|Les tracés dont les extrémités sont plus proches que la tolérance sont joints ; un tracé dont les deux extrémités sont aussi proches est fermé.
+724|Rien n'a été joint ni fermé.
+725|Joints en {} tracés ({} restent ouverts)
+726|{} enregistré
+727|Impossible d'enregistrer : {}

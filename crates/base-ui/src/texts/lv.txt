@@ -713,3 +713,16 @@
 712|Ritiniet, lai tuvinātu, velciet, lai pārvietotu, veiciet dubultklikšķi, lai redzētu visu attēlu
 713|Izvēlētais postprocesors maina G kodu funkcijā Eksportēt G kodu…; mašīnai nosūtīts darbs netiek mainīts.
 714|Spraudņiem ar iestatījumiem ir sava cilne labajā panelī.
+715|Automātiski savienot ceļus…
+716|Aizvērt ceļu ar pielaidi…
+717|Eksportēt atlasīto kā SVG…
+718|Eksportēt atlasīto kā DXF…
+719|Ceļu savienošana
+720|Pielaide
+721|Savienot automātiski
+722|Aizvērt ceļus
+723|Ceļi, kuru gali ir tuvāk par pielaidi, tiek savienoti; ceļš, kura abi gali ir tik tuvu, tiek aizvērts.
+724|Nekas netika savienots vai aizvērts.
+725|Savienoti {} ceļos ({} palika atvērti)
+726|Saglabāts: {}
+727|Neizdevās saglabāt: {}

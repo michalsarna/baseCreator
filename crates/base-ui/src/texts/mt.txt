@@ -713,3 +713,16 @@
 712|Iskrolla biex tizzumja, kaxkar biex tmexxi, ikklikkja darbtejn biex tara l-istampa kollha
 713|Il-postproċessur magħżul ibiddel il-G-code ta' Esporta G-code…; xogħol mibgħut lill-magna ma jinbidilx.
 714|Il-plugins b'settings għandhom tab tagħhom fil-pannell tal-lemin.
+715|Waħħal it-toroq awtomatikament…
+716|Agħlaq it-triq b'tolleranza…
+717|Esporta l-għażla bħala SVG…
+718|Esporta l-għażla bħala DXF…
+719|Ġbir tat-toroq
+720|Tolleranza
+721|Waħħal awtomatikament
+722|Agħlaq it-toroq
+723|Toroq li t-truf tagħhom huma eqreb mit-tolleranza jinġabru; triq li ż-żewġ truf tagħha huma qrib hekk tinqafel.
+724|Ma ġie mwaħħal jew magħluq xejn.
+725|Mwaħħlin f'{} toroq ({} baqgħu miftuħin)
+726|Inżamm {}
+727|Ma setgħetx tinżamm: {}

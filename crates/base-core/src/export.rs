@@ -6,7 +6,7 @@ use crate::scene::{Kind, Scene, Shape};
 use std::fmt::Write;
 
 /// The contours of a shape on the work area. A rectangle, an ellipse and live text have theirs made; a picture has none.
-fn contours_of(s: &Shape) -> Vec<Contour> {
+pub fn contours_of(s: &Shape) -> Vec<Contour> {
     match &s.kind {
         Kind::Rect { w, h } => vec![Contour::rect(*w, *h).transformed(&s.xf)],
         Kind::Ellipse { w, h } => vec![Contour::ellipse(*w, *h).transformed(&s.xf)],

@@ -713,3 +713,16 @@
 712|Görgessen a nagyításhoz, húzzon a mozgatáshoz, dupla kattintás a teljes képhez
 713|A kiválasztott utófeldolgozó módosítja a G-kód exportálása… G-kódját; a gépnek küldött munka nem változik.
 714|A beállításokkal rendelkező bővítményeknek saját lapjuk van a jobb oldali panelen.
+715|Útvonalak automatikus egyesítése…
+716|Útvonal zárása toleranciával…
+717|A kijelölés exportálása SVG-ként…
+718|A kijelölés exportálása DXF-ként…
+719|Útvonalak egyesítése
+720|Tűrés
+721|Automatikus egyesítés
+722|Útvonalak zárása
+723|Az az útvonalak, amelyek végei közelebb vannak a tűrésnél, egyesülnek; az az útvonal, amelynek két vége ilyen közel van, bezáródik.
+724|Semmi nem lett egyesítve vagy bezárva.
+725|{} útvonallá egyesítve ({} maradt nyitva)
+726|Mentve: {}
+727|A mentés sikertelen: {}

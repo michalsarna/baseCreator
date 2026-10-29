@@ -210,6 +210,9 @@ pub struct EditorState {
     pub fillet_radius: f64,
     /// The small windows of the offset and of rounding the corners of whole shapes, and what the offset window holds.
     pub show_offset: bool,
+    /// The small window that joins paths and closes them (Auto-join, Close path with tolerance), and its tolerance (mm).
+    pub show_join: bool,
+    pub join_tol: f64,
     pub show_round: bool,
     pub offset_dist: f64,
     pub offset_keep: bool,
@@ -299,6 +302,8 @@ impl EditorState {
             spiral_turns: 3,
             fillet_radius: 2.0,
             show_offset: false,
+            show_join: false,
+            join_tol: 0.1,
             show_round: false,
             offset_dist: -1.0,
             offset_keep: true,

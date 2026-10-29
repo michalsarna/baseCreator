@@ -713,3 +713,16 @@
 712	Scroll to zoom, drag to move, double click to see the whole picture
 713	The chosen postprocessor changes the G-code of Export G-code…; a job sent to the machine is not changed.
 714	Plugins with settings have a tab of their own in the right-hand panel.
+715	Auto-join paths…
+716	Close path with tolerance…
+717	Export selection as SVG…
+718	Export selection as DXF…
+719	Join paths
+720	Tolerance
+721	Auto-join
+722	Close paths
+723	Paths whose ends are nearer than the tolerance are joined; a path whose two ends are that near is closed.
+724	Nothing was joined or closed.
+725	Joined into {} paths ({} open left)
+726	Saved {}
+727	Could not save: {}

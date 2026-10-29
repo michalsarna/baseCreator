@@ -713,3 +713,16 @@
 712|Percorra para ampliar, arraste para mover, duplo clique para ver a imagem inteira
 713|O pós-processador escolhido altera o G-code de Exportar G-code…; um trabalho enviado para a máquina não é alterado.
 714|Os plugins com definições têm um separador próprio no painel direito.
+715|Unir trajetos automaticamente…
+716|Fechar trajeto com tolerância…
+717|Exportar a seleção como SVG…
+718|Exportar a seleção como DXF…
+719|Unir trajetos
+720|Tolerância
+721|Unir automaticamente
+722|Fechar trajetos
+723|Os trajetos cujas extremidades estão mais próximas do que a tolerância são unidos; um trajeto cujas duas extremidades estão tão próximas é fechado.
+724|Nada foi unido ou fechado.
+725|Unidos em {} trajetos ({} continuam abertos)
+726|{} guardado
+727|Não foi possível guardar: {}

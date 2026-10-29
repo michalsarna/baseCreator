@@ -713,3 +713,16 @@
 712|Rolovaním priblížite, ťahaním posuniete, dvojklikom zobrazíte celý obrázok
 713|Vybraný postprocesor mení G-kód pri Exporte G-kódu…; úloha odoslaná do stroja sa nemení.
 714|Zásuvné moduly s nastaveniami majú vlastnú kartu v pravom paneli.
+715|Automaticky spojiť dráhy…
+716|Uzavrieť dráhu s toleranciou…
+717|Exportovať výber ako SVG…
+718|Exportovať výber ako DXF…
+719|Spojenie dráh
+720|Tolerancia
+721|Automaticky spojiť
+722|Uzavrieť dráhy
+723|Dráhy, ktorých konce sú bližšie ako tolerancia, sa spoja; dráha, ktorej oba konce sú takto blízko, sa uzavrie.
+724|Nič nebolo spojené ani uzavreté.
+725|Spojené do {} dráh ({} zostalo otvorených)
+726|Uložené: {}
+727|Nepodarilo sa uložiť: {}
