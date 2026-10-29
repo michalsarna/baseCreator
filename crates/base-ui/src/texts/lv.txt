@@ -706,3 +706,7 @@
 705|GRBL 0.7 vai vecāks
 706|Vecāks GRBL (0.9) ziņo pozīcijas citā formātā un tam nav jog komandas: programma pārvieto galviņu ar parastām kustībām.
 707|Cilne darba zonā
+708|Atpakaļ uz logu
+709|Līmeņi
+710|Viss, kas tumšāks par šo, kļūst melns
+711|Viss, kas gaišāks par šo, kļūst balts

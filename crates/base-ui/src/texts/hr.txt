@@ -706,3 +706,7 @@
 705|GRBL 0.7 ili stariji
 706|Stariji GRBL (0.9) javlja položaj u drugom formatu i nema naredbu jog: program pomiče glavu običnim pomacima.
 707|Kartica u radnom području
+708|Natrag u prozor
+709|Razine
+710|Sve tamnije od ove vrijednosti postaje crno
+711|Sve svjetlije od ove vrijednosti postaje bijelo

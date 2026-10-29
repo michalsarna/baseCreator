@@ -706,3 +706,7 @@
 705|GRBL 0.7 jew iktar qadim
 706|GRBL iktar qadim (0.9) jirrapporta l-pożizzjonijiet f'format ieħor u m'għandux kmand jog: il-programm jċaqlaq ir-ras b'movimenti ordinarji.
 707|Tab fiż-żona tax-xogħol
+708|Lura għal tieqa
+709|Livelli
+710|Kull ma hu aktar skur minn dan isir iswed
+711|Kull ma hu aktar car minn dan isir abjad

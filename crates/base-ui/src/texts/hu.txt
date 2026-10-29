@@ -706,3 +706,7 @@
 705|GRBL 0.7 vagy régebbi
 706|A régebbi GRBL (0.9) más formátumban jelzi a pozíciót, és nincs jog parancsa: a program hagyományos mozgásokkal viszi a fejet.
 707|Lap a munkaterületen
+708|Vissza ablakba
+709|Szintek
+710|Minden, ami ennél sötétebb, fekete lesz
+711|Minden, ami ennél világosabb, fehér lesz

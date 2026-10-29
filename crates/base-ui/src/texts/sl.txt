@@ -706,3 +706,7 @@
 705|GRBL 0.7 ali starejši
 706|Starejši GRBL (0.9) sporoča položaj v drugi obliki in nima ukaza jog: program premika glavo z navadnimi premiki.
 707|Zavihek v delovnem območju
+708|Nazaj v okno
+709|Ravni
+710|Vse, kar je temnejše od tega, postane črno
+711|Vse, kar je svetlejše od tega, postane belo

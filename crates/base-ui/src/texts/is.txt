@@ -706,3 +706,7 @@
 705|GRBL 0.7 eða eldra
 706|Eldra GRBL (0.9) skilar staðsetningu á öðru sniði og hefur ekki jog-skipun: forritið hreyfir hausinn með venjulegum hreyfingum.
 707|Flipi á vinnusvæðinu
+708|Aftur í glugga
+709|Stig
+710|Allt sem er dekkra en þetta verður svart
+711|Allt sem er ljósara en þetta verður hvítt

@@ -706,3 +706,7 @@
 705|GRBL 0.7 või vanem
 706|Vanem GRBL (0.9) teatab asukohad teises vormingus ja tal pole jog-käsku: programm liigutab pead tavaliste liigutustega.
 707|Vaheleht tööalal
+708|Tagasi aknasse
+709|Tasemed
+710|Kõik sellest tumedam muutub mustaks
+711|Kõik sellest heledam muutub valgeks

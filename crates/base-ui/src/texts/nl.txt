@@ -706,3 +706,7 @@
 705|GRBL 0.7 of ouder
 706|Oudere GRBL (0.9) meldt posities in een ander formaat en heeft geen jog-commando: het programma verplaatst de kop met gewone bewegingen.
 707|Tabblad in het werkgebied
+708|Terug naar een venster
+709|Niveaus
+710|Alles wat donkerder is dan dit wordt zwart
+711|Alles wat lichter is dan dit wordt wit

@@ -706,3 +706,7 @@
 705|GRBL 0.7 alebo starší
 706|Starší GRBL (0.9) hlási polohu v inom formáte a nemá príkaz jog: program posúva hlavu obyčajnými pohybmi.
 707|Karta v pracovnej oblasti
+708|Späť do okna
+709|Úrovne
+710|Všetko tmavšie ako táto hodnota zčerná
+711|Všetko svetlejšie ako táto hodnota zbelie

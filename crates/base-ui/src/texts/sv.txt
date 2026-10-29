@@ -706,3 +706,7 @@
 705|GRBL 0.7 eller äldre
 706|Äldre GRBL (0.9) rapporterar positioner i ett annat format och har inget jog-kommando: programmet flyttar huvudet med vanliga rörelser.
 707|Flik i arbetsytan
+708|Tillbaka till ett fönster
+709|Nivåer
+710|Allt som är mörkare än detta blir svart
+711|Allt som är ljusare än detta blir vitt

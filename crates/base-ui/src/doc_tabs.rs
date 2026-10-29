@@ -21,9 +21,9 @@ pub enum TabAction {
     Select(usize),
     Close(usize),
     New,
-    /// The extra tab (see [`ExtraTab`]) was picked, or closed.
-    Extra,
-    CloseExtra,
+    /// The extra tab with this `id` (see [`ExtraTab`]) was picked, or closed.
+    Extra(&'static str),
+    CloseExtra(&'static str),
 }
 
 /// The title of a tab: the name of the file, or "Untitled".
@@ -47,8 +47,11 @@ fn shorten(s: &str) -> String {
     }
 }
 
-/// A tab that is not a drawing (the live view of the camera): it comes after the drawings and has no unsaved work.
+/// A tab that is not a drawing (the live view of the camera, the preview): it comes after the drawings and has no unsaved
+/// work.
 pub struct ExtraTab {
+    /// Tells the tab in the [`TabAction`]s.
+    pub id: &'static str,
     pub title: String,
     /// Shown instead of the drawing at `active`.
     pub shown: bool,
@@ -92,17 +95,17 @@ fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title:
 /// The bar: a tab for each drawing (a dot when it has unsaved work, a cross to close it) and a "+" for a new one. A middle
 /// click closes a tab.
 pub fn tab_bar(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize) -> Option<TabAction> {
-    tab_bar_with(ui, tabs, active, None)
+    tab_bar_with(ui, tabs, active, &[])
 }
 
-/// [`tab_bar`] with one more tab after the drawings. While it is shown no drawing is the active one.
-pub fn tab_bar_with(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize, extra: Option<&ExtraTab>) -> Option<TabAction> {
+/// [`tab_bar`] with more tabs after the drawings. While one of them is shown no drawing is the active one.
+pub fn tab_bar_with(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize, extras: &[ExtraTab]) -> Option<TabAction> {
     let mut action = None;
     egui::ScrollArea::horizontal().id_salt("doc_tabs_scroll").scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(ui, |ui| {
         ui.horizontal(|ui| {
             ui.spacing_mut().item_spacing.x = 2.0;
             for (i, t) in tabs.iter().enumerate() {
-                let is_active = i == active && !extra.is_some_and(|e| e.shown);
+                let is_active = i == active && !extras.iter().any(|e| e.shown);
                 let (clicked, closed) = one_tab(ui, i, &t.title, t.dirty, is_active);
                 if closed {
                     action = Some(TabAction::Close(i));
@@ -110,12 +113,12 @@ pub fn tab_bar_with(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize, extra: O
                     action = Some(TabAction::Select(i));
                 }
             }
-            if let Some(e) = extra {
-                let (clicked, closed) = one_tab(ui, "extra", &e.title, false, e.shown);
+            for e in extras {
+                let (clicked, closed) = one_tab(ui, e.id, &e.title, false, e.shown);
                 if closed {
-                    action = Some(TabAction::CloseExtra);
+                    action = Some(TabAction::CloseExtra(e.id));
                 } else if clicked && !e.shown {
-                    action = Some(TabAction::Extra);
+                    action = Some(TabAction::Extra(e.id));
                 }
             }
             let (rect, resp) = ui.allocate_exact_size(egui::vec2(TAB_H, TAB_H), Sense::click());
@@ -139,6 +142,16 @@ pub fn work_tab_label() -> &'static str {
 /// The button that puts the camera view in a tab of the work area (or takes it out); true when it was clicked.
 pub fn work_tab_toggle(ui: &mut egui::Ui, on: bool) -> bool {
     crate::widgets::toggle_icon(ui, "panel-top", work_tab_label(), on)
+}
+
+/// The small button of a floating window (its title line) that pins the window as a tab of the work area; true when clicked.
+pub fn pin_as_tab_button(ui: &mut egui::Ui) -> bool {
+    crate::widgets::icon_button(ui, "panel-top", work_tab_label(), true, 22.0)
+}
+
+/// The small button of such a tab (above its content) that makes it a floating window again; true when clicked.
+pub fn back_to_window_button(ui: &mut egui::Ui) -> bool {
+    crate::widgets::icon_button(ui, "picture-in-picture-2", tr("Back to a window"), true, 22.0)
 }
 
 /// What a tab shortcut asks for.
@@ -298,9 +311,9 @@ mod tests {
     fn the_extra_tab_is_drawn_after_the_drawings_and_takes_the_active_mark() {
         let ctx = egui::Context::default();
         let tabs = [TabInfo { title: "a".into(), dirty: false }, TabInfo { title: "b".into(), dirty: true }];
-        let extra = ExtraTab { title: "Camera".into(), shown: true };
+        let extras = [ExtraTab { id: "camera", title: "Camera".into(), shown: true }, ExtraTab { id: "preview", title: "Preview".into(), shown: false }];
         let mut out = ctx.run_ui(Default::default(), |ui| {
-            assert_eq!(tab_bar_with(ui, &tabs, 0, Some(&extra)), None);
+            assert_eq!(tab_bar_with(ui, &tabs, 0, &extras), None);
             assert_eq!(tab_bar(ui, &tabs, 0), None);
         });
         out.textures_delta.clear();

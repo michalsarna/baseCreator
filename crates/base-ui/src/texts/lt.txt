@@ -706,3 +706,7 @@
 705|GRBL 0.7 arba senesnis
 706|Senesnis GRBL (0.9) praneša pozicijas kitu formatu ir neturi jog komandos: programa judina galvutę paprastais judesiais.
 707|Skirtukas darbo srityje
+708|Atgal į langą
+709|Lygiai
+710|Viskas, kas tamsiau, tampa juoda
+711|Viskas, kas šviesiau, tampa balta
