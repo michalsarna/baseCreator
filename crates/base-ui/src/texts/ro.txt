@@ -707,3 +707,6 @@
 706|GRBL mai vechi (0.9) raportează pozițiile într-un alt format și nu are comanda jog: programul mută capul cu mișcări obișnuite.
 707|Filă în zona de lucru
 708|Înapoi la o fereastră
+709|Niveluri
+710|Tot ce este mai întunecat decât această valoare devine negru
+711|Tot ce este mai deschis decât această valoare devine alb

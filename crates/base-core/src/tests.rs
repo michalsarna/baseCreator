@@ -99,6 +99,11 @@ fn image_adjustments() {
     assert!(b.gray[0] >= 127 && b.gray[7] > wide.gray[7]);
     let c = wide.adjusted(&Adjust { auto_levels: true, ..Default::default() });
     assert_eq!((c.gray[0], c.gray[7]), (0, 255));
+    // The range chosen by hand: the grey below `black` turns black, the one above `white` turns white.
+    let range = wide.adjusted(&Adjust { black: 10.0 / 255.0, white: 20.0 / 255.0, ..Default::default() });
+    assert_eq!((range.gray[0], range.gray[1], range.gray[2], range.gray[3]), (0, 0, 255, 255));
+    let hist = wide.histogram();
+    assert_eq!((hist[0], hist[10], hist[30], hist.iter().sum::<u32>()), (1, 1, 1, wide.gray.len() as u32));
     let free = im.adjusted(&Adjust { angle_deg: 45.0, ..Default::default() });
     assert!(free.px_w > 40 && free.px_w < 60);
 }

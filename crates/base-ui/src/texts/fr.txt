@@ -707,3 +707,6 @@
 706|Un GRBL ancien (0.9) indique les positions dans un autre format et n'a pas de commande jog : le programme déplace la tête avec des mouvements ordinaires.
 707|Onglet dans la zone de travail
 708|Retour à une fenêtre
+709|Niveaux
+710|Tout ce qui est plus sombre devient noir
+711|Tout ce qui est plus clair devient blanc

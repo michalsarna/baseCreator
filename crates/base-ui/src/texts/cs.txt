@@ -707,3 +707,6 @@
 706|Starší GRBL (0.9) hlásí polohu v jiném formátu a nemá příkaz jog: program posouvá hlavu obyčejnými pohyby.
 707|Karta v pracovní oblasti
 708|Zpět do okna
+709|Úrovně
+710|Vše tmavší než tato hodnota zčerná
+711|Vše světlejší než tato hodnota zbělá

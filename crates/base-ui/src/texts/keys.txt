@@ -707,3 +707,6 @@
 706	Older GRBL (0.9) reports positions in another format and has no jog command: the program moves the head with ordinary moves instead.
 707	Tab in the work area
 708	Back to a window
+709	Levels
+710	Everything darker than this turns black
+711	Everything lighter than this turns white

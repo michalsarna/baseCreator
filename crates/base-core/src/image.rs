@@ -89,11 +89,15 @@ pub struct Adjust {
     pub gamma: f32,
     /// Stretch the darkest and lightest pixels to the full range.
     pub auto_levels: bool,
+    /// The darkest grey that is kept, 0..=1 of the grey scale: everything darker turns black (the left slider of the histogram).
+    pub black: f32,
+    /// The lightest grey that is kept, 0..=1: everything lighter turns white (the right slider). Always above `black`.
+    pub white: f32,
 }
 
 impl Default for Adjust {
     fn default() -> Self {
-        Adjust { quarter_turns: 0, angle_deg: 0.0, flip_h: false, flip_v: false, brightness: 0.0, contrast: 0.0, gamma: 1.0, auto_levels: false }
+        Adjust { quarter_turns: 0, angle_deg: 0.0, flip_h: false, flip_v: false, brightness: 0.0, contrast: 0.0, gamma: 1.0, auto_levels: false, black: 0.0, white: 1.0 }
     }
 }
 
@@ -158,6 +162,15 @@ impl ImageData {
     }
 
     /// A processed copy: rotate / flip, then levels, brightness, contrast and gamma.
+    /// How many pixels there are of each grey (0 = black, 255 = white).
+    pub fn histogram(&self) -> [u32; 256] {
+        let mut h = [0u32; 256];
+        for g in &self.gray {
+            h[*g as usize] += 1;
+        }
+        h
+    }
+
     pub fn adjusted(&self, a: &Adjust) -> ImageData {
         let mut im = self.rotated_quarters(a.quarter_turns);
         if a.angle_deg.abs() > 0.01 {
@@ -181,6 +194,9 @@ impl ImageData {
         } else {
             (0.0, 255.0)
         };
+        // The range chosen by hand narrows the one the picture has (or the whole scale).
+        let lo = lo.max(a.black.clamp(0.0, 1.0) * 255.0);
+        let hi = hi.min(a.white.clamp(0.0, 1.0) * 255.0).max(lo + 1.0);
         let span = (hi - lo).max(1.0);
         let k = ((a.contrast.clamp(-0.99, 0.99) + 1.0) * std::f32::consts::FRAC_PI_4).tan();
         let inv_gamma = 1.0 / a.gamma.clamp(0.2, 3.0);
