@@ -711,3 +711,5 @@
 710|Éiríonn gach rud níos dorcha ná seo dubh
 711|Éiríonn gach rud níos éadroime ná seo bán
 712|Scrollaigh chun zúmáil, tarraing chun bogadh, déchliceáil chun an pictiúr iomlán a fheiceáil
+713|Athraíonn an tar-phróiseálaí roghnaithe G-code Easpórtáil G-code…; ní athraítear tasc a sheoltar chuig an meaisín.
+714|Tá cluaisín dá gcuid féin ag breiseáin le socruithe sa phainéal ar dheis.

@@ -711,3 +711,5 @@
 710|Minden, ami ennél sötétebb, fekete lesz
 711|Minden, ami ennél világosabb, fehér lesz
 712|Görgessen a nagyításhoz, húzzon a mozgatáshoz, dupla kattintás a teljes képhez
+713|A kiválasztott utófeldolgozó módosítja a G-kód exportálása… G-kódját; a gépnek küldött munka nem változik.
+714|A beállításokkal rendelkező bővítményeknek saját lapjuk van a jobb oldali panelen.

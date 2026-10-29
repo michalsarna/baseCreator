@@ -711,3 +711,5 @@
 710|Alles wat donkerder is dan dit wordt zwart
 711|Alles wat lichter is dan dit wordt wit
 712|Scrol om te zoomen, sleep om te verplaatsen, dubbelklik om de hele afbeelding te zien
+713|De gekozen postprocessor wijzigt de G-code van G-code exporteren…; een taak die naar de machine wordt gestuurd wordt niet gewijzigd.
+714|Plug-ins met instellingen hebben een eigen tabblad in het rechterpaneel.

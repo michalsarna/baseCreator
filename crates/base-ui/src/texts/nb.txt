@@ -711,3 +711,5 @@
 710|Alt som er mørkere enn dette, blir svart
 711|Alt som er lysere enn dette, blir hvitt
 712|Rull for å zoome, dra for å flytte, dobbeltklikk for å se hele bildet
+713|Den valgte postprosessoren endrer G-koden i Eksporter G-kode…; en jobb som sendes til maskinen endres ikke.
+714|Utvidelser med innstillinger har sin egen fane i høyre panel.

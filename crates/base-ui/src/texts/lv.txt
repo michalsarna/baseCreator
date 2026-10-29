@@ -711,3 +711,5 @@
 710|Viss, kas tumšāks par šo, kļūst melns
 711|Viss, kas gaišāks par šo, kļūst balts
 712|Ritiniet, lai tuvinātu, velciet, lai pārvietotu, veiciet dubultklikšķi, lai redzētu visu attēlu
+713|Izvēlētais postprocesors maina G kodu funkcijā Eksportēt G kodu…; mašīnai nosūtīts darbs netiek mainīts.
+714|Spraudņiem ar iestatījumiem ir sava cilne labajā panelī.

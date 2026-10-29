@@ -711,3 +711,5 @@
 710|Tot el que és més fosc que això es torna negre
 711|Tot el que és més clar que això es torna blanc
 712|Desplaça per ampliar, arrossega per moure, fes doble clic per veure tota la imatge
+713|El postprocessador triat canvia el G-code d'Exporta G-code…; una tasca enviada a la màquina no es modifica.
+714|Els connectors amb opcions tenen una pestanya pròpia al tauler dret.

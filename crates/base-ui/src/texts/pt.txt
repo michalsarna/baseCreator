@@ -711,3 +711,5 @@
 710|Tudo o que é mais escuro do que isto fica preto
 711|Tudo o que é mais claro do que isto fica branco
 712|Percorra para ampliar, arraste para mover, duplo clique para ver a imagem inteira
+713|O pós-processador escolhido altera o G-code de Exportar G-code…; um trabalho enviado para a máquina não é alterado.
+714|Os plugins com definições têm um separador próprio no painel direito.

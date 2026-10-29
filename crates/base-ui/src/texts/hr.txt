@@ -711,3 +711,5 @@
 710|Sve tamnije od ove vrijednosti postaje crno
 711|Sve svjetlije od ove vrijednosti postaje bijelo
 712|Pomičite za zumiranje, povucite za pomicanje, dvaput kliknite za cijelu sliku
+713|Odabrani postprocesor mijenja G-kod izvoza G-koda…; posao poslan stroju ne mijenja se.
+714|Dodaci s postavkama imaju vlastitu karticu u desnoj ploči.

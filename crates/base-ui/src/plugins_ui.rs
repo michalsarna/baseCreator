@@ -259,23 +259,68 @@ impl PluginsUi {
         Some((p, r))
     }
 
-    /// A drop-down to choose the postprocessor of the next export.
-    pub fn post_combo(&mut self, ui: &mut egui::Ui) {
-        let posts: Vec<(String, String)> = self.registry.postprocessors(&self.app).iter().map(|(p, d)| (format!("{}/{}", p.manifest.id, d.id), d.name.clone())).collect();
-        if posts.is_empty() {
-            return;
+    /// The tabs of the right-hand panel that the plugins have: one for every plugin that is on, is for this program and has
+    /// something to set (a postprocessor to choose). The id is `plugin:<plugin id>`; the label is the name of the plugin.
+    pub fn side_tabs(&self) -> Vec<(&'static str, String)> {
+        let mut seen: Vec<&str> = vec![];
+        let mut out = vec![];
+        for (p, _) in self.registry.postprocessors(&self.app) {
+            if !seen.contains(&p.manifest.id.as_str()) {
+                seen.push(&p.manifest.id);
+                out.push((side_tab_id(&p.manifest.id), pt(&self.registry, &p.manifest.name)));
+            }
         }
-        let current = self.post.as_ref().and_then(|s| posts.iter().find(|(id, _)| id == s)).map(|(_, n)| n.clone()).unwrap_or_else(|| tr("None").to_string());
-        ui.horizontal(|ui| {
-            ui.label(tr("Postprocessor"));
-            egui::ComboBox::from_id_salt("post_combo").selected_text(current).show_ui(ui, |ui| {
-                ui.selectable_value(&mut self.post, None, tr("None"));
-                for (id, name) in &posts {
-                    ui.selectable_value(&mut self.post, Some(id.clone()), name);
-                }
-            });
-        });
+        out
     }
+
+    /// Is `id` the id of a tab of a plugin (see [`PluginsUi::side_tabs`])?
+    pub fn is_side_tab(id: &str) -> bool {
+        id.starts_with(SIDE_TAB_PREFIX)
+    }
+
+    /// The label of the tab `id`, or empty when no such plugin tab exists.
+    pub fn side_tab_label(&self, id: &str) -> String {
+        self.side_tabs().into_iter().find(|(t, _)| *t == id).map(|(_, l)| l).unwrap_or_default()
+    }
+
+    /// The contents of the tab `id`: what the plugin is, and its postprocessors, one of which can be chosen for the export.
+    /// False when there is no such tab (the plugin was removed or switched off), so the program shows another one.
+    pub fn side_tab_ui(&mut self, ui: &mut egui::Ui, id: &str) -> bool {
+        let Some(plugin_id) = id.strip_prefix(SIDE_TAB_PREFIX) else { return false };
+        let posts: Vec<(String, String, String)> = self.registry.postprocessors(&self.app).into_iter().filter(|(p, _)| p.manifest.id == plugin_id).map(|(p, d)| (format!("{}/{}", p.manifest.id, d.id), pt(&self.registry, &d.name), pt(&self.registry, &d.description))).collect();
+        let Some(plugin) = self.registry.find(plugin_id) else { return false };
+        if posts.is_empty() {
+            return false;
+        }
+        let (name, version, description) = (pt(&self.registry, &plugin.manifest.name), plugin.manifest.version.clone(), pt(&self.registry, &plugin.manifest.description));
+        ui.label(RichText::new(format!("{name}  {version}")).strong());
+        if !description.is_empty() {
+            ui.label(RichText::new(description).color(theme::text_dim()));
+        }
+        ui.add_space(6.0);
+        ui.label(RichText::new(tr("Postprocessor")).strong());
+        ui.selectable_value(&mut self.post, None, tr("None"));
+        for (sel, pname, pdesc) in &posts {
+            let r = ui.selectable_value(&mut self.post, Some(sel.clone()), pname);
+            if !pdesc.is_empty() {
+                r.on_hover_text(pdesc);
+                ui.label(RichText::new(pdesc).small().color(theme::text_dim()));
+            }
+        }
+        ui.add_space(8.0);
+        ui.label(RichText::new(tr("The chosen postprocessor changes the G-code of Export G-code…; a job sent to the machine is not changed.")).color(theme::text_dim()));
+        true
+    }
+}
+
+const SIDE_TAB_PREFIX: &str = "plugin:";
+
+/// The id of the tab of a plugin as a `&'static str` (the tabs of the panels are named by those): made once for every plugin id.
+fn side_tab_id(plugin: &str) -> &'static str {
+    use std::sync::{Mutex, OnceLock};
+    static IDS: OnceLock<Mutex<std::collections::HashMap<String, &'static str>>> = OnceLock::new();
+    let mut ids = IDS.get_or_init(Default::default).lock().expect("plugin tab ids");
+    ids.entry(plugin.to_string()).or_insert_with(|| Box::leak(format!("{SIDE_TAB_PREFIX}{plugin}").into_boxed_str()))
 }
 
 /// A text of a plugin (name, description, label) in the language of the program, when a plugin translates it.
@@ -349,7 +394,9 @@ pub fn window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<String> {
                 reload = true;
             }
         });
-        st.post_combo(ui);
+        if !st.side_tabs().is_empty() {
+            ui.label(RichText::new(tr("Plugins with settings have a tab of their own in the right-hand panel.")).color(theme::text_dim()));
+        }
         if !st.message.is_empty() {
             ui.label(RichText::new(&st.message).color(theme::accent()));
         }

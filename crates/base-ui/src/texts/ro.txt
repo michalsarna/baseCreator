@@ -711,3 +711,5 @@
 710|Tot ce este mai întunecat decât această valoare devine negru
 711|Tot ce este mai deschis decât această valoare devine alb
 712|Derulați pentru zoom, trageți pentru mutare, dublu clic pentru întreaga imagine
+713|Postprocesorul ales modifică G-code-ul din Exportă G-code…; o lucrare trimisă mașinii nu este modificată.
+714|Pluginurile cu setări au o filă proprie în panoul din dreapta.
