@@ -81,6 +81,37 @@ pub trait EditorShapeOps: EditorHost {
         self.say(trf("Joined into {} paths ({} open left)", &[&total_after, &open_after]));
     }
 
+    /// Add the notches of dogbone (or T-bone) corners to the selected shapes, for a round bit of radius `r`.
+    fn dogbone_selected(&mut self, r: f64, tbone: bool) {
+        let ids: Vec<u64> = self.ed().sel.iter().copied().filter(|id| self.scene().shape(*id).is_some_and(|s| !s.is_image() && !s.locked)).collect();
+        let mut made: Vec<(u64, usize, Vec<base_core::geom::Polyline>)> = vec![];
+        for id in &ids {
+            let Some(s) = self.scene().shape(*id) else { continue };
+            let polys = s.polys();
+            let result = ops::dogbone(&polys, r, tbone);
+            // Unchanged when there was no corner (the same number of outlines and the same area).
+            let area = |v: &[base_core::geom::Polyline]| v.iter().map(|p| p.area().abs()).sum::<f64>();
+            if (area(&result) - area(&polys)).abs() > 1e-9 || result.len() != polys.len() {
+                made.push((*id, s.layer, result));
+            }
+        }
+        if made.is_empty() {
+            self.say(tr("No sharp corners in the selection.").to_string());
+            return;
+        }
+        self.checkpoint();
+        let n = made.len();
+        let gone: Vec<u64> = made.iter().map(|(id, ..)| *id).collect();
+        self.scene_mut().shapes.retain(|s| !gone.contains(&s.id));
+        let mut new_ids = vec![];
+        for (_, layer, polys) in made {
+            new_ids.push(self.scene_mut().add(layer, Kind::Path(polys), Xf::IDENTITY));
+        }
+        self.ed_mut().sel = new_ids;
+        self.ed_mut().node_sel.clear();
+        self.say(trf("Notches added to {} shapes", &[&n]));
+    }
+
     /// Write the selected shapes (all of them when nothing is selected) as an SVG or a DXF file.
     fn export_selection(&mut self, dxf: bool) {
         let ids: Vec<u64> = self.ed().sel.clone();
@@ -259,6 +290,29 @@ pub trait EditorShapeOps: EditorHost {
                 open = false;
             }
             self.ed_mut().show_join = open;
+        }
+        if self.ed().show_bones {
+            let mut radius = self.ed().bone_radius;
+            let mut open = true;
+            let (mut dog, mut tee) = (false, false);
+            popup(ctx, "bone_window", &tr("Dogbone corners"), [340.0, 200.0], &mut open, |ui| {
+                egui::Grid::new("bones").num_columns(2).spacing([12.0, 6.0]).show(ui, |ui| {
+                    ui.label(tr("Radius"));
+                    drag_len(ui, units, &mut radius, 0.1, Some((0.05, 100.0)));
+                    ui.end_row();
+                });
+                ui.label(RichText::new(tr("Adds a notch to every sharp corner of the selected shapes, so that a round bit of this radius reaches into it: a dogbone overcuts both walls a little, a T-bone only one.")).color(theme::text_dim()));
+                ui.horizontal(|ui| {
+                    dog = ui.button(tr("Dogbone")).clicked();
+                    tee = ui.button(tr("T-bone")).clicked();
+                });
+            });
+            self.ed_mut().bone_radius = radius;
+            if dog || tee {
+                self.dogbone_selected(radius, tee);
+                open = false;
+            }
+            self.ed_mut().show_bones = open;
         }
         if self.ed().show_round {
             let mut radius = self.ed().fillet_radius;

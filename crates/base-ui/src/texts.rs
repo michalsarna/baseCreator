@@ -734,6 +734,13 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Saved {}", "Zapisano {}", "{} gespeichert", "{} salvato", "{} tallennettu", "已保存 {}", "{} सहेजा गया"],
     ["Could not save: {}", "Nie udało się zapisać: {}", "Speichern fehlgeschlagen: {}", "Impossibile salvare: {}", "Tallennus epäonnistui: {}", "无法保存：{}", "सहेजा नहीं जा सका: {}"],
     ["Export", "Eksport", "Exportieren", "Esporta", "Vie", "导出", "निर्यात"],
+    ["Dogbone / T-bone corners…", "Narożniki dogbone / T-bone…", "Dogbone- / T-Bone-Ecken…", "Angoli dogbone / T-bone…", "Dogbone- / T-bone-kulmat…", "狗骨 / T 形转角…", "डॉगबोन / T-बोन कोने…"],
+    ["Dogbone corners", "Narożniki dogbone", "Dogbone-Ecken", "Angoli dogbone", "Dogbone-kulmat", "狗骨转角", "डॉगबोन कोने"],
+    ["Dogbone", "Dogbone", "Dogbone", "Dogbone", "Dogbone", "狗骨", "डॉगबोन"],
+    ["T-bone", "T-bone", "T-Bone", "T-bone", "T-bone", "T 形", "T-बोन"],
+    ["Adds a notch to every sharp corner of the selected shapes, so that a round bit of this radius reaches into it: a dogbone overcuts both walls a little, a T-bone only one.", "Dodaje wcięcie w każdym ostrym narożniku zaznaczonych kształtów, żeby okrągły frez o tym promieniu sięgnął do środka: dogbone lekko podcina obie ściany, T-bone tylko jedną.", "Fügt jeder scharfen Ecke der gewählten Formen eine Aussparung hinzu, damit ein runder Fräser dieses Radius hineinreicht: Ein Dogbone schneidet beide Wände etwas an, ein T-Bone nur eine.", "Aggiunge un incavo a ogni angolo vivo delle forme selezionate, così che una fresa tonda di questo raggio ci arrivi: il dogbone intacca un po' entrambe le pareti, il T-bone solo una.", "Lisää lovi valittujen muotojen jokaiseen terävään kulmaan, jotta tämän säteen pyöreä terä yltää sinne: koiranluu leikkaa hieman molempia seiniä, T-bone vain toista.", "为所选形状的每个尖角添加缺口，使该半径的圆形刀具能够到达：狗骨略微过切两面壁，T 形只过切一面。", "चुने हुए आकारों के हर तीखे कोने में एक खाँचा जोड़ता है, ताकि इस त्रिज्या का गोल बिट वहाँ पहुँच सके: डॉगबोन दोनों दीवारों को थोड़ा काटता है, T-बोन केवल एक को।"],
+    ["No sharp corners in the selection.", "W zaznaczeniu nie ma ostrych narożników.", "In der Auswahl gibt es keine scharfen Ecken.", "Nella selezione non ci sono angoli vivi.", "Valinnassa ei ole teräviä kulmia.", "所选内容中没有尖角。", "चयन में कोई तीखा कोना नहीं है।"],
+    ["Notches added to {} shapes", "Dodano wcięcia do kształtów: {}", "Aussparungen zu {} Formen hinzugefügt", "Incavi aggiunti a {} forme", "Lovet lisätty {} muotoon", "已为 {} 个形状添加缺口", "{} आकारों में खाँचे जोड़े गए"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

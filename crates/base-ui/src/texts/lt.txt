@@ -727,3 +727,10 @@
 726|Išsaugota: {}
 727|Nepavyko išsaugoti: {}
 728|Eksportuoti
+729|Dogbone / T-bone kampai…
+730|Dogbone kampai
+731|Dogbone
+732|T-bone
+733|Prideda įpjovą kiekvienam pažymėtų formų aštriam kampui, kad apvalus šio spindulio frezas pasiektų: dogbone šiek tiek perpjauna abi sienas, T-bone tik vieną.
+734|Pažymėtame nėra aštrių kampų.
+735|Įpjovos pridėtos prie {} formų

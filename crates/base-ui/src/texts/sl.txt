@@ -727,3 +727,10 @@
 726|Shranjeno: {}
 727|Shranjevanje ni uspelo: {}
 728|Izvozi
+729|Vogali dogbone / T-bone…
+730|Vogali dogbone
+731|Dogbone
+732|T-bone
+733|Doda zarezo v vsak oster kot izbranih oblik, da vanj seže okrogel rezkar tega polmera: dogbone rahlo podreže obe steni, T-bone le eno.
+734|V izboru ni ostrih kotov.
+735|Zarezi dodani na {} oblik

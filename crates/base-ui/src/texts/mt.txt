@@ -727,3 +727,10 @@
 726|Inżamm {}
 727|Ma setgħetx tinżamm: {}
 728|Esporta
+729|Rkejjen dogbone / T-bone…
+730|Rkejjen dogbone
+731|Dogbone
+732|T-bone
+733|Iżid qatgħa ma' kull rokna wieqfa tal-forom magħżula, biex frieża tonda ta' dan ir-raġġ tilħaqha: id-dogbone jaqta' ftit iż-żewġ ħitan, it-T-bone waħda biss.
+734|L-għażla m'fiha l-ebda rkejjen wieqfa.
+735|Inżiedu qatgħat ma' {} forom

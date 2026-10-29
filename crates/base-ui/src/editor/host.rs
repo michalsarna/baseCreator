@@ -55,6 +55,10 @@ pub trait EditorHost: Sized {
     fn shape_color(&self, layer: usize) -> Option<egui::Color32>;
     /// The plain colour of a layer (for the outline of a shape being drawn).
     fn layer_color(&self, layer: usize) -> egui::Color32;
+    /// The radius the window of the dogbone corners starts with (the radius of the bit of the layer, in a milling program).
+    fn bone_radius_default(&self) -> f64 {
+        1.5
+    }
     /// The name of a layer, for the files that are written (SVG groups, DXF layers).
     fn layer_title(&self, layer: usize) -> String {
         format!("Layer {}", layer + 1)

@@ -727,3 +727,10 @@
 726|{} salvestatud
 727|Salvestamine ebaõnnestus: {}
 728|Ekspordi
+729|Dogbone- / T-bone-nurgad…
+730|Dogbone-nurgad
+731|Dogbone
+732|T-bone
+733|Lisab valitud kujundite igasse teravasse nurka sälgu, et selle raadiusega ümar freesi sinna ulatuks: dogbone lõikab veidi mõlemat seina, T-bone ainult ühte.
+734|Valikus pole teravaid nurki.
+735|Sälgud lisatud {} kujundile

@@ -727,3 +727,10 @@
 726	Saved {}
 727	Could not save: {}
 728	Export
+729	Dogbone / T-bone corners…
+730	Dogbone corners
+731	Dogbone
+732	T-bone
+733	Adds a notch to every sharp corner of the selected shapes, so that a round bit of this radius reaches into it: a dogbone overcuts both walls a little, a T-bone only one.
+734	No sharp corners in the selection.
+735	Notches added to {} shapes

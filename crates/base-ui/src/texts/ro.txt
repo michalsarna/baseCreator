@@ -727,3 +727,10 @@
 726|{} salvat
 727|Nu s-a putut salva: {}
 728|Exportă
+729|Colțuri dogbone / T-bone…
+730|Colțuri dogbone
+731|Dogbone
+732|T-bone
+733|Adaugă o crestătură în fiecare colț ascuțit al formelor selectate, ca o freză rotundă de această rază să ajungă în el: dogbone taie puțin ambii pereți, T-bone doar unul.
+734|Nu există colțuri ascuțite în selecție.
+735|Crestături adăugate la {} forme

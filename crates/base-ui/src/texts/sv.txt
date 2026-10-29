@@ -727,3 +727,10 @@
 726|{} sparades
 727|Det gick inte att spara: {}
 728|Exportera
+729|Dogbone- / T-bone-hörn…
+730|Dogbone-hörn
+731|Dogbone
+732|T-bone
+733|Lägger till ett hack i varje vasst hörn på de valda formerna så att en rund fräs med denna radie når in: en dogbone underskär båda väggarna något, en T-bone bara en.
+734|Det finns inga vassa hörn i markeringen.
+735|Hack tillagda på {} former

@@ -212,6 +212,9 @@ pub struct EditorState {
     pub show_offset: bool,
     /// The small window that joins paths and closes them (Auto-join, Close path with tolerance), and its tolerance (mm).
     pub show_join: bool,
+    /// The window of the dogbone / T-bone corners, and its radius (mm).
+    pub show_bones: bool,
+    pub bone_radius: f64,
     pub join_tol: f64,
     pub show_round: bool,
     pub offset_dist: f64,
@@ -303,6 +306,8 @@ impl EditorState {
             fillet_radius: 2.0,
             show_offset: false,
             show_join: false,
+            show_bones: false,
+            bone_radius: 1.5,
             join_tol: 0.1,
             show_round: false,
             offset_dist: -1.0,

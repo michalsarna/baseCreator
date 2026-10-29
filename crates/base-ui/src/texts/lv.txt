@@ -727,3 +727,10 @@
 726|Saglabāts: {}
 727|Neizdevās saglabāt: {}
 728|Eksportēt
+729|Dogbone / T-bone stūri…
+730|Dogbone stūri
+731|Dogbone
+732|T-bone
+733|Pievieno iegriezumu katram izvēlēto formu asajam stūrim, lai šāda rādiusa apaļa frēze tur ieietu: dogbone nedaudz pārgriež abas sienas, T-bone tikai vienu.
+734|Atlasītajā nav asu stūru.
+735|Iegriezumi pievienoti {} formām

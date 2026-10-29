@@ -727,3 +727,10 @@
 726|{} opgeslagen
 727|Opslaan mislukt: {}
 728|Exporteren
+729|Dogbone- / T-bone-hoeken…
+730|Dogbone-hoeken
+731|Dogbone
+732|T-bone
+733|Voegt een inkeping toe aan elke scherpe hoek van de geselecteerde vormen, zodat een ronde frees met deze straal erin kan: een dogbone snijdt beide wanden een beetje over, een T-bone slechts één.
+734|Er zijn geen scherpe hoeken in de selectie.
+735|Inkepingen toegevoegd aan {} vormen

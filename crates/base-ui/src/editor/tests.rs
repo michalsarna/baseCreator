@@ -260,3 +260,23 @@ fn auto_join_makes_one_closed_path_of_separate_lines_and_close_only_closes_what_
     assert_eq!(h.scene.shapes.len(), before);
     assert!(h.status.contains("Nothing"), "{}", h.status);
 }
+
+#[test]
+fn dogbone_corners_are_added_to_the_selected_shapes_and_a_shape_without_corners_says_so() {
+    use base_core::geom::{Polyline, Pt};
+    let mut h = Host::default();
+    let slot = h.scene.add(0, Kind::Rect { w: 30.0, h: 10.0 }, Xf::translate(5.0, 5.0));
+    h.ed.sel = vec![slot];
+    EditorShapeOps::dogbone_selected(&mut h, 1.5, false);
+    assert_eq!(h.scene.shapes.len(), 1);
+    assert!(matches!(&h.scene.shapes[0].kind, Kind::Path(p) if p.len() == 1 && p[0].pts.len() > 4), "{}", h.status);
+    assert!(h.status.contains("Notches added"), "{}", h.status);
+    // A circle has no sharp corner.
+    let round = Polyline::new((0..64).map(|i| { let a = i as f64 / 64.0 * std::f64::consts::TAU; Pt::new(50.0 + 5.0 * a.cos(), 50.0 + 5.0 * a.sin()) }).collect(), true);
+    let id = h.scene.add(0, Kind::Path(vec![round]), Xf::IDENTITY);
+    h.ed.sel = vec![id];
+    let before = h.scene.shapes.len();
+    EditorShapeOps::dogbone_selected(&mut h, 1.5, true);
+    assert_eq!(h.scene.shapes.len(), before);
+    assert!(h.status.contains("No sharp corners"), "{}", h.status);
+}
