@@ -713,3 +713,17 @@
 712|Skrunaðu til að stækka, dragðu til að færa, tvísmelltu til að sjá alla myndina
 713|Valinn eftirvinnsla breytir G-kóðanum í Flytja út G-kóða…; verk sem er sent til vélarinnar breytist ekki.
 714|Viðbætur með stillingum hafa sinn eigin flipa í hægri spjaldinu.
+715|Tengja ferla sjálfkrafa…
+716|Loka feril með vikmörkum…
+717|Flytja út valið sem SVG…
+718|Flytja út valið sem DXF…
+719|Tengja ferla
+720|Vikmörk
+721|Tengja sjálfkrafa
+722|Loka ferla
+723|Ferlar þar sem endarnir eru nær hver öðrum en vikmörkin eru tengdir; ferill þar sem báðir endar eru svo nálægt er lokaður.
+724|Engu var skeytt saman eða lokað.
+725|Tengt í {} ferla ({} eru enn opnir)
+726|Vistað: {}
+727|Ekki tókst að vista: {}
+728|Flytja út

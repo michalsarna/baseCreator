@@ -713,3 +713,17 @@
 712|Desplaça per ampliar, arrossega per moure, fes doble clic per veure tota la imatge
 713|El postprocessador triat canvia el G-code d'Exporta G-code…; una tasca enviada a la màquina no es modifica.
 714|Els connectors amb opcions tenen una pestanya pròpia al tauler dret.
+715|Uneix els traçats automàticament…
+716|Tanca el traçat amb tolerància…
+717|Exporta la selecció com a SVG…
+718|Exporta la selecció com a DXF…
+719|Uneix traçats
+720|Tolerància
+721|Uneix automàticament
+722|Tanca els traçats
+723|Els traçats els extrems dels quals són més a prop que la tolerància s'uneixen; un traçat amb els dos extrems tan a prop es tanca.
+724|No s'ha unit ni tancat res.
+725|S'han unit en {} traçats (en queden {} d'oberts)
+726|S'ha desat {}
+727|No s'ha pogut desar: {}
+728|Exporta

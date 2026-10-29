@@ -713,3 +713,17 @@
 712|Slinkite norėdami keisti mastelį, vilkite norėdami perkelti, dukart spustelėkite, kad matytumėte visą paveikslą
 713|Pasirinktas postprocesorius keičia G kodą, eksportuojamą per Eksportuoti G kodą…; į staklės siunčiama užduotis nekeičiama.
 714|Papildiniai su nustatymais turi savo skirtuką dešiniajame skydelyje.
+715|Automatiškai sujungti kelius…
+716|Uždaryti kelią su tolerancija…
+717|Eksportuoti pažymėtą kaip SVG…
+718|Eksportuoti pažymėtą kaip DXF…
+719|Kelių sujungimas
+720|Tolerancija
+721|Sujungti automatiškai
+722|Uždaryti kelius
+723|Keliai, kurių galai arčiau nei tolerancija, sujungiami; kelias, kurio abu galai tokie arti, uždaromas.
+724|Niekas nebuvo sujungta ar uždaryta.
+725|Sujungta į {} kelių ({} liko atvirų)
+726|Išsaugota: {}
+727|Nepavyko išsaugoti: {}
+728|Eksportuoti

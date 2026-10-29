@@ -36,6 +36,74 @@ pub trait EditorShapeOps: EditorHost {
         self.ed_mut().node_sel.clear();
     }
 
+    /// Join the open paths of the selected shapes that meet within `tol` mm into longer ones and close the ones that come round
+    /// (`join`), or only close the paths whose two ends are within `tol` (`!join`).
+    fn join_selected(&mut self, tol: f64, join: bool) {
+        use base_core::export::contours_of;
+        let ids: Vec<u64> = self.ed().sel.iter().copied().filter(|id| self.scene().shape(*id).is_some_and(|s| !s.is_image() && !s.locked)).collect();
+        // The contours of each layer.
+        let mut layers: Vec<(usize, Vec<Contour>)> = vec![];
+        for id in &ids {
+            let Some(s) = self.scene().shape(*id) else { continue };
+            let cs = contours_of(s);
+            match layers.iter_mut().find(|(l, _)| *l == s.layer) {
+                Some((_, v)) => v.extend(cs),
+                None => layers.push((s.layer, cs)),
+            }
+        }
+        let before: usize = layers.iter().map(|(_, v)| v.iter().filter(|c| !c.closed).count()).sum();
+        let mut made: Vec<(usize, Contour)> = vec![];
+        let (mut closed_now, mut total_after) = (0, 0);
+        for (layer, cs) in layers {
+            let open_before = cs.iter().filter(|c| !c.closed).count();
+            let result: Vec<Contour> = if join {
+                base_core::join::join(cs, tol)
+            } else {
+                cs.into_iter().map(|mut c| { base_core::join::close_if_near(&mut c, tol); c }).collect()
+            };
+            closed_now += open_before - result.iter().filter(|c| !c.closed).count().min(open_before);
+            total_after += result.len();
+            made.extend(result.into_iter().map(|c| (layer, c)));
+        }
+        let open_after = made.iter().filter(|(_, c)| !c.closed).count();
+        if ids.is_empty() || (open_after == before && total_after == ids.len() && closed_now == 0) {
+            self.say(tr("Nothing was joined or closed.").to_string());
+            return;
+        }
+        self.checkpoint();
+        self.scene_mut().shapes.retain(|s| !ids.contains(&s.id));
+        let mut new_ids = vec![];
+        for (layer, c) in made {
+            new_ids.push(self.scene_mut().add(layer, Kind::Bezier(vec![c]), Xf::IDENTITY));
+        }
+        self.ed_mut().sel = new_ids;
+        self.ed_mut().node_sel.clear();
+        self.say(trf("Joined into {} paths ({} open left)", &[&total_after, &open_after]));
+    }
+
+    /// Write the selected shapes (all of them when nothing is selected) as an SVG or a DXF file.
+    fn export_selection(&mut self, dxf: bool) {
+        let ids: Vec<u64> = self.ed().sel.clone();
+        let (w, h) = self.work_size();
+        let name: &str = if dxf { "selection.dxf" } else { "selection.svg" };
+        let filter = if dxf { ("DXF", "dxf") } else { ("SVG", "svg") };
+        let Some(path) = rfd::FileDialog::new().add_filter(filter.0, &[filter.1]).set_file_name(name).save_file() else { return };
+        let layer_name = |l: usize| self.layer_title(l);
+        let text = if dxf {
+            base_core::export::dxf(self.scene(), &ids, h, &layer_name)
+        } else {
+            let color = |l: usize| -> [u8; 3] {
+                let c = self.layer_color(l);
+                [c.r(), c.g(), c.b()]
+            };
+            base_core::export::svg(self.scene(), &ids, w, h, &layer_name, &color)
+        };
+        match std::fs::write(&path, text) {
+            Ok(()) => self.say(trf("Saved {}", &[&path.display()])),
+            Err(e) => self.say(trf("Could not save: {}", &[&e])),
+        }
+    }
+
     /// Offset the outlines of the selected shapes by `d` mm (negative shrinks).
     fn offset_selected(&mut self, d: f64, keep_original: bool) {
         let ids: Vec<u64> = self.ed().sel.clone();
@@ -168,6 +236,29 @@ pub trait EditorShapeOps: EditorHost {
                 open = false;
             }
             self.ed_mut().show_offset = open;
+        }
+        if self.ed().show_join {
+            let mut tol = self.ed().join_tol;
+            let mut open = true;
+            let (mut join, mut close) = (false, false);
+            popup(ctx, "join_window", &tr("Join paths"), [320.0, 190.0], &mut open, |ui| {
+                egui::Grid::new("join").num_columns(2).spacing([12.0, 6.0]).show(ui, |ui| {
+                    ui.label(tr("Tolerance"));
+                    drag_len(ui, units, &mut tol, 0.01, Some((0.001, 50.0)));
+                    ui.end_row();
+                });
+                ui.label(RichText::new(tr("Paths whose ends are nearer than the tolerance are joined; a path whose two ends are that near is closed.")).color(theme::text_dim()));
+                ui.horizontal(|ui| {
+                    join = ui.button(tr("Auto-join")).clicked();
+                    close = ui.button(tr("Close paths")).clicked();
+                });
+            });
+            self.ed_mut().join_tol = tol;
+            if join || close {
+                self.join_selected(tol, join);
+                open = false;
+            }
+            self.ed_mut().show_join = open;
         }
         if self.ed().show_round {
             let mut radius = self.ed().fillet_radius;

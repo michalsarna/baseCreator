@@ -230,3 +230,33 @@ fn the_shared_bars_and_the_properties_sections_draw() {
     // A frame may run in more than one pass: the first is without a selection, the last with one.
     assert!(!shown[0] && *shown.last().unwrap(), "the sections need a selection: {shown:?}");
 }
+
+#[test]
+fn auto_join_makes_one_closed_path_of_separate_lines_and_close_only_closes_what_is_near() {
+    use base_core::geom::{Polyline, Pt};
+    let mut h = Host::default();
+    let line = |a: (f64, f64), b: (f64, f64)| Kind::Path(vec![Polyline::new(vec![Pt::new(a.0, a.1), Pt::new(b.0, b.1)], false)]);
+    let mut ids = vec![];
+    for (a, b) in [((0.0, 0.0), (20.0, 0.0)), ((20.0, 0.0), (20.0, 10.0)), ((20.0, 10.0), (0.0, 10.0)), ((0.0, 10.0), (0.05, 0.0))] {
+        ids.push(h.scene.add(0, line(a, b), Xf::IDENTITY));
+    }
+    h.ed.sel = ids.clone();
+    // A tolerance smaller than the gap of 0.05: the lines join into one open path.
+    EditorShapeOps::join_selected(&mut h, 0.01, true);
+    assert_eq!(h.scene.shapes.len(), 1, "{}", h.status);
+    let open = match &h.scene.shapes[0].kind {
+        Kind::Bezier(cs) => !cs[0].closed,
+        _ => false,
+    };
+    assert!(open, "the gap is wider than the tolerance");
+    // Close it with a tolerance that is wide enough.
+    h.ed.sel = vec![h.scene.shapes[0].id];
+    EditorShapeOps::join_selected(&mut h, 0.1, false);
+    assert!(matches!(&h.scene.shapes[0].kind, Kind::Bezier(cs) if cs[0].closed));
+    // Nothing to do on a closed path: said so, the scene is as it was.
+    let before = h.scene.shapes.len();
+    h.ed.sel = vec![h.scene.shapes[0].id];
+    EditorShapeOps::join_selected(&mut h, 0.1, true);
+    assert_eq!(h.scene.shapes.len(), before);
+    assert!(h.status.contains("Nothing"), "{}", h.status);
+}

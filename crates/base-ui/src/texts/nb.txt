@@ -713,3 +713,17 @@
 712|Rull for å zoome, dra for å flytte, dobbeltklikk for å se hele bildet
 713|Den valgte postprosessoren endrer G-koden i Eksporter G-kode…; en jobb som sendes til maskinen endres ikke.
 714|Utvidelser med innstillinger har sin egen fane i høyre panel.
+715|Slå sammen baner automatisk…
+716|Lukk bane med toleranse…
+717|Eksporter utvalget som SVG…
+718|Eksporter utvalget som DXF…
+719|Slå sammen baner
+720|Toleranse
+721|Slå sammen automatisk
+722|Lukk baner
+723|Baner hvis ender er nærmere enn toleransen, slås sammen; en bane der begge endene er så nær, lukkes.
+724|Ingenting ble slått sammen eller lukket.
+725|Slått sammen til {} baner ({} er fortsatt åpne)
+726|{} lagret
+727|Kunne ikke lagre: {}
+728|Eksporter

@@ -713,3 +713,17 @@
 712|Rul for at zoome, træk for at flytte, dobbeltklik for at se hele billedet
 713|Den valgte postprocessor ændrer G-koden i Eksportér G-kode…; et job sendt til maskinen ændres ikke.
 714|Plugins med indstillinger har deres eget faneblad i højre panel.
+715|Sammenføj stier automatisk…
+716|Luk sti med tolerance…
+717|Eksportér markeringen som SVG…
+718|Eksportér markeringen som DXF…
+719|Sammenføj stier
+720|Tolerance
+721|Sammenføj automatisk
+722|Luk stier
+723|Stier, hvis ender er nærmere end tolerancen, sammenføjes; en sti, hvis to ender er så tæt på hinanden, lukkes.
+724|Intet blev sammenføjet eller lukket.
+725|Sammenføjet til {} stier ({} stadig åbne)
+726|{} gemt
+727|Kunne ikke gemme: {}
+728|Eksportér

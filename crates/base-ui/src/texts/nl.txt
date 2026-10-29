@@ -713,3 +713,17 @@
 712|Scrol om te zoomen, sleep om te verplaatsen, dubbelklik om de hele afbeelding te zien
 713|De gekozen postprocessor wijzigt de G-code van G-code exporteren…; een taak die naar de machine wordt gestuurd wordt niet gewijzigd.
 714|Plug-ins met instellingen hebben een eigen tabblad in het rechterpaneel.
+715|Paden automatisch samenvoegen…
+716|Pad sluiten met tolerantie…
+717|Selectie exporteren als SVG…
+718|Selectie exporteren als DXF…
+719|Paden samenvoegen
+720|Tolerantie
+721|Automatisch samenvoegen
+722|Paden sluiten
+723|Paden waarvan de uiteinden dichterbij liggen dan de tolerantie, worden samengevoegd; een pad waarvan beide uiteinden zo dicht bij elkaar liggen, wordt gesloten.
+724|Er is niets samengevoegd of gesloten.
+725|Samengevoegd tot {} paden ({} blijven open)
+726|{} opgeslagen
+727|Opslaan mislukt: {}
+728|Exporteren

@@ -713,3 +713,17 @@
 712|Scrolla för att zooma, dra för att flytta, dubbelklicka för att se hela bilden
 713|Den valda postprocessorn ändrar G-koden i Exportera G-kod…; ett jobb som skickas till maskinen ändras inte.
 714|Tillägg med inställningar har en egen flik i högerpanelen.
+715|Sammanfoga banor automatiskt…
+716|Stäng bana med tolerans…
+717|Exportera markeringen som SVG…
+718|Exportera markeringen som DXF…
+719|Sammanfoga banor
+720|Tolerans
+721|Sammanfoga automatiskt
+722|Stäng banor
+723|Banor vars ändar ligger närmare än toleransen sammanfogas; en bana vars båda ändar är så nära stängs.
+724|Inget sammanfogades eller stängdes.
+725|Sammanfogade till {} banor ({} är fortfarande öppna)
+726|{} sparades
+727|Det gick inte att spara: {}
+728|Exportera

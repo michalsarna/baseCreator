@@ -713,3 +713,17 @@
 712|Desplaza para ampliar, arrastra para mover, doble clic para ver toda la imagen
 713|El posprocesador elegido cambia el G-code de Exportar G-code…; un trabajo enviado a la máquina no se modifica.
 714|Los complementos con ajustes tienen una pestaña propia en el panel derecho.
+715|Unir trazados automáticamente…
+716|Cerrar trazado con tolerancia…
+717|Exportar la selección como SVG…
+718|Exportar la selección como DXF…
+719|Unir trazados
+720|Tolerancia
+721|Unir automáticamente
+722|Cerrar trazados
+723|Los trazados cuyos extremos están más cerca que la tolerancia se unen; un trazado con sus dos extremos tan cerca se cierra.
+724|No se unió ni cerró nada.
+725|Unidos en {} trazados (quedan {} abiertos)
+726|Se guardó {}
+727|No se pudo guardar: {}
+728|Exportar

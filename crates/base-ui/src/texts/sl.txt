@@ -713,3 +713,17 @@
 712|Drsenje za povečavo, vlečenje za premik, dvojni klik za prikaz cele slike
 713|Izbrani postprocesor spremeni G-kodo pri Izvozu G-kode…; opravilo, poslano stroju, se ne spremeni.
 714|Vtičniki z nastavitvami imajo svoj zavihek v desni plošči.
+715|Samodejno združi poti…
+716|Zapri pot s toleranco…
+717|Izvozi izbor kot SVG…
+718|Izvozi izbor kot DXF…
+719|Združi poti
+720|Toleranca
+721|Samodejno združi
+722|Zapri poti
+723|Poti, katerih konca sta bližje od tolerance, se združijo; pot, katere oba konca sta tako blizu, se zapre.
+724|Nič ni bilo združeno ali zaprto.
+725|Združeno v {} poti ({} ostaja odprtih)
+726|Shranjeno: {}
+727|Shranjevanje ni uspelo: {}
+728|Izvozi

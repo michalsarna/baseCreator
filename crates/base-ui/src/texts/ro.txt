@@ -713,3 +713,17 @@
 712|Derulați pentru zoom, trageți pentru mutare, dublu clic pentru întreaga imagine
 713|Postprocesorul ales modifică G-code-ul din Exportă G-code…; o lucrare trimisă mașinii nu este modificată.
 714|Pluginurile cu setări au o filă proprie în panoul din dreapta.
+715|Unește automat traseele…
+716|Închide traseul cu toleranță…
+717|Exportă selecția ca SVG…
+718|Exportă selecția ca DXF…
+719|Unire trasee
+720|Toleranță
+721|Unește automat
+722|Închide traseele
+723|Traseele ale căror capete sunt mai aproape decât toleranța sunt unite; un traseu ale cărui două capete sunt atât de aproape este închis.
+724|Nimic nu a fost unit sau închis.
+725|Unite în {} trasee ({} au rămas deschise)
+726|{} salvat
+727|Nu s-a putut salva: {}
+728|Exportă

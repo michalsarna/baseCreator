@@ -713,3 +713,17 @@
 712|Keri suumimiseks, lohista liigutamiseks, topeltklõps näitab kogu pilti
 713|Valitud järeltöötleja muudab käsu Ekspordi G-kood… G-koodi; masinale saadetud tööd ei muudeta.
 714|Seadistustega pistikprogrammidel on parempoolses paneelis oma vaheleht.
+715|Ühenda teed automaatselt…
+716|Sulge tee tolerantsiga…
+717|Ekspordi valik SVG-na…
+718|Ekspordi valik DXF-na…
+719|Teede ühendamine
+720|Tolerants
+721|Ühenda automaatselt
+722|Sulge teed
+723|Teed, mille otsad on tolerantsist lähemal, ühendatakse; tee, mille mõlemad otsad on nii lähedal, suletakse.
+724|Midagi ei ühendatud ega suletud.
+725|Ühendatud {} teeks ({} jäi lahti)
+726|{} salvestatud
+727|Salvestamine ebaõnnestus: {}
+728|Ekspordi
