@@ -10,7 +10,7 @@ mod prefs;
 mod props;
 mod shape_ops;
 
-pub use bars::{arrange_bar, tool_button, tool_palette};
+pub use bars::{arrange_bar, palette_button_size, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use context_menu::context_menu;

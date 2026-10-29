@@ -8,14 +8,15 @@ use egui::Color32;
 
 /// One tool button; choosing a tool ends a temporary hand tool and a line being drawn.
 pub fn tool_button<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, t: Tool, tip: &'static str) {
-    let (rect, resp) = ui.allocate_exact_size(egui::vec2(36.0, 36.0), egui::Sense::click());
+    let size = palette_button_size(ui);
+    let (rect, resp) = ui.allocate_exact_size(egui::vec2(size, size), egui::Sense::click());
     let on = h.ed().tool == t;
     if on {
         ui.painter().rect_filled(rect, 6.0, theme::accent());
     } else if resp.hovered() {
         ui.painter().rect_filled(rect, 6.0, theme::panel_dark());
     }
-    icons::paint(ui, rect.shrink(7.0), icons::tool_icon(t), if on { Color32::WHITE } else { theme::text() });
+    icons::paint(ui, rect.shrink(size * 0.19), icons::tool_icon(t), if on { Color32::WHITE } else { theme::text() });
     if resp.on_hover_text(tr(tip)).clicked() {
         let ed = h.ed_mut();
         ed.tool = t;
@@ -24,6 +25,18 @@ pub fn tool_button<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, t: Tool, tip: &'
         ed.show_shape_popup = matches!(t, Tool::Polygon | Tool::Spiral);
     }
     ui.add_space(2.0);
+}
+
+/// The side of a button of the palette: 36 points, or smaller (down to 20) when the window is too low for the whole palette (a
+/// Full HD screen with the taskbar of the system showing), so that the palette needs no scrolling.
+pub fn palette_button_size(ui: &egui::Ui) -> f32 {
+    ui.ctx().data(|d| d.get_temp::<f32>(egui::Id::unique("palette_button_size"))).unwrap_or(36.0)
+}
+
+/// The largest button size (of 36, 32, 28, 24, 20) with which `content` points of palette made of buttons of `size` fit `avail`.
+pub fn fitting_button_size(content: f32, size: f32, avail: f32) -> f32 {
+    let at_36 = content * 36.0 / size;
+    [36.0, 32.0, 28.0, 24.0].into_iter().find(|s| at_36 * s / 36.0 <= avail + 1.0).unwrap_or(20.0)
 }
 
 fn separator(ui: &mut egui::Ui) {
@@ -37,6 +50,8 @@ fn separator(ui: &mut egui::Ui) {
 /// the clipart from the internet.
 pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option<&mut dyn FnMut(&mut H, &mut egui::Ui)>) {
     ui.add_space(6.0);
+    let size = palette_button_size(ui);
+    let avail = ui.available_height();
     let out = egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| {
         ui.vertical_centered(|ui| {
             // Selecting and node editing.
@@ -61,11 +76,11 @@ pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option
             let ink = theme::text();
             let mut act = None;
             for (a, icon, tip) in [(StdAct::FitBed, "scan", tr("Fit work area (Ctrl+Shift+0)")), (StdAct::FitAll, "expand", tr("Fit all objects (Ctrl+Shift+9)"))] {
-                let (rect, resp) = ui.allocate_exact_size(egui::vec2(36.0, 36.0), egui::Sense::click());
+                let (rect, resp) = ui.allocate_exact_size(egui::vec2(size, size), egui::Sense::click());
                 if resp.hovered() {
                     ui.painter().rect_filled(rect, 6.0, theme::panel_dark());
                 }
-                icons::paint(ui, rect.shrink(7.0), icon, ink);
+                icons::paint(ui, rect.shrink(size * 0.19), icon, ink);
                 if resp.on_hover_text(tip).clicked() {
                     act = Some(a);
                 }
@@ -79,11 +94,11 @@ pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option
             let mut open_generators = false;
             let mut open_clipart = false;
             for (icon, tip) in [("shapes", tr("Generate shape…")), ("globe", tr("Online clipart"))] {
-                let (rect, resp) = ui.allocate_exact_size(egui::vec2(36.0, 36.0), egui::Sense::click());
+                let (rect, resp) = ui.allocate_exact_size(egui::vec2(size, size), egui::Sense::click());
                 if resp.hovered() {
                     ui.painter().rect_filled(rect, 6.0, theme::panel_dark());
                 }
-                icons::paint(ui, rect.shrink(7.0), icon, ink);
+                icons::paint(ui, rect.shrink(size * 0.19), icon, ink);
                 if resp.on_hover_text(tip).clicked() {
                     if icon == "shapes" {
                         open_generators = true;
@@ -101,6 +116,9 @@ pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option
             }
         })
     });
+    // The size of the buttons for the next frame, from the height the palette took and the height there is.
+    let fit = fitting_button_size(out.content_size.y, size, avail);
+    ui.ctx().data_mut(|d| d.insert_temp(egui::Id::unique("palette_button_size"), fit));
     scroll_hints(ui, &out);
 }
 
@@ -203,5 +221,18 @@ pub fn zoom_and_cursor<H: EditorHost>(h: &H, ui: &mut egui::Ui) {
         let (x, y) = (u.from_mm(p.x), u.from_mm(p.y));
         let d = if u == base_core::units::Units::Mm { 2 } else { 3 };
         ui.label(format!("X {:.*}  Y {:.*}{}", d, x, d, y, u.suffix()));
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::fitting_button_size;
+
+    #[test]
+    fn the_buttons_shrink_until_the_palette_fits_the_height() {
+        assert_eq!(fitting_button_size(1000.0, 36.0, 1100.0), 36.0);
+        assert_eq!(fitting_button_size(1000.0, 36.0, 850.0), 28.0);
+        assert_eq!(fitting_button_size(780.0, 28.0, 850.0), 28.0, "stable at the size it already has");
+        assert_eq!(fitting_button_size(1000.0, 36.0, 300.0), 20.0);
     }
 }
