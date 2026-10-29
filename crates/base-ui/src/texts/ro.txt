@@ -706,3 +706,4 @@
 705|GRBL 0.7 sau mai vechi
 706|GRBL mai vechi (0.9) raportează pozițiile într-un alt format și nu are comanda jog: programul mută capul cu mișcări obișnuite.
 707|Filă în zona de lucru
+708|Înapoi la o fereastră

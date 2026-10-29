@@ -706,3 +706,4 @@
 705|GRBL 0.7 nó níos sine
 706|Tuairiscíonn GRBL níos sine (0.9) suímh i bhformáid eile agus níl ordú jog aige: bogann an clár an ceann le gnáthghluaiseachtaí.
 707|Cluaisín sa limistéar oibre
+708|Ar ais go fuinneog
