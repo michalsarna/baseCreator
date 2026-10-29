@@ -706,3 +706,4 @@
 705|GRBL 0.7 eller eldre
 706|Eldre GRBL (0.9) melder posisjoner i et annet format og har ingen jog-kommando: programmet flytter hodet med vanlige bevegelser.
 707|Fane i arbeidsområdet
+708|Tilbake til et vindu

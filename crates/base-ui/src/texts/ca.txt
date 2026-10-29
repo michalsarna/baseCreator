@@ -706,3 +706,4 @@
 705|GRBL 0.7 o més antic
 706|El GRBL antic (0.9) informa de les posicions en un altre format i no té l'ordre jog: el programa mou el cap amb moviments normals.
 707|Pestanya a l'àrea de treball
+708|Torna a una finestra
