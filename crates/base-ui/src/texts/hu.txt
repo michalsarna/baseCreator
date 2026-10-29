@@ -727,3 +727,10 @@
 726|Mentve: {}
 727|A mentés sikertelen: {}
 728|Exportálás
+729|Dogbone / T-bone sarkok…
+730|Dogbone sarkok
+731|Dogbone
+732|T-bone
+733|Bevágást ad a kijelölt alakzatok minden éles sarkához, hogy az ilyen sugarú kerek maró beférjen: a dogbone kissé mindkét falat túlvágja, a T-bone csak az egyiket.
+734|A kijelölésben nincsenek éles sarkok.
+735|Bevágás hozzáadva {} alakzathoz

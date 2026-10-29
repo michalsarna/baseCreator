@@ -727,3 +727,10 @@
 726|{} gemt
 727|Kunne ikke gemme: {}
 728|Eksportér
+729|Dogbone- / T-bone-hjørner…
+730|Dogbone-hjørner
+731|Dogbone
+732|T-bone
+733|Tilføjer et hak i hvert skarpt hjørne af de valgte former, så en rund fræser med denne radius når ind: en dogbone underskærer begge vægge lidt, en T-bone kun én.
+734|Der er ingen skarpe hjørner i markeringen.
+735|Hak tilføjet til {} former

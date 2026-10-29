@@ -187,6 +187,7 @@ pub enum StdAct {
     ToCurves,
     AutoJoin,
     ClosePath,
+    DogboneCorners,
     ExportSelectionSvg,
     ExportSelectionDxf,
 }
@@ -244,6 +245,11 @@ impl StdAct {
             StdAct::RoundCorners => h.ed_mut().show_round = true,
             StdAct::ToCurves => crate::editor::EditorShapeOps::to_curves(h),
             StdAct::AutoJoin | StdAct::ClosePath => h.ed_mut().show_join = true,
+            StdAct::DogboneCorners => {
+                let r = h.bone_radius_default();
+                h.ed_mut().bone_radius = r;
+                h.ed_mut().show_bones = true;
+            }
             StdAct::ExportSelectionSvg => crate::editor::EditorShapeOps::export_selection(h, false),
             StdAct::ExportSelectionDxf => crate::editor::EditorShapeOps::export_selection(h, true),
             StdAct::ToggleAutoFit => {
@@ -323,6 +329,7 @@ impl StdAct {
             StdAct::RoundCorners => "square-round-corner",
             StdAct::ToCurves => "spline",
             StdAct::AutoJoin | StdAct::ClosePath => "route",
+            StdAct::DogboneCorners => "square-round-corner",
             StdAct::ExportSelectionSvg | StdAct::ExportSelectionDxf => "file-output",
         }
     }
@@ -405,6 +412,7 @@ pub mod std_entries {
             Sep,
             Item(StdAct::AutoJoin, "Auto-join paths…", None),
             Item(StdAct::ClosePath, "Close path with tolerance…", None),
+            Item(StdAct::DogboneCorners, "Dogbone / T-bone corners…", None),
         ]
     }
     /// Write the selected shapes (all when nothing is selected) as SVG or DXF.

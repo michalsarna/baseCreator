@@ -727,3 +727,10 @@
 726|{} lagret
 727|Kunne ikke lagre: {}
 728|Eksporter
+729|Dogbone- / T-bone-hjørner…
+730|Dogbone-hjørner
+731|Dogbone
+732|T-bone
+733|Legger til et hakk i hvert skarpe hjørne på de valgte formene, slik at en rund fres med denne radiusen når inn: en dogbone underskjærer begge veggene litt, en T-bone bare én.
+734|Det er ingen skarpe hjørner i utvalget.
+735|Hakk lagt til på {} former

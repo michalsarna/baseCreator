@@ -727,3 +727,10 @@
 726|Spremljeno: {}
 727|Spremanje nije uspjelo: {}
 728|Izvezi
+729|Dogbone / T-bone kutovi…
+730|Dogbone kutovi
+731|Dogbone
+732|T-bone
+733|Dodaje urez u svaki oštri kut odabranih oblika kako bi okruglo glodalo ovog polumjera dosegnulo do njega: dogbone malo podrezuje obje stijenke, T-bone samo jednu.
+734|U odabiru nema oštrih kutova.
+735|Urezi dodani na {} oblika

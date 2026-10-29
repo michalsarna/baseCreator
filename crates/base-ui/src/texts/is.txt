@@ -727,3 +727,10 @@
 726|Vistað: {}
 727|Ekki tókst að vista: {}
 728|Flytja út
+729|Dogbone / T-bone horn…
+730|Dogbone horn
+731|Dogbone
+732|T-bone
+733|Bætir skoru í hvert skarpt horn valinna forma svo að kringlóttur fræsir með þessum radíus nái inn: dogbone sker aðeins báða veggi, T-bone aðeins annan.
+734|Engin skörp horn eru í valinu.
+735|Skorum bætt við {} form

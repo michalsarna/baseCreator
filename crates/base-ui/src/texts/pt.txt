@@ -727,3 +727,10 @@
 726|{} guardado
 727|Não foi possível guardar: {}
 728|Exportar
+729|Cantos dogbone / T-bone…
+730|Cantos dogbone
+731|Dogbone
+732|T-bone
+733|Adiciona um entalhe a cada canto vivo das formas selecionadas para que uma fresa redonda deste raio chegue lá: o dogbone corta um pouco as duas paredes, o T-bone só uma.
+734|Não há cantos vivos na seleção.
+735|Entalhes adicionados a {} formas

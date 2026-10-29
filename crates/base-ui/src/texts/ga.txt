@@ -727,3 +727,10 @@
 726|Sábháladh {}
 727|Níorbh fhéidir a shábháil: {}
 728|Easpórtáil
+729|Cúinní dogbone / T-bone…
+730|Cúinní dogbone
+731|Dogbone
+732|T-bone
+733|Cuireann sé eiscir le gach cúinne géar de na foirmeacha roghnaithe, ionas go sroichfidh buille cruinn den ga seo é: gearrann dogbone beagán an dá bhalla, T-bone ceann amháin.
+734|Níl aon chúinní géara sa roghnú.
+735|Cuireadh eiscir le {} foirm

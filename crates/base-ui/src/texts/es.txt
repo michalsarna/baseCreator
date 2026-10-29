@@ -727,3 +727,10 @@
 726|Se guardó {}
 727|No se pudo guardar: {}
 728|Exportar
+729|Esquinas dogbone / T-bone…
+730|Esquinas dogbone
+731|Dogbone
+732|T-bone
+733|Añade una muesca a cada esquina viva de las formas seleccionadas para que una fresa redonda de este radio llegue a ella: el dogbone sobrecorta un poco ambas paredes, el T-bone solo una.
+734|No hay esquinas vivas en la selección.
+735|Se añadieron muescas a {} formas

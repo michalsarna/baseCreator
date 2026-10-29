@@ -103,6 +103,56 @@ pub fn inset_rings(polys: &[Polyline], step: f64, max_rings: usize) -> Vec<Polyl
     out
 }
 
+/// Relief notches in the sharp inside corners of closed shapes that are slots or holes (what a round bit cannot cut square): a disc of
+/// radius `r` is added at every corner whose angle is under 150 degrees. A **dogbone** puts the disc where the edge of a bit of that radius,
+/// coming along both walls, reaches the corner (the centre is `r` from the corner, on the bisector, into the shape); a **T-bone** puts it
+/// on the line of the longer wall, going on past the corner, so that only one wall is overcut. Returns the shapes with the notches; a
+/// shape without a corner is returned as it is.
+pub fn dogbone(polys: &[Polyline], r: f64, tbone: bool) -> Vec<Polyline> {
+    let mut discs: Vec<Polyline> = vec![];
+    for poly in polys.iter().filter(|p| p.closed && p.pts.len() >= 3) {
+        let n = poly.pts.len();
+        let ccw = poly.area() > 0.0;
+        for i in 0..n {
+            let (a, q, b) = (poly.pts[(i + n - 1) % n], poly.pts[i], poly.pts[(i + 1) % n]);
+            let (v1, v2) = ((q.x - a.x, q.y - a.y), (b.x - q.x, b.y - q.y));
+            let (l1, l2) = (v1.0.hypot(v1.1), v2.0.hypot(v2.1));
+            if l1 < 1e-9 || l2 < 1e-9 {
+                continue;
+            }
+            let cross = v1.0 * v2.1 - v1.1 * v2.0;
+            // A corner of the outline that points into the shape's inside (convex for the shape): the outline turns the way it goes round.
+            if (cross > 0.0) != ccw || cross.abs() < 1e-12 {
+                continue;
+            }
+            let interior = std::f64::consts::PI - cross.atan2(v1.0 * v2.0 + v1.1 * v2.1).abs();
+            if interior >= 150f64.to_radians() {
+                continue;
+            }
+            // Unit directions from the corner along the two walls.
+            let (e1, e2) = ((-v1.0 / l1, -v1.1 / l1), (v2.0 / l2, v2.1 / l2));
+            let (sx, sy) = (e1.0 + e2.0, e1.1 + e2.1);
+            let sl = sx.hypot(sy).max(1e-12);
+            let inward = (sx / sl, sy / sl);
+            let centre = if tbone {
+                // Along the line of the longer wall, away from the corner into the wall's own extension past the corner.
+                let along = if l1 >= l2 { e1 } else { e2 };
+                Pt::new(q.x - along.0 * r, q.y - along.1 * r)
+            } else {
+                Pt::new(q.x + inward.0 * r, q.y + inward.1 * r)
+            };
+            let steps = 32;
+            discs.push(Polyline::new((0..steps).map(|k| { let t = k as f64 / steps as f64 * std::f64::consts::TAU; Pt::new(centre.x + r * t.cos(), centre.y + r * t.sin()) }).collect(), true));
+        }
+    }
+    if discs.is_empty() {
+        return polys.to_vec();
+    }
+    let mut all: Vec<Polyline> = polys.to_vec();
+    all.extend(discs);
+    union_all(&all)
+}
+
 #[cfg(test)]
 mod union_tests {
     use super::*;
@@ -150,3 +200,42 @@ mod union_tests {
         assert!((area(&u) - 10_000.0).abs() < 1e-3);
     }
 }
+
+#[cfg(test)]
+mod dogbone_tests {
+    use super::*;
+
+    fn rect(w: f64, h: f64) -> Polyline {
+        Polyline::new(vec![Pt::new(0.0, 0.0), Pt::new(w, 0.0), Pt::new(w, h), Pt::new(0.0, h)], true)
+    }
+
+    fn area(v: &[Polyline]) -> f64 {
+        v.iter().map(|p| p.area()).sum::<f64>().abs()
+    }
+
+    #[test]
+    fn a_dogbone_adds_a_notch_at_every_corner_so_that_a_round_bit_reaches_it() {
+        let slot = [rect(30.0, 10.0)];
+        let bone = dogbone(&slot, 1.5, false);
+        // Four corners, each notch a part of a disc of radius 1.5 outside the walls: a bit more area, never less.
+        assert!(area(&bone) > 300.0 && area(&bone) < 300.0 + 4.0 * std::f64::consts::PI * 1.5 * 1.5, "{}", area(&bone));
+        // The disc is centred 1.5 mm from the corner along the diagonal: it pokes out of the walls by 0.44 mm sideways, and the corner
+        // itself is on its edge.
+        let near = Pt::new(-0.3, 1.0);
+        let far = Pt::new(-3.0, 1.0);
+        assert!(bone.iter().filter(|p| p.closed).any(|p| p.contains(near)));
+        assert!(!bone.iter().filter(|p| p.closed).any(|p| p.contains(far)));
+    }
+
+    #[test]
+    fn a_t_bone_overcuts_one_wall_only_and_a_round_shape_gets_nothing() {
+        let slot = [rect(30.0, 10.0)];
+        let t = dogbone(&slot, 1.5, true);
+        // The longer wall (the 30 mm one) is extended past the corner: a point beyond the end of it, along the line of the wall, is inside.
+        assert!(t.iter().any(|p| p.contains(Pt::new(-1.0, 0.5))) || t.iter().any(|p| p.contains(Pt::new(0.5, -1.0))));
+        // A circle has no corner.
+        let round = Polyline::new((0..64).map(|i| { let a = i as f64 / 64.0 * std::f64::consts::TAU; Pt::new(5.0 * a.cos(), 5.0 * a.sin()) }).collect(), true);
+        assert_eq!(dogbone(&[round.clone()], 1.0, false), vec![round]);
+    }
+}
+

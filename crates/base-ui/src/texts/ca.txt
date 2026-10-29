@@ -727,3 +727,10 @@
 726|S'ha desat {}
 727|No s'ha pogut desar: {}
 728|Exporta
+729|Cantonades dogbone / T-bone…
+730|Cantonades dogbone
+731|Dogbone
+732|T-bone
+733|Afegeix una osca a cada cantonada viva de les formes seleccionades perquè una fresa rodona d'aquest radi hi arribi: el dogbone talla una mica les dues parets, el T-bone només una.
+734|La selecció no té cantonades vives.
+735|S'han afegit osques a {} formes

@@ -727,3 +727,10 @@
 726|Uložené: {}
 727|Nepodarilo sa uložiť: {}
 728|Exportovať
+729|Rohy dogbone / T-bone…
+730|Rohy dogbone
+731|Dogbone
+732|T-bone
+733|Pridá výrez do každého ostrého rohu vybraných tvarov, aby do neho dosiahla okrúhla fréza tohto polomeru: dogbone mierne podreže obe steny, T-bone len jednu.
+734|Vo výbere nie sú žiadne ostré rohy.
+735|Výrezy pridané do {} tvarov
