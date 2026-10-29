@@ -707,3 +707,6 @@
 706|Ældre GRBL (0.9) melder positioner i et andet format og har ingen jog-kommando: programmet flytter hovedet med almindelige bevægelser.
 707|Fane i arbejdsområdet
 708|Tilbage til et vindue
+709|Niveauer
+710|Alt, der er mørkere end dette, bliver sort
+711|Alt, der er lysere end dette, bliver hvidt
