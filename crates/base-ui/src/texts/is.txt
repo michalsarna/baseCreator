@@ -726,3 +726,4 @@
 725|Tengt í {} ferla ({} eru enn opnir)
 726|Vistað: {}
 727|Ekki tókst að vista: {}
+728|Flytja út

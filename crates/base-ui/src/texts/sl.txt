@@ -726,3 +726,4 @@
 725|Združeno v {} poti ({} ostaja odprtih)
 726|Shranjeno: {}
 727|Shranjevanje ni uspelo: {}
+728|Izvozi

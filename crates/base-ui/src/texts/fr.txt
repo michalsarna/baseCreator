@@ -726,3 +726,4 @@
 725|Joints en {} tracés ({} restent ouverts)
 726|{} enregistré
 727|Impossible d'enregistrer : {}
+728|Exporter

@@ -726,3 +726,4 @@
 725|Ühendatud {} teeks ({} jäi lahti)
 726|{} salvestatud
 727|Salvestamine ebaõnnestus: {}
+728|Ekspordi

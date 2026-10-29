@@ -726,3 +726,4 @@
 725|Unite în {} trasee ({} au rămas deschise)
 726|{} salvat
 727|Nu s-a putut salva: {}
+728|Exportă

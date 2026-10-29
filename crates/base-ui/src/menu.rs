@@ -407,6 +407,10 @@ pub mod std_entries {
             Item(StdAct::ClosePath, "Close path with tolerance…", None),
         ]
     }
+    /// Write the selected shapes (all when nothing is selected) as SVG or DXF.
+    pub fn export_selection() -> Vec<Entry<StdAct>> {
+        vec![Item(StdAct::ExportSelectionSvg, "Export selection as SVG…", None), Item(StdAct::ExportSelectionDxf, "Export selection as DXF…", None)]
+    }
     /// Zoom and fit.
     pub fn zoom() -> Vec<Entry<StdAct>> {
         vec![

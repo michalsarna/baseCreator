@@ -726,3 +726,4 @@
 725|Spojeno do {} cest ({} zůstalo otevřených)
 726|Uloženo: {}
 727|Nepodařilo se uložit: {}
+728|Exportovat

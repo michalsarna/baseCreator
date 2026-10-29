@@ -726,3 +726,4 @@
 725|Savienoti {} ceļos ({} palika atvērti)
 726|Saglabāts: {}
 727|Neizdevās saglabāt: {}
+728|Eksportēt

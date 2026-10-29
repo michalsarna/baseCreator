@@ -733,6 +733,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Joined into {} paths ({} open left)", "Połączono w {} ścieżek (pozostało otwartych: {})", "Zu {} Pfaden verbunden ({} offen geblieben)", "Uniti in {} tracciati ({} rimasti aperti)", "Yhdistetty {} poluksi ({} jäi auki)", "已合并为 {} 条路径（仍有 {} 条未闭合）", "{} पथों में जोड़ा गया ({} खुले रह गए)"],
     ["Saved {}", "Zapisano {}", "{} gespeichert", "{} salvato", "{} tallennettu", "已保存 {}", "{} सहेजा गया"],
     ["Could not save: {}", "Nie udało się zapisać: {}", "Speichern fehlgeschlagen: {}", "Impossibile salvare: {}", "Tallennus epäonnistui: {}", "无法保存：{}", "सहेजा नहीं जा सका: {}"],
+    ["Export", "Eksport", "Exportieren", "Esporta", "Vie", "导出", "निर्यात"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -726,3 +726,4 @@
 725|Mwaħħlin f'{} toroq ({} baqgħu miftuħin)
 726|Inżamm {}
 727|Ma setgħetx tinżamm: {}
+728|Esporta

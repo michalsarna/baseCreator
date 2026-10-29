@@ -726,3 +726,4 @@
 725|{} útvonallá egyesítve ({} maradt nyitva)
 726|Mentve: {}
 727|A mentés sikertelen: {}
+728|Exportálás

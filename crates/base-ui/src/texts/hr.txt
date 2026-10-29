@@ -726,3 +726,4 @@
 725|Spojeno u {} putanja ({} ostalo otvoreno)
 726|Spremljeno: {}
 727|Spremanje nije uspjelo: {}
+728|Izvezi

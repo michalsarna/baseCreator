@@ -726,3 +726,4 @@
 725|S'han unit en {} traçats (en queden {} d'oberts)
 726|S'ha desat {}
 727|No s'ha pogut desar: {}
+728|Exporta

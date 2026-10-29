@@ -726,3 +726,4 @@
 725|Unidos en {} trazados (quedan {} abiertos)
 726|Se guardó {}
 727|No se pudo guardar: {}
+728|Exportar

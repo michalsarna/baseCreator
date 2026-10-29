@@ -726,3 +726,4 @@
 725|Slått sammen til {} baner ({} er fortsatt åpne)
 726|{} lagret
 727|Kunne ikke lagre: {}
+728|Eksporter

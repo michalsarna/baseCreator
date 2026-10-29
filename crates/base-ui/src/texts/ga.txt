@@ -726,3 +726,4 @@
 725|Ceangailte i {} chosán ({} fós oscailte)
 726|Sábháladh {}
 727|Níorbh fhéidir a shábháil: {}
+728|Easpórtáil

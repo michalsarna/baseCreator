@@ -726,3 +726,4 @@
 725|Spojené do {} dráh ({} zostalo otvorených)
 726|Uložené: {}
 727|Nepodarilo sa uložiť: {}
+728|Exportovať

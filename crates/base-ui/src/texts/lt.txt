@@ -726,3 +726,4 @@
 725|Sujungta į {} kelių ({} liko atvirų)
 726|Išsaugota: {}
 727|Nepavyko išsaugoti: {}
+728|Eksportuoti
