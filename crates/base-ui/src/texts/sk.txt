@@ -710,3 +710,6 @@
 709|Úrovne
 710|Všetko tmavšie ako táto hodnota zčerná
 711|Všetko svetlejšie ako táto hodnota zbelie
+712|Rolovaním priblížite, ťahaním posuniete, dvojklikom zobrazíte celý obrázok
+713|Vybraný postprocesor mení G-kód pri Exporte G-kódu…; úloha odoslaná do stroja sa nemení.
+714|Zásuvné moduly s nastaveniami majú vlastnú kartu v pravom paneli.

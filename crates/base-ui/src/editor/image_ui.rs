@@ -159,6 +159,9 @@ pub struct TraceDlg {
     tex: Option<egui::TextureHandle>,
     preview: Vec<Vec<Pt>>,
     shown: Option<TraceParams>,
+    /// The view of the picture: the zoom (1 = the whole picture in the frame) and where the middle of the picture lies.
+    zoom: f32,
+    pan: egui::Vec2,
 }
 
 /// The picture dialogs: import, adjust and trace. Implemented for every `EditorHost`.
@@ -195,7 +198,7 @@ pub trait EditorImages: EditorHost {
     fn open_trace(&mut self) {
         let Some(id) = self.ed().sel.first().copied() else { return };
         if let Some(Kind::Image(im)) = self.scene().shape(id).map(|s| s.kind.clone()) {
-            self.ed_mut().trace_dlg = Some(TraceDlg { shape: id, params: TraceParams::default(), delete_original: false, thumb: im.downscaled(600), tex: None, preview: vec![], shown: None });
+            self.ed_mut().trace_dlg = Some(TraceDlg { shape: id, params: TraceParams::default(), delete_original: false, thumb: im.downscaled(1200), tex: None, preview: vec![], shown: None, zoom: 1.0, pan: egui::Vec2::ZERO });
         }
     }
 
@@ -299,49 +302,80 @@ pub trait EditorImages: EditorHost {
         }
         let mut open = true;
         let (mut accept, mut cancel) = (false, false);
-        popup(ctx, "w_image_ui_7", &tr("Trace image"), [340.0, 220.0], &mut open, |ui| {
-            ui.horizontal_top(|ui| {
-                let sz = egui::vec2(430.0, 430.0);
-                let (rect, _) = ui.allocate_exact_size(sz, egui::Sense::hover());
-                ui.painter().rect_filled(rect, 4.0, Color32::WHITE);
-                if let Some(t) = &d.tex {
-                    let ts = t.size_vec2();
-                    let k = (rect.width() / ts.x).min(rect.height() / ts.y);
-                    let r = egui::Rect::from_center_size(rect.center(), ts * k);
-                    ui.painter().image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::from_white_alpha(70));
-                    let (sx, sy) = (r.width() / d.thumb.w as f32, r.height() / d.thumb.h as f32);
-                    for poly in &d.preview {
-                        let pts: Vec<egui::Pos2> = poly.iter().map(|p| r.min + egui::vec2(p.x as f32 * sx, p.y as f32 * sy)).collect();
-                        if pts.len() > 1 {
-                            ui.painter().add(egui::Shape::closed_line(pts, Stroke::new(1.3, theme::accent())));
+        popup(ctx, "w_image_ui_7", &tr("Trace image"), [940.0, 640.0], &mut open, |ui| {
+            let page_h = crate::window::height_above(ui, "trace_dlg", crate::window::fill_size(ui).y);
+            ui.allocate_ui(egui::vec2(ui.available_width(), page_h), |ui| {
+                ui.horizontal_top(|ui| {
+                    let gap = ui.spacing().item_spacing.x;
+                    let pw = (ui.available_width() - CONTROLS_W - gap).max(160.0);
+                    let (rect, resp) = ui.allocate_exact_size(egui::vec2(pw, page_h.max(160.0)), egui::Sense::click_and_drag());
+                    let painter = ui.painter_at(rect);
+                    painter.rect_filled(rect, 4.0, Color32::WHITE);
+                    // Scrolling zooms about the pointer, dragging moves the picture, a double click shows it whole again.
+                    if resp.hovered() {
+                        let scroll = ui.input(|i| i.smooth_scroll_delta.y);
+                        if let (Some(m), true) = (resp.hover_pos(), scroll != 0.0) {
+                            let z = (d.zoom * (scroll * 0.0025).exp()).clamp(1.0, 40.0);
+                            let k = z / d.zoom;
+                            // The point under the pointer stays where it is.
+                            d.pan = (m - rect.center()) * (1.0 - k) + d.pan * k;
+                            d.zoom = z;
                         }
                     }
-                }
-                ui.vertical(|ui| {
-                    ui.set_width(250.0);
-                    egui::Grid::new("trace_params").num_columns(2).spacing([8.0, 6.0]).show(ui, |ui| {
-                        let mut th = d.params.threshold as i32;
-                        ui.label(tr("Threshold"));
-                        ui.add(egui::Slider::new(&mut th, 1..=254));
-                        d.params.threshold = th as u8;
-                        ui.end_row();
-                        ui.label(tr("Ignore small areas"));
-                        ui.add(egui::DragValue::new(&mut d.params.min_area).range(0.0..=5000.0).suffix(" px²"));
-                        ui.end_row();
-                        ui.label(tr("Simplify"));
-                        ui.add(egui::Slider::new(&mut d.params.tolerance, 0.0..=5.0));
-                        ui.end_row();
+                    if resp.dragged() {
+                        d.pan += resp.drag_delta();
+                    }
+                    if resp.double_clicked() {
+                        d.zoom = 1.0;
+                        d.pan = egui::Vec2::ZERO;
+                    }
+                    if let Some(t) = &d.tex {
+                        let ts = t.size_vec2();
+                        let k = (rect.width() / ts.x).min(rect.height() / ts.y) * d.zoom;
+                        // The picture may not leave the frame altogether.
+                        let half = ts * k / 2.0;
+                        d.pan.x = d.pan.x.clamp(-(half.x + rect.width() / 2.0 - 20.0), half.x + rect.width() / 2.0 - 20.0);
+                        d.pan.y = d.pan.y.clamp(-(half.y + rect.height() / 2.0 - 20.0), half.y + rect.height() / 2.0 - 20.0);
+                        let r = egui::Rect::from_center_size(rect.center() + d.pan, ts * k);
+                        painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::from_white_alpha(70));
+                        let (sx, sy) = (r.width() / d.thumb.w as f32, r.height() / d.thumb.h as f32);
+                        for poly in &d.preview {
+                            let pts: Vec<egui::Pos2> = poly.iter().map(|p| r.min + egui::vec2(p.x as f32 * sx, p.y as f32 * sy)).collect();
+                            if pts.len() > 1 {
+                                painter.add(egui::Shape::closed_line(pts, Stroke::new(1.3, theme::accent())));
+                            }
+                        }
+                        painter.text(rect.left_bottom() + egui::vec2(8.0, -6.0), egui::Align2::LEFT_BOTTOM, format!("×{:.1}", d.zoom), egui::FontId::proportional(12.0), Color32::from_gray(0x60));
+                    }
+                    ui.vertical(|ui| {
+                        ui.set_width(CONTROLS_W);
+                        egui::Grid::new("trace_params").num_columns(2).spacing([8.0, 6.0]).show(ui, |ui| {
+                            let mut th = d.params.threshold as i32;
+                            ui.label(tr("Threshold"));
+                            ui.add(egui::Slider::new(&mut th, 1..=254));
+                            d.params.threshold = th as u8;
+                            ui.end_row();
+                            ui.label(tr("Ignore small areas"));
+                            ui.add(egui::DragValue::new(&mut d.params.min_area).range(0.0..=5000.0).suffix(" px²"));
+                            ui.end_row();
+                            ui.label(tr("Simplify"));
+                            ui.add(egui::Slider::new(&mut d.params.tolerance, 0.0..=5.0));
+                            ui.end_row();
+                        });
+                        ui.checkbox(&mut d.params.smooth, tr("Smooth curves"));
+                        ui.checkbox(&mut d.params.invert, tr("Trace the light areas"));
+                        ui.checkbox(&mut d.delete_original, tr("Delete the image afterwards"));
+                        ui.label(RichText::new(trf("{} outlines", &[&d.preview.len()])).color(theme::text_dim()));
+                        ui.add_space(6.0);
+                        ui.label(RichText::new(tr("Scroll to zoom, drag to move, double click to see the whole picture")).color(theme::text_dim()));
                     });
-                    ui.checkbox(&mut d.params.smooth, tr("Smooth curves"));
-                    ui.checkbox(&mut d.params.invert, tr("Trace the light areas"));
-                    ui.checkbox(&mut d.delete_original, tr("Delete the image afterwards"));
-                    ui.label(RichText::new(trf("{} outlines", &[&d.preview.len()])).color(theme::text_dim()));
                 });
             });
-            ui.separator();
-            ui.horizontal(|ui| {
-                accept = ui.button(tr("Trace")).clicked();
-                cancel = ui.button(tr("Cancel")).clicked();
+            crate::window::footer(ui, "trace_dlg", |ui| {
+                ui.horizontal(|ui| {
+                    accept = ui.button(tr("Trace")).clicked();
+                    cancel = ui.button(tr("Cancel")).clicked();
+                });
             });
         });
         if accept {

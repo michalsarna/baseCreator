@@ -710,3 +710,6 @@
 709|Tasemed
 710|Kõik sellest tumedam muutub mustaks
 711|Kõik sellest heledam muutub valgeks
+712|Keri suumimiseks, lohista liigutamiseks, topeltklõps näitab kogu pilti
+713|Valitud järeltöötleja muudab käsu Ekspordi G-kood… G-koodi; masinale saadetud tööd ei muudeta.
+714|Seadistustega pistikprogrammidel on parempoolses paneelis oma vaheleht.

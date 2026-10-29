@@ -710,3 +710,6 @@
 709|Livelli
 710|Kull ma hu aktar skur minn dan isir iswed
 711|Kull ma hu aktar car minn dan isir abjad
+712|Iskrolla biex tizzumja, kaxkar biex tmexxi, ikklikkja darbtejn biex tara l-istampa kollha
+713|Il-postproċessur magħżul ibiddel il-G-code ta' Esporta G-code…; xogħol mibgħut lill-magna ma jinbidilx.
+714|Il-plugins b'settings għandhom tab tagħhom fil-pannell tal-lemin.

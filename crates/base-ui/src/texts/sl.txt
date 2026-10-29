@@ -710,3 +710,6 @@
 709|Ravni
 710|Vse, kar je temnejše od tega, postane črno
 711|Vse, kar je svetlejše od tega, postane belo
+712|Drsenje za povečavo, vlečenje za premik, dvojni klik za prikaz cele slike
+713|Izbrani postprocesor spremeni G-kodo pri Izvozu G-kode…; opravilo, poslano stroju, se ne spremeni.
+714|Vtičniki z nastavitvami imajo svoj zavihek v desni plošči.

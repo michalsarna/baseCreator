@@ -710,3 +710,6 @@
 709|Niveauer
 710|Alt, der er mørkere end dette, bliver sort
 711|Alt, der er lysere end dette, bliver hvidt
+712|Rul for at zoome, træk for at flytte, dobbeltklik for at se hele billedet
+713|Den valgte postprocessor ændrer G-koden i Eksportér G-kode…; et job sendt til maskinen ændres ikke.
+714|Plugins med indstillinger har deres eget faneblad i højre panel.
