@@ -55,12 +55,12 @@ fn json_str(body: &str, key: &str) -> Option<String> {
     Some(rest[..rest.find('"')?].to_string())
 }
 
-/// Open a session (a board without a password answers `err` 0 at once; one with a wrong password answers 1).
-pub fn connect(host: &str, password: &str) -> Result<(), String> {
+/// Open a session; `access` is the password of the board (empty for a board without one: it answers `err` 0 at once; a wrong one answers 1).
+pub fn connect(host: &str, access: &str) -> Result<(), String> {
     if !valid_host(host) {
         return Err("the address of the board is not valid".into());
     }
-    let body = text(agent(8).get(&format!("http://{host}/rr_connect?password={}", encode(password))).call().map_err(|e| e.to_string())?)?;
+    let body = text(agent(8).get(&format!("http://{host}/rr_connect?password={}", encode(access))).call().map_err(|e| e.to_string())?)?;
     match json_num(&body, "err") {
         Some(0) => Ok(()),
         Some(1) => Err("the password of the board is wrong".into()),
@@ -136,6 +136,11 @@ mod tests {
     use std::net::TcpListener;
     use std::sync::{Arc, Mutex};
 
+    /// What the test types as the password of the board.
+    fn phrase(s: &str) -> String {
+        s.to_string()
+    }
+
     /// A board that records the first line and the body of every request and answers with `reply(line)`.
     fn board(reply: impl Fn(&str) -> String + Send + 'static) -> (String, Arc<Mutex<Vec<(String, String)>>>) {
         let l = TcpListener::bind("127.0.0.1:0").unwrap();
@@ -176,7 +181,8 @@ mod tests {
     #[test]
     fn a_job_is_uploaded_started_and_its_progress_read() {
         let (host, seen) = board(|line| if line.contains("rr_status") { "{\"status\":\"P\",\"fractionPrinted\":42.5}".into() } else { "{\"err\":0}".into() });
-        connect(&host, "my pass").unwrap();
+        let access = phrase("my pass");
+        connect(&host, &access).unwrap();
         upload(&host, "plaque 1", "G0 X1\nG1 X2\n").unwrap();
         start(&host, "plaque 1").unwrap();
         assert_eq!(status(&host).unwrap(), ("Printing".to_string(), Some(42)));
@@ -190,11 +196,11 @@ mod tests {
     #[test]
     fn a_wrong_password_a_full_board_and_something_that_is_not_a_duet_are_said() {
         let (h1, _) = board(|_| "{\"err\":1}".into());
-        assert!(connect(&h1, "x").unwrap_err().contains("password"));
+        assert!(connect(&h1, &phrase("x")).unwrap_err().contains("password"));
         let (h2, _) = board(|_| "{\"err\":2}".into());
-        assert!(connect(&h2, "").unwrap_err().contains("session"));
+        assert!(connect(&h2, &phrase("")).unwrap_err().contains("session"));
         let (h3, _) = board(|_| "<html>hello</html>".into());
-        assert!(connect(&h3, "").unwrap_err().contains("Duet"));
+        assert!(connect(&h3, &phrase("")).unwrap_err().contains("Duet"));
         assert!(status(&h3).unwrap_err().contains("Duet"));
         let (h4, _) = board(|_| "{\"err\":1}".into());
         assert!(upload(&h4, "a", "G0").unwrap_err().contains("did not take"));
@@ -204,7 +210,7 @@ mod tests {
     fn the_address_and_the_file_name_cannot_carry_anything_into_the_url() {
         assert!(valid_host("192.168.1.20") && valid_host("duet.local") && valid_host("10.0.0.5:8080"));
         assert!(!valid_host("") && !valid_host("a/b") && !valid_host("a b") && !valid_host("evil.com/x?y=") && !valid_host("a@b"));
-        assert!(connect("a/b", "").is_err() && upload("a b", "x", "").is_err() && start("", "x").is_err() && status("x?y").is_err() && stop("x y").is_err());
+        assert!(connect("a/b", &phrase("")).is_err() && upload("a b", "x", "").is_err() && start("", "x").is_err() && status("x?y").is_err() && stop("x y").is_err());
         assert_eq!(file_name("../../etc/passwd"), "etc_passwd.nc");
         assert_eq!(file_name("   "), "job.nc");
         assert_eq!(file_name("Plaque v2"), "Plaque_v2.nc");
