@@ -65,6 +65,7 @@ pub fn menu_title_icon(title: &str) -> Option<&'static str> {
     Some(match title {
         "File" => "file",
         "Edit" => "pencil",
+        "Insert" => "copy-plus",
         "Arrange" => "shapes",
         "View" => "eye",
         "Laser" => "zap",
