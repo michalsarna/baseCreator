@@ -847,3 +847,4 @@
 846|Dostupna su ažuriranja dodataka
 847|Ažuriraj sve
 848|Kasnije
+849|Veliko hvala Jakubu (CNC KpK) na idejama i prijedlozima za poboljšanja:

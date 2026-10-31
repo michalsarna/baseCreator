@@ -19,3 +19,4 @@ Licences are named for orientation; the exact terms are in each project's reposi
 * **[muda](https://github.com/tauri-apps/muda)** (Tauri, MIT / Apache-2.0) and **[objc2](https://github.com/madsmtm/objc2)** (MIT): the native macOS menu bar.
 * **[rfd](https://github.com/PolyMeilex/rfd)** (MIT): native file dialogs.
 * **[Material Design Icons](https://github.com/Templarian/MaterialDesign-SVG)** by Pictogrammers (Apache-2.0) and the **[Iconify](https://iconify.design)** search service: the clipart gallery (`assets/clipart`).
+* **Jakub ([CNC KpK](https://www.youtube.com/@CNC-KpK))**: ideas and suggestions for improvements, from the point of view of industrial CNC machines.

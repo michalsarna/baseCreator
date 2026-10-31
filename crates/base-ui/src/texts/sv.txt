@@ -847,3 +847,4 @@
 846|Det finns uppdateringar för insticksmoduler
 847|Uppdatera alla
 848|Senare
+849|Stort tack till Jakub (CNC KpK) för idéerna och förbättringsförslagen:

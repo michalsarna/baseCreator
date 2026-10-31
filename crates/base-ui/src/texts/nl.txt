@@ -847,3 +847,4 @@
 846|Er zijn updates voor plug-ins beschikbaar
 847|Alles bijwerken
 848|Later
+849|Veel dank aan Jakub (CNC KpK) voor de ideeën en suggesties voor verbeteringen:

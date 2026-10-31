@@ -23,6 +23,9 @@ pub fn base_version() -> &'static str {
     env!("CARGO_PKG_VERSION")
 }
 
+/// The channel of Jakub (CNC KpK), who works on industrial CNC machines and suggested many improvements; the About window links to it.
+pub const THANKS_URL: &str = "https://www.youtube.com/@CNC-KpK";
+
 /// The About window. `logo` is the picture shown next to the name.
 pub fn about_window(ctx: &egui::Context, open: &mut bool, info: &AboutInfo, logo: Option<&egui::TextureHandle>) {
     if !*open {
@@ -47,6 +50,9 @@ pub fn about_window(ctx: &egui::Context, open: &mut bool, info: &AboutInfo, logo
         }
         ui.hyperlink(info.url);
         ui.label(format!("{}: {}", tr("Licence"), info.licence));
+        ui.separator();
+        ui.label(tr("Big thanks to Jakub (CNC KpK) for the ideas and suggestions for improvements:"));
+        ui.hyperlink(THANKS_URL);
     });
 }
 
@@ -328,8 +334,14 @@ mod tests {
         let ctx = egui::Context::default();
         let mut open = true;
         let info = AboutInfo { title: "About", name: "App", version: "v1.0.0", lines: vec!["a".into()], url: "https://example.org", licence: "MIT" };
+        // A new window is only measured in its first frame: the texts are drawn in the second.
+        ctx.run_ui(egui::RawInput::default(), |ui| about_window(ui.ctx(), &mut open, &info, None)).textures_delta.clear();
         let mut out = ctx.run_ui(egui::RawInput::default(), |ui| about_window(ui.ctx(), &mut open, &info, None));
         out.textures_delta.clear();
+        // The thanks to Jakub are drawn: the line and the link to the channel.
+        let shown: String = out.shapes.iter().filter_map(|s| if let egui::epaint::Shape::Text(t) = &s.shape { Some(t.galley.text().to_string()) } else { None }).collect::<Vec<_>>().join("\n");
+        assert!(shown.contains("Jakub") && shown.contains(THANKS_URL), "{shown}");
+        assert!(THANKS_URL.starts_with("https://www.youtube.com/@"));
     }
 
     /// Against the real GitHub API: `cargo test -p base-ui -- --ignored real_network` (needs the internet).

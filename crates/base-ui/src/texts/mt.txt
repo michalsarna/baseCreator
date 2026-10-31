@@ -847,3 +847,4 @@
 846|Hemm aġġornamenti tal-plug-ins disponibbli
 847|Aġġorna kollox
 848|Aktar tard
+849|Grazzi kbira lil Jakub (CNC KpK) għall-ideat u s-suġġerimenti ta' titjib:

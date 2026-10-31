@@ -847,3 +847,4 @@
 846|Há atualizações de plugins disponíveis
 847|Atualizar tudo
 848|Mais tarde
+849|Agradecimento especial a Jakub (CNC KpK) pelas ideias e sugestões de melhoria:

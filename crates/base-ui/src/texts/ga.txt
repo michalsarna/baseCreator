@@ -847,3 +847,4 @@
 846|Tá nuashonruithe breiseán ar fáil
 847|Nuashonraigh uile
 848|Níos déanaí
+849|Go raibh míle maith agat, Jakub (CNC KpK), as na smaointe agus na moltaí feabhsúcháin:

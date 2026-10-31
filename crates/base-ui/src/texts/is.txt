@@ -847,3 +847,4 @@
 846|Uppfærslur á viðbótum eru tiltækar
 847|Uppfæra allt
 848|Seinna
+849|Miklar þakkir til Jakub (CNC KpK) fyrir hugmyndirnar og tillögurnar að úrbótum:

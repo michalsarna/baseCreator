@@ -847,3 +847,4 @@
 846|Der er opdateringer til plugins
 847|Opdater alle
 848|Senere
+849|Stor tak til Jakub (CNC KpK) for ideerne og forslagene til forbedringer:

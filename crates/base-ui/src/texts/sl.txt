@@ -847,3 +847,4 @@
 846|Na voljo so posodobitve vtičnikov
 847|Posodobi vse
 848|Pozneje
+849|Najlepša hvala Jakubu (CNC KpK) za ideje in predloge izboljšav:
