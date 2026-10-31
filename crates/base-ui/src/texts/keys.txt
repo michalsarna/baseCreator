@@ -752,3 +752,59 @@
 751	Forget this position
 752	Save here
 753	Remember where the tool is now
+754	Select the shapes to copy (at most 2000 copies are made).
+755	{} copies made
+756	Select the shapes first and the path (or the trimming shape) last.
+757	The text follows the path now (it is outlines, no longer text).
+758	There are no duplicates.
+759	{} duplicates removed
+760	Nothing to break apart: the shapes have one outline each.
+761	Broken apart into {} shapes
+762	Select something first.
+763	Simplified: {} points became {}
+764	There is nothing to make: no numbers and no rows.
+765	{} texts made
+766	The text does not fit in a QR code.
+767	A Code 39 barcode has capitals, digits and - . $ / + % and spaces only.
+768	The shapes do not fit in the area.
+769	{} shapes nested
+770	Grid array…
+771	Circular array…
+772	Copy along path…
+773	Text on path…
+774	Trim by shape…
+775	Simplify…
+776	Serial text…
+777	Barcode / QR code…
+778	Nest shapes…
+779	Measure…
+780	Columns
+781	Rows
+782	Column distance
+783	Row distance
+784	Places
+785	Total angle
+786	Turn the copies
+787	Start
+788	Keep the inside of the shape
+789	Text
+790	{n} is the number; with a CSV file {1}, {2}… are its columns
+791	First number
+792	Step
+793	Digits
+794	Copies
+795	Read a CSV file…
+796	{} rows from the file
+797	Type
+798	Bar width
+799	Area width
+800	Area height
+801	Allow turning
+802	The shapes are packed by their boxes in rows from the corner of the page.
+803	Width {}  Height {}
+804	From X {} Y {}
+805	Area {}  Length {}
+806	Between the centres: {} (dX {}, dY {})
+807	Gap between the boxes: {}
+808	Remove duplicates
+809	Break apart

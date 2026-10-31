@@ -752,3 +752,59 @@
 751|Glem denne position
 752|Gem her
 753|Husk, hvor værktøjet er nu
+754|Vælg de former, der skal kopieres (der laves højst 2000 kopier).
+755|{} kopier lavet
+756|Vælg først formerne og til sidst stien (eller beskæringsformen).
+757|Teksten følger nu stien (det er omrids, ikke længere tekst).
+758|Der er ingen dubletter.
+759|{} dubletter fjernet
+760|Intet at dele: hver form har ét omrids.
+761|Delt i {} former
+762|Vælg først noget.
+763|Forenklet: {} punkter blev til {}
+764|Intet at lave: ingen tal og ingen rækker.
+765|{} tekster lavet
+766|Teksten kan ikke være i en QR-kode.
+767|En Code 39-stregkode har kun store bogstaver, cifre og - . $ / + % og mellemrum.
+768|Formerne kan ikke være i området.
+769|{} former placeret
+770|Gitterarray…
+771|Cirkulært array…
+772|Kopiér langs sti…
+773|Tekst på sti…
+774|Beskær med form…
+775|Forenkl…
+776|Serietekst…
+777|Stregkode / QR-kode…
+778|Placér former (nesting)…
+779|Mål…
+780|Kolonner
+781|Rækker
+782|Kolonneafstand
+783|Rækkeafstand
+784|Pladser
+785|Samlet vinkel
+786|Drej kopierne
+787|Start
+788|Behold formens indre
+789|Tekst
+790|{n} er nummeret; med en CSV-fil er {1}, {2}… dens kolonner
+791|Første tal
+792|Trin
+793|Cifre
+794|Kopier
+795|Læs en CSV-fil…
+796|{} rækker fra filen
+797|Type
+798|Stregbredde
+799|Områdebredde
+800|Områdehøjde
+801|Tillad drejning
+802|Formerne pakkes efter deres bokse i rækker fra sidens hjørne.
+803|Bredde {}  Højde {}
+804|Fra X {} Y {}
+805|Areal {}  Længde {}
+806|Mellem centrene: {} (dX {}, dY {})
+807|Afstand mellem boksene: {}
+808|Fjern dubletter
+809|Del

@@ -752,3 +752,59 @@
 751|A pozíció elfelejtése
 752|Mentés ide
 753|Jegyezd meg, hol van most a szerszám
+754|Jelölje ki a másolandó alakzatokat (legfeljebb 2000 másolat készül).
+755|{} másolat készült
+756|Először az alakzatokat jelölje ki, utoljára az útvonalat (vagy a vágó alakzatot).
+757|A szöveg most követi az útvonalat (körvonalak, már nem szöveg).
+758|Nincsenek duplikátumok.
+759|{} duplikátum eltávolítva
+760|Nincs mit szétválasztani: minden alakzatnak egy körvonala van.
+761|{} alakzatra bontva
+762|Először jelöljön ki valamit.
+763|Egyszerűsítve: {} pontból {} lett
+764|Nincs mit létrehozni: nincsenek számok és sorok.
+765|{} szöveg készült
+766|A szöveg nem fér el egy QR-kódban.
+767|A Code 39 vonalkód csak nagybetűket, számjegyeket, valamint - . $ / + % jeleket és szóközt tartalmaz.
+768|Az alakzatok nem férnek el a területen.
+769|{} alakzat elhelyezve
+770|Rácsos sokszorosítás…
+771|Körkörös sokszorosítás…
+772|Másolás útvonal mentén…
+773|Szöveg útvonalon…
+774|Vágás alakzattal…
+775|Egyszerűsítés…
+776|Sorozatszöveg…
+777|Vonalkód / QR-kód…
+778|Alakzatok elrendezése (nesting)…
+779|Mérés…
+780|Oszlopok
+781|Sorok
+782|Oszloptávolság
+783|Sortávolság
+784|Helyek
+785|Teljes szög
+786|Másolatok forgatása
+787|Kezdet
+788|A alakzat belsejének megtartása
+789|Szöveg
+790|{n} a szám; CSV-fájlnál {1}, {2}… az oszlopai
+791|Első szám
+792|Lépés
+793|Számjegyek
+794|Másolatok
+795|CSV-fájl beolvasása…
+796|{} sor a fájlból
+797|Típus
+798|Vonalvastagság
+799|Terület szélessége
+800|Terület magassága
+801|Forgatás engedélyezése
+802|Az alakzatok a keretük szerint, sorokban kerülnek elhelyezésre az oldal sarkától.
+803|Szélesség {}  Magasság {}
+804|X {} Y {}-tól
+805|Terület {}  Hossz {}
+806|A középpontok között: {} (dX {}, dY {})
+807|A keretek közti távolság: {}
+808|Duplikátumok eltávolítása
+809|Szétválasztás

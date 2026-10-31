@@ -8,6 +8,7 @@ mod host;
 mod image_ui;
 mod prefs;
 mod props;
+mod design_ui;
 mod shape_ops;
 
 pub use bars::{arrange_bar, palette_button_size, tool_button, tool_palette};
@@ -16,6 +17,7 @@ pub use commands::EditorCommands;
 pub use context_menu::context_menu;
 pub use host::EditorHost;
 pub use shape_ops::EditorShapeOps;
+pub use design_ui::{CodeKind, DesignCmd, DesignState, EditorDesign};
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
 pub use bars::{control_name, grid_toggles, selection_size, zoom_and_cursor};
 pub use prefs::view_options_window;
@@ -215,6 +217,8 @@ pub struct EditorState {
     /// The window of the dogbone / T-bone corners, and its radius (mm).
     pub show_bones: bool,
     pub bone_radius: f64,
+    /// The design commands (arrays, text on a path, serial text, codes, nesting, measuring) and what their windows hold.
+    pub design: DesignState,
     pub join_tol: f64,
     pub show_round: bool,
     pub offset_dist: f64,
@@ -308,6 +312,7 @@ impl EditorState {
             show_join: false,
             show_bones: false,
             bone_radius: 1.5,
+            design: DesignState::default(),
             join_tol: 0.1,
             show_round: false,
             offset_dist: -1.0,

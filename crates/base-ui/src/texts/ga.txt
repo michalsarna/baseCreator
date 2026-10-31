@@ -752,3 +752,59 @@
 751|Déan dearmad ar an suíomh seo
 752|Sábháil anseo
 753|Cuimhnigh cá bhfuil an uirlis anois
+754|Roghnaigh na cruthanna le cóipeáil (déantar 2000 cóip ar a mhéad).
+755|Rinneadh {} cóip
+756|Roghnaigh na cruthanna ar dtús agus an cosán (nó an cruth bearrtha) ar deireadh.
+757|Leanann an téacs an cosán anois (is imlínte iad, ní téacs a thuilleadh).
+758|Níl aon dúbailt ann.
+759|Baineadh {} dúbailt
+760|Níl aon rud le briseadh óna chéile: tá imlíne amháin ag gach cruth.
+761|Briseadh ina {} cruth
+762|Roghnaigh rud éigin ar dtús.
+763|Simpliú: tháinig {} pointe chun bheith {}
+764|Níl aon rud le déanamh: gan uimhreacha ná sraitheanna.
+765|Rinneadh {} téacs
+766|Ní fhéadann an téacs a bheith i gcód QR.
+767|Níl i gcód barra Code 39 ach ceannlitreacha, digití agus - . $ / + % agus spásanna.
+768|Ní oirfidh na cruthanna sa limistéar.
+769|Neadaíodh {} cruth
+770|Eagar greille…
+771|Eagar ciorclach…
+772|Cóipeáil feadh cosáin…
+773|Téacs ar chosán…
+774|Bearr le cruth…
+775|Simpligh…
+776|Téacs sraithe…
+777|Cód barra / cód QR…
+778|Neadaigh cruthanna…
+779|Tomhais…
+780|Colúin
+781|Sraitheanna
+782|Fad na gcolún
+783|Fad na sraitheanna
+784|Áiteanna
+785|Iomlán uillinn
+786|Rothaigh na cóipeanna
+787|Tús
+788|Coinnigh taobh istigh an chrutha
+789|Téacs
+790|Is é {n} an uimhir; le comhad CSV is iad {1}, {2}… a cholúin
+791|An chéad uimhir
+792|Céim
+793|Digití
+794|Cóipeanna
+795|Léigh comhad CSV…
+796|{} sraith as an gcomhad
+797|Cineál
+798|Leithead barra
+799|Leithead an limistéir
+800|Airde an limistéir
+801|Ceadaigh rothlú
+802|Pacáiltear na cruthanna de réir a mbosca i sraitheanna ó choirnéal an leathanaigh.
+803|Leithead {}  Airde {}
+804|Ó X {} Y {}
+805|Achar {}  Fad {}
+806|Idir na lár: {} (dX {}, dY {})
+807|Bearna idir na boscaí: {}
+808|Bain dúbailtí
+809|Bris óna chéile

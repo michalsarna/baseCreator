@@ -752,3 +752,59 @@
 751|Oublier cette position
 752|Enregistrer ici
 753|Mémoriser où se trouve l'outil
+754|Sélectionnez les formes à copier (2000 copies au maximum sont faites).
+755|{} copies faites
+756|Sélectionnez d'abord les formes et en dernier le tracé (ou la forme de découpe).
+757|Le texte suit maintenant le tracé (ce sont des contours, plus du texte).
+758|Il n'y a pas de doublons.
+759|{} doublons supprimés
+760|Rien à séparer : chaque forme n'a qu'un contour.
+761|Séparé en {} formes
+762|Sélectionnez d'abord quelque chose.
+763|Simplifié : {} points sont devenus {}
+764|Rien à faire : ni nombres ni lignes.
+765|{} textes faits
+766|Le texte ne tient pas dans un code QR.
+767|Un code-barres Code 39 n'a que des majuscules, des chiffres et - . $ / + % et des espaces.
+768|Les formes ne tiennent pas dans la zone.
+769|{} formes imbriquées
+770|Réseau en grille…
+771|Réseau circulaire…
+772|Copier le long du tracé…
+773|Texte sur tracé…
+774|Rogner avec une forme…
+775|Simplifier…
+776|Texte en série…
+777|Code-barres / code QR…
+778|Imbriquer les formes…
+779|Mesurer…
+780|Colonnes
+781|Lignes
+782|Distance des colonnes
+783|Distance des lignes
+784|Emplacements
+785|Angle total
+786|Tourner les copies
+787|Début
+788|Garder l'intérieur de la forme
+789|Texte
+790|{n} est le numéro ; avec un fichier CSV, {1}, {2}… sont ses colonnes
+791|Premier nombre
+792|Pas
+793|Chiffres
+794|Copies
+795|Lire un fichier CSV…
+796|{} lignes du fichier
+797|Type
+798|Largeur de barre
+799|Largeur de la zone
+800|Hauteur de la zone
+801|Autoriser la rotation
+802|Les formes sont rangées selon leurs boîtes en rangées à partir du coin de la page.
+803|Largeur {}  Hauteur {}
+804|À partir de X {} Y {}
+805|Aire {}  Longueur {}
+806|Entre les centres : {} (dX {}, dY {})
+807|Écart entre les boîtes : {}
+808|Supprimer les doublons
+809|Séparer

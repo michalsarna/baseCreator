@@ -752,3 +752,59 @@
 751|Unusta see asukoht
 752|Salvesta siia
 753|Jäta meelde, kus tööriist praegu on
+754|Valige kopeeritavad kujundid (tehakse kuni 2000 koopiat).
+755|Tehti {} koopiat
+756|Valige kõigepealt kujundid ja viimasena rada (või kärpimiskujund).
+757|Tekst järgib nüüd rada (need on kontuurid, mitte enam tekst).
+758|Duplikaate pole.
+759|Eemaldati {} duplikaati
+760|Pole midagi lahutada: igal kujundil on üks kontuur.
+761|Lahutati {} kujundiks
+762|Valige kõigepealt midagi.
+763|Lihtsustatud: {} punkti sai {}
+764|Pole midagi teha: numbreid ega ridu pole.
+765|Tehti {} teksti
+766|Tekst ei mahu QR-koodi.
+767|Code 39 vöötkoodis on ainult suurtähed, numbrid ning - . $ / + % ja tühikud.
+768|Kujundid ei mahu alale.
+769|Paigutati {} kujundit
+770|Ruudustikmassiiv…
+771|Ringmassiiv…
+772|Kopeeri mööda rada…
+773|Tekst rajal…
+774|Kärbi kujundiga…
+775|Lihtsusta…
+776|Seeriatekst…
+777|Vöötkood / QR-kood…
+778|Paiguta kujundid (nesting)…
+779|Mõõda…
+780|Veerud
+781|Read
+782|Veergude vahe
+783|Ridade vahe
+784|Kohad
+785|Koguurk
+786|Pööra koopiaid
+787|Algus
+788|Jäta kujundi sisemus
+789|Tekst
+790|{n} on number; CSV-failiga on {1}, {2}… selle veerud
+791|Esimene number
+792|Samm
+793|Numbrid
+794|Koopiad
+795|Loe CSV-faili…
+796|{} rida failist
+797|Tüüp
+798|Triibu laius
+799|Ala laius
+800|Ala kõrgus
+801|Luba pööramine
+802|Kujundid pakitakse oma kastide järgi ridadesse lehe nurgast alates.
+803|Laius {}  Kõrgus {}
+804|Alates X {} Y {}
+805|Pindala {}  Pikkus {}
+806|Keskpunktide vahel: {} (dX {}, dY {})
+807|Kastide vahe: {}
+808|Eemalda duplikaadid
+809|Lahuta

@@ -752,3 +752,59 @@
 751|Olvidar esta posición
 752|Guardar aquí
 753|Recordar dónde está ahora la herramienta
+754|Selecciona las formas a copiar (se hacen como máximo 2000 copias).
+755|{} copias hechas
+756|Selecciona primero las formas y al final el trazado (o la forma de recorte).
+757|El texto sigue ahora el trazado (son contornos, ya no es texto).
+758|No hay duplicados.
+759|{} duplicados eliminados
+760|Nada que separar: cada forma tiene un solo contorno.
+761|Separado en {} formas
+762|Selecciona algo primero.
+763|Simplificado: {} puntos pasaron a {}
+764|Nada que hacer: ni números ni filas.
+765|{} textos hechos
+766|El texto no cabe en un código QR.
+767|Un código de barras Code 39 solo tiene mayúsculas, dígitos y - . $ / + % y espacios.
+768|Las formas no caben en el área.
+769|{} formas anidadas
+770|Matriz en cuadrícula…
+771|Matriz circular…
+772|Copiar a lo largo del trazado…
+773|Texto en trazado…
+774|Recortar con una forma…
+775|Simplificar…
+776|Texto en serie…
+777|Código de barras / QR…
+778|Anidar formas…
+779|Medir…
+780|Columnas
+781|Filas
+782|Distancia de columnas
+783|Distancia de filas
+784|Lugares
+785|Ángulo total
+786|Girar las copias
+787|Inicio
+788|Conservar el interior de la forma
+789|Texto
+790|{n} es el número; con un archivo CSV {1}, {2}… son sus columnas
+791|Primer número
+792|Paso
+793|Dígitos
+794|Copias
+795|Leer un archivo CSV…
+796|{} filas del archivo
+797|Tipo
+798|Ancho de barra
+799|Ancho del área
+800|Alto del área
+801|Permitir girar
+802|Las formas se disponen por sus cajas en filas desde la esquina de la página.
+803|Ancho {}  Alto {}
+804|Desde X {} Y {}
+805|Área {}  Longitud {}
+806|Entre los centros: {} (dX {}, dY {})
+807|Distancia entre las cajas: {}
+808|Eliminar duplicados
+809|Separar

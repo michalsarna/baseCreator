@@ -752,3 +752,59 @@
 751|Pozabi ta položaj
 752|Shrani tukaj
 753|Zapomni si, kje je orodje zdaj
+754|Izberite oblike za kopiranje (nastane največ 2000 kopij).
+755|Narejenih kopij: {}
+756|Najprej izberite oblike, nazadnje pot (ali obrezovalno obliko).
+757|Besedilo zdaj sledi poti (to so obrisi, ni več besedilo).
+758|Ni dvojnikov.
+759|Odstranjenih dvojnikov: {}
+760|Ničesar ni za ločiti: vsaka oblika ima en obris.
+761|Razdeljeno na {} oblik
+762|Najprej nekaj izberite.
+763|Poenostavljeno: {} točk je postalo {}
+764|Ničesar ni za narediti: ni številk ne vrstic.
+765|Narejenih besedil: {}
+766|Besedilo ne gre v kodo QR.
+767|Črtna koda Code 39 ima samo velike črke, števke in - . $ / + % ter presledke.
+768|Oblike ne gredo v območje.
+769|Razporejenih oblik: {}
+770|Mrežna razvrstitev…
+771|Krožna razvrstitev…
+772|Kopiraj vzdolž poti…
+773|Besedilo na poti…
+774|Obreži z obliko…
+775|Poenostavi…
+776|Serijsko besedilo…
+777|Črtna koda / koda QR…
+778|Razporedi oblike (nesting)…
+779|Merjenje…
+780|Stolpci
+781|Vrstice
+782|Razmik stolpcev
+783|Razmik vrstic
+784|Mesta
+785|Skupni kot
+786|Zasukaj kopije
+787|Začetek
+788|Obdrži notranjost oblike
+789|Besedilo
+790|{n} je številka; pri datoteki CSV so {1}, {2}… njeni stolpci
+791|Prva številka
+792|Korak
+793|Števke
+794|Kopije
+795|Preberi datoteko CSV…
+796|{} vrstic iz datoteke
+797|Vrsta
+798|Širina črte
+799|Širina območja
+800|Višina območja
+801|Dovoli vrtenje
+802|Oblike se razporedijo po svojih okvirjih v vrstah od kota strani.
+803|Širina {}  Višina {}
+804|Od X {} Y {}
+805|Površina {}  Dolžina {}
+806|Med središči: {} (dX {}, dY {})
+807|Razdalja med okvirji: {}
+808|Odstrani dvojnike
+809|Razdeli

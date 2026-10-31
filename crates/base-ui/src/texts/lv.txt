@@ -752,3 +752,59 @@
 751|Aizmirst šo pozīciju
 752|Saglabāt šeit
 753|Atcerēties, kur tagad atrodas instruments
+754|Atlasiet kopējamās formas (tiek izveidotas ne vairāk kā 2000 kopiju).
+755|Izveidotas {} kopijas
+756|Vispirms atlasiet formas, bet pēdējo ceļu (vai apgriešanas formu).
+757|Teksts tagad seko ceļam (tie ir kontūri, vairs nav teksts).
+758|Dublikātu nav.
+759|Noņemti {} dublikāti
+760|Nav ko sadalīt: katrai formai ir viens kontūrs.
+761|Sadalīts {} formās
+762|Vispirms kaut ko atlasiet.
+763|Vienkāršots: {} punkti kļuva par {}
+764|Nav ko veidot: nav ne skaitļu, ne rindu.
+765|Izveidoti {} teksti
+766|Teksts neietilpst QR kodā.
+767|Code 39 svītrkodā ir tikai lielie burti, cipari un - . $ / + % un atstarpes.
+768|Formas neietilpst apgabalā.
+769|Izkārtotas {} formas
+770|Režģa masīvs…
+771|Apļa masīvs…
+772|Kopēt gar ceļu…
+773|Teksts uz ceļa…
+774|Apgriezt ar formu…
+775|Vienkāršot…
+776|Sērijas teksts…
+777|Svītrkods / QR kods…
+778|Izkārtot formas (nesting)…
+779|Mērīt…
+780|Kolonnas
+781|Rindas
+782|Kolonnu attālums
+783|Rindu attālums
+784|Vietas
+785|Kopējais leņķis
+786|Pagriezt kopijas
+787|Sākums
+788|Paturēt formas iekšpusi
+789|Teksts
+790|{n} ir numurs; ar CSV failu {1}, {2}… ir tā kolonnas
+791|Pirmais skaitlis
+792|Solis
+793|Cipari
+794|Kopijas
+795|Nolasīt CSV failu…
+796|{} rindas no faila
+797|Veids
+798|Joslas platums
+799|Apgabala platums
+800|Apgabala augstums
+801|Atļaut pagriešanu
+802|Formas tiek sakārtotas pēc to rāmjiem rindās no lapas stūra.
+803|Platums {}  Augstums {}
+804|No X {} Y {}
+805|Laukums {}  Garums {}
+806|Starp centriem: {} (dX {}, dY {})
+807|Atstarpe starp rāmjiem: {}
+808|Noņemt dublikātus
+809|Sadalīt
