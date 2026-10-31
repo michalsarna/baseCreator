@@ -734,3 +734,21 @@
 733|Cuireann sé eiscir le gach cúinne géar de na foirmeacha roghnaithe, ionas go sroichfidh buille cruinn den ga seo é: gearrann dogbone beagán an dá bhalla, T-bone ceann amháin.
 734|Níl aon chúinní géara sa roghnú.
 735|Cuireadh eiscir le {} foirm
+736|Ní féidir leis an meaisín seo é a dhéanamh.
+737|Faigh an lár
+738|Tá an tóireadóir ar crochadh i bpoll, thart ar an lár: baineann sé leis na ceithre thaobh, téann go dtí an lár agus déanann sé de náid X agus Y. Déan Z ar dtús.
+739|Fuarthach
+740|Ceo
+741|Tuile
+742|Casann sé fuarú ceo (M7)
+743|Casann sé fuarú tuile, nó an bailitheoir deannaigh ar mheaisín a bhfuil sé sreangaithe mar sin (M8)
+744|Múchann sé an fuarú ar fad (M9)
+745|Sáruithe
+746|Beatha
+747|Gluaiseachtaí tapa
+748|Ar ais go dtí an luas a iarrann an clár
+749|Suíomhanna sábháilte
+750|Téigh go X {} Y {} Z {} (suíomh meaisín), suas ar dtús más gá
+751|Déan dearmad ar an suíomh seo
+752|Sábháil anseo
+753|Cuimhnigh cá bhfuil an uirlis anois

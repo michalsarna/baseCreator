@@ -8,6 +8,36 @@ use base_core::control::{Axis, Control, ProbeKind};
 use egui::{Color32, RichText, Sense, Ui};
 use std::time::{Duration, Instant};
 
+/// A place the tool was at, remembered for going back to it: the machine position.
+#[derive(Clone, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
+pub struct SavedPos {
+    pub name: String,
+    pub p: [f64; 3],
+}
+
+const MAX_SAVED: usize = 24;
+
+fn positions_file() -> Option<std::path::PathBuf> {
+    base_core::paths::base_dir().map(|d| d.join("saved_positions.json"))
+}
+
+fn load_positions() -> Vec<SavedPos> {
+    let Some(f) = positions_file() else { return vec![] };
+    let Ok(text) = std::fs::read_to_string(f) else { return vec![] };
+    let mut v: Vec<SavedPos> = serde_json::from_str(&text).unwrap_or_default();
+    v.retain(|s| s.p.iter().all(|x| x.is_finite()) && s.name.len() <= 60);
+    v.truncate(MAX_SAVED);
+    v
+}
+
+fn store_positions(v: &[SavedPos]) {
+    if let Some(f) = positions_file() {
+        if let Ok(text) = serde_json::to_string_pretty(v) {
+            let _ = std::fs::write(f, text);
+        }
+    }
+}
+
 /// What the tab remembers between frames.
 pub struct ControlUi {
     /// The distance of one click, as typed or chosen with a button (mm).
@@ -28,11 +58,14 @@ pub struct ControlUi {
     edit: Option<(usize, String)>,
     /// The diameter of the tool for edge probing, typed by the person; the program's guess until then.
     pub tool_d: Option<f64>,
+    /// Places to go back to (machine positions), kept in a file of the shared data folder; the name being typed for the next.
+    pub positions: Option<Vec<SavedPos>>,
+    pub pos_name: String,
 }
 
 impl Default for ControlUi {
     fn default() -> ControlUi {
-        ControlUi { xy_text: String::new(), z_text: String::new(), continuous: false, feed_xy: None, feed_z: None, feeds_of_device: None, spindle_rpm: None, held: None, last_segment: None, edit: None, tool_d: None }
+        ControlUi { xy_text: String::new(), z_text: String::new(), continuous: false, feed_xy: None, feed_z: None, feeds_of_device: None, spindle_rpm: None, held: None, last_segment: None, edit: None, tool_d: None, positions: None, pos_name: String::new() }
     }
 }
 
@@ -99,9 +132,39 @@ pub trait ControlTarget {
     fn last_probe(&self) -> Option<([f64; 3], bool)>;
     fn probe(&mut self, c: &Control, axis: Axis, dir: i8, tool_diameter: f64) -> Result<(), String>;
     fn spindle_s(&self, rpm: f64, max_rpm: f64) -> f64;
+    /// The overrides the controller reports (feed, rapids, spindle in percent); `None` where there are none (GRBL before 1.1).
+    fn overrides(&self) -> Option<(u32, u32, u32)> {
+        None
+    }
+    /// A realtime byte (the overrides are changed by them).
+    fn realtime(&mut self, _b: u8) {}
+    /// Go to a machine position (a saved one) at `feed` mm/min, up first when needed.
+    fn go_machine(&mut self, _p: [f64; 3], _feed: f64) {}
+    /// Find the centre of a hole with the probe and make it the zero of X and Y.
+    fn center_hole(&mut self, _c: &Control) -> Result<(), String> {
+        Err(tr("The machine cannot do this.").to_string())
+    }
+    fn center_running(&self) -> bool {
+        false
+    }
 }
 
 impl ControlTarget for Machine {
+    fn overrides(&self) -> Option<(u32, u32, u32)> {
+        self.overrides
+    }
+    fn realtime(&mut self, b: u8) {
+        Machine::realtime(self, b)
+    }
+    fn go_machine(&mut self, p: [f64; 3], feed: f64) {
+        Machine::go_machine(self, p, feed)
+    }
+    fn center_hole(&mut self, c: &Control) -> Result<(), String> {
+        Machine::center_start(self, c)
+    }
+    fn center_running(&self) -> bool {
+        Machine::center_running(self)
+    }
     fn connected(&self) -> bool {
         self.connected
     }
@@ -549,6 +612,12 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
                     say = Some(e);
                 }
             }
+            let centre_tip = tr("The probe hangs in a hole, about in the middle: it touches the four sides, goes to the middle and makes it the zero of X and Y. Do the Z first.");
+            if tip(ui.add_enabled(!busy && !m.center_running(), egui::Button::new(RichText::new(tr("Find the centre")).size(15.0)).min_size(egui::vec2(0.0, 32.0))), &centre_tip).clicked() {
+                if let Err(e) = m.center_hole(c.control) {
+                    say = Some(e);
+                }
+            }
         });
         if let Some((p, touched)) = m.last_probe() {
             ui.label(
@@ -579,6 +648,95 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
             }
         });
         st.spindle_rpm = Some(rpm);
+    }
+
+    // ---- coolant ----
+    if c.spindle.is_some() {
+        section_break(ui);
+        heading(ui, &tr("Coolant"));
+        ui.add_space(2.0);
+        ui.horizontal_wrapped(|ui| {
+            for (label, code, hint) in [("Mist", "M7", "Switches the mist coolant on (M7)"), ("Flood", "M8", "Switches the flood coolant, or the dust collector on a machine that has it wired so, on (M8)"), ("Off", "M9", "Switches all coolant off (M9)")] {
+                if tip(ui.add_enabled(!busy, egui::Button::new(tr(label))), &tr(hint)).clicked() {
+                    m.line(code.to_string());
+                }
+            }
+        });
+    }
+
+    // ---- the overrides of a job in progress (GRBL 1.1 and newer report them) ----
+    if let Some((feed, rapid, spindle)) = m.overrides() {
+        section_break(ui);
+        heading(ui, &tr("Overrides"));
+        ui.add_space(2.0);
+        // (name, current percent, [(label, byte)], the byte of 100 %)
+        let rows: [(&str, u32, [(&str, u8); 4], u8); 2] = [("Feed", feed, [("-10", 0x92), ("-1", 0x94), ("+1", 0x93), ("+10", 0x91)], 0x90), ("Spindle", spindle, [("-10", 0x9B), ("-1", 0x9D), ("+1", 0x9C), ("+10", 0x9A)], 0x99)];
+        egui::Grid::new("overrides").num_columns(2).spacing([10.0, 4.0]).show(ui, |ui| {
+            for (name, now, steps, reset) in rows {
+                ui.label(RichText::new(format!("{} {now} %", tr(name))).strong());
+                ui.horizontal(|ui| {
+                    for (label, byte) in steps {
+                        if ui.button(label).clicked() {
+                            m.realtime(byte);
+                        }
+                    }
+                    if tip(ui.button("100 %"), &tr("Back to the speed the program asks for")).clicked() {
+                        m.realtime(reset);
+                    }
+                });
+                ui.end_row();
+            }
+            ui.label(RichText::new(format!("{} {rapid} %", tr("Rapids"))).strong());
+            ui.horizontal(|ui| {
+                for (label, byte) in [("25 %", 0x97u8), ("50 %", 0x96), ("100 %", 0x95)] {
+                    if ui.button(label).clicked() {
+                        m.realtime(byte);
+                    }
+                }
+            });
+            ui.end_row();
+        });
+    }
+
+    // ---- places to go back to ----
+    if c.hold_to_move {
+        section_break(ui);
+        heading(ui, &tr("Saved positions"));
+        ui.add_space(2.0);
+        let list = st.positions.get_or_insert_with(load_positions);
+        let mut changed = false;
+        let mut go: Option<[f64; 3]> = None;
+        let mut remove: Option<usize> = None;
+        for (i, sp) in list.iter().enumerate() {
+            ui.horizontal(|ui| {
+                if tip(ui.add_enabled(!busy, egui::Button::new(&sp.name)), &trf("Go to X {} Y {} Z {} (machine position), up first when needed", &[&fmt_pos(sp.p[0]), &fmt_pos(sp.p[1]), &fmt_pos(sp.p[2])])).clicked() {
+                    go = Some(sp.p);
+                }
+                if tip(ui.small_button("✖"), &tr("Forget this position")).clicked() {
+                    remove = Some(i);
+                }
+            });
+        }
+        if let Some(i) = remove {
+            list.remove(i);
+            changed = true;
+        }
+        ui.horizontal(|ui| {
+            ui.add(egui::TextEdit::singleline(&mut st.pos_name).desired_width(120.0).hint_text(tr("Name")));
+            let can = list.len() < MAX_SAVED && m.mpos().iter().all(|v| v.is_finite());
+            if tip(ui.add_enabled(can, egui::Button::new(tr("Save here"))), &tr("Remember where the tool is now")).clicked() {
+                let name = if st.pos_name.trim().is_empty() { format!("P{}", list.len() + 1) } else { st.pos_name.trim().chars().take(40).collect() };
+                list.push(SavedPos { name, p: mpos });
+                st.pos_name.clear();
+                changed = true;
+            }
+        });
+        if changed {
+            store_positions(list);
+        }
+        if let Some(p) = go {
+            m.go_machine(p, feed_xy);
+        }
     }
 
     // ---- macros ----
@@ -730,6 +888,8 @@ mod tests {
             z_axis: true,
             hold_to_move: true,
         };
+        m.overrides = Some((100, 110, 90));
+        st.positions = Some(vec![SavedPos { name: "Park".into(), p: [-1.0, -2.0, -3.0] }]);
         for connected in [false, true] {
             m.connected = connected;
             m.wpos = [1.0, 2.0, 3.0];

@@ -161,6 +161,20 @@ pub fn probe_lines(p: &Probe, axis: Axis, dir: i8, tool_diameter: f64, wcs: u8) 
     ]
 }
 
+/// G-code of one side of the centre finder: `phase` 0 is X-, 1 is X+, 2 is Y-, 3 is Y+. A quick touch, a step back and a slow touch.
+pub fn center_lines(p: &Probe, phase: usize) -> Vec<String> {
+    let l = if phase < 2 { 'X' } else { 'Y' };
+    let sign = if phase % 2 == 0 { -1.0 } else { 1.0 };
+    vec![
+        "G21".into(),
+        "G91".into(),
+        format!("G38.2 {l}{} F{}", n(sign * p.fail_distance), n(p.seek_feed)),
+        format!("G0 {l}{}", n(-sign * p.retract)),
+        format!("G38.2 {l}{} F{}", n(sign * p.retract * 2.0), n(p.slow_feed)),
+        "G90".into(),
+    ]
+}
+
 /// Lines that set the work position of the axes in `axes` to the given values (`G10 L20`), for the system `wcs`.
 pub fn set_position_lines(wcs: u8, values: &[(Axis, f64)]) -> Vec<String> {
     let words: Vec<String> = values.iter().map(|(a, v)| format!("{}{}", a.letter(), n(*v))).collect();
@@ -512,6 +526,17 @@ impl Control {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn each_side_of_the_centre_finder_is_a_quick_and_a_slow_touch_towards_that_side() {
+        let p = Probe::default();
+        let left = center_lines(&p, 0);
+        assert_eq!(left[2], "G38.2 X-30 F150");
+        assert_eq!(left[3], "G0 X2");
+        assert_eq!(left[4], "G38.2 X-4 F40");
+        assert_eq!(center_lines(&p, 3)[2], "G38.2 Y30 F150");
+        assert_eq!(center_lines(&p, 1)[4], "G38.2 X4 F40");
+    }
 
     #[test]
     fn a_z_probe_sets_zero_to_the_plate_and_lifts() {

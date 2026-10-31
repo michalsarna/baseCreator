@@ -734,3 +734,21 @@
 733|Přidá výřez do každého ostrého rohu vybraných tvarů, aby do něj dosáhla kulatá fréza tohoto poloměru: dogbone mírně podřízne obě stěny, T-bone jen jednu.
 734|Ve výběru nejsou žádné ostré rohy.
 735|Výřezy přidány do {} tvarů
+736|Stroj to neumí.
+737|Najít střed
+738|Sonda visí v otvoru zhruba uprostřed: dotkne se čtyř stran, jede do středu a udělá z něj nulu X a Y. Nejdřív nastavte Z.
+739|Chlazení
+740|Mlha
+741|Zaplavení
+742|Zapne mlhové chlazení (M7)
+743|Zapne zaplavovací chlazení nebo odsávání prachu na stroji, který je tak zapojen (M8)
+744|Vypne veškeré chlazení (M9)
+745|Přepisy rychlosti
+746|Posuv
+747|Rychloposuvy
+748|Zpět na rychlost, kterou program žádá
+749|Uložené polohy
+750|Jet na X {} Y {} Z {} (strojní poloha), podle potřeby nejdřív nahoru
+751|Zapomenout tuto polohu
+752|Uložit zde
+753|Zapamatovat, kde je nástroj nyní

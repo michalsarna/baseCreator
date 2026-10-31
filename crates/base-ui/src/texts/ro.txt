@@ -734,3 +734,21 @@
 733|Adaugă o crestătură în fiecare colț ascuțit al formelor selectate, ca o freză rotundă de această rază să ajungă în el: dogbone taie puțin ambii pereți, T-bone doar unul.
 734|Nu există colțuri ascuțite în selecție.
 735|Crestături adăugate la {} forme
+736|Mașina nu poate face asta.
+737|Găsește centrul
+738|Sonda atârnă într-o gaură, cam la mijloc: atinge cele patru laturi, merge la mijloc și îl face zero pentru X și Y. Faceți mai întâi Z.
+739|Lichid de răcire
+740|Ceață
+741|Inundare
+742|Pornește răcirea cu ceață (M7)
+743|Pornește răcirea prin inundare sau aspiratorul de praf pe o mașină care îl are conectat așa (M8)
+744|Oprește toată răcirea (M9)
+745|Corecții
+746|Avans
+747|Mișcări rapide
+748|Înapoi la viteza cerută de program
+749|Poziții salvate
+750|Mergi la X {} Y {} Z {} (poziția mașinii), întâi în sus dacă e nevoie
+751|Uită această poziție
+752|Salvează aici
+753|Ține minte unde este acum unealta

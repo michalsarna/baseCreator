@@ -734,3 +734,21 @@
 733|Iżid qatgħa ma' kull rokna wieqfa tal-forom magħżula, biex frieża tonda ta' dan ir-raġġ tilħaqha: id-dogbone jaqta' ftit iż-żewġ ħitan, it-T-bone waħda biss.
 734|L-għażla m'fiha l-ebda rkejjen wieqfa.
 735|Inżiedu qatgħat ma' {} forom
+736|Il-magna ma tistax tagħmel dan.
+737|Sib iċ-ċentru
+738|Is-sonda tibqa' f'toqba, bejn wieħed u ieħor fnofs: tmiss l-erba' ġnub, tmur fin-nofs u tagħmlu żero ta' X u Y. Agħmel Z l-ewwel.
+739|Likwidu tat-tkessiħ
+740|Ċpar
+741|Għargħar
+742|Ixgħel it-tkessiħ bl-ċpar (M7)
+743|Ixgħel it-tkessiħ bl-għargħar, jew il-ġbir tat-trab fuq magna li għandha dan marbut hekk (M8)
+744|Itfi t-tkessiħ kollu (M9)
+745|Overrides
+746|Avanz
+747|Movimenti rapidi
+748|Lura għall-veloċità li jitlob il-programm
+749|Pożizzjonijiet salvati
+750|Mur għal X {} Y {} Z {} (pożizzjoni tal-magna), 'il fuq l-ewwel jekk meħtieġ
+751|Nsa din il-pożizzjoni
+752|Issejvja hawn
+753|Ftakar fejn hi l-għodda issa

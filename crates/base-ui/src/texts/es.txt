@@ -734,3 +734,21 @@
 733|Añade una muesca a cada esquina viva de las formas seleccionadas para que una fresa redonda de este radio llegue a ella: el dogbone sobrecorta un poco ambas paredes, el T-bone solo una.
 734|No hay esquinas vivas en la selección.
 735|Se añadieron muescas a {} formas
+736|La máquina no puede hacer esto.
+737|Encontrar el centro
+738|La sonda cuelga en un agujero, más o menos en el centro: toca los cuatro lados, va al centro y lo convierte en el cero de X e Y. Haz primero la Z.
+739|Refrigerante
+740|Niebla
+741|Inundación
+742|Activa el refrigerante en niebla (M7)
+743|Activa el refrigerante por inundación, o el aspirador en una máquina que lo tenga conectado así (M8)
+744|Apaga todo el refrigerante (M9)
+745|Ajustes en vivo
+746|Avance
+747|Rápidos
+748|Volver a la velocidad que pide el programa
+749|Posiciones guardadas
+750|Ir a X {} Y {} Z {} (posición de máquina), primero arriba si hace falta
+751|Olvidar esta posición
+752|Guardar aquí
+753|Recordar dónde está ahora la herramienta

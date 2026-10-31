@@ -5,7 +5,7 @@
 use crate::console_ui::ConsoleState;
 use crate::i18n::{tr, trf};
 use crate::link::{self, Cmd, ConsoleLine, Dir, Evt, LaserLink, PortInfo, Target};
-use base_core::control::{self, Axis, Change, Control, FwCopies, Noted, Tls};
+use base_core::control::{self, Axis, Change, Control, FwCopies, Noted, Probe, Tls};
 use base_core::firmware::{self, FirmwareInfo};
 use base_core::grbl_codes;
 use base_core::grbl_settings as gs;
@@ -85,6 +85,10 @@ pub enum Notice {
     TlsTest { wz: f64, delta: Option<f64> },
     /// The measurement did not work (no contact, an alarm).
     TlsFailed,
+    /// The centre of a hole was found and made the zero of X and Y; the size of the hole in mm.
+    CenterFound { width: f64, height: f64 },
+    /// The centre finder did not work (no contact, an alarm).
+    CenterFailed,
 }
 
 /// What a measurement at the tool length sensor is for.
@@ -103,6 +107,19 @@ struct TlsRun {
     tls: Tls,
     wcs: u8,
     hits: Vec<([f64; 3], bool)>,
+}
+
+/// The centre finder at work: it touches the four sides of a hole from the middle of it, one after the other.
+struct CenterRun {
+    wcs: u8,
+    probe: Probe,
+    /// The machine position it started at.
+    start: [f64; 3],
+    /// 0: X-, 1: X+, 2: Y-, 3: Y+.
+    phase: usize,
+    hits: Vec<[f64; 3]>,
+    /// The machine X or Y of the wall that each phase touched.
+    walls: [f64; 4],
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -183,6 +200,8 @@ pub struct Machine {
     pub pins: String,
     pub feed: f64,
     pub spindle: f64,
+    /// The overrides the controller reports (GRBL 1.1 and newer), in percent: feed, rapids, spindle.
+    pub overrides: Option<(u32, u32, u32)>,
     /// The work coordinate system, 1 for G54 … 6 for G59.
     pub wcs: u8,
     /// Where the last probe move stopped.
@@ -198,6 +217,7 @@ pub struct Machine {
     pub alarm: Option<u32>,
     job: Option<Job>,
     tls_run: Option<TlsRun>,
+    center_run: Option<CenterRun>,
     asks: VecDeque<Ask>,
     capture: Option<Capture>,
     /// The tool-change dialog and the other windows keep their own state in the programs.
@@ -238,6 +258,8 @@ impl Machine {
             alarm: None,
             job: None,
             tls_run: None,
+            center_run: None,
+            overrides: None,
             asks: VecDeque::new(),
             capture: None,
             keyboard_jog: false,
@@ -490,6 +512,8 @@ impl Machine {
                         self.progress = (0, 0);
                         self.job = None;
                         self.tls_run = None;
+                        self.center_run = None;
+                        self.overrides = None;
                         self.barrier = None;
                         self.capture = None;
                         self.asks.clear();
@@ -580,6 +604,9 @@ impl Machine {
             self.feed = f;
             self.spindle = s;
         }
+        if r.overrides.is_some() {
+            self.overrides = r.overrides;
+        }
     }
 
     fn traffic(&mut self, l: ConsoleLine, notices: &mut Vec<Notice>) {
@@ -608,6 +635,7 @@ impl Machine {
                 touched: p.1,
             });
             self.tls_hit(p, notices);
+            self.center_hit(p, notices);
         }
         if let Some(w) = grbl_status::parser_wcs(&text) {
             self.wcs = w;
@@ -618,6 +646,9 @@ impl Machine {
                 grbl_codes::Kind::Alarm => {
                     if self.tls_run.take().is_some() {
                         notices.push(Notice::TlsFailed);
+                    }
+                    if self.center_run.take().is_some() {
+                        notices.push(Notice::CenterFailed);
                     }
                     self.alarm = Some(x.code);
                     notices.push(Notice::Alarm(x.code));
@@ -872,6 +903,82 @@ impl Machine {
                 notices.push(Notice::TlsTest { wz, delta: run.tls.ref_wz.map(|r| wz - r) });
             }
         }
+    }
+
+    // ---- the centre of a hole ----
+
+    pub fn center_running(&self) -> bool {
+        self.center_run.is_some()
+    }
+
+    /// Start the centre finder: the probe has to hang in the hole, about in the middle. It touches the left and the right side, goes
+    /// to the middle between them, touches the front and the back side, goes to the middle and makes it the zero of X and Y.
+    pub fn center_start(&mut self, c: &Control) -> Result<(), String> {
+        if !self.connected {
+            return Err(tr("Connect to the machine first (Device tab)").to_string());
+        }
+        if self.center_run.is_some() || self.tls_run.is_some() {
+            return Err(tr("A measurement is already running.").to_string());
+        }
+        c.probe.check().map_err(|e| tr(e).to_string())?;
+        if self.probe_closed() {
+            return Err(tr("The probe input is already closed. Check the clip, the plate and the wiring.").to_string());
+        }
+        if self.wco.is_none() || !self.mpos.iter().all(|v| v.is_finite()) {
+            return Err(tr("The controller has not reported the position yet.").to_string());
+        }
+        if (self.job_running() || self.job_active()) && self.barrier.is_none() {
+            return Err(tr("A job is running.").to_string());
+        }
+        if !self.state.starts_with("Idle") {
+            return Err(tr("The machine is not idle.").to_string());
+        }
+        self.center_run = Some(CenterRun { wcs: self.wcs, probe: c.probe.clone(), start: self.mpos, phase: 0, hits: vec![], walls: [0.0; 4] });
+        self.probe = None;
+        self.lines(control::center_lines(&c.probe, 0));
+        Ok(())
+    }
+
+    fn center_hit(&mut self, hit: ([f64; 3], bool), notices: &mut Vec<Notice>) {
+        let Some(run) = self.center_run.as_mut() else { return };
+        if !hit.1 {
+            self.center_run = None;
+            notices.push(Notice::CenterFailed);
+            return;
+        }
+        run.hits.push(hit.0);
+        // A quick touch and a slow one for every side.
+        if run.hits.len() < 2 {
+            return;
+        }
+        let axis = if run.phase < 2 { 0 } else { 1 };
+        run.walls[run.phase] = run.hits[1][axis];
+        run.hits.clear();
+        let letter = ["X", "Y"][axis];
+        let mut out: Vec<String> = vec![];
+        match run.phase {
+            0 | 2 => out.push(format!("G90 G53 G0 {letter}{:.3}", run.start[axis])),
+            1 => out.push(format!("G90 G53 G0 X{:.3}", (run.walls[0] + run.walls[1]) / 2.0)),
+            _ => out.push(format!("G90 G53 G0 Y{:.3}", (run.walls[2] + run.walls[3]) / 2.0)),
+        }
+        if run.phase < 3 {
+            run.phase += 1;
+            out.extend(control::center_lines(&run.probe, run.phase));
+            self.lines(out);
+            return;
+        }
+        // Done: the centre is the zero of X and Y.
+        let run = self.center_run.take().unwrap();
+        out.push(format!("G10 L20 P{} X0 Y0", run.wcs));
+        let ball = if run.probe.kind == control::ProbeKind::Touch3d { run.probe.ball_diameter } else { 0.0 };
+        notices.push(Notice::CenterFound { width: run.walls[1] - run.walls[0] + ball, height: run.walls[3] - run.walls[2] + ball });
+        self.lines(out);
+    }
+
+    /// Go to a machine position (a saved one): up first when it is higher than the tool is, then across, then down.
+    pub fn go_machine(&mut self, p: [f64; 3], feed: f64) {
+        let z = self.mpos[2].max(p[2]);
+        self.lines(vec![format!("$J=G90 G21 G53 Z{z:.3} F{feed:.0}"), format!("$J=G90 G21 G53 X{:.3} Y{:.3} F{feed:.0}", p[0], p[1]), format!("$J=G90 G21 G53 Z{:.3} F{feed:.0}", p[2])]);
     }
 
     // ---- copies of the settings ----
@@ -1392,6 +1499,90 @@ mod tests {
                 }
             }
         });
+    }
+
+    /// A GRBL that answers every probe move with the next position of the list, as X and Y at once.
+    fn grbl_with_walls(listener: TcpListener, hits: Vec<f64>) {
+        std::thread::spawn(move || {
+            let (mut s, _) = listener.accept().unwrap();
+            let _ = s.set_read_timeout(Some(Duration::from_millis(10)));
+            let start = Instant::now();
+            let mut buf = Vec::new();
+            let mut chunk = [0u8; 64];
+            let mut hits = hits.into_iter();
+            while start.elapsed() < Duration::from_secs(8) {
+                match s.read(&mut chunk) {
+                    Ok(0) => break,
+                    Ok(n) => {
+                        for &b in &chunk[..n] {
+                            match b {
+                                b'?' => {
+                                    let _ = s.write_all(b"<Idle|MPos:-10.000,-20.000,-5.000|WCO:-10.000,-20.000,-30.000>\n");
+                                }
+                                b'\n' => {
+                                    let line = String::from_utf8_lossy(&buf).to_string();
+                                    buf.clear();
+                                    if line.starts_with("G38.2") {
+                                        let v = hits.next().unwrap_or(-99.0);
+                                        let _ = s.write_all(format!("[PRB:{v:.3},{v:.3},-5.000:1]\nok\n").as_bytes());
+                                    } else {
+                                        let _ = s.write_all(b"ok\n");
+                                    }
+                                }
+                                _ => buf.push(b),
+                            }
+                        }
+                    }
+                    _ => {}
+                }
+            }
+        });
+    }
+
+    #[test]
+    fn the_centre_finder_touches_four_sides_goes_to_the_middle_and_makes_it_the_zero() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        // The walls at X -12.2 and 8.2 and at Y -9.2 and 11.2 (the quick touch comes first, the slow one is the exact one).
+        grbl_with_walls(listener, vec![-12.0, -12.2, 8.0, 8.2, -9.0, -9.2, 11.0, 11.2]);
+        let mut m = Machine::new(&Context::default());
+        connect(&mut m, port);
+        assert!(wait(&mut m, 3.0, |m, _| m.connected && m.wco().is_some() && m.state.starts_with("Idle")));
+        let c = Control::default();
+        m.center_start(&c).unwrap();
+        assert!(m.center_running() && m.center_start(&c).is_err(), "one at a time");
+        let mut found = None;
+        assert!(wait(&mut m, 5.0, |_, n| {
+            for x in n {
+                if let Notice::CenterFound { width, height } = x {
+                    found = Some((*width, *height));
+                }
+            }
+            found.is_some()
+        }));
+        let (w, h) = found.unwrap();
+        assert!((w - 20.4).abs() < 1e-9 && (h - 20.4).abs() < 1e-9, "{w} x {h}");
+        assert!(wait(&mut m, 3.0, |m, _| m.console.iter().any(|l| l.dir == Dir::Tx && l.text == "G10 L20 P1 X0 Y0")));
+        let sent = |t: &str| m.console.iter().any(|l| l.dir == Dir::Tx && l.text == t);
+        assert!(sent("G90 G53 G0 X-10.000") && sent("G90 G53 G0 Y-20.000"), "back to the start between the sides");
+        assert!(sent("G90 G53 G0 X-2.000"), "the middle between the X walls");
+        assert!(sent("G90 G53 G0 Y1.000"), "the middle between the Y walls");
+        assert!(!m.center_running());
+    }
+
+    #[test]
+    fn a_saved_position_is_gone_to_by_going_up_first_and_down_last() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        grbl_with_walls(listener, vec![]);
+        let mut m = Machine::new(&Context::default());
+        connect(&mut m, port);
+        assert!(wait(&mut m, 3.0, |m, _| m.connected && m.mpos[2] == -5.0));
+        // The tool is at Z -5; the place is lower (Z -20): across at Z -5, then down.
+        m.go_machine([-50.0, -60.0, -20.0], 1500.0);
+        assert!(wait(&mut m, 3.0, |m, _| m.console.iter().any(|l| l.dir == Dir::Tx && l.text == "$J=G90 G21 G53 Z-20.000 F1500")));
+        let sent: Vec<String> = m.console.iter().filter(|l| l.dir == Dir::Tx && l.text.starts_with("$J=")).map(|l| l.text.clone()).collect();
+        assert_eq!(sent, vec!["$J=G90 G21 G53 Z-5.000 F1500", "$J=G90 G21 G53 X-50.000 Y-60.000 F1500", "$J=G90 G21 G53 Z-20.000 F1500"]);
     }
 
     #[test]

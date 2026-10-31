@@ -734,3 +734,21 @@
 733|Lisab valitud kujundite igasse teravasse nurka sälgu, et selle raadiusega ümar freesi sinna ulatuks: dogbone lõikab veidi mõlemat seina, T-bone ainult ühte.
 734|Valikus pole teravaid nurki.
 735|Sälgud lisatud {} kujundile
+736|Masin ei suuda seda teha.
+737|Leia keskpunkt
+738|Andur ripub augus umbes keskel: see puudutab nelja külge, liigub keskele ja teeb sellest X-i ja Y nulli. Tee esmalt Z.
+739|Jahutusvedelik
+740|Udu
+741|Üleujutus
+742|Lülitab udujahutuse sisse (M7)
+743|Lülitab sisse üleujutusjahutuse või tolmuimeja masinal, kus see on nii ühendatud (M8)
+744|Lülitab kogu jahutuse välja (M9)
+745|Ülekirjutused
+746|Etteanne
+747|Kiirliikumised
+748|Tagasi kiirusele, mida programm nõuab
+749|Salvestatud asukohad
+750|Mine kohta X {} Y {} Z {} (masina asukoht), vajadusel kõigepealt üles
+751|Unusta see asukoht
+752|Salvesta siia
+753|Jäta meelde, kus tööriist praegu on

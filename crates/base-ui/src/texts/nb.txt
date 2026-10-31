@@ -734,3 +734,21 @@
 733|Legger til et hakk i hvert skarpe hjørne på de valgte formene, slik at en rund fres med denne radiusen når inn: en dogbone underskjærer begge veggene litt, en T-bone bare én.
 734|Det er ingen skarpe hjørner i utvalget.
 735|Hakk lagt til på {} former
+736|Maskinen kan ikke gjøre dette.
+737|Finn midten
+738|Proben henger i et hull, omtrent i midten: den berører de fire sidene, kjører til midten og gjør den til null for X og Y. Gjør Z først.
+739|Kjølevæske
+740|Tåke
+741|Oversvømmelse
+742|Slår på tåkekjølingen (M7)
+743|Slår på oversvømmelseskjølingen, eller støvsugeren på en maskin som har den koblet slik (M8)
+744|Slår av all kjøling (M9)
+745|Overstyringer
+746|Mating
+747|Hurtigbevegelser
+748|Tilbake til hastigheten programmet ber om
+749|Lagrede posisjoner
+750|Kjør til X {} Y {} Z {} (maskinposisjon), først opp om nødvendig
+751|Glem denne posisjonen
+752|Lagre her
+753|Husk hvor verktøyet er nå

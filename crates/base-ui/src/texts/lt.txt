@@ -734,3 +734,21 @@
 733|Prideda įpjovą kiekvienam pažymėtų formų aštriam kampui, kad apvalus šio spindulio frezas pasiektų: dogbone šiek tiek perpjauna abi sienas, T-bone tik vieną.
 734|Pažymėtame nėra aštrių kampų.
 735|Įpjovos pridėtos prie {} formų
+736|Staklės to negali.
+737|Rasti centrą
+738|Zondas kabo skylėje maždaug viduryje: jis paliečia keturias puses, nuvažiuoja į vidurį ir padaro jį X ir Y nuliu. Pirmiausia nustatykite Z.
+739|Aušinimo skystis
+740|Rūkas
+741|Užliejimas
+742|Įjungia aušinimą rūku (M7)
+743|Įjungia užliejimo aušinimą arba dulkių siurblį staklėse, kuriose jis taip prijungtas (M8)
+744|Išjungia visą aušinimą (M9)
+745|Perrašymai
+746|Pastūma
+747|Greitieji judesiai
+748|Atgal į greitį, kurio prašo programa
+749|Išsaugotos padėtys
+750|Važiuoti į X {} Y {} Z {} (staklių padėtis), jei reikia, pirmiausia aukštyn
+751|Pamiršti šią padėtį
+752|Išsaugoti čia
+753|Įsiminti, kur dabar yra įrankis
