@@ -7,10 +7,11 @@ fn exe_name() -> &'static str {
     if cfg!(windows) { "ffmpeg.exe" } else { "ffmpeg" }
 }
 
-/// The places to look in, in order, for a program whose executable is in `exe_dir`.
-pub fn candidates(exe_dir: &Path) -> Vec<PathBuf> {
+/// The places to look in, in order, for the program `app` (the name of its executable) whose executable is in `exe_dir`. A Linux package
+/// puts it in `/usr/lib/<app>/`, so that programs installed together do not own the same file.
+pub fn candidates(exe_dir: &Path, app: &str) -> Vec<PathBuf> {
     let n = exe_name();
-    vec![exe_dir.join(n), exe_dir.join("ffmpeg").join(n), exe_dir.join("../Resources").join(n), exe_dir.join("../Resources/ffmpeg").join(n), exe_dir.join("../lib/creator-ffmpeg").join(n)]
+    vec![exe_dir.join(n), exe_dir.join("ffmpeg").join(n), exe_dir.join("../Resources").join(n), exe_dir.join("../Resources/ffmpeg").join(n), exe_dir.join("../lib").join(app).join(n)]
 }
 
 fn is_file(p: &Path) -> bool {
@@ -19,8 +20,10 @@ fn is_file(p: &Path) -> bool {
 
 /// The ffmpeg to run: the one that came with the program, else the first in the PATH; `None` when there is none.
 pub fn path() -> Option<PathBuf> {
-    if let Some(dir) = std::env::current_exe().ok().and_then(|e| e.parent().map(Path::to_path_buf)) {
-        if let Some(p) = candidates(&dir).into_iter().find(|p| is_file(p)) {
+    if let Some(exe) = std::env::current_exe().ok() {
+        let app = exe.file_stem().map(|s| s.to_string_lossy().to_string()).unwrap_or_default();
+        let dir = exe.parent().map(Path::to_path_buf).unwrap_or_default();
+        if let Some(p) = candidates(&dir, &app).into_iter().find(|p| is_file(p)) {
             return Some(p);
         }
     }
@@ -40,7 +43,7 @@ mod tests {
 
     #[test]
     fn the_places_start_next_to_the_program_and_the_address_is_one_argument() {
-        let c = candidates(Path::new("/opt/creator"));
+        let c = candidates(Path::new("/opt/creator"), "lightcreator");
         assert_eq!(c[0], Path::new("/opt/creator").join(exe_name()));
         assert!(c.iter().any(|p| p.to_string_lossy().contains("Resources")), "the resources of a macOS app");
         let a = rtsp_args("rtsp://user:pass@192.168.1.5:554/stream1", 10);
@@ -55,9 +58,9 @@ mod tests {
     fn a_missing_ffmpeg_is_none_and_a_file_in_the_search_folder_is_found() {
         let dir = std::env::temp_dir().join(format!("ffm-{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
-        assert!(candidates(&dir).iter().all(|p| !is_file(p)));
+        assert!(candidates(&dir, "x").iter().all(|p| !is_file(p)));
         std::fs::write(dir.join(exe_name()), b"x").unwrap();
-        assert_eq!(candidates(&dir).into_iter().find(|p| is_file(p)), Some(dir.join(exe_name())));
+        assert_eq!(candidates(&dir, "x").into_iter().find(|p| is_file(p)), Some(dir.join(exe_name())));
         std::fs::remove_dir_all(dir).ok();
     }
 }
