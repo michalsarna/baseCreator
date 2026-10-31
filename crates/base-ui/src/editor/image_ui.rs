@@ -370,13 +370,33 @@ pub trait EditorImages: EditorHost {
                         ui.checkbox(&mut d.delete_original, tr("Delete the image afterwards"));
                         ui.label(RichText::new(trf("{} outlines", &[&d.preview.len()])).color(theme::text_dim()));
                         ui.add_space(6.0);
+                        // The same as the scroll wheel and the double click, for a mouse without a wheel: zoom in, zoom out, the whole picture.
+                        ui.horizontal(|ui| {
+                            let zoom_by = |d: &mut TraceDlg, k: f32| {
+                                let z = (d.zoom * k).clamp(1.0, 40.0);
+                                // About the middle of the frame.
+                                d.pan *= z / d.zoom;
+                                d.zoom = z;
+                            };
+                            if crate::widgets::icon_button(ui, "zoom-in", &tr("Zoom in"), true, 26.0) {
+                                zoom_by(&mut d, 1.5);
+                            }
+                            if crate::widgets::icon_button(ui, "zoom-out", &tr("Zoom out"), true, 26.0) {
+                                zoom_by(&mut d, 1.0 / 1.5);
+                            }
+                            if crate::widgets::icon_button(ui, "scan", &tr("Reset view"), true, 26.0) {
+                                d.zoom = 1.0;
+                                d.pan = egui::Vec2::ZERO;
+                            }
+                        });
                         ui.label(RichText::new(tr("Scroll to zoom, drag to move, double click to see the whole picture")).color(theme::text_dim()));
                     });
                 });
             });
             crate::window::footer(ui, "trace_dlg", |ui| {
                 ui.horizontal(|ui| {
-                    accept = ui.button(tr("Trace")).clicked();
+                    // The button that does the work is green.
+                    accept = ui.add(egui::Button::new(RichText::new(tr("Trace")).color(Color32::WHITE).strong()).fill(Color32::from_rgb(0x2e, 0xa0, 0x4f))).clicked();
                     cancel = ui.button(tr("Cancel")).clicked();
                 });
             });
