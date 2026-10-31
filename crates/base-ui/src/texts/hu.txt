@@ -809,3 +809,17 @@
 808|Duplikátumok eltávolítása
 809|Szétválasztás
 810|Smoothieware (nem GRBL)
+811|Háttérkép: {}
+812|A kép nem olvasható: {}
+813|Háttérkép
+814|Kép betöltése fájlból…
+815|A kamera képének használata
+816|A kamera képe, ahogy most van
+817|Átlátszatlanság
+818|Sarkok mozgatása
+819|Illesztés a munkaterülethez
+820|A kép a rajz alatt van: húzza a sarkait az anyag vagy a munkaterület sarkaira. Nem kerül a projektbe mentésre.
+821|Ebben a sorrendben futnak: {}
+822|Minden utófeldolgozó kikapcsolása
+823|A kiválasztott utófeldolgozók a G-kód exportálása… G-kódját módosítják; a gépnek küldött munka nem változik.
+824|Háttérkép…

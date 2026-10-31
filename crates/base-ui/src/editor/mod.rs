@@ -8,6 +8,7 @@ mod host;
 mod image_ui;
 mod prefs;
 mod props;
+mod background_ui;
 mod design_ui;
 mod shape_ops;
 
@@ -17,6 +18,7 @@ pub use commands::EditorCommands;
 pub use context_menu::context_menu;
 pub use host::EditorHost;
 pub use shape_ops::EditorShapeOps;
+pub use background_ui::{Background, EditorBackground};
 pub use design_ui::{CodeKind, DesignCmd, DesignState, EditorDesign};
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
 pub use bars::{control_name, grid_toggles, selection_size, zoom_and_cursor};
@@ -219,6 +221,9 @@ pub struct EditorState {
     pub bone_radius: f64,
     /// The design commands (arrays, text on a path, serial text, codes, nesting, measuring) and what their windows hold.
     pub design: DesignState,
+    /// A picture under the drawing (a photo, a plan, the camera) and its window.
+    pub background: Option<Background>,
+    pub show_background: bool,
     pub join_tol: f64,
     pub show_round: bool,
     pub offset_dist: f64,
@@ -313,6 +318,8 @@ impl EditorState {
             show_bones: false,
             bone_radius: 1.5,
             design: DesignState::default(),
+            background: None,
+            show_background: false,
             join_tol: 0.1,
             show_round: false,
             offset_dist: -1.0,

@@ -809,3 +809,17 @@
 808|Eemalda duplikaadid
 809|Lahuta
 810|Smoothieware (mitte GRBL)
+811|Taustapilt: {}
+812|Pilti ei õnnestunud lugeda: {}
+813|Taustapilt
+814|Laadi pilt failist…
+815|Kasuta kaamera pilti
+816|Kaamera pilt sellisena, nagu see praegu on
+817|Läbipaistmatus
+818|Liiguta nurki
+819|Sobita tööalale
+820|Pilt asub joonise all: lohista selle nurgad materjali või tööala nurkadele. Seda ei salvestata projekti.
+821|Need käivituvad selles järjekorras: {}
+822|Lülita kõik järeltöötlejad välja
+823|Valitud järeltöötlejad muudavad käsu Ekspordi G-kood… G-koodi; masinasse saadetud tööd ei muudeta.
+824|Taustapilt…

@@ -809,3 +809,17 @@
 808|Elimina duplicats
 809|Separa
 810|Smoothieware (no GRBL)
+811|Imatge de fons: {}
+812|No s'ha pogut llegir la imatge: {}
+813|Imatge de fons
+814|Carrega una imatge d'un fitxer…
+815|Fes servir la imatge de la càmera
+816|La imatge de la càmera tal com és ara
+817|Opacitat
+818|Mou les cantonades
+819|Ajusta a l'àrea de treball
+820|La imatge és sota el dibuix: arrossega'n les cantonades fins a les cantonades del material o de l'àrea de treball. No es desa al projecte.
+821|S'executen en aquest ordre: {}
+822|Desactiva tots els postprocessadors
+823|Els postprocessadors triats canvien el G-code d'Exporta G-code…; una feina enviada a la màquina no es canvia.
+824|Imatge de fons…

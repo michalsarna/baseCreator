@@ -396,3 +396,47 @@ fn the_measure_window_reports_the_box_area_and_the_gap_of_two_shapes() {
     assert!(lines.contains("Gap between the boxes: 20.000"), "{lines}");
     assert!(lines.contains("Between the centres: 30.000"), "{lines}");
 }
+
+#[test]
+fn a_background_picture_goes_under_the_drawing_with_its_corners_on_the_work_area_and_can_be_fitted_and_removed() {
+    use base_core::geom::Pt;
+    let ctx = egui::Context::default();
+    let mut h = Host::default();
+    let img = || egui::ColorImage::from_rgba_unmultiplied([4, 2], &[255u8; 32]);
+    h.set_background(&ctx, img(), "plan.png");
+    let (w, hh) = h.work_size();
+    let b = h.ed.background.as_ref().unwrap();
+    assert_eq!((b.name.as_str(), b.size, b.visible, b.edit), ("plan.png", (4, 2), true, false));
+    assert_eq!(b.corners, [Pt::new(0.0, 0.0), Pt::new(w, 0.0), Pt::new(w, hh), Pt::new(0.0, hh)]);
+    // Moved corners are kept for a picture of the same size (a new frame of a camera), and fitted again on request.
+    h.ed.background.as_mut().unwrap().corners[2] = Pt::new(5.0, 6.0);
+    h.set_background(&ctx, img(), "plan2.png");
+    assert_eq!(h.ed.background.as_ref().unwrap().corners[2], Pt::new(5.0, 6.0));
+    h.fit_background();
+    assert_eq!(h.ed.background.as_ref().unwrap().corners[2], Pt::new(w, hh));
+    // It is drawn (with the handles when they can be dragged) and the window opens and closes.
+    h.ed.background.as_mut().unwrap().edit = true;
+    h.ed.show_background = true;
+    for _ in 0..2 {
+        let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+            egui::CentralPanel::default().show(ui, |ui| h.canvas(ui));
+            h.background_window(ui.ctx());
+        });
+        out.textures_delta.clear();
+    }
+    assert!(h.ed.show_background);
+}
+
+#[test]
+fn the_perspective_map_puts_the_middle_of_the_picture_in_the_middle_of_a_skewed_quad() {
+    use base_core::geom::Pt;
+    let square = [Pt::new(0.0, 0.0), Pt::new(10.0, 0.0), Pt::new(10.0, 10.0), Pt::new(0.0, 10.0)];
+    let m = super::background_ui::quad_map(&square, 0.5, 0.25);
+    assert!((m.x - 5.0).abs() < 1e-9 && (m.y - 2.5).abs() < 1e-9, "{m:?}");
+    // Corners go to the corners of any quad.
+    let quad = [Pt::new(1.0, 1.0), Pt::new(9.0, 2.0), Pt::new(8.0, 9.0), Pt::new(0.0, 7.0)];
+    for ((u, v), c) in [((0.0, 0.0), quad[0]), ((1.0, 0.0), quad[1]), ((1.0, 1.0), quad[2]), ((0.0, 1.0), quad[3])] {
+        let p = super::background_ui::quad_map(&quad, u, v);
+        assert!((p.x - c.x).abs() < 1e-9 && (p.y - c.y).abs() < 1e-9);
+    }
+}

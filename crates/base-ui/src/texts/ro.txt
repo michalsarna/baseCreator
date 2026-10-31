@@ -809,3 +809,17 @@
 808|Elimină duplicatele
 809|Separă
 810|Smoothieware (nu GRBL)
+811|Imagine de fundal: {}
+812|Imaginea nu a putut fi citită: {}
+813|Imagine de fundal
+814|Încarcă o imagine dintr-un fișier…
+815|Folosește imaginea camerei
+816|Imaginea camerei așa cum este acum
+817|Opacitate
+818|Mută colțurile
+819|Potrivește zonei de lucru
+820|Imaginea se află sub desen: trageți colțurile ei pe colțurile materialului sau ale zonei de lucru. Nu este salvată în proiect.
+821|Rulează în această ordine: {}
+822|Dezactivează toate postprocesoarele
+823|Postprocesoarele alese modifică G-code-ul din Exportă G-code…; o lucrare trimisă mașinii nu este modificată.
+824|Imagine de fundal…
