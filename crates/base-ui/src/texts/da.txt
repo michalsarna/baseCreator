@@ -844,3 +844,6 @@
 843|Denne kameras stream kræver ffmpeg, som ikke blev fundet ved siden af programmet eller i systemets PATH.
 844|Streamen sluttede: den åbnes igen.
 845|Streamen kunne ikke åbnes (adresse, bruger og adgangskode?): der prøves igen.
+846|Der er opdateringer til plugins
+847|Opdater alle
+848|Senere

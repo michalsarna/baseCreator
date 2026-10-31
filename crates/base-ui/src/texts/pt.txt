@@ -844,3 +844,6 @@
 843|O fluxo desta câmara precisa do ffmpeg, que não foi encontrado junto ao programa nem no PATH do sistema.
 844|O fluxo terminou: é aberto de novo.
 845|Não foi possível abrir o fluxo (endereço, utilizador e palavra-passe?): vai tentar de novo.
+846|Há atualizações de plugins disponíveis
+847|Atualizar tudo
+848|Mais tarde

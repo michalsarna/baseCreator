@@ -844,3 +844,6 @@
 843|Teastaíonn ffmpeg ó shruth an cheamara seo, agus níor aimsíodh in aice an chláir ná i PATH an chórais é.
 844|Tháinig deireadh leis an sruth: osclaítear arís é.
 845|Níorbh fhéidir an sruth a oscailt (seoladh, úsáideoir agus focal faire?): déantar iarracht arís.
+846|Tá nuashonruithe breiseán ar fáil
+847|Nuashonraigh uile
+848|Níos déanaí

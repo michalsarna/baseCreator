@@ -844,3 +844,6 @@
 843|El flux d'aquesta càmera necessita ffmpeg, i no s'ha trobat al costat del programa ni al PATH del sistema.
 844|El flux ha acabat: s'obre de nou.
 845|No s'ha pogut obrir el flux (adreça, usuari i contrasenya?): es torna a provar.
+846|Hi ha actualitzacions dels connectors
+847|Actualitza-ho tot
+848|Més tard

@@ -353,13 +353,24 @@ pub struct Broken {
     pub reason: String,
 }
 
-#[derive(Default, Serialize, Deserialize)]
+#[derive(Serialize, Deserialize)]
 struct State {
     #[serde(default)]
     disabled: Vec<String>,
-    /// Look for newer plugins in the official list at the start of a program (off unless the person switches it on).
-    #[serde(default)]
-    auto_check: bool,
+    /// Look for newer plugins in the official list at the start of a program (on unless the person switches it off). The field
+    /// was `auto_check`, off by default, in older versions; it is not read any more.
+    #[serde(default = "yes")]
+    check_updates: bool,
+}
+
+fn yes() -> bool {
+    true
+}
+
+impl Default for State {
+    fn default() -> State {
+        State { disabled: vec![], check_updates: true }
+    }
 }
 
 /// The plugins found in the folder.
@@ -381,7 +392,7 @@ impl Registry {
     pub fn load(dir: impl Into<PathBuf>) -> Registry {
         let dir = dir.into();
         let state: State = std::fs::read_to_string(dir.join("state.json")).ok().and_then(|s| serde_json::from_str(&s).ok()).unwrap_or_default();
-        let mut r = Registry { dir: dir.clone(), auto_check: state.auto_check, plugins: vec![], broken: vec![] };
+        let mut r = Registry { dir: dir.clone(), auto_check: state.check_updates, plugins: vec![], broken: vec![] };
         let Ok(rd) = std::fs::read_dir(&dir) else { return r };
         let mut folders: Vec<PathBuf> = rd.flatten().map(|e| e.path()).filter(|p| p.is_dir()).collect();
         folders.sort();
@@ -411,7 +422,7 @@ impl Registry {
     }
 
     fn save_state(&self) -> Result<(), String> {
-        let state = State { disabled: self.plugins.iter().filter(|p| !p.enabled).map(|p| p.manifest.id.clone()).collect(), auto_check: self.auto_check };
+        let state = State { disabled: self.plugins.iter().filter(|p| !p.enabled).map(|p| p.manifest.id.clone()).collect(), check_updates: self.auto_check };
         std::fs::create_dir_all(&self.dir).map_err(|e| e.to_string())?;
         std::fs::write(self.dir.join("state.json"), serde_json::to_string_pretty(&state).map_err(|e| e.to_string())?).map_err(|e| e.to_string())
     }

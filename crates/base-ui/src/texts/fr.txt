@@ -844,3 +844,6 @@
 843|Le flux de cette caméra nécessite ffmpeg, introuvable à côté du programme et dans le PATH du système.
 844|Le flux s'est terminé : il est rouvert.
 845|Impossible d'ouvrir le flux (adresse, utilisateur et mot de passe ?) : nouvel essai.
+846|Des mises à jour de plugins sont disponibles
+847|Tout mettre à jour
+848|Plus tard

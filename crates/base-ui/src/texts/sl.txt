@@ -844,3 +844,6 @@
 843|Tok te kamere potrebuje ffmpeg, ki ni bil najden ob programu ali v PATH sistema.
 844|Tok se je končal: odpre se znova.
 845|Toka ni bilo mogoče odpreti (naslov, uporabnik in geslo?): poskusi se znova.
+846|Na voljo so posodobitve vtičnikov
+847|Posodobi vse
+848|Pozneje

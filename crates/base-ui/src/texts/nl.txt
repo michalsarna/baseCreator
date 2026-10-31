@@ -844,3 +844,6 @@
 843|De stream van deze camera heeft ffmpeg nodig, en dat is niet naast het programma of in het PATH van het systeem gevonden.
 844|De stream is afgelopen: hij wordt opnieuw geopend.
 845|De stream kon niet worden geopend (adres, gebruiker en wachtwoord?): er wordt opnieuw geprobeerd.
+846|Er zijn updates voor plug-ins beschikbaar
+847|Alles bijwerken
+848|Later

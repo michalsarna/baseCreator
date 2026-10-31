@@ -844,3 +844,6 @@
 843|Strömmen från den här kameran kräver ffmpeg, som inte hittades bredvid programmet eller i systemets PATH.
 844|Strömmen tog slut: den öppnas igen.
 845|Strömmen kunde inte öppnas (adress, användare och lösenord?): försöker igen.
+846|Det finns uppdateringar för insticksmoduler
+847|Uppdatera alla
+848|Senare

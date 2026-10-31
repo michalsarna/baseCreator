@@ -39,6 +39,10 @@ struct NetState {
     auto_done: bool,
     /// The list was asked for by the person (not by the check at the start).
     manual: bool,
+    /// The window that says some plugins are out of date is open (the check at the start found updates).
+    popup: bool,
+    /// The plugins that "Update all" still has to download, one after another.
+    queue: Vec<Entry>,
 }
 
 fn get(url: &str, max: u64) -> Result<Vec<u8>, String> {
@@ -192,6 +196,7 @@ impl PluginsUi {
                                 let n = idx.updates(&self.registry).len();
                                 if n > 0 {
                                     said = Some(trf("Plugin updates available: {}", &[&n]));
+                                    self.net.popup = true;
                                 }
                             }
                             self.net.index = Some(idx);
@@ -221,7 +226,17 @@ impl PluginsUi {
                 }
             }
         }
+        // "Update all": the next plugin of the queue, when the one before it is done.
+        if self.net.busy.is_none() && !self.net.queue.is_empty() {
+            let e = self.net.queue.remove(0);
+            self.fetch_zip(ctx, &e);
+        }
         said
+    }
+
+    /// The plugins that have a newer version in the official list (empty until the list is loaded).
+    fn outdated(&self) -> Vec<Entry> {
+        self.net.index.as_ref().map(|i| i.updates(&self.registry).into_iter().cloned().collect()).unwrap_or_default()
     }
 
     /// The name of the generator chosen in the generator window.
@@ -386,6 +401,7 @@ fn provides(m: &base_core::plugins::Manifest) -> Vec<String> {
 /// The window with the installed plugins. Returns a line for the status bar when something was installed or removed.
 pub fn window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<String> {
     let mut say = st.poll(ctx);
+    update_popup(ctx, st);
     if !st.open {
         return say;
     }
@@ -528,6 +544,53 @@ pub fn window(ctx: &egui::Context, st: &mut PluginsUi) -> Option<String> {
         st.reload();
     }
     say
+}
+
+/// The window that tells about plugins that are out of date (shown once after the check at the start found some).
+fn update_popup(ctx: &egui::Context, st: &mut PluginsUi) {
+    if !st.net.popup {
+        return;
+    }
+    let list = st.outdated();
+    if list.is_empty() && st.net.queue.is_empty() && st.net.busy.is_none() {
+        st.net.popup = false;
+        return;
+    }
+    let mut open = true;
+    let (mut all, mut show, mut later) = (false, false, false);
+    let working = st.net.busy.is_some() || !st.net.queue.is_empty();
+    popup(ctx, "plugin_updates_window", &tr("Plugin updates are available"), [460.0, 100.0 + 22.0 * list.len().min(8) as f32], &mut open, |ui| {
+        for e in &list {
+            let installed = st.registry.find(&e.id).map(|p| p.manifest.version.clone()).unwrap_or_default();
+            ui.label(format!("{}: {}", e.name, trf("Update available: {} → {}", &[&installed, &e.version])));
+        }
+        ui.add_space(6.0);
+        ui.horizontal(|ui| {
+            if ui.add_enabled(!working && !list.is_empty(), egui::Button::new(tr("Update all"))).clicked() {
+                all = true;
+            }
+            if ui.button(tr("Plugins")).clicked() {
+                show = true;
+            }
+            if ui.button(tr("Later")).clicked() {
+                later = true;
+            }
+        });
+    });
+    if later {
+        open = false;
+    }
+    if all {
+        st.net.queue = list;
+    }
+    if show {
+        st.open = true;
+        st.tab = Tab::Official;
+        open = false;
+    }
+    if !open {
+        st.net.popup = false;
+    }
 }
 
 fn official_tab(ui: &mut egui::Ui, st: &mut PluginsUi, download: &mut Option<Entry>, check: &mut bool, auto: &mut bool) {
@@ -1431,6 +1494,7 @@ mod tests {
         // `gcode-tools` is installed in 1.0.0: a newer one is an update; the other two are new or too new for the program.
         st.net.index = Some(Index { format: 1, updated: String::new(), plugins: vec![mk("gcode-tools", "1.1.0", ""), mk("fresh", "1.0.0", ""), mk("future", "1.0.0", "99.0.0")] });
         assert_eq!(st.net.index.as_ref().unwrap().updates(&st.registry).len(), 1);
+        assert_eq!(st.outdated().iter().map(|e| e.id.as_str()).collect::<Vec<_>>(), ["gcode-tools"], "the window lists only the plugins that can be updated");
         st.open = true;
         st.tab = Tab::Official;
         let ctx = egui::Context::default();
