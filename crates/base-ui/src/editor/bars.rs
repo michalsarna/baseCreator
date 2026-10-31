@@ -18,13 +18,17 @@ pub fn tool_button<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, t: Tool, tip: &'
     }
     icons::paint(ui, rect.shrink(size * 0.19), icons::tool_icon(t), if on { Color32::WHITE } else { theme::text() });
     if resp.on_hover_text(tr(tip)).clicked() {
-        let ed = h.ed_mut();
-        ed.tool = t;
-        ed.space_prev = None;
-        ed.pen_pts.clear();
-        ed.show_shape_popup = matches!(t, Tool::Polygon | Tool::Spiral);
+        select_tool(h.ed_mut(), t);
     }
     ui.add_space(2.0);
+}
+
+/// Make `t` the tool in use (the palette and the *Insert* menu both do it this way).
+pub fn select_tool(ed: &mut super::EditorState, t: Tool) {
+    ed.tool = t;
+    ed.space_prev = None;
+    ed.pen_pts.clear();
+    ed.show_shape_popup = matches!(t, Tool::Polygon | Tool::Spiral);
 }
 
 /// The side of a button of the palette: 36 points, or smaller (down to 20) when the window is too low for the whole palette (a
@@ -60,7 +64,7 @@ pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option
             }
             // Tools that insert new objects.
             separator(ui);
-            for (t, tip, _) in Tool::ALL.into_iter().filter(|t| !t.0.is_edit() && !t.0.is_nav()) {
+            for (t, tip, _) in Tool::ALL.into_iter().filter(|t| t.0.is_insert()) {
                 tool_button(h, ui, t, tip);
             }
             // The application's operations on the selected objects.
