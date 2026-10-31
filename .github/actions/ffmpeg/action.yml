@@ -1,0 +1,34 @@
+name: ffmpeg for the programs
+description: Builds the small LGPL ffmpeg (RTSP in, JPEG pictures out) for the runner, or for Windows (cross-compiled on Linux) with target windows.
+inputs:
+  target:
+    description: "windows to cross-compile for Windows (a Linux runner with mingw-w64); empty for the runner itself"
+    required: false
+    default: ""
+outputs:
+  dir:
+    description: The folder with ffmpeg, COPYING.LGPLv2.1 and FFMPEG-NOTICE.txt
+    value: ${{ steps.build.outputs.dir }}
+runs:
+  using: composite
+  steps:
+    - name: Build tools for the Windows build
+      if: inputs.target == 'windows'
+      shell: bash
+      run: sudo apt-get update && sudo apt-get install -y mingw-w64 make xz-utils
+    - id: build
+      shell: bash
+      env:
+        TARGET: ${{ inputs.target }}
+        ACTION_PATH: ${{ github.action_path }}
+      run: |
+        export OUT="${RUNNER_TEMP}/ffmpeg-out"
+        bash "${ACTION_PATH}/build.sh"
+        echo "dir=$OUT" >> "$GITHUB_OUTPUT"
+    - name: The program starts and has the decoders
+      if: inputs.target != 'windows'
+      shell: bash
+      run: |
+        "${RUNNER_TEMP}/ffmpeg-out/ffmpeg" -hide_banner -decoders | grep -q h264
+        "${RUNNER_TEMP}/ffmpeg-out/ffmpeg" -hide_banner -demuxers | grep -q rtsp
+        "${RUNNER_TEMP}/ffmpeg-out/ffmpeg" -hide_banner -encoders | grep -q mjpeg
