@@ -209,6 +209,7 @@ pub trait EditorImages: EditorHost {
         self.trace_dialog(ctx);
         super::EditorShapeOps::shape_op_windows(self, ctx);
         super::EditorDesign::design_windows(self, ctx);
+        super::EditorBackground::background_window(self, ctx);
     }
 
     fn import_dialog(&mut self, ctx: &egui::Context) {

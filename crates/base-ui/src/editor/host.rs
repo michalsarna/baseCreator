@@ -68,6 +68,11 @@ pub trait EditorHost: Sized {
         false
     }
 
+    /// The picture of a camera, to put under the drawing (with its name); `None` where there is no camera.
+    fn background_camera_image(&self) -> Option<(egui::ColorImage, String)> {
+        None
+    }
+
     /// Drawn after the work area and its grid: markings of the machine, zones, home, the live position.
     fn paint_work_area(&mut self, _v: &CanvasView) {}
     /// Drawn under the shapes (a camera picture).

@@ -809,3 +809,17 @@
 808|Pašalinti dublikatus
 809|Išskaidyti
 810|Smoothieware (ne GRBL)
+811|Fono paveikslėlis: {}
+812|Nepavyko perskaityti paveikslėlio: {}
+813|Fono paveikslėlis
+814|Įkelti paveikslėlį iš failo…
+815|Naudoti kameros vaizdą
+816|Kameros vaizdas toks, koks jis yra dabar
+817|Nepermatomumas
+818|Judinti kampus
+819|Pritaikyti darbo sričiai
+820|Paveikslėlis yra po brėžiniu: nutempkite jo kampus ant medžiagos arba darbo srities kampų. Jis neišsaugomas projekte.
+821|Jie vykdomi šia tvarka: {}
+822|Išjungti visus postprocesorius
+823|Pasirinkti postprocesoriai keičia G-kodą iš Eksportuoti G-kodą…; į stakles išsiųsta užduotis nekeičiama.
+824|Fono paveikslėlis…

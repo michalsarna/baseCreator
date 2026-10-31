@@ -809,3 +809,17 @@
 808|Dubbele vormen verwijderen
 809|Splitsen
 810|Smoothieware (geen GRBL)
+811|Achtergrondafbeelding: {}
+812|De afbeelding kon niet worden gelezen: {}
+813|Achtergrondafbeelding
+814|Afbeelding uit een bestand laden…
+815|Camerabeeld gebruiken
+816|Het camerabeeld zoals het nu is
+817|Dekking
+818|Hoeken verplaatsen
+819|Aanpassen aan het werkgebied
+820|De afbeelding ligt onder de tekening: sleep de hoeken naar de hoeken van het materiaal of het werkgebied. Hij wordt niet in het project opgeslagen.
+821|Ze worden in deze volgorde uitgevoerd: {}
+822|Alle postprocessors uitschakelen
+823|De gekozen postprocessors wijzigen de G-code van G-code exporteren…; een naar de machine gestuurde taak wordt niet gewijzigd.
+824|Achtergrondafbeelding…

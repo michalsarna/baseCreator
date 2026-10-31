@@ -809,3 +809,17 @@
 808|Bain dúbailtí
 809|Bris óna chéile
 810|Smoothieware (ní GRBL)
+811|Pictiúr cúlra: {}
+812|Níorbh fhéidir an pictiúr a léamh: {}
+813|Pictiúr cúlra
+814|Lódáil pictiúr ó chomhad…
+815|Úsáid pictiúr an cheamara
+816|Pictiúr an cheamara mar atá sé anois
+817|Teimhneacht
+818|Bog na coirnéil
+819|Oiriúnaigh don limistéar oibre
+820|Tá an pictiúr faoin tarraingt: tarraing a choirnéil ar choirnéil an ábhair nó an limistéir oibre. Ní shábháiltear sa tionscadal é.
+821|Rithfidh siad san ord seo: {}
+822|Cuir gach iarphróiseálaí as
+823|Athraíonn na hiarphróiseálaithe roghnaithe G-code Easpórtáil G-code…; ní athraítear jab a seoltar chuig an meaisín.
+824|Pictiúr cúlra…

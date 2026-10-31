@@ -809,3 +809,17 @@
 808|Odstrani dvojnike
 809|Razdeli
 810|Smoothieware (ni GRBL)
+811|Slika v ozadju: {}
+812|Slike ni bilo mogoče prebrati: {}
+813|Slika v ozadju
+814|Naloži sliko iz datoteke…
+815|Uporabi sliko kamere
+816|Slika kamere, kakršna je zdaj
+817|Neprosojnost
+818|Premikaj vogale
+819|Prilagodi delovnemu območju
+820|Slika leži pod risbo: povlecite njene vogale na vogale materiala ali delovnega območja. V projektu se ne shrani.
+821|Izvajajo se v tem vrstnem redu: {}
+822|Izklopi vse postprocesorje
+823|Izbrani postprocesorji spremenijo G-kodo iz Izvozi G-kodo…; opravilo, poslano stroju, se ne spremeni.
+824|Slika v ozadju…

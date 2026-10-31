@@ -809,3 +809,17 @@
 808|Supprimer les doublons
 809|Séparer
 810|Smoothieware (pas GRBL)
+811|Image de fond : {}
+812|Impossible de lire l'image : {}
+813|Image de fond
+814|Charger une image depuis un fichier…
+815|Utiliser l'image de la caméra
+816|L'image de la caméra telle qu'elle est maintenant
+817|Opacité
+818|Déplacer les coins
+819|Ajuster à la zone de travail
+820|L'image est sous le dessin : faites glisser ses coins sur les coins du matériau ou de la zone de travail. Elle n'est pas enregistrée dans le projet.
+821|Ils s'exécutent dans cet ordre : {}
+822|Désactiver tous les postprocesseurs
+823|Les postprocesseurs choisis modifient le G-code de Exporter le G-code… ; un travail envoyé à la machine n'est pas modifié.
+824|Image de fond…

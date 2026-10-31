@@ -809,3 +809,17 @@
 808|Odstrániť duplicity
 809|Rozdeliť
 810|Smoothieware (nie je GRBL)
+811|Obrázok na pozadí: {}
+812|Obrázok sa nepodarilo načítať: {}
+813|Obrázok na pozadí
+814|Načítať obrázok zo súboru…
+815|Použiť obraz z kamery
+816|Obraz z kamery, aký je práve teraz
+817|Krytie
+818|Posúvať rohy
+819|Prispôsobiť pracovnej oblasti
+820|Obrázok leží pod kresbou: presuňte jeho rohy na rohy materiálu alebo pracovnej oblasti. V projekte sa neukladá.
+821|Spúšťajú sa v tomto poradí: {}
+822|Vypnúť všetky postprocesory
+823|Vybrané postprocesory menia G-code z Exportovať G-code…; úloha poslaná do stroja sa nemení.
+824|Obrázok na pozadí…

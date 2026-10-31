@@ -809,3 +809,17 @@
 808|Neħħi d-duplikati
 809|Aqsam
 810|Smoothieware (mhux GRBL)
+811|Stampa fl-isfond: {}
+812|Ma setgħetx tinqara l-istampa: {}
+813|Stampa fl-isfond
+814|Tella' stampa minn fajl…
+815|Uża l-istampa tal-kamera
+816|L-istampa tal-kamera kif inhi issa
+817|Opaċità
+818|Mexxi l-kantunieri
+819|Adatta għaż-żona tax-xogħol
+820|L-istampa tinsab taħt id-disinn: ġorr il-kantunieri tagħha fuq il-kantunieri tal-materjal jew taż-żona tax-xogħol. Ma tinħażinx fil-proġett.
+821|Jaħdmu f'dan l-ordni: {}
+822|Itfi l-postprocessors kollha
+823|Il-postprocessors magħżula jibdlu l-G-code ta' Esporta G-code…; xogħol mibgħut lill-magna ma jinbidilx.
+824|Stampa fl-isfond…
