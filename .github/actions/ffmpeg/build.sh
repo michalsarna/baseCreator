@@ -36,7 +36,7 @@ fi
 
 ./configure "${FLAGS[@]}" > "$WORK/configure.log" 2>&1 || { tail -40 "$WORK/configure.log"; exit 1; }
 grep -q "License: LGPL" "$WORK/configure.log" || { echo "the build is not LGPL"; exit 1; }
-make -j"$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 2)" ffmpeg > "$WORK/make.log" 2>&1 || { tail -40 "$WORK/make.log"; exit 1; }
+make -j"$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 2)" "$EXE" > "$WORK/make.log" 2>&1 || { tail -40 "$WORK/make.log"; exit 1; }
 
 cp "$EXE" "$OUT/$EXE"
 cp COPYING.LGPLv2.1 "$OUT/COPYING.LGPLv2.1"
