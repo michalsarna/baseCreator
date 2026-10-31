@@ -844,3 +844,6 @@
 843|Straumur þessarar myndavélar þarf ffmpeg, sem fannst hvorki við hlið forritsins né í PATH kerfisins.
 844|Straumnum lauk: hann er opnaður aftur.
 845|Ekki tókst að opna strauminn (heimilisfang, notandi og lykilorð?): reynt er aftur.
+846|Uppfærslur á viðbótum eru tiltækar
+847|Uppfæra allt
+848|Seinna

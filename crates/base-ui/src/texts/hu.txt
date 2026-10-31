@@ -844,3 +844,6 @@
 843|A kamera adatfolyamához ffmpeg kell, amely nem található a program mellett és a rendszer PATH-jában sem.
 844|Az adatfolyam véget ért: újra megnyitjuk.
 845|Az adatfolyam nem nyitható meg (cím, felhasználó és jelszó?): újra próbáljuk.
+846|Bővítményfrissítések érhetők el
+847|Összes frissítése
+848|Később

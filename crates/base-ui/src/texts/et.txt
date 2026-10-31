@@ -844,3 +844,6 @@
 843|Selle kaamera voog vajab ffmpegi, mida ei leitud programmi kõrvalt ega süsteemi PATH-ist.
 844|Voog lõppes: see avatakse uuesti.
 845|Voogu ei õnnestunud avada (aadress, kasutaja ja parool?): proovitakse uuesti.
+846|Pistikprogrammidele on uuendusi
+847|Uuenda kõik
+848|Hiljem

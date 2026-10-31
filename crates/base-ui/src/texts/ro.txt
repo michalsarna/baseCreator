@@ -844,3 +844,6 @@
 843|Fluxul acestei camere necesită ffmpeg, care nu a fost găsit lângă program sau în PATH-ul sistemului.
 844|Fluxul s-a terminat: se deschide din nou.
 845|Fluxul nu a putut fi deschis (adresă, utilizator și parolă?): se încearcă din nou.
+846|Sunt disponibile actualizări pentru pluginuri
+847|Actualizează tot
+848|Mai târziu

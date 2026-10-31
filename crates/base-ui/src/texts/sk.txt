@@ -844,3 +844,6 @@
 843|Stream tejto kamery potrebuje ffmpeg, ktorý sa nenašiel vedľa programu ani v PATH systému.
 844|Stream skončil: otvorí sa znova.
 845|Stream sa nepodarilo otvoriť (adresa, používateľ a heslo?): skúsi sa znova.
+846|Sú dostupné aktualizácie doplnkov
+847|Aktualizovať všetko
+848|Neskôr

@@ -844,3 +844,6 @@
 843|Šios kameros srautui reikia ffmpeg, kurio nerasta šalia programos ar sistemos PATH.
 844|Srautas baigėsi: jis atidaromas iš naujo.
 845|Nepavyko atidaryti srauto (adresas, naudotojas ir slaptažodis?): bandoma iš naujo.
+846|Yra papildinių naujinimų
+847|Atnaujinti viską
+848|Vėliau

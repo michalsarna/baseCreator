@@ -259,7 +259,9 @@ fn a_plugin_of_the_official_list_is_installed_and_updated() {
     std::fs::write(&tmp, new_zip).unwrap();
     assert!(r.install_zip(&tmp).unwrap_err().contains("baseCreator 99.0.0"));
     // The switch for the check at the start is remembered by all programs.
-    assert!(!r.auto_check());
+    assert!(r.auto_check(), "the check is on until the person switches it off");
+    r.set_auto_check(false).unwrap();
+    assert!(!Registry::load(dir.join("plugins")).auto_check());
     r.set_auto_check(true).unwrap();
     assert!(Registry::load(dir.join("plugins")).auto_check());
     std::fs::remove_dir_all(dir).ok();

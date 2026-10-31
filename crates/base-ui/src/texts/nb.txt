@@ -844,3 +844,6 @@
 843|Strømmen fra dette kameraet krever ffmpeg, som ikke ble funnet ved siden av programmet eller i systemets PATH.
 844|Strømmen tok slutt: den åpnes igjen.
 845|Strømmen kunne ikke åpnes (adresse, bruker og passord?): prøver igjen.
+846|Det finnes oppdateringer for programtillegg
+847|Oppdater alle
+848|Senere

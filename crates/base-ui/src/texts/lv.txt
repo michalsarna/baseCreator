@@ -844,3 +844,6 @@
 843|Šīs kameras straume prasa ffmpeg, kas netika atrasts blakus programmai vai sistēmas PATH.
 844|Straume beidzās: tā tiek atvērta vēlreiz.
 845|Straumi neizdevās atvērt (adrese, lietotājs un parole?): mēģina vēlreiz.
+846|Ir pieejami spraudņu atjauninājumi
+847|Atjaunināt visu
+848|Vēlāk

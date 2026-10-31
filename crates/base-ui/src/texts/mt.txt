@@ -844,3 +844,6 @@
 843|L-istream ta' din il-kamera jeħtieġ ffmpeg, li ma nstabx maġenb il-programm jew fil-PATH tas-sistema.
 844|L-istream intemm: jinfetaħ mill-ġdid.
 845|L-istream ma setax jinfetaħ (indirizz, utent u password?): qed jiġi pprovat mill-ġdid.
+846|Hemm aġġornamenti tal-plug-ins disponibbli
+847|Aġġorna kollox
+848|Aktar tard
