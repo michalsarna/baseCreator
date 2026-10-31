@@ -752,3 +752,59 @@
 751|Nsa din il-pożizzjoni
 752|Issejvja hawn
 753|Ftakar fejn hi l-għodda issa
+754|Agħżel il-forom li għandhom jiġu kkupjati (jsiru massimu ta' 2000 kopja).
+755|Saru {} kopji
+756|Agħżel l-ewwel il-forom u l-aħħar il-passaġġ (jew il-forma tat-tqassir).
+757|It-test issa jsegwi l-passaġġ (huma kontorni, mhux test aktar).
+758|M'hemmx duplikati.
+759|Tneħħew {} duplikati
+760|M'hemm xejn x'tifred: kull forma għandha kontorn wieħed.
+761|Maqsum f'{} forom
+762|Agħżel xi ħaġa l-ewwel.
+763|Issimplifikat: {} punti saru {}
+764|M'hemm xejn x'jsir: l-ebda numri u l-ebda ringieli.
+765|Saru {} testi
+766|It-test ma jidħolx f'kodiċi QR.
+767|Barcode Code 39 għandu biss ittri kbar, ċifri u - . $ / + % u spazji.
+768|Il-forom ma jidħlux fiż-żona.
+769|Ġew imqiegħda {} forom
+770|Firxa tal-griglja…
+771|Firxa ċirkolari…
+772|Ikkopja tul passaġġ…
+773|Test fuq passaġġ…
+774|Qassar b'forma…
+775|Issimplifika…
+776|Test serjali…
+777|Barcode / kodiċi QR…
+778|Poġġi l-forom (nesting)…
+779|Kejjel…
+780|Kolonni
+781|Ringieli
+782|Distanza tal-kolonni
+783|Distanza tar-ringieli
+784|Postijiet
+785|Angolu totali
+786|Dawwar il-kopji
+787|Bidu
+788|Żomm il-ġewwa tal-forma
+789|Test
+790|{n} huwa n-numru; b'fajl CSV {1}, {2}… huma l-kolonni tiegħu
+791|L-ewwel numru
+792|Pass
+793|Ċifri
+794|Kopji
+795|Aqra fajl CSV…
+796|{} ringieli mill-fajl
+797|Tip
+798|Wisa' tal-bar
+799|Wisa' taż-żona
+800|Għoli taż-żona
+801|Ħalli d-dawran
+802|Il-forom jinġabru skont il-kaxxi tagħhom f'ringieli mill-kantuniera tal-paġna.
+803|Wisa' {}  Għoli {}
+804|Minn X {} Y {}
+805|Erja {}  Tul {}
+806|Bejn iċ-ċentri: {} (dX {}, dY {})
+807|Distanza bejn il-kaxxi: {}
+808|Neħħi d-duplikati
+809|Aqsam

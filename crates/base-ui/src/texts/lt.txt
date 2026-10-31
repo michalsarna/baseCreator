@@ -752,3 +752,59 @@
 751|Pamiršti šią padėtį
 752|Išsaugoti čia
 753|Įsiminti, kur dabar yra įrankis
+754|Pasirinkite kopijuojamas formas (sukuriama daugiausia 2000 kopijų).
+755|Sukurta kopijų: {}
+756|Pirmiausia pasirinkite formas, o paskutinį – kelią (arba apkarpymo formą).
+757|Tekstas dabar seka keliu (tai kontūrai, nebe tekstas).
+758|Dublikatų nėra.
+759|Pašalinta dublikatų: {}
+760|Nėra ką išskaidyti: kiekviena forma turi vieną kontūrą.
+761|Išskaidyta į {} formų
+762|Pirmiausia ką nors pasirinkite.
+763|Supaprastinta: {} taškų tapo {}
+764|Nėra ką kurti: nėra nei skaičių, nei eilučių.
+765|Sukurta tekstų: {}
+766|Tekstas netelpa į QR kodą.
+767|Code 39 brūkšninis kodas turi tik didžiąsias raides, skaitmenis ir - . $ / + % bei tarpus.
+768|Formos netelpa į plotą.
+769|Išdėstyta formų: {}
+770|Tinklelio masyvas…
+771|Apskritas masyvas…
+772|Kopijuoti išilgai kelio…
+773|Tekstas ant kelio…
+774|Apkarpyti forma…
+775|Supaprastinti…
+776|Serijinis tekstas…
+777|Brūkšninis kodas / QR kodas…
+778|Išdėstyti formas (nesting)…
+779|Matuoti…
+780|Stulpeliai
+781|Eilutės
+782|Stulpelių atstumas
+783|Eilučių atstumas
+784|Vietos
+785|Bendras kampas
+786|Sukti kopijas
+787|Pradžia
+788|Palikti formos vidų
+789|Tekstas
+790|{n} yra numeris; su CSV failu {1}, {2}… yra jo stulpeliai
+791|Pirmas skaičius
+792|Žingsnis
+793|Skaitmenys
+794|Kopijos
+795|Nuskaityti CSV failą…
+796|{} eilučių iš failo
+797|Tipas
+798|Brūkšnio plotis
+799|Ploto plotis
+800|Ploto aukštis
+801|Leisti sukti
+802|Formos išdėstomos pagal jų rėmelius eilėmis nuo puslapio kampo.
+803|Plotis {}  Aukštis {}
+804|Nuo X {} Y {}
+805|Plotas {}  Ilgis {}
+806|Tarp centrų: {} (dX {}, dY {})
+807|Tarpas tarp rėmelių: {}
+808|Pašalinti dublikatus
+809|Išskaidyti

@@ -752,3 +752,59 @@
 751|Uită această poziție
 752|Salvează aici
 753|Ține minte unde este acum unealta
+754|Selectați formele de copiat (se fac cel mult 2000 de copii).
+755|S-au făcut {} copii
+756|Selectați mai întâi formele și la sfârșit traseul (sau forma de tăiere).
+757|Textul urmează acum traseul (sunt contururi, nu mai este text).
+758|Nu există duplicate.
+759|S-au eliminat {} duplicate
+760|Nimic de separat: fiecare formă are un singur contur.
+761|Separat în {} forme
+762|Selectați mai întâi ceva.
+763|Simplificat: {} puncte au devenit {}
+764|Nimic de făcut: nici numere, nici rânduri.
+765|S-au făcut {} texte
+766|Textul nu încape într-un cod QR.
+767|Un cod de bare Code 39 are doar majuscule, cifre și - . $ / + % și spații.
+768|Formele nu încap în zonă.
+769|S-au aranjat {} forme
+770|Matrice în grilă…
+771|Matrice circulară…
+772|Copiază de-a lungul traseului…
+773|Text pe traseu…
+774|Taie cu o formă…
+775|Simplifică…
+776|Text serial…
+777|Cod de bare / cod QR…
+778|Aranjează formele (nesting)…
+779|Măsoară…
+780|Coloane
+781|Rânduri
+782|Distanța coloanelor
+783|Distanța rândurilor
+784|Locuri
+785|Unghi total
+786|Rotește copiile
+787|Început
+788|Păstrează interiorul formei
+789|Text
+790|{n} este numărul; cu un fișier CSV {1}, {2}… sunt coloanele lui
+791|Primul număr
+792|Pas
+793|Cifre
+794|Copii
+795|Citește un fișier CSV…
+796|{} rânduri din fișier
+797|Tip
+798|Lățimea barei
+799|Lățimea zonei
+800|Înălțimea zonei
+801|Permite rotirea
+802|Formele sunt aranjate după casetele lor în rânduri de la colțul paginii.
+803|Lățime {}  Înălțime {}
+804|De la X {} Y {}
+805|Arie {}  Lungime {}
+806|Între centre: {} (dX {}, dY {})
+807|Distanța dintre casete: {}
+808|Elimină duplicatele
+809|Separă

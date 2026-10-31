@@ -752,3 +752,59 @@
 751|Esquecer esta posição
 752|Guardar aqui
 753|Lembrar onde a ferramenta está agora
+754|Selecione as formas a copiar (são feitas no máximo 2000 cópias).
+755|{} cópias feitas
+756|Selecione primeiro as formas e por último o caminho (ou a forma de corte).
+757|O texto segue agora o caminho (são contornos, já não é texto).
+758|Não há duplicados.
+759|{} duplicados removidos
+760|Nada a separar: cada forma tem um só contorno.
+761|Separado em {} formas
+762|Selecione primeiro alguma coisa.
+763|Simplificado: {} pontos passaram a {}
+764|Nada a fazer: sem números nem linhas.
+765|{} textos feitos
+766|O texto não cabe num código QR.
+767|Um código de barras Code 39 só tem maiúsculas, dígitos e - . $ / + % e espaços.
+768|As formas não cabem na área.
+769|{} formas encaixadas
+770|Matriz em grelha…
+771|Matriz circular…
+772|Copiar ao longo do caminho…
+773|Texto em caminho…
+774|Cortar com uma forma…
+775|Simplificar…
+776|Texto em série…
+777|Código de barras / QR…
+778|Encaixar formas…
+779|Medir…
+780|Colunas
+781|Linhas
+782|Distância das colunas
+783|Distância das linhas
+784|Posições
+785|Ângulo total
+786|Rodar as cópias
+787|Início
+788|Manter o interior da forma
+789|Texto
+790|{n} é o número; com um ficheiro CSV {1}, {2}… são as suas colunas
+791|Primeiro número
+792|Passo
+793|Dígitos
+794|Cópias
+795|Ler um ficheiro CSV…
+796|{} linhas do ficheiro
+797|Tipo
+798|Largura da barra
+799|Largura da área
+800|Altura da área
+801|Permitir rodar
+802|As formas são dispostas pelas suas caixas em filas a partir do canto da página.
+803|Largura {}  Altura {}
+804|De X {} Y {}
+805|Área {}  Comprimento {}
+806|Entre os centros: {} (dX {}, dY {})
+807|Distância entre as caixas: {}
+808|Remover duplicados
+809|Separar

@@ -752,3 +752,59 @@
 751|Oblida aquesta posició
 752|Desa aquí
 753|Recorda on és ara l'eina
+754|Selecciona les formes a copiar (es fan com a màxim 2000 còpies).
+755|S'han fet {} còpies
+756|Selecciona primer les formes i al final el camí (o la forma que retalla).
+757|El text ara segueix el camí (són contorns, ja no és text).
+758|No hi ha duplicats.
+759|S'han eliminat {} duplicats
+760|No hi ha res a separar: cada forma té un sol contorn.
+761|S'ha separat en {} formes
+762|Selecciona primer alguna cosa.
+763|Simplificat: {} punts han passat a {}
+764|No hi ha res a fer: ni números ni files.
+765|S'han fet {} textos
+766|El text no hi cap en un codi QR.
+767|Un codi de barres Code 39 només té majúscules, dígits i - . $ / + % i espais.
+768|Les formes no caben a l'àrea.
+769|S'han encaixat {} formes
+770|Matriu de quadrícula…
+771|Matriu circular…
+772|Copia al llarg del camí…
+773|Text sobre camí…
+774|Retalla amb una forma…
+775|Simplifica…
+776|Text en sèrie…
+777|Codi de barres / QR…
+778|Encaixa les formes…
+779|Mesura…
+780|Columnes
+781|Files
+782|Distància de columnes
+783|Distància de files
+784|Llocs
+785|Angle total
+786|Gira les còpies
+787|Inici
+788|Conserva l'interior de la forma
+789|Text
+790|{n} és el número; amb un fitxer CSV {1}, {2}… són les seves columnes
+791|Primer número
+792|Pas
+793|Dígits
+794|Còpies
+795|Llegeix un fitxer CSV…
+796|{} files del fitxer
+797|Tipus
+798|Amplada de la barra
+799|Amplada de l'àrea
+800|Alçada de l'àrea
+801|Permet girar
+802|Les formes s'ordenen pels seus quadres en files des de la cantonada de la pàgina.
+803|Amplada {}  Alçada {}
+804|Des de X {} Y {}
+805|Àrea {}  Longitud {}
+806|Entre els centres: {} (dX {}, dY {})
+807|Distància entre els quadres: {}
+808|Elimina duplicats
+809|Separa

@@ -752,3 +752,59 @@
 751|Zapomenout tuto polohu
 752|Uložit zde
 753|Zapamatovat, kde je nástroj nyní
+754|Vyberte tvary ke kopírování (vznikne nejvýše 2000 kopií).
+755|Vytvořeno kopií: {}
+756|Vyberte nejdřív tvary a naposledy dráhu (nebo ořezávací tvar).
+757|Text nyní sleduje dráhu (jsou to obrysy, už ne text).
+758|Nejsou žádné duplicity.
+759|Odstraněno duplicit: {}
+760|Není co rozdělit: každý tvar má jeden obrys.
+761|Rozděleno na tvary: {}
+762|Nejdřív něco vyberte.
+763|Zjednodušeno: {} bodů se stalo {}
+764|Není co vytvořit: žádná čísla ani řádky.
+765|Vytvořeno textů: {}
+766|Text se nevejde do QR kódu.
+767|Čárový kód Code 39 má jen velká písmena, číslice a - . $ / + % a mezery.
+768|Tvary se do oblasti nevejdou.
+769|Rozmístěno tvarů: {}
+770|Mřížkové pole…
+771|Kruhové pole…
+772|Kopírovat podél dráhy…
+773|Text na dráze…
+774|Ořezat tvarem…
+775|Zjednodušit…
+776|Sériový text…
+777|Čárový kód / QR kód…
+778|Rozmístit tvary (nesting)…
+779|Měření…
+780|Sloupce
+781|Řádky
+782|Rozteč sloupců
+783|Rozteč řádků
+784|Místa
+785|Celkový úhel
+786|Otáčet kopie
+787|Začátek
+788|Ponechat vnitřek tvaru
+789|Text
+790|{n} je číslo; u souboru CSV jsou {1}, {2}… jeho sloupce
+791|První číslo
+792|Krok
+793|Číslice
+794|Kopie
+795|Načíst soubor CSV…
+796|{} řádků ze souboru
+797|Druh
+798|Šířka čáry
+799|Šířka oblasti
+800|Výška oblasti
+801|Povolit otáčení
+802|Tvary se řadí podle svých rámečků do řad od rohu stránky.
+803|Šířka {}  Výška {}
+804|Od X {} Y {}
+805|Plocha {}  Délka {}
+806|Mezi středy: {} (dX {}, dY {})
+807|Vzdálenost mezi rámečky: {}
+808|Odstranit duplicity
+809|Rozdělit

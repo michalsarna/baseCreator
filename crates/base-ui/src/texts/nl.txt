@@ -752,3 +752,59 @@
 751|Deze positie vergeten
 752|Hier opslaan
 753|Onthoud waar het gereedschap nu is
+754|Selecteer de te kopiëren vormen (er worden hoogstens 2000 kopieën gemaakt).
+755|{} kopieën gemaakt
+756|Selecteer eerst de vormen en als laatste het pad (of de bijsnijvorm).
+757|De tekst volgt nu het pad (het zijn contouren, geen tekst meer).
+758|Er zijn geen dubbele vormen.
+759|{} dubbele vormen verwijderd
+760|Niets om te splitsen: elke vorm heeft één contour.
+761|Gesplitst in {} vormen
+762|Selecteer eerst iets.
+763|Vereenvoudigd: {} punten werden {}
+764|Niets te maken: geen nummers en geen rijen.
+765|{} teksten gemaakt
+766|De tekst past niet in een QR-code.
+767|Een Code 39-barcode heeft alleen hoofdletters, cijfers en - . $ / + % en spaties.
+768|De vormen passen niet in het gebied.
+769|{} vormen geneste
+770|Rasterpatroon…
+771|Cirkelpatroon…
+772|Kopiëren langs pad…
+773|Tekst op pad…
+774|Bijsnijden met vorm…
+775|Vereenvoudigen…
+776|Serietekst…
+777|Barcode / QR-code…
+778|Vormen nesten…
+779|Meten…
+780|Kolommen
+781|Rijen
+782|Kolomafstand
+783|Rijafstand
+784|Plaatsen
+785|Totale hoek
+786|Draai de kopieën
+787|Begin
+788|Houd de binnenkant van de vorm
+789|Tekst
+790|{n} is het nummer; bij een CSV-bestand zijn {1}, {2}… de kolommen
+791|Eerste nummer
+792|Stap
+793|Cijfers
+794|Kopieën
+795|CSV-bestand lezen…
+796|{} rijen uit het bestand
+797|Soort
+798|Streepbreedte
+799|Gebiedsbreedte
+800|Gebiedshoogte
+801|Draaien toestaan
+802|De vormen worden op hun kaders in rijen gepakt vanaf de hoek van de pagina.
+803|Breedte {}  Hoogte {}
+804|Vanaf X {} Y {}
+805|Oppervlak {}  Lengte {}
+806|Tussen de middelpunten: {} (dX {}, dY {})
+807|Afstand tussen de kaders: {}
+808|Dubbele vormen verwijderen
+809|Splitsen

@@ -280,3 +280,119 @@ fn dogbone_corners_are_added_to_the_selected_shapes_and_a_shape_without_corners_
     assert_eq!(h.scene.shapes.len(), before);
     assert!(h.status.contains("No sharp corners"), "{}", h.status);
 }
+
+#[test]
+fn arrays_copy_the_selection_in_a_grid_and_round_a_circle() {
+    let mut h = Host::default();
+    let id = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(0.0, 0.0));
+    h.ed.sel = vec![id];
+    EditorDesign::grid_array(&mut h, 3, 2, 20.0, 15.0);
+    assert_eq!(h.scene.shapes.len(), 6, "{}", h.status);
+    assert_eq!(h.ed.sel.len(), 6, "originals and copies stay selected");
+    let b = h.scene.bounds_of(&h.ed.sel.clone()).unwrap();
+    assert!((b.max.x - 50.0).abs() < 1e-9 && (b.max.y - 25.0).abs() < 1e-9, "{b:?}");
+    // A circle of four copies of one square, turned: the box of all of them is centred on the square's own centre... the square's centre is the centre of the circle.
+    let mut h = Host::default();
+    let id = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(0.0, 0.0));
+    h.ed.sel = vec![id];
+    EditorDesign::circle_array(&mut h, 4, 360.0, true);
+    assert_eq!(h.scene.shapes.len(), 4);
+    // Too many copies are refused and change nothing.
+    EditorDesign::grid_array(&mut h, 200, 200, 1.0, 1.0);
+    assert_eq!(h.scene.shapes.len(), 4);
+    assert!(h.status.contains("2000"), "{}", h.status);
+}
+
+#[test]
+fn copies_go_along_a_path_text_bends_and_lines_are_trimmed() {
+    use base_core::geom::{Polyline, Pt};
+    let mut h = Host::default();
+    let sq = h.scene.add(0, Kind::Rect { w: 4.0, h: 4.0 }, Xf::translate(-2.0, -2.0));
+    let path = h.scene.add(0, Kind::Path(vec![Polyline::new(vec![Pt::new(0.0, 0.0), Pt::new(40.0, 0.0)], false)]), Xf::IDENTITY);
+    h.ed.sel = vec![sq, path];
+    EditorDesign::copy_along_path(&mut h, 10.0, false);
+    // Five copies (0, 10, 20, 30, 40) and the path; the original square became the first copy.
+    assert_eq!(h.scene.shapes.len(), 6, "{}", h.status);
+    // Trim: a line through a square keeps the part inside.
+    let mut h = Host::default();
+    let line = h.scene.add(0, Kind::Path(vec![Polyline::new(vec![Pt::new(-10.0, 5.0), Pt::new(30.0, 5.0)], false)]), Xf::IDENTITY);
+    let region = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::IDENTITY);
+    h.ed.sel = vec![line, region];
+    EditorDesign::trim_by_shape(&mut h, true);
+    let len: f64 = h.scene.shapes.iter().filter(|s| matches!(s.kind, Kind::Path(_))).flat_map(|s| s.polys()).map(|p| p.length()).sum();
+    assert!((len - 10.0).abs() < 1e-6, "{len} {}", h.status);
+    // Nothing selected for a path: said so.
+    h.ed.sel.clear();
+    EditorDesign::copy_along_path(&mut h, 10.0, false);
+    assert!(h.status.contains("path"), "{}", h.status);
+}
+
+#[test]
+fn duplicates_go_shapes_break_apart_and_simplify_and_a_nest_fits_the_area() {
+    use base_core::geom::{Polyline, Pt};
+    let mut h = Host::default();
+    let a = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(5.0, 5.0));
+    let b = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(5.0, 5.0));
+    let c = h.scene.add(1, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(5.0, 5.0));
+    h.ed.sel = vec![a, b, c];
+    EditorDesign::remove_duplicates(&mut h);
+    assert_eq!(h.scene.shapes.len(), 2, "{}: the same shape on another layer stays", h.status);
+    EditorDesign::remove_duplicates(&mut h);
+    assert!(h.status.contains("no duplicates"), "{}", h.status);
+    // A shape of two outlines breaks into two shapes.
+    let two = Kind::Path(vec![Polyline::new(vec![Pt::new(0.0, 0.0), Pt::new(5.0, 0.0), Pt::new(5.0, 5.0)], true), Polyline::new(vec![Pt::new(20.0, 0.0), Pt::new(25.0, 0.0), Pt::new(25.0, 5.0)], true)]);
+    let id = h.scene.add(0, two, Xf::IDENTITY);
+    h.ed.sel = vec![id];
+    EditorDesign::break_apart(&mut h);
+    assert_eq!(h.ed.sel.len(), 2);
+    // Simplify a line with points on it.
+    let line = Kind::Path(vec![Polyline::new((0..=20).map(|i| Pt::new(i as f64, 0.0)).collect(), false)]);
+    let id = h.scene.add(0, line, Xf::IDENTITY);
+    h.ed.sel = vec![id];
+    EditorDesign::simplify_selected(&mut h, 0.01);
+    assert!(h.status.contains("21 points became 2"), "{}", h.status);
+    // Nest three squares on a small area: they fit in a row and move there.
+    let mut h = Host::default();
+    let ids: Vec<u64> = (0..3).map(|i| h.scene.add(0, Kind::Rect { w: 20.0, h: 20.0 }, Xf::translate(100.0 * i as f64, 50.0))).collect();
+    h.ed.sel = ids.clone();
+    EditorDesign::nest_selected(&mut h, (70.0, 30.0), 2.0, false);
+    let b = h.scene.bounds_of(&ids).unwrap();
+    assert!(b.min.x.abs() < 1e-9 && b.min.y.abs() < 1e-9 && b.max.x <= 70.0 + 1e-9 && b.max.y <= 30.0 + 1e-9, "{b:?} {}", h.status);
+    EditorDesign::nest_selected(&mut h, (30.0, 30.0), 2.0, false);
+    assert!(h.status.contains("do not fit"), "{}", h.status);
+}
+
+#[test]
+fn serial_text_counts_up_and_a_code_is_put_on_the_page() {
+    let mut h = Host::default();
+    let t = h.scene.add(0, Kind::Text(base_core::text::TextData { text: "SN-{n}".into(), ..Default::default() }), Xf::translate(10.0, 10.0));
+    h.ed.sel = vec![t];
+    let texts = base_core::design::serial_texts("SN-{n}", 1, 1, 4, 3);
+    EditorDesign::serial_text(&mut h, "SN-{n}", &texts, 2, 30.0, 15.0);
+    assert_eq!(h.scene.shapes.len(), 4, "{}", h.status);
+    let got: Vec<String> = h.scene.shapes.iter().filter_map(|s| if let Kind::Text(d) = &s.kind { Some(d.text.clone()) } else { None }).collect();
+    assert_eq!(got, vec!["SN-001", "SN-002", "SN-003", "SN-004"]);
+    // QR and Code 39 become path shapes; a bad Code 39 text is said.
+    let mut h = Host::default();
+    EditorDesign::make_code(&mut h, CodeKind::Qr, "hello", 30.0, 0.0);
+    assert!(matches!(&h.scene.shapes[0].kind, Kind::Path(p) if !p.is_empty()), "{}", h.status);
+    EditorDesign::make_code(&mut h, CodeKind::Code39, "ab-12", 0.5, 10.0);
+    assert_eq!(h.scene.shapes.len(), 2);
+    EditorDesign::make_code(&mut h, CodeKind::Code39, "a_b", 0.5, 10.0);
+    assert_eq!(h.scene.shapes.len(), 2);
+    assert!(h.status.contains("Code 39"), "{}", h.status);
+}
+
+#[test]
+fn the_measure_window_reports_the_box_area_and_the_gap_of_two_shapes() {
+    let mut h = Host::default();
+    assert!(EditorDesign::measure_lines(&h)[0].contains("Select"));
+    let a = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(0.0, 0.0));
+    let b = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(30.0, 0.0));
+    h.ed.sel = vec![a, b];
+    let lines = EditorDesign::measure_lines(&h).join("\n");
+    assert!(lines.contains("Width 40.000  Height 10.000"), "{lines}");
+    assert!(lines.contains("Area 200.000"), "{lines}");
+    assert!(lines.contains("Gap between the boxes: 20.000"), "{lines}");
+    assert!(lines.contains("Between the centres: 30.000"), "{lines}");
+}

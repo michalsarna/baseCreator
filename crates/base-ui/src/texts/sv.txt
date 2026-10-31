@@ -752,3 +752,59 @@
 751|Glöm den här positionen
 752|Spara här
 753|Kom ihåg var verktyget är nu
+754|Markera formerna som ska kopieras (högst 2000 kopior skapas).
+755|{} kopior skapade
+756|Markera först formerna och sist banan (eller beskärningsformen).
+757|Texten följer nu banan (det är konturer, inte längre text).
+758|Det finns inga dubbletter.
+759|{} dubbletter borttagna
+760|Inget att dela: varje form har en kontur.
+761|Delad i {} former
+762|Markera något först.
+763|Förenklat: {} punkter blev {}
+764|Inget att göra: inga tal och inga rader.
+765|{} texter skapade
+766|Texten ryms inte i en QR-kod.
+767|En Code 39-streckkod har bara versaler, siffror och - . $ / + % och blanksteg.
+768|Formerna ryms inte i området.
+769|{} former placerade
+770|Rutnätsmatris…
+771|Cirkulär matris…
+772|Kopiera längs bana…
+773|Text på bana…
+774|Beskär med form…
+775|Förenkla…
+776|Serietext…
+777|Streckkod / QR-kod…
+778|Placera former (nesting)…
+779|Mät…
+780|Kolumner
+781|Rader
+782|Kolumnavstånd
+783|Radavstånd
+784|Platser
+785|Total vinkel
+786|Vrid kopiorna
+787|Start
+788|Behåll formens insida
+789|Text
+790|{n} är numret; med en CSV-fil är {1}, {2}… dess kolumner
+791|Första tal
+792|Steg
+793|Siffror
+794|Kopior
+795|Läs en CSV-fil…
+796|{} rader från filen
+797|Typ
+798|Streckbredd
+799|Områdesbredd
+800|Områdeshöjd
+801|Tillåt vridning
+802|Formerna packas efter sina rutor i rader från sidans hörn.
+803|Bredd {}  Höjd {}
+804|Från X {} Y {}
+805|Yta {}  Längd {}
+806|Mellan centrum: {} (dX {}, dY {})
+807|Avstånd mellan rutorna: {}
+808|Ta bort dubbletter
+809|Dela upp

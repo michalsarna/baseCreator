@@ -752,3 +752,59 @@
 751|Gleyma þessari staðsetningu
 752|Vista hér
 753|Muna hvar verkfærið er núna
+754|Veldu formin sem á að afrita (í mesta lagi 2000 afrit eru gerð).
+755|{} afrit gerð
+756|Veldu fyrst formin og síðast slóðina (eða klippiformið).
+757|Textinn fylgir nú slóðinni (það eru útlínur, ekki lengur texti).
+758|Engin afrit eru til.
+759|{} afrit fjarlægð
+760|Ekkert að brjóta í sundur: hvert form hefur eina útlínu.
+761|Brotið í {} form
+762|Veldu fyrst eitthvað.
+763|Einfaldað: {} punktar urðu {}
+764|Ekkert að búa til: engar tölur og engar raðir.
+765|{} textar gerðir
+766|Textinn kemst ekki í QR-kóða.
+767|Code 39 strikamerki hefur aðeins hástafi, tölustafi og - . $ / + % og bil.
+768|Formin komast ekki á svæðið.
+769|{} form skipulögð
+770|Rist af eintökum…
+771|Hringlaga röð…
+772|Afrita eftir slóð…
+773|Texti á slóð…
+774|Klippa með formi…
+775|Einfalda…
+776|Raðtexti…
+777|Strikamerki / QR-kóði…
+778|Raða formum (nesting)…
+779|Mæla…
+780|Dálkar
+781|Raðir
+782|Dálkabil
+783|Raðabil
+784|Staðir
+785|Heildarhorn
+786|Snúa afritunum
+787|Upphaf
+788|Halda innra byrði formsins
+789|Texti
+790|{n} er talan; með CSV-skrá eru {1}, {2}… dálkar hennar
+791|Fyrsta tala
+792|Skref
+793|Tölustafir
+794|Afrit
+795|Lesa CSV-skrá…
+796|{} raðir úr skránni
+797|Gerð
+798|Breidd strika
+799|Breidd svæðis
+800|Hæð svæðis
+801|Leyfa snúning
+802|Formunum er pakkað eftir römmum þeirra í raðir frá horni síðunnar.
+803|Breidd {}  Hæð {}
+804|Frá X {} Y {}
+805|Flatarmál {}  Lengd {}
+806|Milli miðja: {} (dX {}, dY {})
+807|Bil milli ramma: {}
+808|Fjarlægja afrit
+809|Brjóta í sundur

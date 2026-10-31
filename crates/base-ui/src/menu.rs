@@ -190,6 +190,18 @@ pub enum StdAct {
     DogboneCorners,
     ExportSelectionSvg,
     ExportSelectionDxf,
+    GridArray,
+    CircleArray,
+    CopyAlongPath,
+    TextOnPath,
+    TrimByShape,
+    RemoveDuplicates,
+    BreakApart,
+    SimplifyShapes,
+    SerialText,
+    MakeCode,
+    NestShapes,
+    MeasureShapes,
 }
 
 use Entry::{Item, Sep};
@@ -250,6 +262,22 @@ impl StdAct {
                 h.ed_mut().bone_radius = r;
                 h.ed_mut().show_bones = true;
             }
+            StdAct::GridArray => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Grid),
+            StdAct::CircleArray => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Circle),
+            StdAct::CopyAlongPath => h.ed_mut().design.open = Some(crate::editor::DesignCmd::AlongPath),
+            StdAct::TextOnPath => h.ed_mut().design.open = Some(crate::editor::DesignCmd::TextPath),
+            StdAct::TrimByShape => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Trim),
+            StdAct::RemoveDuplicates => crate::editor::EditorDesign::remove_duplicates(h),
+            StdAct::BreakApart => crate::editor::EditorDesign::break_apart(h),
+            StdAct::SimplifyShapes => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Simplify),
+            StdAct::SerialText => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Serial),
+            StdAct::MakeCode => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Code),
+            StdAct::NestShapes => {
+                let (w, hh) = h.work_size();
+                h.ed_mut().design.area = (w, hh);
+                h.ed_mut().design.open = Some(crate::editor::DesignCmd::Nest);
+            }
+            StdAct::MeasureShapes => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Measure),
             StdAct::ExportSelectionSvg => crate::editor::EditorShapeOps::export_selection(h, false),
             StdAct::ExportSelectionDxf => crate::editor::EditorShapeOps::export_selection(h, true),
             StdAct::ToggleAutoFit => {
@@ -331,6 +359,18 @@ impl StdAct {
             StdAct::AutoJoin | StdAct::ClosePath => "route",
             StdAct::DogboneCorners => "square-round-corner",
             StdAct::ExportSelectionSvg | StdAct::ExportSelectionDxf => "file-output",
+            StdAct::GridArray => "grid-3x3",
+            StdAct::CircleArray => "rotate-cw",
+            StdAct::CopyAlongPath => "copy-plus",
+            StdAct::TextOnPath => "type",
+            StdAct::TrimByShape => "squares-subtract",
+            StdAct::RemoveDuplicates => "copy",
+            StdAct::BreakApart => "ungroup",
+            StdAct::SimplifyShapes => "spline",
+            StdAct::SerialText => "type",
+            StdAct::MakeCode => "grid-2x2",
+            StdAct::NestShapes => "layers",
+            StdAct::MeasureShapes => "move",
         }
     }
 }
@@ -413,6 +453,25 @@ pub mod std_entries {
             Item(StdAct::AutoJoin, "Auto-join paths…", None),
             Item(StdAct::ClosePath, "Close path with tolerance…", None),
             Item(StdAct::DogboneCorners, "Dogbone / T-bone corners…", None),
+        ]
+    }
+    /// Arrays, copies along a path, text on a path, trimming, duplicates, simplifying, serial text, codes, nesting and measuring.
+    pub fn design_tools() -> Vec<Entry<StdAct>> {
+        vec![
+            Item(StdAct::GridArray, "Grid array…", None),
+            Item(StdAct::CircleArray, "Circular array…", None),
+            Item(StdAct::CopyAlongPath, "Copy along path…", None),
+            Item(StdAct::TextOnPath, "Text on path…", None),
+            Sep,
+            Item(StdAct::TrimByShape, "Trim by shape…", None),
+            Item(StdAct::RemoveDuplicates, "Remove duplicates", None),
+            Item(StdAct::BreakApart, "Break apart", None),
+            Item(StdAct::SimplifyShapes, "Simplify…", None),
+            Sep,
+            Item(StdAct::SerialText, "Serial text…", None),
+            Item(StdAct::MakeCode, "Barcode / QR code…", None),
+            Item(StdAct::NestShapes, "Nest shapes…", None),
+            Item(StdAct::MeasureShapes, "Measure…", None),
         ]
     }
     /// Write the selected shapes (all when nothing is selected) as SVG or DXF.
