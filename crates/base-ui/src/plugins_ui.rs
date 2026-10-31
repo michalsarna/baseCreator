@@ -64,8 +64,8 @@ pub struct PluginsUi {
     gen_sel: usize,
     gen_preview: GenPreview,
     values: serde_json::Map<String, serde_json::Value>,
-    /// The postprocessor chosen for the next export: `plugin-id/postprocessor-id`.
-    pub post: Option<String>,
+    /// The postprocessors chosen for the next export, in the order they run: `plugin-id/postprocessor-id`.
+    pub posts: Vec<String>,
     confirm_remove: Option<String>,
     message: String,
     log: Vec<String>,
@@ -74,18 +74,16 @@ pub struct PluginsUi {
 impl PluginsUi {
     /// `app` is `lightcreator`, `millcreator` or `pencreator`; `base` is the shared data folder.
     pub fn new(app: &str, base: &Path) -> PluginsUi {
-        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, pending: None, gen_sel: 0, gen_preview: GenPreview::default(), values: Default::default(), post: None, confirm_remove: None, message: String::new(), log: vec![] }
+        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, pending: None, gen_sel: 0, gen_preview: GenPreview::default(), values: Default::default(), posts: vec![], confirm_remove: None, message: String::new(), log: vec![] }
     }
 
     pub fn reload(&mut self) {
         self.registry = Registry::load(self.registry.dir().to_path_buf());
         self.gen_sel = 0;
         self.values.clear();
-        if let Some(p) = &self.post {
-            if !self.registry.postprocessors(&self.app).iter().any(|(pl, d)| format!("{}/{}", pl.manifest.id, d.id) == *p) {
-                self.post = None;
-            }
-        }
+        // A postprocessor that is gone (the plugin was removed or switched off) is no longer in the chain.
+        let have: Vec<String> = self.registry.postprocessors(&self.app).iter().map(|(pl, d)| format!("{}/{}", pl.manifest.id, d.id)).collect();
+        self.posts.retain(|p| have.contains(p));
     }
 
     /// Read a file with the importer of a plugin for its extension. `None` when no plugin reads this kind of file. An importer
@@ -119,11 +117,19 @@ impl PluginsUi {
         self.registry.importers(&self.app).iter().flat_map(|(_, i)| i.extensions.iter().cloned()).collect()
     }
 
-    /// Does a postprocessor stand between the program and the file? Returns the lines it makes (or the lines as they are).
+    /// The chosen postprocessors run one after the other, in the order they were chosen: the lines each makes go to the next. Returns
+    /// the lines it ends with (or the lines as they are when none is chosen) and what the scripts said.
     pub fn postprocess(&self, lines: Vec<String>, area: (f64, f64)) -> Result<(Vec<String>, Vec<String>), String> {
-        let Some(sel) = &self.post else { return Ok((lines, vec![])) };
-        let Some((p, d)) = self.registry.postprocessors(&self.app).into_iter().find(|(pl, d)| format!("{}/{}", pl.manifest.id, d.id) == *sel) else { return Ok((lines, vec![])) };
-        plugin_script::postprocess(p, d, &lines, &Ctx { app: self.app.clone(), area_w: area.0, area_h: area.1 })
+        let ctx = Ctx { app: self.app.clone(), area_w: area.0, area_h: area.1 };
+        let all = self.registry.postprocessors(&self.app);
+        let (mut lines, mut said) = (lines, vec![]);
+        for sel in &self.posts {
+            let Some((p, d)) = all.iter().find(|(pl, d)| format!("{}/{}", pl.manifest.id, d.id) == *sel) else { continue };
+            let (next, msgs) = plugin_script::postprocess(p, d, &lines, &ctx)?;
+            lines = next;
+            said.extend(msgs);
+        }
+        Ok((lines, said))
     }
 
     /// Ask the official list (in the background; the answer is read by `poll`).
@@ -232,7 +238,7 @@ impl PluginsUi {
     /// The text of a G-code file after the chosen postprocessor (the lines as they are when none is chosen). The second
     /// value is what the script said. The text ends with a newline.
     pub fn export_text(&self, text: &str, area: (f64, f64)) -> Result<(String, Vec<String>), String> {
-        if self.post.is_none() {
+        if self.posts.is_empty() {
             return Ok((text.to_string(), vec![]));
         }
         let (lines, said) = self.postprocess(text.lines().map(|l| l.to_string()).collect(), area)?;
@@ -241,10 +247,14 @@ impl PluginsUi {
         Ok((out, said))
     }
 
-    /// The name of the chosen postprocessor, for a line of the status bar.
+    /// The names of the chosen postprocessors in the order they run (joined by +), for a line of the status bar.
     pub fn post_name(&self) -> Option<String> {
-        let sel = self.post.as_ref()?;
-        self.registry.postprocessors(&self.app).into_iter().find(|(p, d)| format!("{}/{}", p.manifest.id, d.id) == *sel).map(|(_, d)| pt(&self.registry, &d.name))
+        if self.posts.is_empty() {
+            return None;
+        }
+        let all = self.registry.postprocessors(&self.app);
+        let names: Vec<String> = self.posts.iter().filter_map(|sel| all.iter().find(|(p, d)| format!("{}/{}", p.manifest.id, d.id) == *sel).map(|(_, d)| pt(&self.registry, &d.name))).collect();
+        (!names.is_empty()).then(|| names.join(" + "))
     }
 
     /// Ask for a file one of the importers reads, and read it. `None` when the person cancels or no plugin imports.
@@ -299,16 +309,33 @@ impl PluginsUi {
         }
         ui.add_space(6.0);
         ui.label(RichText::new(tr("Postprocessor")).strong());
-        ui.selectable_value(&mut self.post, None, tr("None"));
+        // Any number can be on: they run in the order they were ticked (also across plugins).
         for (sel, pname, pdesc) in &posts {
-            let r = ui.selectable_value(&mut self.post, Some(sel.clone()), pname);
+            let mut on = self.posts.contains(sel);
+            let r = ui.checkbox(&mut on, pname);
+            if r.changed() {
+                if on {
+                    self.posts.push(sel.clone());
+                } else {
+                    self.posts.retain(|p| p != sel);
+                }
+            }
             if !pdesc.is_empty() {
                 r.on_hover_text(pdesc);
                 ui.label(RichText::new(pdesc).small().color(theme::text_dim()));
             }
         }
+        if !self.posts.is_empty() {
+            ui.add_space(4.0);
+            if let Some(chain) = self.post_name() {
+                ui.label(RichText::new(trf("They run in this order: {}", &[&chain])).color(theme::text_dim()));
+            }
+            if ui.button(tr("None")).on_hover_text(tr("Switch all postprocessors off")).clicked() {
+                self.posts.clear();
+            }
+        }
         ui.add_space(8.0);
-        ui.label(RichText::new(tr("The chosen postprocessor changes the G-code of Export G-code…; a job sent to the machine is not changed.")).color(theme::text_dim()));
+        ui.label(RichText::new(tr("The chosen postprocessors change the G-code of Export G-code…; a job sent to the machine is not changed.")).color(theme::text_dim()));
         true
     }
 }
@@ -1462,8 +1489,20 @@ mod tests {
         let mut st = ui_with_examples();
         let lines = vec!["G21".to_string(), "M5".to_string()];
         assert_eq!(st.postprocess(lines.clone(), (1.0, 1.0)).unwrap().0, lines, "none chosen: unchanged");
-        st.post = Some("gcode-tools/line-numbers".into());
-        assert_eq!(st.postprocess(lines, (1.0, 1.0)).unwrap().0, vec!["N10 G21".to_string(), "N20 M5".to_string()]);
+        st.posts = vec!["gcode-tools/line-numbers".into()];
+        assert_eq!(st.postprocess(lines.clone(), (1.0, 1.0)).unwrap().0, vec!["N10 G21".to_string(), "N20 M5".to_string()]);
+        // Two at once run in the order they were chosen: numbers first and the comments of the numbered lines stay; the other way round
+        // the numbers come last.
+        let with_comment = vec!["G21 (units)".to_string(), "M5".to_string()];
+        st.posts = vec!["gcode-tools/line-numbers".into(), "gcode-tools/no-comments".into()];
+        assert_eq!(st.postprocess(with_comment.clone(), (1.0, 1.0)).unwrap().0, vec!["N10 G21".to_string(), "N20 M5".to_string()], "numbered, then the comment taken away");
+        st.posts = vec!["gcode-tools/no-comments".into(), "gcode-tools/line-numbers".into()];
+        assert_eq!(st.postprocess(with_comment, (1.0, 1.0)).unwrap().0, vec!["N10 G21".to_string(), "N20 M5".to_string()]);
+        assert_eq!(st.post_name().unwrap().matches(" + ").count(), 1, "{:?}", st.post_name());
+        // One that is gone from the registry drops out of the chain on a reload.
+        st.posts.push("nothing/here".into());
+        st.reload();
+        assert_eq!(st.posts.len(), 2);
     }
 
     /// Against the real official list: `cargo test -p base-ui -- --ignored real_network` (needs the internet).
