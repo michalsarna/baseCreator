@@ -847,3 +847,4 @@
 846|Yra papildinių naujinimų
 847|Atnaujinti viską
 848|Vėliau
+849|Labai ačiū Jakub (CNC KpK) už idėjas ir tobulinimo pasiūlymus:

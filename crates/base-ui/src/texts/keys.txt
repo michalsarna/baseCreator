@@ -847,3 +847,4 @@
 846	Plugin updates are available
 847	Update all
 848	Later
+849	Big thanks to Jakub (CNC KpK) for the ideas and suggestions for improvements:

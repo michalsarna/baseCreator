@@ -847,3 +847,4 @@
 846|Det finnes oppdateringer for programtillegg
 847|Oppdater alle
 848|Senere
+849|Stor takk til Jakub (CNC KpK) for ideene og forslagene til forbedringer:

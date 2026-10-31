@@ -847,3 +847,4 @@
 846|Ir pieejami spraudņu atjauninājumi
 847|Atjaunināt visu
 848|Vēlāk
+849|Liels paldies Jakubam (CNC KpK) par idejām un uzlabojumu ierosinājumiem:

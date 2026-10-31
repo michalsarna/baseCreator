@@ -847,3 +847,4 @@
 846|Hi ha actualitzacions dels connectors
 847|Actualitza-ho tot
 848|Més tard
+849|Moltes gràcies a Jakub (CNC KpK) per les idees i els suggeriments de millora:

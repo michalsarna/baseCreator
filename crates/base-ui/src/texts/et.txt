@@ -847,3 +847,4 @@
 846|Pistikprogrammidele on uuendusi
 847|Uuenda kõik
 848|Hiljem
+849|Suur tänu Jakubile (CNC KpK) ideede ja parendusettepanekute eest:

@@ -854,6 +854,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Plugin updates are available", "Dostępne są aktualizacje wtyczek", "Plugin-Updates sind verfügbar", "Sono disponibili aggiornamenti dei plugin", "Lisäosille on päivityksiä", "插件有可用更新", "प्लगइन के अपडेट उपलब्ध हैं"],
     ["Update all", "Zaktualizuj wszystkie", "Alle aktualisieren", "Aggiorna tutti", "Päivitä kaikki", "全部更新", "सभी अपडेट करें"],
     ["Later", "Później", "Später", "Più tardi", "Myöhemmin", "稍后", "बाद में"],
+    ["Big thanks to Jakub (CNC KpK) for the ideas and suggestions for improvements:", "Ogromne podziękowania dla Jakuba (CNC KpK) za pomysły i sugestie usprawnień:", "Ein großes Dankeschön an Jakub (CNC KpK) für die Ideen und Verbesserungsvorschläge:", "Un grande grazie a Jakub (CNC KpK) per le idee e i suggerimenti di miglioramento:", "Suuri kiitos Jakubille (CNC KpK) ideoista ja parannusehdotuksista:", "衷心感谢 Jakub（CNC KpK）提出的想法和改进建议：", "Jakub (CNC KpK) को विचारों और सुधार के सुझावों के लिए बहुत धन्यवाद:"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

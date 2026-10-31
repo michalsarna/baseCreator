@@ -847,3 +847,4 @@
 846|Jsou dostupné aktualizace zásuvných modulů
 847|Aktualizovat vše
 848|Později
+849|Velké díky Jakubovi (CNC KpK) za nápady a návrhy na vylepšení:

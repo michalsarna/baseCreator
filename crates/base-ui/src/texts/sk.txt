@@ -847,3 +847,4 @@
 846|Sú dostupné aktualizácie doplnkov
 847|Aktualizovať všetko
 848|Neskôr
+849|Veľká vďaka Jakubovi (CNC KpK) za nápady a návrhy na vylepšenia:
