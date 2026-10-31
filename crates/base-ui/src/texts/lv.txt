@@ -808,3 +808,4 @@
 807|Atstarpe starp rāmjiem: {}
 808|Noņemt dublikātus
 809|Sadalīt
+810|Smoothieware (nav GRBL)

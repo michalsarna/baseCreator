@@ -808,3 +808,4 @@
 807|Vzdálenost mezi rámečky: {}
 808|Odstranit duplicity
 809|Rozdělit
+810|Smoothieware (není GRBL)

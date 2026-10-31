@@ -808,3 +808,4 @@
 807|Distanța dintre casete: {}
 808|Elimină duplicatele
 809|Separă
+810|Smoothieware (nu GRBL)

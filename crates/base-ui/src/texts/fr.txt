@@ -808,3 +808,4 @@
 807|Écart entre les boîtes : {}
 808|Supprimer les doublons
 809|Séparer
+810|Smoothieware (pas GRBL)

@@ -808,3 +808,4 @@
 807|Kastide vahe: {}
 808|Eemalda duplikaadid
 809|Lahuta
+810|Smoothieware (mitte GRBL)

@@ -808,3 +808,4 @@
 807|Bil milli ramma: {}
 808|Fjarlægja afrit
 809|Brjóta í sundur
+810|Smoothieware (ekki GRBL)

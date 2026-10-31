@@ -39,10 +39,12 @@ pub enum GrblVersion {
     Grbl08,
     /// GRBL 0.7 and older: lines and `ok` only, nothing is real-time.
     Grbl07,
+    /// A Smoothieware board (not GRBL): streamed like GRBL, its own status report and no `$` settings.
+    Smoothieware,
 }
 
 impl GrblVersion {
-    pub const ALL: [GrblVersion; 5] = [GrblVersion::Grbl11, GrblVersion::Grbl10, GrblVersion::Grbl09, GrblVersion::Grbl08, GrblVersion::Grbl07];
+    pub const ALL: [GrblVersion; 6] = [GrblVersion::Grbl11, GrblVersion::Grbl10, GrblVersion::Grbl09, GrblVersion::Grbl08, GrblVersion::Grbl07, GrblVersion::Smoothieware];
     pub fn label(self) -> &'static str {
         match self {
             GrblVersion::Grbl11 => "GRBL 1.1 or newer",
@@ -50,6 +52,7 @@ impl GrblVersion {
             GrblVersion::Grbl09 => "GRBL 0.9",
             GrblVersion::Grbl08 => "GRBL 0.8",
             GrblVersion::Grbl07 => "GRBL 0.7 or older",
+            GrblVersion::Smoothieware => "Smoothieware (not GRBL)",
         }
     }
     pub fn controller(self) -> Controller {
@@ -57,6 +60,7 @@ impl GrblVersion {
             GrblVersion::Grbl11 => Controller::Grbl,
             GrblVersion::Grbl10 | GrblVersion::Grbl09 | GrblVersion::Grbl08 => Controller::GrblOld,
             GrblVersion::Grbl07 => Controller::Grbl07,
+            GrblVersion::Smoothieware => Controller::Smoothieware,
         }
     }
 }
@@ -437,6 +441,18 @@ pub fn parse_status(line: &str) -> Option<(String, f64, f64)> {
 #[cfg(test)]
 mod dialect_tests {
     use super::*;
+
+    #[test]
+    fn every_firmware_choice_has_a_controller_and_smoothieware_is_not_grbl() {
+        for v in GrblVersion::ALL {
+            assert!(v.controller().is_serial(), "{v:?}");
+        }
+        assert_eq!(GrblVersion::Smoothieware.controller(), Controller::Smoothieware);
+        assert_eq!(GrblVersion::ALL.len(), 6);
+        // Old files without the new choice still read as they were.
+        let c: Connection = serde_json::from_str("{\"baud\":115200}").unwrap();
+        assert_eq!(c.grbl_version, GrblVersion::Grbl11);
+    }
 
     #[test]
     fn the_older_grbls_jog_with_plain_moves_and_cannot_cancel() {

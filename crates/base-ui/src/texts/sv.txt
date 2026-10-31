@@ -808,3 +808,4 @@
 807|Avstånd mellan rutorna: {}
 808|Ta bort dubbletter
 809|Dela upp
+810|Smoothieware (inte GRBL)
