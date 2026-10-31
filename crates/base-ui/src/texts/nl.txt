@@ -823,3 +823,24 @@
 822|Alle postprocessors uitschakelen
 823|De gekozen postprocessors wijzigen de G-code van G-code exporteren…; een naar de machine gestuurde taak wordt niet gewijzigd.
 824|Achtergrondafbeelding…
+825|Nog geen beeld van de camera.
+826|{} opgeslagen ({} beelden)
+827|Time-lapse: er wordt een foto gemaakt als een laag klaar is.
+828|Time-lapse: {} beelden in {}
+829|Foto maken
+830|Opname stoppen
+831|Opname: {} s, {} beelden
+832|Video opnemen
+833|Time-lapse
+834|Elke
+835|Na elke laag
+836|Vereist een taak die vanuit het programma naar de machine wordt gestuurd (Start)
+837|Time-lapse stoppen
+838|{} beelden
+839|Time-lapse starten
+840|Map
+841|de map camera van de gedeelde gegevens
+842|Map kiezen…
+843|De stream van deze camera heeft ffmpeg nodig, en dat is niet naast het programma of in het PATH van het systeem gevonden.
+844|De stream is afgelopen: hij wordt opnieuw geopend.
+845|De stream kon niet worden geopend (adres, gebruiker en wachtwoord?): er wordt opnieuw geprobeerd.

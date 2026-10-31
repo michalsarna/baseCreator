@@ -823,3 +823,24 @@
 822|Vypnúť všetky postprocesory
 823|Vybrané postprocesory menia G-code z Exportovať G-code…; úloha poslaná do stroja sa nemení.
 824|Obrázok na pozadí…
+825|Z kamery zatiaľ neprišiel obraz.
+826|Uložené {} ({} snímok)
+827|Časozber: snímka sa urobí, keď je vrstva hotová.
+828|Časozber: {} snímok v {}
+829|Urobiť snímku
+830|Zastaviť nahrávanie
+831|Nahrávanie: {} s, {} snímok
+832|Nahrať video
+833|Časozber
+834|Každých
+835|Po každej vrstve
+836|Vyžaduje úlohu poslanú do stroja z programu (Štart)
+837|Zastaviť časozber
+838|{} snímok
+839|Spustiť časozber
+840|Priečinok
+841|priečinok camera v spoločných dátach
+842|Vybrať priečinok…
+843|Stream tejto kamery potrebuje ffmpeg, ktorý sa nenašiel vedľa programu ani v PATH systému.
+844|Stream skončil: otvorí sa znova.
+845|Stream sa nepodarilo otvoriť (adresa, používateľ a heslo?): skúsi sa znova.

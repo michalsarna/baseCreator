@@ -823,3 +823,24 @@
 822|Desligar todos os pós-processadores
 823|Os pós-processadores escolhidos alteram o G-code de Exportar G-code…; um trabalho enviado à máquina não é alterado.
 824|Imagem de fundo…
+825|Ainda não há imagem da câmara.
+826|Guardado {} ({} imagens)
+827|Time-lapse: tira-se uma foto quando uma camada termina.
+828|Time-lapse: {} imagens em {}
+829|Tirar uma foto
+830|Parar a gravação
+831|Gravação: {} s, {} imagens
+832|Gravar vídeo
+833|Time-lapse
+834|A cada
+835|Depois de cada camada
+836|Requer um trabalho enviado à máquina pelo programa (Iniciar)
+837|Parar o time-lapse
+838|{} imagens
+839|Iniciar o time-lapse
+840|Pasta
+841|a pasta camera dos dados partilhados
+842|Escolher a pasta…
+843|O fluxo desta câmara precisa do ffmpeg, que não foi encontrado junto ao programa nem no PATH do sistema.
+844|O fluxo terminou: é aberto de novo.
+845|Não foi possível abrir o fluxo (endereço, utilizador e palavra-passe?): vai tentar de novo.

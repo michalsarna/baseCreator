@@ -823,3 +823,24 @@
 822|Lülita kõik järeltöötlejad välja
 823|Valitud järeltöötlejad muudavad käsu Ekspordi G-kood… G-koodi; masinasse saadetud tööd ei muudeta.
 824|Taustapilt…
+825|Kaamerast pole veel pilti.
+826|Salvestatud {} ({} pilti)
+827|Time-lapse: pilt tehakse, kui kiht on valmis.
+828|Time-lapse: {} pilti kaustas {}
+829|Tee foto
+830|Peata salvestus
+831|Salvestus: {} s, {} pilti
+832|Salvesta video
+833|Time-lapse
+834|Iga
+835|Pärast iga kihti
+836|Vajab programmist masinasse saadetud tööd (Start)
+837|Peata time-lapse
+838|{} pilti
+839|Alusta time-lapse
+840|Kaust
+841|ühiste andmete kaust camera
+842|Vali kaust…
+843|Selle kaamera voog vajab ffmpegi, mida ei leitud programmi kõrvalt ega süsteemi PATH-ist.
+844|Voog lõppes: see avatakse uuesti.
+845|Voogu ei õnnestunud avada (aadress, kasutaja ja parool?): proovitakse uuesti.

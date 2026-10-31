@@ -823,3 +823,24 @@
 822|Dezactivează toate postprocesoarele
 823|Postprocesoarele alese modifică G-code-ul din Exportă G-code…; o lucrare trimisă mașinii nu este modificată.
 824|Imagine de fundal…
+825|Încă nu există imagine de la cameră.
+826|Salvat {} ({} imagini)
+827|Time-lapse: se face o poză când un strat este gata.
+828|Time-lapse: {} imagini în {}
+829|Fă o poză
+830|Oprește înregistrarea
+831|Înregistrare: {} s, {} imagini
+832|Înregistrează video
+833|Time-lapse
+834|La fiecare
+835|După fiecare strat
+836|Necesită o lucrare trimisă mașinii din program (Start)
+837|Oprește time-lapse
+838|{} imagini
+839|Pornește time-lapse
+840|Folder
+841|dosarul camera al datelor comune
+842|Alege dosarul…
+843|Fluxul acestei camere necesită ffmpeg, care nu a fost găsit lângă program sau în PATH-ul sistemului.
+844|Fluxul s-a terminat: se deschide din nou.
+845|Fluxul nu a putut fi deschis (adresă, utilizator și parolă?): se încearcă din nou.

@@ -823,3 +823,24 @@
 822	Switch all postprocessors off
 823	The chosen postprocessors change the G-code of Export G-code…; a job sent to the machine is not changed.
 824	Background picture…
+825	No picture from the camera yet.
+826	Saved {} ({} pictures)
+827	Time-lapse: a picture is taken when a layer is done.
+828	Time-lapse: {} pictures in {}
+829	Take a photo
+830	Stop recording
+831	Recording: {} s, {} pictures
+832	Record video
+833	Time-lapse
+834	Every
+835	After each layer
+836	Needs a job sent to the machine from the program (Start)
+837	Stop time-lapse
+838	{} pictures
+839	Start time-lapse
+840	Folder
+841	the folder camera of the shared data
+842	Choose the folder…
+843	The stream of this camera needs ffmpeg, and it was not found next to the program or in the PATH of the system.
+844	The stream ended: it is opened again.
+845	The stream could not be opened (address, user and password?): it is tried again.
