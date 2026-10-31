@@ -809,3 +809,17 @@
 808|Ukloni duplikate
 809|Razdvoji
 810|Smoothieware (nije GRBL)
+811|Pozadinska slika: {}
+812|Slika se ne može pročitati: {}
+813|Pozadinska slika
+814|Učitaj sliku iz datoteke…
+815|Koristi sliku kamere
+816|Slika kamere kakva je sada
+817|Neprozirnost
+818|Pomiči kutove
+819|Prilagodi radnom području
+820|Slika je ispod crteža: povucite njezine kutove na kutove materijala ili radnog područja. Ne sprema se u projekt.
+821|Izvode se ovim redom: {}
+822|Isključi sve postprocesore
+823|Odabrani postprocesori mijenjaju G-kod izvoza G-koda…; zadatak poslan stroju se ne mijenja.
+824|Pozadinska slika…

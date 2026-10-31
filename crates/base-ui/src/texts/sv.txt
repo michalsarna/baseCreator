@@ -809,3 +809,17 @@
 808|Ta bort dubbletter
 809|Dela upp
 810|Smoothieware (inte GRBL)
+811|Bakgrundsbild: {}
+812|Det gick inte att läsa bilden: {}
+813|Bakgrundsbild
+814|Läs in en bild från en fil…
+815|Använd kamerabilden
+816|Kamerabilden som den är nu
+817|Ogenomskinlighet
+818|Flytta hörnen
+819|Anpassa till arbetsområdet
+820|Bilden ligger under ritningen: dra dess hörn till materialets eller arbetsområdets hörn. Den sparas inte i projektet.
+821|De körs i denna ordning: {}
+822|Stäng av alla postprocessorer
+823|De valda postprocessorerna ändrar G-koden från Exportera G-kod…; ett jobb som skickas till maskinen ändras inte.
+824|Bakgrundsbild…

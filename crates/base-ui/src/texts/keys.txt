@@ -809,3 +809,17 @@
 808	Remove duplicates
 809	Break apart
 810	Smoothieware (not GRBL)
+811	Background picture: {}
+812	Could not read the picture: {}
+813	Background picture
+814	Load a picture from a file…
+815	Use the camera picture
+816	The picture of the camera as it is now
+817	Opacity
+818	Move the corners
+819	Fit to the work area
+820	The picture lies under the drawing: drag its corners onto the corners of the material or of the work area. It is not saved with the project.
+821	They run in this order: {}
+822	Switch all postprocessors off
+823	The chosen postprocessors change the G-code of Export G-code…; a job sent to the machine is not changed.
+824	Background picture…

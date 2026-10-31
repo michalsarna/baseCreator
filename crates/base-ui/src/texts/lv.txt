@@ -809,3 +809,17 @@
 808|Noņemt dublikātus
 809|Sadalīt
 810|Smoothieware (nav GRBL)
+811|Fona attēls: {}
+812|Neizdevās nolasīt attēlu: {}
+813|Fona attēls
+814|Ielādēt attēlu no faila…
+815|Izmantot kameras attēlu
+816|Kameras attēls tāds, kāds tas ir tagad
+817|Necaurredzamība
+818|Pārvietot stūrus
+819|Pielāgot darba laukumam
+820|Attēls atrodas zem zīmējuma: velciet tā stūrus uz materiāla vai darba laukuma stūriem. Tas netiek saglabāts projektā.
+821|Tie darbojas šādā secībā: {}
+822|Izslēgt visus postprocesorus
+823|Izvēlētie postprocesori maina G-kodu no Eksportēt G-kodu…; mašīnai nosūtītais darbs netiek mainīts.
+824|Fona attēls…

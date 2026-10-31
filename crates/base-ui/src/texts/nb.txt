@@ -809,3 +809,17 @@
 808|Fjern duplikater
 809|Del
 810|Smoothieware (ikke GRBL)
+811|Bakgrunnsbilde: {}
+812|Kunne ikke lese bildet: {}
+813|Bakgrunnsbilde
+814|Last et bilde fra en fil…
+815|Bruk kamerabildet
+816|Kamerabildet slik det er nå
+817|Dekkevne
+818|Flytt hjørnene
+819|Tilpass arbeidsområdet
+820|Bildet ligger under tegningen: dra hjørnene til hjørnene på materialet eller arbeidsområdet. Det lagres ikke i prosjektet.
+821|De kjører i denne rekkefølgen: {}
+822|Slå av alle postprosessorer
+823|De valgte postprosessorene endrer G-koden fra Eksporter G-kode…; en jobb sendt til maskinen endres ikke.
+824|Bakgrunnsbilde…

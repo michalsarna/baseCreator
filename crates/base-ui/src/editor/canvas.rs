@@ -108,6 +108,7 @@ pub trait EditorCanvas: EditorHost {
         }
         painter.rect_stroke(bed, 0.0, Stroke::new(1.0, Color32::from_gray(0x99)), egui::StrokeKind::Outside);
         let view = CanvasView { painter: &painter, rect, origin: o, bed };
+        super::EditorBackground::paint_background(self, &view);
         self.paint_work_area(&view);
 
         self.paint_under_shapes(&view);
@@ -242,7 +243,8 @@ pub trait EditorCanvas: EditorHost {
         if !matches!(self.ed().tool, Tool::Pen | Tool::Pan | Tool::Zoom | Tool::ZoomOut) {
             self.canvas_context_menu(ui, &resp);
         }
-        let overlay_busy = self.pointer_claimed(&resp, o, press, hpos);
+        let background_busy = super::EditorBackground::background_interact(self, &resp, o, press);
+        let overlay_busy = background_busy || self.pointer_claimed(&resp, o, press, hpos);
         if !overlay_busy {
         match self.ed().tool {
             Tool::Select => {

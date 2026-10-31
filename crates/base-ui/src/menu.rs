@@ -202,6 +202,7 @@ pub enum StdAct {
     MakeCode,
     NestShapes,
     MeasureShapes,
+    BackgroundPicture,
 }
 
 use Entry::{Item, Sep};
@@ -278,6 +279,7 @@ impl StdAct {
                 h.ed_mut().design.open = Some(crate::editor::DesignCmd::Nest);
             }
             StdAct::MeasureShapes => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Measure),
+            StdAct::BackgroundPicture => h.ed_mut().show_background = true,
             StdAct::ExportSelectionSvg => crate::editor::EditorShapeOps::export_selection(h, false),
             StdAct::ExportSelectionDxf => crate::editor::EditorShapeOps::export_selection(h, true),
             StdAct::ToggleAutoFit => {
@@ -371,6 +373,7 @@ impl StdAct {
             StdAct::MakeCode => "grid-2x2",
             StdAct::NestShapes => "layers",
             StdAct::MeasureShapes => "move",
+            StdAct::BackgroundPicture => "image",
         }
     }
 }
@@ -473,6 +476,10 @@ pub mod std_entries {
             Item(StdAct::NestShapes, "Nest shapes…", None),
             Item(StdAct::MeasureShapes, "Measure…", None),
         ]
+    }
+    /// The picture under the drawing.
+    pub fn background() -> Vec<Entry<StdAct>> {
+        vec![Item(StdAct::BackgroundPicture, "Background picture…", None)]
     }
     /// Write the selected shapes (all when nothing is selected) as SVG or DXF.
     pub fn export_selection() -> Vec<Entry<StdAct>> {

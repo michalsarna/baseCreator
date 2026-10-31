@@ -809,3 +809,17 @@
 808|Fjarlægja afrit
 809|Brjóta í sundur
 810|Smoothieware (ekki GRBL)
+811|Bakgrunnsmynd: {}
+812|Ekki tókst að lesa myndina: {}
+813|Bakgrunnsmynd
+814|Hlaða mynd úr skrá…
+815|Nota mynd myndavélarinnar
+816|Mynd myndavélarinnar eins og hún er núna
+817|Ógegnsæi
+818|Færa hornin
+819|Laga að vinnusvæðinu
+820|Myndin er undir teikningunni: dragðu horn hennar á horn efnisins eða vinnusvæðisins. Hún er ekki vistuð í verkefninu.
+821|Þeir keyra í þessari röð: {}
+822|Slökkva á öllum eftirvinnslum
+823|Valdar eftirvinnslur breyta G-kóðanum í Flytja út G-kóða…; verk sem er sent til vélarinnar breytist ekki.
+824|Bakgrunnsmynd…
