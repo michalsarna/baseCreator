@@ -856,3 +856,6 @@
 855|G-koda analīze
 856|Priekšskatījums
 857|Kamera
+858|Sadalīt skatu: blakus
+859|Sadalīt skatu: vienu virs otra
+860|Viens skats

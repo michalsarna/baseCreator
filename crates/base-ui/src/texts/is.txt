@@ -856,3 +856,6 @@
 855|Greining G-kóða
 856|Forskoðun
 857|Myndavél
+858|Skipta sýn: hlið við hlið
+859|Skipta sýn: hvort ofan á öðru
+860|Ein sýn

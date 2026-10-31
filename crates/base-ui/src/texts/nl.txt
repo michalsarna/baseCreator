@@ -856,3 +856,6 @@
 855|G-code-analyse
 856|Voorbeeld
 857|Camera
+858|Weergave splitsen: naast elkaar
+859|Weergave splitsen: boven elkaar
+860|Enkele weergave

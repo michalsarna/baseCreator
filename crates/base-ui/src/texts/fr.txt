@@ -856,3 +856,6 @@
 855|Analyse du G-code
 856|Aperçu
 857|Caméra
+858|Diviser la vue : côte à côte
+859|Diviser la vue : l'une au-dessus de l'autre
+860|Vue unique

@@ -856,3 +856,6 @@
 855	G-code analysis
 856	Preview
 857	Camera
+858	Split view: side by side
+859	Split view: one above the other
+860	Single view

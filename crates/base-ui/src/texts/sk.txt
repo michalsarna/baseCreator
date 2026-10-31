@@ -856,3 +856,6 @@
 855|Analýza G-kódu
 856|Náhľad
 857|Kamera
+858|Rozdeliť zobrazenie: vedľa seba
+859|Rozdeliť zobrazenie: nad sebou
+860|Jedno zobrazenie

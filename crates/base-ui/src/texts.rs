@@ -863,6 +863,9 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["G-code analysis", "Analiza G-code", "G-Code-Analyse", "Analisi del G-code", "G-koodin analyysi", "G 代码分析", "G-कोड विश्लेषण"],
     ["Preview", "Podgląd", "Vorschau", "Anteprima", "Esikatselu", "预览", "पूर्वावलोकन"],
     ["Camera", "Kamera", "Kamera", "Fotocamera", "Kamera", "摄像头", "कैमरा"],
+    ["Split view: side by side", "Podziel widok: obok siebie", "Ansicht teilen: nebeneinander", "Dividi la vista: affiancata", "Jaa näkymä: vierekkäin", "拆分视图：并排", "दृश्य विभाजित करें: साथ-साथ"],
+    ["Split view: one above the other", "Podziel widok: jeden nad drugim", "Ansicht teilen: übereinander", "Dividi la vista: una sopra l'altra", "Jaa näkymä: päällekkäin", "拆分视图：上下排列", "दृश्य विभाजित करें: ऊपर-नीचे"],
+    ["Single view", "Jeden widok", "Einzelansicht", "Vista singola", "Yksi näkymä", "单一视图", "एकल दृश्य"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -68,6 +68,14 @@ pub trait EditorHost: Sized {
         false
     }
 
+    /// The panes of the central area, when the program has them (see `work_panes`).
+    fn panes_mut(&mut self) -> Option<&mut crate::work_panes::Panes> {
+        None
+    }
+    /// What a new pane could show, best first (not looking at what is on show already).
+    fn pane_candidates(&self) -> Vec<crate::work_panes::Content> {
+        vec![]
+    }
     /// The picture of a camera, to put under the drawing (with its name); `None` where there is no camera.
     fn background_camera_image(&self) -> Option<(egui::ColorImage, String)> {
         None

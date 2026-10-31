@@ -856,3 +856,6 @@
 855|Analiza G-koda
 856|Pregled
 857|Kamera
+858|Podijeli prikaz: jedan pored drugoga
+859|Podijeli prikaz: jedan iznad drugoga
+860|Jedan prikaz

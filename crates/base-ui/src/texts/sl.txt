@@ -856,3 +856,6 @@
 855|Analiza G-kode
 856|Predogled
 857|Kamera
+858|Razdeli pogled: drug ob drugem
+859|Razdeli pogled: enega nad drugim
+860|En pogled

@@ -856,3 +856,6 @@
 855|G-kodsanalys
 856|Förhandsgranskning
 857|Kamera
+858|Dela vyn: sida vid sida
+859|Dela vyn: över varandra
+860|En vy

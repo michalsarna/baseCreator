@@ -856,3 +856,6 @@
 855|Analiżi tal-G-code
 856|Previżjoni
 857|Kamera
+858|Aqsam il-veduta: ħdejn xulxin
+859|Aqsam il-veduta: waħda fuq l-oħra
+860|Veduta waħda

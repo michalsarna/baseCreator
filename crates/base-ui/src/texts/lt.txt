@@ -856,3 +856,6 @@
 855|G kodo analizė
 856|Peržiūra
 857|Kamera
+858|Skaidyti rodinį: vieną šalia kito
+859|Skaidyti rodinį: vieną virš kito
+860|Vienas rodinys

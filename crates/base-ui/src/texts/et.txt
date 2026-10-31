@@ -856,3 +856,6 @@
 855|G-koodi analüüs
 856|Eelvaade
 857|Kaamera
+858|Jaga vaade: kõrvuti
+859|Jaga vaade: üksteise kohal
+860|Üks vaade

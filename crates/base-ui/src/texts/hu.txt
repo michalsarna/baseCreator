@@ -856,3 +856,6 @@
 855|G-kód elemzése
 856|Előnézet
 857|Kamera
+858|Nézet felosztása: egymás mellett
+859|Nézet felosztása: egymás alatt
+860|Egy nézet

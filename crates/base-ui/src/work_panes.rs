@@ -20,7 +20,7 @@ const GAP: f32 = 6.0;
 const HEADER_H: f32 = 24.0;
 
 /// How the panes are placed.
-#[derive(Clone, Copy, PartialEq, Eq, Debug, Serialize, Deserialize, Default)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Serialize, Deserialize, Default, Hash)]
 pub enum Dir {
     /// Next to each other.
     #[default]
@@ -307,10 +307,7 @@ pub trait PaneHost {
     fn pane_choices(&self) -> Vec<(Content, String)>;
     /// Draw the content of a pane. `Active` is what the central area showed before the panes existed.
     fn draw_pane(&mut self, ui: &mut egui::Ui, content: Content, view: &mut Option<View>) -> PaneEvent;
-    /// Take a pane out into a window of its own (the program may refuse: `false`).
-    fn pop_out(&mut self, _content: Content) -> bool {
-        false
-    }
+    /// Can this content be taken out into a window of its own (a program may refuse for a kind of content)?
     fn can_pop_out(&self, _content: Content) -> bool {
         false
     }
@@ -396,12 +393,7 @@ impl Panes {
         match bar {
             Some(Bar::Choose(i, c)) => self.set_content(i, c),
             Some(Bar::Close(i)) => self.close(i),
-            Some(Bar::PopOut(i)) => {
-                let c = self.panes[i].content;
-                if h.pop_out(c) {
-                    self.close(i);
-                }
-            }
+            Some(Bar::PopOut(i)) => self.pop_out(i),
             None => {}
         }
         event
