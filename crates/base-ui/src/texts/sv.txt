@@ -848,3 +848,11 @@
 847|Uppdatera alla
 848|Senare
 849|Stort tack till Jakub (CNC KpK) för idéerna och förbättringsförslagen:
+850|Visa bredvid
+851|Öppna i ett eget fönster
+852|Stäng rutan
+853|Tillbaka till huvudfönstret
+854|Aktivt projekt
+855|G-kodsanalys
+856|Förhandsgranskning
+857|Kamera

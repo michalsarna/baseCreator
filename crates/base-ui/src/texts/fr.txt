@@ -848,3 +848,11 @@
 847|Tout mettre à jour
 848|Plus tard
 849|Un grand merci à Jakub (CNC KpK) pour les idées et les suggestions d'amélioration :
+850|Afficher à côté
+851|Ouvrir dans une fenêtre séparée
+852|Fermer le panneau
+853|Revenir à la fenêtre principale
+854|Projet actif
+855|Analyse du G-code
+856|Aperçu
+857|Caméra

@@ -848,3 +848,11 @@
 847|Alles bijwerken
 848|Later
 849|Veel dank aan Jakub (CNC KpK) voor de ideeën en suggesties voor verbeteringen:
+850|Naast elkaar tonen
+851|Openen in een apart venster
+852|Deelvenster sluiten
+853|Terug naar het hoofdvenster
+854|Actief project
+855|G-code-analyse
+856|Voorbeeld
+857|Camera

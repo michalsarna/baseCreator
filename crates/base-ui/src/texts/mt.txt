@@ -848,3 +848,11 @@
 847|Aġġorna kollox
 848|Aktar tard
 849|Grazzi kbira lil Jakub (CNC KpK) għall-ideat u s-suġġerimenti ta' titjib:
+850|Uri ħdejn
+851|Iftaħ f'tieqa separata
+852|Agħlaq il-pannell
+853|Lura lejn it-tieqa prinċipali
+854|Proġett attiv
+855|Analiżi tal-G-code
+856|Previżjoni
+857|Kamera

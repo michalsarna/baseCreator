@@ -848,3 +848,11 @@
 847|Uuenda kõik
 848|Hiljem
 849|Suur tänu Jakubile (CNC KpK) ideede ja parendusettepanekute eest:
+850|Näita kõrval
+851|Ava eraldi aknas
+852|Sulge paan
+853|Tagasi põhiaknasse
+854|Aktiivne projekt
+855|G-koodi analüüs
+856|Eelvaade
+857|Kaamera

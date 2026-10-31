@@ -848,3 +848,11 @@
 847|Atualizar tudo
 848|Mais tarde
 849|Agradecimento especial a Jakub (CNC KpK) pelas ideias e sugestões de melhoria:
+850|Mostrar ao lado
+851|Abrir numa janela separada
+852|Fechar painel
+853|Voltar à janela principal
+854|Projeto ativo
+855|Análise do G-code
+856|Pré-visualização
+857|Câmara

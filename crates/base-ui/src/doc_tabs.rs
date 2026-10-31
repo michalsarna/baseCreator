@@ -24,6 +24,8 @@ pub enum TabAction {
     /// The extra tab with this `id` (see [`ExtraTab`]) was picked, or closed.
     Extra(&'static str),
     CloseExtra(&'static str),
+    /// "Show beside" in the menu of a tab that is not the active one: show this drawing in a pane next to the active one.
+    ShowBeside(usize),
 }
 
 /// The title of a tab: the name of the file, or "Untitled".
@@ -58,7 +60,7 @@ pub struct ExtraTab {
 }
 
 /// Draws one tab; returns (clicked, closed).
-fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title: &str, dirty: bool, is_active: bool) -> (bool, bool) {
+fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title: &str, dirty: bool, is_active: bool, beside: bool) -> (bool, bool, bool) {
     let font = egui::FontId::proportional(13.0);
     let text = shorten(title);
     let galley = ui.painter().layout_no_wrap(text, font, if is_active { theme::text() } else { theme::text_dim() });
@@ -89,7 +91,16 @@ fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title:
     ui.painter().text(close_rect.center(), egui::Align2::CENTER_CENTER, mark, egui::FontId::proportional(if mark == "●" { 9.0 } else { 15.0 }), colour);
     let resp = if title.chars().count() > MAX_CHARS { resp.on_hover_text(title) } else { resp };
     close.clone().on_hover_text(tr("Close tab"));
-    (resp.clicked() || resp.middle_clicked(), close.clicked() || resp.middle_clicked())
+    let mut show_beside = false;
+    if beside {
+        resp.context_menu(|ui| {
+            if ui.button(tr("Show beside")).clicked() {
+                show_beside = true;
+                ui.close();
+            }
+        });
+    }
+    (resp.clicked() || resp.middle_clicked(), close.clicked() || resp.middle_clicked(), show_beside)
 }
 
 /// The bar: a tab for each drawing (a dot when it has unsaved work, a cross to close it) and a "+" for a new one. A middle
@@ -106,15 +117,17 @@ pub fn tab_bar_with(ui: &mut egui::Ui, tabs: &[TabInfo], active: usize, extras: 
             ui.spacing_mut().item_spacing.x = 2.0;
             for (i, t) in tabs.iter().enumerate() {
                 let is_active = i == active && !extras.iter().any(|e| e.shown);
-                let (clicked, closed) = one_tab(ui, i, &t.title, t.dirty, is_active);
-                if closed {
+                let (clicked, closed, beside) = one_tab(ui, i, &t.title, t.dirty, is_active, i != active && !extras.iter().any(|e| e.shown));
+                if beside {
+                    action = Some(TabAction::ShowBeside(i));
+                } else if closed {
                     action = Some(TabAction::Close(i));
                 } else if clicked && !is_active {
                     action = Some(TabAction::Select(i));
                 }
             }
             for e in extras {
-                let (clicked, closed) = one_tab(ui, e.id, &e.title, false, e.shown);
+                let (clicked, closed, _) = one_tab(ui, e.id, &e.title, false, e.shown, false);
                 if closed {
                     action = Some(TabAction::CloseExtra(e.id));
                 } else if clicked && !e.shown {

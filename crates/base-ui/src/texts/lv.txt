@@ -848,3 +848,11 @@
 847|Atjaunināt visu
 848|Vēlāk
 849|Liels paldies Jakubam (CNC KpK) par idejām un uzlabojumu ierosinājumiem:
+850|Rādīt blakus
+851|Atvērt atsevišķā logā
+852|Aizvērt rūti
+853|Atpakaļ uz galveno logu
+854|Aktīvais projekts
+855|G-koda analīze
+856|Priekšskatījums
+857|Kamera

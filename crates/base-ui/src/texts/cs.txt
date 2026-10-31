@@ -848,3 +848,11 @@
 847|Aktualizovat vše
 848|Později
 849|Velké díky Jakubovi (CNC KpK) za nápady a návrhy na vylepšení:
+850|Zobrazit vedle
+851|Otevřít v samostatném okně
+852|Zavřít panel
+853|Zpět do hlavního okna
+854|Aktivní projekt
+855|Analýza G-kódu
+856|Náhled
+857|Kamera

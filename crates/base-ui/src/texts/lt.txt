@@ -848,3 +848,11 @@
 847|Atnaujinti viską
 848|Vėliau
 849|Labai ačiū Jakub (CNC KpK) už idėjas ir tobulinimo pasiūlymus:
+850|Rodyti šalia
+851|Atidaryti atskirame lange
+852|Uždaryti skydelį
+853|Atgal į pagrindinį langą
+854|Aktyvus projektas
+855|G kodo analizė
+856|Peržiūra
+857|Kamera

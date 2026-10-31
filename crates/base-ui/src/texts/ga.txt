@@ -848,3 +848,11 @@
 847|Nuashonraigh uile
 848|Níos déanaí
 849|Go raibh míle maith agat, Jakub (CNC KpK), as na smaointe agus na moltaí feabhsúcháin:
+850|Taispeáin taobh leis
+851|Oscail i bhfuinneog ar leith
+852|Dún an phána
+853|Ar ais go dtí an príomhfhuinneog
+854|Tionscadal gníomhach
+855|Anailís G-code
+856|Réamhamharc
+857|Ceamara

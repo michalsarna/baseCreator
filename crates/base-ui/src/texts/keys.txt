@@ -848,3 +848,11 @@
 847	Update all
 848	Later
 849	Big thanks to Jakub (CNC KpK) for the ideas and suggestions for improvements:
+850	Show beside
+851	Open in a separate window
+852	Close pane
+853	Back to the main window
+854	Active project
+855	G-code analysis
+856	Preview
+857	Camera
