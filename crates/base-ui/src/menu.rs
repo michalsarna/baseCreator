@@ -203,6 +203,8 @@ pub enum StdAct {
     NestShapes,
     MeasureShapes,
     BackgroundPicture,
+    /// Choose a tool of the palette (the *Insert* menu lists the ones that insert objects).
+    Tool(crate::editor::Tool),
 }
 
 use Entry::{Item, Sep};
@@ -280,6 +282,7 @@ impl StdAct {
             }
             StdAct::MeasureShapes => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Measure),
             StdAct::BackgroundPicture => h.ed_mut().show_background = true,
+            StdAct::Tool(t) => crate::editor::select_tool(h.ed_mut(), t),
             StdAct::ExportSelectionSvg => crate::editor::EditorShapeOps::export_selection(h, false),
             StdAct::ExportSelectionDxf => crate::editor::EditorShapeOps::export_selection(h, true),
             StdAct::ToggleAutoFit => {
@@ -309,6 +312,7 @@ impl StdAct {
             StdAct::ToggleSnap => Some(h.ed().snap),
             StdAct::ToggleSnapObjects => Some(h.ed().snap_objects),
             StdAct::ToggleAutoFit => Some(h.ed().view.auto_fit),
+            StdAct::Tool(t) => Some(h.ed().tool == t),
             _ => None,
         }
     }
@@ -374,6 +378,7 @@ impl StdAct {
             StdAct::NestShapes => "layers",
             StdAct::MeasureShapes => "move",
             StdAct::BackgroundPicture => "image",
+            StdAct::Tool(t) => crate::icons::tool_icon(t),
         }
     }
 }
@@ -477,6 +482,10 @@ pub mod std_entries {
             Item(StdAct::MeasureShapes, "Measure…", None),
         ]
     }
+    /// The tools of the palette that insert objects: shapes, lines and text. The application adds its generators and clipart.
+    pub fn insert_tools() -> Vec<Entry<StdAct>> {
+        crate::editor::Tool::ALL.into_iter().filter(|t| t.0.is_insert()).map(|(t, label, _)| Item(StdAct::Tool(t), label, None)).collect()
+    }
     /// The picture under the drawing.
     pub fn background() -> Vec<Entry<StdAct>> {
         vec![Item(StdAct::BackgroundPicture, "Background picture…", None)]
@@ -502,7 +511,7 @@ mod tests {
     use super::*;
 
     fn all_std_entries() -> Vec<Entry<StdAct>> {
-        [std_entries::edit(), std_entries::align(), std_entries::place(), std_entries::group(), std_entries::order(), std_entries::nodes(), std_entries::grid(), std_entries::zoom(), std_entries::import_image(), std_entries::image_tools(), std_entries::shape_ops()].concat()
+        [std_entries::edit(), std_entries::align(), std_entries::place(), std_entries::group(), std_entries::order(), std_entries::nodes(), std_entries::grid(), std_entries::zoom(), std_entries::import_image(), std_entries::image_tools(), std_entries::shape_ops(), std_entries::insert_tools()].concat()
     }
 
     #[test]

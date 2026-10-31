@@ -21,7 +21,7 @@ pub use shape_ops::EditorShapeOps;
 pub use background_ui::{Background, EditorBackground};
 pub use design_ui::{CodeKind, DesignCmd, DesignState, EditorDesign};
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
-pub use bars::{control_name, grid_toggles, selection_size, zoom_and_cursor};
+pub use bars::{control_name, grid_toggles, select_tool, selection_size, zoom_and_cursor};
 pub use prefs::view_options_window;
 pub use props::properties_sections;
 
@@ -31,7 +31,7 @@ use base_core::scene::Shape;
 use egui::Key;
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
 pub enum Tool {
     Select,
     Node,
@@ -72,6 +72,11 @@ impl Tool {
     /// Selecting and editing tools, kept apart from the tools that insert new objects.
     pub fn is_edit(self) -> bool {
         matches!(self, Tool::Select | Tool::Node)
+    }
+
+    /// The tools that insert new objects (the middle group of the palette; the *Insert* menu lists them).
+    pub fn is_insert(self) -> bool {
+        !self.is_edit() && !self.is_nav()
     }
 
     /// View navigation tools, kept apart from the drawing and editing tools.

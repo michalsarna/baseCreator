@@ -440,3 +440,18 @@ fn the_perspective_map_puts_the_middle_of_the_picture_in_the_middle_of_a_skewed_
         assert!((p.x - c.x).abs() < 1e-9 && (p.y - c.y).abs() < 1e-9);
     }
 }
+
+#[test]
+fn the_insert_menu_chooses_the_same_tools_as_the_palette() {
+    use crate::menu::{std_entries, Entry, StdAct};
+    let tools: Vec<Tool> = std_entries::insert_tools().into_iter().filter_map(|e| if let Entry::Item(StdAct::Tool(t), _, _) = e { Some(t) } else { None }).collect();
+    assert_eq!(tools, [Tool::Rect, Tool::Ellipse, Tool::Triangle, Tool::Star, Tool::Polygon, Tool::Heart, Tool::Spiral, Tool::Line, Tool::Pen, Tool::Text]);
+    let mut h = Host::default();
+    h.ed.pen_pts.push(base_core::geom::Pt { x: 1.0, y: 1.0 });
+    StdAct::Tool(Tool::Polygon).run(&mut h);
+    assert_eq!(h.ed.tool, Tool::Polygon);
+    assert!(h.ed.show_shape_popup && h.ed.pen_pts.is_empty(), "like a click on the palette: the polygon form opens and a half-drawn line is dropped");
+    assert_eq!(StdAct::Tool(Tool::Polygon).checked(&h), Some(true));
+    assert_eq!(StdAct::Tool(Tool::Star).checked(&h), Some(false));
+}
+
