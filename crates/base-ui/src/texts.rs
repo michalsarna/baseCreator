@@ -815,6 +815,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Gap between the boxes: {}", "Odstęp między prostokątami: {}", "Abstand zwischen den Rahmen: {}", "Distanza tra i riquadri: {}", "Laatikoiden väli: {}", "外框间距：{}", "बॉक्सों के बीच अंतर: {}"],
     ["Remove duplicates", "Usuń duplikaty", "Duplikate entfernen", "Rimuovi duplicati", "Poista kaksoiskappaleet", "删除重复项", "डुप्लिकेट हटाएँ"],
     ["Break apart", "Rozdziel", "Auftrennen", "Separa", "Erota osiin", "拆分", "अलग करें"],
+    ["Smoothieware (not GRBL)", "Smoothieware (nie GRBL)", "Smoothieware (kein GRBL)", "Smoothieware (non GRBL)", "Smoothieware (ei GRBL)", "Smoothieware（非 GRBL）", "Smoothieware (GRBL नहीं)"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

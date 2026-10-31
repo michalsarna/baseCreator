@@ -808,3 +808,4 @@
 807|Distància entre els quadres: {}
 808|Elimina duplicats
 809|Separa
+810|Smoothieware (no GRBL)

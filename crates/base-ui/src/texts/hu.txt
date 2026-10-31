@@ -808,3 +808,4 @@
 807|A keretek közti távolság: {}
 808|Duplikátumok eltávolítása
 809|Szétválasztás
+810|Smoothieware (nem GRBL)

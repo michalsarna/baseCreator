@@ -808,3 +808,4 @@
 807|Afstand tussen de kaders: {}
 808|Dubbele vormen verwijderen
 809|Splitsen
+810|Smoothieware (geen GRBL)

@@ -808,3 +808,4 @@
 807|Distancia entre las cajas: {}
 808|Eliminar duplicados
 809|Separar
+810|Smoothieware (no GRBL)

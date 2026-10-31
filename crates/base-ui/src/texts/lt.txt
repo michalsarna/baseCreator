@@ -808,3 +808,4 @@
 807|Tarpas tarp rėmelių: {}
 808|Pašalinti dublikatus
 809|Išskaidyti
+810|Smoothieware (ne GRBL)

@@ -808,3 +808,4 @@
 807|Razdalja med okvirji: {}
 808|Odstrani dvojnike
 809|Razdeli
+810|Smoothieware (ni GRBL)

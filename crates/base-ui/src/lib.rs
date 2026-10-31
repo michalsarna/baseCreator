@@ -13,6 +13,7 @@ pub mod description_ui;
 pub mod device_pages;
 pub mod doc_tabs;
 pub mod dialogs;
+pub mod duet;
 pub mod editor;
 pub mod firmware_ui;
 pub mod gcode_view_ui;

@@ -808,3 +808,4 @@
 807|Avstand mellom boksene: {}
 808|Fjern duplikater
 809|Del
+810|Smoothieware (ikke GRBL)
