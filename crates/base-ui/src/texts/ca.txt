@@ -734,3 +734,21 @@
 733|Afegeix una osca a cada cantonada viva de les formes seleccionades perquè una fresa rodona d'aquest radi hi arribi: el dogbone talla una mica les dues parets, el T-bone només una.
 734|La selecció no té cantonades vives.
 735|S'han afegit osques a {} formes
+736|La màquina no pot fer això.
+737|Troba el centre
+738|La sonda penja en un forat, més o menys al mig: toca els quatre costats, va al centre i el fa el zero de X i Y. Fes primer la Z.
+739|Refrigerant
+740|Boira
+741|Inundació
+742|Activa el refrigerant en boira (M7)
+743|Activa el refrigerant per inundació, o l'aspirador en una màquina que el té connectat així (M8)
+744|Atura tot el refrigerant (M9)
+745|Anul·lacions
+746|Avanç
+747|Moviments ràpids
+748|Torna a la velocitat que demana el programa
+749|Posicions desades
+750|Ves a X {} Y {} Z {} (posició de màquina), primer amunt si cal
+751|Oblida aquesta posició
+752|Desa aquí
+753|Recorda on és ara l'eina

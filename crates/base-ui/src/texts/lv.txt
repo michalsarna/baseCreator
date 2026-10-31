@@ -734,3 +734,21 @@
 733|Pievieno iegriezumu katram izvēlēto formu asajam stūrim, lai šāda rādiusa apaļa frēze tur ieietu: dogbone nedaudz pārgriež abas sienas, T-bone tikai vienu.
 734|Atlasītajā nav asu stūru.
 735|Iegriezumi pievienoti {} formām
+736|Iekārta to nevar.
+737|Atrast centru
+738|Zonde karājas caurumā aptuveni pa vidu: tā pieskaras četrām pusēm, aizbrauc uz vidu un padara to par X un Y nulli. Vispirms iestatiet Z.
+739|Dzesēšanas šķidrums
+740|Migla
+741|Pārpilns
+742|Ieslēdz dzesēšanu ar miglu (M7)
+743|Ieslēdz pārpildes dzesēšanu vai putekļu nosūcēju iekārtā, kurai tas pieslēgts šādi (M8)
+744|Izslēdz visu dzesēšanu (M9)
+745|Pārrakstīšana
+746|Padeve
+747|Ātrās kustības
+748|Atpakaļ uz ātrumu, ko prasa programma
+749|Saglabātās pozīcijas
+750|Iet uz X {} Y {} Z {} (iekārtas pozīcija), vajadzības gadījumā vispirms uz augšu
+751|Aizmirst šo pozīciju
+752|Saglabāt šeit
+753|Atcerēties, kur tagad atrodas instruments

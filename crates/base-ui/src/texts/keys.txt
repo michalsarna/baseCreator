@@ -734,3 +734,21 @@
 733	Adds a notch to every sharp corner of the selected shapes, so that a round bit of this radius reaches into it: a dogbone overcuts both walls a little, a T-bone only one.
 734	No sharp corners in the selection.
 735	Notches added to {} shapes
+736	The machine cannot do this.
+737	Find the centre
+738	The probe hangs in a hole, about in the middle: it touches the four sides, goes to the middle and makes it the zero of X and Y. Do the Z first.
+739	Coolant
+740	Mist
+741	Flood
+742	Switches the mist coolant on (M7)
+743	Switches the flood coolant, or the dust collector on a machine that has it wired so, on (M8)
+744	Switches all coolant off (M9)
+745	Overrides
+746	Feed
+747	Rapids
+748	Back to the speed the program asks for
+749	Saved positions
+750	Go to X {} Y {} Z {} (machine position), up first when needed
+751	Forget this position
+752	Save here
+753	Remember where the tool is now

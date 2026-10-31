@@ -734,3 +734,21 @@
 733|Doda zarezo v vsak oster kot izbranih oblik, da vanj seže okrogel rezkar tega polmera: dogbone rahlo podreže obe steni, T-bone le eno.
 734|V izboru ni ostrih kotov.
 735|Zarezi dodani na {} oblik
+736|Stroj tega ne zna.
+737|Poišči središče
+738|Sonda visi v luknji, približno na sredini: dotakne se štirih strani, gre na sredino in jo naredi za ničlo X in Y. Najprej nastavite Z.
+739|Hladilno sredstvo
+740|Megla
+741|Poplavljanje
+742|Vklopi hlajenje z meglo (M7)
+743|Vklopi poplavno hlajenje ali sesalnik prahu na stroju, kjer je tako priključen (M8)
+744|Izklopi vse hlajenje (M9)
+745|Prepisi
+746|Podajanje
+747|Hitri premiki
+748|Nazaj na hitrost, ki jo zahteva program
+749|Shranjeni položaji
+750|Pojdi na X {} Y {} Z {} (položaj stroja), po potrebi najprej gor
+751|Pozabi ta položaj
+752|Shrani tukaj
+753|Zapomni si, kje je orodje zdaj

@@ -734,3 +734,21 @@
 733|Adiciona um entalhe a cada canto vivo das formas selecionadas para que uma fresa redonda deste raio chegue lá: o dogbone corta um pouco as duas paredes, o T-bone só uma.
 734|Não há cantos vivos na seleção.
 735|Entalhes adicionados a {} formas
+736|A máquina não consegue fazer isto.
+737|Encontrar o centro
+738|A sonda está num furo, mais ou menos ao meio: toca os quatro lados, vai para o meio e faz dele o zero de X e Y. Faça primeiro o Z.
+739|Refrigerante
+740|Névoa
+741|Inundação
+742|Liga o arrefecimento por névoa (M7)
+743|Liga o arrefecimento por inundação, ou o aspirador numa máquina que o tenha ligado assim (M8)
+744|Desliga todo o arrefecimento (M9)
+745|Substituições
+746|Avanço
+747|Rápidos
+748|De volta à velocidade que o programa pede
+749|Posições guardadas
+750|Ir para X {} Y {} Z {} (posição da máquina), primeiro para cima se for preciso
+751|Esquecer esta posição
+752|Guardar aqui
+753|Lembrar onde a ferramenta está agora

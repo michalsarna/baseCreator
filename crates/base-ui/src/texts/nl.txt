@@ -734,3 +734,21 @@
 733|Voegt een inkeping toe aan elke scherpe hoek van de geselecteerde vormen, zodat een ronde frees met deze straal erin kan: een dogbone snijdt beide wanden een beetje over, een T-bone slechts één.
 734|Er zijn geen scherpe hoeken in de selectie.
 735|Inkepingen toegevoegd aan {} vormen
+736|De machine kan dit niet.
+737|Midden zoeken
+738|De sonde hangt ongeveer in het midden van een gat: hij raakt de vier zijden aan, gaat naar het midden en maakt dat de nul van X en Y. Doe eerst Z.
+739|Koelvloeistof
+740|Nevel
+741|Overvloed
+742|Schakelt de nevelkoeling in (M7)
+743|Schakelt de overvloedkoeling in, of de stofafzuiging op een machine waar die zo is aangesloten (M8)
+744|Schakelt alle koeling uit (M9)
+745|Overrides
+746|Voeding
+747|Ijlgang
+748|Terug naar de snelheid die het programma vraagt
+749|Opgeslagen posities
+750|Ga naar X {} Y {} Z {} (machinepositie), indien nodig eerst omhoog
+751|Deze positie vergeten
+752|Hier opslaan
+753|Onthoud waar het gereedschap nu is

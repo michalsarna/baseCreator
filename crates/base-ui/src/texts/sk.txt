@@ -734,3 +734,21 @@
 733|Pridá výrez do každého ostrého rohu vybraných tvarov, aby do neho dosiahla okrúhla fréza tohto polomeru: dogbone mierne podreže obe steny, T-bone len jednu.
 734|Vo výbere nie sú žiadne ostré rohy.
 735|Výrezy pridané do {} tvarov
+736|Stroj to nevie.
+737|Nájsť stred
+738|Sonda visí v otvore zhruba v strede: dotkne sa štyroch strán, ide do stredu a urobí z neho nulu X a Y. Najprv nastavte Z.
+739|Chladenie
+740|Hmla
+741|Zaplavenie
+742|Zapne hmlové chladenie (M7)
+743|Zapne zaplavovacie chladenie alebo odsávanie prachu na stroji, ktorý je tak zapojený (M8)
+744|Vypne všetko chladenie (M9)
+745|Prepisy rýchlosti
+746|Posuv
+747|Rýchloposuvy
+748|Späť na rýchlosť, ktorú program žiada
+749|Uložené polohy
+750|Ísť na X {} Y {} Z {} (poloha stroja), podľa potreby najprv hore
+751|Zabudnúť túto polohu
+752|Uložiť tu
+753|Zapamätať, kde je nástroj teraz

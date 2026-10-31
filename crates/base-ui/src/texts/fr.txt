@@ -734,3 +734,21 @@
 733|Ajoute une encoche à chaque angle vif des formes sélectionnées pour qu'une fraise ronde de ce rayon y accède : le dogbone entame un peu les deux parois, le T-bone une seule.
 734|Il n'y a pas d'angles vifs dans la sélection.
 735|Encoches ajoutées à {} formes
+736|La machine ne peut pas faire cela.
+737|Trouver le centre
+738|La sonde est dans un trou, à peu près au milieu : elle touche les quatre côtés, va au milieu et en fait le zéro de X et Y. Faites d'abord le Z.
+739|Arrosage
+740|Brouillard
+741|Arrosage abondant
+742|Active l'arrosage en brouillard (M7)
+743|Active l'arrosage abondant, ou l'aspirateur sur une machine qui l'a câblé ainsi (M8)
+744|Coupe tout l'arrosage (M9)
+745|Correctifs
+746|Avance
+747|Rapides
+748|Retour à la vitesse demandée par le programme
+749|Positions enregistrées
+750|Aller à X {} Y {} Z {} (position machine), d'abord vers le haut si besoin
+751|Oublier cette position
+752|Enregistrer ici
+753|Mémoriser où se trouve l'outil

@@ -734,3 +734,21 @@
 733|Bætir skoru í hvert skarpt horn valinna forma svo að kringlóttur fræsir með þessum radíus nái inn: dogbone sker aðeins báða veggi, T-bone aðeins annan.
 734|Engin skörp horn eru í valinu.
 735|Skorum bætt við {} form
+736|Vélin getur þetta ekki.
+737|Finna miðjuna
+738|Neminn hangir í gati, nokkurn veginn í miðjunni: hann snertir fjórar hliðar, fer í miðjuna og gerir hana að núlli X og Y. Gerðu Z fyrst.
+739|Kælivökvi
+740|Úði
+741|Flóð
+742|Kveikir á úðakælingu (M7)
+743|Kveikir á flóðkælingu eða ryksugu á vél þar sem hún er tengd þannig (M8)
+744|Slekkur á allri kælingu (M9)
+745|Tilfærslur
+746|Fæðing
+747|Hraðfærslur
+748|Aftur í hraðann sem forritið biður um
+749|Vistaðar staðsetningar
+750|Fara á X {} Y {} Z {} (vélarstaða), fyrst upp ef þarf
+751|Gleyma þessari staðsetningu
+752|Vista hér
+753|Muna hvar verkfærið er núna

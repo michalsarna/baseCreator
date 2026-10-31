@@ -734,3 +734,21 @@
 733|Lägger till ett hack i varje vasst hörn på de valda formerna så att en rund fräs med denna radie når in: en dogbone underskär båda väggarna något, en T-bone bara en.
 734|Det finns inga vassa hörn i markeringen.
 735|Hack tillagda på {} former
+736|Maskinen kan inte göra detta.
+737|Hitta mitten
+738|Sonden hänger i ett hål, ungefär i mitten: den vidrör de fyra sidorna, kör till mitten och gör den till noll för X och Y. Gör Z först.
+739|Kylvätska
+740|Dimma
+741|Översvämning
+742|Slår på dimkylningen (M7)
+743|Slår på översvämningskylningen, eller dammsugaren på en maskin där den är kopplad så (M8)
+744|Stänger av all kylning (M9)
+745|Åsidosättningar
+746|Matning
+747|Snabbrörelser
+748|Tillbaka till den hastighet programmet ber om
+749|Sparade positioner
+750|Kör till X {} Y {} Z {} (maskinposition), först uppåt om det behövs
+751|Glöm den här positionen
+752|Spara här
+753|Kom ihåg var verktyget är nu

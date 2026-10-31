@@ -734,3 +734,21 @@
 733|Bevágást ad a kijelölt alakzatok minden éles sarkához, hogy az ilyen sugarú kerek maró beférjen: a dogbone kissé mindkét falat túlvágja, a T-bone csak az egyiket.
 734|A kijelölésben nincsenek éles sarkok.
 735|Bevágás hozzáadva {} alakzathoz
+736|A gép ezt nem tudja.
+737|Középpont keresése
+738|A szonda egy lyukban lóg, nagyjából középen: megérinti a négy oldalt, a közepére megy, és azt teszi az X és Y nullájává. Előbb állítsd be a Z-t.
+739|Hűtőfolyadék
+740|Köd
+741|Árasztás
+742|Bekapcsolja a ködhűtést (M7)
+743|Bekapcsolja az árasztásos hűtést, vagy a porelszívót azon a gépen, ahol így van bekötve (M8)
+744|Kikapcsol minden hűtést (M9)
+745|Felülbírálások
+746|Előtolás
+747|Gyorsmenetek
+748|Vissza a program által kért sebességre
+749|Mentett pozíciók
+750|Menj ide: X {} Y {} Z {} (gépi pozíció), szükség esetén előbb felfelé
+751|A pozíció elfelejtése
+752|Mentés ide
+753|Jegyezd meg, hol van most a szerszám

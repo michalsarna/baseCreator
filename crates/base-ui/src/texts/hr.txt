@@ -734,3 +734,21 @@
 733|Dodaje urez u svaki oštri kut odabranih oblika kako bi okruglo glodalo ovog polumjera dosegnulo do njega: dogbone malo podrezuje obje stijenke, T-bone samo jednu.
 734|U odabiru nema oštrih kutova.
 735|Urezi dodani na {} oblika
+736|Stroj to ne može.
+737|Pronađi središte
+738|Sonda visi u rupi, otprilike na sredini: dodiruje četiri strane, ide u sredinu i čini je nulom X i Y. Prvo postavi Z.
+739|Rashladno sredstvo
+740|Maglica
+741|Preplavljivanje
+742|Uključuje rashladnu maglicu (M7)
+743|Uključuje preplavljivanje rashladnom tekućinom ili usisavač prašine na stroju koji je tako spojen (M8)
+744|Isključuje sve hlađenje (M9)
+745|Korekcije
+746|Posmak
+747|Brzi hodovi
+748|Natrag na brzinu koju traži program
+749|Spremljeni položaji
+750|Idi na X {} Y {} Z {} (položaj stroja), prvo gore ako treba
+751|Zaboravi ovaj položaj
+752|Spremi ovdje
+753|Zapamti gdje je alat sada
