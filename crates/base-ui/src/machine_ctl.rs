@@ -975,10 +975,16 @@ impl Machine {
         self.lines(out);
     }
 
-    /// Go to a machine position (a saved one): up first when it is higher than the tool is, then across, then down.
-    pub fn go_machine(&mut self, p: [f64; 3], feed: f64) {
+    /// Go to a machine position (a saved one): up first when it is higher than the tool is, then across, then down. Without a Z axis
+    /// (`with_z` off) only across.
+    pub fn go_machine(&mut self, p: [f64; 3], feed: f64, with_z: bool) {
+        let xy = format!("$J=G90 G21 G53 X{:.3} Y{:.3} F{feed:.0}", p[0], p[1]);
+        if !with_z {
+            self.lines(vec![xy]);
+            return;
+        }
         let z = self.mpos[2].max(p[2]);
-        self.lines(vec![format!("$J=G90 G21 G53 Z{z:.3} F{feed:.0}"), format!("$J=G90 G21 G53 X{:.3} Y{:.3} F{feed:.0}", p[0], p[1]), format!("$J=G90 G21 G53 Z{:.3} F{feed:.0}", p[2])]);
+        self.lines(vec![format!("$J=G90 G21 G53 Z{z:.3} F{feed:.0}"), xy, format!("$J=G90 G21 G53 Z{:.3} F{feed:.0}", p[2])]);
     }
 
     // ---- copies of the settings ----
@@ -1579,10 +1585,14 @@ mod tests {
         connect(&mut m, port);
         assert!(wait(&mut m, 3.0, |m, _| m.connected && m.mpos[2] == -5.0));
         // The tool is at Z -5; the place is lower (Z -20): across at Z -5, then down.
-        m.go_machine([-50.0, -60.0, -20.0], 1500.0);
+        m.go_machine([-50.0, -60.0, -20.0], 1500.0, true);
         assert!(wait(&mut m, 3.0, |m, _| m.console.iter().any(|l| l.dir == Dir::Tx && l.text == "$J=G90 G21 G53 Z-20.000 F1500")));
         let sent: Vec<String> = m.console.iter().filter(|l| l.dir == Dir::Tx && l.text.starts_with("$J=")).map(|l| l.text.clone()).collect();
         assert_eq!(sent, vec!["$J=G90 G21 G53 Z-5.000 F1500", "$J=G90 G21 G53 X-50.000 Y-60.000 F1500", "$J=G90 G21 G53 Z-20.000 F1500"]);
+        // A machine without a Z axis is only moved across.
+        m.go_machine([-1.0, -2.0, -3.0], 600.0, false);
+        assert!(wait(&mut m, 3.0, |m, _| m.console.iter().any(|l| l.dir == Dir::Tx && l.text == "$J=G90 G21 G53 X-1.000 Y-2.000 F600")));
+        assert!(!m.console.iter().any(|l| l.dir == Dir::Tx && l.text.contains("Z-3.000")), "no Z move");
     }
 
     #[test]

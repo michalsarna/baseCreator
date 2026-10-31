@@ -138,8 +138,12 @@ pub trait ControlTarget {
     }
     /// A realtime byte (the overrides are changed by them).
     fn realtime(&mut self, _b: u8) {}
-    /// Go to a machine position (a saved one) at `feed` mm/min, up first when needed.
-    fn go_machine(&mut self, _p: [f64; 3], _feed: f64) {}
+    /// Can this machine go to a machine position by itself (the saved positions need it)? A laser with its own limits and margins cannot.
+    fn can_go_machine(&self) -> bool {
+        false
+    }
+    /// Go to a machine position (a saved one) at `feed` mm/min, up first when needed; Z only with `with_z`.
+    fn go_machine(&mut self, _p: [f64; 3], _feed: f64, _with_z: bool) {}
     /// Find the centre of a hole with the probe and make it the zero of X and Y.
     fn center_hole(&mut self, _c: &Control) -> Result<(), String> {
         Err(tr("The machine cannot do this.").to_string())
@@ -156,8 +160,11 @@ impl ControlTarget for Machine {
     fn realtime(&mut self, b: u8) {
         Machine::realtime(self, b)
     }
-    fn go_machine(&mut self, p: [f64; 3], feed: f64) {
-        Machine::go_machine(self, p, feed)
+    fn can_go_machine(&self) -> bool {
+        true
+    }
+    fn go_machine(&mut self, p: [f64; 3], feed: f64, with_z: bool) {
+        Machine::go_machine(self, p, feed, with_z)
     }
     fn center_hole(&mut self, c: &Control) -> Result<(), String> {
         Machine::center_start(self, c)
@@ -699,7 +706,7 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
     }
 
     // ---- places to go back to ----
-    if c.hold_to_move {
+    if c.hold_to_move && m.can_go_machine() {
         section_break(ui);
         heading(ui, &tr("Saved positions"));
         ui.add_space(2.0);
@@ -735,7 +742,7 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
             store_positions(list);
         }
         if let Some(p) = go {
-            m.go_machine(p, feed_xy);
+            m.go_machine(p, feed_xy, c.z_axis);
         }
     }
 
