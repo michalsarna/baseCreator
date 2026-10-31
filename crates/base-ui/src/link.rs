@@ -198,6 +198,30 @@ pub fn clean_gcode(text: &str) -> Vec<String> {
         .collect()
 }
 
+/// Where the layers of a job begin, as line numbers of the lines sent to the machine (`clean_gcode` of the text): the lines that start
+/// with a `(Layer:` comment. The first layer is not in the list (it begins with the job), so the n-th number is also where the n-th layer
+/// is done.
+pub fn layer_marks(lines: &[String]) -> Vec<usize> {
+    lines.iter().enumerate().filter(|(_, l)| l.starts_with("(Layer:")).map(|(i, _)| i).skip(1).collect()
+}
+
+/// The same for a G-code text with its comments: a `(Layer: …)` line or a `; layer …` comment starts a layer; the numbers are those of the
+/// lines `clean_gcode` leaves.
+pub fn layer_marks_in_text(text: &str) -> Vec<usize> {
+    let (mut kept, mut marks) = (0usize, vec![]);
+    for raw in text.lines() {
+        let t = raw.trim_start();
+        let semi = t.strip_prefix(';').is_some_and(|c| c.trim_start().to_ascii_lowercase().starts_with("layer"));
+        if semi || t.starts_with("(Layer:") {
+            marks.push(kept);
+        }
+        if !raw.split(';').next().unwrap_or("").trim().is_empty() {
+            kept += 1;
+        }
+    }
+    marks.into_iter().skip(1).collect()
+}
+
 fn realtime_name(b: u8) -> String {
     match b {
         0x18 => "0x18 (soft reset)".into(),
@@ -458,6 +482,22 @@ mod tests {
 
     fn info(name: &str, usb: Option<(u16, u16)>) -> PortInfo {
         PortInfo { name: name.into(), usb }
+    }
+
+    #[test]
+    fn the_layers_of_a_job_are_found_in_the_lines_and_in_the_text_with_the_same_numbers() {
+        let text = "(MillCreator: t)\nG21 G90\n(Layer: cut)\nG0 X1\nG1 X2\n(Layer: pocket)\nG0 X3\n; comment\n(Layer: engrave)\nG1 X4\nM30\n";
+        let lines = clean_gcode(text);
+        let from_lines = layer_marks(&lines);
+        assert_eq!(from_lines.len(), 2, "the first layer is not a mark: {from_lines:?}");
+        assert_eq!(lines[from_lines[0]], "(Layer: pocket)");
+        assert_eq!(layer_marks_in_text(text), from_lines);
+        // A laser job: `; layer` comments are gone from the lines, the numbers still point at the first line of the next layer.
+        let laser = "; job\nG21\n; layer Cut (line) speed 20\nG1 X1\nG1 X2\n; pass 2/2\nG1 X3\n; layer Fill (fill) speed 90\nG1 Y1\nM5\n";
+        let marks = layer_marks_in_text(laser);
+        assert_eq!(marks.len(), 1);
+        assert_eq!(clean_gcode(laser)[marks[0]], "G1 Y1");
+        assert!(layer_marks(&[]).is_empty() && layer_marks_in_text("G0 X1\n").is_empty());
     }
 
     #[test]

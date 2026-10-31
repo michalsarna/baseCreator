@@ -823,3 +823,24 @@
 822|Izslēgt visus postprocesorus
 823|Izvēlētie postprocesori maina G-kodu no Eksportēt G-kodu…; mašīnai nosūtītais darbs netiek mainīts.
 824|Fona attēls…
+825|No kameras vēl nav attēla.
+826|Saglabāts {} ({} attēli)
+827|Time-lapse: attēls tiek uzņemts, kad slānis ir gatavs.
+828|Time-lapse: {} attēli mapē {}
+829|Uzņemt foto
+830|Apturēt ierakstu
+831|Ieraksts: {} s, {} attēli
+832|Ierakstīt video
+833|Time-lapse
+834|Ik pēc
+835|Pēc katra slāņa
+836|Nepieciešams darbs, kas no programmas nosūtīts mašīnai (Sākt)
+837|Apturēt time-lapse
+838|{} attēli
+839|Sākt time-lapse
+840|Mape
+841|koplietoto datu mape camera
+842|Izvēlēties mapi…
+843|Šīs kameras straume prasa ffmpeg, kas netika atrasts blakus programmai vai sistēmas PATH.
+844|Straume beidzās: tā tiek atvērta vēlreiz.
+845|Straumi neizdevās atvērt (adrese, lietotājs un parole?): mēģina vēlreiz.

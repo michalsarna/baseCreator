@@ -823,3 +823,24 @@
 822|Itfi l-postprocessors kollha
 823|Il-postprocessors magħżula jibdlu l-G-code ta' Esporta G-code…; xogħol mibgħut lill-magna ma jinbidilx.
 824|Stampa fl-isfond…
+825|Għad m'hemmx stampa mill-kamera.
+826|Salvat {} ({} stampi)
+827|Time-lapse: titteħed stampa meta saff jitlesta.
+828|Time-lapse: {} stampi f'{}
+829|Ħu ritratt
+830|Waqqaf ir-reġistrazzjoni
+831|Reġistrazzjoni: {} s, {} stampi
+832|Irreġistra video
+833|Time-lapse
+834|Kull
+835|Wara kull saff
+836|Teħtieġ xogħol mibgħut lill-magna mill-programm (Ibda)
+837|Waqqaf it-time-lapse
+838|{} stampi
+839|Ibda t-time-lapse
+840|Folder
+841|il-folder camera tad-dejta kondiviża
+842|Agħżel il-folder…
+843|L-istream ta' din il-kamera jeħtieġ ffmpeg, li ma nstabx maġenb il-programm jew fil-PATH tas-sistema.
+844|L-istream intemm: jinfetaħ mill-ġdid.
+845|L-istream ma setax jinfetaħ (indirizz, utent u password?): qed jiġi pprovat mill-ġdid.

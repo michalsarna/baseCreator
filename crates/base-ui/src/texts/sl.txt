@@ -823,3 +823,24 @@
 822|Izklopi vse postprocesorje
 823|Izbrani postprocesorji spremenijo G-kodo iz Izvozi G-kodo…; opravilo, poslano stroju, se ne spremeni.
 824|Slika v ozadju…
+825|S kamere še ni slike.
+826|Shranjeno {} ({} slik)
+827|Časovni zamik: slika se posname, ko je sloj končan.
+828|Časovni zamik: {} slik v {}
+829|Posnemi fotografijo
+830|Ustavi snemanje
+831|Snemanje: {} s, {} slik
+832|Posnemi video
+833|Časovni zamik
+834|Vsakih
+835|Po vsakem sloju
+836|Zahteva opravilo, poslano stroju iz programa (Začni)
+837|Ustavi časovni zamik
+838|{} slik
+839|Začni časovni zamik
+840|Mapa
+841|mapa camera v skupnih podatkih
+842|Izberi mapo…
+843|Tok te kamere potrebuje ffmpeg, ki ni bil najden ob programu ali v PATH sistema.
+844|Tok se je končal: odpre se znova.
+845|Toka ni bilo mogoče odpreti (naslov, uporabnik in geslo?): poskusi se znova.

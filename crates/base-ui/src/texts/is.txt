@@ -823,3 +823,24 @@
 822|Slökkva á öllum eftirvinnslum
 823|Valdar eftirvinnslur breyta G-kóðanum í Flytja út G-kóða…; verk sem er sent til vélarinnar breytist ekki.
 824|Bakgrunnsmynd…
+825|Engin mynd frá myndavélinni enn.
+826|Vistað {} ({} myndir)
+827|Time-lapse: mynd er tekin þegar lag er búið.
+828|Time-lapse: {} myndir í {}
+829|Taka mynd
+830|Stöðva upptöku
+831|Upptaka: {} s, {} myndir
+832|Taka upp myndband
+833|Time-lapse
+834|Á hverjum
+835|Eftir hvert lag
+836|Þarf verk sem forritið sendir til vélarinnar (Start)
+837|Stöðva time-lapse
+838|{} myndir
+839|Hefja time-lapse
+840|Mappa
+841|mappan camera í sameiginlegum gögnum
+842|Velja möppu…
+843|Straumur þessarar myndavélar þarf ffmpeg, sem fannst hvorki við hlið forritsins né í PATH kerfisins.
+844|Straumnum lauk: hann er opnaður aftur.
+845|Ekki tókst að opna strauminn (heimilisfang, notandi og lykilorð?): reynt er aftur.

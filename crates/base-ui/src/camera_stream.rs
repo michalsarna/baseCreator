@@ -4,7 +4,7 @@ use crate::camera::Frame;
 use std::io::Read;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc::{channel, Receiver};
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 
 pub enum Msg {
@@ -15,11 +15,18 @@ pub enum Msg {
 pub struct StreamWorker {
     pub rx: Receiver<Msg>,
     stop: Arc<AtomicBool>,
+    /// The process of an RTSP stream (ffmpeg): ended with the worker.
+    child: Arc<Mutex<Option<std::process::Child>>>,
 }
 
 impl Drop for StreamWorker {
     fn drop(&mut self) {
         self.stop.store(true, Ordering::Relaxed);
+        if let Ok(mut c) = self.child.lock() {
+            if let Some(child) = c.as_mut() {
+                let _ = child.kill();
+            }
+        }
     }
 }
 
@@ -35,7 +42,103 @@ fn decode(jpeg: &[u8]) -> Option<Frame> {
     Some(Frame { w: img.width(), h: img.height(), rgb: img.into_raw() })
 }
 
+/// The picture pieces of a byte stream: the newest complete JPEG in `buf` is returned and everything up to its end is dropped.
+fn take_newest(buf: &mut Vec<u8>) -> Option<Vec<u8>> {
+    let mut newest: Option<(usize, usize)> = None;
+    let mut from = 0;
+    while let Some((s, e)) = find_jpeg(&buf[from..]) {
+        newest = Some((from + s, from + e));
+        from += e;
+    }
+    let (s, e) = newest?;
+    let jpeg = buf[s..e].to_vec();
+    buf.drain(..e);
+    Some(jpeg)
+}
+
+/// The picture of an RTSP camera: a program (ffmpeg) that reads the stream and writes JPEG pictures to its standard output; they are cut
+/// out and decoded like those of an MJPEG address. `command` says what to run (`None`: there is nothing to run); the stream is started
+/// again when the program ends.
+pub fn spawn_process(ctx: egui::Context, command: impl Fn() -> Option<(std::path::PathBuf, Vec<String>)> + Send + 'static) -> StreamWorker {
+    let (tx, rx) = channel();
+    let stop = Arc::new(AtomicBool::new(false));
+    let flag = stop.clone();
+    let child: Arc<Mutex<Option<std::process::Child>>> = Arc::default();
+    let shared = child.clone();
+    std::thread::spawn(move || {
+        let wait = |secs: u64| {
+            let t = Instant::now();
+            while t.elapsed() < Duration::from_secs(secs) && !flag.load(Ordering::Relaxed) {
+                std::thread::sleep(Duration::from_millis(50));
+            }
+        };
+        let mut last_error = String::new();
+        let mut say = |msg: String, tx: &std::sync::mpsc::Sender<Msg>, ctx: &egui::Context| {
+            if msg != last_error {
+                let _ = tx.send(Msg::Error(msg.clone()));
+                ctx.request_repaint();
+                last_error = msg;
+            }
+        };
+        while !flag.load(Ordering::Relaxed) {
+            let Some((path, args)) = command() else {
+                say(crate::i18n::tr("The stream of this camera needs ffmpeg, and it was not found next to the program or in the PATH of the system.").to_string(), &tx, &ctx);
+                wait(5);
+                continue;
+            };
+            let spawned = std::process::Command::new(&path).args(&args).stdin(std::process::Stdio::null()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn();
+            let mut proc = match spawned {
+                Ok(c) => c,
+                Err(e) => {
+                    say(e.to_string(), &tx, &ctx);
+                    wait(5);
+                    continue;
+                }
+            };
+            let Some(mut out) = proc.stdout.take() else { continue };
+            if let Ok(mut c) = shared.lock() {
+                *c = Some(proc);
+            }
+            let mut buf: Vec<u8> = Vec::new();
+            let mut chunk = vec![0u8; 64 * 1024];
+            let mut got_any = false;
+            while !flag.load(Ordering::Relaxed) {
+                match out.read(&mut chunk) {
+                    Ok(0) | Err(_) => break,
+                    Ok(n) => buf.extend_from_slice(&chunk[..n]),
+                }
+                if let Some(jpeg) = take_newest(&mut buf) {
+                    if let Some(f) = decode(&jpeg) {
+                        got_any = true;
+                        if tx.send(Msg::Frame(f)).is_err() {
+                            break;
+                        }
+                        ctx.request_repaint();
+                    }
+                }
+                if buf.len() > 8 * 1024 * 1024 {
+                    buf.clear();
+                }
+            }
+            if let Ok(mut c) = shared.lock() {
+                if let Some(mut proc) = c.take() {
+                    let _ = proc.kill();
+                    let _ = proc.wait();
+                }
+            }
+            if !flag.load(Ordering::Relaxed) {
+                say(crate::i18n::tr(if got_any { "The stream ended: it is opened again." } else { "The stream could not be opened (address, user and password?): it is tried again." }).to_string(), &tx, &ctx);
+                wait(3);
+            }
+        }
+    });
+    StreamWorker { rx, stop, child }
+}
+
 pub fn spawn(url: String, ctx: egui::Context) -> StreamWorker {
+    if base_core::camimg::is_rtsp(&url) {
+        return spawn_process(ctx, move || crate::ffmpeg::path().map(|p| (p, crate::ffmpeg::rtsp_args(&url, 10))));
+    }
     let (tx, rx) = channel();
     let stop = Arc::new(AtomicBool::new(false));
     let flag = stop.clone();
@@ -100,7 +203,7 @@ pub fn spawn(url: String, ctx: egui::Context) -> StreamWorker {
             }
         }
     });
-    StreamWorker { rx, stop }
+    StreamWorker { rx, stop, child: Arc::default() }
 }
 
 #[cfg(test)]
@@ -126,6 +229,58 @@ mod tests {
         assert_eq!(find_jpeg(&buf), Some((start, start + j.len())));
         assert!(find_jpeg(&buf[..start + 10]).is_none());
         assert!(decode(&j).is_some());
+    }
+
+    /// A stand-in for ffmpeg: a script that writes the pictures of `jpeg` (a file) to its standard output.
+    #[cfg(unix)]
+    fn fake_ffmpeg(dir: &std::path::Path, jpeg: &std::path::Path, times: usize) -> std::path::PathBuf {
+        use std::os::unix::fs::PermissionsExt;
+        let script = dir.join("fake-ffmpeg.sh");
+        std::fs::write(&script, format!("#!/bin/sh\ni=0\nwhile [ $i -lt {times} ]; do cat '{}'; sleep 0.1; i=$((i+1)); done\nsleep 5\n", jpeg.display())).unwrap();
+        std::fs::set_permissions(&script, std::fs::Permissions::from_mode(0o755)).unwrap();
+        script
+    }
+
+    #[cfg(unix)]
+    #[test]
+    fn an_rtsp_stream_comes_as_pictures_from_the_program_that_reads_it_and_ends_with_the_worker() {
+        let dir = std::env::temp_dir().join(format!("rtsp-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        let jpeg = dir.join("one.jpg");
+        std::fs::write(&jpeg, tiny_jpeg()).unwrap();
+        let script = fake_ffmpeg(&dir, &jpeg, 4);
+        let w = spawn_process(egui::Context::default(), move || Some((script.clone(), vec![])));
+        let mut frames = 0;
+        let t = Instant::now();
+        while frames < 3 && t.elapsed() < Duration::from_secs(8) {
+            if let Ok(Msg::Frame(f)) = w.rx.recv_timeout(Duration::from_millis(500)) {
+                assert_eq!((f.w, f.h), (16, 8));
+                frames += 1;
+            }
+        }
+        assert!(frames >= 3, "{frames} pictures");
+        // Dropping the worker ends the process: the script sleeps 5 s after the pictures, and the child is killed at once.
+        let child = w.child.clone();
+        drop(w);
+        std::thread::sleep(Duration::from_millis(300));
+        let gone = child.lock().unwrap().as_mut().map_or(true, |c| c.try_wait().map(|s| s.is_some()).unwrap_or(true));
+        assert!(gone, "the process is killed with the worker");
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    #[test]
+    fn without_ffmpeg_the_worker_says_so_and_a_program_that_cannot_start_is_an_error() {
+        let w = spawn_process(egui::Context::default(), || None);
+        match w.rx.recv_timeout(Duration::from_secs(3)).expect("a message") {
+            Msg::Error(e) => assert!(e.contains("ffmpeg"), "{e}"),
+            Msg::Frame(_) => panic!("no picture without a program"),
+        }
+        let w = spawn_process(egui::Context::default(), || Some((std::path::PathBuf::from("/nonexistent/ffmpeg-nowhere"), vec![])));
+        assert!(matches!(w.rx.recv_timeout(Duration::from_secs(3)), Ok(Msg::Error(_))));
+        // The addresses: rtsp is a camera address now, spaces and options are not.
+        assert!(base_core::camimg::valid_url("rtsp://user:pw@192.168.1.5:554/stream1") && base_core::camimg::valid_url("rtsps://cam.local/x"));
+        assert!(!base_core::camimg::valid_url("rtsp://") && !base_core::camimg::valid_url("rtsp://a b/c") && !base_core::camimg::valid_url("ftp://x/y"));
+        assert!(base_core::camimg::is_rtsp("RTSP://cam/x") && !base_core::camimg::is_rtsp("http://cam/rtsp://"));
     }
 
     #[test]

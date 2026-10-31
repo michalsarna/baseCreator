@@ -823,3 +823,24 @@
 822|Cuir gach iarphróiseálaí as
 823|Athraíonn na hiarphróiseálaithe roghnaithe G-code Easpórtáil G-code…; ní athraítear jab a seoltar chuig an meaisín.
 824|Pictiúr cúlra…
+825|Níl pictiúr ón gceamara fós.
+826|Sábháladh {} ({} pictiúr)
+827|Time-lapse: tógtar pictiúr nuair a bhíonn ciseal críochnaithe.
+828|Time-lapse: {} pictiúr in {}
+829|Tóg grianghraf
+830|Stop an taifeadadh
+831|Taifeadadh: {} s, {} pictiúr
+832|Taifead físeán
+833|Time-lapse
+834|Gach
+835|Tar éis gach ciseal
+836|Teastaíonn jab a sheoltar chuig an meaisín ón gclár (Tosaigh)
+837|Stop an time-lapse
+838|{} pictiúr
+839|Tosaigh time-lapse
+840|Fillteán
+841|an fillteán camera sna sonraí comhroinnte
+842|Roghnaigh an fillteán…
+843|Teastaíonn ffmpeg ó shruth an cheamara seo, agus níor aimsíodh in aice an chláir ná i PATH an chórais é.
+844|Tháinig deireadh leis an sruth: osclaítear arís é.
+845|Níorbh fhéidir an sruth a oscailt (seoladh, úsáideoir agus focal faire?): déantar iarracht arís.

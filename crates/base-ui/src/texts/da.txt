@@ -823,3 +823,24 @@
 822|Slå alle postprocessorer fra
 823|De valgte postprocessorer ændrer G-koden fra Eksportér G-kode…; et job sendt til maskinen ændres ikke.
 824|Baggrundsbillede…
+825|Intet billede fra kameraet endnu.
+826|Gemt {} ({} billeder)
+827|Time-lapse: Der tages et billede, når et lag er færdigt.
+828|Time-lapse: {} billeder i {}
+829|Tag et billede
+830|Stop optagelsen
+831|Optagelse: {} s, {} billeder
+832|Optag video
+833|Time-lapse
+834|Hvert
+835|Efter hvert lag
+836|Kræver et job sendt til maskinen fra programmet (Start)
+837|Stop time-lapse
+838|{} billeder
+839|Start time-lapse
+840|Mappe
+841|mappen camera i de delte data
+842|Vælg mappen…
+843|Denne kameras stream kræver ffmpeg, som ikke blev fundet ved siden af programmet eller i systemets PATH.
+844|Streamen sluttede: den åbnes igen.
+845|Streamen kunne ikke åbnes (adresse, bruger og adgangskode?): der prøves igen.

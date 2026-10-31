@@ -128,10 +128,16 @@ impl CameraSource {
     }
 }
 
-/// An http or https address with a host, without spaces or control characters.
+/// Is it an RTSP address (the stream of an IP camera: `rtsp://` or `rtsps://`)?
+pub fn is_rtsp(u: &str) -> bool {
+    let u = u.trim().to_ascii_lowercase();
+    u.starts_with("rtsp://") || u.starts_with("rtsps://")
+}
+
+/// An http, https or RTSP address with a host, without spaces or control characters.
 pub fn valid_url(u: &str) -> bool {
     let u = u.trim();
-    let rest = u.strip_prefix("http://").or_else(|| u.strip_prefix("https://"));
+    let rest = u.strip_prefix("http://").or_else(|| u.strip_prefix("https://")).or_else(|| u.strip_prefix("rtsp://")).or_else(|| u.strip_prefix("rtsps://"));
     let Some(rest) = rest else { return false };
     let host = rest.split(['/', '?', '#']).next().unwrap_or("");
     let name = host.rsplit('@').next().unwrap_or("");

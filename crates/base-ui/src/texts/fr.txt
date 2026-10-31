@@ -823,3 +823,24 @@
 822|Désactiver tous les postprocesseurs
 823|Les postprocesseurs choisis modifient le G-code de Exporter le G-code… ; un travail envoyé à la machine n'est pas modifié.
 824|Image de fond…
+825|Pas encore d'image de la caméra.
+826|{} enregistré ({} images)
+827|Time-lapse : une photo est prise quand un calque est terminé.
+828|Time-lapse : {} images dans {}
+829|Prendre une photo
+830|Arrêter l'enregistrement
+831|Enregistrement : {} s, {} images
+832|Enregistrer une vidéo
+833|Time-lapse
+834|Toutes les
+835|Après chaque calque
+836|Nécessite un travail envoyé à la machine depuis le programme (Démarrer)
+837|Arrêter le time-lapse
+838|{} images
+839|Démarrer le time-lapse
+840|Dossier
+841|le dossier camera des données partagées
+842|Choisir le dossier…
+843|Le flux de cette caméra nécessite ffmpeg, introuvable à côté du programme et dans le PATH du système.
+844|Le flux s'est terminé : il est rouvert.
+845|Impossible d'ouvrir le flux (adresse, utilisateur et mot de passe ?) : nouvel essai.

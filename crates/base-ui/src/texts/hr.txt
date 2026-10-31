@@ -823,3 +823,24 @@
 822|Isključi sve postprocesore
 823|Odabrani postprocesori mijenjaju G-kod izvoza G-koda…; zadatak poslan stroju se ne mijenja.
 824|Pozadinska slika…
+825|Još nema slike s kamere.
+826|Spremljeno {} ({} slika)
+827|Time-lapse: slika se snima kad je sloj gotov.
+828|Time-lapse: {} slika u {}
+829|Snimi fotografiju
+830|Zaustavi snimanje
+831|Snimanje: {} s, {} slika
+832|Snimi video
+833|Time-lapse
+834|Svakih
+835|Nakon svakog sloja
+836|Treba zadatak poslan stroju iz programa (Start)
+837|Zaustavi time-lapse
+838|{} slika
+839|Pokreni time-lapse
+840|Mapa
+841|mapa camera u zajedničkim podacima
+842|Odaberi mapu…
+843|Tok ove kamere treba ffmpeg, koji nije pronađen uz program ni u PATH-u sustava.
+844|Tok je završio: otvara se ponovno.
+845|Tok se nije mogao otvoriti (adresa, korisnik i lozinka?): pokušava se ponovno.

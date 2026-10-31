@@ -823,3 +823,24 @@
 822|Desactiva tots els postprocessadors
 823|Els postprocessadors triats canvien el G-code d'Exporta G-code…; una feina enviada a la màquina no es canvia.
 824|Imatge de fons…
+825|Encara no hi ha cap imatge de la càmera.
+826|S'ha desat {} ({} imatges)
+827|Time-lapse: es fa una foto quan una capa acaba.
+828|Time-lapse: {} imatges a {}
+829|Fes una foto
+830|Atura l'enregistrament
+831|Enregistrament: {} s, {} imatges
+832|Grava un vídeo
+833|Time-lapse
+834|Cada
+835|Després de cada capa
+836|Necessita una feina enviada a la màquina des del programa (Inicia)
+837|Atura el time-lapse
+838|{} imatges
+839|Inicia el time-lapse
+840|Carpeta
+841|la carpeta camera de les dades compartides
+842|Tria la carpeta…
+843|El flux d'aquesta càmera necessita ffmpeg, i no s'ha trobat al costat del programa ni al PATH del sistema.
+844|El flux ha acabat: s'obre de nou.
+845|No s'ha pogut obrir el flux (adreça, usuari i contrasenya?): es torna a provar.

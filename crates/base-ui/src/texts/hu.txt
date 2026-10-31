@@ -823,3 +823,24 @@
 822|Minden utófeldolgozó kikapcsolása
 823|A kiválasztott utófeldolgozók a G-kód exportálása… G-kódját módosítják; a gépnek küldött munka nem változik.
 824|Háttérkép…
+825|A kamerától még nincs kép.
+826|Mentve: {} ({} kép)
+827|Időzített felvétel: kép készül, ha egy réteg elkészült.
+828|Időzített felvétel: {} kép itt: {}
+829|Fénykép készítése
+830|Felvétel leállítása
+831|Felvétel: {} mp, {} kép
+832|Videófelvétel
+833|Időzített felvétel
+834|Minden
+835|Minden réteg után
+836|A programból a gépnek küldött munkát igényel (Indítás)
+837|Időzített felvétel leállítása
+838|{} kép
+839|Időzített felvétel indítása
+840|Mappa
+841|a közös adatok camera mappája
+842|Mappa kiválasztása…
+843|A kamera adatfolyamához ffmpeg kell, amely nem található a program mellett és a rendszer PATH-jában sem.
+844|Az adatfolyam véget ért: újra megnyitjuk.
+845|Az adatfolyam nem nyitható meg (cím, felhasználó és jelszó?): újra próbáljuk.

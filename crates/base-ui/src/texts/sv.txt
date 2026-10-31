@@ -823,3 +823,24 @@
 822|Stäng av alla postprocessorer
 823|De valda postprocessorerna ändrar G-koden från Exportera G-kod…; ett jobb som skickas till maskinen ändras inte.
 824|Bakgrundsbild…
+825|Ingen bild från kameran än.
+826|Sparat {} ({} bilder)
+827|Time-lapse: en bild tas när ett lager är klart.
+828|Time-lapse: {} bilder i {}
+829|Ta ett foto
+830|Stoppa inspelningen
+831|Inspelning: {} s, {} bilder
+832|Spela in video
+833|Time-lapse
+834|Var
+835|Efter varje lager
+836|Kräver ett jobb som skickas till maskinen från programmet (Start)
+837|Stoppa time-lapse
+838|{} bilder
+839|Starta time-lapse
+840|Mapp
+841|mappen camera i de delade uppgifterna
+842|Välj mappen…
+843|Strömmen från den här kameran kräver ffmpeg, som inte hittades bredvid programmet eller i systemets PATH.
+844|Strömmen tog slut: den öppnas igen.
+845|Strömmen kunde inte öppnas (adress, användare och lösenord?): försöker igen.

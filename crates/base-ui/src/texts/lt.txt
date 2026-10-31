@@ -823,3 +823,24 @@
 822|Išjungti visus postprocesorius
 823|Pasirinkti postprocesoriai keičia G-kodą iš Eksportuoti G-kodą…; į stakles išsiųsta užduotis nekeičiama.
 824|Fono paveikslėlis…
+825|Iš kameros dar nėra vaizdo.
+826|Išsaugota {} ({} kadrų)
+827|Time-lapse: nuotrauka daroma, kai sluoksnis baigtas.
+828|Time-lapse: {} kadrų aplanke {}
+829|Fotografuoti
+830|Sustabdyti įrašymą
+831|Įrašymas: {} s, {} kadrų
+832|Įrašyti vaizdo įrašą
+833|Time-lapse
+834|Kas
+835|Po kiekvieno sluoksnio
+836|Reikia užduoties, išsiųstos iš programos į stakles (Start)
+837|Sustabdyti time-lapse
+838|{} kadrų
+839|Pradėti time-lapse
+840|Aplankas
+841|bendrų duomenų aplankas camera
+842|Pasirinkti aplanką…
+843|Šios kameros srautui reikia ffmpeg, kurio nerasta šalia programos ar sistemos PATH.
+844|Srautas baigėsi: jis atidaromas iš naujo.
+845|Nepavyko atidaryti srauto (adresas, naudotojas ir slaptažodis?): bandoma iš naujo.
