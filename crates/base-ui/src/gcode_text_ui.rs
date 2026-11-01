@@ -23,6 +23,8 @@ pub struct GcodeText {
     /// What the project looked like (its G-code settings, notes, postprocessors, saves) when the text was made: the program makes the
     /// text again, when it has no edits, as soon as this differs from what the project is now.
     pub stamp: u64,
+    /// The stamp that is waiting for the project to stay as it is for a moment, and since when.
+    waiting: Option<(u64, std::time::Instant)>,
 }
 
 /// What the person asked for.
@@ -37,7 +39,26 @@ pub enum TextAction {
 
 impl GcodeText {
     pub fn new(slot: usize, name: &str, text: String) -> GcodeText {
-        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0 }
+        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0, waiting: None }
+    }
+
+    /// Is it time to make the text again? It is when the project (`stamp`) differs from the one the text was made for, has no edits by hand,
+    /// and has stayed the same for `wait` (typing a note is not a reason to make the program at every key).
+    pub fn due(&mut self, stamp: u64, wait: std::time::Duration) -> bool {
+        if self.stamp == stamp || self.dirty() {
+            self.waiting = None;
+            return false;
+        }
+        if wait.is_zero() {
+            return true;
+        }
+        match self.waiting {
+            Some((s, since)) if s == stamp => since.elapsed() >= wait,
+            _ => {
+                self.waiting = Some((stamp, std::time::Instant::now()));
+                false
+            }
+        }
     }
 
     /// Has the text been changed by hand since it was made or saved?
@@ -186,6 +207,24 @@ fn trf_lines(text: &str) -> String {
 
 #[cfg(test)]
 mod tests {
+    use std::time::Duration;
+
+    #[test]
+    fn the_text_is_made_again_when_the_project_changed_stayed_so_for_a_moment_and_has_no_edits() {
+        let mut g = GcodeText::new(0, "a.nc", "G21\n".into());
+        g.stamp = 1;
+        assert!(!g.due(1, Duration::ZERO), "the same project");
+        assert!(g.due(2, Duration::ZERO), "no waiting asked for");
+        // With a wait the first sight only starts the clock, and a newer change starts it again.
+        assert!(!g.due(2, Duration::from_millis(30)));
+        std::thread::sleep(Duration::from_millis(40));
+        assert!(g.due(2, Duration::from_millis(30)));
+        assert!(!g.due(3, Duration::from_millis(30)), "a newer change restarts the wait");
+        // Edits by hand are never thrown away.
+        g.text.push_str("(by hand)\n");
+        assert!(!g.due(4, Duration::ZERO));
+    }
+
     use super::*;
 
     #[test]
