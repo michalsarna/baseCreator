@@ -79,6 +79,25 @@ pub fn strip_comments(line: &str) -> String {
 /// The variables every program knows: the project, the machine, the moment and the box of all the paths.
 pub const COMMON_VARS: &[&str] = &["project_name", "project_path", "date", "time", "machine_name", "min_x", "max_x", "min_y", "max_y", "min_z", "max_z", "width", "height", "depth"];
 
+/// The notes of the project as lines that are safe inside a G-code comment: no brackets or semicolons (they would end the comment),
+/// no control characters, empty lines left out, long lines cut into pieces of at most 100 characters (at most 60 lines).
+pub fn note_lines(notes: &str) -> Vec<String> {
+    let mut out = vec![];
+    for line in notes.lines() {
+        let clean: String = line.chars().map(|c| match c { '(' | '[' | '{' => '<', ')' | ']' | '}' => '>', ';' | '%' => ',', c if c.is_control() => ' ', c => c }).collect();
+        let clean = clean.trim();
+        let chars: Vec<char> = clean.chars().collect();
+        for piece in chars.chunks(100) {
+            let t: String = piece.iter().collect();
+            if !t.trim().is_empty() {
+                out.push(t.trim().to_string());
+            }
+        }
+    }
+    out.truncate(60);
+    out
+}
+
 /// What the common variables are made of.
 #[derive(Clone, Debug, Default)]
 pub struct Info {
@@ -92,6 +111,8 @@ pub struct Info {
     pub time: String,
     /// The box of all the paths of the program: the least and the most X, Y, Z in the coordinates of the machine.
     pub bounds: Option<([f64; 3], [f64; 3])>,
+    /// The notes of the project (its description); they are written at the start of the program as comments.
+    pub notes: String,
 }
 
 impl Info {
@@ -367,6 +388,14 @@ pub fn finish(body: &str, start: &[String], end: &[String], flavour: &Flavour) -
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn notes_become_lines_that_cannot_end_a_comment() {
+        assert_eq!(note_lines("Birch (3 mm); first\n\n  glue [dry] \n"), vec!["Birch <3 mm>, first".to_string(), "glue <dry>".to_string()]);
+        assert!(note_lines("").is_empty());
+        let long = "a".repeat(250);
+        assert_eq!(note_lines(&long).iter().map(|l| l.len()).collect::<Vec<_>>(), vec![100, 100, 50]);
+    }
+
     use super::*;
 
     const PROGRAM: &str = "(MillCreator: part)\nG21 G90 G17\nG0 X10 Y20.5 Z5\nG1 X10 Y-3 Z-1 F300 ; cut\nG4 P2\nG1 X0 Y0 F100.5\nM3 S12000\nM30\n";
@@ -433,7 +462,7 @@ mod tests {
         assert_eq!(variables("G0 X{min_x} ({project_name})").unwrap(), ["min_x", "project_name"]);
         assert!(check_variables("{nothing_here}", COMMON_VARS).is_err());
         assert!(check_variables("a } b", COMMON_VARS).is_err() && check_variables("a { b", COMMON_VARS).is_err());
-        let info = Info { project_name: "part".into(), project_path: "/w/part.cre".into(), machine_name: "Mill".into(), date: "2026-11-01".into(), time: "12:30".into(), bounds: Some(([1.0, 2.0, -3.0], [11.0, 7.5, 0.0])) };
+        let info = Info { project_name: "part".into(), project_path: "/w/part.cre".into(), machine_name: "Mill".into(), date: "2026-11-01".into(), time: "12:30".into(), bounds: Some(([1.0, 2.0, -3.0], [11.0, 7.5, 0.0])), notes: String::new() };
         let lines = expand("(File {project_name} {date} {time})\n\nG0 X{min_x} Y{max_y} ; {width}x{height}x{depth}\n", COMMON_VARS, &|v| info.value(v)).unwrap();
         assert_eq!(lines, ["(File part 2026-11-01 12:30)", "G0 X1 Y7.5 ; 10x5.5x3"]);
         assert!(expand("{unknown}", COMMON_VARS, &|v| info.value(v)).is_err());

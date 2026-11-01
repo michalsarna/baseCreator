@@ -155,47 +155,50 @@ pub fn about_window(ctx: &egui::Context, open: &mut bool, info: &AboutInfo, logo
     });
 }
 
-/// The credits in a list with the arrows always in view (the wheel works too).
+/// The credits in a list with the arrows always in view (the wheel works too). The list takes the whole width of the window.
 fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
     const H: f32 = 150.0;
     const STEP: f32 = 60.0;
+    const ARROWS: f32 = 28.0;
+    ui.separator();
     ui.label(RichText::new(tr("Made with:")).strong());
-    let id = egui::Id::unique("about_credits_offset");
+    let id = ui.id().with("about_credits_offset");
     let mut offset: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(0.0);
-    ui.horizontal_top(|ui| {
-        // A fixed width (the first frame asks the window for its size, and a width that follows the window feeds back into it).
-        let w = (ui.available_width() - 28.0).clamp(100.0, 380.0);
-        let out = egui::ScrollArea::vertical().id_salt("about_credits").max_height(H).min_scrolled_height(H).max_width(w).auto_shrink([false, false]).vertical_scroll_offset(offset).scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(ui, |ui| {
-            ui.set_max_width(w - 4.0);
-            for c in credits {
-                ui.horizontal_wrapped(|ui| {
-                    ui.spacing_mut().item_spacing.x = 4.0;
-                    match &c.url {
-                        Some(u) => ui.hyperlink_to(&c.name, u),
-                        None => ui.label(RichText::new(&c.name).strong()),
-                    };
-                    if !c.note.is_empty() {
-                        ui.label(RichText::new(&c.note).small().color(theme::text_dim()));
-                    }
-                });
-            }
-        });
-        let max = (out.content_size.y - out.inner_rect.height()).max(0.0);
-        offset = out.state.clamped_offset().y.clamp(0.0, max);
-        ui.vertical(|ui| {
-            for (icon, up) in [("chevron-up", true), ("chevron-down", false)] {
-                let enabled = if up { offset > 0.5 } else { offset < max - 0.5 };
-                let (rect, resp) = ui.allocate_exact_size(egui::vec2(24.0, 24.0), egui::Sense::click());
-                if resp.hovered() && enabled {
-                    ui.painter().rect_filled(rect, 4.0, theme::panel_dark());
+    // The list is drawn in a child that the window does not count into its size: a width that the content asks for would keep the window from shrinking.
+    let full = ui.available_width().max(60.0);
+    let (outer, _) = ui.allocate_exact_size(egui::vec2(60.0, H), egui::Sense::hover());
+    let list = egui::Rect::from_min_size(outer.min, egui::vec2(full - ARROWS, H));
+    let mut child = ui.new_child(egui::UiBuilder::new().max_rect(list));
+    let out = egui::ScrollArea::vertical().id_salt("about_credits").max_height(H).min_scrolled_height(H).max_width(list.width()).auto_shrink([false, false]).vertical_scroll_offset(offset).scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(&mut child, |ui| {
+        ui.set_max_width(list.width() - 4.0);
+        for c in credits {
+            ui.horizontal_wrapped(|ui| {
+                ui.spacing_mut().item_spacing.x = 4.0;
+                match &c.url {
+                    Some(u) => ui.hyperlink_to(&c.name, u),
+                    None => ui.label(RichText::new(&c.name).strong()),
+                };
+                if !c.note.is_empty() {
+                    ui.label(RichText::new(&c.note).small().color(theme::text_dim()));
                 }
-                crate::icons::paint(ui, rect.shrink(5.0), icon, if enabled { theme::text() } else { theme::text_dim().gamma_multiply(0.5) });
-                if enabled && resp.clicked() {
-                    offset = if up { (offset - STEP).max(0.0) } else { (offset + STEP).min(max) };
-                }
-            }
-        });
+            });
+        }
     });
+    let max = (out.content_size.y - out.inner_rect.height()).max(0.0);
+    offset = out.state.clamped_offset().y.clamp(0.0, max);
+    let arrows = egui::Rect::from_min_size(egui::pos2(list.max.x + 4.0, list.min.y), egui::vec2(24.0, 52.0));
+    let mut col = ui.new_child(egui::UiBuilder::new().max_rect(arrows));
+    for (icon, up) in [("chevron-up", true), ("chevron-down", false)] {
+        let enabled = if up { offset > 0.5 } else { offset < max - 0.5 };
+        let (rect, resp) = col.allocate_exact_size(egui::vec2(24.0, 24.0), egui::Sense::click());
+        if resp.hovered() && enabled {
+            col.painter().rect_filled(rect, 4.0, theme::panel_dark());
+        }
+        crate::icons::paint(&col, rect.shrink(5.0), icon, if enabled { theme::text() } else { theme::text_dim().gamma_multiply(0.5) });
+        if enabled && resp.clicked() {
+            offset = if up { (offset - STEP).max(0.0) } else { (offset + STEP).min(max) };
+        }
+    }
     ui.data_mut(|d| d.insert_temp(id, offset));
 }
 

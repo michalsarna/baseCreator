@@ -601,8 +601,11 @@ impl Panes {
                 if ctx.input(|i| i.viewport().close_requested()) {
                     back = Some(i);
                 }
-                if let Some(r) = ctx.input(|i| i.viewport().inner_rect) {
-                    seen = Some(([r.min.x, r.min.y], [r.width(), r.height()]));
+                // The position is the one of the outer frame: the builder's position is the outer one, and the inner one (below the
+                // title bar) sent back every frame moved the window down by the height of the title bar until it hit the bottom.
+                let (outer, inner) = ctx.input(|i| (i.viewport().outer_rect, i.viewport().inner_rect));
+                if let (Some(o), Some(r)) = (outer.or(inner), inner) {
+                    seen = Some(([o.min.x, o.min.y], [r.width(), r.height()]));
                 }
             });
             self.windows[i].view = view;
