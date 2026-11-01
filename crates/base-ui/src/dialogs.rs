@@ -180,7 +180,7 @@ fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
             }
         });
         let max = (out.content_size.y - out.inner_rect.height()).max(0.0);
-        offset = out.state.offset().y.clamp(0.0, max);
+        offset = out.state.clamped_offset().y.clamp(0.0, max);
         ui.vertical(|ui| {
             for (icon, up) in [("chevron-up", true), ("chevron-down", false)] {
                 let enabled = if up { offset > 0.5 } else { offset < max - 0.5 };
