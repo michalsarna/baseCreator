@@ -165,7 +165,6 @@ fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
     ui.horizontal_top(|ui| {
         let w = (ui.available_width() - 28.0).max(100.0);
         let out = egui::ScrollArea::vertical().id_salt("about_credits").max_height(H).min_scrolled_height(H).max_width(w).auto_shrink([false, false]).vertical_scroll_offset(offset).scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(ui, |ui| {
-            ui.set_width(w - 4.0);
             for c in credits {
                 ui.horizontal_wrapped(|ui| {
                     ui.spacing_mut().item_spacing.x = 4.0;
