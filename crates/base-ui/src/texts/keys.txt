@@ -859,3 +859,6 @@
 858	Split view: side by side
 859	Split view: one above the other
 860	Single view
+861	Layers
+862	Show layer names
+863	Preview G-code after saving

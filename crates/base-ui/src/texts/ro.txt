@@ -859,3 +859,6 @@
 858|Împarte vizualizarea: alăturat
 859|Împarte vizualizarea: una deasupra celeilalte
 860|O singură vizualizare
+861|Straturi
+862|Afișează numele straturilor
+863|Previzualizare G-code după salvare

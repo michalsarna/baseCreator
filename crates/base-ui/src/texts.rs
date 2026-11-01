@@ -866,6 +866,9 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Split view: side by side", "Podziel widok: obok siebie", "Ansicht teilen: nebeneinander", "Dividi la vista: affiancata", "Jaa näkymä: vierekkäin", "拆分视图：并排", "दृश्य विभाजित करें: साथ-साथ"],
     ["Split view: one above the other", "Podziel widok: jeden nad drugim", "Ansicht teilen: übereinander", "Dividi la vista: una sopra l'altra", "Jaa näkymä: päällekkäin", "拆分视图：上下排列", "दृश्य विभाजित करें: ऊपर-नीचे"],
     ["Single view", "Jeden widok", "Einzelansicht", "Vista singola", "Yksi näkymä", "单一视图", "एकल दृश्य"],
+    ["Layers", "Warstwy", "Ebenen", "Livelli", "Tasot", "图层", "परतें"],
+    ["Show layer names", "Pokaż nazwy warstw", "Ebenennamen anzeigen", "Mostra i nomi dei livelli", "Näytä tasojen nimet", "显示图层名称", "परतों के नाम दिखाएं"],
+    ["Preview G-code after saving", "Podgląd G-code po zapisaniu", "G-Code nach dem Speichern anzeigen", "Anteprima del G-code dopo il salvataggio", "Esikatsele G-koodi tallennuksen jälkeen", "保存后预览 G-code", "सहेजने के बाद G-code का पूर्वावलोकन"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

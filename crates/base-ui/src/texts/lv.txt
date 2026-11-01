@@ -859,3 +859,6 @@
 858|Sadalīt skatu: blakus
 859|Sadalīt skatu: vienu virs otra
 860|Viens skats
+861|Slāņi
+862|Rādīt slāņu nosaukumus
+863|G-koda priekšskatījums pēc saglabāšanas

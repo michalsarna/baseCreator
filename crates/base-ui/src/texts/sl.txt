@@ -859,3 +859,6 @@
 858|Razdeli pogled: drug ob drugem
 859|Razdeli pogled: enega nad drugim
 860|En pogled
+861|Plasti
+862|Pokaži imena plasti
+863|Predogled G-kode po shranjevanju

@@ -859,3 +859,6 @@
 858|Jaga vaade: kõrvuti
 859|Jaga vaade: üksteise kohal
 860|Üks vaade
+861|Kihid
+862|Näita kihtide nimesid
+863|Näita G-koodi eelvaadet pärast salvestamist

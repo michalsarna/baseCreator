@@ -859,3 +859,6 @@
 858|Dela vyn: sida vid sida
 859|Dela vyn: över varandra
 860|En vy
+861|Lager
+862|Visa lagernas namn
+863|Förhandsgranska G-kod efter sparande

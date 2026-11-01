@@ -859,3 +859,6 @@
 858|Skaidyti rodinį: vieną šalia kito
 859|Skaidyti rodinį: vieną virš kito
 860|Vienas rodinys
+861|Sluoksniai
+862|Rodyti sluoksnių pavadinimus
+863|G kodo peržiūra po įrašymo

@@ -859,3 +859,6 @@
 858|Weergave splitsen: naast elkaar
 859|Weergave splitsen: boven elkaar
 860|Enkele weergave
+861|Lagen
+862|Laagnamen tonen
+863|G-code bekijken na het opslaan
