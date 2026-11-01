@@ -470,7 +470,7 @@ fn the_names_of_the_layers_with_shapes_can_be_shown_beside_the_colours() {
     let ctx = egui::Context::default();
     let mut input = egui::RawInput::default();
     input.screen_rect = Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(900.0, 60.0)));
-    let mut texts = |h: &mut Host| {
+    let texts = |h: &mut Host| {
         let mut out = ctx.run_ui(input.clone(), |ui| crate::layer_bar::layer_bar(h, ui));
         out.textures_delta.clear();
         out.shapes.iter().filter_map(|s| if let egui::epaint::Shape::Text(t) = &s.shape { Some(t.galley.text().to_string()) } else { None }).collect::<Vec<_>>()

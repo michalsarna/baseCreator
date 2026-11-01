@@ -862,3 +862,15 @@
 861	Layers
 862	Show layer names
 863	Preview G-code after saving
+864	Very start of the file
+865	Very end of the file
+866	Variables you can use:
+867	Decimal point after whole numbers
+868	% at the start and end
+869	Dwell word
+870	P (seconds)
+871	P (milliseconds)
+872	X (seconds)
+873	Line numbers
+874	Remove comments
+875	Own file format

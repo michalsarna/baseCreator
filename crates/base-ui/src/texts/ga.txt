@@ -862,3 +862,15 @@
 861|Sraitheanna
 862|Taispeáin ainmneacha na sraitheanna
 863|Réamhamharc ar an G-code tar éis a shábháil
+864|Tús an chomhaid go hiomlán
+865|Deireadh an chomhaid go hiomlán
+866|Athróga atá ar fáil:
+867|Pointe deachúil i ndiaidh slánuimhreacha
+868|% ag an tús agus ag an deireadh
+869|Focal an chuir ar ceal
+870|P (soicindí)
+871|P (milleasoicindí)
+872|X (soicindí)
+873|Uimhreacha líne
+874|Bain na tuairimí
+875|Formáid an chomhaid don rialaitheoir

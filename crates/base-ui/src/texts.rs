@@ -869,6 +869,18 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Layers", "Warstwy", "Ebenen", "Livelli", "Tasot", "图层", "परतें"],
     ["Show layer names", "Pokaż nazwy warstw", "Ebenennamen anzeigen", "Mostra i nomi dei livelli", "Näytä tasojen nimet", "显示图层名称", "परतों के नाम दिखाएं"],
     ["Preview G-code after saving", "Podgląd G-code po zapisaniu", "G-Code nach dem Speichern anzeigen", "Anteprima del G-code dopo il salvataggio", "Esikatsele G-koodi tallennuksen jälkeen", "保存后预览 G-code", "सहेजने के बाद G-code का पूर्वावलोकन"],
+    ["Very start of the file", "Sam początek pliku", "Ganz am Anfang der Datei", "Inizio assoluto del file", "Tiedoston aivan alku", "文件最开头", "फ़ाइल की बिल्कुल शुरुआत"],
+    ["Very end of the file", "Sam koniec pliku", "Ganz am Ende der Datei", "Fine assoluta del file", "Tiedoston aivan loppu", "文件最末尾", "फ़ाइल का बिल्कुल अंत"],
+    ["Variables you can use:", "Dostępne zmienne:", "Verfügbare Variablen:", "Variabili disponibili:", "Käytettävissä olevat muuttujat:", "可用变量：", "उपलब्ध वेरिएबल:"],
+    ["Decimal point after whole numbers", "Kropka dziesiętna po liczbach całkowitych", "Dezimalpunkt nach ganzen Zahlen", "Punto decimale dopo i numeri interi", "Desimaalipiste kokonaislukujen perään", "整数后加小数点", "पूर्ण संख्याओं के बाद दशमलव बिंदु"],
+    ["% at the start and end", "% na początku i na końcu", "% am Anfang und am Ende", "% all'inizio e alla fine", "% alussa ja lopussa", "开头和结尾加 %", "शुरुआत और अंत में %"],
+    ["Dwell word", "Słowo postoju", "Verweilwort", "Parola della pausa", "Viiveen sana", "暂停指令", "ठहराव शब्द"],
+    ["P (seconds)", "P (sekundy)", "P (Sekunden)", "P (secondi)", "P (sekuntia)", "P（秒）", "P (सेकंड)"],
+    ["P (milliseconds)", "P (milisekundy)", "P (Millisekunden)", "P (millisecondi)", "P (millisekuntia)", "P（毫秒）", "P (मिलीसेकंड)"],
+    ["X (seconds)", "X (sekundy)", "X (Sekunden)", "X (secondi)", "X (sekuntia)", "X（秒）", "X (सेकंड)"],
+    ["Line numbers", "Numery linii", "Zeilennummern", "Numeri di riga", "Rivinumerot", "行号", "पंक्ति संख्याएँ"],
+    ["Remove comments", "Usuń komentarze", "Kommentare entfernen", "Rimuovi i commenti", "Poista kommentit", "删除注释", "टिप्पणियाँ हटाएं"],
+    ["Own file format", "Format pliku dla sterowania", "Dateiformat für die Steuerung", "Formato del file per il controllo", "Tiedostomuoto ohjaimelle", "控制器的文件格式", "नियंत्रक के लिए फ़ाइल प्रारूप"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

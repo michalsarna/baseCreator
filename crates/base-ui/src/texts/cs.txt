@@ -862,3 +862,15 @@
 861|Vrstvy
 862|Zobrazit názvy vrstev
 863|Náhled G-kódu po uložení
+864|Úplný začátek souboru
+865|Úplný konec souboru
+866|Dostupné proměnné:
+867|Desetinná tečka za celými čísly
+868|% na začátku a na konci
+869|Slovo pro prodlevu
+870|P (sekundy)
+871|P (milisekundy)
+872|X (sekundy)
+873|Čísla řádků
+874|Odstranit komentáře
+875|Formát souboru pro řídicí systém

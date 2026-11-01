@@ -862,3 +862,15 @@
 861|Capes
 862|Mostra els noms de les capes
 863|Previsualitza el G-code després de desar
+864|Inici del fitxer
+865|Final del fitxer
+866|Variables disponibles:
+867|Punt decimal després dels nombres enters
+868|% a l'inici i al final
+869|Paraula de pausa
+870|P (segons)
+871|P (mil·lisegons)
+872|X (segons)
+873|Números de línia
+874|Elimina els comentaris
+875|Format del fitxer per al controlador

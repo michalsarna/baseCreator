@@ -862,3 +862,15 @@
 861|Slojevi
 862|Prikaži nazive slojeva
 863|Pregled G-koda nakon spremanja
+864|Sam početak datoteke
+865|Sam kraj datoteke
+866|Dostupne varijable:
+867|Decimalna točka iza cijelih brojeva
+868|% na početku i na kraju
+869|Riječ za pauzu
+870|P (sekunde)
+871|P (milisekunde)
+872|X (sekunde)
+873|Brojevi redaka
+874|Ukloni komentare
+875|Format datoteke za upravljanje

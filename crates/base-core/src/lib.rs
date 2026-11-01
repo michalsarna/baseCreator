@@ -12,6 +12,7 @@ pub mod design;
 pub mod diag;
 pub mod dxf;
 pub mod fillet;
+pub mod gcode_out;
 pub mod export;
 pub mod firmware;
 pub mod gcode_view;

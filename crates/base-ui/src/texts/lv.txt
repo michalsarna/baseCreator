@@ -862,3 +862,15 @@
 861|Slāņi
 862|Rādīt slāņu nosaukumus
 863|G-koda priekšskatījums pēc saglabāšanas
+864|Faila pats sākums
+865|Faila pats beigas
+866|Pieejamie mainīgie:
+867|Komats aiz veseliem skaitļiem
+868|% sākumā un beigās
+869|Pauzes vārds
+870|P (sekundes)
+871|P (milisekundes)
+872|X (sekundes)
+873|Rindu numuri
+874|Noņemt komentārus
+875|Faila formāts vadībai

@@ -862,3 +862,15 @@
 861|Calques
 862|Afficher les noms des calques
 863|Aperçu du G-code après l'enregistrement
+864|Tout début du fichier
+865|Toute fin du fichier
+866|Variables disponibles :
+867|Point décimal après les nombres entiers
+868|% au début et à la fin
+869|Mot de la temporisation
+870|P (secondes)
+871|P (millisecondes)
+872|X (secondes)
+873|Numéros de ligne
+874|Supprimer les commentaires
+875|Format du fichier pour la commande

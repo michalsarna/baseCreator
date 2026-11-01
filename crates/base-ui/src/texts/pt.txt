@@ -862,3 +862,15 @@
 861|Camadas
 862|Mostrar os nomes das camadas
 863|Pré-visualizar o G-code depois de guardar
+864|Início do ficheiro
+865|Fim do ficheiro
+866|Variáveis disponíveis:
+867|Ponto decimal depois dos números inteiros
+868|% no início e no fim
+869|Palavra da pausa
+870|P (segundos)
+871|P (milissegundos)
+872|X (segundos)
+873|Números de linha
+874|Remover comentários
+875|Formato do ficheiro para o controlador

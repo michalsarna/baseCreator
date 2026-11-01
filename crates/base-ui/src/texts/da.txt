@@ -862,3 +862,15 @@
 861|Lag
 862|Vis lagnavne
 863|Vis G-kode efter lagring
+864|Helt i starten af filen
+865|Helt i slutningen af filen
+866|Tilgængelige variabler:
+867|Decimaltegn efter hele tal
+868|% i begyndelsen og i slutningen
+869|Ord for pause
+870|P (sekunder)
+871|P (millisekunder)
+872|X (sekunder)
+873|Linjenumre
+874|Fjern kommentarer
+875|Filformat til styringen

@@ -862,3 +862,15 @@
 861|Kihid
 862|Näita kihtide nimesid
 863|Näita G-koodi eelvaadet pärast salvestamist
+864|Faili algus
+865|Faili lõpp
+866|Saadaolevad muutujad:
+867|Koma pärast täisarve
+868|% algusesse ja lõppu
+869|Pausi sõna
+870|P (sekundit)
+871|P (millisekundit)
+872|X (sekundit)
+873|Reanumbrid
+874|Eemalda kommentaarid
+875|Failivorming juhtimissüsteemile

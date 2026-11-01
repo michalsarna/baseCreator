@@ -19,6 +19,7 @@ pub mod dialogs;
 pub mod duet;
 pub mod editor;
 pub mod firmware_ui;
+pub mod gcode_out_ui;
 pub mod gcode_view_ui;
 pub mod ffmpeg;
 pub mod fonts;

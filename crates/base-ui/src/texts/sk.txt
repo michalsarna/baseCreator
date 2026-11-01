@@ -862,3 +862,15 @@
 861|Vrstvy
 862|Zobraziť názvy vrstiev
 863|Náhľad G-kódu po uložení
+864|Úplný začiatok súboru
+865|Úplný koniec súboru
+866|Dostupné premenné:
+867|Desatinná bodka za celými číslami
+868|% na začiatku a na konci
+869|Slovo pre prestávku
+870|P (sekundy)
+871|P (milisekundy)
+872|X (sekundy)
+873|Čísla riadkov
+874|Odstrániť komentáre
+875|Formát súboru pre riadiaci systém

@@ -862,3 +862,15 @@
 861|Lög
 862|Sýna heiti laga
 863|Forskoða G-kóða eftir vistun
+864|Upphaf skrárinnar
+865|Lok skrárinnar
+866|Tiltækar breytur:
+867|Tugabrot á eftir heilum tölum
+868|% í upphafi og lok
+869|Bið-orð
+870|P (sekúndur)
+871|P (millisekúndur)
+872|X (sekúndur)
+873|Línunúmer
+874|Fjarlægja athugasemdir
+875|Skráarsnið fyrir stýringuna

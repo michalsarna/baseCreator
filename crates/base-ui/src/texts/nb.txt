@@ -862,3 +862,15 @@
 861|Lag
 862|Vis lagnavn
 863|Forhåndsvis G-kode etter lagring
+864|Aller først i filen
+865|Aller sist i filen
+866|Tilgjengelige variabler:
+867|Desimaltegn etter hele tall
+868|% først og sist
+869|Ord for pause
+870|P (sekunder)
+871|P (millisekunder)
+872|X (sekunder)
+873|Linjenumre
+874|Fjern kommentarer
+875|Filformat for styringen

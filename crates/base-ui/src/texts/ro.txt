@@ -862,3 +862,15 @@
 861|Straturi
 862|Afișează numele straturilor
 863|Previzualizare G-code după salvare
+864|Începutul fișierului
+865|Sfârșitul fișierului
+866|Variabile disponibile:
+867|Punct zecimal după numerele întregi
+868|% la început și la sfârșit
+869|Cuvântul pauzei
+870|P (secunde)
+871|P (milisecunde)
+872|X (secunde)
+873|Numere de linie
+874|Elimină comentariile
+875|Formatul fișierului pentru controler

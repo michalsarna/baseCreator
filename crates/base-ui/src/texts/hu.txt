@@ -862,3 +862,15 @@
 861|Rétegek
 862|Rétegnevek megjelenítése
 863|G-kód előnézete mentés után
+864|A fájl legeleje
+865|A fájl legvége
+866|Használható változók:
+867|Tizedespont az egész számok után
+868|% az elején és a végén
+869|A várakozás szava
+870|P (másodperc)
+871|P (ezredmásodperc)
+872|X (másodperc)
+873|Sorszámok
+874|Megjegyzések eltávolítása
+875|Fájlformátum a vezérlőhöz
