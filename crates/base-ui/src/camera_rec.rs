@@ -20,7 +20,7 @@ pub enum LapseMode {
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecSettings {
-    /// Where the pictures and videos go; `None` is the folder `camera` next to the project (`camera01`, `camera02`… when it is there already),
+    /// Where the pictures and videos go; `None` is the folder `camera` next to the project (`camera00`, `camera01`… when it is there already),
     /// or the folder `camera` of the shared data folder when the project has no file yet.
     #[serde(default)]
     pub dir: Option<PathBuf>,
@@ -314,13 +314,13 @@ impl Recorder {
         if s.is_empty() { kind.to_string() } else { format!("{s}-{kind}") }
     }
 
-    /// The folder `camera` next to the project file: the first of `camera`, `camera01`, `camera02`… that is not there yet.
+    /// The folder `camera` next to the project file: the first of `camera`, `camera00`, `camera01`… that is not there yet.
     pub fn free_camera_folder(base: &Path) -> PathBuf {
         let first = base.join("camera");
         if !first.exists() {
             return first;
         }
-        (1..).map(|n| base.join(format!("camera{n:02}"))).find(|p| !p.exists()).expect("a free number")
+        (0..).map(|n| base.join(format!("camera{n:02}"))).find(|p| !p.exists()).expect("a free number")
     }
 
     /// The folder shown to the person: the chosen one, the one of this run, or the one the next file would make.
@@ -651,8 +651,8 @@ mod tests {
         again.set_project(Some(&project));
         let (w, h, rgb) = picture(50);
         again.feed(Instant::now(), w, h, rgb);
-        assert_eq!(again.photo().unwrap(), base.join("camera01").join("box-photo-0001.jpg"));
-        assert_eq!(Recorder::free_camera_folder(&base), base.join("camera02"));
+        assert_eq!(again.photo().unwrap(), base.join("camera00").join("box-photo-0001.jpg"));
+        assert_eq!(Recorder::free_camera_folder(&base), base.join("camera01"));
         // A time-lapse folder and a video carry the name too.
         again.start_video(Instant::now());
         assert!(again.video.as_ref().unwrap().path.file_name().unwrap().to_string_lossy().starts_with("box-video-"));
