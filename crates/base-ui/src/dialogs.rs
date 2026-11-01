@@ -162,7 +162,7 @@ fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
     const ARROWS: f32 = 28.0;
     ui.separator();
     ui.label(RichText::new(tr("Made with:")).strong());
-    let id = ui.id().with("about_credits_offset");
+    let id = ui.scope_id().with("about_credits_offset");
     let mut offset: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(0.0);
     // The list is drawn in a child that the window does not count into its size: a width that the content asks for would keep the window from shrinking.
     let full = ui.available_width().max(60.0);
