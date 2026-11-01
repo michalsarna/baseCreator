@@ -13,6 +13,29 @@ pub fn process_frame(cam: &CameraSource, rgb: Vec<u8>, w: u32, h: u32) -> (u32, 
     rotate_rgb(&out, w, h, cam.rotation % 4)
 }
 
+/// The options of a stream as the program that runs ffmpeg takes them.
+pub fn options_of(cam: &CameraSource) -> crate::ffmpeg::StreamOptions {
+    crate::ffmpeg::StreamOptions { udp: cam.rtsp_udp, low_latency: cam.low_latency }
+}
+
+/// The choices under the address of a stream: RTSP over UDP and low latency. Only an address that ffmpeg reads has them. Returns whether
+/// anything was changed.
+pub fn stream_options_ui(ui: &mut egui::Ui, cam: &mut CameraSource) -> bool {
+    let CameraKind::Url(u) = &cam.kind else { return false };
+    if !base_core::camimg::is_ffmpeg_stream(u) {
+        return false;
+    }
+    let tcp_udp = base_core::camimg::is_rtsp(u);
+    let mut changed = false;
+    ui.horizontal_wrapped(|ui| {
+        if tcp_udp {
+            changed |= ui.checkbox(&mut cam.rtsp_udp, crate::i18n::tr("Use UDP for RTSP")).on_hover_text(crate::i18n::tr("Less delay than TCP, but the picture can break on a bad network. Off: TCP.")).changed();
+        }
+        changed |= ui.checkbox(&mut cam.low_latency, crate::i18n::tr("Low latency")).on_hover_text(crate::i18n::tr("Shows the newest picture sooner, without buffering; the picture can stutter.")).changed();
+    });
+    changed
+}
+
 pub struct CamFeed {
     key: String,
     url: Option<camera_stream::StreamWorker>,
@@ -28,7 +51,7 @@ impl CamFeed {
     pub fn start(ctx: &egui::Context, cam: &CameraSource) -> CamFeed {
         let mut st = CamFeed { key: Self::key_of(cam), url: None, local: None, tex: None, last: None, error: String::new() };
         match &cam.kind {
-            CameraKind::Url(u) => st.url = Some(camera_stream::spawn(u.clone(), ctx.clone())),
+            CameraKind::Url(u) => st.url = Some(camera_stream::spawn_with(u.clone(), options_of(cam), ctx.clone())),
             CameraKind::Local(i) if camera::SUPPORTED => st.local = Some(camera::spawn(*i, cam.image.prefer_yuyv, ctx.clone())),
             CameraKind::Local(_) => st.error = crate::i18n::tr("This build cannot use the cameras of the computer.").to_string(),
         }
@@ -36,7 +59,8 @@ impl CamFeed {
     }
 
     pub fn key_of(cam: &CameraSource) -> String {
-        format!("{:?}", cam.kind)
+        // The options are in the key: another choice opens the stream again.
+        format!("{:?}{}{}", cam.kind, cam.rtsp_udp, cam.low_latency)
     }
 
     /// Is this the feed of the camera that `cam` is (the same source)?

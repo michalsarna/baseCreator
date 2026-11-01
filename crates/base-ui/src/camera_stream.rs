@@ -169,8 +169,13 @@ fn spawn_process_with(ctx: egui::Context, command: impl Fn() -> Option<(std::pat
 }
 
 pub fn spawn(url: String, ctx: egui::Context) -> StreamWorker {
+    spawn_with(url, crate::ffmpeg::StreamOptions::default(), ctx)
+}
+
+/// [`spawn`] with the options of the camera (UDP for RTSP, low latency).
+pub fn spawn_with(url: String, opts: crate::ffmpeg::StreamOptions, ctx: egui::Context) -> StreamWorker {
     if base_core::camimg::is_ffmpeg_stream(&url) {
-        return spawn_process(ctx, move || crate::ffmpeg::path().map(|p| (p, crate::ffmpeg::stream_args(&url, 10))));
+        return spawn_process(ctx, move || crate::ffmpeg::path().map(|p| (p, crate::ffmpeg::stream_args_with(&url, 10, opts))));
     }
     let (tx, rx) = channel();
     let stop = Arc::new(AtomicBool::new(false));

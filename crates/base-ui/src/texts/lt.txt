@@ -902,3 +902,12 @@
 901|Rodyti šio teksto įrankio trajektorijas G kodo analizėje
 902|Pakeista ranka
 903|Įrašyti tekstą į failą
+904|Naudoti UDP RTSP
+905|Mažesnė delsa nei TCP, bet prastame tinkle vaizdas gali sutrikti. Išjungta: TCP.
+906|Maža delsa
+907|Naujausią vaizdą rodo greičiau, be buferio; vaizdas gali strigti.
+908|Vaizdo formatas
+909|Automatinis yra būdas, kuris kompiuterį apkrauna mažiausiai: IP kameros srautas kopijuojamas į MP4 failą tokį, koks ateina, niekas iš naujo nedekoduojama ir nekoduojama. Kamera, kuri duoda po vieną vaizdą, įrašoma kaip AVI.
+910|Įrašoma: {} s (srautas kopijuojamas)
+911|MP4 kopijuoja IP kameros srautą; ši kamera įrašoma kaip AVI.
+912|Srauto įrašyti nepavyko (adresas, kamera, ffmpeg?).

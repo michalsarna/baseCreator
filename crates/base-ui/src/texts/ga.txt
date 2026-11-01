@@ -902,3 +902,12 @@
 901|Taispeáin bealaí uirlise an téacs seo san anailís G-code
 902|Athraithe de láimh
 903|Scríobh an téacs i gcomhad
+904|Úsáid UDP le haghaidh RTSP
+905|Níos lú moille ná TCP, ach d'fhéadfadh an pictiúr briseadh ar líonra lag. As: TCP.
+906|Folaigh íseal
+907|Taispeánann sé an pictiúr is nuaí níos luaithe, gan maolú; d'fhéadfadh an pictiúr stad is tosú.
+908|Formáid físe
+909|Is é uathoibríoch an bealach is lú a chuireann ualach ar an ríomhaire: déantar sruth cheamara IP a chóipeáil i gcomhad MP4 mar a thagann sé, ní dhéantar aon rud a dhíchódú ná a ionchódú arís. Sábháiltear ceamara a thugann pictiúr amháin ag an am mar AVI.
+910|Taifeadadh: {} s (á chóipeáil)
+911|Cóipeálann MP4 sruth cheamara IP; taifeadtar an ceamara seo mar AVI.
+912|Níorbh fhéidir an sruth a thaifeadadh (an seoladh, an ceamara, ffmpeg?).

@@ -111,11 +111,17 @@ pub struct CameraSource {
     /// until chosen (the way the device's view was last left, `CameraView::mode`, is used then).
     #[serde(default)]
     pub view_mode: Option<u8>,
+    /// An RTSP stream over UDP instead of TCP: less delay, but pictures can break on a bad network. Off by default (and not written then).
+    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+    pub rtsp_udp: bool,
+    /// A stream (RTSP, UDP, RTP, RTMP) read without buffering: the newest picture sooner, a picture that can stutter. Off by default.
+    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+    pub low_latency: bool,
 }
 
 impl CameraSource {
     pub fn url(name: &str, url: &str, rotation: u8) -> CameraSource {
-        CameraSource { name: name.into(), enabled: true, kind: CameraKind::Url(url.into()), rotation: rotation % 4, image: ImageSettings::default(), lens: Lens::default(), reference: vec![], view_mode: None }
+        CameraSource { name: name.into(), enabled: true, kind: CameraKind::Url(url.into()), rotation: rotation % 4, image: ImageSettings::default(), lens: Lens::default(), reference: vec![], view_mode: None, rtsp_udp: false, low_latency: false }
     }
 
     /// Is the address a usable http / https URL (or a local camera chosen)? A camera that is not valid cannot be

@@ -29,6 +29,22 @@ pub struct RecSettings {
     pub interval: f64,
     #[serde(default)]
     pub mode: LapseMode,
+    /// The file of a video.
+    #[serde(default)]
+    pub format: VideoFormat,
+}
+
+/// The file a video is written as.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub enum VideoFormat {
+    /// The way that needs the least from the computer: the stream of an IP camera is copied into an MP4 file as it comes (nothing is
+    /// decoded or encoded again); a camera that gives one picture after another is written as an AVI of Motion-JPEG pictures.
+    #[default]
+    Auto,
+    /// An MP4 file: a copy of the stream. Only a stream (rtsp, udp, rtp, rtmp) can be copied; another camera is written as AVI.
+    Mp4,
+    /// An AVI file of Motion-JPEG pictures, whatever the camera is.
+    Avi,
 }
 
 fn five() -> f64 {
@@ -37,7 +53,7 @@ fn five() -> f64 {
 
 impl Default for RecSettings {
     fn default() -> RecSettings {
-        RecSettings { dir: None, interval: 5.0, mode: LapseMode::Interval }
+        RecSettings { dir: None, interval: 5.0, mode: LapseMode::Interval, format: VideoFormat::Auto }
     }
 }
 
@@ -244,11 +260,25 @@ impl LayerWatch {
 
 // ---------------------------------------------------------------- the recorder
 
+/// How a video is written.
+enum VideoKind {
+    /// Motion-JPEG pictures in an AVI file, written here.
+    Avi { avi: AviWriter<std::io::BufWriter<std::fs::File>>, size: (u32, u32) },
+    /// A program (ffmpeg) copies the stream into an MP4 file.
+    Copy { child: std::process::Child },
+}
+
 struct Video {
-    avi: AviWriter<std::io::BufWriter<std::fs::File>>,
+    kind: VideoKind,
     started: Instant,
-    size: (u32, u32),
     path: PathBuf,
+}
+
+/// The address of the stream a recording can copy, and its options.
+#[derive(Clone, Debug, PartialEq)]
+pub struct StreamSource {
+    pub url: String,
+    pub opts: crate::ffmpeg::StreamOptions,
 }
 
 struct Lapse {
@@ -269,6 +299,8 @@ pub struct Recorder {
     project: Option<PathBuf>,
     /// The folder chosen for a folder of a project, kept for the rest of the run.
     chosen: Option<(PathBuf, PathBuf)>,
+    /// The stream of the camera, when it is one that can be copied (an address that ffmpeg reads).
+    source: Option<StreamSource>,
 }
 
 impl Default for Recorder {
@@ -279,7 +311,7 @@ impl Default for Recorder {
 
 impl Recorder {
     pub fn new(settings: RecSettings) -> Recorder {
-        Recorder { settings, message: String::new(), video: None, lapse: None, latest: None, project: None, chosen: None }
+        Recorder { settings, message: String::new(), video: None, lapse: None, latest: None, project: None, chosen: None, source: None }
     }
 
     /// Does the camera have to be kept running (a video or a time-lapse is being made)?
@@ -300,6 +332,25 @@ impl Recorder {
         if self.project.as_deref() != path {
             self.project = path.map(Path::to_path_buf);
         }
+    }
+
+    /// Tell the recorder which camera it records (`None`: none, or one that is not a stream).
+    pub fn set_source(&mut self, cam: Option<&base_core::camimg::CameraSource>) {
+        self.source = cam.and_then(|c| match &c.kind {
+            base_core::camimg::CameraKind::Url(u) if base_core::camimg::is_ffmpeg_stream(u) => Some(StreamSource { url: u.trim().to_string(), opts: crate::camera_feed::options_of(c) }),
+            _ => None,
+        });
+    }
+
+    /// Is a video of this camera a copy of the stream (and not Motion-JPEG pictures)? It is when the person did not ask for AVI, the
+    /// camera is a stream and ffmpeg is there.
+    pub fn copies_stream(&self) -> bool {
+        self.wants_copy() && crate::ffmpeg::path().is_some()
+    }
+
+    /// Would a video of this camera be a copy of the stream, if ffmpeg is there?
+    fn wants_copy(&self) -> bool {
+        self.settings.format != VideoFormat::Avi && self.source.is_some()
     }
 
     /// The start of the names of the files: the name of the project file, or nothing.
@@ -361,9 +412,9 @@ impl Recorder {
 
     /// A new picture from the camera: it goes into the video, and is kept for the time-lapse and the photos.
     pub fn feed(&mut self, now: Instant, w: u32, h: u32, rgb: Vec<u8>) {
-        if let Some(v) = &mut self.video {
-            if v.size == (w, h) {
-                match jpeg_of(w, h, &rgb).and_then(|j| v.avi.push(&j).map_err(|e| e.to_string())) {
+        if let Some(Video { kind: VideoKind::Avi { avi, size }, .. }) = &mut self.video {
+            if *size == (w, h) {
+                match jpeg_of(w, h, &rgb).and_then(|j| avi.push(&j).map_err(|e| e.to_string())) {
                     Ok(()) => {}
                     Err(e) => {
                         self.fail(e);
@@ -378,6 +429,14 @@ impl Recorder {
 
     /// Every frame of the window: the picture of a time-lapse that is due is taken.
     pub fn tick(&mut self, now: Instant) {
+        // A copy of a stream that ended by itself (the camera went away, the address was wrong).
+        let ended = match &mut self.video {
+            Some(Video { kind: VideoKind::Copy { child }, .. }) => child.try_wait().ok().flatten().is_some(),
+            _ => false,
+        };
+        if ended {
+            self.stop_video(now);
+        }
         let due = match (&self.lapse, self.settings.mode) {
             (Some(l), LapseMode::Interval) => now.duration_since(l.last) >= Duration::from_secs_f64(self.settings.interval),
             _ => false,
@@ -423,18 +482,39 @@ impl Recorder {
             self.message = tr("No picture from the camera yet.").to_string();
             return;
         };
+        let copy = self.copies_stream();
         let result = self.folder().and_then(|dir| {
-            let path = next_name(&dir, &self.prefix("video"), "avi");
-            let file = std::fs::File::create(&path).map_err(|e| e.to_string())?;
-            let avi = AviWriter::new(std::io::BufWriter::new(file), w, h).map_err(|e| e.to_string())?;
-            Ok(Video { avi, started: now, size: (w, h), path })
+            if copy {
+                let path = next_name(&dir, &self.prefix("video"), "mp4");
+                let source = self.source.clone().expect("a stream to copy");
+                let ffmpeg = crate::ffmpeg::path().ok_or_else(|| "ffmpeg".to_string())?;
+                let child = std::process::Command::new(ffmpeg)
+                    .args(crate::ffmpeg::record_args(&source.url, source.opts, &path.to_string_lossy()))
+                    .stdin(std::process::Stdio::piped())
+                    .stdout(std::process::Stdio::null())
+                    .stderr(std::process::Stdio::null())
+                    .spawn()
+                    .map_err(|e| e.to_string())?;
+                Ok(Video { kind: VideoKind::Copy { child }, started: now, path })
+            } else {
+                let path = next_name(&dir, &self.prefix("video"), "avi");
+                let file = std::fs::File::create(&path).map_err(|e| e.to_string())?;
+                let avi = AviWriter::new(std::io::BufWriter::new(file), w, h).map_err(|e| e.to_string())?;
+                Ok(Video { kind: VideoKind::Avi { avi, size: (w, h) }, started: now, path })
+            }
         });
         match result {
             Ok(v) => {
+                let avi = matches!(v.kind, VideoKind::Avi { .. });
                 self.video = Some(v);
-                // The picture that is on the screen is the first one.
-                if let Some((w, h, rgb)) = self.latest.clone() {
-                    self.feed(now, w, h, rgb);
+                if avi {
+                    // The picture that is on the screen is the first one.
+                    if let Some((w, h, rgb)) = self.latest.clone() {
+                        self.feed(now, w, h, rgb);
+                    }
+                    if self.settings.format == VideoFormat::Mp4 && self.source.is_none() {
+                        self.message = tr("MP4 copies the stream of an IP camera; this camera is recorded as AVI.").to_string();
+                    }
                 }
             }
             Err(e) => self.fail(e),
@@ -443,16 +523,46 @@ impl Recorder {
 
     pub fn stop_video(&mut self, now: Instant) {
         let Some(v) = self.video.take() else { return };
-        let frames = v.avi.frames();
-        match v.avi.finish(now.duration_since(v.started).as_secs_f64()) {
-            Ok(_) => self.message = trf("Saved {} ({} pictures)", &[&v.path.display(), &frames]),
-            Err(e) => self.fail(e),
+        match v.kind {
+            VideoKind::Avi { avi, .. } => {
+                let frames = avi.frames();
+                match avi.finish(now.duration_since(v.started).as_secs_f64()) {
+                    Ok(_) => self.message = trf("Saved {} ({} pictures)", &[&v.path.display(), &frames]),
+                    Err(e) => self.fail(e),
+                }
+            }
+            VideoKind::Copy { mut child } => {
+                // `q` makes ffmpeg close the file properly; a program that does not stop is killed (the file is fragmented, it plays anyway).
+                if let Some(mut stdin) = child.stdin.take() {
+                    let _ = stdin.write_all(b"q\n");
+                }
+                let t = Instant::now();
+                while child.try_wait().ok().flatten().is_none() && t.elapsed() < Duration::from_secs(3) {
+                    std::thread::sleep(Duration::from_millis(30));
+                }
+                if child.try_wait().ok().flatten().is_none() {
+                    let _ = child.kill();
+                    let _ = child.wait();
+                }
+                let size = std::fs::metadata(&v.path).map(|m| m.len()).unwrap_or(0);
+                if size > 0 {
+                    self.message = trf("Saved {}", &[&v.path.display()]);
+                } else {
+                    let _ = std::fs::remove_file(&v.path);
+                    self.message = tr("The stream could not be recorded (the address, the camera, ffmpeg?).").to_string();
+                }
+            }
         }
     }
 
-    /// Seconds and pictures of the video being recorded.
+    /// Seconds and pictures of the video being recorded (a copy of a stream has no pictures to count: 0).
     pub fn video_progress(&self, now: Instant) -> Option<(u64, usize)> {
-        self.video.as_ref().map(|v| (now.duration_since(v.started).as_secs(), v.avi.frames()))
+        self.video.as_ref().map(|v| (now.duration_since(v.started).as_secs(), if let VideoKind::Avi { avi, .. } = &v.kind { avi.frames() } else { 0 }))
+    }
+
+    /// Is the video being written a copy of a stream?
+    pub fn recording_copy(&self) -> bool {
+        matches!(self.video, Some(Video { kind: VideoKind::Copy { .. }, .. }))
     }
 
     pub fn start_lapse(&mut self, now: Instant) {
@@ -531,7 +641,11 @@ impl Recorder {
                     if ui.button(tr("Stop recording")).clicked() {
                         self.stop_video(now);
                     }
-                    ui.label(RichText::new(trf("Recording: {} s, {} pictures", &[&secs, &frames])).color(theme::text_dim()));
+                    if self.recording_copy() {
+                        ui.label(RichText::new(trf("Recording: {} s (the stream is copied)", &[&secs])).color(theme::text_dim()));
+                    } else {
+                        ui.label(RichText::new(trf("Recording: {} s, {} pictures", &[&secs, &frames])).color(theme::text_dim()));
+                    }
                 }
                 None => {
                     if ui.add_enabled(has, egui::Button::new(tr("Record video"))).clicked() {
@@ -539,6 +653,16 @@ impl Recorder {
                     }
                 }
             }
+        });
+        ui.horizontal_wrapped(|ui| {
+            ui.label(tr("Video format"));
+            let hint = tr("Automatic is the way that needs the least from the computer: the stream of an IP camera is copied into an MP4 file as it comes, nothing is decoded or encoded again. A camera that gives one picture after another is written as AVI.");
+            let names = [(VideoFormat::Auto, tr("Automatic").to_string()), (VideoFormat::Mp4, "MP4".to_string()), (VideoFormat::Avi, "AVI".to_string())];
+            ui.add_enabled_ui(!self.recording(), |ui| {
+                for (f, name) in names {
+                    changed |= ui.selectable_value(&mut self.settings.format, f, name).on_hover_text(&*hint).changed();
+                }
+            });
         });
         ui.horizontal_wrapped(|ui| {
             ui.label(tr("Time-lapse"));
@@ -597,7 +721,7 @@ mod tests {
     }
 
     fn rec(dir: &Path) -> Recorder {
-        Recorder::new(RecSettings { dir: Some(dir.to_path_buf()), interval: 2.0, mode: LapseMode::Interval })
+        Recorder::new(RecSettings { dir: Some(dir.to_path_buf()), interval: 2.0, mode: LapseMode::Interval, format: VideoFormat::Auto })
     }
 
     #[test]
@@ -639,7 +763,7 @@ mod tests {
     fn files_go_to_a_camera_folder_next_to_the_project_and_carry_its_name() {
         let base = temp("project");
         let project = base.join("box.cre");
-        let mut r = Recorder::new(RecSettings { dir: None, interval: 2.0, mode: LapseMode::Interval });
+        let mut r = Recorder::new(RecSettings { dir: None, interval: 2.0, mode: LapseMode::Interval, format: VideoFormat::Auto });
         r.set_project(Some(&project));
         let (w, h, rgb) = picture(40);
         r.feed(Instant::now(), w, h, rgb);
@@ -647,7 +771,7 @@ mod tests {
         assert_eq!(first, base.join("camera").join("box-photo-0001.jpg"));
         assert_eq!(r.photo().unwrap(), base.join("camera").join("box-photo-0002.jpg"), "the same folder for the rest of the run");
         // Another run finds the folder there and makes the next one.
-        let mut again = Recorder::new(RecSettings { dir: None, interval: 2.0, mode: LapseMode::Interval });
+        let mut again = Recorder::new(RecSettings { dir: None, interval: 2.0, mode: LapseMode::Interval, format: VideoFormat::Auto });
         again.set_project(Some(&project));
         let (w, h, rgb) = picture(50);
         again.feed(Instant::now(), w, h, rgb);
@@ -661,6 +785,68 @@ mod tests {
         assert!(again.lapse.as_ref().unwrap().dir.file_name().unwrap().to_string_lossy().starts_with("box-timelapse-"));
         let frame = std::fs::read_dir(&again.lapse.as_ref().unwrap().dir).unwrap().next().unwrap().unwrap().file_name().to_string_lossy().to_string();
         assert!(frame.starts_with("box-frame-"), "{frame}");
+    }
+
+    #[test]
+    fn the_format_says_what_a_video_is_and_a_camera_that_is_not_a_stream_is_recorded_as_avi() {
+        use base_core::camimg::CameraSource;
+        let dir = temp("format");
+        let mut r = rec(&dir);
+        assert_eq!(r.settings.format, VideoFormat::Auto, "automatic to begin with");
+        // A camera that is not a stream: AVI whatever is asked, and MP4 asked for says why.
+        r.set_source(Some(&CameraSource::url("c", "http://127.0.0.1:1/x.mjpg", 0)));
+        assert!(!r.wants_copy());
+        r.settings.format = VideoFormat::Mp4;
+        let (w, h, rgb) = picture(30);
+        r.feed(Instant::now(), w, h, rgb);
+        r.start_video(Instant::now());
+        assert!(r.recording() && !r.recording_copy());
+        assert!(r.message.contains("AVI"), "{}", r.message);
+        r.stop_video(Instant::now());
+        assert!(std::fs::read_dir(&dir).unwrap().flatten().any(|e| e.path().extension().is_some_and(|x| x == "avi")));
+        // A stream is copied unless AVI is asked for.
+        r.set_source(Some(&CameraSource::url("c", "rtsp://cam/stream1", 0)));
+        for (f, copy) in [(VideoFormat::Auto, true), (VideoFormat::Mp4, true), (VideoFormat::Avi, false)] {
+            r.settings.format = f;
+            assert_eq!(r.wants_copy(), copy, "{f:?}");
+        }
+        r.set_source(None);
+        assert!(!r.wants_copy());
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    /// A real recording: a stream (MPEG-TS over UDP, made by a second ffmpeg) is copied into an MP4 file through the exact arguments of the
+    /// program, and the file is read back and decoded. Run it with `CREATOR_FFMPEG=<the small ffmpeg>` and
+    /// `LIVE_FFMPEG=<one that has the lavfi source, the mpeg4 encoder, the mpegts muxer and the mov demuxer>`.
+    #[test]
+    #[ignore]
+    fn a_stream_is_copied_into_a_playable_mp4_without_encoding() {
+        let Some(maker) = std::env::var_os("LIVE_FFMPEG") else { return };
+        assert!(std::env::var_os("CREATOR_FFMPEG").is_some(), "CREATOR_FFMPEG is the ffmpeg of the program");
+        let dir = temp("copy");
+        let cam = base_core::camimg::CameraSource::url("c", "udp://127.0.0.1:18712", 0);
+        let mut r = rec(&dir);
+        r.set_source(Some(&cam));
+        assert!(r.copies_stream(), "a UDP stream is copied");
+        let (w, h, rgb) = picture(40);
+        r.feed(Instant::now(), w, h, rgb);
+        r.start_video(Instant::now());
+        assert!(r.recording_copy(), "{}", r.message);
+        let mut tx = std::process::Command::new(&maker)
+            .args(["-hide_banner", "-loglevel", "error", "-re", "-f", "lavfi", "-i", "testsrc=size=320x240:rate=10", "-t", "9", "-c:v", "mpeg4", "-g", "10", "-f", "mpegts", "udp://127.0.0.1:18712?pkt_size=1316"])
+            .spawn()
+            .unwrap();
+        std::thread::sleep(Duration::from_secs(7));
+        r.stop_video(Instant::now());
+        let _ = tx.kill();
+        let path = std::fs::read_dir(&dir).unwrap().flatten().map(|e| e.path()).find(|p| p.extension().is_some_and(|e| e == "mp4")).expect("an MP4 file");
+        let bytes = std::fs::read(&path).unwrap();
+        assert!(bytes.len() > 2000 && &bytes[4..8] == b"ftyp", "an MP4 file: {} bytes; {}", bytes.len(), r.message);
+        // Read back and decoded (to Motion-JPEG pictures on the standard output, which are counted).
+        let out = std::process::Command::new(&maker).args(["-hide_banner", "-loglevel", "error", "-i"]).arg(&path).args(["-f", "mjpeg", "-q:v", "8", "pipe:1"]).output().unwrap();
+        let pictures = out.stdout.windows(3).filter(|w| *w == [0xFF, 0xD8, 0xFF]).count();
+        assert!(out.status.success() && pictures >= 20, "the file decodes: {pictures} pictures; {}", String::from_utf8_lossy(&out.stderr));
+        std::fs::remove_dir_all(dir).ok();
     }
 
     #[test]

@@ -902,3 +902,12 @@
 901|Arată traseele din acest text în analiza G-code
 902|Modificat manual
 903|Scrie textul într-un fișier
+904|Folosește UDP pentru RTSP
+905|Întârziere mai mică decât cu TCP, dar imaginea se poate strica pe o rețea slabă. Oprit: TCP.
+906|Latență mică
+907|Arată mai repede cea mai nouă imagine, fără buffer; imaginea poate sacadă.
+908|Format video
+909|Automat este modul care solicită cel mai puțin calculatorul: fluxul unei camere IP este copiat într-un fișier MP4 așa cum vine, nimic nu este decodat sau codificat din nou. O cameră care dă o imagine după alta este salvată ca AVI.
+910|Înregistrare: {} s (fluxul este copiat)
+911|MP4 copiază fluxul unei camere IP; această cameră este înregistrată ca AVI.
+912|Fluxul nu a putut fi înregistrat (adresa, camera, ffmpeg?).

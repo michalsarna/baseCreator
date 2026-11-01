@@ -22,7 +22,7 @@ FLAGS=(
   --enable-static --disable-shared --enable-network --enable-small
   --enable-protocol=tcp,udp,rtp,rtmp,pipe,file
   --enable-demuxer=rtsp,rtp,sdp,mjpeg,mpegts,flv
-  --enable-muxer=mjpeg
+  --enable-muxer=mjpeg,mp4
   --enable-decoder=h264,hevc,mjpeg,mpeg4
   --enable-encoder=mjpeg
   --enable-parser=h264,hevc,mjpeg,mpeg4video
