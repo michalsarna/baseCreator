@@ -883,6 +883,21 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Own file format", "Format pliku dla sterowania", "Dateiformat für die Steuerung", "Formato del file per il controllo", "Tiedostomuoto ohjaimelle", "控制器的文件格式", "नियंत्रक के लिए फ़ाइल प्रारूप"],
     ["Show variable names", "Pokaż nazwy zmiennych", "Variablennamen anzeigen", "Mostra i nomi delle variabili", "Näytä muuttujien nimet", "显示变量名称", "वेरिएबल के नाम दिखाएं"],
     ["Beside the label of a field that has a variable for the own G-code its name is shown; a click copies it", "Obok etykiety pola, które ma zmienną dla własnego G-code, widać jej nazwę; kliknięcie ją kopiuje", "Neben der Beschriftung eines Feldes mit einer Variablen für den eigenen G-Code wird ihr Name gezeigt; ein Klick kopiert sie", "Accanto all'etichetta di un campo che ha una variabile per il G-code personalizzato si vede il suo nome; un clic la copia", "Kentän nimen vieressä näytetään oman G-koodin muuttujan nimi; napsautus kopioi sen", "在有自定义 G-code 变量的字段标签旁显示变量名称；点击即可复制", "अपने G-code के वेरिएबल वाले फ़ील्ड के लेबल के पास उसका नाम दिखता है; क्लिक करने पर वह कॉपी हो जाता है"],
+    ["Layer presets", "Presety warstw", "Ebenenvorlagen", "Preset dei livelli", "Tasojen esiasetukset", "图层预设", "परत प्रीसेट"],
+    ["Save preset…", "Zapisz preset…", "Vorlage speichern…", "Salva preset…", "Tallenna esiasetus…", "保存预设…", "प्रीसेट सहेजें…"],
+    ["Keep the settings of this layer under this name", "Zachowaj ustawienia tej warstwy pod tą nazwą", "Die Einstellungen dieser Ebene unter diesem Namen speichern", "Conserva le impostazioni di questo livello con questo nome", "Tallenna tämän tason asetukset tällä nimellä", "以此名称保存该图层的设置", "इस परत की सेटिंग्स को इस नाम से रखें"],
+    ["Export…", "Eksportuj…", "Exportieren…", "Esporta…", "Vie…", "导出…", "निर्यात करें…"],
+    ["Write all the presets to a file", "Zapisz wszystkie presety do pliku", "Alle Vorlagen in eine Datei schreiben", "Scrivi tutti i preset in un file", "Kirjoita kaikki esiasetukset tiedostoon", "将所有预设写入文件", "सभी प्रीसेट को फ़ाइल में लिखें"],
+    ["Import…", "Importuj…", "Importieren…", "Importa…", "Tuo…", "导入…", "आयात करें…"],
+    ["Add the presets of a file", "Dodaj presety z pliku", "Die Vorlagen einer Datei hinzufügen", "Aggiungi i preset di un file", "Lisää tiedoston esiasetukset", "添加文件中的预设", "फ़ाइल के प्रीसेट जोड़ें"],
+    ["At most {} presets", "Najwyżej {} presetów", "Höchstens {} Vorlagen", "Al massimo {} preset", "Enintään {} esiasetusta", "最多 {} 个预设", "अधिकतम {} प्रीसेट"],
+    ["The file is too big", "Plik jest za duży", "Die Datei ist zu groß", "Il file è troppo grande", "Tiedosto on liian suuri", "文件太大", "फ़ाइल बहुत बड़ी है"],
+    ["{} presets added", "Dodano presetów: {}", "{} Vorlagen hinzugefügt", "Aggiunti {} preset", "Lisätty {} esiasetusta", "已添加 {} 个预设", "{} प्रीसेट जोड़े गए"],
+    ["Nothing could be read from the file", "Z pliku nie dało się nic odczytać", "Aus der Datei konnte nichts gelesen werden", "Dal file non si è potuto leggere nulla", "Tiedostosta ei voitu lukea mitään", "无法从文件中读取任何内容", "फ़ाइल से कुछ भी पढ़ा नहीं जा सका"],
+    ["No presets yet", "Nie ma jeszcze presetów", "Noch keine Vorlagen", "Ancora nessun preset", "Ei vielä esiasetuksia", "还没有预设", "अभी कोई प्रीसेट नहीं"],
+    ["Put these settings on the layer", "Nałóż te ustawienia na warstwę", "Diese Einstellungen auf die Ebene anwenden", "Applica queste impostazioni al livello", "Käytä näitä asetuksia tasolle", "将这些设置应用到图层", "ये सेटिंग्स परत पर लगाएं"],
+    ["Forget this preset", "Zapomnij ten preset", "Diese Vorlage vergessen", "Dimentica questo preset", "Unohda tämä esiasetus", "删除此预设", "इस प्रीसेट को हटाएं"],
+    ["The name is empty or used by another preset", "Nazwa jest pusta albo używana przez inny preset", "Der Name ist leer oder wird von einer anderen Vorlage benutzt", "Il nome è vuoto o usato da un altro preset", "Nimi on tyhjä tai toisen esiasetuksen käytössä", "名称为空或已被其他预设使用", "नाम खाली है या किसी दूसरे प्रीसेट में उपयोग हो रहा है"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

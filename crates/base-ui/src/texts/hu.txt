@@ -876,3 +876,18 @@
 875|Fájlformátum a vezérlőhöz
 876|Változónevek megjelenítése
 877|A saját G-kód változóval rendelkező mező címkéje mellett megjelenik a neve; kattintásra másolódik
+878|Rétegbeállítások
+879|Beállítás mentése…
+880|A réteg beállításainak mentése ezen a néven
+881|Exportálás…
+882|Az összes beállítás fájlba írása
+883|Importálás…
+884|Egy fájl beállításainak hozzáadása
+885|Legfeljebb {} beállítás
+886|A fájl túl nagy
+887|{} beállítás hozzáadva
+888|A fájlból semmit nem lehetett beolvasni
+889|Még nincs beállítás
+890|E beállítások alkalmazása a rétegre
+891|A beállítás elfelejtése
+892|A név üres, vagy másik beállítás használja

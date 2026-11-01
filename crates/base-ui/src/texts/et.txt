@@ -876,3 +876,18 @@
 875|Failivorming juhtimissüsteemile
 876|Näita muutujate nimesid
 877|Oma G-koodi muutujaga välja sildi kõrval näidatakse selle nime; klõps kopeerib selle
+878|Kihtide eelseaded
+879|Salvesta eelseade…
+880|Salvesta selle kihi seaded selle nime all
+881|Ekspordi…
+882|Kirjuta kõik eelseaded faili
+883|Impordi…
+884|Lisa faili eelseaded
+885|Kuni {} eelseadet
+886|Fail on liiga suur
+887|Lisati {} eelseadet
+888|Failist ei õnnestunud midagi lugeda
+889|Eelseadeid veel pole
+890|Rakenda need seaded kihile
+891|Unusta see eelseade
+892|Nimi on tühi või seda kasutab teine eelseade

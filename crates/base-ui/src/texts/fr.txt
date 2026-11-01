@@ -876,3 +876,18 @@
 875|Format du fichier pour la commande
 876|Afficher les noms des variables
 877|À côté de l'étiquette d'un champ qui a une variable pour le G-code personnalisé s'affiche son nom ; un clic la copie
+878|Préréglages de calques
+879|Enregistrer le préréglage…
+880|Conserver les réglages de ce calque sous ce nom
+881|Exporter…
+882|Écrire tous les préréglages dans un fichier
+883|Importer…
+884|Ajouter les préréglages d'un fichier
+885|{} préréglages au maximum
+886|Le fichier est trop grand
+887|{} préréglages ajoutés
+888|Rien n'a pu être lu dans le fichier
+889|Pas encore de préréglages
+890|Appliquer ces réglages au calque
+891|Oublier ce préréglage
+892|Le nom est vide ou utilisé par un autre préréglage

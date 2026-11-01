@@ -876,3 +876,18 @@
 875|Formato del archivo para el controlador
 876|Mostrar los nombres de las variables
 877|Junto a la etiqueta de un campo que tiene una variable para el G-code propio se muestra su nombre; un clic la copia
+878|Preajustes de capas
+879|Guardar preajuste…
+880|Guardar los ajustes de esta capa con este nombre
+881|Exportar…
+882|Escribir todos los preajustes en un archivo
+883|Importar…
+884|Añadir los preajustes de un archivo
+885|Como máximo {} preajustes
+886|El archivo es demasiado grande
+887|Se añadieron {} preajustes
+888|No se pudo leer nada del archivo
+889|Aún no hay preajustes
+890|Aplicar estos ajustes a la capa
+891|Olvidar este preajuste
+892|El nombre está vacío o lo usa otro preajuste

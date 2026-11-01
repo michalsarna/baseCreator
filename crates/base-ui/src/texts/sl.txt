@@ -876,3 +876,18 @@
 875|Oblika datoteke za krmilnik
 876|Pokaži imena spremenljivk
 877|Ob oznaki polja s spremenljivko za lastno G-kodo se prikaže njeno ime; klik jo kopira
+878|Prednastavitve plasti
+879|Shrani prednastavitev…
+880|Shrani nastavitve te plasti pod tem imenom
+881|Izvozi…
+882|Zapiši vse prednastavitve v datoteko
+883|Uvozi…
+884|Dodaj prednastavitve iz datoteke
+885|Največ {} prednastavitev
+886|Datoteka je prevelika
+887|Dodanih prednastavitev: {}
+888|Iz datoteke ni bilo mogoče prebrati ničesar
+889|Še ni prednastavitev
+890|Uporabi te nastavitve na plasti
+891|Pozabi to prednastavitev
+892|Ime je prazno ali ga uporablja druga prednastavitev

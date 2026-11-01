@@ -876,3 +876,18 @@
 875|Faila formāts vadībai
 876|Rādīt mainīgo nosaukumus
 877|Blakus lauka nosaukumam, kuram ir mainīgais paša G-kodam, tiek rādīts tā nosaukums; klikšķis to nokopē
+878|Slāņu sagataves
+879|Saglabāt sagatavi…
+880|Saglabāt šī slāņa iestatījumus ar šo nosaukumu
+881|Eksportēt…
+882|Ierakstīt visas sagataves failā
+883|Importēt…
+884|Pievienot faila sagataves
+885|Ne vairāk kā {} sagataves
+886|Fails ir pārāk liels
+887|Pievienotas {} sagataves
+888|No faila neko nevarēja nolasīt
+889|Vēl nav sagatavju
+890|Lietot šos iestatījumus slānim
+891|Aizmirst šo sagatavi
+892|Nosaukums ir tukšs vai to izmanto cita sagatave

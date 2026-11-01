@@ -876,3 +876,18 @@
 875|Bestandsindeling voor de besturing
 876|Variabelenamen tonen
 877|Naast het label van een veld met een variabele voor eigen G-code staat de naam; een klik kopieert hem
+878|Laagvoorinstellingen
+879|Voorinstelling opslaan…
+880|De instellingen van deze laag onder deze naam bewaren
+881|Exporteren…
+882|Alle voorinstellingen naar een bestand schrijven
+883|Importeren…
+884|De voorinstellingen van een bestand toevoegen
+885|Maximaal {} voorinstellingen
+886|Het bestand is te groot
+887|{} voorinstellingen toegevoegd
+888|Er kon niets uit het bestand worden gelezen
+889|Nog geen voorinstellingen
+890|Deze instellingen op de laag toepassen
+891|Deze voorinstelling vergeten
+892|De naam is leeg of wordt door een andere voorinstelling gebruikt

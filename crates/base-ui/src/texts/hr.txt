@@ -876,3 +876,18 @@
 875|Format datoteke za upravljanje
 876|Prikaži nazive varijabli
 877|Pokraj oznake polja koje ima varijablu za vlastiti G-kod prikazuje se njezin naziv; klik je kopira
+878|Predlošci slojeva
+879|Spremi predložak…
+880|Spremi postavke ovog sloja pod ovim imenom
+881|Izvezi…
+882|Zapiši sve predloške u datoteku
+883|Uvezi…
+884|Dodaj predloške iz datoteke
+885|Najviše {} predložaka
+886|Datoteka je prevelika
+887|Dodano predložaka: {}
+888|Iz datoteke se nije moglo ništa pročitati
+889|Još nema predložaka
+890|Primijeni ove postavke na sloj
+891|Zaboravi ovaj predložak
+892|Naziv je prazan ili ga koristi drugi predložak
