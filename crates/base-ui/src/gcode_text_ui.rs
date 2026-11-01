@@ -20,6 +20,9 @@ pub struct GcodeText {
     confirm_again: bool,
     /// Where it was last written.
     pub saved_as: Option<PathBuf>,
+    /// What the project looked like (its G-code settings, notes, postprocessors, saves) when the text was made: the program makes the
+    /// text again, when it has no edits, as soon as this differs from what the project is now.
+    pub stamp: u64,
 }
 
 /// What the person asked for.
@@ -34,7 +37,7 @@ pub enum TextAction {
 
 impl GcodeText {
     pub fn new(slot: usize, name: &str, text: String) -> GcodeText {
-        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None }
+        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0 }
     }
 
     /// Has the text been changed by hand since it was made or saved?
@@ -141,7 +144,8 @@ pub fn show(ui: &mut egui::Ui, g: &mut GcodeText) -> TextAction {
             }
         }
         let again = if g.confirm_again { tr("Lose the edits?") } else { tr("Make again") };
-        if ui.button(again).on_hover_text(tr("Make the G-code of the project again; the edits are lost")).clicked() {
+        let green = egui::Button::new(RichText::new(again).color(Color32::WHITE)).fill(crate::window::SAVE_GREEN);
+        if ui.add(green).on_hover_text(tr("Make the G-code of the project again; the edits are lost")).clicked() {
             if g.dirty() && !g.confirm_again {
                 g.confirm_again = true;
             } else {

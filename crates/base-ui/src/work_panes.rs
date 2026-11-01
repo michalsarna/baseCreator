@@ -77,6 +77,10 @@ pub struct Window {
     pub size: [f32; 2],
     #[serde(skip)]
     pub view: Option<View>,
+    /// The position and size the window was made with. The builder of the window gets only these, every frame: a builder that follows
+    /// the window makes egui send a move and a resize to the system when the two differ by a pixel, and the window shakes.
+    #[serde(skip)]
+    pub start: Option<(Option<[f32; 2]>, [f32; 2])>,
 }
 
 /// The layout: what is where. Saved in the settings of the program.
@@ -256,7 +260,7 @@ impl Panes {
             let view = self.panes[i].view.take();
             self.take_from_panes(c);
             self.drop_empty_panes();
-            self.windows.push(Window { content: c, pos: None, size: [640.0, 480.0], view });
+            self.windows.push(Window { content: c, pos: None, size: [640.0, 480.0], view, start: None });
         }
     }
 
@@ -578,8 +582,10 @@ impl Panes {
         let mut back: Option<usize> = None;
         for i in 0..self.windows.len() {
             let content = self.windows[i].content;
-            let mut builder = egui::ViewportBuilder::default().with_title(h.tab_title(content)).with_inner_size(self.windows[i].size);
-            if let Some(p) = self.windows[i].pos {
+            let now = (self.windows[i].pos, self.windows[i].size);
+            let (start_pos, start_size) = *self.windows[i].start.get_or_insert(now);
+            let mut builder = egui::ViewportBuilder::default().with_title(h.tab_title(content)).with_inner_size(start_size);
+            if let Some(p) = start_pos {
                 builder = builder.with_position(p);
             }
             let mut view = self.windows[i].view.take();
@@ -756,7 +762,7 @@ mod tests {
         p.pop_out(Camera);
         p.normalize(&[Doc(0), Preview], 0);
         assert!(p.windows.is_empty(), "a window of a tab that is gone goes too");
-        let q = Panes::from_json(&Panes { windows: vec![Window { content: Preview, pos: Some([2000.0, 100.0]), size: [640.0, 480.0], view: None }], ..Panes::default() }.to_json());
+        let q = Panes::from_json(&Panes { windows: vec![Window { content: Preview, pos: Some([2000.0, 100.0]), size: [640.0, 480.0], view: None, start: None }], ..Panes::default() }.to_json());
         assert_eq!(q.windows[0].pos, Some([2000.0, 100.0]));
     }
 
