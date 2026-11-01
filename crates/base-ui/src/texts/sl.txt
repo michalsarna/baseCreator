@@ -862,3 +862,15 @@
 861|Plasti
 862|Pokaži imena plasti
 863|Predogled G-kode po shranjevanju
+864|Čisti začetek datoteke
+865|Čisti konec datoteke
+866|Razpoložljive spremenljivke:
+867|Decimalna vejica za celimi števili
+868|% na začetku in koncu
+869|Beseda za premor
+870|P (sekunde)
+871|P (milisekunde)
+872|X (sekunde)
+873|Številke vrstic
+874|Odstrani komentarje
+875|Oblika datoteke za krmilnik

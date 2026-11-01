@@ -862,3 +862,15 @@
 861|Lager
 862|Visa lagernas namn
 863|Förhandsgranska G-kod efter sparande
+864|Allra först i filen
+865|Allra sist i filen
+866|Tillgängliga variabler:
+867|Decimalpunkt efter heltal
+868|% i början och slutet
+869|Ord för paus
+870|P (sekunder)
+871|P (millisekunder)
+872|X (sekunder)
+873|Radnummer
+874|Ta bort kommentarer
+875|Filformat för styrningen

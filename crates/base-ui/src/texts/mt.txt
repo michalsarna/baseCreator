@@ -862,3 +862,15 @@
 861|Saffi
 862|Uri l-ismijiet tas-saffi
 863|Previżjoni tal-G-code wara l-ħażna
+864|L-bidu tal-fajl
+865|It-tmiem tal-fajl
+866|Varjabbli disponibbli:
+867|Punt deċimali wara n-numri sħaħ
+868|% fil-bidu u fit-tmiem
+869|Kelma tal-waqfa
+870|P (sekondi)
+871|P (millisekondi)
+872|X (sekondi)
+873|Numri tal-linji
+874|Neħħi l-kummenti
+875|Format tal-fajl għall-kontrollur

@@ -862,3 +862,15 @@
 861|Capas
 862|Mostrar los nombres de las capas
 863|Vista previa del G-code tras guardar
+864|Inicio del archivo
+865|Final del archivo
+866|Variables disponibles:
+867|Punto decimal después de los números enteros
+868|% al principio y al final
+869|Palabra de la pausa
+870|P (segundos)
+871|P (milisegundos)
+872|X (segundos)
+873|Números de línea
+874|Quitar los comentarios
+875|Formato del archivo para el controlador

@@ -862,3 +862,15 @@
 861|Sluoksniai
 862|Rodyti sluoksnių pavadinimus
 863|G kodo peržiūra po įrašymo
+864|Failo pradžia
+865|Failo pabaiga
+866|Galimi kintamieji:
+867|Kablelis po sveikųjų skaičių
+868|% pradžioje ir pabaigoje
+869|Pauzės žodis
+870|P (sekundės)
+871|P (milisekundės)
+872|X (sekundės)
+873|Eilučių numeriai
+874|Šalinti komentarus
+875|Failo formatas valdikliui

@@ -862,3 +862,15 @@
 861|Lagen
 862|Laagnamen tonen
 863|G-code bekijken na het opslaan
+864|Helemaal begin van het bestand
+865|Helemaal einde van het bestand
+866|Beschikbare variabelen:
+867|Decimaalpunt na gehele getallen
+868|% aan het begin en het einde
+869|Pauzewoord
+870|P (seconden)
+871|P (milliseconden)
+872|X (seconden)
+873|Regelnummers
+874|Opmerkingen verwijderen
+875|Bestandsindeling voor de besturing
