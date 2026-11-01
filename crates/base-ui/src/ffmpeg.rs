@@ -32,20 +32,25 @@ pub fn path() -> Option<PathBuf> {
 }
 
 /// The arguments that make ffmpeg read a stream (RTSP, RTMP, UDP, RTP) and write JPEG pictures (about `fps` a second) to its standard
-/// output. The address goes in as one argument, never through a shell. A dead connection ends after ten seconds without data (the
-/// program opens it again); a UDP or RTP stream is read without the buffering that adds a delay.
+/// output. The address goes in as one argument, never through a shell. A UDP, RTP or RTMP read ends after ten seconds without data; a UDP
+/// or RTP stream is read without the buffering that adds a delay. RTSP gets no `-rw_timeout`: its demuxer opens its own sockets and
+/// ffmpeg refuses the option ("Option rw_timeout not found") before the stream is opened. A stream that stopped is also caught by the
+/// watchdog of `camera_stream`, whatever the kind.
 pub fn stream_args(url: &str, fps: u32) -> Vec<String> {
     let url = url.trim();
     let lower = url.to_ascii_lowercase();
     let mut a: Vec<String> = ["-hide_banner", "-loglevel", "error", "-nostdin"].iter().map(|s| s.to_string()).collect();
     if lower.starts_with("rtsp") {
         a.extend(["-rtsp_transport", "tcp"].iter().map(|s| s.to_string()));
-    } else if lower.starts_with("udp://") || lower.starts_with("rtp://") {
-        // A live stream is probed for a moment, not for the 5 MB or 5 seconds ffmpeg waits for by default.
-        a.extend(["-fflags", "nobuffer", "-flags", "low_delay", "-probesize", "200000", "-analyzeduration", "1000000"].iter().map(|s| s.to_string()));
+    } else {
+        // Microseconds, an option of the protocol layer: the sockets of udp://, rtp:// and rtmp:// take it.
+        a.extend(["-rw_timeout", "10000000"].iter().map(|s| s.to_string()));
+        if lower.starts_with("udp://") || lower.starts_with("rtp://") {
+            // A live stream is probed for a moment, not for the 5 MB or 5 seconds ffmpeg waits for by default.
+            a.extend(["-fflags", "nobuffer", "-flags", "low_delay", "-probesize", "200000", "-analyzeduration", "1000000"].iter().map(|s| s.to_string()));
+        }
     }
-    // Microseconds; ends the read of a socket that gives nothing (the unplugged camera), whatever the kind of stream.
-    a.extend(["-rw_timeout", "10000000", "-i", url, "-an", "-vf", &format!("fps={}", fps.clamp(1, 30)), "-f", "mjpeg", "-q:v", "5", "pipe:1"].iter().map(|s| s.to_string()));
+    a.extend(["-i", url, "-an", "-vf", &format!("fps={}", fps.clamp(1, 30)), "-f", "mjpeg", "-q:v", "5", "pipe:1"].iter().map(|s| s.to_string()));
     a
 }
 
@@ -67,7 +72,9 @@ mod tests {
         assert_eq!(a.iter().position(|x| x == "-i").map(|i| a[i + 1].as_str()), Some("rtsp://user:pass@192.168.1.5:554/stream1"));
         assert!(a.contains(&"fps=10".to_string()) && a.last().map(String::as_str) == Some("pipe:1"));
         assert!(rtsp_args("rtsp://x", 500).contains(&"fps=30".to_string()), "the rate is limited");
-        assert!(a.windows(2).any(|w| w == ["-rtsp_transport", "tcp"]) && a.windows(2).any(|w| w == ["-rw_timeout", "10000000"]));
+        // The RTSP demuxer refuses -rw_timeout, which would keep every RTSP camera from opening.
+        assert!(a.windows(2).any(|w| w == ["-rtsp_transport", "tcp"]) && !a.contains(&"-rw_timeout".to_string()));
+        assert!(!stream_args("rtsps://x/y", 5).contains(&"-rw_timeout".to_string()));
         // A UDP stream is read without buffering; RTMP only has the timeout.
         let u = stream_args("udp://@:5000", 10);
         assert!(u.windows(2).any(|w| w == ["-fflags", "nobuffer"]) && u.windows(2).any(|w| w == ["-probesize", "200000"]) && !u.contains(&"-rtsp_transport".to_string()));
@@ -75,6 +82,46 @@ mod tests {
         assert!(!m.contains(&"-fflags".to_string()) && m.contains(&"-rw_timeout".to_string()));
         // Nothing here can be taken for an option: the address is after -i, whatever it starts with.
         assert_eq!(rtsp_args("-version", 5)[rtsp_args("-version", 5).iter().position(|x| x == "-i").unwrap() + 1], "-version");
+    }
+
+    /// A real RTSP stream through the exact arguments of the program: a second ffmpeg publishes a test picture to the first one, which listens
+    /// (`-rtsp_flags listen`). Run it with `LIVE_FFMPEG=<ffmpeg that has the rtsp muxer and the testsrc>` and `FFMPEG_FOR_ARGS=<the small one>`.
+    #[test]
+    #[ignore]
+    fn rtsp_arguments_open_a_real_rtsp_stream() {
+        let (Some(maker), Some(reader)) = (std::env::var_os("LIVE_FFMPEG"), std::env::var_os("FFMPEG_FOR_ARGS")) else { return };
+        let url = "rtsp://127.0.0.1:18554/x";
+        let mut args = stream_args(url, 10);
+        let at = args.iter().position(|x| x == "-i").unwrap();
+        args.splice(at..at, ["-rtsp_flags", "listen"].iter().map(|s| s.to_string()));
+        let mut rx = std::process::Command::new(reader).args(&args).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::piped()).spawn().unwrap();
+        std::thread::sleep(std::time::Duration::from_secs(1));
+        let mut tx = std::process::Command::new(maker)
+            .args(["-hide_banner", "-loglevel", "error", "-re", "-f", "lavfi", "-i", "testsrc=size=320x240:rate=10", "-t", "4", "-c:v", "mpeg4", "-f", "rtsp", "-rtsp_transport", "tcp", url])
+            .spawn()
+            .unwrap();
+        let mut out = rx.stdout.take().unwrap();
+        let mut buf = vec![];
+        let mut chunk = [0u8; 65536];
+        let t = std::time::Instant::now();
+        while t.elapsed() < std::time::Duration::from_secs(8) {
+            use std::io::Read;
+            match out.read(&mut chunk) {
+                Ok(0) | Err(_) => break,
+                Ok(n) => buf.extend_from_slice(&chunk[..n]),
+            }
+            if buf.windows(2).filter(|w| *w == [0xFF, 0xD8]).count() >= 3 {
+                break;
+            }
+        }
+        let _ = rx.kill();
+        let _ = tx.kill();
+        let mut err = String::new();
+        use std::io::Read;
+        if let Some(mut e) = rx.stderr.take() {
+            let _ = e.read_to_string(&mut err);
+        }
+        assert!(buf.windows(2).filter(|w| *w == [0xFF, 0xD8]).count() >= 3, "pictures from the RTSP stream; ffmpeg said: {err}");
     }
 
     #[test]
