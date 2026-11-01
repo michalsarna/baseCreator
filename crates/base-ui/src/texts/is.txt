@@ -859,3 +859,6 @@
 858|Skipta sýn: hlið við hlið
 859|Skipta sýn: hvort ofan á öðru
 860|Ein sýn
+861|Lög
+862|Sýna heiti laga
+863|Forskoða G-kóða eftir vistun

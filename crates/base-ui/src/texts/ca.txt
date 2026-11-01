@@ -859,3 +859,6 @@
 858|Divideix la vista: un al costat de l'altre
 859|Divideix la vista: una a sobre de l'altra
 860|Vista única
+861|Capes
+862|Mostra els noms de les capes
+863|Previsualitza el G-code després de desar

@@ -455,3 +455,34 @@ fn the_insert_menu_chooses_the_same_tools_as_the_palette() {
     assert_eq!(StdAct::Tool(Tool::Star).checked(&h), Some(false));
 }
 
+impl crate::layer_bar::LayerBarHost for Host {
+    fn layer_label(&self, layer: usize) -> String {
+        if layer == 0 { "A very long name of the first layer".to_string() } else { format!("Layer {layer}") }
+    }
+    fn open_layer_options(&mut self, _layer: usize) {}
+}
+
+#[test]
+fn the_names_of_the_layers_with_shapes_can_be_shown_beside_the_colours() {
+    let mut h = Host::default();
+    h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(0.0, 0.0));
+    h.scene.add(3, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(20.0, 0.0));
+    let ctx = egui::Context::default();
+    let mut input = egui::RawInput::default();
+    input.screen_rect = Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(900.0, 60.0)));
+    let mut texts = |h: &mut Host| {
+        let mut out = ctx.run_ui(input.clone(), |ui| crate::layer_bar::layer_bar(h, ui));
+        out.textures_delta.clear();
+        out.shapes.iter().filter_map(|s| if let egui::epaint::Shape::Text(t) = &s.shape { Some(t.galley.text().to_string()) } else { None }).collect::<Vec<_>>()
+    };
+    assert!(!h.ed.grid_prefs.layer_names, "off by default");
+    let plain = texts(&mut h);
+    assert!(!plain.iter().any(|t| t.starts_with("Layer ") || t.starts_with("A very")), "only the colours: {plain:?}");
+    h.ed.grid_prefs.layer_names = true;
+    texts(&mut h);
+    let shown = texts(&mut h);
+    assert!(shown.iter().any(|t| t == "Layer 3"), "{shown:?}");
+    assert!(shown.iter().any(|t| t.ends_with('…') && t.starts_with("A very long")), "a long name is cut: {shown:?}");
+    assert!(!shown.iter().any(|t| t == "Layer 1"), "a layer without shapes has no name: {shown:?}");
+}
+

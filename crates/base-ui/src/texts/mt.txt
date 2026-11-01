@@ -859,3 +859,6 @@
 858|Aqsam il-veduta: ħdejn xulxin
 859|Aqsam il-veduta: waħda fuq l-oħra
 860|Veduta waħda
+861|Saffi
+862|Uri l-ismijiet tas-saffi
+863|Previżjoni tal-G-code wara l-ħażna

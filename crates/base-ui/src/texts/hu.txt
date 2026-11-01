@@ -859,3 +859,6 @@
 858|Nézet felosztása: egymás mellett
 859|Nézet felosztása: egymás alatt
 860|Egy nézet
+861|Rétegek
+862|Rétegnevek megjelenítése
+863|G-kód előnézete mentés után

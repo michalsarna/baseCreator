@@ -859,3 +859,6 @@
 858|Diviser la vue : côte à côte
 859|Diviser la vue : l'une au-dessus de l'autre
 860|Vue unique
+861|Calques
+862|Afficher les noms des calques
+863|Aperçu du G-code après l'enregistrement

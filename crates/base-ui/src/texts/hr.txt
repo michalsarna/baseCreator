@@ -859,3 +859,6 @@
 858|Podijeli prikaz: jedan pored drugoga
 859|Podijeli prikaz: jedan iznad drugoga
 860|Jedan prikaz
+861|Slojevi
+862|Prikaži nazive slojeva
+863|Pregled G-koda nakon spremanja

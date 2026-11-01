@@ -859,3 +859,6 @@
 858|Rozdeliť zobrazenie: vedľa seba
 859|Rozdeliť zobrazenie: nad sebou
 860|Jedno zobrazenie
+861|Vrstvy
+862|Zobraziť názvy vrstiev
+863|Náhľad G-kódu po uložení

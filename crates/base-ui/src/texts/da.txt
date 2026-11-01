@@ -859,3 +859,6 @@
 858|Opdel visningen: side om side
 859|Opdel visningen: over hinanden
 860|Enkelt visning
+861|Lag
+862|Vis lagnavne
+863|Vis G-kode efter lagring

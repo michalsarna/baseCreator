@@ -88,9 +88,16 @@ pub fn view_options_window<H: EditorHost>(h: &mut H, ctx: &egui::Context, show: 
             ui.label(tr("Line thickness"));
             ui.add(egui::Slider::new(&mut h.ed_mut().grid_prefs.line_width, 0.5..=3.0).step_by(0.1));
             ui.end_row();
+            ui.label(tr("Layers"));
+            ui.checkbox(&mut h.ed_mut().grid_prefs.layer_names, tr("Show layer names"));
+            ui.end_row();
+            ui.label("G-code");
+            ui.checkbox(&mut h.ed_mut().grid_prefs.gcode_preview_after_save, tr("Preview G-code after saving"));
+            ui.end_row();
         });
         if ui.button(tr("Reset grid")).clicked() {
-            h.ed_mut().grid_prefs = GridPrefs::default();
+            let (names, preview) = (h.ed().grid_prefs.layer_names, h.ed().grid_prefs.gcode_preview_after_save);
+            h.ed_mut().grid_prefs = GridPrefs { layer_names: names, gcode_preview_after_save: preview, ..GridPrefs::default() };
             h.ed_mut().grid = 10.0;
             h.ed_mut().show_grid = true;
         }

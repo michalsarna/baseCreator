@@ -53,12 +53,17 @@ impl GcodeViewer {
         let bytes = std::fs::read(&path).map_err(|e| e.to_string())?;
         // Old programs write G-code in odd encodings: what is not UTF-8 is read lossily, the comments are not drawn anyway.
         let text = String::from_utf8_lossy(&bytes);
-        let tp = gcode_view::parse(&text);
+        GcodeViewer::from_text(path, &text)
+    }
+
+    /// The viewer of a program that is in memory (a preview before it is saved); `name` stands for the file.
+    pub fn from_text(name: PathBuf, text: &str) -> Result<GcodeViewer, String> {
+        let tp = gcode_view::parse(text);
         if tp.segs.is_empty() {
             return Err("no moves".into());
         }
         let cam = Cam::home(tp.is_3d);
-        Ok(GcodeViewer { path, tp, show_rapid: true, by_height: true, cam })
+        Ok(GcodeViewer { path: name, tp, show_rapid: true, by_height: true, cam })
     }
 
     /// The scale that fits the file into a rectangle (the camera at home).
@@ -102,6 +107,17 @@ pub fn pick_file() -> Option<PathBuf> {
 /// Opens a file into the viewer. The error is a line for the status bar.
 pub fn open(view: &mut Option<GcodeViewer>, p: PathBuf) -> Result<(), String> {
     match GcodeViewer::load(p) {
+        Ok(v) => {
+            *view = Some(v);
+            Ok(())
+        }
+        Err(e) => Err(trf("Open failed: {}", &[&e])),
+    }
+}
+
+/// Opens a program that is in memory, not in a file (the preview before saving). `name` is shown as the name of the file.
+pub fn open_text(view: &mut Option<GcodeViewer>, name: &str, text: &str) -> Result<(), String> {
+    match GcodeViewer::from_text(PathBuf::from(name), text) {
         Ok(v) => {
             *view = Some(v);
             Ok(())
@@ -250,6 +266,17 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn a_program_in_memory_is_shown_without_a_file() {
+        let mut v = None;
+        open_text(&mut v, "job.nc (preview)", "G21 G90\nG0 X0 Y0\nG1 X10 Y0 F500\nG1 X10 Y10\n").unwrap();
+        let v = v.expect("a viewer");
+        assert_eq!(v.path, PathBuf::from("job.nc (preview)"));
+        assert!(!v.tp.segs.is_empty());
+        let mut none = None;
+        assert!(open_text(&mut none, "x.nc", "(a comment only)\n").is_err() && none.is_none(), "a program without moves is not shown");
+    }
+
     use super::*;
 
     #[test]

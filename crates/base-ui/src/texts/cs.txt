@@ -859,3 +859,6 @@
 858|Rozdělit pohled: vedle sebe
 859|Rozdělit pohled: nad sebou
 860|Jeden pohled
+861|Vrstvy
+862|Zobrazit názvy vrstev
+863|Náhled G-kódu po uložení

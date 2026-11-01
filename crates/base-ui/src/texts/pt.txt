@@ -859,3 +859,6 @@
 858|Dividir a vista: lado a lado
 859|Dividir a vista: uma sobre a outra
 860|Vista única
+861|Camadas
+862|Mostrar os nomes das camadas
+863|Pré-visualizar o G-code depois de guardar

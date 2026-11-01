@@ -859,3 +859,6 @@
 858|Roinn an radharc: taobh le taobh
 859|Roinn an radharc: ceann os cionn an chinn eile
 860|Radharc amháin
+861|Sraitheanna
+862|Taispeáin ainmneacha na sraitheanna
+863|Réamhamharc ar an G-code tar éis a shábháil
