@@ -531,6 +531,227 @@ pub mod std_entries {
     }
 }
 
+/// What differs between the menus of the programs. The layout is the same in all of them (see [`standard_menus`]):
+///
+/// **File · Edit · Insert · Arrange · View · Machine · (the menu of the process) · Settings · Help**
+///
+/// and every program puts only its own entries into the places below.
+pub struct MenuParts<A> {
+    pub new: A,
+    pub open: A,
+    pub save: A,
+    pub save_as: A,
+    pub quit: A,
+    pub about: A,
+    pub view_gcode: A,
+    pub generate: A,
+    pub import_plugin: A,
+    pub online_clipart: A,
+    pub plugins: A,
+    pub view_options: A,
+    pub program_options: A,
+    pub set_lang: fn(crate::i18n::Lang) -> A,
+    pub set_scheme: fn(crate::theme::Scheme) -> A,
+    pub github: A,
+    pub download_backup: A,
+    pub restore_backup: A,
+    pub check_updates: A,
+    /// File, after *Save as…* (e.g. *Project setup…*).
+    pub file_extra: Vec<Entry<A>>,
+    /// The importers of the program; *Import image…* comes before them, the importers of plugins after them.
+    pub import: Vec<Entry<A>>,
+    /// The exports of the program, *Export G-code…* first; the export of the selection comes after them.
+    pub export: Vec<Entry<A>>,
+    /// File, after *View G-code file…* (e.g. *Print…*).
+    pub output_extra: Vec<Entry<A>>,
+    /// View, after the grid, the zoom and the split view: what the program shows besides the drawing.
+    pub view_extra: Vec<Entry<A>>,
+    /// View has *Background picture…* (a program that has an overlay of its own leaves it out).
+    pub background: bool,
+    /// The machine: its settings first, then, after a line, what runs on it.
+    pub machine: Vec<Entry<A>>,
+    /// The menu of the process (Laser, Milling, Plotter): the library, the preview of the job, the export of the G-code.
+    pub process: (&'static str, Vec<Entry<A>>),
+    /// Settings, after *Program options…* (nothing in the programs now; the libraries are in the menu of the process).
+    pub settings_extra: Vec<Entry<A>>,
+    /// Help, first (e.g. *Quick guide*).
+    pub help_first: Vec<Entry<A>>,
+    /// Help, after the backup (e.g. *Export diagnostics…*).
+    pub help_extra: Vec<Entry<A>>,
+}
+
+/// The menus of a program: the same layout and the same standard entries in every program, with the program's own entries in their
+/// places. The macOS app menu (About, Quit) is added by the native menu; elsewhere *Quit* ends File and *About* ends Help.
+pub fn standard_menus<A: Copy + From<StdAct>>(p: MenuParts<A>) -> Menus<A> {
+    use Entry::{Item, Recent, Sep, Sub};
+    let std = |e: Vec<Entry<StdAct>>| -> Vec<Entry<A>> { e.into_iter().map(|e| e.map(&A::from)).collect() };
+    let mac = cfg!(target_os = "macos");
+    let mut file = vec![Item(p.new, "New", key("CmdOrCtrl+N", "Ctrl+N")), Item(p.open, "Open…", key("CmdOrCtrl+O", "Ctrl+O")), Recent, Sep, Item(p.save, "Save", key("CmdOrCtrl+S", "Ctrl+S")), Item(p.save_as, "Save as…", key("CmdOrCtrl+Shift+S", "Ctrl+Shift+S"))];
+    file.extend(p.file_extra);
+    file.push(Sep);
+    let import = [std(std_entries::import_image()), p.import, vec![Sep, Item(p.import_plugin, crate::plugins_ui::MENU_IMPORT, None), Item(p.generate, crate::plugins_ui::MENU_GENERATE, None)]].concat();
+    file.push(Sub("Import", import));
+    file.push(Sub("Export", [p.export, vec![Sep], std(std_entries::export_selection())].concat()));
+    file.push(Item(p.view_gcode, crate::gcode_view_ui::MENU_VIEW, None));
+    file.extend(p.output_extra);
+    if !mac {
+        file.push(Sep);
+        file.push(Item(p.quit, "Quit", key("CmdOrCtrl+Q", "Ctrl+Q")));
+    }
+    let arrange = [
+        std(std_entries::align()),
+        vec![Sep],
+        std(std_entries::place()),
+        vec![Sep],
+        std(std_entries::group()),
+        vec![Sep],
+        std(std_entries::order()),
+        vec![Sep],
+        std(std_entries::nodes()),
+        vec![Sep],
+        std(std_entries::shape_ops()),
+        vec![Sep],
+        std(std_entries::design_tools()),
+        vec![Sep],
+        std(std_entries::image_tools()),
+    ]
+    .concat();
+    let mut view = [std(std_entries::grid()), std(std_entries::zoom()), vec![Sep], std(std_entries::split_view())].concat();
+    if p.background {
+        view.push(Sep);
+        view.extend(std(std_entries::background()));
+    }
+    if !p.view_extra.is_empty() {
+        view.push(Sep);
+        view.extend(p.view_extra);
+    }
+    let mut settings = vec![Item(p.view_options, "View options…", None), Item(p.program_options, "Program options…", None)];
+    settings.extend(p.settings_extra);
+    let (set_lang, set_scheme) = (p.set_lang, p.set_scheme);
+    settings.extend([
+        Sep,
+        Item(p.plugins, crate::plugins_ui::MENU_PLUGINS, None),
+        Sep,
+        Sub("Language", crate::i18n::Lang::ALL.iter().map(|l| Item(set_lang(*l), l.name(), None)).collect()),
+        Sub("Colour scheme", crate::theme::Scheme::available().iter().map(|s| Item(set_scheme(*s), s.label(), None)).collect()),
+    ]);
+    let mut help = p.help_first;
+    help.extend([Item(p.github, "Project page on GitHub", None), Sep, Item(p.download_backup, crate::backup_ui::DOWNLOAD, None), Item(p.restore_backup, crate::backup_ui::RESTORE, None)]);
+    help.extend(p.help_extra);
+    help.extend([Sep, Item(p.check_updates, "Check for updates…", None)]);
+    if !mac {
+        help.push(Sep);
+        help.push(Item(p.about, "About", None));
+    }
+    vec![
+        ("File", file),
+        ("Edit", std(std_entries::edit())),
+        // The tools of the left palette that insert objects, and the other places shapes come from.
+        ("Insert", [std(std_entries::insert_tools()), vec![Sep, Item(p.generate, crate::plugins_ui::MENU_GENERATE, None), Item(p.online_clipart, "Online clipart…", None)]].concat()),
+        ("Arrange", arrange),
+        ("View", view),
+        ("Machine", p.machine),
+        p.process,
+        ("Settings", settings),
+        ("Help", help),
+    ]
+}
+
+/// The key of an accelerator (`CmdOrCtrl+Shift+S`): the modifiers and the key. `None` for one without Ctrl/Cmd (a plain letter, Del, F1:
+/// the programs handle those themselves, they depend on what is being edited) and for a key this does not know.
+pub fn parse_accel(accel: &str) -> Option<(egui::Modifiers, egui::Key)> {
+    let mut parts: Vec<&str> = accel.split('+').collect();
+    // `CmdOrCtrl+=` and `CmdOrCtrl++`: the last part can be empty when the key is "+".
+    let last = match parts.pop()? {
+        "" => "+",
+        k => k,
+    };
+    let mut mods = egui::Modifiers::NONE;
+    for m in parts.iter().filter(|m| !m.is_empty()) {
+        match *m {
+            "CmdOrCtrl" => mods = mods | egui::Modifiers::COMMAND,
+            "Shift" => mods = mods | egui::Modifiers::SHIFT,
+            "Alt" => mods = mods | egui::Modifiers::ALT,
+            _ => return None,
+        }
+    }
+    if !mods.command {
+        return None;
+    }
+    let key = match last {
+        "=" => egui::Key::Equals,
+        "-" => egui::Key::Minus,
+        "+" => egui::Key::Plus,
+        k => egui::Key::from_name(k)?,
+    };
+    Some((mods, key))
+}
+
+/// The action of the menu entry whose Ctrl/Cmd key was just pressed (the key is taken, so nothing else acts on it too). For the menu bar
+/// in the window (Windows, Linux, macOS without the native bar): the native bar of macOS has the keys itself. `enabled` leaves out an
+/// entry that cannot be used now. Nothing is taken while a text field has the keyboard.
+pub fn shortcut_act<A: Copy>(ctx: &egui::Context, menus: &Menus<A>, enabled: impl Fn(A) -> bool) -> Option<A> {
+    if ctx.egui_wants_keyboard_input() {
+        return None;
+    }
+    fn find<A: Copy>(ctx: &egui::Context, entries: &[Entry<A>], enabled: &impl Fn(A) -> bool) -> Option<A> {
+        for e in entries {
+            match e {
+                Entry::Item(a, _, Some((accel, _))) => {
+                    if let Some((mods, key)) = parse_accel(accel) {
+                        if enabled(*a) && take_exact(ctx, mods, key) {
+                            return Some(*a);
+                        }
+                    }
+                }
+                Entry::Sub(_, children) => {
+                    if let Some(a) = find(ctx, children, enabled) {
+                        return Some(a);
+                    }
+                }
+                _ => {}
+            }
+        }
+        None
+    }
+    menus.iter().find_map(|(_, entries)| find(ctx, entries, &enabled))
+}
+
+/// Take the press of `key` with exactly these modifiers. (egui's `consume_key` lets Ctrl+G match Ctrl+Shift+G too, so Group would win
+/// over Ungroup.)
+fn take_exact(ctx: &egui::Context, mods: egui::Modifiers, key: egui::Key) -> bool {
+    let same = |m: &egui::Modifiers| m.command == mods.command && m.shift == mods.shift && m.alt == mods.alt;
+    let here = ctx.input(|i| i.events.iter().any(|e| matches!(e, egui::Event::Key { key: k, pressed: true, modifiers, .. } if *k == key && same(modifiers))));
+    here && ctx.input_mut(|i| i.consume_key(mods, key))
+}
+
+/// Pairs of entries that have the same key (for a test of each program: a key belongs to one command). The same command twice (in two
+/// menus, under the same label) is not a clash.
+pub fn key_clashes<A>(menus: &Menus<A>) -> Vec<(String, &'static str, &'static str)> {
+    fn keys<A>(entries: &[Entry<A>], out: &mut Vec<(&'static str, &'static str)>) {
+        for e in entries {
+            match e {
+                Entry::Item(_, label, Some((accel, _))) => out.push((accel, label)),
+                Entry::Sub(_, children) => keys(children, out),
+                _ => {}
+            }
+        }
+    }
+    let mut all = vec![];
+    for (_, entries) in menus {
+        keys(entries, &mut all);
+    }
+    let mut out = vec![];
+    for (i, (k, label)) in all.iter().enumerate() {
+        for (k2, l2) in &all[i + 1..] {
+            if k2 == k && l2 != label {
+                out.push((k.to_string(), *label, *l2));
+            }
+        }
+    }
+    out
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -554,6 +775,89 @@ mod tests {
         // 6 alignments and every other command once.
         assert_eq!(seen.iter().filter(|a| matches!(a, StdAct::Align(_))).count(), 6);
         assert!(seen.contains(&StdAct::Undo) && seen.contains(&StdAct::ZoomOut) && seen.contains(&StdAct::ToggleAutoFit));
+    }
+
+    #[derive(Clone, Copy, PartialEq, Debug)]
+    enum T {
+        Std(StdAct),
+        App(u8),
+        Lang,
+        Scheme,
+    }
+    impl From<StdAct> for T {
+        fn from(a: StdAct) -> T {
+            T::Std(a)
+        }
+    }
+
+    fn parts() -> MenuParts<T> {
+        MenuParts {
+            new: T::App(1),
+            open: T::App(2),
+            save: T::App(3),
+            save_as: T::App(4),
+            quit: T::App(5),
+            about: T::App(6),
+            view_gcode: T::App(7),
+            generate: T::App(8),
+            import_plugin: T::App(9),
+            online_clipart: T::App(10),
+            plugins: T::App(11),
+            view_options: T::App(12),
+            program_options: T::App(13),
+            set_lang: |_| T::Lang,
+            set_scheme: |_| T::Scheme,
+            github: T::App(14),
+            download_backup: T::App(15),
+            restore_backup: T::App(16),
+            check_updates: T::App(17),
+            file_extra: vec![],
+            import: vec![Item(T::App(20), "Import DXF…", None)],
+            export: vec![Item(T::App(21), "Export G-code…", None)],
+            output_extra: vec![],
+            view_extra: vec![],
+            background: true,
+            machine: vec![Item(T::App(22), "Device settings…", None)],
+            process: ("Milling", vec![Item(T::App(23), "Export G-code…", key("CmdOrCtrl+E", "Ctrl+E"))]),
+            settings_extra: vec![],
+            help_first: vec![],
+            help_extra: vec![],
+        }
+    }
+
+    #[test]
+    fn the_standard_menus_have_one_layout_and_no_key_twice() {
+        let m = standard_menus(parts());
+        let titles: Vec<&str> = m.iter().map(|(t, _)| *t).collect();
+        assert_eq!(titles, ["File", "Edit", "Insert", "Arrange", "View", "Machine", "Milling", "Settings", "Help"]);
+        assert!(key_clashes(&m).is_empty(), "{:?}", key_clashes(&m));
+        // A clash is found.
+        let mut p = parts();
+        p.process.1.push(Item(T::App(24), "Something", key("CmdOrCtrl+Shift+G", "Ctrl+Shift+G")));
+        let clashes = key_clashes(&standard_menus(p));
+        assert_eq!(clashes, vec![("CmdOrCtrl+Shift+G".to_string(), "Ungroup", "Something")]);
+    }
+
+    #[test]
+    fn accelerators_are_read_and_a_pressed_key_gives_its_entry_once() {
+        assert_eq!(parse_accel("CmdOrCtrl+Shift+S"), Some((egui::Modifiers::COMMAND | egui::Modifiers::SHIFT, egui::Key::S)));
+        assert_eq!(parse_accel("CmdOrCtrl+="), Some((egui::Modifiers::COMMAND, egui::Key::Equals)));
+        assert_eq!(parse_accel("CmdOrCtrl+-"), Some((egui::Modifiers::COMMAND, egui::Key::Minus)));
+        assert_eq!(parse_accel("CmdOrCtrl+Shift+0"), Some((egui::Modifiers::COMMAND | egui::Modifiers::SHIFT, egui::Key::Num0)));
+        assert_eq!(parse_accel("Backspace"), None, "the programs keep the plain keys");
+        assert_eq!(parse_accel("F1"), None);
+        let m = standard_menus(parts());
+        let ctx = egui::Context::default();
+        let press = |key: egui::Key, modifiers: egui::Modifiers| egui::RawInput { events: vec![egui::Event::Key { key, physical_key: None, pressed: true, repeat: false, modifiers }], ..Default::default() };
+        let mut got = vec![];
+        for (key, mods) in [(egui::Key::E, egui::Modifiers::COMMAND), (egui::Key::G, egui::Modifiers::COMMAND | egui::Modifiers::SHIFT), (egui::Key::G, egui::Modifiers::COMMAND), (egui::Key::L, egui::Modifiers::NONE)] {
+            ctx.run_ui(press(key, mods), |ui| got.push(shortcut_act(ui.ctx(), &m, |_| true))).textures_delta.clear();
+        }
+        assert_eq!(got, vec![Some(T::App(23)), Some(T::Std(StdAct::Ungroup)), Some(T::Std(StdAct::Group)), None], "Ctrl+Shift+G is Ungroup, not Group");
+        // An entry that cannot be used now leaves the key alone.
+        let mut none = None;
+        ctx.run_ui(press(egui::Key::E, egui::Modifiers::COMMAND), |ui| none = shortcut_act(ui.ctx(), &m, |a| a != T::App(23))).textures_delta.clear();
+        assert_eq!(none, None);
     }
 
     #[test]
