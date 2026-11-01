@@ -36,6 +36,7 @@ pub mod project;
 pub mod raster;
 pub mod registry;
 pub mod resume;
+pub mod ruida;
 pub mod scene;
 pub mod ser2net;
 pub mod snap;
