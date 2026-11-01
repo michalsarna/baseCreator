@@ -876,3 +876,18 @@
 875|Format del fitxer per al controlador
 876|Mostra els noms de les variables
 877|Al costat de l'etiqueta d'un camp que té una variable per al G-code propi es mostra el seu nom; un clic la copia
+878|Predefinits de capes
+879|Desa el predefinit…
+880|Desa els paràmetres d'aquesta capa amb aquest nom
+881|Exporta…
+882|Escriu tots els predefinits en un fitxer
+883|Importa…
+884|Afegeix els predefinits d'un fitxer
+885|Com a màxim {} predefinits
+886|El fitxer és massa gran
+887|S'han afegit {} predefinits
+888|No s'ha pogut llegir res del fitxer
+889|Encara no hi ha predefinits
+890|Aplica aquests paràmetres a la capa
+891|Oblida aquest predefinit
+892|El nom és buit o l'usa un altre predefinit

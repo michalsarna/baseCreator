@@ -876,3 +876,18 @@
 875|Formato do ficheiro para o controlador
 876|Mostrar os nomes das variáveis
 877|Ao lado do rótulo de um campo que tem uma variável para o G-code próprio é mostrado o seu nome; um clique copia-o
+878|Predefinições de camadas
+879|Guardar predefinição…
+880|Guardar as definições desta camada com este nome
+881|Exportar…
+882|Escrever todas as predefinições num ficheiro
+883|Importar…
+884|Adicionar as predefinições de um ficheiro
+885|No máximo {} predefinições
+886|O ficheiro é demasiado grande
+887|Adicionadas {} predefinições
+888|Não foi possível ler nada do ficheiro
+889|Ainda não há predefinições
+890|Aplicar estas definições à camada
+891|Esquecer esta predefinição
+892|O nome está vazio ou é usado por outra predefinição

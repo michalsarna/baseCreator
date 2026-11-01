@@ -876,3 +876,18 @@
 875|Skráarsnið fyrir stýringuna
 876|Sýna heiti breyta
 877|Við hlið heitis reits sem hefur breytu fyrir eigin G-kóða er nafn hennar sýnt; smellur afritar það
+878|Forstillingar laga
+879|Vista forstillingu…
+880|Vista stillingar þessa lags undir þessu nafni
+881|Flytja út…
+882|Skrifa allar forstillingar í skrá
+883|Flytja inn…
+884|Bæta við forstillingum úr skrá
+885|Í mesta lagi {} forstillingar
+886|Skráin er of stór
+887|{} forstillingum bætt við
+888|Ekkert var hægt að lesa úr skránni
+889|Engar forstillingar enn
+890|Nota þessar stillingar á lagið
+891|Gleyma þessari forstillingu
+892|Nafnið er tómt eða í notkun hjá annarri forstillingu

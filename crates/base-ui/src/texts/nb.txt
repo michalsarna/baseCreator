@@ -876,3 +876,18 @@
 875|Filformat for styringen
 876|Vis variabelnavn
 877|Ved siden av feltets navn vises navnet på variabelen for egen G-kode; et klikk kopierer den
+878|Lagforhåndsinnstillinger
+879|Lagre forhåndsinnstilling…
+880|Lagre innstillingene for dette laget under dette navnet
+881|Eksporter…
+882|Skriv alle forhåndsinnstillinger til en fil
+883|Importer…
+884|Legg til forhåndsinnstillingene fra en fil
+885|Høyst {} forhåndsinnstillinger
+886|Filen er for stor
+887|{} forhåndsinnstillinger lagt til
+888|Ingenting kunne leses fra filen
+889|Ingen forhåndsinnstillinger ennå
+890|Bruk disse innstillingene på laget
+891|Glem denne forhåndsinnstillingen
+892|Navnet er tomt eller brukes av en annen forhåndsinnstilling

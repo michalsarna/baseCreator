@@ -876,3 +876,18 @@
 875|Formát souboru pro řídicí systém
 876|Zobrazit názvy proměnných
 877|Vedle popisku pole s proměnnou pro vlastní G-kód se zobrazí její název; kliknutí ji zkopíruje
+878|Předvolby vrstev
+879|Uložit předvolbu…
+880|Uložit nastavení této vrstvy pod tímto názvem
+881|Exportovat…
+882|Zapsat všechny předvolby do souboru
+883|Importovat…
+884|Přidat předvolby ze souboru
+885|Nejvýše {} předvoleb
+886|Soubor je příliš velký
+887|Přidáno předvoleb: {}
+888|Ze souboru nešlo nic přečíst
+889|Zatím žádné předvolby
+890|Použít toto nastavení na vrstvu
+891|Zapomenout tuto předvolbu
+892|Název je prázdný nebo ho používá jiná předvolba

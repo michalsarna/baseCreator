@@ -876,3 +876,18 @@
 875|Failo formatas valdikliui
 876|Rodyti kintamųjų pavadinimus
 877|Šalia lauko, turinčio kintamąjį nuosavam G kodui, pavadinimo rodomas jo vardas; spustelėjus nukopijuojamas
+878|Sluoksnių šablonai
+879|Įrašyti šabloną…
+880|Įrašyti šio sluoksnio nustatymus šiuo pavadinimu
+881|Eksportuoti…
+882|Įrašyti visus šablonus į failą
+883|Importuoti…
+884|Pridėti failo šablonus
+885|Ne daugiau kaip {} šablonų
+886|Failas per didelis
+887|Pridėta šablonų: {}
+888|Iš failo nieko nepavyko perskaityti
+889|Šablonų dar nėra
+890|Taikyti šiuos nustatymus sluoksniui
+891|Pamiršti šį šabloną
+892|Pavadinimas tuščias arba naudojamas kito šablono

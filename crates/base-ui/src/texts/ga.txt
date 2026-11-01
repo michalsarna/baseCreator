@@ -876,3 +876,18 @@
 875|Formáid an chomhaid don rialaitheoir
 876|Taispeáin ainmneacha na n-athróg
 877|Cois lipéad réimse a bhfuil athróg aige don G-code féin taispeántar a ainm; cóipeálann cliceáil é
+878|Réamhshocruithe sraitheanna
+879|Sábháil réamhshocrú…
+880|Coinnigh socruithe na sraithe seo faoin ainm seo
+881|Easpórtáil…
+882|Scríobh na réamhshocruithe go léir i gcomhad
+883|Iompórtáil…
+884|Cuir réamhshocruithe comhaid leis
+885|{} réamhshocrú ar a mhéad
+886|Tá an comhad rómhór
+887|Cuireadh {} réamhshocrú leis
+888|Níorbh fhéidir aon rud a léamh as an gcomhad
+889|Níl aon réamhshocrú fós
+890|Cuir na socruithe seo ar an sraith
+891|Déan dearmad ar an réamhshocrú seo
+892|Tá an t-ainm folamh nó in úsáid ag réamhshocrú eile

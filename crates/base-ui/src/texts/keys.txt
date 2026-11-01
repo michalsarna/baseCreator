@@ -876,3 +876,18 @@
 875	Own file format
 876	Show variable names
 877	Beside the label of a field that has a variable for the own G-code its name is shown; a click copies it
+878	Layer presets
+879	Save preset…
+880	Keep the settings of this layer under this name
+881	Export…
+882	Write all the presets to a file
+883	Import…
+884	Add the presets of a file
+885	At most {} presets
+886	The file is too big
+887	{} presets added
+888	Nothing could be read from the file
+889	No presets yet
+890	Put these settings on the layer
+891	Forget this preset
+892	The name is empty or used by another preset

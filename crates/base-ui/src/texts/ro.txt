@@ -876,3 +876,18 @@
 875|Formatul fișierului pentru controler
 876|Afișează numele variabilelor
 877|Lângă eticheta unui câmp care are o variabilă pentru G-code propriu apare numele ei; un clic o copiază
+878|Presetări de straturi
+879|Salvează presetarea…
+880|Păstrează setările acestui strat sub acest nume
+881|Exportă…
+882|Scrie toate presetările într-un fișier
+883|Importă…
+884|Adaugă presetările dintr-un fișier
+885|Cel mult {} presetări
+886|Fișierul este prea mare
+887|Au fost adăugate {} presetări
+888|Nu s-a putut citi nimic din fișier
+889|Încă nu există presetări
+890|Aplică aceste setări pe strat
+891|Uită această presetare
+892|Numele este gol sau folosit de altă presetare

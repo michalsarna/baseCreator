@@ -876,3 +876,18 @@
 875|Formát súboru pre riadiaci systém
 876|Zobraziť názvy premenných
 877|Vedľa popisu poľa s premennou pre vlastný G-kód sa zobrazí jej názov; kliknutie ju skopíruje
+878|Predvoľby vrstiev
+879|Uložiť predvoľbu…
+880|Uložiť nastavenia tejto vrstvy pod týmto názvom
+881|Exportovať…
+882|Zapísať všetky predvoľby do súboru
+883|Importovať…
+884|Pridať predvoľby zo súboru
+885|Najviac {} predvolieb
+886|Súbor je príliš veľký
+887|Pridaných predvolieb: {}
+888|Zo súboru sa nedalo nič prečítať
+889|Zatiaľ žiadne predvoľby
+890|Použiť tieto nastavenia na vrstvu
+891|Zabudnúť túto predvoľbu
+892|Názov je prázdny alebo ho používa iná predvoľba

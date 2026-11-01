@@ -876,3 +876,18 @@
 875|Filformat för styrningen
 876|Visa variabelnamn
 877|Bredvid fältets namn visas namnet på variabeln för egen G-kod; ett klick kopierar den
+878|Lagerförinställningar
+879|Spara förinställning…
+880|Spara inställningarna för detta lager under detta namn
+881|Exportera…
+882|Skriv alla förinställningar till en fil
+883|Importera…
+884|Lägg till förinställningarna från en fil
+885|Högst {} förinställningar
+886|Filen är för stor
+887|{} förinställningar tillagda
+888|Ingenting kunde läsas från filen
+889|Inga förinställningar än
+890|Använd dessa inställningar på lagret
+891|Glöm denna förinställning
+892|Namnet är tomt eller används av en annan förinställning

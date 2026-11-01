@@ -876,3 +876,18 @@
 875|Format tal-fajl għall-kontrollur
 876|Uri l-ismijiet tal-varjabbli
 877|Maġenb it-tikketta ta' qasam li għandu varjabbli għall-G-code proprju jidher ismu; klikk jikkopjah
+878|Preset tas-saffi
+879|Aħżen il-preset…
+880|Żomm is-settings ta' din is-saff taħt dan l-isem
+881|Esporta…
+882|Ikteb il-presets kollha f'fajl
+883|Importa…
+884|Żid il-presets ta' fajl
+885|Mhux aktar minn {} presets
+886|Il-fajl huwa kbir wisq
+887|Ġew miżjuda {} presets
+888|Ma setgħet tinqara xejn mill-fajl
+889|Għad m'hemmx presets
+890|Applika dawn is-settings fuq is-saff
+891|Insa dan il-preset
+892|L-isem huwa vojt jew użat minn preset ieħor
