@@ -902,3 +902,12 @@
 901|Parādīt šī teksta instrumenta ceļus G-koda analīzē
 902|Mainīts ar roku
 903|Ierakstīt tekstu failā
+904|Izmantot UDP priekš RTSP
+905|Mazāka aizkave nekā TCP, taču slikta tīkla gadījumā attēls var bojāties. Izslēgts: TCP.
+906|Zema latentums
+907|Parāda jaunāko attēlu ātrāk, bez buferizācijas; attēls var raustīties.
+908|Video formāts
+909|Automātisks ir veids, kas datoru noslogo vismazāk: IP kameras straume tiek kopēta MP4 failā tāda, kāda tā nāk, nekas netiek atkārtoti dekodēts vai kodēts. Kamera, kas dod vienu attēlu pēc otra, tiek saglabāta kā AVI.
+910|Ieraksts: {} s (straume tiek kopēta)
+911|MP4 kopē IP kameras straumi; šī kamera tiek ierakstīta kā AVI.
+912|Straumi nevarēja ierakstīt (adrese, kamera, ffmpeg?).

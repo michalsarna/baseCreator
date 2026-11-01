@@ -902,3 +902,12 @@
 901|E szöveg szerszámpályáinak megjelenítése a G-kód elemzésében
 902|Kézzel módosítva
 903|A szöveg fájlba írása
+904|UDP használata RTSP-hez
+905|Kisebb késleltetés, mint a TCP-nél, de rossz hálózaton a kép tönkremehet. Kikapcsolva: TCP.
+906|Alacsony késleltetés
+907|A legújabb képet hamarabb mutatja, pufferelés nélkül; a kép akadozhat.
+908|Videóformátum
+909|Az automatikus a számítógépet legkevésbé terhelő mód: az IP-kamera adatfolyamát úgy másolja MP4-fájlba, ahogy érkezik, semmit sem dekódol és kódol újra. Az a kamera, amely egyenként adja a képeket, AVI-ként kerül mentésre.
+910|Felvétel: {} s (az adatfolyam másolása)
+911|Az MP4 az IP-kamera adatfolyamát másolja; ez a kamera AVI-ként van rögzítve.
+912|Az adatfolyamot nem sikerült rögzíteni (cím, kamera, ffmpeg?).

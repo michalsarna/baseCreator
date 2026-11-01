@@ -902,3 +902,12 @@
 901|Näita selle teksti tööradu G-koodi analüüsis
 902|Muudetud käsitsi
 903|Kirjuta tekst faili
+904|Kasuta RTSP jaoks UDP-d
+905|Väiksem viivitus kui TCP-l, kuid pilt võib halvas võrgus katki minna. Väljas: TCP.
+906|Väike viivitus
+907|Näitab uusimat pilti kiiremini, ilma puhverdamiseta; pilt võib tõrkuda.
+908|Videovorming
+909|Automaatne on viis, mis koormab arvutit kõige vähem: IP-kaamera voog kopeeritakse MP4-faili sellisena, nagu see saabub, midagi ei dekodeerita ega kodeerita uuesti. Kaamera, mis annab ühe pildi teise järel, salvestatakse AVI-na.
+910|Salvestamine: {} s (voogu kopeeritakse)
+911|MP4 kopeerib IP-kaamera voo; see kaamera salvestatakse AVI-na.
+912|Voogu ei õnnestunud salvestada (aadress, kaamera, ffmpeg?).

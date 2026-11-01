@@ -902,3 +902,12 @@
 901|Vis værktøjsbanerne fra denne tekst i G-kodeanalysen
 902|Ændret manuelt
 903|Skriv teksten til en fil
+904|Brug UDP til RTSP
+905|Mindre forsinkelse end TCP, men billedet kan gå i stykker på et dårligt net. Fra: TCP.
+906|Lav forsinkelse
+907|Viser det nyeste billede hurtigere, uden buffering; billedet kan hakke.
+908|Videoformat
+909|Automatisk er den måde, der belaster computeren mindst: strømmen fra et IP-kamera kopieres til en MP4-fil, som den kommer, intet afkodes eller kodes igen. Et kamera, der giver ét billede ad gangen, gemmes som AVI.
+910|Optager: {} s (strømmen kopieres)
+911|MP4 kopierer strømmen fra et IP-kamera; dette kamera optages som AVI.
+912|Strømmen kunne ikke optages (adressen, kameraet, ffmpeg?).

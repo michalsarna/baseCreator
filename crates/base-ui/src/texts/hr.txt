@@ -902,3 +902,12 @@
 901|Prikaži putanje ovog teksta u analizi G-koda
 902|Ručno promijenjeno
 903|Zapiši tekst u datoteku
+904|Koristi UDP za RTSP
+905|Manje kašnjenje od TCP-a, ali slika se na lošoj mreži može kvariti. Isključeno: TCP.
+906|Malo kašnjenje
+907|Najnoviju sliku prikazuje ranije, bez međuspremnika; slika može zapinjati.
+908|Format videa
+909|Automatski je način koji najmanje opterećuje računalo: tok IP kamere kopira se u MP4 datoteku onakav kakav stiže, ništa se ne dekodira niti ponovno kodira. Kamera koja daje sliku po sliku sprema se kao AVI.
+910|Snimanje: {} s (tok se kopira)
+911|MP4 kopira tok IP kamere; ova se kamera snima kao AVI.
+912|Tok se nije mogao snimiti (adresa, kamera, ffmpeg?).

@@ -902,3 +902,12 @@
 901|Mostra els recorreguts d'aquest text a l'anàlisi del G-code
 902|Canviat a mà
 903|Escriu el text en un fitxer
+904|Utilitza UDP per a RTSP
+905|Menys retard que TCP, però la imatge es pot malmetre en una xarxa dolenta. Desactivat: TCP.
+906|Latència baixa
+907|Mostra abans la imatge més recent, sense memòria intermèdia; la imatge pot anar a batzegades.
+908|Format de vídeo
+909|Automàtic és la manera que menys càrrega fa a l'ordinador: el flux d'una càmera IP es copia en un fitxer MP4 tal com arriba, sense descodificar ni codificar res de nou. Una càmera que dona una imatge rere una altra es desa com a AVI.
+910|Gravació: {} s (el flux es copia)
+911|MP4 copia el flux d'una càmera IP; aquesta càmera es grava com a AVI.
+912|No s'ha pogut gravar el flux (adreça, càmera, ffmpeg?).

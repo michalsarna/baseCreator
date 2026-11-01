@@ -902,3 +902,12 @@
 901|Zobrazit dráhy tohoto textu v analýze G-kódu
 902|Změněno ručně
 903|Zapsat text do souboru
+904|Použít UDP pro RTSP
+905|Menší zpoždění než TCP, ale obraz se na špatné síti může kazit. Vypnuto: TCP.
+906|Nízká latence
+907|Ukáže nejnovější obraz dřív, bez vyrovnávací paměti; obraz se může sekat.
+908|Formát videa
+909|Automaticky je způsob, který počítač zatěžuje nejméně: proud IP kamery se kopíruje do souboru MP4 tak, jak přichází, nic se znovu nedekóduje ani nekóduje. Kamera, která dává obraz po obrazu, se ukládá jako AVI.
+910|Nahrávání: {} s (proud se kopíruje)
+911|MP4 kopíruje proud IP kamery; tato kamera se nahrává jako AVI.
+912|Proud se nepodařilo nahrát (adresa, kamera, ffmpeg?).

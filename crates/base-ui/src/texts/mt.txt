@@ -902,3 +902,12 @@
 901|Uri t-toolpaths ta' dan it-test fl-analiżi tal-G-code
 902|Mibdul bl-idejn
 903|Ikteb it-test f'fajl
+904|Uża UDP għal RTSP
+905|Inqas dewmien minn TCP, iżda x-xbieha tista' tinkiser fuq netwerk ħażin. Mitfi: TCP.
+906|Latenza baxxa
+907|Turi x-xbieha l-aktar riċenti aktar kmieni, mingħajr buffering; ix-xbieha tista' tinqata'.
+908|Format tal-vidjo
+909|L-awtomatiku huwa l-aħjar mod għall-kompjuter: il-fluss ta' kamera IP jiġi kopjat f'fajl MP4 kif jasal, xejn ma jiġi deċifrat jew ikkodifikat mill-ġdid. Kamera li tagħti xbieha waħda kull darba tiġi salvata bħala AVI.
+910|Reġistrazzjoni: {} s (il-fluss qed jiġi kopjat)
+911|L-MP4 jikkopja l-fluss ta' kamera IP; din il-kamera tiġi rreġistrata bħala AVI.
+912|Il-fluss ma setax jiġi rreġistrat (l-indirizz, il-kamera, ffmpeg?).

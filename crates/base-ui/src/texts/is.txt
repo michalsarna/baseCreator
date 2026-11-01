@@ -902,3 +902,12 @@
 901|Sýna verkfærabrautir þessa texta í G-kóðagreiningunni
 902|Breytt í höndunum
 903|Skrifa textann í skrá
+904|Nota UDP fyrir RTSP
+905|Minni seinkun en TCP, en myndin getur skemmst á lélegu neti. Slökkt: TCP.
+906|Lítil seinkun
+907|Sýnir nýjustu myndina fyrr, án biðminnis; myndin getur hökt.
+908|Myndskeiðasnið
+909|Sjálfvirkt er leiðin sem íþyngir tölvunni minnst: straumur IP-myndavélar er afritaður í MP4-skrá eins og hann berst, ekkert er afkóðað eða kóðað aftur. Myndavél sem gefur eina mynd í einu er vistuð sem AVI.
+910|Upptaka: {} s (straumurinn er afritaður)
+911|MP4 afritar straum IP-myndavélar; þessi myndavél er tekin upp sem AVI.
+912|Ekki tókst að taka upp strauminn (vistfang, myndavél, ffmpeg?).

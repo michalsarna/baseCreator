@@ -902,3 +902,12 @@
 901	Show the toolpaths of this text in the analysis of G-code
 902	Changed by hand
 903	Write the text to a file
+904	Use UDP for RTSP
+905	Less delay than TCP, but the picture can break on a bad network. Off: TCP.
+906	Low latency
+907	Shows the newest picture sooner, without buffering; the picture can stutter.
+908	Video format
+909	Automatic is the way that needs the least from the computer: the stream of an IP camera is copied into an MP4 file as it comes, nothing is decoded or encoded again. A camera that gives one picture after another is written as AVI.
+910	Recording: {} s (the stream is copied)
+911	MP4 copies the stream of an IP camera; this camera is recorded as AVI.
+912	The stream could not be recorded (the address, the camera, ffmpeg?).

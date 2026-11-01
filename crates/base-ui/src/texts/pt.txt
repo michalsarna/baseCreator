@@ -902,3 +902,12 @@
 901|Mostrar os percursos deste texto na análise do G-code
 902|Alterado à mão
 903|Escrever o texto num ficheiro
+904|Usar UDP para RTSP
+905|Menos atraso do que TCP, mas a imagem pode estragar-se numa rede má. Desligado: TCP.
+906|Baixa latência
+907|Mostra a imagem mais recente mais cedo, sem buffer; a imagem pode engasgar.
+908|Formato de vídeo
+909|Automático é a forma que menos exige do computador: o fluxo de uma câmara IP é copiado para um ficheiro MP4 tal como chega, nada é descodificado nem codificado de novo. Uma câmara que dá uma imagem de cada vez é guardada como AVI.
+910|Gravação: {} s (o fluxo é copiado)
+911|O MP4 copia o fluxo de uma câmara IP; esta câmara é gravada como AVI.
+912|Não foi possível gravar o fluxo (endereço, câmara, ffmpeg?).

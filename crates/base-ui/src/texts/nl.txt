@@ -902,3 +902,12 @@
 901|De gereedschapsbanen van deze tekst tonen in de G-code-analyse
 902|Handmatig gewijzigd
 903|De tekst naar een bestand schrijven
+904|UDP gebruiken voor RTSP
+905|Minder vertraging dan TCP, maar het beeld kan op een slecht netwerk kapotgaan. Uit: TCP.
+906|Lage latentie
+907|Toont het nieuwste beeld sneller, zonder buffering; het beeld kan haperen.
+908|Videoformaat
+909|Automatisch is de manier die de computer het minst belast: de stream van een IP-camera wordt zoals hij binnenkomt naar een MP4-bestand gekopieerd, er wordt niets opnieuw gedecodeerd of gecodeerd. Een camera die beeld voor beeld levert, wordt als AVI opgeslagen.
+910|Opnemen: {} s (de stream wordt gekopieerd)
+911|MP4 kopieert de stream van een IP-camera; deze camera wordt als AVI opgenomen.
+912|De stream kon niet worden opgenomen (adres, camera, ffmpeg?).

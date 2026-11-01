@@ -902,3 +902,12 @@
 901|Visa verktygsbanorna i den här texten i G-kodsanalysen
 902|Ändrad för hand
 903|Skriv texten till en fil
+904|Använd UDP för RTSP
+905|Mindre fördröjning än TCP, men bilden kan gå sönder på ett dåligt nät. Av: TCP.
+906|Låg fördröjning
+907|Visar den senaste bilden snabbare, utan buffring; bilden kan hacka.
+908|Videoformat
+909|Automatiskt är det sätt som belastar datorn minst: strömmen från en IP-kamera kopieras till en MP4-fil som den kommer, inget avkodas eller kodas om. En kamera som ger en bild i taget sparas som AVI.
+910|Inspelning: {} s (strömmen kopieras)
+911|MP4 kopierar strömmen från en IP-kamera; den här kameran spelas in som AVI.
+912|Strömmen kunde inte spelas in (adressen, kameran, ffmpeg?).
