@@ -134,15 +134,33 @@ pub fn is_rtsp(u: &str) -> bool {
     u.starts_with("rtsp://") || u.starts_with("rtsps://")
 }
 
-/// An http, https or RTSP address with a host, without spaces or control characters.
+/// The kinds of streams that the ffmpeg of the program reads: RTSP, RTMP (an encoder or a server that publishes), and UDP or RTP
+/// (MPEG-TS or RTP, also multicast: `udp://239.0.0.1:1234`, `udp://@:5000`).
+pub fn is_ffmpeg_stream(u: &str) -> bool {
+    let u = u.trim().to_ascii_lowercase();
+    is_rtsp(&u) || ["rtmp://", "rtp://", "udp://"].iter().any(|p| u.starts_with(p))
+}
+
+/// An http, https, RTSP, RTMP, RTP or UDP address with a host, without spaces or control characters. A UDP or RTP address may have no
+/// host at all (`udp://@:5000` listens on a port).
 pub fn valid_url(u: &str) -> bool {
     let u = u.trim();
-    let rest = u.strip_prefix("http://").or_else(|| u.strip_prefix("https://")).or_else(|| u.strip_prefix("rtsp://")).or_else(|| u.strip_prefix("rtsps://"));
+    if u.chars().any(|c| c.is_whitespace() || c.is_control()) || u.len() > 500 {
+        return false;
+    }
+    let lower = u.to_ascii_lowercase();
+    if let Some(rest) = ["udp://", "rtp://"].iter().find_map(|p| lower.strip_prefix(p).map(|_| &u[p.len()..])) {
+        // `@:5000`, `0.0.0.0:5000`, `239.0.0.1:1234?pkt_size=1316`: a port is what counts.
+        let host = rest.split(['/', '?', '#']).next().unwrap_or("");
+        let port = host.rsplit(':').next().unwrap_or("");
+        return host.contains(':') && !port.is_empty() && port.chars().all(|c| c.is_ascii_digit());
+    }
+    let rest = ["http://", "https://", "rtsp://", "rtsps://", "rtmp://"].iter().find_map(|p| lower.strip_prefix(p).map(|_| &u[p.len()..]));
     let Some(rest) = rest else { return false };
     let host = rest.split(['/', '?', '#']).next().unwrap_or("");
     let name = host.rsplit('@').next().unwrap_or("");
     let name = if name.starts_with('[') { name } else { name.split(':').next().unwrap_or("") };
-    !name.is_empty() && !u.chars().any(|c| c.is_whitespace() || c.is_control()) && u.len() <= 500
+    !name.is_empty()
 }
 
 // ---------------------------------------------------------------- picture adjustments
