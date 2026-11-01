@@ -874,3 +874,5 @@
 873|Brojevi redaka
 874|Ukloni komentare
 875|Format datoteke za upravljanje
+876|Prikaži nazive varijabli
+877|Pokraj oznake polja koje ima varijablu za vlastiti G-kod prikazuje se njezin naziv; klik je kopira

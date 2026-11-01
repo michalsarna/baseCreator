@@ -874,3 +874,5 @@
 873|Regelnummers
 874|Opmerkingen verwijderen
 875|Bestandsindeling voor de besturing
+876|Variabelenamen tonen
+877|Naast het label van een veld met een variabele voor eigen G-code staat de naam; een klik kopieert hem

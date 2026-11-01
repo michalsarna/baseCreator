@@ -874,3 +874,5 @@
 873|Rindu numuri
 874|Noņemt komentārus
 875|Faila formāts vadībai
+876|Rādīt mainīgo nosaukumus
+877|Blakus lauka nosaukumam, kuram ir mainīgais paša G-kodam, tiek rādīts tā nosaukums; klikšķis to nokopē

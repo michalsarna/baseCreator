@@ -874,3 +874,5 @@
 873|Linjenumre
 874|Fjern kommentarer
 875|Filformat til styringen
+876|Vis variabelnavne
+877|Ved siden af feltets navn vises navnet på variablen til egen G-kode; et klik kopierer den

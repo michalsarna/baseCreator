@@ -881,6 +881,8 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Line numbers", "Numery linii", "Zeilennummern", "Numeri di riga", "Rivinumerot", "行号", "पंक्ति संख्याएँ"],
     ["Remove comments", "Usuń komentarze", "Kommentare entfernen", "Rimuovi i commenti", "Poista kommentit", "删除注释", "टिप्पणियाँ हटाएं"],
     ["Own file format", "Format pliku dla sterowania", "Dateiformat für die Steuerung", "Formato del file per il controllo", "Tiedostomuoto ohjaimelle", "控制器的文件格式", "नियंत्रक के लिए फ़ाइल प्रारूप"],
+    ["Show variable names", "Pokaż nazwy zmiennych", "Variablennamen anzeigen", "Mostra i nomi delle variabili", "Näytä muuttujien nimet", "显示变量名称", "वेरिएबल के नाम दिखाएं"],
+    ["Beside the label of a field that has a variable for the own G-code its name is shown; a click copies it", "Obok etykiety pola, które ma zmienną dla własnego G-code, widać jej nazwę; kliknięcie ją kopiuje", "Neben der Beschriftung eines Feldes mit einer Variablen für den eigenen G-Code wird ihr Name gezeigt; ein Klick kopiert sie", "Accanto all'etichetta di un campo che ha una variabile per il G-code personalizzato si vede il suo nome; un clic la copia", "Kentän nimen vieressä näytetään oman G-koodin muuttujan nimi; napsautus kopioi sen", "在有自定义 G-code 变量的字段标签旁显示变量名称；点击即可复制", "अपने G-code के वेरिएबल वाले फ़ील्ड के लेबल के पास उसका नाम दिखता है; क्लिक करने पर वह कॉपी हो जाता है"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -874,3 +874,5 @@
 873|Eilučių numeriai
 874|Šalinti komentarus
 875|Failo formatas valdikliui
+876|Rodyti kintamųjų pavadinimus
+877|Šalia lauko, turinčio kintamąjį nuosavam G kodui, pavadinimo rodomas jo vardas; spustelėjus nukopijuojamas

@@ -874,3 +874,5 @@
 873|Números de línia
 874|Elimina els comentaris
 875|Format del fitxer per al controlador
+876|Mostra els noms de les variables
+877|Al costat de l'etiqueta d'un camp que té una variable per al G-code propi es mostra el seu nom; un clic la copia

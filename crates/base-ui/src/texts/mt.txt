@@ -874,3 +874,5 @@
 873|Numri tal-linji
 874|Neħħi l-kummenti
 875|Format tal-fajl għall-kontrollur
+876|Uri l-ismijiet tal-varjabbli
+877|Maġenb it-tikketta ta' qasam li għandu varjabbli għall-G-code proprju jidher ismu; klikk jikkopjah

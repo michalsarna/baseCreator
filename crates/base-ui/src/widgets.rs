@@ -216,3 +216,56 @@ pub fn fmt_time(s: f64) -> String {
     let s = if s.is_finite() && s > 0.0 { s as u64 } else { 0 };
     format!("{}:{:02}:{:02}", s / 3600, s / 60 % 60, s % 60)
 }
+
+fn variable_names_id() -> egui::Id {
+    egui::Id::new("base_ui_show_variable_names")
+}
+
+/// Tell the label widgets whether the names of variables are to be shown (the view option *Show variable names*).
+pub fn set_show_variable_names(ctx: &egui::Context, on: bool) {
+    ctx.data_mut(|d| d.insert_temp(variable_names_id(), on));
+}
+
+/// A label for a field that has a variable for the own G-code. With the view option *Show variable names* on, the name stands
+/// beside the label in italics and brackets, for example *(tool_diameter)*; a click copies `{tool_diameter}` to the clipboard.
+pub fn var_label(ui: &mut egui::Ui, text: impl Into<String>, var: &str) -> egui::Response {
+    let text: String = text.into();
+    let on = ui.ctx().data(|d| d.get_temp::<bool>(variable_names_id())).unwrap_or(false);
+    if !on {
+        return ui.label(text);
+    }
+    ui.horizontal(|ui| {
+        ui.spacing_mut().item_spacing.x = 4.0;
+        ui.label(text);
+        let r = ui.add(egui::Label::new(RichText::new(format!("({var})")).italics().small().color(theme::text_dim())).sense(egui::Sense::click()));
+        let r = r.on_hover_text(format!("{{{var}}}")).on_hover_cursor(egui::CursorIcon::PointingHand);
+        if r.clicked() {
+            ui.ctx().copy_text(format!("{{{var}}}"));
+        }
+        r
+    })
+    .inner
+}
+
+#[cfg(test)]
+mod var_label_tests {
+    use super::*;
+
+    fn texts(on: bool) -> Vec<String> {
+        let ctx = egui::Context::default();
+        set_show_variable_names(&ctx, on);
+        let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+            var_label(ui, "Diameter", "tool_diameter");
+        });
+        out.textures_delta.clear();
+        out.shapes.iter().filter_map(|s| if let egui::epaint::Shape::Text(t) = &s.shape { Some(t.galley.text().to_string()) } else { None }).collect()
+    }
+
+    #[test]
+    fn the_name_of_the_variable_is_shown_only_when_asked() {
+        let off = texts(false);
+        assert!(off.iter().any(|t| t == "Diameter") && !off.iter().any(|t| t.contains("tool_diameter")), "{off:?}");
+        let on = texts(true);
+        assert!(on.iter().any(|t| t == "Diameter") && on.iter().any(|t| t == "(tool_diameter)"), "{on:?}");
+    }
+}

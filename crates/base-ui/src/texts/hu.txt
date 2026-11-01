@@ -874,3 +874,5 @@
 873|Sorszámok
 874|Megjegyzések eltávolítása
 875|Fájlformátum a vezérlőhöz
+876|Változónevek megjelenítése
+877|A saját G-kód változóval rendelkező mező címkéje mellett megjelenik a neve; kattintásra másolódik

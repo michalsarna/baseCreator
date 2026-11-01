@@ -874,3 +874,5 @@
 873|Numéros de ligne
 874|Supprimer les commentaires
 875|Format du fichier pour la commande
+876|Afficher les noms des variables
+877|À côté de l'étiquette d'un champ qui a une variable pour le G-code personnalisé s'affiche son nom ; un clic la copie
