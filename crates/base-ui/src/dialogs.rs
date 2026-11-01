@@ -163,10 +163,8 @@ fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
     let id = egui::Id::unique("about_credits_offset");
     let mut offset: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(0.0);
     ui.horizontal_top(|ui| {
-        // The width the window had the frame before (the first frame asks the window for its size, which would be the width of the longest
-        // line): the list follows the window when it is made wider or narrower.
-        let window = ui.ctx().memory(|m| m.area_rect(egui::Id::unique(Some("about_window")))).map_or(376.0, |r| r.width() - 64.0);
-        let w = (ui.available_width() - 28.0).min(window).max(100.0);
+        // A fixed width (the first frame asks the window for its size, and a width that follows the window feeds back into it).
+        let w = (ui.available_width() - 28.0).clamp(100.0, 380.0);
         let out = egui::ScrollArea::vertical().id_salt("about_credits").max_height(H).min_scrolled_height(H).max_width(w).auto_shrink([false, false]).vertical_scroll_offset(offset).scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(ui, |ui| {
             ui.set_max_width(w - 4.0);
             for c in credits {
