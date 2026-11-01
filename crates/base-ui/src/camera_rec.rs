@@ -20,7 +20,8 @@ pub enum LapseMode {
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecSettings {
-    /// Where the pictures and videos go; `None` is the folder `camera` of the shared data folder.
+    /// Where the pictures and videos go; `None` is the folder `camera` next to the project (`camera01`, `camera02`… when it is there already),
+    /// or the folder `camera` of the shared data folder when the project has no file yet.
     #[serde(default)]
     pub dir: Option<PathBuf>,
     /// Seconds between the pictures of a time-lapse.
@@ -264,6 +265,10 @@ pub struct Recorder {
     video: Option<Video>,
     lapse: Option<Lapse>,
     latest: Option<(u32, u32, Vec<u8>)>,
+    /// The project file the pictures belong to: its folder holds the folder of the pictures, its name starts the names of the files.
+    project: Option<PathBuf>,
+    /// The folder chosen for a folder of a project, kept for the rest of the run.
+    chosen: Option<(PathBuf, PathBuf)>,
 }
 
 impl Default for Recorder {
@@ -274,7 +279,7 @@ impl Default for Recorder {
 
 impl Recorder {
     pub fn new(settings: RecSettings) -> Recorder {
-        Recorder { settings, message: String::new(), video: None, lapse: None, latest: None }
+        Recorder { settings, message: String::new(), video: None, lapse: None, latest: None, project: None, chosen: None }
     }
 
     /// Does the camera have to be kept running (a video or a time-lapse is being made)?
@@ -290,9 +295,62 @@ impl Recorder {
         self.lapse.is_some()
     }
 
+    /// Tell the recorder which project file the pictures are of (`None`: the project was never saved).
+    pub fn set_project(&mut self, path: Option<&Path>) {
+        if self.project.as_deref() != path {
+            self.project = path.map(Path::to_path_buf);
+        }
+    }
+
+    /// The start of the names of the files: the name of the project file, or nothing.
+    fn stem(&self) -> String {
+        let s = self.project.as_ref().and_then(|p| p.file_stem()).map(|s| s.to_string_lossy().to_string()).unwrap_or_default();
+        s.chars().map(|c| if c.is_alphanumeric() || matches!(c, '-' | '_' | '.' | ' ') { c } else { '_' }).collect::<String>().trim().to_string()
+    }
+
+    /// `{project}-{kind}`, or just `kind` when there is no project file.
+    fn prefix(&self, kind: &str) -> String {
+        let s = self.stem();
+        if s.is_empty() { kind.to_string() } else { format!("{s}-{kind}") }
+    }
+
+    /// The folder `camera` next to the project file: the first of `camera`, `camera01`, `camera02`… that is not there yet.
+    pub fn free_camera_folder(base: &Path) -> PathBuf {
+        let first = base.join("camera");
+        if !first.exists() {
+            return first;
+        }
+        (1..).map(|n| base.join(format!("camera{n:02}"))).find(|p| !p.exists()).expect("a free number")
+    }
+
+    /// The folder shown to the person: the chosen one, the one of this run, or the one the next file would make.
+    pub fn folder_shown(&self) -> Option<PathBuf> {
+        if let Some(d) = &self.settings.dir {
+            return Some(d.clone());
+        }
+        let base = self.project.as_ref().and_then(|p| p.parent())?;
+        match &self.chosen {
+            Some((b, d)) if b == base => Some(d.clone()),
+            _ => Some(Self::free_camera_folder(base)),
+        }
+    }
+
     /// The folder for the files; made when it is needed.
-    pub fn folder(&self) -> Result<PathBuf, String> {
-        let dir = self.settings.dir.clone().or_else(|| base_core::paths::base_dir().map(|d| d.join("camera"))).ok_or_else(|| "there is no folder".to_string())?;
+    pub fn folder(&mut self) -> Result<PathBuf, String> {
+        let dir = if let Some(d) = self.settings.dir.clone() {
+            d
+        } else if let Some(base) = self.project.as_ref().and_then(|p| p.parent()).filter(|b| !b.as_os_str().is_empty()).map(Path::to_path_buf) {
+            match &self.chosen {
+                Some((b, d)) if *b == base => d.clone(),
+                _ => {
+                    let d = Self::free_camera_folder(&base);
+                    self.chosen = Some((base, d.clone()));
+                    d
+                }
+            }
+        } else {
+            base_core::paths::base_dir().map(|d| d.join("camera")).ok_or_else(|| "there is no folder".to_string())?
+        };
         std::fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
         Ok(dir)
     }
@@ -344,7 +402,7 @@ impl Recorder {
                 return None;
             }
         };
-        let path = next_name(&dir, "photo", "jpg");
+        let path = next_name(&dir, &self.prefix("photo"), "jpg");
         match self.save_latest(&path) {
             Ok(()) => {
                 self.message = trf("Saved {}", &[&path.display()]);
@@ -366,7 +424,7 @@ impl Recorder {
             return;
         };
         let result = self.folder().and_then(|dir| {
-            let path = next_name(&dir, "video", "avi");
+            let path = next_name(&dir, &self.prefix("video"), "avi");
             let file = std::fs::File::create(&path).map_err(|e| e.to_string())?;
             let avi = AviWriter::new(std::io::BufWriter::new(file), w, h).map_err(|e| e.to_string())?;
             Ok(Video { avi, started: now, size: (w, h), path })
@@ -406,7 +464,7 @@ impl Recorder {
             return;
         }
         let result = self.folder().and_then(|dir| {
-            let session = next_name(&dir, "timelapse", "");
+            let session = next_name(&dir, &self.prefix("timelapse"), "");
             std::fs::create_dir_all(&session).map_err(|e| e.to_string())?;
             Ok(session)
         });
@@ -437,7 +495,7 @@ impl Recorder {
     fn lapse_shot(&mut self, now: Instant, kind: &str) {
         let Some(l) = &self.lapse else { return };
         let (dir, n) = (l.dir.clone(), l.shots + 1);
-        let path = dir.join(format!("{kind}-{n:05}.jpg"));
+        let path = dir.join(format!("{}-{n:05}.jpg", self.prefix(kind)));
         match self.save_latest(&path) {
             Ok(()) => {
                 if let Some(l) = &mut self.lapse {
@@ -505,7 +563,7 @@ impl Recorder {
         });
         ui.horizontal_wrapped(|ui| {
             ui.label(tr("Folder"));
-            let shown = self.settings.dir.as_ref().map(|d| d.display().to_string()).unwrap_or_else(|| tr("the folder camera of the shared data").to_string());
+            let shown = self.folder_shown().map(|d| d.display().to_string()).unwrap_or_else(|| tr("the folder camera of the shared data").to_string());
             ui.label(RichText::new(shown).color(theme::text_dim()));
             if ui.button(tr("Choose the folder…")).clicked() {
                 if let Some(d) = rfd::FileDialog::new().pick_folder() {
@@ -575,6 +633,34 @@ mod tests {
             assert_eq!(size, j.len());
             assert_eq!(&bytes[at + 8..at + 8 + size], &j[..]);
         }
+    }
+
+    #[test]
+    fn files_go_to_a_camera_folder_next_to_the_project_and_carry_its_name() {
+        let base = temp("project");
+        let project = base.join("box.cre");
+        let mut r = Recorder::new(RecSettings { dir: None, interval: 2.0, mode: LapseMode::Interval });
+        r.set_project(Some(&project));
+        let (w, h, rgb) = picture(40);
+        r.feed(Instant::now(), w, h, rgb);
+        let first = r.photo().unwrap();
+        assert_eq!(first, base.join("camera").join("box-photo-0001.jpg"));
+        assert_eq!(r.photo().unwrap(), base.join("camera").join("box-photo-0002.jpg"), "the same folder for the rest of the run");
+        // Another run finds the folder there and makes the next one.
+        let mut again = Recorder::new(RecSettings { dir: None, interval: 2.0, mode: LapseMode::Interval });
+        again.set_project(Some(&project));
+        let (w, h, rgb) = picture(50);
+        again.feed(Instant::now(), w, h, rgb);
+        assert_eq!(again.photo().unwrap(), base.join("camera01").join("box-photo-0001.jpg"));
+        assert_eq!(Recorder::free_camera_folder(&base), base.join("camera02"));
+        // A time-lapse folder and a video carry the name too.
+        again.start_video(Instant::now());
+        assert!(again.video.as_ref().unwrap().path.file_name().unwrap().to_string_lossy().starts_with("box-video-"));
+        again.stop_video(Instant::now());
+        again.start_lapse(Instant::now());
+        assert!(again.lapse.as_ref().unwrap().dir.file_name().unwrap().to_string_lossy().starts_with("box-timelapse-"));
+        let frame = std::fs::read_dir(&again.lapse.as_ref().unwrap().dir).unwrap().next().unwrap().unwrap().file_name().to_string_lossy().to_string();
+        assert!(frame.starts_with("box-frame-"), "{frame}");
     }
 
     #[test]
