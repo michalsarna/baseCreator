@@ -31,10 +31,27 @@ pub fn path() -> Option<PathBuf> {
     std::env::var_os("PATH").and_then(|paths| std::env::split_paths(&paths).map(|d| d.join(n)).find(|p| is_file(p)))
 }
 
-/// The arguments that make ffmpeg read an RTSP stream and write JPEG pictures (about `fps` a second) to its standard output. The address
-/// goes in as one argument, never through a shell.
+/// The arguments that make ffmpeg read a stream (RTSP, RTMP, UDP, RTP) and write JPEG pictures (about `fps` a second) to its standard
+/// output. The address goes in as one argument, never through a shell. A dead connection ends after ten seconds without data (the
+/// program opens it again); a UDP or RTP stream is read without the buffering that adds a delay.
+pub fn stream_args(url: &str, fps: u32) -> Vec<String> {
+    let url = url.trim();
+    let lower = url.to_ascii_lowercase();
+    let mut a: Vec<String> = ["-hide_banner", "-loglevel", "error", "-nostdin"].iter().map(|s| s.to_string()).collect();
+    if lower.starts_with("rtsp") {
+        a.extend(["-rtsp_transport", "tcp"].iter().map(|s| s.to_string()));
+    } else if lower.starts_with("udp://") || lower.starts_with("rtp://") {
+        // A live stream is probed for a moment, not for the 5 MB or 5 seconds ffmpeg waits for by default.
+        a.extend(["-fflags", "nobuffer", "-flags", "low_delay", "-probesize", "200000", "-analyzeduration", "1000000"].iter().map(|s| s.to_string()));
+    }
+    // Microseconds; ends the read of a socket that gives nothing (the unplugged camera), whatever the kind of stream.
+    a.extend(["-rw_timeout", "10000000", "-i", url, "-an", "-vf", &format!("fps={}", fps.clamp(1, 30)), "-f", "mjpeg", "-q:v", "5", "pipe:1"].iter().map(|s| s.to_string()));
+    a
+}
+
+/// The arguments for an RTSP stream (see [`stream_args`]).
 pub fn rtsp_args(url: &str, fps: u32) -> Vec<String> {
-    ["-hide_banner", "-loglevel", "error", "-nostdin", "-rtsp_transport", "tcp", "-i", url.trim(), "-an", "-vf", &format!("fps={}", fps.clamp(1, 30)), "-f", "mjpeg", "-q:v", "5", "pipe:1"].iter().map(|s| s.to_string()).collect()
+    stream_args(url, fps)
 }
 
 #[cfg(test)]
@@ -50,6 +67,12 @@ mod tests {
         assert_eq!(a.iter().position(|x| x == "-i").map(|i| a[i + 1].as_str()), Some("rtsp://user:pass@192.168.1.5:554/stream1"));
         assert!(a.contains(&"fps=10".to_string()) && a.last().map(String::as_str) == Some("pipe:1"));
         assert!(rtsp_args("rtsp://x", 500).contains(&"fps=30".to_string()), "the rate is limited");
+        assert!(a.windows(2).any(|w| w == ["-rtsp_transport", "tcp"]) && a.windows(2).any(|w| w == ["-rw_timeout", "10000000"]));
+        // A UDP stream is read without buffering; RTMP only has the timeout.
+        let u = stream_args("udp://@:5000", 10);
+        assert!(u.windows(2).any(|w| w == ["-fflags", "nobuffer"]) && u.windows(2).any(|w| w == ["-probesize", "200000"]) && !u.contains(&"-rtsp_transport".to_string()));
+        let m = stream_args("rtmp://server/live/key", 10);
+        assert!(!m.contains(&"-fflags".to_string()) && m.contains(&"-rw_timeout".to_string()));
         // Nothing here can be taken for an option: the address is after -i, whatever it starts with.
         assert_eq!(rtsp_args("-version", 5)[rtsp_args("-version", 5).iter().position(|x| x == "-i").unwrap() + 1], "-version");
     }

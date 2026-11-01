@@ -60,6 +60,15 @@ fn take_newest(buf: &mut Vec<u8>) -> Option<Vec<u8>> {
 /// out and decoded like those of an MJPEG address. `command` says what to run (`None`: there is nothing to run); the stream is started
 /// again when the program ends.
 pub fn spawn_process(ctx: egui::Context, command: impl Fn() -> Option<(std::path::PathBuf, Vec<String>)> + Send + 'static) -> StreamWorker {
+    spawn_process_with(ctx, command, SILENCE)
+}
+
+/// How long a program may give nothing before it is taken for dead: a stream that stopped (an unplugged camera, a UDP sender that went away)
+/// does not always end the read, and ffmpeg then waits for ever.
+const SILENCE: Duration = Duration::from_secs(20);
+
+/// [`spawn_process`] with the silence after which the program is killed and started again.
+fn spawn_process_with(ctx: egui::Context, command: impl Fn() -> Option<(std::path::PathBuf, Vec<String>)> + Send + 'static, silence: Duration) -> StreamWorker {
     let (tx, rx) = channel();
     let stop = Arc::new(AtomicBool::new(false));
     let flag = stop.clone();
@@ -102,10 +111,33 @@ pub fn spawn_process(ctx: egui::Context, command: impl Fn() -> Option<(std::path
             let mut buf: Vec<u8> = Vec::new();
             let mut chunk = vec![0u8; 64 * 1024];
             let mut got_any = false;
+            // The watchdog: when the program gives nothing for `silence` it is killed, which ends the read below.
+            let started = Instant::now();
+            let last = Arc::new(std::sync::atomic::AtomicU64::new(0));
+            let done = Arc::new(AtomicBool::new(false));
+            {
+                let (last, done, flag, shared) = (last.clone(), done.clone(), flag.clone(), shared.clone());
+                std::thread::spawn(move || {
+                    while !done.load(Ordering::Relaxed) && !flag.load(Ordering::Relaxed) {
+                        std::thread::sleep(Duration::from_millis(100));
+                        if started.elapsed().saturating_sub(Duration::from_millis(last.load(Ordering::Relaxed))) >= silence {
+                            if let Ok(mut c) = shared.lock() {
+                                if let Some(p) = c.as_mut() {
+                                    let _ = p.kill();
+                                }
+                            }
+                            break;
+                        }
+                    }
+                });
+            }
             while !flag.load(Ordering::Relaxed) {
                 match out.read(&mut chunk) {
                     Ok(0) | Err(_) => break,
-                    Ok(n) => buf.extend_from_slice(&chunk[..n]),
+                    Ok(n) => {
+                        buf.extend_from_slice(&chunk[..n]);
+                        last.store(started.elapsed().as_millis() as u64, Ordering::Relaxed);
+                    }
                 }
                 if let Some(jpeg) = take_newest(&mut buf) {
                     if let Some(f) = decode(&jpeg) {
@@ -120,6 +152,7 @@ pub fn spawn_process(ctx: egui::Context, command: impl Fn() -> Option<(std::path
                     buf.clear();
                 }
             }
+            done.store(true, Ordering::Relaxed);
             if let Ok(mut c) = shared.lock() {
                 if let Some(mut proc) = c.take() {
                     let _ = proc.kill();
@@ -136,8 +169,8 @@ pub fn spawn_process(ctx: egui::Context, command: impl Fn() -> Option<(std::path
 }
 
 pub fn spawn(url: String, ctx: egui::Context) -> StreamWorker {
-    if base_core::camimg::is_rtsp(&url) {
-        return spawn_process(ctx, move || crate::ffmpeg::path().map(|p| (p, crate::ffmpeg::rtsp_args(&url, 10))));
+    if base_core::camimg::is_ffmpeg_stream(&url) {
+        return spawn_process(ctx, move || crate::ffmpeg::path().map(|p| (p, crate::ffmpeg::stream_args(&url, 10))));
     }
     let (tx, rx) = channel();
     let stop = Arc::new(AtomicBool::new(false));
@@ -268,6 +301,33 @@ mod tests {
         std::fs::remove_dir_all(dir).ok();
     }
 
+    /// A program that starts and then gives nothing (a stream that stopped) is killed after the silence and started again.
+    #[cfg(unix)]
+    #[test]
+    fn a_program_that_gives_nothing_is_killed_and_started_again() {
+        use std::os::unix::fs::PermissionsExt;
+        let dir = std::env::temp_dir().join(format!("silent-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        let log = dir.join("starts.log");
+        let script = dir.join("silent.sh");
+        std::fs::write(&script, format!("#!/bin/sh\necho x >> '{}'\nexec sleep 60\n", log.display())).unwrap();
+        std::fs::set_permissions(&script, std::fs::Permissions::from_mode(0o755)).unwrap();
+        let s2 = script.clone();
+        let w = spawn_process_with(egui::Context::default(), move || Some((s2.clone(), vec![])), Duration::from_millis(600));
+        match w.rx.recv_timeout(Duration::from_secs(10)).expect("a message after the silence") {
+            Msg::Error(e) => assert!(e.contains("could not be opened"), "{e}"),
+            Msg::Frame(_) => panic!("no picture"),
+        }
+        // After the pause the program is started again.
+        let t = Instant::now();
+        while std::fs::read_to_string(&log).map(|s| s.lines().count()).unwrap_or(0) < 2 && t.elapsed() < Duration::from_secs(10) {
+            std::thread::sleep(Duration::from_millis(100));
+        }
+        assert!(std::fs::read_to_string(&log).unwrap().lines().count() >= 2, "started again");
+        drop(w);
+        std::fs::remove_dir_all(dir).ok();
+    }
+
     #[test]
     fn without_ffmpeg_the_worker_says_so_and_a_program_that_cannot_start_is_an_error() {
         let w = spawn_process(egui::Context::default(), || None);
@@ -281,6 +341,14 @@ mod tests {
         assert!(base_core::camimg::valid_url("rtsp://user:pw@192.168.1.5:554/stream1") && base_core::camimg::valid_url("rtsps://cam.local/x"));
         assert!(!base_core::camimg::valid_url("rtsp://") && !base_core::camimg::valid_url("rtsp://a b/c") && !base_core::camimg::valid_url("ftp://x/y"));
         assert!(base_core::camimg::is_rtsp("RTSP://cam/x") && !base_core::camimg::is_rtsp("http://cam/rtsp://"));
+        // RTMP, UDP and RTP streams are read by ffmpeg too; a UDP address needs a port, not a host.
+        for ok in ["rtmp://server/live/key", "udp://@:5000", "udp://239.0.0.1:1234?pkt_size=1316", "rtp://0.0.0.0:5004", "UDP://127.0.0.1:9"] {
+            assert!(base_core::camimg::valid_url(ok) && base_core::camimg::is_ffmpeg_stream(ok), "{ok}");
+        }
+        for bad in ["udp://", "udp://host", "udp://host:port", "rtp://:", "rtmp://", "udp://a b:5", "srt://x:1"] {
+            assert!(!base_core::camimg::valid_url(bad), "{bad}");
+        }
+        assert!(!base_core::camimg::is_ffmpeg_stream("http://cam/udp://x:1"));
     }
 
     #[test]

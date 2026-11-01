@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds the small ffmpeg that comes with the programs: it reads an RTSP stream (H.264 / H.265 / MJPEG) and writes JPEG pictures to a
+# Builds the small ffmpeg that comes with the programs: it reads an RTSP, RTMP or UDP (MPEG-TS, RTP) stream (H.264 / H.265 / MJPEG) and writes JPEG pictures to a
 # pipe. LGPL only (no GPL parts, no non-free ones), static, no TLS, no assembly (no nasm needed). Writes to $OUT: the program,
 # COPYING.LGPLv2.1 and FFMPEG-NOTICE.txt. For Windows it is cross-compiled on Linux (TARGET=windows, mingw-w64).
 set -euo pipefail
@@ -20,14 +20,19 @@ FLAGS=(
   --disable-everything --disable-autodetect --disable-doc --disable-debug
   --disable-ffplay --disable-ffprobe --disable-x86asm
   --enable-static --disable-shared --enable-network --enable-small
-  --enable-protocol=tcp,udp,rtp,pipe,file
-  --enable-demuxer=rtsp,rtp,sdp,mjpeg
+  --enable-protocol=tcp,udp,rtp,rtmp,pipe,file
+  --enable-demuxer=rtsp,rtp,sdp,mjpeg,mpegts,flv
   --enable-muxer=mjpeg
   --enable-decoder=h264,hevc,mjpeg,mpeg4
   --enable-encoder=mjpeg
   --enable-parser=h264,hevc,mjpeg,mpeg4video
   --enable-filter=fps,scale,format,null,buffer,buffersink,anull,abuffer,abuffersink
 )
+# EXTRA_FLAGS (words) is for tests only: the muxers and encoders a test needs to make a stream. The packages are built without it.
+if [ -n "${EXTRA_FLAGS:-}" ]; then
+  # shellcheck disable=SC2206
+  FLAGS+=(${EXTRA_FLAGS})
+fi
 EXE=ffmpeg
 if [ "${TARGET:-}" = windows ]; then
   FLAGS+=(--enable-cross-compile --target-os=mingw32 --arch=x86_64 --cross-prefix=x86_64-w64-mingw32- --extra-ldflags=-static)
