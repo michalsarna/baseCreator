@@ -891,3 +891,14 @@
 890|Primijeni ove postavke na sloj
 891|Zaboravi ovaj predložak
 892|Naziv je prazan ili ga koristi drugi predložak
+893|Početna stranica
+894|Izrađeno s:
+895|Premjesti u okno {}
+896|{} redaka
+897|Generiraj ponovno
+898|Izgubiti izmjene?
+899|Ponovno generiraj G-kod projekta; izmjene se gube
+900|Analiziraj
+901|Prikaži putanje ovog teksta u analizi G-koda
+902|Ručno promijenjeno
+903|Zapiši tekst u datoteku

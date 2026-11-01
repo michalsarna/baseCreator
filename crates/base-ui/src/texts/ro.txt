@@ -891,3 +891,14 @@
 890|Aplică aceste setări pe strat
 891|Uită această presetare
 892|Numele este gol sau folosit de altă presetare
+893|Pagina principală
+894|Realizat cu:
+895|Mută în panoul {}
+896|{} linii
+897|Generează din nou
+898|Pierzi modificările?
+899|Generează din nou G-code al proiectului; modificările se pierd
+900|Analizează
+901|Arată traseele din acest text în analiza G-code
+902|Modificat manual
+903|Scrie textul într-un fișier

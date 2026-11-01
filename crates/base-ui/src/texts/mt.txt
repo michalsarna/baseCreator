@@ -891,3 +891,14 @@
 890|Applika dawn is-settings fuq is-saff
 891|Insa dan il-preset
 892|L-isem huwa vojt jew użat minn preset ieħor
+893|Paġna ewlenija
+894|Magħmul bi:
+895|Mexxi lejn il-pannell {}
+896|{} linji
+897|Agħmel mill-ġdid
+898|Titlef il-bidliet?
+899|Agħmel il-G-code tal-proġett mill-ġdid; il-bidliet jintilfu
+900|Analizza
+901|Uri t-toolpaths ta' dan it-test fl-analiżi tal-G-code
+902|Mibdul bl-idejn
+903|Ikteb it-test f'fajl

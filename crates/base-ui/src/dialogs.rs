@@ -15,7 +15,100 @@ pub struct AboutInfo<'a> {
     /// Lines under the name, already translated (what the program is, who wrote it, ...).
     pub lines: Vec<String>,
     pub url: &'a str,
+    /// The home page of the programs (the landing page).
+    pub site: &'a str,
     pub licence: &'a str,
+    /// The text of the program's CREDITS.md: its bullets are listed in the window (the projects the program is made with).
+    pub credits: &'a str,
+}
+
+/// One entry of the credits.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct Credit {
+    pub name: String,
+    pub url: Option<String>,
+    /// What it is for and its licence, as plain text.
+    pub note: String,
+}
+
+/// The bullets of a CREDITS.md as a list: the name (a link when it has one) and what follows it, without the marks of markdown.
+pub fn parse_credits(md: &str) -> Vec<Credit> {
+    let mut entries: Vec<String> = vec![];
+    for line in md.lines() {
+        if let Some(rest) = line.strip_prefix("* ").or_else(|| line.strip_prefix("- ")) {
+            entries.push(rest.trim().to_string());
+        } else if line.starts_with("  ") && !line.trim().is_empty() {
+            if let Some(last) = entries.last_mut() {
+                last.push(' ');
+                last.push_str(line.trim());
+            }
+        }
+    }
+    entries.into_iter().filter_map(|e| credit_of(&e)).collect()
+}
+
+fn credit_of(entry: &str) -> Option<Credit> {
+    // The name: the first **bold** part, which may hold a link: **[name](url)** or **name**.
+    let start = entry.find("**")? + 2;
+    let end = start + entry[start..].find("**")?;
+    let bold = &entry[start..end];
+    // A link inside the name keeps its text: **[name](url)** or **Name ([site](url))**.
+    let (mut name, mut url) = (String::new(), None);
+    let mut chars = bold.chars().peekable();
+    while let Some(c) = chars.next() {
+        if c == '[' {
+            let mut text = String::new();
+            for t in chars.by_ref() {
+                if t == ']' {
+                    break;
+                }
+                text.push(t);
+            }
+            if chars.peek() == Some(&'(') {
+                chars.next();
+                let mut u = String::new();
+                for t in chars.by_ref() {
+                    if t == ')' {
+                        break;
+                    }
+                    u.push(t);
+                }
+                url.get_or_insert(u);
+            }
+            name.push_str(&text);
+        } else {
+            name.push(c);
+        }
+    }
+    let rest = &entry[end + 2..];
+    // Links in the rest keep their text; bold and code marks go.
+    let mut note = String::new();
+    let mut chars = rest.chars().peekable();
+    while let Some(c) = chars.next() {
+        match c {
+            '[' => {
+                let mut text = String::new();
+                for t in chars.by_ref() {
+                    if t == ']' {
+                        break;
+                    }
+                    text.push(t);
+                }
+                if chars.peek() == Some(&'(') {
+                    for t in chars.by_ref() {
+                        if t == ')' {
+                            break;
+                        }
+                    }
+                }
+                note.push_str(&text);
+            }
+            '*' | '`' => {}
+            _ => note.push(c),
+        }
+    }
+    let note = note.trim().trim_start_matches([':', ' ']).to_string();
+    (!name.trim().is_empty()).then(|| Credit { name: name.trim().to_string(), url, note })
 }
 
 /// The version of baseCreator that the program is built with (the shared code: core, interface, plugins).
@@ -31,7 +124,7 @@ pub fn about_window(ctx: &egui::Context, open: &mut bool, info: &AboutInfo, logo
     if !*open {
         return;
     }
-    popup(ctx, "about_window", info.title, [380.0, 300.0], open, |ui| {
+    popup(ctx, "about_window", info.title, [440.0, 470.0], open, |ui| {
         ui.horizontal(|ui| {
             if let Some(logo) = logo {
                 ui.image((logo.id(), egui::vec2(72.0, 72.0)));
@@ -48,12 +141,61 @@ pub fn about_window(ctx: &egui::Context, open: &mut bool, info: &AboutInfo, logo
                 ui.separator();
             }
         }
-        ui.hyperlink(info.url);
+        ui.horizontal(|ui| {
+            ui.hyperlink_to(tr("Home page"), info.site);
+            ui.label("·");
+            ui.hyperlink_to(tr("Project page on GitHub"), info.url);
+        });
         ui.label(format!("{}: {}", tr("Licence"), info.licence));
         ui.separator();
         ui.label(tr("Big thanks to Jakub (CNC KpK) for the ideas and suggestions for improvements:"));
         ui.hyperlink(THANKS_URL);
+        ui.add_space(4.0);
+        credits_list(ui, &parse_credits(info.credits));
     });
+}
+
+/// The credits in a list with the arrows always in view (the wheel works too).
+fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
+    const H: f32 = 150.0;
+    const STEP: f32 = 60.0;
+    ui.label(RichText::new(tr("Made with:")).strong());
+    let id = egui::Id::unique("about_credits_offset");
+    let mut offset: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(0.0);
+    ui.horizontal_top(|ui| {
+        let w = (ui.available_width() - 28.0).max(100.0);
+        let out = egui::ScrollArea::vertical().id_salt("about_credits").max_height(H).min_scrolled_height(H).max_width(w).auto_shrink([false, false]).vertical_scroll_offset(offset).scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(ui, |ui| {
+            ui.set_width(w - 4.0);
+            for c in credits {
+                ui.horizontal_wrapped(|ui| {
+                    ui.spacing_mut().item_spacing.x = 4.0;
+                    match &c.url {
+                        Some(u) => ui.hyperlink_to(&c.name, u),
+                        None => ui.label(RichText::new(&c.name).strong()),
+                    };
+                    if !c.note.is_empty() {
+                        ui.label(RichText::new(&c.note).small().color(theme::text_dim()));
+                    }
+                });
+            }
+        });
+        let max = (out.content_size.y - out.inner_rect.height()).max(0.0);
+        offset = out.state.clamped_offset().y.clamp(0.0, max);
+        ui.vertical(|ui| {
+            for (icon, up) in [("chevron-up", true), ("chevron-down", false)] {
+                let enabled = if up { offset > 0.5 } else { offset < max - 0.5 };
+                let (rect, resp) = ui.allocate_exact_size(egui::vec2(24.0, 24.0), egui::Sense::click());
+                if resp.hovered() && enabled {
+                    ui.painter().rect_filled(rect, 4.0, theme::panel_dark());
+                }
+                crate::icons::paint(ui, rect.shrink(5.0), icon, if enabled { theme::text() } else { theme::text_dim().gamma_multiply(0.5) });
+                if enabled && resp.clicked() {
+                    offset = if up { (offset - STEP).max(0.0) } else { (offset + STEP).min(max) };
+                }
+            }
+        });
+    });
+    ui.data_mut(|d| d.insert_temp(id, offset));
 }
 
 /// A part of the quick guide.
@@ -333,7 +475,7 @@ mod tests {
         assert!(parse_version(&format!("v{}", base_version())).is_some(), "{}", base_version());
         let ctx = egui::Context::default();
         let mut open = true;
-        let info = AboutInfo { title: "About", name: "App", version: "v1.0.0", lines: vec!["a".into()], url: "https://example.org", licence: "MIT" };
+        let info = AboutInfo { title: "About", name: "App", version: "v1.0.0", lines: vec!["a".into()], url: "https://example.org", site: "https://example.org/home", licence: "MIT", credits: "* **[resvg](https://github.com/linebender/resvg)** (MPL-2.0): reading SVG.\n* **Jakub ([CNC KpK](https://www.youtube.com/@CNC-KpK))**: ideas.\n" };
         // A new window is only measured in its first frame: the texts are drawn in the second.
         ctx.run_ui(egui::RawInput::default(), |ui| about_window(ui.ctx(), &mut open, &info, None)).textures_delta.clear();
         let mut out = ctx.run_ui(egui::RawInput::default(), |ui| about_window(ui.ctx(), &mut open, &info, None));
@@ -342,6 +484,27 @@ mod tests {
         let shown: String = out.shapes.iter().filter_map(|s| if let egui::epaint::Shape::Text(t) = &s.shape { Some(t.galley.text().to_string()) } else { None }).collect::<Vec<_>>().join("\n");
         assert!(shown.contains("Jakub") && shown.contains(THANKS_URL), "{shown}");
         assert!(THANKS_URL.starts_with("https://www.youtube.com/@"));
+        // The home page and the credits are in the window.
+        assert!(shown.contains("Home page") && shown.contains("resvg"), "{shown}");
+    }
+
+    #[test]
+    fn the_credits_are_read_from_the_bullets_of_the_file() {
+        let md = "# Credits\n\nSome words.\n\n* **[resvg / usvg](https://github.com/linebender/resvg)** (MPL-2.0): reading SVG and its font database.\n* **[Noto fonts](https://fonts.google.com/noto)** (SIL OFL 1.1): the fonts built in\n  (Latin, Greek; licence in `assets/fonts/OFL.txt`).\n* **VectorCraft**: the interface that inspired the look.\n* **Jakub ([CNC KpK](https://www.youtube.com/@CNC-KpK))**: ideas, from [industrial](https://x.org) machines.\n* Everyone who tested the program.\n";
+        let c = parse_credits(md);
+        assert_eq!(c.len(), 4, "a bullet without a bold name is not an entry: {c:?}");
+        assert_eq!((c[0].name.as_str(), c[0].url.as_deref()), ("resvg / usvg", Some("https://github.com/linebender/resvg")));
+        assert_eq!(c[0].note, "(MPL-2.0): reading SVG and its font database.");
+        assert!(c[1].note.contains("fonts built in (Latin, Greek; licence in assets/fonts/OFL.txt)."), "{}", c[1].note);
+        assert_eq!((c[2].name.as_str(), c[2].url.clone()), ("VectorCraft", None));
+        assert_eq!(c[3].note, "ideas, from industrial machines.");
+        assert_eq!(c[3].name, "Jakub (CNC KpK)");
+        assert_eq!(c[3].url.as_deref(), Some("https://www.youtube.com/@CNC-KpK"));
+        // The real file of this repository is read: every entry has a name, and ffmpeg is among them.
+        let real = parse_credits(include_str!("../../../CREDITS.md"));
+        assert!(real.len() > 10 && real.iter().all(|c| !c.name.is_empty()), "{real:?}");
+        assert!(real.iter().any(|c| c.name.to_lowercase().contains("ffmpeg")), "ffmpeg is in the credits");
+        assert!(real.iter().any(|c| c.name.contains("Jakub")), "Jakub is in the credits");
     }
 
     /// Against the real GitHub API: `cargo test -p base-ui -- --ignored real_network` (needs the internet).

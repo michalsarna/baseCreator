@@ -891,3 +891,14 @@
 890|Deze instellingen op de laag toepassen
 891|Deze voorinstelling vergeten
 892|De naam is leeg of wordt door een andere voorinstelling gebruikt
+893|Startpagina
+894|Gemaakt met:
+895|Naar deelvenster {} verplaatsen
+896|{} regels
+897|Opnieuw maken
+898|Wijzigingen kwijtraken?
+899|De G-code van het project opnieuw maken; de wijzigingen gaan verloren
+900|Analyseren
+901|De gereedschapsbanen van deze tekst tonen in de G-code-analyse
+902|Handmatig gewijzigd
+903|De tekst naar een bestand schrijven

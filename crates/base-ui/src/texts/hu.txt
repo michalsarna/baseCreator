@@ -891,3 +891,14 @@
 890|E beállítások alkalmazása a rétegre
 891|A beállítás elfelejtése
 892|A név üres, vagy másik beállítás használja
+893|Kezdőlap
+894|Ezekkel készült:
+895|Áthelyezés a(z) {}. panelbe
+896|{} sor
+897|Újragenerálás
+898|Elveszik a módosítások?
+899|A projekt G-kódjának újragenerálása; a módosítások elvesznek
+900|Elemzés
+901|E szöveg szerszámpályáinak megjelenítése a G-kód elemzésében
+902|Kézzel módosítva
+903|A szöveg fájlba írása

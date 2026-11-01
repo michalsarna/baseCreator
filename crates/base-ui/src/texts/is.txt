@@ -891,3 +891,14 @@
 890|Nota þessar stillingar á lagið
 891|Gleyma þessari forstillingu
 892|Nafnið er tómt eða í notkun hjá annarri forstillingu
+893|Heimasíða
+894|Gert með:
+895|Færa í glugga {}
+896|{} línur
+897|Búa til aftur
+898|Missa breytingarnar?
+899|Búa til G-kóða verkefnisins aftur; breytingarnar glatast
+900|Greina
+901|Sýna verkfærabrautir þessa texta í G-kóðagreiningunni
+902|Breytt í höndunum
+903|Skrifa textann í skrá

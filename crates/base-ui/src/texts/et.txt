@@ -891,3 +891,14 @@
 890|Rakenda need seaded kihile
 891|Unusta see eelseade
 892|Nimi on tühi või seda kasutab teine eelseade
+893|Avaleht
+894|Tehtud nende abil:
+895|Teisalda paani {}
+896|{} rida
+897|Tee uuesti
+898|Kaotada muudatused?
+899|Tee projekti G-koodi uuesti; muudatused lähevad kaotsi
+900|Analüüsi
+901|Näita selle teksti tööradu G-koodi analüüsis
+902|Muudetud käsitsi
+903|Kirjuta tekst faili

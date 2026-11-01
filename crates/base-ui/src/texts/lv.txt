@@ -891,3 +891,14 @@
 890|Lietot šos iestatījumus slānim
 891|Aizmirst šo sagatavi
 892|Nosaukums ir tukšs vai to izmanto cita sagatave
+893|Mājaslapa
+894|Izveidots ar:
+895|Pārvietot uz rūti {}
+896|{} rindas
+897|Izveidot vēlreiz
+898|Zaudēt izmaiņas?
+899|Izveidot projekta G-kodu vēlreiz; izmaiņas tiks zaudētas
+900|Analizēt
+901|Parādīt šī teksta instrumenta ceļus G-koda analīzē
+902|Mainīts ar roku
+903|Ierakstīt tekstu failā

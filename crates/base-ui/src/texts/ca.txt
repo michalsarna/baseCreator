@@ -891,3 +891,14 @@
 890|Aplica aquests paràmetres a la capa
 891|Oblida aquest predefinit
 892|El nom és buit o l'usa un altre predefinit
+893|Pàgina d'inici
+894|Fet amb:
+895|Mou al panell {}
+896|{} línies
+897|Genera de nou
+898|Perdre els canvis?
+899|Genera de nou el G-code del projecte; es perden els canvis
+900|Analitza
+901|Mostra els recorreguts d'aquest text a l'anàlisi del G-code
+902|Canviat a mà
+903|Escriu el text en un fitxer

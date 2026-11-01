@@ -891,3 +891,14 @@
 890|Použít toto nastavení na vrstvu
 891|Zapomenout tuto předvolbu
 892|Název je prázdný nebo ho používá jiná předvolba
+893|Domovská stránka
+894|Vytvořeno s:
+895|Přesunout do panelu {}
+896|{} řádků
+897|Vytvořit znovu
+898|Zahodit úpravy?
+899|Znovu vytvořit G-kód projektu; úpravy se ztratí
+900|Analyzovat
+901|Zobrazit dráhy tohoto textu v analýze G-kódu
+902|Změněno ručně
+903|Zapsat text do souboru

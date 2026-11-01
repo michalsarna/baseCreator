@@ -891,3 +891,14 @@
 890	Put these settings on the layer
 891	Forget this preset
 892	The name is empty or used by another preset
+893	Home page
+894	Made with:
+895	Move to pane {}
+896	{} lines
+897	Make again
+898	Lose the edits?
+899	Make the G-code of the project again; the edits are lost
+900	Analyse
+901	Show the toolpaths of this text in the analysis of G-code
+902	Changed by hand
+903	Write the text to a file
