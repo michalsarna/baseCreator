@@ -891,3 +891,14 @@
 890|Uporabi te nastavitve na plasti
 891|Pozabi to prednastavitev
 892|Ime je prazno ali ga uporablja druga prednastavitev
+893|Domača stran
+894|Narejeno z:
+895|Premakni v podokno {}
+896|{} vrstic
+897|Ustvari znova
+898|Izgubiti spremembe?
+899|Znova ustvari G-kodo projekta; spremembe se izgubijo
+900|Analiziraj
+901|Prikaži poti tega besedila v analizi G-kode
+902|Ročno spremenjeno
+903|Zapiši besedilo v datoteko

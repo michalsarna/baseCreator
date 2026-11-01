@@ -891,3 +891,14 @@
 890|Bruk disse innstillingene på laget
 891|Glem denne forhåndsinnstillingen
 892|Navnet er tomt eller brukes av en annen forhåndsinnstilling
+893|Hjemmeside
+894|Laget med:
+895|Flytt til panel {}
+896|{} linjer
+897|Lag på nytt
+898|Miste endringene?
+899|Lag prosjektets G-kode på nytt; endringene går tapt
+900|Analyser
+901|Vis verktøybanene fra denne teksten i G-kodeanalysen
+902|Endret manuelt
+903|Skriv teksten til en fil

@@ -20,3 +20,5 @@ Licences are named for orientation; the exact terms are in each project's reposi
 * **[rfd](https://github.com/PolyMeilex/rfd)** (MIT): native file dialogs.
 * **[Material Design Icons](https://github.com/Templarian/MaterialDesign-SVG)** by Pictogrammers (Apache-2.0) and the **[Iconify](https://iconify.design)** search service: the clipart gallery (`assets/clipart`).
 * **Jakub ([CNC KpK](https://www.youtube.com/@CNC-KpK))**: ideas and suggestions for improvements, from the point of view of industrial CNC machines.
+* **[FFmpeg](https://ffmpeg.org)** (LGPL-2.1 or later): the separate program that decodes the video stream (RTSP) of a camera; a small build of it comes with the packages (the recipe and the licence are in the packages and in `.github/actions/ffmpeg`).
+

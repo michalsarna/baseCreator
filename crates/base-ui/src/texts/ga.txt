@@ -891,3 +891,14 @@
 890|Cuir na socruithe seo ar an sraith
 891|Déan dearmad ar an réamhshocrú seo
 892|Tá an t-ainm folamh nó in úsáid ag réamhshocrú eile
+893|Leathanach baile
+894|Déanta le:
+895|Bog go pána {}
+896|{} líne
+897|Déan arís é
+898|An gcaillfear na hathruithe?
+899|Déan G-code an tionscadail arís; caillfear na hathruithe
+900|Anailís
+901|Taispeáin bealaí uirlise an téacs seo san anailís G-code
+902|Athraithe de láimh
+903|Scríobh an téacs i gcomhad

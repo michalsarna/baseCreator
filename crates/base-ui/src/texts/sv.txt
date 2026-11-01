@@ -891,3 +891,14 @@
 890|Använd dessa inställningar på lagret
 891|Glöm denna förinställning
 892|Namnet är tomt eller används av en annan förinställning
+893|Hemsida
+894|Gjord med:
+895|Flytta till ruta {}
+896|{} rader
+897|Skapa igen
+898|Förlora ändringarna?
+899|Skapa projektets G-kod igen; ändringarna går förlorade
+900|Analysera
+901|Visa verktygsbanorna i den här texten i G-kodsanalysen
+902|Ändrad för hand
+903|Skriv texten till en fil

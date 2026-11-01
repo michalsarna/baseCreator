@@ -891,3 +891,14 @@
 890|Aplicar estos ajustes a la capa
 891|Olvidar este preajuste
 892|El nombre está vacío o lo usa otro preajuste
+893|Página de inicio
+894|Hecho con:
+895|Mover al panel {}
+896|{} líneas
+897|Generar de nuevo
+898|¿Perder los cambios?
+899|Generar de nuevo el G-code del proyecto; se pierden los cambios
+900|Analizar
+901|Mostrar las trayectorias de este texto en el análisis del G-code
+902|Cambiado a mano
+903|Escribir el texto en un archivo

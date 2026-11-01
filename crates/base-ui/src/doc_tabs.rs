@@ -61,11 +61,27 @@ pub struct ExtraTab {
 
 /// Draws one tab; returns (clicked, closed).
 fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title: &str, dirty: bool, is_active: bool, beside: bool) -> (bool, bool, bool) {
+    let (resp, closed) = tab_widget(ui, &id, title, dirty, is_active, Sense::click());
+    let mut show_beside = false;
+    if beside {
+        resp.context_menu(|ui| {
+            if ui.button(tr("Show beside")).clicked() {
+                show_beside = true;
+                ui.close();
+            }
+        });
+    }
+    (resp.clicked() || resp.middle_clicked(), closed || resp.middle_clicked(), show_beside)
+}
+
+/// One tab, drawn: the title (cut when long), a dot for unsaved work that turns into the cross while the pointer is on the close
+/// button. Returns the response of the tab (with the `sense` asked for) and whether the cross was clicked.
+pub fn tab_widget(ui: &mut egui::Ui, id: &(impl std::hash::Hash + std::fmt::Debug), title: &str, dirty: bool, is_active: bool, sense: Sense) -> (egui::Response, bool) {
     let font = egui::FontId::proportional(13.0);
     let text = shorten(title);
     let galley = ui.painter().layout_no_wrap(text, font, if is_active { theme::text() } else { theme::text_dim() });
     let w = galley.size().x + 14.0 + 22.0;
-    let (rect, resp) = ui.allocate_exact_size(egui::vec2(w, TAB_H), Sense::click());
+    let (rect, resp) = ui.allocate_exact_size(egui::vec2(w, TAB_H), sense);
     let close_rect = egui::Rect::from_min_size(egui::pos2(rect.right() - 22.0, rect.top()), egui::vec2(22.0, TAB_H));
     let close = ui.interact(close_rect, ui.make_persistent_id(("doc_tab_close", id)), Sense::click());
     let fill = if is_active {
@@ -80,7 +96,6 @@ fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title:
         ui.painter().rect_filled(egui::Rect::from_min_size(rect.min, egui::vec2(rect.width(), 2.0)), 0.0, theme::accent());
     }
     ui.painter().galley(egui::pos2(rect.left() + 8.0, rect.center().y - galley.size().y / 2.0), galley, Color32::PLACEHOLDER);
-    // A dot for unsaved work, which turns into the cross while the pointer is on the close button.
     let (mark, colour) = if close.hovered() {
         ("×", theme::text())
     } else if dirty {
@@ -91,16 +106,12 @@ fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title:
     ui.painter().text(close_rect.center(), egui::Align2::CENTER_CENTER, mark, egui::FontId::proportional(if mark == "●" { 9.0 } else { 15.0 }), colour);
     let resp = if title.chars().count() > MAX_CHARS { resp.on_hover_text(title) } else { resp };
     close.clone().on_hover_text(tr("Close tab"));
-    let mut show_beside = false;
-    if beside {
-        resp.context_menu(|ui| {
-            if ui.button(tr("Show beside")).clicked() {
-                show_beside = true;
-                ui.close();
-            }
-        });
-    }
-    (resp.clicked() || resp.middle_clicked(), close.clicked() || resp.middle_clicked(), show_beside)
+    (resp, close.clicked())
+}
+
+/// The height of a tab.
+pub const fn tab_height() -> f32 {
+    TAB_H
 }
 
 /// The bar: a tab for each drawing (a dot when it has unsaved work, a cross to close it) and a "+" for a new one. A middle

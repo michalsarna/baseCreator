@@ -891,3 +891,14 @@
 890|Brug disse indstillinger på laget
 891|Glem denne forudindstilling
 892|Navnet er tomt eller bruges af en anden forudindstilling
+893|Hjemmeside
+894|Lavet med:
+895|Flyt til panel {}
+896|{} linjer
+897|Opret igen
+898|Miste ændringerne?
+899|Opret projektets G-kode igen; ændringerne går tabt
+900|Analysér
+901|Vis værktøjsbanerne fra denne tekst i G-kodeanalysen
+902|Ændret manuelt
+903|Skriv teksten til en fil

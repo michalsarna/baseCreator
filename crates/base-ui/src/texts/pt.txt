@@ -891,3 +891,14 @@
 890|Aplicar estas definições à camada
 891|Esquecer esta predefinição
 892|O nome está vazio ou é usado por outra predefinição
+893|Página inicial
+894|Feito com:
+895|Mover para o painel {}
+896|{} linhas
+897|Gerar de novo
+898|Perder as alterações?
+899|Gerar de novo o G-code do projeto; as alterações perdem-se
+900|Analisar
+901|Mostrar os percursos deste texto na análise do G-code
+902|Alterado à mão
+903|Escrever o texto num ficheiro

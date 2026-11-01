@@ -891,3 +891,14 @@
 890|Appliquer ces réglages au calque
 891|Oublier ce préréglage
 892|Le nom est vide ou utilisé par un autre préréglage
+893|Page d'accueil
+894|Réalisé avec :
+895|Déplacer vers le panneau {}
+896|{} lignes
+897|Refaire
+898|Perdre les modifications ?
+899|Refaire le G-code du projet ; les modifications sont perdues
+900|Analyser
+901|Afficher les trajectoires de ce texte dans l'analyse du G-code
+902|Modifié à la main
+903|Écrire le texte dans un fichier

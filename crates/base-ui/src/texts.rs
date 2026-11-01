@@ -898,6 +898,17 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Put these settings on the layer", "Nałóż te ustawienia na warstwę", "Diese Einstellungen auf die Ebene anwenden", "Applica queste impostazioni al livello", "Käytä näitä asetuksia tasolle", "将这些设置应用到图层", "ये सेटिंग्स परत पर लगाएं"],
     ["Forget this preset", "Zapomnij ten preset", "Diese Vorlage vergessen", "Dimentica questo preset", "Unohda tämä esiasetus", "删除此预设", "इस प्रीसेट को हटाएं"],
     ["The name is empty or used by another preset", "Nazwa jest pusta albo używana przez inny preset", "Der Name ist leer oder wird von einer anderen Vorlage benutzt", "Il nome è vuoto o usato da un altro preset", "Nimi on tyhjä tai toisen esiasetuksen käytössä", "名称为空或已被其他预设使用", "नाम खाली है या किसी दूसरे प्रीसेट में उपयोग हो रहा है"],
+    ["Home page", "Strona domowa", "Startseite", "Pagina iniziale", "Kotisivu", "主页", "मुखपृष्ठ"],
+    ["Made with:", "Zbudowano z:", "Gebaut mit:", "Realizzato con:", "Tehty näillä:", "使用了：", "इनसे बना:"],
+    ["Move to pane {}", "Przenieś na panel {}", "In Bereich {} verschieben", "Sposta nel riquadro {}", "Siirrä paneeliin {}", "移到窗格 {}", "पेन {} में ले जाएं"],
+    ["{} lines", "{} wierszy", "{} Zeilen", "{} righe", "{} riviä", "{} 行", "{} पंक्तियाँ"],
+    ["Make again", "Wygeneruj ponownie", "Neu erzeugen", "Genera di nuovo", "Tee uudelleen", "重新生成", "फिर से बनाएं"],
+    ["Lose the edits?", "Stracić zmiany?", "Änderungen verwerfen?", "Perdere le modifiche?", "Hylätäänkö muutokset?", "丢弃修改？", "बदलाव खो दें?"],
+    ["Make the G-code of the project again; the edits are lost", "Wygeneruj G-code projektu ponownie; ręczne zmiany przepadną", "Den G-Code des Projekts neu erzeugen; die Änderungen gehen verloren", "Genera di nuovo il G-code del progetto; le modifiche vanno perse", "Tee projektin G-koodi uudelleen; muutokset katoavat", "重新生成项目的 G-code；修改将丢失", "प्रोजेक्ट का G-code फिर से बनाएं; बदलाव खो जाएंगे"],
+    ["Analyse", "Analizuj", "Analysieren", "Analizza", "Analysoi", "分析", "विश्लेषण करें"],
+    ["Show the toolpaths of this text in the analysis of G-code", "Pokaż ścieżki z tego tekstu w analizie G-code", "Die Werkzeugwege dieses Textes in der G-Code-Analyse zeigen", "Mostra i percorsi di questo testo nell'analisi del G-code", "Näytä tämän tekstin työstöradat G-koodin analyysissä", "在 G-code 分析中显示此文本的刀路", "इस पाठ के टूलपाथ G-code विश्लेषण में दिखाएं"],
+    ["Changed by hand", "Zmieniony ręcznie", "Von Hand geändert", "Modificato a mano", "Muutettu käsin", "已手动修改", "हाथ से बदला गया"],
+    ["Write the text to a file", "Zapisz tekst do pliku", "Den Text in eine Datei schreiben", "Scrivi il testo in un file", "Kirjoita teksti tiedostoon", "将文本写入文件", "पाठ को फ़ाइल में लिखें"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -288,21 +288,16 @@ impl StdAct {
             StdAct::BackgroundPicture => h.ed_mut().show_background = true,
             StdAct::Tool(t) => crate::editor::select_tool(h.ed_mut(), t),
             StdAct::SplitView(dir) => {
-                let candidates = h.pane_candidates();
                 if let Some(p) = h.panes_mut() {
                     p.dir = dir;
                     if p.is_single() {
-                        if let Some(c) = candidates.into_iter().find(|c| !p.shows(*c)) {
-                            p.split(c);
-                        }
+                        p.split_off_one();
                     }
                 }
             }
             StdAct::SingleView => {
                 if let Some(p) = h.panes_mut() {
-                    p.panes.truncate(1);
-                    p.panes[0].content = crate::work_panes::Content::Active;
-                    p.equalize();
+                    p.merge_all();
                 }
             }
             StdAct::ExportSelectionSvg => crate::editor::EditorShapeOps::export_selection(h, false),

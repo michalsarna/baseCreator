@@ -891,3 +891,14 @@
 890|Taikyti šiuos nustatymus sluoksniui
 891|Pamiršti šį šabloną
 892|Pavadinimas tuščias arba naudojamas kito šablono
+893|Pagrindinis puslapis
+894|Sukurta su:
+895|Perkelti į skydelį {}
+896|{} eilučių
+897|Sukurti iš naujo
+898|Prarasti pakeitimus?
+899|Sukurti projekto G kodą iš naujo; pakeitimai bus prarasti
+900|Analizuoti
+901|Rodyti šio teksto įrankio trajektorijas G kodo analizėje
+902|Pakeista ranka
+903|Įrašyti tekstą į failą
