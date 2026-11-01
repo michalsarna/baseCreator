@@ -218,7 +218,7 @@ pub fn fmt_time(s: f64) -> String {
 }
 
 fn variable_names_id() -> egui::Id {
-    egui::Id::new("base_ui_show_variable_names")
+    egui::Id::unique("base_ui_show_variable_names")
 }
 
 /// Tell the label widgets whether the names of variables are to be shown (the view option *Show variable names*).
