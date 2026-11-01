@@ -874,3 +874,5 @@
 873|Čísla riadkov
 874|Odstrániť komentáre
 875|Formát súboru pre riadiaci systém
+876|Zobraziť názvy premenných
+877|Vedľa popisu poľa s premennou pre vlastný G-kód sa zobrazí jej názov; kliknutie ju skopíruje

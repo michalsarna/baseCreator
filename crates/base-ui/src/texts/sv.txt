@@ -874,3 +874,5 @@
 873|Radnummer
 874|Ta bort kommentarer
 875|Filformat för styrningen
+876|Visa variabelnamn
+877|Bredvid fältets namn visas namnet på variabeln för egen G-kod; ett klick kopierar den

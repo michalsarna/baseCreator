@@ -874,3 +874,5 @@
 873|Numere de linie
 874|Elimină comentariile
 875|Formatul fișierului pentru controler
+876|Afișează numele variabilelor
+877|Lângă eticheta unui câmp care are o variabilă pentru G-code propriu apare numele ei; un clic o copiază

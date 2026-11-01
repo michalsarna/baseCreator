@@ -874,3 +874,5 @@
 873|Números de linha
 874|Remover comentários
 875|Formato do ficheiro para o controlador
+876|Mostrar os nomes das variáveis
+877|Ao lado do rótulo de um campo que tem uma variável para o G-code próprio é mostrado o seu nome; um clique copia-o

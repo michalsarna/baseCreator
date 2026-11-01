@@ -874,3 +874,5 @@
 873|Uimhreacha líne
 874|Bain na tuairimí
 875|Formáid an chomhaid don rialaitheoir
+876|Taispeáin ainmneacha na n-athróg
+877|Cois lipéad réimse a bhfuil athróg aige don G-code féin taispeántar a ainm; cóipeálann cliceáil é

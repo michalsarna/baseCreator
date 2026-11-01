@@ -874,3 +874,5 @@
 873|Reanumbrid
 874|Eemalda kommentaarid
 875|Failivorming juhtimissüsteemile
+876|Näita muutujate nimesid
+877|Oma G-koodi muutujaga välja sildi kõrval näidatakse selle nime; klõps kopeerib selle

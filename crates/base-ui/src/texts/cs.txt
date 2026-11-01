@@ -874,3 +874,5 @@
 873|Čísla řádků
 874|Odstranit komentáře
 875|Formát souboru pro řídicí systém
+876|Zobrazit názvy proměnných
+877|Vedle popisku pole s proměnnou pro vlastní G-kód se zobrazí její název; kliknutí ji zkopíruje

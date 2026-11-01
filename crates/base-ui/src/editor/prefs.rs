@@ -94,10 +94,13 @@ pub fn view_options_window<H: EditorHost>(h: &mut H, ctx: &egui::Context, show: 
             ui.label("G-code");
             ui.checkbox(&mut h.ed_mut().grid_prefs.gcode_preview_after_save, tr("Preview G-code after saving"));
             ui.end_row();
+            ui.label("");
+            ui.checkbox(&mut h.ed_mut().grid_prefs.variable_names, tr("Show variable names")).on_hover_text(tr("Beside the label of a field that has a variable for the own G-code its name is shown; a click copies it"));
+            ui.end_row();
         });
         if ui.button(tr("Reset grid")).clicked() {
-            let (names, preview) = (h.ed().grid_prefs.layer_names, h.ed().grid_prefs.gcode_preview_after_save);
-            h.ed_mut().grid_prefs = GridPrefs { layer_names: names, gcode_preview_after_save: preview, ..GridPrefs::default() };
+            let (names, preview, vars) = (h.ed().grid_prefs.layer_names, h.ed().grid_prefs.gcode_preview_after_save, h.ed().grid_prefs.variable_names);
+            h.ed_mut().grid_prefs = GridPrefs { layer_names: names, gcode_preview_after_save: preview, variable_names: vars, ..GridPrefs::default() };
             h.ed_mut().grid = 10.0;
             h.ed_mut().show_grid = true;
         }

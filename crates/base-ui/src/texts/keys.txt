@@ -874,3 +874,5 @@
 873	Line numbers
 874	Remove comments
 875	Own file format
+876	Show variable names
+877	Beside the label of a field that has a variable for the own G-code its name is shown; a click copies it

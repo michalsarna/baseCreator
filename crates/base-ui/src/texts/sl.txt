@@ -874,3 +874,5 @@
 873|Številke vrstic
 874|Odstrani komentarje
 875|Oblika datoteke za krmilnik
+876|Pokaži imena spremenljivk
+877|Ob oznaki polja s spremenljivko za lastno G-kodo se prikaže njeno ime; klik jo kopira

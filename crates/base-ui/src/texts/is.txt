@@ -874,3 +874,5 @@
 873|Línunúmer
 874|Fjarlægja athugasemdir
 875|Skráarsnið fyrir stýringuna
+876|Sýna heiti breyta
+877|Við hlið heitis reits sem hefur breytu fyrir eigin G-kóða er nafn hennar sýnt; smellur afritar það
