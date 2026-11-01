@@ -163,8 +163,12 @@ fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
     let id = egui::Id::unique("about_credits_offset");
     let mut offset: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(0.0);
     ui.horizontal_top(|ui| {
-        let w = (ui.available_width() - 28.0).max(100.0);
+        // The width the window had the frame before (the first frame asks the window for its size, which would be the width of the longest
+        // line): the list follows the window when it is made wider or narrower.
+        let window = ui.ctx().memory(|m| m.area_rect(egui::Id::unique(Some("about_window")))).map_or(376.0, |r| r.width() - 64.0);
+        let w = (ui.available_width() - 28.0).min(window).max(100.0);
         let out = egui::ScrollArea::vertical().id_salt("about_credits").max_height(H).min_scrolled_height(H).max_width(w).auto_shrink([false, false]).vertical_scroll_offset(offset).scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(ui, |ui| {
+            ui.set_max_width(w - 4.0);
             for c in credits {
                 ui.horizontal_wrapped(|ui| {
                     ui.spacing_mut().item_spacing.x = 4.0;
@@ -474,7 +478,7 @@ mod tests {
         assert!(parse_version(&format!("v{}", base_version())).is_some(), "{}", base_version());
         let ctx = egui::Context::default();
         let mut open = true;
-        let info = AboutInfo { title: "About", name: "App", version: "v1.0.0", lines: vec!["a".into()], url: "https://example.org", site: "https://example.org/home", licence: "MIT", credits: "* **[resvg](https://github.com/linebender/resvg)** (MPL-2.0): reading SVG.\n* **Jakub ([CNC KpK](https://www.youtube.com/@CNC-KpK))**: ideas.\n" };
+        let info = AboutInfo { title: "About", name: "App", version: "v1.0.0", lines: vec!["a".into()], url: "https://example.org", site: "https://example.org/home", licence: "MIT", credits: include_str!("../../../CREDITS.md") };
         // A new window is only measured in its first frame: the texts are drawn in the second.
         ctx.run_ui(egui::RawInput::default(), |ui| about_window(ui.ctx(), &mut open, &info, None)).textures_delta.clear();
         let mut out = ctx.run_ui(egui::RawInput::default(), |ui| about_window(ui.ctx(), &mut open, &info, None));
@@ -483,6 +487,11 @@ mod tests {
         let shown: String = out.shapes.iter().filter_map(|s| if let egui::epaint::Shape::Text(t) = &s.shape { Some(t.galley.text().to_string()) } else { None }).collect::<Vec<_>>().join("\n");
         assert!(shown.contains("Jakub") && shown.contains(THANKS_URL), "{shown}");
         assert!(THANKS_URL.starts_with("https://www.youtube.com/@"));
+        for _ in 0..4 {
+            ctx.run_ui(egui::RawInput::default(), |ui| about_window(ui.ctx(), &mut open, &info, None)).textures_delta.clear();
+        }
+        let r = ctx.memory(|m| m.area_rect(egui::Id::unique(Some("about_window")))).expect("the window");
+        assert!(r.width() < 520.0, "the window keeps the size it was given, not the width of its longest line: {r:?}");
         // The home page and the credits are in the window.
         assert!(shown.contains("Home page") && shown.contains("resvg"), "{shown}");
     }
