@@ -14,6 +14,7 @@ pub mod control_ui;
 pub mod description_ui;
 pub mod device_pages;
 pub mod doc_tabs;
+pub mod work_panes;
 pub mod dialogs;
 pub mod duet;
 pub mod editor;

@@ -848,3 +848,14 @@
 847|Actualizează tot
 848|Mai târziu
 849|Mulțumiri speciale lui Jakub (CNC KpK) pentru idei și sugestiile de îmbunătățire:
+850|Afișează alături
+851|Deschide într-o fereastră separată
+852|Închide panoul
+853|Înapoi la fereastra principală
+854|Proiect activ
+855|Analiza codului G
+856|Previzualizare
+857|Cameră
+858|Împarte vizualizarea: alăturat
+859|Împarte vizualizarea: una deasupra celeilalte
+860|O singură vizualizare

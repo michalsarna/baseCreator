@@ -848,3 +848,14 @@
 847|Actualitza-ho tot
 848|Més tard
 849|Moltes gràcies a Jakub (CNC KpK) per les idees i els suggeriments de millora:
+850|Mostra al costat
+851|Obre en una finestra independent
+852|Tanca el panell
+853|Torna a la finestra principal
+854|Projecte actiu
+855|Anàlisi del G-code
+856|Previsualització
+857|Càmera
+858|Divideix la vista: un al costat de l'altre
+859|Divideix la vista: una a sobre de l'altra
+860|Vista única

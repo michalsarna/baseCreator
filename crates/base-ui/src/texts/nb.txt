@@ -848,3 +848,14 @@
 847|Oppdater alle
 848|Senere
 849|Stor takk til Jakub (CNC KpK) for ideene og forslagene til forbedringer:
+850|Vis ved siden av
+851|Åpne i et eget vindu
+852|Lukk panelet
+853|Tilbake til hovedvinduet
+854|Aktivt prosjekt
+855|G-kodeanalyse
+856|Forhåndsvisning
+857|Kamera
+858|Del visningen: side ved side
+859|Del visningen: over hverandre
+860|Én visning

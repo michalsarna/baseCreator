@@ -855,6 +855,17 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Update all", "Zaktualizuj wszystkie", "Alle aktualisieren", "Aggiorna tutti", "Päivitä kaikki", "全部更新", "सभी अपडेट करें"],
     ["Later", "Później", "Später", "Più tardi", "Myöhemmin", "稍后", "बाद में"],
     ["Big thanks to Jakub (CNC KpK) for the ideas and suggestions for improvements:", "Ogromne podziękowania dla Jakuba (CNC KpK) za pomysły i sugestie usprawnień:", "Ein großes Dankeschön an Jakub (CNC KpK) für die Ideen und Verbesserungsvorschläge:", "Un grande grazie a Jakub (CNC KpK) per le idee e i suggerimenti di miglioramento:", "Suuri kiitos Jakubille (CNC KpK) ideoista ja parannusehdotuksista:", "衷心感谢 Jakub（CNC KpK）提出的想法和改进建议：", "Jakub (CNC KpK) को विचारों और सुधार के सुझावों के लिए बहुत धन्यवाद:"],
+    ["Show beside", "Pokaż obok", "Daneben anzeigen", "Mostra accanto", "Näytä vieressä", "并排显示", "बगल में दिखाएं"],
+    ["Open in a separate window", "Otwórz w osobnym oknie", "In separatem Fenster öffnen", "Apri in una finestra separata", "Avaa erillisessä ikkunassa", "在单独窗口中打开", "अलग विंडो में खोलें"],
+    ["Close pane", "Zamknij panel", "Bereich schließen", "Chiudi riquadro", "Sulje paneeli", "关闭窗格", "पेन बंद करें"],
+    ["Back to the main window", "Wróć do głównego okna", "Zurück zum Hauptfenster", "Torna alla finestra principale", "Takaisin pääikkunaan", "返回主窗口", "मुख्य विंडो पर वापस जाएं"],
+    ["Active project", "Aktywny projekt", "Aktives Projekt", "Progetto attivo", "Aktiivinen projekti", "当前项目", "सक्रिय प्रोजेक्ट"],
+    ["G-code analysis", "Analiza G-code", "G-Code-Analyse", "Analisi del G-code", "G-koodin analyysi", "G 代码分析", "G-कोड विश्लेषण"],
+    ["Preview", "Podgląd", "Vorschau", "Anteprima", "Esikatselu", "预览", "पूर्वावलोकन"],
+    ["Camera", "Kamera", "Kamera", "Fotocamera", "Kamera", "摄像头", "कैमरा"],
+    ["Split view: side by side", "Podziel widok: obok siebie", "Ansicht teilen: nebeneinander", "Dividi la vista: affiancata", "Jaa näkymä: vierekkäin", "拆分视图：并排", "दृश्य विभाजित करें: साथ-साथ"],
+    ["Split view: one above the other", "Podziel widok: jeden nad drugim", "Ansicht teilen: übereinander", "Dividi la vista: una sopra l'altra", "Jaa näkymä: päällekkäin", "拆分视图：上下排列", "दृश्य विभाजित करें: ऊपर-नीचे"],
+    ["Single view", "Jeden widok", "Einzelansicht", "Vista singola", "Yksi näkymä", "单一视图", "एकल दृश्य"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

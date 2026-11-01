@@ -848,3 +848,14 @@
 847|Összes frissítése
 848|Később
 849|Nagy köszönet Jakubnak (CNC KpK) az ötletekért és a fejlesztési javaslatokért:
+850|Megjelenítés mellette
+851|Megnyitás külön ablakban
+852|Panel bezárása
+853|Vissza a főablakhoz
+854|Aktív projekt
+855|G-kód elemzése
+856|Előnézet
+857|Kamera
+858|Nézet felosztása: egymás mellett
+859|Nézet felosztása: egymás alatt
+860|Egy nézet

@@ -848,3 +848,14 @@
 847|Actualizar todo
 848|Más tarde
 849|Muchas gracias a Jakub (CNC KpK) por las ideas y sugerencias de mejora:
+850|Mostrar al lado
+851|Abrir en una ventana aparte
+852|Cerrar panel
+853|Volver a la ventana principal
+854|Proyecto activo
+855|Análisis del G-code
+856|Vista previa
+857|Cámara
+858|Dividir la vista: una al lado de otra
+859|Dividir la vista: una encima de otra
+860|Una sola vista

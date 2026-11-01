@@ -205,6 +205,10 @@ pub enum StdAct {
     BackgroundPicture,
     /// Choose a tool of the palette (the *Insert* menu lists the ones that insert objects).
     Tool(crate::editor::Tool),
+    /// Divide the central area: beside or stacked (a second pane is added when there is only one).
+    SplitView(crate::work_panes::Dir),
+    /// Back to the active drawing alone.
+    SingleView,
 }
 
 use Entry::{Item, Sep};
@@ -283,6 +287,24 @@ impl StdAct {
             StdAct::MeasureShapes => h.ed_mut().design.open = Some(crate::editor::DesignCmd::Measure),
             StdAct::BackgroundPicture => h.ed_mut().show_background = true,
             StdAct::Tool(t) => crate::editor::select_tool(h.ed_mut(), t),
+            StdAct::SplitView(dir) => {
+                let candidates = h.pane_candidates();
+                if let Some(p) = h.panes_mut() {
+                    p.dir = dir;
+                    if p.is_single() {
+                        if let Some(c) = candidates.into_iter().find(|c| !p.shows(*c)) {
+                            p.split(c);
+                        }
+                    }
+                }
+            }
+            StdAct::SingleView => {
+                if let Some(p) = h.panes_mut() {
+                    p.panes.truncate(1);
+                    p.panes[0].content = crate::work_panes::Content::Active;
+                    p.equalize();
+                }
+            }
             StdAct::ExportSelectionSvg => crate::editor::EditorShapeOps::export_selection(h, false),
             StdAct::ExportSelectionDxf => crate::editor::EditorShapeOps::export_selection(h, true),
             StdAct::ToggleAutoFit => {
@@ -313,6 +335,7 @@ impl StdAct {
             StdAct::ToggleSnapObjects => Some(h.ed().snap_objects),
             StdAct::ToggleAutoFit => Some(h.ed().view.auto_fit),
             StdAct::Tool(t) => Some(h.ed().tool == t),
+            StdAct::SplitView(_) | StdAct::SingleView => None,
             _ => None,
         }
     }
@@ -379,6 +402,9 @@ impl StdAct {
             StdAct::MeasureShapes => "move",
             StdAct::BackgroundPicture => "image",
             StdAct::Tool(t) => crate::icons::tool_icon(t),
+            StdAct::SplitView(crate::work_panes::Dir::Beside) => "panel-right",
+            StdAct::SplitView(crate::work_panes::Dir::Stacked) => "panel-top",
+            StdAct::SingleView => "square",
         }
     }
 }
@@ -494,6 +520,10 @@ pub mod std_entries {
     pub fn export_selection() -> Vec<Entry<StdAct>> {
         vec![Item(StdAct::ExportSelectionSvg, "Export selection as SVG…", None), Item(StdAct::ExportSelectionDxf, "Export selection as DXF…", None)]
     }
+    /// The division of the central area into panes.
+    pub fn split_view() -> Vec<Entry<StdAct>> {
+        vec![Item(StdAct::SplitView(crate::work_panes::Dir::Beside), "Split view: side by side", None), Item(StdAct::SplitView(crate::work_panes::Dir::Stacked), "Split view: one above the other", None), Item(StdAct::SingleView, "Single view", None)]
+    }
     /// Zoom and fit.
     pub fn zoom() -> Vec<Entry<StdAct>> {
         vec![
@@ -511,7 +541,7 @@ mod tests {
     use super::*;
 
     fn all_std_entries() -> Vec<Entry<StdAct>> {
-        [std_entries::edit(), std_entries::align(), std_entries::place(), std_entries::group(), std_entries::order(), std_entries::nodes(), std_entries::grid(), std_entries::zoom(), std_entries::import_image(), std_entries::image_tools(), std_entries::shape_ops(), std_entries::insert_tools()].concat()
+        [std_entries::edit(), std_entries::align(), std_entries::place(), std_entries::group(), std_entries::order(), std_entries::nodes(), std_entries::grid(), std_entries::zoom(), std_entries::import_image(), std_entries::image_tools(), std_entries::shape_ops(), std_entries::insert_tools(), std_entries::split_view()].concat()
     }
 
     #[test]

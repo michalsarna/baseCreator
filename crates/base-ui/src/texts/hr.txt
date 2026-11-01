@@ -848,3 +848,14 @@
 847|Ažuriraj sve
 848|Kasnije
 849|Veliko hvala Jakubu (CNC KpK) na idejama i prijedlozima za poboljšanja:
+850|Prikaži pokraj
+851|Otvori u zasebnom prozoru
+852|Zatvori okno
+853|Natrag u glavni prozor
+854|Aktivni projekt
+855|Analiza G-koda
+856|Pregled
+857|Kamera
+858|Podijeli prikaz: jedan pored drugoga
+859|Podijeli prikaz: jedan iznad drugoga
+860|Jedan prikaz

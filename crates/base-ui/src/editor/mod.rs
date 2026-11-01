@@ -1,6 +1,7 @@
 //! The parts of an editor that do not depend on the application: tools, the view, drags in progress, node addresses,
 //! grid preferences and the geometry of fitting the work area into a window.
 mod bars;
+mod view_only;
 mod canvas;
 mod commands;
 mod context_menu;
@@ -21,6 +22,7 @@ pub use shape_ops::EditorShapeOps;
 pub use background_ui::{Background, EditorBackground};
 pub use design_ui::{CodeKind, DesignCmd, DesignState, EditorDesign};
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
+pub use view_only::{show_other_doc, Look};
 pub use bars::{control_name, grid_toggles, select_tool, selection_size, zoom_and_cursor};
 pub use prefs::view_options_window;
 pub use props::properties_sections;
@@ -85,6 +87,7 @@ impl Tool {
     }
 }
 
+#[derive(Clone, Debug)]
 pub struct View {
     pub zoom: f32, // screen px per mm
     pub pan: egui::Vec2,

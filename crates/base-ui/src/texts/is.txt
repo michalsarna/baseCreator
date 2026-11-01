@@ -848,3 +848,14 @@
 847|Uppfæra allt
 848|Seinna
 849|Miklar þakkir til Jakub (CNC KpK) fyrir hugmyndirnar og tillögurnar að úrbótum:
+850|Sýna við hliðina
+851|Opna í sérstökum glugga
+852|Loka glugganum
+853|Aftur í aðalgluggann
+854|Virkt verkefni
+855|Greining G-kóða
+856|Forskoðun
+857|Myndavél
+858|Skipta sýn: hlið við hlið
+859|Skipta sýn: hvort ofan á öðru
+860|Ein sýn
