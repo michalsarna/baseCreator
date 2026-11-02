@@ -911,3 +911,10 @@
 910|Felvétel: {} s (az adatfolyam másolása)
 911|Az MP4 az IP-kamera adatfolyamát másolja; ez a kamera AVI-ként van rögzítve.
 912|Az adatfolyamot nem sikerült rögzíteni (cím, kamera, ffmpeg?).
+913|Online clipartok…
+914|Idő
+915|Ez a változat nem tudja használni a számítógép kameráit.
+916|Igazítás a munkaterülethez
+917|Ki
+918|Soros port
+919|Hálózat (TCP, pl. ser2net)

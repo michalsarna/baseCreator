@@ -911,3 +911,10 @@
 910|Įrašoma: {} s (srautas kopijuojamas)
 911|MP4 kopijuoja IP kameros srautą; ši kamera įrašoma kaip AVI.
 912|Srauto įrašyti nepavyko (adresas, kamera, ffmpeg?).
+913|Klipartai internete…
+914|Laikas
+915|Ši versija negali naudoti kompiuterio kamerų.
+916|Pritaikyti darbo sričiai
+917|Išjungta
+918|Nuoseklusis prievadas
+919|Tinklas (TCP, pvz., ser2net)

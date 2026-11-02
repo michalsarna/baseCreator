@@ -911,3 +911,10 @@
 910|Snimanje: {} s (tok se kopira)
 911|MP4 kopira tok IP kamere; ova se kamera snima kao AVI.
 912|Tok se nije mogao snimiti (adresa, kamera, ffmpeg?).
+913|Clipart na mreži…
+914|Vrijeme
+915|Ova verzija ne može koristiti kamere računala.
+916|Prilagodi radnom području
+917|Isključeno
+918|Serijski priključak
+919|Mreža (TCP, npr. ser2net)

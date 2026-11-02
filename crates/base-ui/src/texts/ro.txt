@@ -911,3 +911,10 @@
 910|Înregistrare: {} s (fluxul este copiat)
 911|MP4 copiază fluxul unei camere IP; această cameră este înregistrată ca AVI.
 912|Fluxul nu a putut fi înregistrat (adresa, camera, ffmpeg?).
+913|Clipart online…
+914|Timp
+915|Această versiune nu poate folosi camerele calculatorului.
+916|Încadrează în zona de lucru
+917|Oprit
+918|Port serial
+919|Rețea (TCP, de ex. ser2net)

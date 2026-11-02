@@ -911,3 +911,10 @@
 910|Enregistrement : {} s (le flux est copié)
 911|MP4 copie le flux d'une caméra IP ; cette caméra est enregistrée en AVI.
 912|Le flux n'a pas pu être enregistré (adresse, caméra, ffmpeg ?).
+913|Cliparts en ligne…
+914|Temps
+915|Cette version ne peut pas utiliser les caméras de l'ordinateur.
+916|Ajuster à la zone de travail
+917|Arrêt
+918|Port série
+919|Réseau (TCP, p. ex. ser2net)

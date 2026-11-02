@@ -911,3 +911,10 @@
 910|Upptaka: {} s (straumurinn er afritaður)
 911|MP4 afritar straum IP-myndavélar; þessi myndavél er tekin upp sem AVI.
 912|Ekki tókst að taka upp strauminn (vistfang, myndavél, ffmpeg?).
+913|Klippimyndir á netinu…
+914|Tími
+915|Þessi útgáfa getur ekki notað myndavélar tölvunnar.
+916|Laga að vinnusvæði
+917|Af
+918|Raðtengi
+919|Net (TCP, t.d. ser2net)

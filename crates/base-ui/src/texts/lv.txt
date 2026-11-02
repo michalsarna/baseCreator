@@ -911,3 +911,10 @@
 910|Ieraksts: {} s (straume tiek kopēta)
 911|MP4 kopē IP kameras straumi; šī kamera tiek ierakstīta kā AVI.
 912|Straumi nevarēja ierakstīt (adrese, kamera, ffmpeg?).
+913|Klipkopa tiešsaistē…
+914|Laiks
+915|Šī versija nevar izmantot datora kameras.
+916|Ietilpināt darba laukumā
+917|Izslēgts
+918|Seriālais ports
+919|Tīkls (TCP, piem., ser2net)
