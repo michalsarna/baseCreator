@@ -155,21 +155,23 @@ pub fn about_window(ctx: &egui::Context, open: &mut bool, info: &AboutInfo, logo
     });
 }
 
-/// The credits in a list with the arrows always in view (the wheel works too). The list takes the whole width of the window.
+/// The credits in a list with the arrows always in view (the wheel works too). The list takes the whole width of the window and
+/// the height that is left of it, at least `MIN_H`.
 fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
-    const H: f32 = 150.0;
+    const MIN_H: f32 = 150.0;
     const STEP: f32 = 60.0;
     const ARROWS: f32 = 28.0;
     ui.separator();
     ui.label(RichText::new(tr("Made with:")).strong());
     let id = ui.scope_id().with("about_credits_offset");
     let mut offset: f32 = ui.data(|d| d.get_temp(id)).unwrap_or(0.0);
+    let h = crate::window::fill_size(ui).y.max(MIN_H);
     // The list is drawn in a child that the window does not count into its size: a width that the content asks for would keep the window from shrinking.
     let full = ui.available_width().max(60.0);
-    let (outer, _) = ui.allocate_exact_size(egui::vec2(60.0, H), egui::Sense::hover());
-    let list = egui::Rect::from_min_size(outer.min, egui::vec2(full - ARROWS, H));
+    let (outer, _) = ui.allocate_exact_size(egui::vec2(60.0, h), egui::Sense::hover());
+    let list = egui::Rect::from_min_size(outer.min, egui::vec2(full - ARROWS, h));
     let mut child = ui.new_child(egui::UiBuilder::new().max_rect(list));
-    let out = egui::ScrollArea::vertical().id_salt("about_credits").max_height(H).min_scrolled_height(H).max_width(list.width()).auto_shrink([false, false]).vertical_scroll_offset(offset).scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(&mut child, |ui| {
+    let out = egui::ScrollArea::vertical().id_salt("about_credits").max_height(h).min_scrolled_height(h).max_width(list.width()).auto_shrink([false, false]).vertical_scroll_offset(offset).scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden).show(&mut child, |ui| {
         ui.set_max_width(list.width() - 4.0);
         for c in credits {
             ui.horizontal_wrapped(|ui| {
@@ -495,6 +497,49 @@ mod tests {
         assert!(r.width() < 520.0, "the window keeps the size it was given, not the width of its longest line: {r:?}");
         // The home page and the credits are in the window.
         assert!(shown.contains("Home page") && shown.contains("resvg"), "{shown}");
+    }
+
+    #[test]
+    fn the_list_of_the_about_window_fills_a_window_that_is_made_taller_and_the_window_can_be_made_small_again() {
+        let info = AboutInfo { title: "About", name: "App", version: "v1.0.0", lines: vec!["a".into()], url: "https://example.org", site: "https://example.org/home", licence: "MIT", credits: include_str!("../../../CREDITS.md") };
+        let ctx = egui::Context::default();
+        let mut open = true;
+        let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1400.0));
+        let mut frame = |events: Vec<egui::Event>| {
+            let raw = egui::RawInput { screen_rect: Some(screen), events, ..Default::default() };
+            let mut out = ctx.run_ui(raw, |ui| about_window(ui.ctx(), &mut open, &info, None));
+            out.textures_delta.clear();
+            // The lowest line of text that is drawn, and the rectangle of the window.
+            let lowest = out.shapes.iter().filter_map(|s| if let egui::epaint::Shape::Text(t) = &s.shape { (t.galley.text().contains(' ')).then(|| t.pos.y + t.galley.size().y) } else { None }).fold(0.0, f32::max);
+            (ctx.memory(|m| m.area_rect(egui::Id::unique(Some("about_window")))).expect("the window"), lowest)
+        };
+        for _ in 0..4 {
+            frame(vec![]);
+        }
+        let (start, _) = frame(vec![]);
+        // Dragging the corner of the window by `by`, and a few frames for the window to settle.
+        let drag = |frame: &mut dyn FnMut(Vec<egui::Event>) -> (egui::Rect, f32), from: egui::Pos2, by: egui::Vec2| {
+            let press = |pressed| egui::Event::PointerButton { pos: from, button: egui::PointerButton::Primary, pressed, modifiers: Default::default() };
+            frame(vec![egui::Event::PointerMoved(from)]);
+            frame(vec![press(true)]);
+            frame(vec![egui::Event::PointerMoved(from + by)]);
+            frame(vec![egui::Event::PointerMoved(from + by)]);
+            let up = egui::Event::PointerButton { pos: from + by, button: egui::PointerButton::Primary, pressed: false, modifiers: Default::default() };
+            frame(vec![up]);
+            for _ in 0..4 {
+                frame(vec![]);
+            }
+            frame(vec![])
+        };
+        let corner = |r: egui::Rect| r.right_bottom() - egui::vec2(3.0, 3.0);
+        let (tall, lowest) = drag(&mut frame, corner(start), egui::vec2(0.0, 500.0));
+        assert!(tall.height() > start.height() + 400.0, "the window grew: {start:?} -> {tall:?}");
+        assert!(lowest > start.bottom() + 150.0, "the list goes on in the new room: the lowest text at {lowest}, the old bottom {}", start.bottom());
+        // It does not grow by itself.
+        let (still, _) = frame(vec![]);
+        assert!((still.height() - tall.height()).abs() < 1.0, "{tall:?} -> {still:?}");
+        let (small, _) = drag(&mut frame, corner(tall), egui::vec2(0.0, -400.0));
+        assert!(small.height() < tall.height() - 300.0, "the window can be made small again: {tall:?} -> {small:?}");
     }
 
     #[test]

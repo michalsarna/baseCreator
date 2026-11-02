@@ -1,5 +1,5 @@
-//! The icon of the window follows the calendar: 5 days before a holiday, on the day and 2 days after it the programs
-//! show a festive variant. Which holidays and how they look is up to each program; this module only knows the dates.
+//! The icon of the window follows the calendar: from 5 days before a holiday to its last day the programs show a festive
+//! variant. Which holidays and how they look is up to each program; this module only knows the dates.
 
 /// A PNG of the logo in two sizes: 256 px (the logo in the program) and 512 px (the icon of the window and the Dock).
 pub type Icon = (&'static [u8], &'static [u8]);
@@ -21,7 +21,6 @@ pub struct Variants {
 }
 
 const DAYS_BEFORE: i64 = 5;
-const DAYS_AFTER: i64 = 2;
 
 /// Days since 1970-01-01 of a civil date (proleptic Gregorian).
 fn days_from_civil(y: i64, m: i64, d: i64) -> i64 {
@@ -46,21 +45,23 @@ fn easter(y: i64) -> (i64, i64) {
     (month, (h + l - 7 * m + 33 * month + 19) % 32)
 }
 
-/// The holiday the date belongs to, if any. Near two holidays (26-27 December), the closer one wins.
+/// The holiday the date belongs to, if any. Halloween ends on its day (31 October); Christmas on 26 December, the New Year
+/// on 1 January and Easter on its Monday: the day after each is an ordinary day again. Near two holidays (26 December), the
+/// closer one wins.
 pub fn holiday_on(year: i32, month: u32, day: u32) -> Option<Holiday> {
     let today = days_from_civil(year as i64, month as i64, day as i64);
     let mut best: Option<(i64, Holiday)> = None;
     for y in (year as i64 - 1)..=(year as i64 + 1) {
         let (em, ed) = easter(y);
         let dates = [
-            (days_from_civil(y, 12, 25), Holiday::Christmas),
-            (days_from_civil(y, 12, 31), Holiday::NewYearsEve),
-            (days_from_civil(y, 10, 31), Holiday::Halloween),
-            (days_from_civil(y, em, ed), Holiday::Easter),
+            (days_from_civil(y, 12, 25), 1, Holiday::Christmas),
+            (days_from_civil(y, 12, 31), 1, Holiday::NewYearsEve),
+            (days_from_civil(y, 10, 31), 0, Holiday::Halloween),
+            (days_from_civil(y, em, ed), 1, Holiday::Easter),
         ];
-        for (date, holiday) in dates {
+        for (date, days_after, holiday) in dates {
             let left = date - today; // days until the holiday, negative once it is over
-            if (-DAYS_AFTER..=DAYS_BEFORE).contains(&left) && best.is_none_or(|(d, _)| left.abs() < d) {
+            if (-days_after..=DAYS_BEFORE).contains(&left) && best.is_none_or(|(d, _)| left.abs() < d) {
                 best = Some((left.abs(), holiday));
             }
         }
@@ -124,30 +125,28 @@ mod tests {
     }
 
     #[test]
-    fn the_window_is_five_days_before_and_two_days_after() {
+    fn the_window_is_five_days_before_and_ends_on_the_last_day_of_the_holiday() {
         use Holiday::*;
         assert_eq!(holiday_on(2026, 10, 25), None);
         assert_eq!(holiday_on(2026, 10, 26), Some(Halloween));
         assert_eq!(holiday_on(2026, 10, 31), Some(Halloween));
-        assert_eq!(holiday_on(2026, 11, 2), Some(Halloween));
-        assert_eq!(holiday_on(2026, 11, 3), None);
+        assert_eq!(holiday_on(2026, 11, 1), None);
         assert_eq!(holiday_on(2026, 12, 19), None);
         assert_eq!(holiday_on(2026, 12, 20), Some(Christmas));
         assert_eq!(holiday_on(2026, 3, 30), None);
         assert_eq!(holiday_on(2026, 3, 31), Some(Easter));
-        assert_eq!(holiday_on(2026, 4, 7), Some(Easter));
-        assert_eq!(holiday_on(2026, 4, 8), None);
+        assert_eq!(holiday_on(2026, 4, 6), Some(Easter));
+        assert_eq!(holiday_on(2026, 4, 7), None);
     }
 
     #[test]
-    fn christmas_wins_after_the_day_and_the_new_year_follows() {
+    fn christmas_ends_on_the_26th_and_the_new_year_on_the_first_of_january() {
         use Holiday::*;
         assert_eq!(holiday_on(2026, 12, 26), Some(Christmas));
-        assert_eq!(holiday_on(2026, 12, 27), Some(Christmas));
-        assert_eq!(holiday_on(2026, 12, 28), Some(NewYearsEve));
+        assert_eq!(holiday_on(2026, 12, 27), Some(NewYearsEve));
         assert_eq!(holiday_on(2026, 12, 31), Some(NewYearsEve));
-        assert_eq!(holiday_on(2027, 1, 2), Some(NewYearsEve));
-        assert_eq!(holiday_on(2027, 1, 3), None);
+        assert_eq!(holiday_on(2027, 1, 1), Some(NewYearsEve));
+        assert_eq!(holiday_on(2027, 1, 2), None);
     }
 
     #[test]
