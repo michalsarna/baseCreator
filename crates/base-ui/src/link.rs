@@ -420,11 +420,16 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     break;
                 }
                 let used: usize = pending.iter().map(|(n, _)| n).sum();
-                // Simple streaming keeps one line in flight; counting fills the controller's buffer.
-                if used + l.len() + 1 > RX_BUFFER || (simple && !pending.is_empty()) {
+                // GRBL takes every byte above 127 for a command of its own, even inside a comment (0x84 opens the safety
+                // door, 0x9B lowers the spindle...): only ASCII goes out, the letters of other languages without their marks.
+                let len = base_core::gcode_out::ascii(l).len();
+                // Simple streaming keeps one line in flight; counting fills the controller's buffer. A line longer than the
+                // buffer goes alone when nothing waits (the controller answers it with an error instead of the job hanging).
+                if (used + len + 1 > RX_BUFFER && !pending.is_empty()) || (simple && !pending.is_empty()) {
                     break;
                 }
                 let (l, kind) = queue.pop_front().unwrap();
+                let l = base_core::gcode_out::ascii(&l);
                 emit(traffic(Dir::Tx, l.clone(), kind == Kind::Poll));
                 if p.write_all(format!("{l}\n").as_bytes()).is_err() {
                     lost = true;
@@ -657,6 +662,30 @@ mod tests {
         }), "the job finishes");
         link.send(Cmd::Disconnect);
         max.recv_timeout(Duration::from_secs(8)).unwrap()
+    }
+
+    #[test]
+    fn only_ascii_is_sent_and_a_line_longer_than_the_buffer_does_not_hang_the_job() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let _max = slow_grbl(listener, 5, None, "Idle");
+        let link = LaserLink::spawn(egui::Context::default());
+        link.send(Cmd::Connect { target: Target::Tcp { host: "127.0.0.1".into(), port }, controller: Controller::Grbl, streaming: base_core::machine::Streaming::Counting });
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Connected(true))));
+        let long = format!("({})", "x".repeat(200));
+        link.send(Cmd::Job(vec!["G1 X1".into(), "(Layer: Kieszeń ąś)".into(), long, "G1 X2".into()]));
+        let (mut sent, mut finished) = (vec![], false);
+        assert!(wait_for(&link, 4.0, |e| {
+            match e {
+                Evt::Traffic(ConsoleLine { dir: Dir::Tx, text, poll: false }) => sent.push(text.clone()),
+                Evt::Progress { done, total } => finished = *done == 4 && *total == 4,
+                _ => {}
+            }
+            finished
+        }), "the job finishes: {sent:?}");
+        assert!(sent.contains(&"(Layer: Kieszen as)".to_string()), "{sent:?}");
+        assert!(sent.iter().all(|l| l.is_ascii()), "{sent:?}");
+        link.send(Cmd::Disconnect);
     }
 
     #[test]

@@ -60,6 +60,47 @@ pub fn substitute(text: &str, value: &dyn Fn(&str) -> Option<String>) -> String 
     out
 }
 
+/// The text with only ASCII characters: the letters of other languages without their marks (ą → a, ß → ss, Æ → AE), any
+/// other character a `?`. GRBL takes every byte above 127 for a command of its own, even inside a comment.
+pub fn ascii(text: &str) -> String {
+    if text.is_ascii() {
+        return text.to_string();
+    }
+    const FROM: &str = "ÀÁÂÃÄÅĀĂĄàáâãäåāăąÇĆĈĊČçćĉċčĎĐďđÈÉÊËĒĔĖĘĚèéêëēĕėęěĜĞĠĢĝğġģĤĦĥħÌÍÎÏĨĪĬĮİìíîïĩīĭįıĴĵĶķĹĻĽĿŁĺļľŀłÑŃŅŇñńņňÒÓÔÕÖØŌŎŐòóôõöøōŏőŔŖŘŕŗřŚŜŞŠśŝşšȘșŢŤŦţťŧȚțÙÚÛÜŨŪŬŮŰŲùúûüũūŭůűųŴŵÝŸŶýÿŷŹŻŽźżžΆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩάαβγδεζηθικλμνξοπρσςτυφχψω";
+    const TO: &str = "AAAAAAAAAaaaaaaaaaCCCCCcccccDDddEEEEEEEEEeeeeeeeeeGGGGggggHHhhIIIIIIIIIiiiiiiiiiJjKkLLLLLlllllNNNNnnnnOOOOOOOOOoooooooooRRRrrrSSSSssssSsTTTtttTtUUUUUUUUUUuuuuuuuuuuWwYYYyyyZZZzzzAABGDEZEOIKLMNXOPRSTYFXPOaabgdezeoiklmnxoprsstyfxpo";
+    let map: std::collections::HashMap<char, char> = FROM.chars().zip(TO.chars()).collect();
+    let mut out = String::with_capacity(text.len());
+    for c in text.chars() {
+        match c {
+            c if c.is_ascii() => out.push(c),
+            'ß' => out.push_str("ss"),
+            'Æ' => out.push_str("AE"),
+            'æ' => out.push_str("ae"),
+            'Œ' => out.push_str("OE"),
+            'œ' => out.push_str("oe"),
+            'Þ' => out.push_str("Th"),
+            'þ' => out.push_str("th"),
+            'Ð' => out.push('D'),
+            'ð' => out.push('d'),
+            '°' => out.push_str("deg"),
+            '×' => out.push('x'),
+            '–' | '—' | '−' => out.push('-'),
+            '…' => out.push_str("..."),
+            '‘' | '’' | '‚' => out.push('\''),
+            '“' | '”' | '„' => out.push('"'),
+            '\u{a0}' => out.push(' '),
+            c => out.push(map.get(&c).copied().unwrap_or('?')),
+        }
+    }
+    out
+}
+
+/// The text for a comment of G-code: ASCII (see `ascii`), no brackets or semicolons (they would end it) or line breaks, at most
+/// `max` characters (a sender that counts the 128 characters of the buffer of GRBL never sends a longer line).
+pub fn comment_text(text: &str, max: usize) -> String {
+    ascii(text).chars().map(|c| if matches!(c, '(' | ')' | ';') || c.is_control() { ' ' } else { c }).take(max).collect::<String>().trim_end().to_string()
+}
+
 /// A line without its comments (`;` to the end, and `( ... )` anywhere), trimmed.
 pub fn strip_comments(line: &str) -> String {
     let mut out = String::new();
@@ -84,7 +125,7 @@ pub const COMMON_VARS: &[&str] = &["project_name", "project_path", "date", "time
 pub fn note_lines(notes: &str) -> Vec<String> {
     let mut out = vec![];
     for line in notes.lines() {
-        let clean: String = line.chars().map(|c| match c { '(' | '[' | '{' => '<', ')' | ']' | '}' => '>', ';' | '%' => ',', c if c.is_control() => ' ', c => c }).collect();
+        let clean: String = ascii(line).chars().map(|c| match c { '(' | '[' | '{' => '<', ')' | ']' | '}' => '>', ';' | '%' => ',', c if c.is_control() => ' ', c => c }).collect();
         let clean = clean.trim();
         let chars: Vec<char> = clean.chars().collect();
         for piece in chars.chunks(100) {
@@ -489,5 +530,16 @@ mod tests {
         assert!(old.is_default() && old.number_step == 10);
         let frame: Frame = serde_json::from_str("{}").unwrap();
         assert_eq!(frame, Frame::default());
+    }
+
+    #[test]
+    fn only_ascii_goes_into_a_comment_and_letters_lose_their_marks() {
+        assert_eq!(ascii("Kieszeń źdźbło ŁÓDŹ ß Æ 45°"), "Kieszen zdzblo LODZ ss AE 45deg");
+        assert_eq!(ascii("Fräsen Ølstue Ελλάδα"), "Frasen Olstue Ellada");
+        assert_eq!(ascii("漢字"), "??");
+        assert!(ascii("Žluťoučký kůň úpěl ďábelské ódy").is_ascii());
+        assert_eq!(comment_text("Warstwa (ńa); druga\nlinia", 30), "Warstwa  na   druga linia");
+        assert_eq!(comment_text("abcdef", 3), "abc");
+        assert!(note_lines("Płyta brzozowa 10 mm, kieszeń").iter().all(|l| l.is_ascii()));
     }
 }
