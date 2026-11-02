@@ -1,0 +1,131 @@
+name: Release BaseCreator
+
+# Not every tag of baseCreator is a release of the program: the tags pin the libraries for the other programs and there can be several a day.
+# A release is asked for by hand, for a tag that exists, and has its number: Actions > Release BaseCreator > Run workflow, or
+#   gh workflow run release.yml -f tag=v1.59.0
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "The tag of baseCreator to release, like v1.59.0"
+        required: true
+
+permissions:
+  contents: write
+
+env:
+  TAG: ${{ inputs.tag }}
+
+jobs:
+  check:
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag }}
+          fetch-depth: 0
+      - name: The tag must be on main
+        run: git merge-base --is-ancestor HEAD origin/main
+      - name: The tag must match the version in Cargo.toml
+        run: |
+          v=$(grep -m1 '^version' Cargo.toml | sed 's/.*"\(.*\)"/\1/')
+          [ "${TAG#v}" = "$v" ] || { echo "tag $TAG != Cargo.toml version $v"; exit 1; }
+      - name: VERSIONS.md must say what is new
+        run: grep -q "^## $TAG\b" VERSIONS.md
+
+  build:
+    needs: check
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-26.04, name: linux-x86_64, deb: amd64 }
+          - { os: ubuntu-26.04-arm, name: linux-arm64, deb: arm64 }
+          - { os: windows-latest, name: windows-x86_64 }
+          - { os: macos-latest, name: macos-arm64 }
+          - { os: macos-15-intel, name: macos-x86_64 }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag }}
+      - uses: dtolnay/rust-toolchain@686976e191b89faba57d3206551f0f330d8cb249 # stable
+        with:
+          toolchain: stable
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
+      - name: Linux build dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libxkbcommon-x11-dev libgl1-mesa-dev
+      - run: cargo build --release -p basecreator
+
+      # Plain archive (Linux .tar.gz, Windows .zip): binary + README + LICENSE. macOS gets only the .dmg.
+      - name: Archive
+        if: runner.os != 'macOS'
+        shell: bash
+        run: |
+          mkdir dist
+          cp README.md LICENSE LICENSE-APACHE dist/
+          cp target/release/basecreator dist/ 2>/dev/null || cp target/release/basecreator.exe dist/
+          name="basecreator-${TAG}-${{ matrix.name }}"
+          if [ "$RUNNER_OS" = Windows ]; then 7z a "$name.zip" ./dist/*; else tar czf "$name.tar.gz" -C dist .; fi
+
+      # Linux: .deb
+      - name: Debian package
+        if: runner.os == 'Linux'
+        run: |
+          cargo install cargo-deb --locked
+          cargo deb -p basecreator --no-build --output "basecreator-${TAG}-linux-${{ matrix.deb }}.deb"
+
+      # Windows: NSIS installer (makensis is preinstalled on the runner image; install it if missing)
+      - name: Windows installer
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (-not (Get-Command makensis -ErrorAction SilentlyContinue)) { choco install nsis -y --no-progress; $env:PATH += ";C:\Program Files (x86)\NSIS" }
+          $version = $env:TAG.TrimStart('v')
+          makensis /V2 "/DVERSION=$version" "/DOUTFILE=$PWD\basecreator-$env:TAG-windows-x86_64-setup.exe" packaging/windows/installer.nsi
+
+      # macOS: .app bundle inside a .dmg
+      - name: macOS app bundle and dmg
+        if: runner.os == 'macOS'
+        run: |
+          cargo install cargo-bundle --locked
+          (cd crates/basecreator && cargo bundle --release)
+          # Apple silicon refuses to run code without a valid signature; sign ad hoc (no developer account needed)
+          codesign --force --deep --sign - target/release/bundle/osx/BaseCreator.app
+          codesign --verify --deep --strict --verbose=2 target/release/bundle/osx/BaseCreator.app
+          mkdir dmg && cp -R target/release/bundle/osx/BaseCreator.app dmg/ && ln -s /Applications dmg/Applications
+          # The disk image tool is sometimes still busy with the volume cargo-bundle ejected ("Resource busy"): try again.
+          for attempt in 1 2 3 4 5; do
+            hdiutil create -volname BaseCreator -srcfolder dmg -ov -format UDZO "basecreator-${TAG}-${{ matrix.name }}.dmg" && break
+            [ "$attempt" = 5 ] && exit 1
+            sleep 10
+          done
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.name }}
+          path: basecreator-*
+
+  release:
+    needs: build
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag }}
+      - uses: actions/download-artifact@v8
+        with:
+          merge-multiple: true
+      - name: Checksums
+        run: sha256sum basecreator-* > SHA256SUMS.txt
+      - name: Release notes from VERSIONS.md
+        run: awk -v t="## $TAG" 'index($0, t) == 1 { on = 1; next } /^## / { on = 0 } on' VERSIONS.md > notes.md
+      - uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
+        with:
+          name: BaseCreator ${{ inputs.tag }}
+          tag_name: ${{ inputs.tag }}
+          body_path: notes.md
+          files: |
+            basecreator-*
+            SHA256SUMS.txt

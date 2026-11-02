@@ -62,7 +62,7 @@ look at a new postprocessor's output before you run it on a machine.
 }
 ```
 
-* `id`: 1–64 characters `a-z 0-9 - _`; **the folder must have the same name**. `programs`: leave out for all programs.
+* `id`: 1–64 characters `a-z 0-9 - _`; **the folder must have the same name**. `programs`: leave out for all programs; the names are `lightcreator`, `millcreator`, `pencreator`, `basecreator` (a name a program does not know yet is no error from baseCreator 1.59.0 on).
 * Paths are relative to the plugin folder, with no `..`; scripts end in `.rhai`.
 * `format` is 1. A plugin with a newer format is refused with a message to update the program.
 * A plugin with a mistake in the manifest or a missing file is listed in the Plugins window with the reason, and not loaded.

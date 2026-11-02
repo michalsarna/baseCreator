@@ -25,11 +25,11 @@ const MAX_ZIP_TOTAL: u64 = 64_000_000;
 const MAX_ZIP_FILE: u64 = 32_000_000;
 const MAX_ZIP_FILES: usize = 2000;
 
-/// The programs a plugin can name in `programs`.
 /// File types the programs read themselves; an importer of a plugin cannot take them over.
 pub const RESERVED_EXTENSIONS: [&str; 13] = ["svg", "pdf", "ai", "cre", "lbrn", "lbrn2", "ugsd", "png", "jpg", "jpeg", "bmp", "gif", "webp"];
 
-pub const PROGRAMS: [&str; 3] = ["lightcreator", "millcreator", "pencreator"];
+/// The programs a plugin can name in `programs`.
+pub const PROGRAMS: [&str; 4] = ["lightcreator", "millcreator", "pencreator", "basecreator"];
 
 /// What kind of machine a preset is for: the programs take the ones of their class.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -279,9 +279,6 @@ impl Manifest {
         if !self.min_base.is_empty() && crate::registry::compare_versions(&self.min_base, crate::registry::base_version()) == std::cmp::Ordering::Greater {
             return Err(format!("the plugin needs baseCreator {} or newer (update the program)", self.min_base));
         }
-        if let Some(p) = self.programs.iter().find(|p| !PROGRAMS.contains(&p.as_str())) {
-            return Err(format!("unknown program {p:?}; use {}", PROGRAMS.join(", ")));
-        }
         for p in &self.presets {
             let ok = |v: f64, hi: f64| v.is_finite() && (0.0..=hi).contains(&v);
             if p.name.trim().is_empty() || p.name.len() > 120 || !(p.area[0] >= 10.0 && p.area[1] >= 10.0 && p.area[0] <= 100_000.0 && p.area[1] <= 100_000.0 && ok(p.area[2], 10_000.0) && p.rapid > 0.0 && p.rapid <= 1_000_000.0 && ok(p.spindle_max, 1_000_000.0)) {
@@ -333,7 +330,8 @@ impl Manifest {
         Ok(())
     }
 
-    /// Is the plugin for this program (`lightcreator`, `millcreator`, `pencreator`)?
+    /// Is the plugin for this program (`lightcreator`, `millcreator`, `pencreator`, `basecreator`)? A name this version does not know is
+    /// the name of a newer program, not a fault of the plugin (`validate` lets it through).
     pub fn is_for(&self, app: &str) -> bool {
         self.programs.is_empty() || self.programs.iter().any(|p| p == app)
     }

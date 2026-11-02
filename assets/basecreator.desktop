@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=BaseCreator
+Comment=Open-source drawing program
+Exec=basecreator %f
+Icon=basecreator
+Terminal=false
+Categories=Graphics;2DGraphics;VectorGraphics;
+MimeType=image/svg+xml;
+StartupWMClass=basecreator
