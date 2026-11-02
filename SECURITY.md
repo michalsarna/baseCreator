@@ -2,11 +2,11 @@
 
 ## Supported version
 
-baseCreator is a library used by LightCreator and MillCreator. Only the newest tagged release receives security fixes.
+baseCreator holds the libraries of LightCreator, MillCreator and PenCreator, and the program BaseCreator. Only the newest tag receives security fixes.
 
 | Version | Supported |
 |---------|-----------|
-| v0.4.0 (latest) | yes |
+| v1.59.0 (latest) | yes |
 | older | no, please update |
 
 ## Reporting a vulnerability
@@ -24,5 +24,5 @@ baseCreator reads files from other people (SVG, PDF / Illustrator, bitmaps, clip
 pictures from the web in the clipart gallery. Reports about crashes, hangs or memory use when reading a crafted file,
 and about anything that could write or fetch something the user did not ask for, are in scope.
 
-A problem that only shows in an app (for example the laser or the mill control) belongs in that app's repository:
+A problem of the program BaseCreator belongs here. A problem that only shows in another app (for example the laser or the mill control) belongs in that app's repository:
 <https://github.com/michalsarna/LightCreator/security/advisories/new>.
