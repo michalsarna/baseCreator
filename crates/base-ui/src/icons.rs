@@ -68,7 +68,10 @@ pub fn menu_title_icon(title: &str) -> Option<&'static str> {
         "Insert" => "copy-plus",
         "Arrange" => "shapes",
         "View" => "eye",
+        "Machine" => "cpu",
         "Laser" => "zap",
+        "Milling" => "drill",
+        "Plotter" => "pen-line",
         "Settings" => "settings",
         "Help" => "circle-question-mark",
         _ => return None,
@@ -117,7 +120,7 @@ mod tests {
         for (tool, _, _) in Tool::ALL {
             assert!(have.contains(tool_icon(tool)), "tool icon {}", tool_icon(tool));
         }
-        for t in ["File", "Edit", "Arrange", "View", "Laser", "Settings", "Help"] {
+        for t in ["File", "Edit", "Insert", "Arrange", "View", "Machine", "Laser", "Milling", "Plotter", "Settings", "Help"] {
             assert!(have.contains(menu_title_icon(t).unwrap()), "{t}");
         }
         for t in ["Import", "Export", "Open recent", "Language", "Colour scheme"] {
