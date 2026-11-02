@@ -911,3 +911,10 @@
 910|Salvestamine: {} s (voogu kopeeritakse)
 911|MP4 kopeerib IP-kaamera voo; see kaamera salvestatakse AVI-na.
 912|Voogu ei õnnestunud salvestada (aadress, kaamera, ffmpeg?).
+913|Veebiklipid…
+914|Aeg
+915|See versioon ei saa kasutada arvuti kaameraid.
+916|Sobita tööalaga
+917|Väljas
+918|Jadaport
+919|Võrk (TCP, nt ser2net)

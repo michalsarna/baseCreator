@@ -911,3 +911,10 @@
 910|Taifeadadh: {} s (á chóipeáil)
 911|Cóipeálann MP4 sruth cheamara IP; taifeadtar an ceamara seo mar AVI.
 912|Níorbh fhéidir an sruth a thaifeadadh (an seoladh, an ceamara, ffmpeg?).
+913|Clipeanna ar líne…
+914|Am
+915|Ní féidir leis an leagan seo ceamaraí an ríomhaire a úsáid.
+916|Oiriúnaigh don limistéar oibre
+917|As
+918|Port sraitheach
+919|Líonra (TCP, m.sh. ser2net)

@@ -911,3 +911,10 @@
 910|Nahrávání: {} s (proud se kopíruje)
 911|MP4 kopíruje proud IP kamery; tato kamera se nahrává jako AVI.
 912|Proud se nepodařilo nahrát (adresa, kamera, ffmpeg?).
+913|Online klipart…
+914|Čas
+915|Tato verze nemůže používat kamery počítače.
+916|Přizpůsobit pracovní ploše
+917|Vypnuto
+918|Sériový port
+919|Síť (TCP, např. ser2net)

@@ -611,7 +611,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Discard it", "Odrzuć go", "Verwerfen", "Scartalo", "Hylkää se", "丢弃", "इसे हटाएँ"],
     ["Recovered the project that was not saved", "Odzyskano projekt, który nie został zapisany", "Das nicht gespeicherte Projekt wurde wiederhergestellt", "Il progetto non salvato è stato recuperato", "Tallentamaton projekti palautettiin", "已恢复未保存的项目", "असहेजा प्रोजेक्ट पुनर्प्राप्त किया गया"],
     ["{} — click to assign selection / set active; double-click for options", "{} — kliknij, aby przypisać zaznaczenie / ustawić jako aktywną; dwukrotnie, aby zobaczyć opcje", "{} — klicken, um die Auswahl zuzuweisen / zu aktivieren; doppelklicken für Optionen", "{} — clic per assegnare la selezione / impostare come attivo; doppio clic per le opzioni", "{} — napsauta määrittääksesi valinnan / asettaaksesi aktiiviseksi; kaksoisnapsautus avaa asetukset", "{} — 点击以分配所选对象 / 设为当前图层；双击打开选项", "{} — चयन असाइन करने / सक्रिय सेट करने के लिए क्लिक करें; विकल्पों के लिए डबल-क्लिक करें"],
-    ["Show all {} layers", "Pokaż wszystkie {} warstw", "Alle {} Ebenen anzeigen", "Mostra tutti i {} livelli", "Näytä kaikki {} tasoa", "显示全部 {} 个图层", "सभी {} लेयर दिखाएँ"],
+    ["Show all {} layers", "Pokaż wszystkie warstwy ({})", "Alle {} Ebenen anzeigen", "Mostra tutti i {} livelli", "Näytä kaikki {} tasoa", "显示全部 {} 个图层", "सभी {} लेयर दिखाएँ"],
     ["Check for updates…", "Sprawdź aktualizacje…", "Nach Updates suchen…", "Controlla gli aggiornamenti…", "Tarkista päivitykset…", "检查更新…", "अपडेट जाँचें…"],
     ["Program options…", "Opcje programu…", "Programmoptionen…", "Opzioni del programma…", "Ohjelman asetukset…", "程序选项…", "प्रोग्राम विकल्प…"],
     ["Program options", "Opcje programu", "Programmoptionen", "Opzioni del programma", "Ohjelman asetukset", "程序选项", "प्रोग्राम विकल्प"],
@@ -676,7 +676,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Front", "Przód", "Vorne", "Fronte", "Edestä", "正面", "सामने"],
     ["Back", "Tył", "Hinten", "Retro", "Takaa", "背面", "पीछे"],
     ["Drag the model to turn it. The outlines below are what its view gives.", "Przeciągnij model, aby go obrócić. Poniższe kontury to jego widok z wybranej strony.", "Ziehe das Modell, um es zu drehen. Die Umrisse darunter zeigen seine Ansicht.", "Trascina il modello per ruotarlo. I contorni qui sotto sono la sua vista.", "Käännä mallia vetämällä. Alla olevat ääriviivat ovat mallin näkymä.", "拖动模型进行旋转。下方轮廓即为该视角下的结果。", "मॉडल को घुमाने के लिए खींचें। नीचे की रूपरेखाएँ उसके दृश्य से बनी हैं।"],
-    ["G-code viewer", "Podgląd G-code", "G-Code-Ansicht", "Visualizzatore G-code", "G-koodin katselu", "G 代码查看器", "G-कोड व्यूअर"],
+    ["G-code viewer", "Przeglądarka G-code", "G-Code-Ansicht", "Visualizzatore G-code", "G-koodin katselu", "G 代码查看器", "G-कोड व्यूअर"],
     ["Reset view", "Resetuj widok", "Ansicht zurücksetzen", "Reimposta vista", "Palauta näkymä", "重置视图", "दृश्य रीसेट करें"],
     ["Show travel moves", "Pokaż przejazdy", "Leerfahrten anzeigen", "Mostra gli spostamenti", "Näytä siirtoliikkeet", "显示空走移动", "यात्रा गतियाँ दिखाएँ"],
     ["Colour by height", "Kolor według wysokości", "Nach Höhe färben", "Colora per altezza", "Väritä korkeuden mukaan", "按高度着色", "ऊँचाई के अनुसार रंग"],
@@ -918,6 +918,13 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Recording: {} s (the stream is copied)", "Nagrywanie: {} s (strumień jest kopiowany)", "Aufnahme: {} s (der Stream wird kopiert)", "Registrazione: {} s (il flusso viene copiato)", "Tallennus: {} s (lähetys kopioidaan)", "录制：{} 秒（流被直接复制）", "रिकॉर्डिंग: {} सेकंड (स्ट्रीम कॉपी की जा रही है)"],
     ["MP4 copies the stream of an IP camera; this camera is recorded as AVI.", "MP4 kopiuje strumień kamery IP; ta kamera jest nagrywana jako AVI.", "MP4 kopiert den Stream einer IP-Kamera; diese Kamera wird als AVI aufgenommen.", "MP4 copia il flusso di una telecamera IP; questa telecamera viene registrata come AVI.", "MP4 kopioi IP-kameran lähetyksen; tämä kamera tallennetaan AVI:na.", "MP4 复制 IP 摄像头的流；此摄像头将录制为 AVI。", "MP4 IP कैमरे की स्ट्रीम की कॉपी बनाता है; यह कैमरा AVI के रूप में रिकॉर्ड होता है।"],
     ["The stream could not be recorded (the address, the camera, ffmpeg?).", "Nie udało się nagrać strumienia (adres, kamera, ffmpeg?).", "Der Stream konnte nicht aufgenommen werden (Adresse, Kamera, ffmpeg?).", "Non è stato possibile registrare il flusso (indirizzo, telecamera, ffmpeg?).", "Lähetystä ei voitu tallentaa (osoite, kamera, ffmpeg?).", "无法录制该流（地址、摄像头、ffmpeg？）。", "स्ट्रीम रिकॉर्ड नहीं हो सकी (पता, कैमरा, ffmpeg?)।"],
+    ["Online clipart…", "Cliparty z internetu…", "Clipart online…", "Clipart online…", "Clipartit verkosta…", "在线剪贴画…", "ऑनलाइन क्लिपआर्ट…"],
+    ["Time", "Czas", "Zeit", "Tempo", "Aika", "时间", "समय"],
+    ["This build cannot use the cameras of the computer.", "Ta wersja programu nie może używać kamer komputera.", "Diese Version kann die Kameras des Computers nicht verwenden.", "Questa versione non può usare le telecamere del computer.", "Tämä versio ei voi käyttää tietokoneen kameroita.", "此版本无法使用计算机的摄像头。", "यह संस्करण कंप्यूटर के कैमरों का उपयोग नहीं कर सकता।"],
+    ["Fit work area", "Dopasuj obszar roboczy", "Arbeitsbereich einpassen", "Adatta all'area di lavoro", "Sovita työalue", "适应工作区", "कार्य क्षेत्र फ़िट करें"],
+    ["Off", "Wyłączone", "Aus", "Spento", "Pois", "关", "बंद"],
+    ["Serial port", "Port szeregowy", "Serielle Schnittstelle", "Porta seriale", "Sarjaportti", "串口", "सीरियल पोर्ट"],
+    ["Network (TCP, e.g. ser2net)", "Sieć (TCP, np. ser2net)", "Netzwerk (TCP, z. B. ser2net)", "Rete (TCP, ad es. ser2net)", "Verkko (TCP, esim. ser2net)", "网络（TCP，例如 ser2net）", "नेटवर्क (TCP, जैसे ser2net)"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

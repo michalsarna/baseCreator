@@ -911,3 +911,10 @@
 910|Opptak: {} s (strømmen kopieres)
 911|MP4 kopierer strømmen fra et IP-kamera; dette kameraet tas opp som AVI.
 912|Strømmen kunne ikke tas opp (adressen, kameraet, ffmpeg?).
+913|Clipart online…
+914|Tid
+915|Denne versjonen kan ikke bruke datamaskinens kameraer.
+916|Tilpass til arbeidsområdet
+917|Av
+918|Seriell port
+919|Nettverk (TCP, f.eks. ser2net)

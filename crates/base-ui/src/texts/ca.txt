@@ -911,3 +911,10 @@
 910|Gravació: {} s (el flux es copia)
 911|MP4 copia el flux d'una càmera IP; aquesta càmera es grava com a AVI.
 912|No s'ha pogut gravar el flux (adreça, càmera, ffmpeg?).
+913|Cliparts en línia…
+914|Temps
+915|Aquesta versió no pot fer servir les càmeres de l'ordinador.
+916|Ajusta a l'àrea de treball
+917|Apagat
+918|Port sèrie
+919|Xarxa (TCP, p. ex. ser2net)

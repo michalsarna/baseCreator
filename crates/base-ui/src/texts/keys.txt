@@ -911,3 +911,10 @@
 910	Recording: {} s (the stream is copied)
 911	MP4 copies the stream of an IP camera; this camera is recorded as AVI.
 912	The stream could not be recorded (the address, the camera, ffmpeg?).
+913	Online clipart…
+914	Time
+915	This build cannot use the cameras of the computer.
+916	Fit work area
+917	Off
+918	Serial port
+919	Network (TCP, e.g. ser2net)

@@ -911,3 +911,10 @@
 910|Reġistrazzjoni: {} s (il-fluss qed jiġi kopjat)
 911|L-MP4 jikkopja l-fluss ta' kamera IP; din il-kamera tiġi rreġistrata bħala AVI.
 912|Il-fluss ma setax jiġi rreġistrat (l-indirizz, il-kamera, ffmpeg?).
+913|Clipart online…
+914|Ħin
+915|Din il-verżjoni ma tistax tuża l-kameras tal-kompjuter.
+916|Waħħal maż-żona tax-xogħol
+917|Mitfi
+918|Port serjali
+919|Netwerk (TCP, eż. ser2net)

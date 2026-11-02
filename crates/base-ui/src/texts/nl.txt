@@ -911,3 +911,10 @@
 910|Opnemen: {} s (de stream wordt gekopieerd)
 911|MP4 kopieert de stream van een IP-camera; deze camera wordt als AVI opgenomen.
 912|De stream kon niet worden opgenomen (adres, camera, ffmpeg?).
+913|Online clipart…
+914|Tijd
+915|Deze versie kan de camera's van de computer niet gebruiken.
+916|Passend maken aan werkgebied
+917|Uit
+918|Seriële poort
+919|Netwerk (TCP, bijv. ser2net)
