@@ -11,7 +11,8 @@ OUT="${OUT:?OUT is the folder for the result}"
 WORK="$(mktemp -d)"
 mkdir -p "$OUT"
 
-curl -sSLf "$URL" -o "$WORK/ffmpeg.tar.xz"
+# ffmpeg.org drops a connection now and then (curl 35 / 28 in the release builds): try again a few times before giving up.
+curl -sSLf --retry 6 --retry-all-errors --retry-delay 10 --connect-timeout 30 --max-time 600 "$URL" -o "$WORK/ffmpeg.tar.xz"
 echo "${SHA256}  $WORK/ffmpeg.tar.xz" | shasum -a 256 -c -
 tar -xf "$WORK/ffmpeg.tar.xz" -C "$WORK"
 cd "$WORK/ffmpeg-${VER}"
