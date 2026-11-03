@@ -719,7 +719,7 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
                 if tip(ui.add_enabled(!busy, egui::Button::new(&sp.name)), &trf("Go to X {} Y {} Z {} (machine position), up first when needed", &[&fmt_pos(sp.p[0]), &fmt_pos(sp.p[1]), &fmt_pos(sp.p[2])])).clicked() {
                     go = Some(sp.p);
                 }
-                if tip(ui.small_button("✖"), &tr("Forget this position")).clicked() {
+                if tip(ui.small_button("×"), &tr("Forget this position")).clicked() {
                     remove = Some(i);
                 }
             });
