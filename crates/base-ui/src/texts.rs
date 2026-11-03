@@ -945,6 +945,14 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Messages of the program", "Komunikaty programu", "Meldungen des Programms", "Messaggi del programma", "Ohjelman viestit", "程序的消息", "प्रोग्राम के संदेश"],
     ["Background", "Tło", "Hintergrund", "Sfondo", "Tausta", "背景", "पृष्ठभूमि"],
     ["Font size", "Rozmiar czcionki", "Schriftgröße", "Dimensione del carattere", "Fonttikoko", "字号", "फ़ॉन्ट आकार"],
+    ["Font", "Czcionka", "Schriftart", "Carattere", "Fontti", "字体", "फ़ॉन्ट"],
+    ["Style", "Styl", "Stil", "Stile", "Tyyli", "样式", "शैली"],
+    ["Bold", "Pogrubienie", "Fett", "Grassetto", "Lihavoitu", "粗体", "बोल्ड"],
+    ["Italic", "Kursywa", "Kursiv", "Corsivo", "Kursiivi", "斜体", "इटैलिक"],
+    ["Letter spacing", "Odstęp liter", "Buchstabenabstand", "Spaziatura lettere", "Kirjainväli", "字间距", "अक्षर अंतराल"],
+    ["Line spacing", "Interlinia", "Zeilenabstand", "Interlinea", "Riviväli", "行距", "पंक्ति अंतराल"],
+    ["Align", "Wyrównanie", "Ausrichtung", "Allineamento", "Tasaus", "对齐", "संरेखण"],
+    ["Turn the text into editable Bézier shapes", "Zamień tekst na edytowalne kształty Béziera", "Text in bearbeitbare Bézier-Formen umwandeln", "Trasforma il testo in forme di Bézier modificabili", "Muunna teksti muokattaviksi Bézier-muodoiksi", "将文字转换为可编辑的贝塞尔形状", "टेक्स्ट को संपादन योग्य बेज़ियर आकारों में बदलें"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

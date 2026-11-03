@@ -12,6 +12,7 @@ mod props;
 mod background_ui;
 mod design_ui;
 mod shape_ops;
+pub mod text_ui;
 
 pub use bars::{arrange_bar, palette_button_size, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
@@ -204,6 +205,14 @@ impl Default for GridPrefs {
 /// The state of an editor: what is selected, the tool, the view, the grid and snapping, and the shape being drawn.
 /// An application keeps one and gives access to it through `EditorHost`.
 pub struct EditorState {
+    /// What a new text starts as: the settings of the text changed last.
+    pub text_default: base_core::text::TextData,
+    /// A text was just placed: the field to type in takes the keyboard.
+    pub focus_text: bool,
+    /// The search in the list of fonts.
+    pub font_filter: String,
+    /// When a text was last changed, for one undo step per burst of editing.
+    pub text_changed_at: f64,
     pub sel: Vec<u64>,
     pub node_sel: Vec<NodeRef>,
     pub active_seg: Option<NodeRef>,
@@ -333,6 +342,10 @@ impl EditorState {
             grid: 10.0,
             show_grid: true,
             grid_prefs: GridPrefs::default(),
+            text_default: Default::default(),
+            focus_text: false,
+            font_filter: String::new(),
+            text_changed_at: 0.0,
             polygon_sides: 6,
             spiral_turns: 3,
             fillet_radius: 2.0,

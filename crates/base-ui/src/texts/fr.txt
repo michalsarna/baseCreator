@@ -938,3 +938,11 @@
 937|Messages du programme
 938|Arrière-plan
 939|Taille de police
+940|Police
+941|Style
+942|Gras
+943|Italique
+944|Espacement des lettres
+945|Interligne
+946|Alignement
+947|Transformer le texte en formes de Bézier modifiables

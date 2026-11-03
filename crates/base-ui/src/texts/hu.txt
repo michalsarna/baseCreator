@@ -938,3 +938,11 @@
 937|A program üzenetei
 938|Háttér
 939|Betűméret
+940|Betűtípus
+941|Stílus
+942|Félkövér
+943|Dőlt
+944|Betűköz
+945|Sorköz
+946|Igazítás
+947|A szöveg átalakítása szerkeszthető Bézier-alakzatokká

@@ -938,3 +938,11 @@
 937|Sporočila programa
 938|Ozadje
 939|Velikost pisave
+940|Pisava
+941|Slog
+942|Krepko
+943|Ležeče
+944|Razmik med črkami
+945|Razmik med vrsticami
+946|Poravnava
+947|Pretvori besedilo v obdelovalne Bézierove oblike

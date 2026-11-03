@@ -938,3 +938,11 @@
 937|Missatges del programa
 938|Fons
 939|Mida de la lletra
+940|Tipus de lletra
+941|Estil
+942|Negreta
+943|Cursiva
+944|Espaiat de lletres
+945|Interlineat
+946|Alineació
+947|Converteix el text en formes de Bézier editables

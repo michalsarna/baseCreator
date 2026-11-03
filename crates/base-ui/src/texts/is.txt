@@ -938,3 +938,11 @@
 937|Skilaboð forritsins
 938|Bakgrunnur
 939|Leturstærð
+940|Letur
+941|Stíll
+942|Feitletrað
+943|Skáletrað
+944|Bil milli stafa
+945|Línubil
+946|Jöfnun
+947|Breyta textanum í breytanleg Bézier-form

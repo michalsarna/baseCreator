@@ -938,3 +938,11 @@
 937|Programmas ziņojumi
 938|Fons
 939|Fonta lielums
+940|Fonts
+941|Stils
+942|Treknraksts
+943|Kursīvs
+944|Atstarpes starp burtiem
+945|Rindstarpa
+946|Līdzināšana
+947|Pārvērst tekstu rediģējamās Bezjē formās

@@ -8,6 +8,10 @@ BaseCreator edytuje kształty tymi samymi narzędziami co LightCreator, MillCrea
 
 Paleta po lewej ma **Zaznaczanie (V)**, **Edycja węzłów (N)**, **Prostokąt (R)**, **Elipsa (E)**, **Trójkąt (Y)**, **Gwiazda (S)**, **Wielokąt (G)**, **Serce (K)**, **Spirala (I)**, **Linia (L)**, **Linia łamana / pióro (P)**, **Tekst (T)**, **Przesuwanie widoku (H)**, **Powiększ (Z)** i **Pomniejsz (X)**. Narzędzia wstawiające obiekty są też w menu **Wstawianie**, razem z **Generuj kształt…** (generatory wtyczek) i **Cliparty z internetu…**.
 
+## Tekst
+
+Wybierz **Tekst (T)** i kliknij na stronie: pojawia się tekst, a karta **Właściwości** otwiera się z polem do pisania. Ustawisz tam czcionkę, rozmiar, pogrubienie i kursywę, odstępy między literami i wierszami oraz wyrównanie. **Zamień na krzywe** robi z tekstu kształty, których węzły można edytować. Nowy tekst bierze ustawienia ostatnio zmienianego.
+
 ## Edycja
 
 * **Prawy przycisk myszy** na kształcie otwiera jego menu: kopiowanie, grupowanie, blokowanie, odbicia i obroty o 90°, podmenu **Rozmieść** i operacji na kształtach, a dla obrazu **Dostosuj obraz…** i **Wektoryzacja obrazu…**. Pozycje niepasujące do zaznaczenia są szare.

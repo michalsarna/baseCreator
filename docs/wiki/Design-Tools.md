@@ -8,6 +8,10 @@ BaseCreator edits shapes with the same tools as LightCreator, MillCreator and Pe
 
 The palette at the left has **Select (V)**, **Node edit (N)**, **Rectangle (R)**, **Ellipse (E)**, **Triangle (Y)**, **Star (S)**, **Polygon (G)**, **Heart (K)**, **Spiral (I)**, **Line (L)**, **Polyline / pen (P)**, **Text (T)**, **Pan (H)**, **Zoom in (Z)** and **Zoom out (X)**. The tools that insert objects are also in the **Insert** menu, with **Generate shape…** (the generators of plugins) and **Online clipart…**.
 
+## Text
+
+Choose **Text (T)** and click on the page: a text appears and the **Properties** tab opens with the field to type in. There you set the font, the size, bold and italic, the letter and line spacing and the alignment. **Convert to curves** turns the text into shapes whose nodes can be edited. A new text takes the settings of the text changed last.
+
 ## Editing
 
 * **Right mouse button** on a shape opens its menu: copying, grouping, locking, flips and quarter turns, the submenus **Arrange** and **Shape operations**, and for a picture **Adjust image…** and **Trace image…**. The entries that do not fit the selection are grey.

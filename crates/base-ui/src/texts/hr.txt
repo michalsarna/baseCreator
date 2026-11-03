@@ -938,3 +938,11 @@
 937|Poruke programa
 938|Pozadina
 939|Veličina fonta
+940|Font
+941|Stil
+942|Podebljano
+943|Kurziv
+944|Razmak slova
+945|Razmak redaka
+946|Poravnanje
+947|Pretvori tekst u uredive Bézierove oblike

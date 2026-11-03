@@ -938,3 +938,11 @@
 937|Teachtaireachtaí an chláir
 938|Cúlra
 939|Méid an chló
+940|Cló
+941|Stíl
+942|Trom
+943|Iodálach
+944|Spásáil litreacha
+945|Spásáil línte
+946|Ailíniú
+947|Tiontaigh an téacs ina chruthanna Bézier in-eagarthóireachta
