@@ -818,7 +818,7 @@
 817|Neprosojnost
 818|Premikaj vogale
 819|Prilagodi delovnemu območju
-820|Slika leži pod risbo: povlecite njene vogale na vogale materiala ali delovnega območja. V projektu se ne shrani.
+820|Slika leži pod risbo: povlecite njene vogale na vogale materiala ali delovnega območja. Shrani se v projektu.
 821|Izvajajo se v tem vrstnem redu: {}
 822|Izklopi vse postprocesorje
 823|Izbrani postprocesorji spremenijo G-kodo iz Izvozi G-kodo…; opravilo, poslano stroju, se ne spremeni.
@@ -953,3 +953,81 @@
 952|Število ovojev
 953|Večkotnik
 954|Spirala
+955|Nov odjemalec nadomesti povezanega
+956|Hitrost v bodih
+957|Ročno: sudo cp <shranjena datoteka> {} && sudo systemctl restart ser2net
+958|Potrdi
+959|Kopirano.
+960|Konfiguracije ni bilo mogoče namestiti: {}
+961|Strani ni bilo mogoče ustvariti: {}
+962|Pregledovalnika ni bilo mogoče odpreti: {}
+963|Privzeti tiskalnik
+964|Datoteka: {}
+965|Okvir
+966|Namesti in znova zaženi ser2net…
+967|{} nameščen in ser2net znova zagnan.
+968|Poslušaj samo na tem računalniku (za uporabo s tunelom SSH)
+969|Rob
+970|Samo predmeti na vidnih slojih
+971|Samo predmeti, kar največji, kolikor dopušča stran
+972|Odpri PDF
+973|Odprto v pregledovalniku PDF.
+974|Odpre stran v pregledovalniku PDF, ki jo lahko natisne z več možnostmi
+975|Papir
+976|Vrata
+977|Natisni
+978|Tiskalnik
+979|Natisne načrt na papirnatem tiskalniku, za preverjanje postavitve ali kot predlogo.
+980|Natisni…
+981|Osveži
+982|Shrani kot PDF…
+983|Shrani kot…
+984|Shranjevanje ni uspelo: {}
+985|Poslano tiskalniku. {}
+986|Deli po omrežju (ser2net)
+987|Deli po omrežju (ser2net)…
+988|Začni delo
+989|Zamenjaj napravo…
+990|Vrata TCP
+991|Tiskalnik tega ni sprejel: {}
+992|Celotno delovno območje v merilu
+993|Nato se z drugega računalnika povežite na {}:{}
+994|Ničesar ni za tiskanje.
+995|Ta vodnik je na voljo v angleščini in poljščini; drugi jeziki prikažejo angleško besedilo.
+996|To nadomesti {} (kopija se ohrani) in znova zažene ser2net. Zahtevane so skrbniške pravice.
+997|Čakanje na odobritev skrbnika…
+998|ser2net najden: {}
+999|Različica ser2net
+1000|ser2net ni bil najden. Najprej ga namestite, na primer: sudo apt install ser2net
+1001|{} predmet(ov) sega zunaj delovnega območja; na papirju so odrezani na robu.
+1002|{} predmet(ov) sega zunaj delovnega območja; vseeno se natisnejo.
+1003|V omrežju deli serijska vrata stroja na tem računalniku, tako da se lahko program na drugem računalniku poveže z vrsto povezave »Omrežje (TCP)«.
+1004|Opozorilo: vsak v omrežju, ki doseže ta vrata, lahko upravlja stroj. Uporabite zaupanja vredno omrežje, požarni zid ali možnost samo lokalno s tunelom SSH.
+1005|Ta krmilnik ne sporoča svojih vhodov.
+1006|Dodaj točko
+1007|Poravnaj po točkah
+1008|Poravnava: povlecite štiri vogale po delovnem območju
+1009|Prekrivanje kamere
+1010|Izbriši to točko
+1011|Povlecite vsak vogal na ustrezen vogal materiala ali delovnega območja; perspektiva se popravi.
+1012|Prilagodi sliko točkam (najmanjši kvadrati) in ustrezno premakne vogale.
+1013|Zamrzni sliko
+1014|Naloži sliko…
+1015|Premalo točk ali ležijo na eni premici.
+1016|Prekrivanje iz…
+1017|Prekrivanje: {}
+1018|Pari točke na sliki (pikslov) in njenega mesta v delovnem območju (mm). Vsaj 3, priporočene 4; določajo poravnavo, vključno s perspektivo.
+1019|Točke iz trenutnih vogalov
+1020|Referenčne točke
+1021|Točke zamenja s štirimi vogali slike in mestom, kjer so zdaj.
+1022|Ponastavi na delovno območje
+1023|Zavrti za 90°
+1024|Pokaže fotografijo ali kamero v živo pod zasnovo, da delo postavite na material.
+1025|Pokaži prekrivanje kamere
+1026|Pokaži prekrivanje
+1027|Zaženi kamero
+1028|Nastavitve naprave…
+1029|Preveri program
+1030|Diagnostika in statistika…
+1031|Nastavitve strojne programske opreme ($$)…
+1032|Prekrivanje

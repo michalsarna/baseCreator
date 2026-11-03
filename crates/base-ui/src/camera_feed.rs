@@ -44,12 +44,14 @@ pub struct CamFeed {
     /// The last picture as it is shown: size and RGB.
     pub last: Option<(usize, usize, Vec<u8>)>,
     pub error: String,
+    /// How many pictures have come; another number means a new picture.
+    pub frames: u64,
 }
 
 impl CamFeed {
     /// Start reading the camera `cam`.
     pub fn start(ctx: &egui::Context, cam: &CameraSource) -> CamFeed {
-        let mut st = CamFeed { key: Self::key_of(cam), url: None, local: None, tex: None, last: None, error: String::new() };
+        let mut st = CamFeed { key: Self::key_of(cam), url: None, local: None, tex: None, last: None, error: String::new(), frames: 0 };
         match &cam.kind {
             CameraKind::Url(u) => st.url = Some(camera_stream::spawn_with(u.clone(), options_of(cam), ctx.clone())),
             CameraKind::Local(i) if camera::SUPPORTED => st.local = Some(camera::spawn(*i, cam.image.prefer_yuyv, ctx.clone())),
@@ -101,6 +103,7 @@ impl CamFeed {
             _ => self.tex = Some(ctx.load_texture("camera-view", img, egui::TextureOptions::LINEAR)),
         }
         self.last = Some((w as usize, h as usize, rgb));
+        self.frames += 1;
         true
     }
 

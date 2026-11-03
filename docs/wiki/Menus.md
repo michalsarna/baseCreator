@@ -22,6 +22,8 @@ The menu bar has seven menus: **File · Edit · Insert · Arrange · View · Set
 | **Export → …** | | See [Import and Export](Import-and-Export). |
 | **Quit** | Ctrl+Q | Closes the program; every drawing with unsaved work is asked about first. |
 
+**Print…** (Ctrl+P) prints the design on a paper printer or saves it as a PDF.
+
 ## Edit
 
 **Undo** (Ctrl+Z), **Redo** (Ctrl+Y), **Copy** (Ctrl+C), **Paste** (Ctrl+V), **Duplicate** (Ctrl+D), **Delete** (Del), **Select all** (Ctrl+A).
@@ -61,4 +63,4 @@ The same commands are in the right-click menu of a shape; they are explained on 
 
 ## Help
 
-**Project page on GitHub**, **Download backup…** and **Restore from backup…** (see [Settings and Files](Settings-and-Files)), **Check for updates…**, **About**.
+**Quick guide** (F1), the guide inside the program. **Project page on GitHub**, **Download backup…** and **Restore from backup…** (see [Settings and Files](Settings-and-Files)), **Check for updates…**, **About**.

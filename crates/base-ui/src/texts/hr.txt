@@ -818,7 +818,7 @@
 817|Neprozirnost
 818|Pomiči kutove
 819|Prilagodi radnom području
-820|Slika je ispod crteža: povucite njezine kutove na kutove materijala ili radnog područja. Ne sprema se u projekt.
+820|Slika je ispod crteža: povucite njezine kutove na kutove materijala ili radnog područja. Sprema se u projekt.
 821|Izvode se ovim redom: {}
 822|Isključi sve postprocesore
 823|Odabrani postprocesori mijenjaju G-kod izvoza G-koda…; zadatak poslan stroju se ne mijenja.
@@ -953,3 +953,81 @@
 952|Broj zavoja
 953|Mnogokut
 954|Spirala
+955|Novi klijent zamjenjuje spojenog
+956|Brzina u baudovima
+957|Ručno: sudo cp <spremljena datoteka> {} && sudo systemctl restart ser2net
+958|Potvrdi
+959|Kopirano.
+960|Nije moguće instalirati konfiguraciju: {}
+961|Stranicu nije moguće napraviti: {}
+962|Preglednik nije moguće otvoriti: {}
+963|Zadani pisač
+964|Datoteka: {}
+965|Okvir
+966|Instaliraj i ponovno pokreni ser2net…
+967|{} instaliran i ser2net ponovno pokrenut.
+968|Slušaj samo na ovom računalu (za upotrebu sa SSH tunelom)
+969|Margina
+970|Samo objekti na vidljivim slojevima
+971|Samo objekti, što veći koliko stranica dopušta
+972|Otvori PDF
+973|Otvoreno u PDF pregledniku.
+974|Otvara stranicu u PDF pregledniku, koji je može ispisati s više mogućnosti
+975|Papir
+976|Priključak
+977|Ispis
+978|Pisač
+979|Ispisuje dizajn na papirnatom pisaču, radi provjere rasporeda ili kao predložak.
+980|Ispis…
+981|Osvježi
+982|Spremi kao PDF…
+983|Spremi kao…
+984|Spremanje nije uspjelo: {}
+985|Poslano pisaču. {}
+986|Dijeli preko mreže (ser2net)
+987|Dijeli preko mreže (ser2net)…
+988|Pokreni posao
+989|Promijeni uređaj…
+990|TCP priključak
+991|Pisač to nije prihvatio: {}
+992|Cijelo radno područje, u mjerilu
+993|Zatim se s drugog računala spojite na {}:{}
+994|Nema ničega za ispis.
+995|Ovaj je vodič dostupan na engleskom i poljskom; ostali jezici prikazuju engleski tekst.
+996|Ovo zamjenjuje {} (čuva se kopija) i ponovno pokreće ser2net. Traže se administratorska prava.
+997|Čeka se odobrenje administratora…
+998|ser2net pronađen: {}
+999|Verzija ser2net
+1000|ser2net nije pronađen. Prvo ga instalirajte, na primjer: sudo apt install ser2net
+1001|{} objekt(a) izlazi izvan radnog područja; na papiru se režu na njegovom rubu.
+1002|{} objekt(a) izlazi izvan radnog područja; ipak se ispisuju.
+1003|Dijeli serijski priključak stroja na ovom računalu preko mreže, tako da se program na drugom računalu može povezati vrstom veze „Mreža (TCP)”.
+1004|Upozorenje: svatko na mreži tko dođe do ovog priključka može upravljati strojem. Koristite pouzdanu mrežu, vatrozid ili opciju samo lokalno sa SSH tunelom.
+1005|Ovaj upravljač ne javlja svoje ulaze.
+1006|Dodaj točku
+1007|Poravnaj prema točkama
+1008|Poravnanje: povucite četiri kuta na radnom području
+1009|Preklapanje kamere
+1010|Izbriši ovu točku
+1011|Povucite svaki kut na odgovarajući kut materijala ili radnog područja; perspektiva se ispravlja.
+1012|Prilagođava sliku točkama (najmanji kvadrati) i pomiče kutove u skladu s tim.
+1013|Zamrzni sliku
+1014|Učitaj sliku…
+1015|Premalo točaka ili leže na jednom pravcu.
+1016|Preklop iz…
+1017|Preklapanje: {}
+1018|Parovi točke na slici (pikseli) i njezina mjesta u radnom području (mm). Najmanje 3, preporuka 4; određuju poravnanje uključujući perspektivu.
+1019|Točke iz trenutnih kutova
+1020|Referentne točke
+1021|Zamjenjuje točke s četiri kuta slike i mjestom gdje su sada.
+1022|Vrati na radno područje
+1023|Zakreni 90°
+1024|Prikazuje fotografiju ili kameru uživo ispod dizajna kako biste smjestili rad na materijal.
+1025|Prikaži preklapanje kamere
+1026|Prikaži preklapanje
+1027|Pokreni kameru
+1028|Postavke uređaja…
+1029|Provjeri program
+1030|Dijagnostika i statistika…
+1031|Postavke firmwarea ($$)…
+1032|Preklapanje

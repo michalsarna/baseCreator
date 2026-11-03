@@ -421,11 +421,46 @@ fn every_tool_works_in_the_window() {
     h.run_steps(2);
     h.state_mut().as_mut().unwrap().new_tab();
     h.run_steps(4);
-    base_ui::tool_check::check_tools(&mut Window(h));
+    let mut w = Window(h);
+    base_ui::tool_check::check_tools(&mut w);
+    {
+        use crate::menu::Act;
+        base_ui::tool_check::check_windows(&mut w, &[(Act::Print, "Print"), (Act::QuickGuide, "Quick guide")]);
+    }
 }
 
 #[test]
 fn every_text_of_the_menus_has_a_translation() {
     let _ = app();
     base_ui::tool_check::check_menu_texts(&crate::menu::menus());
+}
+
+/// The guide sends nobody to a place in the menus that is not there.
+#[test]
+fn the_quick_guide_names_only_what_the_menus_have() {
+    base_ui::tool_check::check_guide_paths(crate::guide::EN, &crate::menu::menus());
+}
+
+/// The picture under the drawing goes into the project and comes back from it, with its corners, and in a new project it is gone.
+#[test]
+fn the_overlay_is_kept_in_the_project_file() {
+    use base_ui::editor::EditorBackground;
+    let ctx = egui::Context::default();
+    let mut a = app();
+    a.set_background(&ctx, egui::ColorImage::from_rgb([8, 4], &[120u8; 8 * 4 * 3]), "photo.jpg");
+    a.ed.background.as_mut().unwrap().corners[2] = base_core::geom::Pt::new(55.0, 66.0);
+    a.ed.background.as_mut().unwrap().visible = false;
+    let text = a.to_project().to_json();
+    assert!(text.contains("\"overlay\""));
+    let p = base_core::project::Project::from_json(&text).unwrap();
+    a.background_from_project(&base_core::project::Project::default());
+    a.background_tick(&ctx);
+    assert!(a.ed.background.is_none(), "a project without one has none");
+    assert!(!a.to_project().to_json().contains("\"overlay\""));
+    a.kept = p.clone();
+    a.background_from_project(&p);
+    assert!(a.to_project().to_json().contains("\"overlay\""), "not lost while it waits to be shown");
+    a.background_tick(&ctx);
+    let b = a.ed.background.as_ref().expect("it came back");
+    assert_eq!((b.size, b.corners[2].x, b.visible, b.name.as_str()), ((8, 4), 55.0, false, "photo.jpg"));
 }

@@ -818,7 +818,7 @@
 817|Dækningsgrad
 818|Flyt hjørnerne
 819|Tilpas til arbejdsområdet
-820|Billedet ligger under tegningen: træk dets hjørner til materialets eller arbejdsområdets hjørner. Det gemmes ikke i projektet.
+820|Billedet ligger under tegningen: træk dets hjørner til materialets eller arbejdsområdets hjørner. Det gemmes i projektet.
 821|De kører i denne rækkefølge: {}
 822|Slå alle postprocessorer fra
 823|De valgte postprocessorer ændrer G-koden fra Eksportér G-kode…; et job sendt til maskinen ændres ikke.
@@ -953,3 +953,81 @@
 952|Antal omgange
 953|Polygon
 954|Spiral
+955|En ny klient erstatter den tilsluttede
+956|Baudrate
+957|Manuelt: sudo cp <gemt fil> {} && sudo systemctl restart ser2net
+958|Bekræft
+959|Kopieret.
+960|Kunne ikke installere konfigurationen: {}
+961|Siden kunne ikke laves: {}
+962|Fremviseren kunne ikke åbnes: {}
+963|Standardprinter
+964|Fil: {}
+965|Ramme
+966|Installér og genstart ser2net…
+967|{} installeret og ser2net genstartet.
+968|Lyt kun på denne computer (bruges med en SSH-tunnel)
+969|Margen
+970|Kun objekter på synlige lag
+971|Kun objekterne, så store som siden tillader
+972|Åbn PDF
+973|Åbnet i PDF-fremviseren.
+974|Åbner siden i PDF-fremviseren, som kan printe den med flere valgmuligheder
+975|Papir
+976|Port
+977|Udskriv
+978|Printer
+979|Udskriver designet på en papirprinter, til at kontrollere placeringen eller som skabelon.
+980|Udskriv…
+981|Opdater
+982|Gem som PDF…
+983|Gem som…
+984|Kunne ikke gemme: {}
+985|Sendt til printeren. {}
+986|Del over netværket (ser2net)
+987|Del over netværket (ser2net)…
+988|Start job
+989|Skift enhed…
+990|TCP-port
+991|Printeren tog den ikke: {}
+992|Hele arbejdsområdet i målestok
+993|Forbind derefter fra den anden computer til {}:{}
+994|Der er intet at udskrive.
+995|Denne guide findes på engelsk og polsk; andre sprog viser den engelske tekst.
+996|Dette erstatter {} (en sikkerhedskopi gemmes) og genstarter ser2net. Der bedes om administratorrettigheder.
+997|Venter på administratorens godkendelse…
+998|ser2net fundet: {}
+999|ser2net-version
+1000|ser2net blev ikke fundet. Installér det først, for eksempel: sudo apt install ser2net
+1001|{} objekt(er) rager uden for arbejdsområdet; på papiret skæres de af ved kanten.
+1002|{} objekt(er) rager uden for arbejdsområdet; de udskrives alligevel.
+1003|Deler maskinens serielle port på denne computer over netværket, så programmet på en anden computer kan forbinde med forbindelsestypen "Netværk (TCP)".
+1004|Advarsel: Alle på netværket, der kan nå denne port, kan styre maskinen. Brug et netværk, du stoler på, en firewall eller kun lokal-indstillingen med en SSH-tunnel.
+1005|Denne controller rapporterer ikke sine indgange.
+1006|Tilføj et punkt
+1007|Juster efter punkterne
+1008|Justér: træk de fire hjørner på arbejdsområdet
+1009|Kameraoverlay
+1010|Slet dette punkt
+1011|Træk hvert hjørne til det tilsvarende hjørne af materialet eller arbejdsområdet; perspektivet korrigeres.
+1012|Tilpasser billedet til punkterne (mindste kvadraters metode) og flytter hjørnerne tilsvarende.
+1013|Frys billede
+1014|Indlæs billede…
+1015|For få punkter, eller de ligger på en linje.
+1016|Overlay fra…
+1017|Overlay: {}
+1018|Par af et punkt i billedet (pixels) og dets sted i arbejdsområdet (mm). Mindst 3, 4 anbefales; de fastlægger justeringen inklusive perspektiv.
+1019|Punkter fra de nuværende hjørner
+1020|Referencepunkter
+1021|Erstatter punkterne med billedets fire hjørner og deres nuværende placering.
+1022|Nulstil til arbejdsområdet
+1023|Roter 90°
+1024|Vis et foto eller live-kameraet under designet for at placere arbejdet på materialet.
+1025|Vis kameraoverlay
+1026|Vis overlay
+1027|Start kamera
+1028|Enhedsindstillinger…
+1029|Tjek programmet
+1030|Diagnostik og statistik…
+1031|Firmwareindstillinger ($$)…
+1032|Overlay

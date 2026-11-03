@@ -818,7 +818,7 @@
 817|Opacitate
 818|Mută colțurile
 819|Potrivește zonei de lucru
-820|Imaginea se află sub desen: trageți colțurile ei pe colțurile materialului sau ale zonei de lucru. Nu este salvată în proiect.
+820|Imaginea se află sub desen: trageți colțurile ei pe colțurile materialului sau ale zonei de lucru. Este salvată în proiect.
 821|Rulează în această ordine: {}
 822|Dezactivează toate postprocesoarele
 823|Postprocesoarele alese modifică G-code-ul din Exportă G-code…; o lucrare trimisă mașinii nu este modificată.
@@ -953,3 +953,81 @@
 952|Număr de spire
 953|Poligon
 954|Spirală
+955|Un client nou îl înlocuiește pe cel conectat
+956|Viteză în baud
+957|Manual: sudo cp <fișierul salvat> {} && sudo systemctl restart ser2net
+958|Confirmă
+959|Copiat.
+960|Nu s-a putut instala configurația: {}
+961|Pagina nu a putut fi creată: {}
+962|Vizualizatorul nu a putut fi deschis: {}
+963|Imprimantă implicită
+964|Fișier: {}
+965|Cadru
+966|Instalează și repornește ser2net…
+967|{} instalat și ser2net repornit.
+968|Ascultă doar pe acest computer (de folosit cu un tunel SSH)
+969|Margine
+970|Doar obiectele de pe straturile vizibile
+971|Doar obiectele, cât de mari permite pagina
+972|Deschide PDF-ul
+973|Deschis în vizualizatorul PDF.
+974|Deschide pagina în vizualizatorul PDF, care o poate tipări cu mai multe opțiuni
+975|Hârtie
+976|Port
+977|Tipărește
+978|Imprimantă
+979|Tipărește designul pe o imprimantă de hârtie, pentru a verifica amplasarea sau ca șablon.
+980|Tipărește…
+981|Reîmprospătează
+982|Salvează ca PDF…
+983|Salvează ca…
+984|Salvarea a eșuat: {}
+985|Trimis la imprimantă. {}
+986|Partajează în rețea (ser2net)
+987|Partajează în rețea (ser2net)…
+988|Pornește lucrarea
+989|Schimbă dispozitivul…
+990|Port TCP
+991|Imprimanta nu l-a primit: {}
+992|Toată zona de lucru, la scară
+993|Apoi conectați-vă de pe celălalt computer la {}:{}
+994|Nu e nimic de tipărit.
+995|Acest ghid este disponibil în engleză și poloneză; celelalte limbi arată textul în engleză.
+996|Aceasta înlocuiește {} (se păstrează o copie) și repornește ser2net. Se cer drepturi de administrator.
+997|Se așteaptă aprobarea administratorului…
+998|ser2net găsit: {}
+999|Versiunea ser2net
+1000|ser2net nu a fost găsit. Instalați-l mai întâi, de exemplu: sudo apt install ser2net
+1001|{} obiect(e) ies din zona de lucru; pe hârtie sunt tăiate la margine.
+1002|{} obiect(e) ies din zona de lucru; sunt tipărite oricum.
+1003|Partajează în rețea portul serial al mașinii de pe acest computer, astfel încât programul de pe alt computer să se poată conecta cu tipul de conexiune „Rețea (TCP)”.
+1004|Atenție: oricine din rețea ajunge la acest port poate comanda mașina. Folosiți o rețea de încredere, un firewall sau opțiunea doar local cu un tunel SSH.
+1005|Acest controler nu raportează intrările sale.
+1006|Adaugă un punct
+1007|Aliniază după puncte
+1008|Aliniere: trageți cele patru colțuri pe zona de lucru
+1009|Suprapunere cameră
+1010|Șterge acest punct
+1011|Trageți fiecare colț în colțul corespunzător al materialului sau al zonei de lucru; perspectiva este corectată.
+1012|Potrivește imaginea la puncte (cele mai mici pătrate) și mută colțurile în consecință.
+1013|Îngheață imaginea
+1014|Încarcă imagine…
+1015|Prea puține puncte sau sunt pe o singură dreaptă.
+1016|Suprapunere din…
+1017|Suprapunere: {}
+1018|Perechi dintr-un punct al imaginii (pixeli) și locul lui în zona de lucru (mm). Cel puțin 3, 4 recomandate; fixează alinierea, inclusiv perspectiva.
+1019|Puncte din colțurile curente
+1020|Puncte de referință
+1021|Înlocuiește punctele cu cele patru colțuri ale imaginii și locul unde sunt acum.
+1022|Resetează la zona de lucru
+1023|Rotește 90°
+1024|Arată o fotografie sau camera live sub design, pentru a poziționa lucrarea pe material.
+1025|Arată suprapunerea camerei
+1026|Arată suprapunerea
+1027|Pornește camera
+1028|Setările dispozitivului…
+1029|Verifică programul
+1030|Diagnostic și statistici…
+1031|Setările firmware-ului ($$)…
+1032|Suprapunere

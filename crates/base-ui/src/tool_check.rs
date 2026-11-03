@@ -243,7 +243,22 @@ where
         ed.design.open = None;
         d.frames();
     }
+    // The picture under the drawing, or the camera overlay where the program has a camera.
+    let a: <D::App as MenuHost>::Act = StdAct::BackgroundPicture.into();
+    d.app().run_act(&ctx, a);
+    d.frames();
+    assert!(shows(d, "Camera overlay") || shows(d, "Background picture"), "the window of the picture under the drawing");
     clear(d);
+}
+
+/// The windows only some programs have, or that are not commands of the editor: each action opens a window with this text.
+pub fn check_windows<D: Drive>(d: &mut D, windows: &[(<D::App as MenuHost>::Act, &'static str)]) {
+    let ctx = d.ctx();
+    for (act, title) in windows {
+        d.app().run_act(&ctx, *act);
+        d.frames();
+        assert!(shows(d, title), "{act:?} opens a window with {title:?}");
+    }
 }
 
 /// Every text of the menus of a program has a translation: none is left in English.
@@ -274,4 +289,64 @@ pub fn check_menu_texts<A>(menus: &Menus<A>) {
     left.sort();
     left.dedup();
     assert!(left.is_empty(), "menu texts without a translation: {left:#?}");
+}
+
+/// Every `Menu > Entry` a quick guide names exists in the menus of the program, so that the guide cannot send anybody to a place that
+/// is gone. The guide is the English one; a name that is not a menu of this program is not a path.
+pub fn check_guide_paths<A>(sections: &[crate::dialogs::Section], menus: &Menus<A>) {
+    fn has<A>(entries: &[Entry<A>], name: &str, rest: &[&str]) -> bool {
+        entries.iter().any(|e| match e {
+            Entry::Item(_, label, _) => rest.is_empty() && same(label, name),
+            Entry::Sub(label, more) => same(label, name) && (rest.is_empty() || has(more, rest[0], &rest[1..])),
+            _ => false,
+        })
+    }
+    fn same(label: &str, name: &str) -> bool {
+        label.trim_end_matches('…') == name.trim_end_matches('…')
+    }
+    let mut wrong = vec![];
+    for line in sections.iter().flat_map(|s| s.lines) {
+        for (title, entries) in menus {
+            let start = format!("{title} > ");
+            for (at, _) in line.match_indices(&start) {
+                if at > 0 && line[..at].ends_with(|c: char| c.is_alphanumeric()) {
+                    continue;
+                }
+                let path = &line[at + start.len()..];
+                // The longest run of words that names an entry: entries have words of their own (`Device settings…`).
+                let words: Vec<&str> = path.split(' ').take(10).collect();
+                let found = (1..=words.len()).any(|n| {
+                    let text = words[..n].join(" ");
+                    let text = text.trim_end_matches([',', '.', ';', ':', ')']);
+                    let parts: Vec<&str> = text.split(" > ").collect();
+                    has(entries, parts[0], &parts[1..])
+                });
+                if !found {
+                    wrong.push(format!("{title} > {}", words.join(" ")));
+                }
+            }
+        }
+    }
+    assert!(wrong.is_empty(), "the guide names what the menus do not have: {wrong:#?}");
+}
+
+#[cfg(test)]
+mod guide_path_tests {
+    use super::*;
+    use crate::dialogs::Section;
+
+    fn menus() -> Menus<u8> {
+        vec![("File", vec![Entry::Item(1, "Open…", None), Entry::Sub("Export", vec![Entry::Item(2, "Export SVG…", None)])]), ("Machine", vec![Entry::Item(3, "Device settings…", None)])]
+    }
+
+    #[test]
+    fn a_guide_that_names_the_real_entries_passes() {
+        check_guide_paths(&[Section { title: "x", lines: &["Press File > Open… first. Then Machine > Device settings…, and File > Export > Export SVG…"] }], &menus());
+    }
+
+    #[test]
+    #[should_panic(expected = "Machine > Switch")]
+    fn a_guide_that_names_an_entry_that_is_gone_fails() {
+        check_guide_paths(&[Section { title: "x", lines: &["Machine > Switch device… returns to the start window."] }], &menus());
+    }
 }

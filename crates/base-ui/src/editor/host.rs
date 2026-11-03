@@ -80,6 +80,20 @@ pub trait EditorHost: Sized {
     fn background_camera_image(&self) -> Option<(egui::ColorImage, String)> {
         None
     }
+    /// The camera of the device in use, whose reference points align the overlay; `None` where there is no camera.
+    fn overlay_camera(&mut self) -> Option<&mut base_core::camimg::CameraSource> {
+        None
+    }
+    /// The reference points of the camera were changed: keep them with the device.
+    fn overlay_camera_changed(&mut self) {}
+    /// The overlay follows the camera: keep the camera running and say how many pictures it has given so far.
+    fn live_camera(&mut self, _ctx: &egui::Context) -> Option<u64> {
+        None
+    }
+    /// What is wrong with the camera, if anything.
+    fn camera_error(&self) -> String {
+        String::new()
+    }
 
     /// Drawn after the work area and its grid: markings of the machine, zones, home, the live position.
     fn paint_work_area(&mut self, _v: &CanvasView) {}

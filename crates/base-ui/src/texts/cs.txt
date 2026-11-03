@@ -818,7 +818,7 @@
 817|Krytí
 818|Posouvat rohy
 819|Přizpůsobit pracovní oblasti
-820|Obrázek leží pod kresbou: přetáhněte jeho rohy na rohy materiálu nebo pracovní oblasti. V projektu se neukládá.
+820|Obrázek leží pod kresbou: přetáhněte jeho rohy na rohy materiálu nebo pracovní oblasti. Ukládá se v projektu.
 821|Spouštějí se v tomto pořadí: {}
 822|Vypnout všechny postprocesory
 823|Vybrané postprocesory mění G-code z Exportovat G-code…; úloha poslaná do stroje se nemění.
@@ -953,3 +953,81 @@
 952|Počet závitů
 953|Mnohoúhelník
 954|Spirála
+955|Nový klient nahradí připojeného
+956|Přenosová rychlost
+957|Ručně: sudo cp <uložený soubor> {} && sudo systemctl restart ser2net
+958|Potvrdit
+959|Zkopírováno.
+960|Konfiguraci se nepodařilo nainstalovat: {}
+961|Stránku se nepodařilo vytvořit: {}
+962|Prohlížeč se nepodařilo otevřít: {}
+963|Výchozí tiskárna
+964|Soubor: {}
+965|Rámeček
+966|Nainstalovat a restartovat ser2net…
+967|Nainstalováno: {}, ser2net restartován.
+968|Naslouchat jen na tomto počítači (použijte s tunelem SSH)
+969|Okraj
+970|Jen objekty na viditelných vrstvách
+971|Jen objekty, co největší, jak stránka dovolí
+972|Otevřít PDF
+973|Otevřeno v prohlížeči PDF.
+974|Otevře stránku v prohlížeči PDF, který ji může vytisknout s více volbami
+975|Papír
+976|Port
+977|Tisk
+978|Tiskárna
+979|Vytiskne návrh na papírové tiskárně, ke kontrole rozmístění nebo jako šablonu.
+980|Tisk…
+981|Obnovit
+982|Uložit jako PDF…
+983|Uložit jako…
+984|Uložení se nezdařilo: {}
+985|Odesláno na tiskárnu. {}
+986|Sdílet po síti (ser2net)
+987|Sdílet po síti (ser2net)…
+988|Spustit úlohu
+989|Změnit zařízení…
+990|Port TCP
+991|Tiskárna to nepřijala: {}
+992|Celá pracovní plocha v měřítku
+993|Poté se z druhého počítače připojte k {}:{}
+994|Není co tisknout.
+995|Tento průvodce je k dispozici v angličtině a polštině; ostatní jazyky zobrazují anglický text.
+996|Tím se nahradí {} (záloha se zachová) a restartuje se ser2net. Budou vyžadována oprávnění správce.
+997|Čeká se na schválení správcem…
+998|Nalezen ser2net: {}
+999|Verze ser2net
+1000|Program ser2net nebyl nalezen. Nejprve jej nainstalujte, například: sudo apt install ser2net
+1001|{} objekt(ů) přesahuje pracovní plochu; na papíře jsou oříznuty na jejím okraji.
+1002|{} objekt(ů) přesahuje pracovní plochu; vytisknou se přesto.
+1003|Sdílí v síti sériový port stroje na tomto počítači, takže program na jiném počítači se může připojit typem připojení „Síť (TCP)“.
+1004|Upozornění: kdokoli v síti, kdo se k tomuto portu dostane, může ovládat stroj. Použijte důvěryhodnou síť, bránu firewall nebo volbu jen místně s tunelem SSH.
+1005|Tento řadič nehlásí své vstupy.
+1006|Přidat bod
+1007|Zarovnat podle bodů
+1008|Zarovnání: přetáhněte čtyři rohy na pracovní ploše
+1009|Překryv z kamery
+1010|Smazat tento bod
+1011|Přetáhněte každý roh na odpovídající roh materiálu nebo pracovní plochy; perspektiva se opraví.
+1012|Přizpůsobí obraz bodům (metodou nejmenších čtverců) a podle toho posune rohy.
+1013|Zastavit obraz
+1014|Načíst obrázek…
+1015|Málo bodů, nebo leží na jedné přímce.
+1016|Překrytí z…
+1017|Překryv: {}
+1018|Dvojice bodu v obraze (pixely) a jeho místa v pracovní oblasti (mm). Alespoň 3, doporučeny 4; určují zarovnání včetně perspektivy.
+1019|Body z aktuálních rohů
+1020|Referenční body
+1021|Nahradí body čtyřmi rohy obrazu a místy, kde nyní leží.
+1022|Obnovit podle pracovní plochy
+1023|Otočit o 90°
+1024|Zobrazí fotografii nebo živý obraz z kamery pod návrhem, abyste mohli práci umístit na materiál.
+1025|Zobrazit překryv z kamery
+1026|Zobrazit překryv
+1027|Spustit kameru
+1028|Nastavení zařízení…
+1029|Zkontrolovat program
+1030|Diagnostika a statistiky…
+1031|Nastavení firmwaru ($$)…
+1032|Překryv

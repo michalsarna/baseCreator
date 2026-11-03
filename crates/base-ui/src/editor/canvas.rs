@@ -21,6 +21,7 @@ pub struct CanvasView<'a> {
 /// The canvas. Implemented for every `EditorHost`.
 pub trait EditorCanvas: EditorHost {
     fn canvas(&mut self, ui: &mut egui::Ui) {
+        super::EditorBackground::background_tick(self, &ui.ctx().clone());
         let avail = ui.available_size();
         let (resp, painter) = ui.allocate_painter(avail, Sense::click_and_drag());
         let rect = resp.rect;

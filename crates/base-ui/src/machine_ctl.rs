@@ -715,7 +715,8 @@ impl Machine {
     /// Stop the job: a soft reset. The `after` lines of the job are still run.
     pub fn stop_job(&mut self) {
         self.barrier = None;
-        let after = self.job.take().map(|j| j.after).unwrap_or_default();
+        // The stop itself ends the check mode of GRBL: one more `$C` would turn it on again, and the next job would not move.
+        let after = self.job.take().map(|j| if j.check { j.after.into_iter().filter(|l| l != "$C").collect() } else { j.after }).unwrap_or_default();
         self.link.send(Cmd::Abort);
         for l in after {
             self.link.send(Cmd::Line(l));

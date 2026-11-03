@@ -57,6 +57,7 @@ impl Workspace {
         p.set_section(layers::SECTION, &layers::DrawSection { format: layers::SECTION_FORMAT, page: self.page, layers: self.layers.clone() });
         p.restore_sections(&self.kept.other_sections(layers::SECTION));
         p.restore_extra(self.kept.extra());
+        base_ui::editor::background_section(&self.view.background, &self.view.background_pending, &mut p);
         p
     }
 }

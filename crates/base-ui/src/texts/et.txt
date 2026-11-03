@@ -818,7 +818,7 @@
 817|Läbipaistmatus
 818|Liiguta nurki
 819|Sobita tööalale
-820|Pilt asub joonise all: lohista selle nurgad materjali või tööala nurkadele. Seda ei salvestata projekti.
+820|Pilt asub joonise all: lohista selle nurgad materjali või tööala nurkadele. See salvestatakse projekti.
 821|Need käivituvad selles järjekorras: {}
 822|Lülita kõik järeltöötlejad välja
 823|Valitud järeltöötlejad muudavad käsu Ekspordi G-kood… G-koodi; masinasse saadetud tööd ei muudeta.
@@ -953,3 +953,81 @@
 952|Keerdude arv
 953|Hulknurk
 954|Spiraal
+955|Uus klient asendab ühendatud kliendi
+956|Siduskiirus (baud)
+957|Käsitsi: sudo cp <salvestatud fail> {} && sudo systemctl restart ser2net
+958|Kinnita
+959|Kopeeritud.
+960|Konfiguratsiooni paigaldamine ebaõnnestus: {}
+961|Lehe loomine ebaõnnestus: {}
+962|Vaaturi avamine ebaõnnestus: {}
+963|Vaikeprinter
+964|Fail: {}
+965|Raam
+966|Paigalda ja taaskäivita ser2net…
+967|{} paigaldatud ja ser2net taaskäivitatud.
+968|Kuula ainult sellel arvutil (kasutage SSH-tunneliga)
+969|Veeris
+970|Ainult nähtavate kihtide objektid
+971|Ainult objektid, nii suured kui leht lubab
+972|Ava PDF
+973|Avatud PDF-vaaturis.
+974|Avab lehe PDF-vaaturis, mis saab selle printida rohkemate valikutega
+975|Paber
+976|Port
+977|Prindi
+978|Printer
+979|Prindib kujunduse paberprinteris, paigutuse kontrollimiseks või mallina.
+980|Prindi…
+981|Värskenda
+982|Salvesta PDF-ina…
+983|Salvesta nimega…
+984|Salvestamine ebaõnnestus: {}
+985|Saadetud printerisse. {}
+986|Jaga võrgus (ser2net)
+987|Jaga võrgus (ser2net)…
+988|Alusta tööd
+989|Vaheta seadet…
+990|TCP-port
+991|Printer ei võtnud seda vastu: {}
+992|Kogu tööala mõõtkavas
+993|Seejärel ühenduge teisest arvutist aadressile {}:{}
+994|Printida pole midagi.
+995|See juhend on saadaval inglise ja poola keeles; teised keeled näitavad ingliskeelset teksti.
+996|See asendab faili {} (varukoopia säilitatakse) ja taaskäivitab ser2net'i. Küsitakse administraatori õigusi.
+997|Ootan administraatori kinnitust…
+998|ser2net leitud: {}
+999|ser2net'i versioon
+1000|ser2net'i ei leitud. Paigaldage see esmalt, nt: sudo apt install ser2net
+1001|{} objekti ulatub tööalast välja; paberil lõigatakse need serva kohalt ära.
+1002|{} objekti ulatub tööalast välja; need prinditakse siiski.
+1003|Jagab selle arvuti küljes oleva masina jadaporti võrgus, nii et teises arvutis olev programm saab ühenduda ühenduse tüübiga „Võrk (TCP)“.
+1004|Hoiatus: igaüks võrgus, kes selle pordini jõuab, saab masinat juhtida. Kasutage usaldusväärset võrku, tulemüüri või ainult kohalikku valikut koos SSH-tunneliga.
+1005|See kontroller ei teata oma sisendeid.
+1006|Lisa punkt
+1007|Joonda punktide järgi
+1008|Joondus: lohistage neli nurka tööalal
+1009|Kaamera ülekate
+1010|Kustuta see punkt
+1011|Lohistage iga nurk materjali või tööala vastavasse nurka; perspektiiv korrigeeritakse.
+1012|Sobitab pildi punktidega (vähimruutude meetod) ja nihutab nurki vastavalt.
+1013|Külmuta kaader
+1014|Laadi pilt…
+1015|Punkte on liiga vähe või need asuvad ühel sirgel.
+1016|Ülekate allikast…
+1017|Ülekate: {}
+1018|Paarid: punkt pildil (pikslites) ja selle koht tööalas (mm). Vähemalt 3, soovitatav 4; need määravad joonduse koos perspektiiviga.
+1019|Punktid praegustest nurkadest
+1020|Võrdluspunktid
+1021|Asendab punktid pildi nelja nurga ja nende praeguste kohtadega.
+1022|Lähtesta tööalale
+1023|Pööra 90°
+1024|Näitab disaini all fotot või reaalajas kaamerapilti, et paigutada töö materjalile.
+1025|Näita kaamera ülekatet
+1026|Näita ülekatet
+1027|Käivita kaamera
+1028|Seadme seaded…
+1029|Kontrolli programmi
+1030|Diagnostika ja statistika…
+1031|Püsivara seaded ($$)…
+1032|Ülekate

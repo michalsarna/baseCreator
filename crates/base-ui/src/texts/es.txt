@@ -818,7 +818,7 @@
 817|Opacidad
 818|Mover las esquinas
 819|Ajustar al área de trabajo
-820|La imagen está bajo el dibujo: arrastra sus esquinas hasta las esquinas del material o del área de trabajo. No se guarda en el proyecto.
+820|La imagen está bajo el dibujo: arrastra sus esquinas hasta las esquinas del material o del área de trabajo. Se guarda en el proyecto.
 821|Se ejecutan en este orden: {}
 822|Desactivar todos los postprocesadores
 823|Los postprocesadores elegidos cambian el G-code de Exportar G-code…; un trabajo enviado a la máquina no se cambia.
@@ -953,3 +953,81 @@
 952|Número de vueltas
 953|Polígono
 954|Espiral
+955|Un cliente nuevo reemplaza al conectado
+956|Velocidad en baudios
+957|A mano: sudo cp <archivo guardado> {} && sudo systemctl restart ser2net
+958|Confirmar
+959|Copiado.
+960|No se pudo instalar la configuración: {}
+961|No se pudo crear la página: {}
+962|No se pudo abrir el visor: {}
+963|Impresora predeterminada
+964|Archivo: {}
+965|Marco
+966|Instalar y reiniciar ser2net…
+967|{} instalado y ser2net reiniciado.
+968|Escuchar solo en este ordenador (para usar con un túnel SSH)
+969|Margen
+970|Solo objetos de capas visibles
+971|Solo los objetos, tan grandes como permita la página
+972|Abrir el PDF
+973|Abierto en el visor de PDF.
+974|Abre la página en el visor de PDF, que puede imprimirla con más opciones
+975|Papel
+976|Puerto
+977|Imprimir
+978|Impresora
+979|Imprime el diseño en una impresora de papel, para comprobar la colocación o como plantilla.
+980|Imprimir…
+981|Actualizar
+982|Guardar como PDF…
+983|Guardar como…
+984|Error al guardar: {}
+985|Enviado a la impresora. {}
+986|Compartir en la red (ser2net)
+987|Compartir en la red (ser2net)…
+988|Iniciar trabajo
+989|Cambiar de dispositivo…
+990|Puerto TCP
+991|La impresora no lo aceptó: {}
+992|Toda el área de trabajo, a escala
+993|Luego conéctese desde el otro ordenador a {}:{}
+994|No hay nada que imprimir.
+995|Esta guía está disponible en inglés y polaco; los demás idiomas muestran el texto en inglés.
+996|Esto reemplaza {} (se conserva una copia) y reinicia ser2net. Se piden permisos de administrador.
+997|Esperando la aprobación del administrador…
+998|ser2net encontrado: {}
+999|Versión de ser2net
+1000|No se encontró ser2net. Instálelo primero, por ejemplo: sudo apt install ser2net
+1001|{} objeto(s) salen del área de trabajo; en el papel se cortan en su borde.
+1002|{} objeto(s) salen del área de trabajo; se imprimen de todos modos.
+1003|Comparte en la red el puerto serie de la máquina de este ordenador, para que el programa de otro ordenador pueda conectarse con el tipo de conexión «Red (TCP)».
+1004|Atención: cualquiera en la red que alcance este puerto puede controlar la máquina. Usa una red de confianza, un cortafuegos o la opción solo local con un túnel SSH.
+1005|Este controlador no informa de sus entradas.
+1006|Añadir un punto
+1007|Alinear por los puntos
+1008|Alinear: arrastre las cuatro esquinas sobre el área de trabajo
+1009|Superposición de cámara
+1010|Eliminar este punto
+1011|Arrastre cada esquina a la esquina correspondiente del material o del área de trabajo; la perspectiva se corrige.
+1012|Ajusta la imagen a los puntos (mínimos cuadrados) y mueve las esquinas en consecuencia.
+1013|Congelar imagen
+1014|Cargar imagen…
+1015|Puntos insuficientes, o están en una recta.
+1016|Superposición desde…
+1017|Superposición: {}
+1018|Pares de un punto de la imagen (píxeles) y su lugar en el área de trabajo (mm). Al menos 3, se recomiendan 4; fijan la alineación, perspectiva incluida.
+1019|Puntos de las esquinas actuales
+1020|Puntos de referencia
+1021|Sustituye los puntos por las cuatro esquinas de la imagen y donde están ahora.
+1022|Restablecer al área de trabajo
+1023|Girar 90°
+1024|Muestra una foto o la cámara en vivo bajo el diseño para colocar el trabajo sobre el material.
+1025|Mostrar superposición de cámara
+1026|Mostrar superposición
+1027|Iniciar cámara
+1028|Ajustes del dispositivo…
+1029|Comprobar el programa
+1030|Diagnóstico y estadísticas…
+1031|Ajustes del firmware ($$)…
+1032|Superposición

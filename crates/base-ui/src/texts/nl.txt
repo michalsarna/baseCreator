@@ -818,7 +818,7 @@
 817|Dekking
 818|Hoeken verplaatsen
 819|Aanpassen aan het werkgebied
-820|De afbeelding ligt onder de tekening: sleep de hoeken naar de hoeken van het materiaal of het werkgebied. Hij wordt niet in het project opgeslagen.
+820|De afbeelding ligt onder de tekening: sleep de hoeken naar de hoeken van het materiaal of het werkgebied. Hij wordt in het project opgeslagen.
 821|Ze worden in deze volgorde uitgevoerd: {}
 822|Alle postprocessors uitschakelen
 823|De gekozen postprocessors wijzigen de G-code van G-code exporteren…; een naar de machine gestuurde taak wordt niet gewijzigd.
@@ -953,3 +953,81 @@
 952|Aantal windingen
 953|Veelhoek
 954|Spiraal
+955|Een nieuwe client vervangt de verbonden client
+956|Baudsnelheid
+957|Handmatig: sudo cp <opgeslagen bestand> {} && sudo systemctl restart ser2net
+958|Bevestigen
+959|Gekopieerd.
+960|Kon de configuratie niet installeren: {}
+961|De pagina kon niet worden gemaakt: {}
+962|De viewer kon niet worden geopend: {}
+963|Standaardprinter
+964|Bestand: {}
+965|Kader
+966|ser2net installeren en herstarten…
+967|{} geïnstalleerd en ser2net herstart.
+968|Alleen op deze computer luisteren (gebruik met een SSH-tunnel)
+969|Marge
+970|Alleen objecten op zichtbare lagen
+971|Alleen de objecten, zo groot als de pagina toelaat
+972|PDF openen
+973|Geopend in de PDF-viewer.
+974|Opent de pagina in de PDF-viewer, die hem met meer opties kan afdrukken
+975|Papier
+976|Poort
+977|Afdrukken
+978|Printer
+979|Drukt het ontwerp af op een papieren printer, om de plaatsing te controleren of als sjabloon.
+980|Afdrukken…
+981|Vernieuwen
+982|Opslaan als PDF…
+983|Opslaan als…
+984|Opslaan mislukt: {}
+985|Naar de printer gestuurd. {}
+986|Delen via het netwerk (ser2net)
+987|Delen via het netwerk (ser2net)…
+988|Taak starten
+989|Apparaat wisselen…
+990|TCP-poort
+991|De printer nam het niet aan: {}
+992|Het hele werkgebied, op schaal
+993|Verbind daarna vanaf de andere computer met {}:{}
+994|Er is niets om af te drukken.
+995|Deze gids is beschikbaar in het Engels en Pools; andere talen tonen de Engelse tekst.
+996|Dit vervangt {} (een back-up blijft bewaard) en herstart ser2net. Er worden beheerdersrechten gevraagd.
+997|Wachten op goedkeuring van de beheerder…
+998|ser2net gevonden: {}
+999|ser2net-versie
+1000|ser2net is niet gevonden. Installeer het eerst, bijvoorbeeld: sudo apt install ser2net
+1001|{} object(en) reiken buiten het werkgebied; op papier worden ze bij de rand afgesneden.
+1002|{} object(en) reiken buiten het werkgebied; ze worden toch afgedrukt.
+1003|Deelt de seriële poort van de machine op deze computer via het netwerk, zodat het programma op een andere computer kan verbinden met het verbindingstype "Netwerk (TCP)".
+1004|Waarschuwing: iedereen op het netwerk die deze poort bereikt, kan de machine besturen. Gebruik een vertrouwd netwerk, een firewall of de alleen-lokaal-optie met een SSH-tunnel.
+1005|Deze controller meldt zijn ingangen niet.
+1006|Punt toevoegen
+1007|Uitlijnen op de punten
+1008|Uitlijnen: sleep de vier hoeken op het werkgebied
+1009|Cameraoverlay
+1010|Dit punt verwijderen
+1011|Sleep elke hoek naar de overeenkomstige hoek van het materiaal of werkgebied; perspectief wordt gecorrigeerd.
+1012|Past het beeld aan op de punten (kleinste kwadraten) en verplaatst de hoeken dienovereenkomstig.
+1013|Beeld bevriezen
+1014|Afbeelding laden…
+1015|Te weinig punten, of ze liggen op één lijn.
+1016|Overlay van…
+1017|Overlay: {}
+1018|Paren van een punt in het beeld (pixels) en zijn plaats in het werkgebied (mm). Minstens 3, 4 aanbevolen; ze leggen de uitlijning vast, perspectief inbegrepen.
+1019|Punten van de huidige hoeken
+1020|Referentiepunten
+1021|Vervangt de punten door de vier hoeken van het beeld en waar ze nu liggen.
+1022|Terugzetten op werkgebied
+1023|90° draaien
+1024|Toon een foto of de live camera onder het ontwerp om het werk op het materiaal te positioneren.
+1025|Cameraoverlay tonen
+1026|Overlay tonen
+1027|Camera starten
+1028|Apparaatinstellingen…
+1029|Programma controleren
+1030|Diagnose en statistieken…
+1031|Firmware-instellingen ($$)…
+1032|Overlay

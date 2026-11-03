@@ -818,7 +818,7 @@
 817|Necaurredzamība
 818|Pārvietot stūrus
 819|Pielāgot darba laukumam
-820|Attēls atrodas zem zīmējuma: velciet tā stūrus uz materiāla vai darba laukuma stūriem. Tas netiek saglabāts projektā.
+820|Attēls atrodas zem zīmējuma: velciet tā stūrus uz materiāla vai darba laukuma stūriem. Tas tiek saglabāts projektā.
 821|Tie darbojas šādā secībā: {}
 822|Izslēgt visus postprocesorus
 823|Izvēlētie postprocesori maina G-kodu no Eksportēt G-kodu…; mašīnai nosūtītais darbs netiek mainīts.
@@ -953,3 +953,81 @@
 952|Apgriezienu skaits
 953|Daudzstūris
 954|Spirāle
+955|Jauns klients aizstāj savienoto
+956|Pārraides ātrums (baud)
+957|Ar roku: sudo cp <saglabātais fails> {} && sudo systemctl restart ser2net
+958|Apstiprināt
+959|Nokopēts.
+960|Neizdevās instalēt konfigurāciju: {}
+961|Neizdevās izveidot lapu: {}
+962|Neizdevās atvērt skatītāju: {}
+963|Noklusējuma printeris
+964|Fails: {}
+965|Rāmis
+966|Instalēt un pārstartēt ser2net…
+967|{} instalēts un ser2net pārstartēts.
+968|Klausīties tikai šajā datorā (izmantot ar SSH tuneli)
+969|Mala
+970|Tikai redzamo slāņu objekti
+971|Tikai objekti, cik lieli lapa atļauj
+972|Atvērt PDF
+973|Atvērts PDF skatītājā.
+974|Atver lapu PDF skatītājā, kas to var izdrukāt ar vairāk iespējām
+975|Papīrs
+976|Ports
+977|Drukāt
+978|Printeris
+979|Izdrukā dizainu uz papīra printera, lai pārbaudītu izvietojumu vai kā veidni.
+980|Drukāt…
+981|Atsvaidzināt
+982|Saglabāt kā PDF…
+983|Saglabāt kā…
+984|Neizdevās saglabāt: {}
+985|Nosūtīts uz printeri. {}
+986|Koplietot tīklā (ser2net)
+987|Koplietot tīklā (ser2net)…
+988|Sākt darbu
+989|Mainīt ierīci…
+990|TCP ports
+991|Printeris to nepieņēma: {}
+992|Visa darba zona mērogā
+993|Pēc tam savienojieties no cita datora ar {}:{}
+994|Nav ko drukāt.
+995|Šis ceļvedis ir pieejams angļu un poļu valodā; citās valodās tiek rādīts angļu teksts.
+996|Tas aizstāj {} (tiek saglabāta kopija) un pārstartē ser2net. Tiek prasītas administratora tiesības.
+997|Gaida administratora apstiprinājumu…
+998|ser2net atrasts: {}
+999|ser2net versija
+1000|ser2net netika atrasts. Vispirms to instalējiet, piemēram: sudo apt install ser2net
+1001|{} objekti iziet ārpus darba zonas; uz papīra tie tiek nogriezti pie malas.
+1002|{} objekti iziet ārpus darba zonas; tie tomēr tiek izdrukāti.
+1003|Koplieto tīklā šī datora mašīnas seriālo portu, lai programma citā datorā varētu pieslēgties ar savienojuma veidu “Tīkls (TCP)”.
+1004|Brīdinājums: ikviens tīklā, kurš sasniedz šo portu, var vadīt mašīnu. Izmantojiet uzticamu tīklu, ugunsmūri vai tikai lokālo opciju ar SSH tuneli.
+1005|Šis kontrolleris nepaziņo savas ieejas.
+1006|Pievienot punktu
+1007|Līdzināt pēc punktiem
+1008|Līdzināšana: velciet četrus stūrus darba apgabalā
+1009|Kameras pārklājums
+1010|Dzēst šo punktu
+1011|Velciet katru stūri uz atbilstošo materiāla vai darba apgabala stūri; perspektīva tiek labota.
+1012|Pielāgo attēlu punktiem (mazāko kvadrātu metode) un attiecīgi pārvieto stūrus.
+1013|Iesaldēt kadru
+1014|Ielādēt attēlu…
+1015|Par maz punktu, vai tie atrodas uz vienas taisnes.
+1016|Pārklājums no…
+1017|Pārklājums: {}
+1018|Pāri: punkts attēlā (pikseļi) un tā vieta darba zonā (mm). Vismaz 3, ieteicami 4; tie nosaka līdzinājumu, ieskaitot perspektīvu.
+1019|Punkti no pašreizējiem stūriem
+1020|Atsauces punkti
+1021|Aizstāj punktus ar attēla četriem stūriem un to pašreizējo vietu.
+1022|Atiestatīt uz darba apgabalu
+1023|Pagriezt par 90°
+1024|Rāda fotoattēlu vai tiešraides kameras attēlu zem dizaina, lai novietotu darbu uz materiāla.
+1025|Rādīt kameras pārklājumu
+1026|Rādīt pārklājumu
+1027|Startēt kameru
+1028|Ierīces iestatījumi…
+1029|Pārbaudīt programmu
+1030|Diagnostika un statistika…
+1031|Programmaparatūras iestatījumi ($$)…
+1032|Pārklājums
