@@ -266,6 +266,8 @@ pub struct EditorState {
     pub clipboard: Vec<Shape>,
     /// The import / adjust dialog of a picture, and the trace dialog.
     pub img_dlg: Option<ImgDlg>,
+    /// A file with Illustrator layers that was read and waits for the answer how to put its paths on the layers.
+    pub drawing_choice: Option<(std::path::PathBuf, Vec<base_core::svg::Outline>)>,
     pub trace_dlg: Option<TraceDlg>,
 }
 
@@ -301,6 +303,7 @@ impl EditorState {
         self.last_param = None;
         self.show_shape_popup = false;
         self.img_dlg = None;
+        self.drawing_choice = None;
         self.trace_dlg = None;
         self.image_tex.clear();
     }
@@ -352,6 +355,7 @@ impl EditorState {
             space_prev: None,
             clipboard: vec![],
             img_dlg: None,
+            drawing_choice: None,
             trace_dlg: None,
         }
     }

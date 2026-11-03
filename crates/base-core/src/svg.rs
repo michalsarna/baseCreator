@@ -26,6 +26,28 @@ pub fn layer_names(outlines: &[Outline]) -> Vec<String> {
     names
 }
 
+/// A scene of read outlines, one shape each: on the layer nearest to their colour, or with `by_layers` on the layer with the number of
+/// their Illustrator layer in the file (the first on layer 1, ...; the rest on the last one; outlines on no layer still go by colour).
+pub fn into_scene(outlines: Vec<Outline>, by_layers: bool) -> crate::scene::Scene {
+    let names = layer_names(&outlines);
+    let mut scene = crate::scene::Scene::default();
+    for o in outlines {
+        let named = if by_layers { o.layer.as_ref().and_then(|n| names.iter().position(|x| x == n)) } else { None };
+        let layer = named.map(|k| k.min(crate::layers::LAYER_COUNT - 1)).unwrap_or_else(|| crate::layers::nearest(o.color));
+        scene.add(layer, crate::scene::Kind::Bezier(o.contours), Xf::IDENTITY);
+    }
+    scene
+}
+
+/// Read a drawing into outlines: a PDF or Illustrator file (known by its content), or else an SVG.
+pub fn read_drawing(data: &[u8]) -> Result<Vec<Outline>, String> {
+    if data.windows(5).take(1024).any(|w| w == b"%PDF-") {
+        crate::pdf::parse(data)
+    } else {
+        parse(data)
+    }
+}
+
 /// Read an SVG into outlines, in document order.
 pub fn parse(data: &[u8]) -> Result<Vec<Outline>, String> {
     let tree = usvg::Tree::from_data(data, &usvg::Options::default()).map_err(|e| e.to_string())?;
@@ -127,4 +149,30 @@ fn contours(path: &usvg::tiny_skia_path::Path, xf: &Xf) -> Vec<Contour> {
     }
     finish(&mut cur, false, &mut out);
     out
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn outline(color: [u8; 3], layer: Option<&str>) -> Outline {
+        Outline { contours: vec![Contour::rect(10.0, 10.0)], color, layer: layer.map(String::from) }
+    }
+
+    #[test]
+    fn outlines_go_on_layers_by_colour_or_by_the_layers_of_the_file() {
+        let red = crate::layers::color(1);
+        let green = crate::layers::color(2);
+        let by_colour = into_scene(vec![outline(red, Some("A")), outline(green, Some("B"))], false);
+        assert_eq!(by_colour.shapes.iter().map(|s| s.layer).collect::<Vec<_>>(), [1, 2]);
+        let by_layers = into_scene(vec![outline(green, Some("B")), outline(red, Some("A")), outline(red, None)], true);
+        assert_eq!(by_layers.shapes.iter().map(|s| s.layer).collect::<Vec<_>>(), [0, 1, 1], "first layer of the file on the first layer; no layer: by colour");
+    }
+
+    #[test]
+    fn a_drawing_is_known_by_its_content() {
+        let svg = br#"<svg xmlns="http://www.w3.org/2000/svg" width="10mm" height="10mm"><rect width="5" height="5" fill="red"/></svg>"#;
+        assert_eq!(read_drawing(svg).unwrap().len(), 1);
+        assert!(read_drawing(b"%PDF-1.4 not really").is_err());
+    }
 }

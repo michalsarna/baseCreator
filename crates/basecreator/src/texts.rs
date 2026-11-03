@@ -49,8 +49,6 @@ const TABLE: &[[&str; 7]] = &[
     ["Device settings…", "Ustawienia urządzenia…", "Geräteeinstellungen…", "Impostazioni dispositivo…", "Laitteen asetukset…", "设备设置…", "डिवाइस सेटिंग्स…"],
     ["Edit", "Edycja", "Bearbeiten", "Modifica", "Muokkaa", "编辑", "संपादन"],
     ["Export G-code…", "Eksportuj G-code…", "G-Code exportieren…", "Esporta G-code…", "Vie G-koodi…", "导出 G-code…", "G-code निर्यात करें…"],
-    ["Export drawing as DXF…", "Eksportuj rysunek jako DXF…", "Zeichnung als DXF exportieren…", "Esporta il disegno come DXF…", "Vie piirros DXF-muodossa…", "将图形导出为 DXF…", "ड्रॉइंग को DXF के रूप में निर्यात करें…"],
-    ["Export drawing as SVG…", "Eksportuj rysunek jako SVG…", "Zeichnung als SVG exportieren…", "Esporta il disegno come SVG…", "Vie piirros SVG-muodossa…", "将图形导出为 SVG…", "ड्रॉइंग को SVG के रूप में निर्यात करें…"],
     ["Help", "Pomoc", "Hilfe", "Aiuto", "Ohje", "帮助", "सहायता"],
     ["Import DXF…", "Importuj DXF…", "DXF importieren…", "Importa DXF…", "Tuo DXF…", "导入 DXF…", "DXF आयात करें…"],
     ["Import LightBurn project…", "Importuj projekt LightBurn…", "LightBurn-Projekt importieren…", "Importa progetto LightBurn…", "Tuo LightBurn-projekti…", "导入 LightBurn 项目…", "LightBurn प्रोजेक्ट आयात करें…"],

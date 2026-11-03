@@ -34,9 +34,13 @@ The number of the program is the tag of this repository it was built from, for e
 The part of BaseCreator is the section `draw` (the page and the layers). The sections `laser`, `mill` and `pen` of the other programs are kept as
 they were, and those programs keep `draw`. A project without `draw` gets the page of the last new drawing, made bigger when the drawing does not fit.
 
+## Import
+
+*File → Import* is the same list as in the other programs: image, SVG, Adobe Illustrator / PDF, DXF, LightBurn project, UGS design, and what plugins read. The shapes are added to the open drawing and can be undone. *File → Open…* makes a new tab of an SVG, a PDF or an Illustrator file.
+
 ## Export
 
-*File → Export → Export drawing as SVG…* or *DXF…* writes all the shapes, also those on hidden layers; *Export selection as…* only the selected ones.
+*File → Export → Export SVG…* or *Export PLT / DXF…* writes all the shapes, also those on hidden layers; *Export selection as…* only the selected ones. Pictures have no outlines and are left out, and the program says how many.
 Pictures have no outlines and are not written (trace them first).
 
 ## Plugins
