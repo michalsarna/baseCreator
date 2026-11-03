@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="bg" cx="512" cy="330" r="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5620f"/>
+      <stop offset="0.45" stop-color="#f5620f"/>
+      <stop offset="1" stop-color="#cf530d"/>
+    </radialGradient>
+    <clipPath id="clip"><rect width="1024" height="1024" rx="225"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+    <rect y="735" width="1024" height="289" fill="#241808"/>
+    <rect y="735" width="1024" height="1" fill="#7f4317"/>
+    <rect y="736" width="1024" height="3" fill="#5a3a1a"/>
+  <g transform="translate(365 370) rotate(14)">
+      <path d="M-62 -210 L62 -210 L38 40 Q0 70 -38 40 Z" fill="#fff8e1" stroke="#fff" stroke-width="8"/>
+      <path d="M-52 -130 L52 -130 L36 35 Q0 62 -36 35 Z" fill="#f6c63a"/>
+      <circle cx="-12" cy="-70" r="9" fill="#fff"/><circle cx="16" cy="-20" r="7" fill="#fff"/><circle cx="8" cy="-100" r="6" fill="#fff"/>
+      <rect x="-9" y="55" width="18" height="150" fill="#fff8e1"/>
+      <rect x="-65" y="200" width="130" height="24" rx="12" fill="#fff8e1"/></g><g transform="translate(659 370) rotate(-14)">
+      <path d="M-62 -210 L62 -210 L38 40 Q0 70 -38 40 Z" fill="#fff8e1" stroke="#fff" stroke-width="8"/>
+      <path d="M-52 -130 L52 -130 L36 35 Q0 62 -36 35 Z" fill="#f6c63a"/>
+      <circle cx="-12" cy="-70" r="9" fill="#fff"/><circle cx="16" cy="-20" r="7" fill="#fff"/><circle cx="8" cy="-100" r="6" fill="#fff"/>
+      <rect x="-9" y="55" width="18" height="150" fill="#fff8e1"/>
+      <rect x="-65" y="200" width="130" height="24" rx="12" fill="#fff8e1"/></g><path d="M512 50 Q512 120 582 120 Q512 120 512 190 Q512 120 442 120 Q512 120 512 50 Z" fill="#ffe066"/><path d="M235 92 Q235 130 273 130 Q235 130 235 168 Q235 130 197 130 Q235 130 235 92 Z" fill="#fff"/><path d="M800 91 Q800 135 844 135 Q800 135 800 179 Q800 135 756 135 Q800 135 800 91 Z" fill="#fff"/><path d="M170 392 Q170 420 198 420 Q170 420 170 448 Q170 420 142 420 Q170 420 170 392 Z" fill="#ffe066"/><path d="M860 400 Q860 430 890 430 Q860 430 860 460 Q860 430 830 430 Q860 430 860 400 Z" fill="#ffe066"/>
+  </g>
+</svg>

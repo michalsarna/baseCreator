@@ -301,3 +301,27 @@ fn the_program_draws_its_screens_and_windows() {
     }
     assert_eq!(a.screen, Screen::Editor);
 }
+
+/// Every festive icon can be read at its size, and the tests (so also the screenshots) get the normal one.
+#[test]
+fn every_festive_icon_decodes_at_its_size() {
+    let v = &crate::FESTIVE;
+    for (name, (small, big)) in [("christmas", v.christmas), ("new year", v.new_years_eve), ("halloween", v.halloween), ("easter", v.easter)] {
+        let small = base_ui::start::window_icon(small).unwrap_or_else(|| panic!("{name} 256 does not decode"));
+        let big = base_ui::start::window_icon(big).unwrap_or_else(|| panic!("{name} 512 does not decode"));
+        assert_eq!((small.width, small.height), (256, 256), "{name}");
+        assert_eq!((big.width, big.height), (512, 512), "{name}");
+    }
+    assert_eq!(crate::app_icon(), (crate::ICON_256, crate::ICON_512));
+}
+
+/// The window of the plugins of this program refuses what changes G-code.
+#[test]
+fn the_plugins_of_this_program_refuse_gcode() {
+    let dir = temp_dir("no-gcode");
+    let mut ui = base_ui::plugins_ui::PluginsUi::new("basecreator", &dir);
+    assert!(ui.registry.refuse_gcode);
+    ui.reload();
+    assert!(ui.registry.refuse_gcode, "also after loading the plugins again");
+    let _ = std::fs::remove_dir_all(&dir);
+}

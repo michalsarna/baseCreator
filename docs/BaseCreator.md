@@ -49,7 +49,7 @@ they were, and those programs keep `draw`. A project without `draw` gets the pag
 ## Plugins
 
 *Settings → Plugins…* is the same list as in the other programs, and the plugins folder is shared. Generators and importers work here. A plugin with
-postprocessors (`gcode-tools`, `gcode-dialects`) can be installed, but does nothing here.
+postprocessors (`gcode-tools`, `gcode-dialects`) cannot be installed here.
 
 ---
 
@@ -58,5 +58,5 @@ postprocessors (`gcode-tools`, `gcode-dialects`) can be installed, but does noth
 Program do rysowania bez żadnej części maszynowej. Zapisuje te same pliki `.cre` co LightCreator, MillCreator i PenCreator: rysunek zrobiony tutaj
 otwiera się tam, a to, co należy do tamtych programów, zostaje w pliku po zapisie tutaj. Podręcznik jest w [wiki](https://github.com/michalsarna/baseCreator/wiki). Wydania są na stronie
 [Releases](https://github.com/michalsarna/baseCreator/releases) i mają numery tagów tego repozytorium; program sam sprawdza przy starcie, czy jest nowsza
-wersja. Zamiast pola roboczego maszyny jest strona (*Plik → Ustawienia strony…*). Wtyczki generujące kształty i importery działają; wtyczki z
-postprocesorami G-code można zainstalować, ale tutaj nic nie robią.
+wersja. Zamiast pola roboczego maszyny jest strona (*Plik → Ustawienia strony…*). Wtyczki generujące kształty i importery działają; wtyczek z
+postprocesorami G-code nie da się tu zainstalować.

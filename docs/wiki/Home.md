@@ -35,8 +35,8 @@ An open-source drawing program written in Rust, with nothing of a machine: no de
 * **Import:** image, SVG, Adobe Illustrator / PDF, DXF, LightBurn project, UGS design, and what plugins read. **Export:** SVG, PLT, DXF.
 * **Project file:** `.cre`, shared with the three other programs; their sections stay in the file when you save here.
 * **Clipart:** 310 pictures shared with the other programs, with online search.
-* **Interface:** 30 languages and 14 colour schemes.
+* **Interface:** 30 languages and 14 colour schemes; around Christmas, the New Year, Halloween and Easter also a festive icon and two festive schemes.
 
 Releases have the numbers of the tags of the repository, which is why the numbers differ from those of the other programs.
 
-Latest release: **v1.60.1** · [Releases](https://github.com/michalsarna/baseCreator/releases) · [Issues](https://github.com/michalsarna/baseCreator/issues) · Licence: [MIT](https://github.com/michalsarna/baseCreator/blob/main/LICENSE) or [Apache-2.0](https://github.com/michalsarna/baseCreator/blob/main/LICENSE-APACHE), at your option
+Latest release: **v1.61.0** · [Releases](https://github.com/michalsarna/baseCreator/releases) · [Issues](https://github.com/michalsarna/baseCreator/issues) · Licence: [MIT](https://github.com/michalsarna/baseCreator/blob/main/LICENSE) or [Apache-2.0](https://github.com/michalsarna/baseCreator/blob/main/LICENSE-APACHE), at your option

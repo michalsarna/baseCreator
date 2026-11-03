@@ -38,6 +38,8 @@ is checked before it is used:
 Even so, a plugin is somebody's code that decides what your machine is told to do. Install only plugins you trust, and
 look at a new postprocessor's output before you run it on a machine.
 
+A plugin with postprocessors cannot be installed in BaseCreator, which has no G-code (`plugins::WITHOUT_GCODE`).
+
 ## The manifest
 
 ```json

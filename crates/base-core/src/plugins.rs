@@ -31,6 +31,10 @@ pub const RESERVED_EXTENSIONS: [&str; 13] = ["svg", "pdf", "ai", "cre", "lbrn", 
 /// The programs a plugin can name in `programs`.
 pub const PROGRAMS: [&str; 4] = ["lightcreator", "millcreator", "pencreator", "basecreator"];
 
+/// The programs without G-code: a plugin that changes G-code cannot be installed there, and one already in the shared folder
+/// (installed by another program) does nothing there.
+pub const WITHOUT_GCODE: [&str; 1] = ["basecreator"];
+
 /// What kind of machine a preset is for: the programs take the ones of their class.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
@@ -331,8 +335,12 @@ impl Manifest {
     }
 
     /// Is the plugin for this program (`lightcreator`, `millcreator`, `pencreator`, `basecreator`)? A name this version does not know is
-    /// the name of a newer program, not a fault of the plugin (`validate` lets it through).
+    /// the name of a newer program, not a fault of the plugin (`validate` lets it through). A plugin with postprocessors is never for a
+    /// program without G-code.
     pub fn is_for(&self, app: &str) -> bool {
+        if !self.postprocessors.is_empty() && WITHOUT_GCODE.contains(&app) {
+            return false;
+        }
         self.programs.is_empty() || self.programs.iter().any(|p| p == app)
     }
 }
@@ -376,6 +384,8 @@ impl Default for State {
 pub struct Registry {
     dir: PathBuf,
     auto_check: bool,
+    /// The program that installs from here has no G-code: a zip with postprocessors is refused.
+    pub refuse_gcode: bool,
     pub plugins: Vec<Plugin>,
     pub broken: Vec<Broken>,
 }
@@ -390,7 +400,7 @@ impl Registry {
     pub fn load(dir: impl Into<PathBuf>) -> Registry {
         let dir = dir.into();
         let state: State = std::fs::read_to_string(dir.join("state.json")).ok().and_then(|s| serde_json::from_str(&s).ok()).unwrap_or_default();
-        let mut r = Registry { dir: dir.clone(), auto_check: state.check_updates, plugins: vec![], broken: vec![] };
+        let mut r = Registry { dir: dir.clone(), auto_check: state.check_updates, refuse_gcode: false, plugins: vec![], broken: vec![] };
         let Ok(rd) = std::fs::read_dir(&dir) else { return r };
         let mut folders: Vec<PathBuf> = rd.flatten().map(|e| e.path()).filter(|p| p.is_dir()).collect();
         folders.sort();
@@ -520,6 +530,9 @@ impl Registry {
             return Err("the manifest is too big".into());
         }
         let m = Manifest::parse(&String::from_utf8(manifest.1.clone()).map_err(|_| "the manifest is not text".to_string())?)?;
+        if self.refuse_gcode && !m.postprocessors.is_empty() {
+            return Err("this plugin changes G-code, and this program has none".into());
+        }
         if let Some((id, version)) = expect {
             if m.id != id || crate::registry::compare_versions(&m.version, version) != std::cmp::Ordering::Equal {
                 return Err(format!("the zip holds {} {}, not {id} {version}", m.id, m.version));
@@ -695,4 +708,74 @@ fn read_manifest(dir: &Path) -> Result<Manifest, String> {
         }
     }
     Ok(m)
+}
+
+#[cfg(test)]
+mod no_gcode_tests {
+    use super::*;
+    use std::io::Write;
+
+    const POST: &str = r#"{ "format": 1, "id": "numbers", "name": "Numbers", "version": "1.0.0", "postprocessors": [ { "id": "n", "name": "N", "script": "n.rhai" } ] }"#;
+    const GENERATOR: &str = r#"{ "format": 1, "id": "star", "name": "Star", "version": "1.0.0", "generators": [ { "id": "s", "name": "S", "script": "s.rhai" } ] }"#;
+
+    fn zip_of(manifest: &str, script: &str) -> Vec<u8> {
+        let mut z = zip::ZipWriter::new(std::io::Cursor::new(Vec::new()));
+        let opts = zip::write::SimpleFileOptions::default();
+        z.start_file(MANIFEST, opts).unwrap();
+        z.write_all(manifest.as_bytes()).unwrap();
+        z.start_file(script, opts).unwrap();
+        z.write_all(b"#{}").unwrap();
+        z.finish().unwrap().into_inner()
+    }
+
+    #[test]
+    fn a_program_without_gcode_refuses_a_plugin_that_changes_gcode_and_takes_the_others() {
+        let dir = std::env::temp_dir().join(format!("base-no-gcode-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        let mut reg = Registry::load(dir.clone());
+        reg.refuse_gcode = true;
+        let err = reg.install_zip_bytes(&zip_of(POST, "n.rhai"), None).unwrap_err();
+        assert!(err.contains("G-code"), "{err}");
+        assert!(reg.plugins.is_empty() && !dir.join("numbers").exists(), "nothing was written");
+        assert_eq!(reg.install_zip_bytes(&zip_of(GENERATOR, "s.rhai"), None).unwrap(), "star");
+
+        // The other programs install it into the same shared folder; here it is not for this program.
+        let mut other = Registry::load(dir.clone());
+        assert_eq!(other.install_zip_bytes(&zip_of(POST, "n.rhai"), None).unwrap(), "numbers");
+        assert_eq!(other.postprocessors("pencreator").len(), 1);
+        assert!(other.postprocessors("basecreator").is_empty());
+        assert!(!other.find("numbers").unwrap().manifest.is_for("basecreator"));
+        assert!(other.find("star").unwrap().manifest.is_for("basecreator"));
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn the_official_list_offers_no_gcode_plugin_to_a_program_without_gcode() {
+        let dir = std::env::temp_dir().join(format!("base-no-gcode-list-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        let mut reg = Registry::load(dir.clone());
+        reg.install_zip_bytes(&zip_of(POST, "n.rhai"), None).unwrap();
+        let entry = crate::registry::Entry {
+            id: "numbers".into(),
+            name: "Numbers".into(),
+            description: String::new(),
+            author: String::new(),
+            license: String::new(),
+            programs: vec![],
+            provides: vec!["postprocessors".into()],
+            version: "2.0.0".into(),
+            min_base: String::new(),
+            url: String::new(),
+            sha256: String::new(),
+            size: 0,
+            homepage: String::new(),
+            changelog: String::new(),
+        };
+        assert!(entry.refused_by("basecreator") && !entry.is_for("basecreator"));
+        assert!(!entry.refused_by("lightcreator") && entry.is_for("lightcreator"));
+        let index = crate::registry::Index { format: 1, updated: String::new(), plugins: vec![entry] };
+        assert_eq!(index.updates_for(&reg, "lightcreator").len(), 1);
+        assert!(index.updates_for(&reg, "basecreator").is_empty(), "no update of a plugin it refuses");
+        let _ = std::fs::remove_dir_all(&dir);
+    }
 }

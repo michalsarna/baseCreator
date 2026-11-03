@@ -78,11 +78,15 @@ pub struct PluginsUi {
 impl PluginsUi {
     /// `app` is `lightcreator`, `millcreator` or `pencreator`; `base` is the shared data folder.
     pub fn new(app: &str, base: &Path) -> PluginsUi {
-        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry: Registry::load(base_core::plugins::plugins_dir(base)), open: false, gen_open: false, pending: None, gen_sel: 0, gen_preview: GenPreview::default(), values: Default::default(), posts: vec![], confirm_remove: None, message: String::new(), log: vec![] }
+        let mut registry = Registry::load(base_core::plugins::plugins_dir(base));
+        registry.refuse_gcode = base_core::plugins::WITHOUT_GCODE.contains(&app);
+        PluginsUi { app: app.to_string(), tab: Tab::Installed, net: NetState::default(), registry, open: false, gen_open: false, pending: None, gen_sel: 0, gen_preview: GenPreview::default(), values: Default::default(), posts: vec![], confirm_remove: None, message: String::new(), log: vec![] }
     }
 
     pub fn reload(&mut self) {
+        let refuse_gcode = self.registry.refuse_gcode;
         self.registry = Registry::load(self.registry.dir().to_path_buf());
+        self.registry.refuse_gcode = refuse_gcode;
         self.gen_sel = 0;
         self.values.clear();
         // A postprocessor that is gone (the plugin was removed or switched off) is no longer in the chain.
@@ -193,7 +197,7 @@ impl PluginsUi {
                     match r {
                         Ok(idx) => {
                             if !self.net.manual {
-                                let n = idx.updates(&self.registry).len();
+                                let n = idx.updates_for(&self.registry, &self.app).len();
                                 if n > 0 {
                                     said = Some(trf("Plugin updates available: {}", &[&n]));
                                     self.net.popup = true;
@@ -236,7 +240,7 @@ impl PluginsUi {
 
     /// The plugins that have a newer version in the official list (empty until the list is loaded).
     fn outdated(&self) -> Vec<Entry> {
-        self.net.index.as_ref().map(|i| i.updates(&self.registry).into_iter().cloned().collect()).unwrap_or_default()
+        self.net.index.as_ref().map(|i| i.updates_for(&self.registry, &self.app).into_iter().cloned().collect()).unwrap_or_default()
     }
 
     /// The name of the generator chosen in the generator window.
@@ -617,7 +621,7 @@ fn official_tab(ui: &mut egui::Ui, st: &mut PluginsUi, download: &mut Option<Ent
         ui.label(RichText::new(tr("The list is not loaded yet. Press Check for updates.")).color(theme::text_dim()));
         return;
     };
-    let updates = index.updates(&st.registry).len();
+    let updates = index.updates_for(&st.registry, &st.app).len();
     ui.label(RichText::new(trf("{} plugins in the list, {} can be updated", &[&index.plugins.len(), &updates])).small().color(theme::text_dim()));
     ui.separator();
     egui::ScrollArea::vertical().max_height(list_height(ui)).auto_shrink([false, false]).show(ui, |ui| {
@@ -632,6 +636,10 @@ fn official_tab(ui: &mut egui::Ui, st: &mut PluginsUi, download: &mut Option<Ent
                     let busy = st.net.busy.as_deref() == Some(e.id.as_str());
                     if busy {
                         ui.label(trf("Downloading {}…", &[&e.name]));
+                        return;
+                    }
+                    if e.refused_by(&st.app) {
+                        ui.label(RichText::new(tr("Not for this program")).color(theme::text_dim()));
                         return;
                     }
                     match &status {

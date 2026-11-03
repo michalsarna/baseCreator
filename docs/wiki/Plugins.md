@@ -12,7 +12,7 @@ What works here:
 * **Generators:** **File → Import → Generate shape…** (also **Insert → Generate shape…**) shows the form of the generator and adds the shapes it makes.
 * **Clipart and translations.**
 
-A plugin with **G-code postprocessors** (`gcode-tools`, `gcode-dialects`) can be installed, but does nothing here, as there is no G-code.
+A plugin with **G-code postprocessors** (`gcode-tools`, `gcode-dialects`) cannot be installed here, as there is no G-code: the official list marks it *Not for this program*, and a `.zip` is refused. One that another program has installed in the shared folder is shown with the same words, does nothing here, and stays for that program. Removing it here removes it for the other programs too.
 
 **Safety.** Plugin scripts (Rhai) run in a sandbox without access to files, the network or the system, with a time and memory limit. Install only plugins you trust.
 

@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.61.0
+
+This release also brings what is below under v1.60.1 and v1.60.0: the same file formats in every program, a wiki and package managers.
+
+- **Festive icons:** around Christmas, the New Year, Halloween and Easter the program wears an icon of the holiday, as the other programs do. The festive colour schemes were there already.
+- **A plugin that changes G-code cannot be installed here**, as there is no G-code: the official list says *Not for this program* and a `.zip` is refused. One that another program installed in the shared folder does nothing here and is not offered for updates. New: `Registry::refuse_gcode`, `plugins::WITHOUT_GCODE`, `Entry::refused_by`, `Index::updates_for`.
+
 ## v1.60.1
 
 **A wiki and package managers.**
