@@ -486,3 +486,41 @@ fn the_names_of_the_layers_with_shapes_can_be_shown_beside_the_colours() {
     assert!(!shown.iter().any(|t| t == "Layer 1"), "a layer without shapes has no name: {shown:?}");
 }
 
+
+/// Escape does the editor's work and stays in the input for a question or a pick that is open too; the other keys are used up.
+#[test]
+fn escape_stays_for_what_else_is_open() {
+    let ctx = egui::Context::default();
+    let (mut h, a, _) = host_with_two_rects();
+    h.ed.sel = vec![a];
+    let key = |k: egui::Key| egui::RawInput {
+        events: vec![egui::Event::Key { key: k, physical_key: None, pressed: true, repeat: false, modifiers: egui::Modifiers::NONE }],
+        ..Default::default()
+    };
+    let mut seen = false;
+    let mut out = ctx.run_ui(key(egui::Key::Escape), |ui| {
+        super::plain_keys(&mut h, ui.ctx(), true);
+        seen = ui.input(|i| i.key_pressed(egui::Key::Escape));
+    });
+    out.textures_delta.clear();
+    assert!(h.ed.sel.is_empty(), "the selection is cleared");
+    assert!(seen, "and whatever comes later in the frame still sees the key");
+    let mut out = ctx.run_ui(key(egui::Key::R), |ui| {
+        super::plain_keys(&mut h, ui.ctx(), true);
+        seen = ui.input(|i| i.key_pressed(egui::Key::R));
+    });
+    out.textures_delta.clear();
+    assert_eq!(h.ed.tool, Tool::Rect);
+    assert!(!seen, "a letter of a tool is used up");
+}
+
+/// The texts of the polygon window are found by the shared table alone, in the languages of the table and of the files.
+#[test]
+fn the_new_rows_of_the_table_are_found() {
+    use crate::i18n::{tr_in, Lang};
+    for text in ["Number of sides", "Number of turns", "Polygon", "Spiral", "Arrange", "Save G-code", "Drag on the work area to draw it."] {
+        for lang in [Lang::Pl, Lang::Es] {
+            assert_ne!(tr_in(lang, text), text, "{text} in {lang:?}");
+        }
+    }
+}
