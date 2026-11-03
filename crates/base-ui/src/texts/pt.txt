@@ -938,3 +938,11 @@
 937|Mensagens do programa
 938|Fundo
 939|Tamanho da letra
+940|Tipo de letra
+941|Estilo
+942|Negrito
+943|Itálico
+944|Espaçamento de letras
+945|Espaçamento de linhas
+946|Alinhamento
+947|Transformar o texto em formas de Bézier editáveis

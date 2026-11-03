@@ -938,3 +938,11 @@
 937|Programos pranešimai
 938|Fonas
 939|Šrifto dydis
+940|Šriftas
+941|Stilius
+942|Pusjuodis
+943|Kursyvas
+944|Tarpai tarp raidžių
+945|Eilučių tarpai
+946|Lygiavimas
+947|Paversti tekstą redaguojamomis Bezjė formomis

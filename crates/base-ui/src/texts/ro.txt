@@ -938,3 +938,11 @@
 937|Mesajele programului
 938|Fundal
 939|Dimensiunea fontului
+940|Font
+941|Stil
+942|Aldin
+943|Cursiv
+944|Spațiere litere
+945|Spațiere rânduri
+946|Aliniere
+947|Transformă textul în forme Bézier editabile

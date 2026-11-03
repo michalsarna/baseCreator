@@ -938,3 +938,11 @@
 937|Programmets meddelelser
 938|Baggrund
 939|Skriftstørrelse
+940|Skrifttype
+941|Typografi
+942|Fed
+943|Kursiv
+944|Bogstavafstand
+945|Linjeafstand
+946|Justering
+947|Gør teksten til redigerbare Bézier-former

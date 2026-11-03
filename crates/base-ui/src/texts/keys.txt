@@ -938,3 +938,11 @@
 937	Messages of the program
 938	Background
 939	Font size
+940	Font
+941	Style
+942	Bold
+943	Italic
+944	Letter spacing
+945	Line spacing
+946	Align
+947	Turn the text into editable Bézier shapes

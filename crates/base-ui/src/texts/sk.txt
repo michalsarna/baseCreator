@@ -938,3 +938,11 @@
 937|Správy programu
 938|Pozadie
 939|Veľkosť písma
+940|Písmo
+941|Štýl
+942|Tučné
+943|Kurzíva
+944|Medzery medzi písmenami
+945|Riadkovanie
+946|Zarovnanie
+947|Zmeniť text na upraviteľné Bézierove tvary

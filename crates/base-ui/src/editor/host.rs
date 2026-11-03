@@ -110,7 +110,11 @@ pub trait EditorHost: Sized {
         super::context_menu(self, ui, resp);
     }
     /// The text tool was clicked at `at`.
-    fn place_text(&mut self, _at: Pt) {}
+    fn place_text(&mut self, at: Pt) {
+        super::text_ui::place(self, at);
+    }
+    /// Show the Properties tab of the right panel: what was just placed is edited there.
+    fn show_properties_tab(&mut self) {}
 
     // ---- the view ----
 

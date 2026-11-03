@@ -125,5 +125,6 @@ pub fn properties_sections<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) -> bool 
             a.run(h);
         }
     }
+    super::text_ui::section(h, ui);
     true
 }

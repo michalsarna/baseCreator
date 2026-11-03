@@ -938,3 +938,11 @@
 937|Il-messaġġi tal-programm
 938|Sfond
 939|Daqs tat-tipa
+940|Font
+941|Stil
+942|Boldjat
+943|Korsiv
+944|Spazjar tal-ittri
+945|Spazjar tal-linji
+946|Allinjament
+947|Ibdel it-test f'forom ta' Bézier editjabbli

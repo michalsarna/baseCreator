@@ -938,3 +938,11 @@
 937|Programmets meddelanden
 938|Bakgrund
 939|Teckenstorlek
+940|Teckensnitt
+941|Stil
+942|Fet
+943|Kursiv
+944|Teckenavstånd
+945|Radavstånd
+946|Justering
+947|Gör texten till redigerbara Bézier-former

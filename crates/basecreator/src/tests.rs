@@ -325,3 +325,63 @@ fn the_plugins_of_this_program_refuse_gcode() {
     assert!(ui.registry.refuse_gcode, "also after loading the plugins again");
     let _ = std::fs::remove_dir_all(&dir);
 }
+
+/// The text tool puts a text on the page, the Properties tab opens to type in, and one undo takes it back.
+#[test]
+fn the_text_tool_places_a_text_to_type_in() {
+    let ctx = egui::Context::default();
+    base_ui::fonts::install(&ctx);
+    let mut a = app();
+    a.new_tab();
+    a.side_tab = crate::SideTab::Layers;
+    a.place_text(base_core::geom::Pt { x: 20.0, y: 30.0 });
+    assert_eq!(a.side_tab, crate::SideTab::Properties);
+    assert!(a.ed.focus_text);
+    assert_eq!(a.ed.sel.len(), 1);
+    let id = a.ed.sel[0];
+    assert!(matches!(a.scene.shape(id).unwrap().kind, base_core::scene::Kind::Text(_)));
+    assert!(!a.scene.shape(id).unwrap().polys().is_empty(), "it has outlines to draw");
+    let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+        egui::CentralPanel::default().show(ui, |ui| {
+            base_ui::editor::properties_sections(&mut a, ui);
+        });
+    });
+    out.textures_delta.clear();
+    assert!(!a.ed.focus_text, "the field has taken the keyboard");
+    a.undo();
+    assert!(a.scene.shape(id).is_none());
+}
+
+/// A real click with the text tool on the page of the window puts the text there.
+#[test]
+fn a_click_with_the_text_tool_on_the_work_area_makes_a_text() {
+    let mut h = egui_kittest::Harness::builder().with_accessibility_check(false).with_size([1280.0, 800.0]).build_ui_state(
+        |ui, state: &mut Option<App>| {
+            let a = state.get_or_insert_with(|| App::build(ui.ctx(), None, false));
+            a.draw(ui);
+        },
+        None,
+    );
+    h.run_steps(2);
+    {
+        let a = h.state_mut().as_mut().unwrap();
+        a.new_tab();
+        a.ed.tool = base_ui::editor::Tool::Text;
+    }
+    h.run_steps(4);
+    let at = egui::pos2(440.0, 400.0);
+    h.event(egui::Event::PointerMoved(at));
+    h.run_steps(2);
+    for pressed in [true, false] {
+        h.event(egui::Event::PointerButton { pos: at, button: egui::PointerButton::Primary, pressed, modifiers: egui::Modifiers::NONE });
+        h.run_steps(2);
+    }
+    h.run_steps(4);
+    let a = h.state_mut().as_mut().unwrap();
+    assert_eq!(a.scene.shapes.len(), 1, "the click made one shape");
+    assert!(matches!(a.scene.shapes[0].kind, Kind::Text(_)));
+    assert_eq!(a.side_tab, crate::SideTab::Properties);
+    if let Ok(dir) = std::env::var("BC_SHOT_DIR") {
+        h.render().unwrap().save(format!("{dir}/text.png")).unwrap();
+    }
+}

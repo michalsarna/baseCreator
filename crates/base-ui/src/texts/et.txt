@@ -938,3 +938,11 @@
 937|Programmi teated
 938|Taust
 939|Kirja suurus
+940|Font
+941|Stiil
+942|Paks
+943|Kursiiv
+944|Tähevahe
+945|Reavahe
+946|Joondus
+947|Muuda tekst muudetavateks Bézier' kujunditeks
