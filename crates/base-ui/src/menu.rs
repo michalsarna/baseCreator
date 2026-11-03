@@ -710,7 +710,7 @@ pub fn standard_menus<A: Copy + From<StdAct>>(p: MenuParts<A>) -> Menus<A> {
     ]
 }
 
-/// The key of an accelerator (`CmdOrCtrl+Shift+S`): the modifiers and the key. `None` for one without Ctrl/Cmd (a plain letter, Del, F1:
+/// The key of an accelerator (`CmdOrCtrl+Shift+S`): the modifiers and the key. `None` for one without Ctrl/Cmd (a plain letter, Del:
 /// the programs handle those themselves, they depend on what is being edited) and for a key this does not know.
 pub fn parse_accel(accel: &str) -> Option<(egui::Modifiers, egui::Key)> {
     let mut parts: Vec<&str> = accel.split('+').collect();
@@ -728,7 +728,9 @@ pub fn parse_accel(accel: &str) -> Option<(egui::Modifiers, egui::Key)> {
             _ => return None,
         }
     }
-    if !mods.command {
+    // A function key is the same in any place, so it works alone too (F1, the quick guide).
+    let function_key = last.len() >= 2 && last.starts_with('F') && last[1..].chars().all(|c| c.is_ascii_digit());
+    if !mods.command && !function_key {
         return None;
     }
     let key = match last {
@@ -926,7 +928,7 @@ mod tests {
         assert_eq!(parse_accel("CmdOrCtrl+-"), Some((egui::Modifiers::COMMAND, egui::Key::Minus)));
         assert_eq!(parse_accel("CmdOrCtrl+Shift+0"), Some((egui::Modifiers::COMMAND | egui::Modifiers::SHIFT, egui::Key::Num0)));
         assert_eq!(parse_accel("Backspace"), None, "the programs keep the plain keys");
-        assert_eq!(parse_accel("F1"), None);
+        assert_eq!(parse_accel("F1"), Some((egui::Modifiers::NONE, egui::Key::F1)), "a function key works alone");
         let m = standard_menus(parts());
         let ctx = egui::Context::default();
         let press = |key: egui::Key, modifiers: egui::Modifiers| egui::RawInput { events: vec![egui::Event::Key { key, physical_key: None, pressed: true, repeat: false, modifiers }], ..Default::default() };

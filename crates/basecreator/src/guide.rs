@@ -47,7 +47,7 @@ pub const EN: &[Section] = &[
     },
 ];
 
-const PL: &[Section] = &[
+pub const PL: &[Section] = &[
     Section {
         title: "Pierwsze kroki",
         lines: &[
@@ -80,7 +80,7 @@ const PL: &[Section] = &[
         title: "Tekst, obrazy i import",
         lines: &[
             "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF, DXF, projekty LightBurn i projekty UGS. Plik > Eksport zapisuje SVG i PLT / DXF. Karta Clipart ma gotowe obrazki, Wstaw > Cliparty z internetu… szuka ich w sieci, a Wstaw > Generuj kształt… używa generatorów z wtyczek.",
-            "Widok > Obraz tła… kładzie pod rysunkiem zdjęcie albo plan; przeciągnij jego cztery narożniki na narożniki strony. Jest zapisywany w projekcie.",
+            "Widok > Obraz w tle… kładzie pod rysunkiem zdjęcie albo plan; przeciągnij jego cztery narożniki na narożniki strony. Jest zapisywany w projekcie.",
         ],
     },
     Section {

@@ -441,6 +441,11 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     waiting_since = Some(Instant::now());
                 }
                 pending.push_back((l.len() + 1, kind));
+                // `$C` out of check mode restarts GRBL, as a soft reset does: what follows at once would be thrown away.
+                if l == "$C" && machine_state.split(':').next().unwrap_or("") == "Check" {
+                    restarting = Some(Instant::now());
+                    break;
+                }
             }
             // A job that waits for an answer while the machine stands still: say so, ask for the state, and leave the
             // decision to the user (nothing is resumed or sent on its own).

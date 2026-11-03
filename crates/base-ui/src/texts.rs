@@ -1038,6 +1038,11 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Diagnostics and statistics…", "Diagnostyka i statystyki…", "Diagnose und Statistik…", "Diagnostica e statistiche…", "Diagnostiikka ja tilastot…", "诊断和统计…", "निदान और आँकड़े…"],
     ["Firmware settings ($$)…", "Ustawienia firmware ($$)…", "Firmware-Einstellungen ($$)…", "Impostazioni del firmware ($$)…", "Laiteohjelmiston asetukset ($$)…", "固件设置（$$）…", "फ़र्मवेयर सेटिंग ($$)…"],
     ["Overlay", "Nakładka", "Überlagerung", "Sovrapposizione", "Peitto", "叠加", "ओवरले"],
+    ["Checking the program first…", "Najpierw sprawdzam program…", "Programm wird zuerst geprüft…", "Prima controllo il programma…", "Tarkistetaan ohjelma ensin…", "先检查程序…", "पहले प्रोग्राम जाँच रहे हैं…"],
+    ["Checking the program…", "Sprawdzam program…", "Programm wird geprüft…", "Controllo del programma…", "Tarkistetaan ohjelmaa…", "正在检查程序…", "प्रोग्राम जाँच रहे हैं…"],
+    ["The check found nothing wrong.", "Sprawdzanie nie znalazło nic złego.", "Die Prüfung hat nichts Falsches gefunden.", "Il controllo non ha trovato nulla di sbagliato.", "Tarkistus ei löytänyt mitään virheellistä.", "检查没有发现问题。", "जाँच में कुछ ग़लत नहीं मिला।"],
+    ["The check found nothing. The job is running.", "Sprawdzanie nic nie znalazło. Zadanie trwa.", "Die Prüfung hat nichts gefunden. Der Auftrag läuft.", "Il controllo non ha trovato nulla. Il lavoro è in esecuzione.", "Tarkistus ei löytänyt mitään. Työ on käynnissä.", "检查没有发现问题。作业正在运行。", "जाँच में कुछ नहीं मिला। कार्य चल रहा है।"],
+    ["The check found {} problems, the first in line {}. The job was not started.", "Sprawdzanie znalazło {} problemów, pierwszy w wierszu {}. Zadania nie uruchomiono.", "Die Prüfung hat {} Probleme gefunden, das erste in Zeile {}. Der Auftrag wurde nicht gestartet.", "Il controllo ha trovato {} problemi, il primo alla riga {}. Il lavoro non è stato avviato.", "Tarkistus löysi {} ongelmaa, ensimmäisen riviltä {}. Työtä ei aloitettu.", "检查发现 {} 个问题，第一个在第 {} 行。作业未启动。", "जाँच में {} समस्याएँ मिलीं, पहली पंक्ति {} में। कार्य शुरू नहीं हुआ।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
