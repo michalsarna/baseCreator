@@ -1036,3 +1036,5 @@
 1035|Kontroll ei leidnud midagi valesti.
 1036|Kontroll ei leidnud midagi. Töö käib.
 1037|Kontroll leidis {} probleemi, esimene real {}. Tööd ei alustatud.
+1038|Vaheta pildi heledad ja tumedad osad
+1039|Laadi eelseade

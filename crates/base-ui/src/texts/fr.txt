@@ -1036,3 +1036,5 @@
 1035|La vérification n'a rien trouvé d'anormal.
 1036|La vérification n'a rien trouvé. Le travail est en cours.
 1037|La vérification a trouvé {} problèmes, le premier à la ligne {}. Le travail n'a pas été démarré.
+1038|Échanger les parties claires et sombres de l'image
+1039|Charger le préréglage

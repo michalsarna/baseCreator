@@ -1043,6 +1043,8 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["The check found nothing wrong.", "Sprawdzanie nie znalazło nic złego.", "Die Prüfung hat nichts Falsches gefunden.", "Il controllo non ha trovato nulla di sbagliato.", "Tarkistus ei löytänyt mitään virheellistä.", "检查没有发现问题。", "जाँच में कुछ ग़लत नहीं मिला।"],
     ["The check found nothing. The job is running.", "Sprawdzanie nic nie znalazło. Zadanie trwa.", "Die Prüfung hat nichts gefunden. Der Auftrag läuft.", "Il controllo non ha trovato nulla. Il lavoro è in esecuzione.", "Tarkistus ei löytänyt mitään. Työ on käynnissä.", "检查没有发现问题。作业正在运行。", "जाँच में कुछ नहीं मिला। कार्य चल रहा है।"],
     ["The check found {} problems, the first in line {}. The job was not started.", "Sprawdzanie znalazło {} problemów, pierwszy w wierszu {}. Zadania nie uruchomiono.", "Die Prüfung hat {} Probleme gefunden, das erste in Zeile {}. Der Auftrag wurde nicht gestartet.", "Il controllo ha trovato {} problemi, il primo alla riga {}. Il lavoro non è stato avviato.", "Tarkistus löysi {} ongelmaa, ensimmäisen riviltä {}. Työtä ei aloitettu.", "检查发现 {} 个问题，第一个在第 {} 行。作业未启动。", "जाँच में {} समस्याएँ मिलीं, पहली पंक्ति {} में। कार्य शुरू नहीं हुआ।"],
+    ["Swap the light and the dark parts of the picture", "Zamień jasne i ciemne części obrazu", "Helle und dunkle Bereiche des Bildes tauschen", "Scambia le parti chiare e scure dell'immagine", "Vaihda kuvan vaaleat ja tummat osat keskenään", "互换图片的明暗部分", "चित्र के हल्के और गहरे हिस्सों को आपस में बदलें"],
+    ["Load preset", "Wczytaj preset", "Vorlage laden", "Carica preset", "Lataa esiasetus", "载入预设", "प्रीसेट लोड करें"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

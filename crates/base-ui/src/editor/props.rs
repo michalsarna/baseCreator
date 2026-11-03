@@ -124,7 +124,32 @@ pub fn properties_sections<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) -> bool 
         if let Some(a) = act {
             a.run(h);
         }
+        negative_checkbox(h, ui);
     }
     super::text_ui::section(h, ui);
     true
+}
+
+/// The negative of the selected picture: every program works from the light parts instead of the dark ones.
+fn negative_checkbox<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) {
+    let Some(&id) = h.ed().sel.first() else { return };
+    let Some(shape) = h.scene().shape(id) else { return };
+    let base_core::scene::Kind::Image(im) = &shape.kind else { return };
+    let (mut negative, locked) = (im.invert, shape.locked);
+    let box_ = egui::Checkbox::new(&mut negative, tr("Negative image"));
+    if ui.add_enabled(!locked, box_).on_hover_text(tr("Swap the light and the dark parts of the picture")).changed() {
+        set_negative(h, id, negative);
+    }
+}
+
+/// Set the negative of a picture, with a step of undo. A locked picture stays as it is.
+pub(super) fn set_negative<H: EditorHost>(h: &mut H, id: u64, negative: bool) {
+    if h.scene().shape(id).is_none_or(|s| s.locked) {
+        return;
+    }
+    h.checkpoint();
+    if let Some(base_core::scene::Kind::Image(m)) = h.scene_mut().unlocked_mut(id).map(|s| &mut s.kind) {
+        m.invert = negative;
+    }
+    h.touch();
 }

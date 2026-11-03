@@ -1036,3 +1036,5 @@
 1035|Pārbaude neatrada neko nepareizu.
 1036|Pārbaude neko neatrada. Darbs darbojas.
 1037|Pārbaude atrada {} problēmas, pirmo rindā {}. Darbs netika sākts.
+1038|Apmainīt attēla gaišās un tumšās daļas
+1039|Ielādēt sagatavi

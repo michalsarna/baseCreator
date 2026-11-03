@@ -1036,3 +1036,5 @@
 1035|Kontrollen fant ingenting galt.
 1036|Kontrollen fant ingenting. Jobben kjører.
 1037|Kontrollen fant {} problemer, det første i linje {}. Jobben ble ikke startet.
+1038|Bytt om de lyse og mørke delene av bildet
+1039|Last inn forhåndsinnstilling

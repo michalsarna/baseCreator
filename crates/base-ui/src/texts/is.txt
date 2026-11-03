@@ -1036,3 +1036,5 @@
 1035|Athugunin fann ekkert rangt.
 1036|Athugunin fann ekkert. Verkið er í gangi.
 1037|Athugunin fann {} vandamál, það fyrsta í línu {}. Verkið var ekki ræst.
+1038|Víxla ljósum og dökkum hlutum myndarinnar
+1039|Hlaða forstillingu

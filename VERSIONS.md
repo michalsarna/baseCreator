@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.65.2
+
+- **Negative image** is in Properties of a selected picture in every program (it was there only in LightCreator; the import and adjust window has had it everywhere). It can be undone and it does not change a locked picture. The tip no longer speaks of engraving, because a plotter draws and BaseCreator only keeps the picture.
+- The text of the *Load preset* button is in the shared table, for LightCreator's new layer presets.
+
 ## v1.65.1
 
 - **F1** opens the quick guide in every program: a function key now works alone in `menu::shortcut_act` (the menu showed F1, but only LightCreator had the key).

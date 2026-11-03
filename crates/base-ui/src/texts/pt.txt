@@ -1036,3 +1036,5 @@
 1035|A verificação não encontrou nada de errado.
 1036|A verificação não encontrou nada. O trabalho está a decorrer.
 1037|A verificação encontrou {} problemas, o primeiro na linha {}. O trabalho não foi iniciado.
+1038|Trocar as partes claras e escuras da imagem
+1039|Carregar predefinição

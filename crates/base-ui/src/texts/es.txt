@@ -1036,3 +1036,5 @@
 1035|La comprobación no encontró nada malo.
 1036|La comprobación no encontró nada. El trabajo está en marcha.
 1037|La comprobación encontró {} problemas, el primero en la línea {}. El trabajo no se inició.
+1038|Intercambiar las partes claras y oscuras de la imagen
+1039|Cargar preajuste

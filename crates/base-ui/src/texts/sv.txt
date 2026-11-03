@@ -1036,3 +1036,5 @@
 1035|Kontrollen hittade inget fel.
 1036|Kontrollen hittade inget. Jobbet körs.
 1037|Kontrollen hittade {} problem, det första på rad {}. Jobbet startades inte.
+1038|Byt plats på bildens ljusa och mörka delar
+1039|Läs in förinställning

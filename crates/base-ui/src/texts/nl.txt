@@ -1036,3 +1036,5 @@
 1035|De controle vond niets verkeerds.
 1036|De controle vond niets. De taak loopt.
 1037|De controle vond {} problemen, de eerste in regel {}. De taak is niet gestart.
+1038|Wissel de lichte en donkere delen van de afbeelding om
+1039|Voorinstelling laden

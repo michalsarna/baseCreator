@@ -1036,3 +1036,5 @@
 1035|Patikra nieko blogo nerado.
 1036|Patikra nieko nerado. Darbas vyksta.
 1037|Patikra rado {} problemų, pirmą eilutėje {}. Darbas nepradėtas.
+1038|Sukeisti šviesias ir tamsias paveikslėlio dalis
+1039|Įkelti šabloną

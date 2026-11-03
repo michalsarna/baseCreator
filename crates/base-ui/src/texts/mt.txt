@@ -1036,3 +1036,5 @@
 1035|Iċ-ċekk ma sab xejn ħażin.
 1036|Iċ-ċekk ma sab xejn. Ix-xogħol qed jaħdem.
 1037|Iċ-ċekk sab {} problemi, l-ewwel fir-riga {}. Ix-xogħol ma nbediex.
+1038|Aqleb il-partijiet ċari u skuri tal-istampa
+1039|Tella' l-preset

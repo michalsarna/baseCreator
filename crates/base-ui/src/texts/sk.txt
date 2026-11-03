@@ -1036,3 +1036,5 @@
 1035|Kontrola nenašla nič zlé.
 1036|Kontrola nič nenašla. Úloha beží.
 1037|Kontrola našla {} problémov, prvý na riadku {}. Úloha nebola spustená.
+1038|Vymeniť svetlé a tmavé časti obrázka
+1039|Načítať predvoľbu

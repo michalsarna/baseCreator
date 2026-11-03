@@ -1036,3 +1036,5 @@
 1035|Verificarea nu a găsit nimic greșit.
 1036|Verificarea nu a găsit nimic. Lucrarea rulează.
 1037|Verificarea a găsit {} probleme, prima la linia {}. Lucrarea nu a fost pornită.
+1038|Schimbă între ele părțile luminoase și întunecate ale imaginii
+1039|Încarcă presetarea

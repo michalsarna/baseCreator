@@ -1036,3 +1036,5 @@
 1035|Az ellenőrzés nem talált hibát.
 1036|Az ellenőrzés nem talált semmit. A munka fut.
 1037|Az ellenőrzés {} problémát talált, az elsőt a(z) {}. sorban. A munka nem indult el.
+1038|A kép világos és sötét részeinek felcserélése
+1039|Beállítás betöltése

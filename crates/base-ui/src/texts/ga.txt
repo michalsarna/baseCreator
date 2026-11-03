@@ -1036,3 +1036,5 @@
 1035|Níor aimsigh an seiceáil aon rud as alt.
 1036|Níor aimsigh an seiceáil aon rud. Tá an obair ag rith.
 1037|D'aimsigh an seiceáil {} fadhb, an chéad cheann i líne {}. Níor cuireadh tús leis an obair.
+1038|Malartaigh codanna geala agus dorcha na híomhá
+1039|Luchtaigh réamhshocrú
