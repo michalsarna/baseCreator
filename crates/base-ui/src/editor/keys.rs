@@ -34,7 +34,8 @@ pub fn plain_keys<H: EditorHost>(h: &mut H, ctx: &egui::Context, arrows: bool) {
             select_tool(h.ed_mut(), t);
         }
     }
-    if plain(Key::Escape) {
+    // Escape stays in the input: what the window also has open (a question, picking a place) closes with the same key, later in the frame.
+    if ctx.input(|i| i.key_pressed(Key::Escape) && i.modifiers.is_none()) {
         h.note_escape(ctx.input(|i| i.time));
         h.ed_mut().pen_pts.clear();
         if h.ed().tool == Tool::Node && !h.ed().node_sel.is_empty() {
