@@ -7,7 +7,7 @@ Shared code of [LightCreator](https://github.com/michalsarna/LightCreator) (lase
 not need a laser, and it grows by moving more of that part here, one piece at a time.
 
 The same libraries make a program of their own: **[BaseCreator](docs/BaseCreator.md)**, for drawing, with nothing of a machine
-([releases](https://github.com/michalsarna/baseCreator/releases), numbered like the tags of this repository).
+([wiki](https://github.com/michalsarna/baseCreator/wiki), [releases](https://github.com/michalsarna/baseCreator/releases), numbered like the tags of this repository).
 
 | Crate | What it holds |
 |---|---|

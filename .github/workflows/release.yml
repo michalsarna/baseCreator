@@ -129,3 +129,65 @@ jobs:
           files: |
             basecreator-*
             SHA256SUMS.txt
+
+  # Package managers: the Homebrew tap, winget and the AUR follow every release. Each step runs only when its secret is set,
+  # so a missing one never fails the release. The Scoop bucket updates itself (its own workflow).
+  packages:
+    needs: release
+    if: ${{ !cancelled() && needs.release.result == 'success' }}
+    runs-on: ubuntu-26.04
+    env:
+      TAP_TOKEN: ${{ secrets.TAP_TOKEN }}
+      WINGET_TOKEN: ${{ secrets.WINGET_TOKEN }}
+      AUR_SSH_PRIVATE_KEY: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag }}
+      - name: Checksums of the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download "$TAG" -p SHA256SUMS.txt
+
+      # Homebrew: Casks/basecreator.rb in michalsarna/homebrew-tap gets the new version and both .dmg checksums.
+      - name: Homebrew tap
+        if: env.TAP_TOKEN != ''
+        run: |
+          v="${TAG#v}"
+          arm=$(grep -- '-macos-arm64.dmg$' SHA256SUMS.txt | cut -d' ' -f1)
+          intel=$(grep -- '-macos-x86_64.dmg$' SHA256SUMS.txt | cut -d' ' -f1)
+          git clone "https://x-access-token:${TAP_TOKEN}@github.com/michalsarna/homebrew-tap.git" tap
+          sed -i -E "s/^  version \".*\"/  version \"$v\"/; s/arm:   \"[0-9a-f]{64}\"/arm:   \"$arm\"/; s/intel: \"[0-9a-f]{64}\"/intel: \"$intel\"/" tap/Casks/basecreator.rb
+          cd tap
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Nothing to commit when the tap already has this version (a re-run, or a hand-made update).
+          git diff --quiet || { git commit -am "basecreator $v" && git push; }
+
+      # winget: opens a pull request in microsoft/winget-pkgs from the fork in the token owner's account. Works once the
+      # first version of MichalSarna.BaseCreator has been merged there.
+      - name: winget
+        # Until the first version of the package has been accepted in microsoft/winget-pkgs this step is expected to fail.
+        continue-on-error: true
+        if: ${{ !cancelled() && env.WINGET_TOKEN != '' }}
+        uses: vedantmgoyal9/winget-releaser@b7370d4d152efdce803a26cc6ca9eee58cb2ad54 # v2
+        with:
+          identifier: MichalSarna.BaseCreator
+          installers-regex: '-setup\.exe$'
+          release-tag: ${{ inputs.tag }}
+          token: ${{ secrets.WINGET_TOKEN }}
+
+      # AUR: basecreator-bin, built from the .deb files of the release (packaging/aur/PKGBUILD; checksums are filled in).
+      - name: AUR package
+        if: ${{ !cancelled() && env.AUR_SSH_PRIVATE_KEY != '' }}
+        run: sed -i "s/^pkgver=.*/pkgver=${TAG#v}/; s/^pkgrel=.*/pkgrel=1/" packaging/aur/PKGBUILD
+      - if: ${{ !cancelled() && env.AUR_SSH_PRIVATE_KEY != '' }}
+        uses: KSXGitHub/github-actions-deploy-aur@084b0d9b15415bf9cdb65d44dad1efe37a354050 # v4.2.0
+        with:
+          pkgname: basecreator-bin
+          pkgbuild: packaging/aur/PKGBUILD
+          updpkgsums: true
+          commit_username: Michał Sarna
+          commit_email: 5010807+michalsarna@users.noreply.github.com
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+          commit_message: "Update to ${{ inputs.tag }}"
