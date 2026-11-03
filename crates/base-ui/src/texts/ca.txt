@@ -1036,3 +1036,5 @@
 1035|La comprovació no ha trobat res malament.
 1036|La comprovació no ha trobat res. La tasca s'està executant.
 1037|La comprovació ha trobat {} problemes, el primer a la línia {}. La tasca no s'ha iniciat.
+1038|Intercanvia les parts clares i fosques de la imatge
+1039|Carrega el predefinit

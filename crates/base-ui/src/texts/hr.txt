@@ -1036,3 +1036,5 @@
 1035|Provjera nije našla ništa loše.
 1036|Provjera nije našla ništa. Zadatak se izvršava.
 1037|Provjera je našla {} problema, prvi u retku {}. Zadatak nije pokrenut.
+1038|Zamijeni svijetle i tamne dijelove slike
+1039|Učitaj predložak

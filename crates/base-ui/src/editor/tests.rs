@@ -231,6 +231,31 @@ fn the_shared_bars_and_the_properties_sections_draw() {
     assert!(!shown[0] && *shown.last().unwrap(), "the sections need a selection: {shown:?}");
 }
 
+/// The negative of a picture is in Properties of every program: it can be undone and a locked picture stays as it is.
+#[test]
+fn the_negative_of_the_selected_picture_is_in_the_properties_and_can_be_undone() {
+    let mut h = Host::default();
+    let im = base_core::image::ImageData { name: "p".into(), px_w: 2, px_h: 2, gray: vec![0; 4], w: 10.0, h: 10.0, invert: false };
+    let id = h.scene.add(0, Kind::Image(im), Xf::IDENTITY);
+    h.ed.sel = vec![id];
+    let negative = |s: &Scene| matches!(s.shape(id).map(|s| &s.kind), Some(Kind::Image(m)) if m.invert);
+    super::props::set_negative(&mut h, id, true);
+    assert!(negative(&h.scene));
+    assert_eq!(h.undo.len(), 1, "one step of undo");
+    assert!(!negative(&h.undo[0]), "the step keeps the picture as it was");
+    h.scene.shape_mut(id).unwrap().locked = true;
+    h.undo.clear();
+    super::props::set_negative(&mut h, id, false);
+    assert!(negative(&h.scene), "a locked picture does not change");
+    assert!(h.undo.is_empty());
+    // The section draws the option for a picture.
+    let ctx = egui::Context::default();
+    let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+        assert!(properties_sections(&mut h, ui));
+    });
+    out.textures_delta.clear();
+}
+
 #[test]
 fn auto_join_makes_one_closed_path_of_separate_lines_and_close_only_closes_what_is_near() {
     use base_core::geom::{Polyline, Pt};
@@ -518,7 +543,7 @@ fn escape_stays_for_what_else_is_open() {
 #[test]
 fn the_new_rows_of_the_table_are_found() {
     use crate::i18n::{tr_in, Lang};
-    for text in ["Number of sides", "Number of turns", "Polygon", "Spiral", "Arrange", "Save G-code", "Drag on the work area to draw it."] {
+    for text in ["Swap the light and the dark parts of the picture", "Load preset", "Number of sides", "Number of turns", "Polygon", "Spiral", "Arrange", "Save G-code", "Drag on the work area to draw it."] {
         for lang in [Lang::Pl, Lang::Es] {
             assert_ne!(tr_in(lang, text), text, "{text} in {lang:?}");
         }

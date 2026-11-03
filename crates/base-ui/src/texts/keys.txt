@@ -1036,3 +1036,5 @@
 1035	The check found nothing wrong.
 1036	The check found nothing. The job is running.
 1037	The check found {} problems, the first in line {}. The job was not started.
+1038	Swap the light and the dark parts of the picture
+1039	Load preset

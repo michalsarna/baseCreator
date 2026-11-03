@@ -94,7 +94,7 @@ fn image_controls(ui: &mut egui::Ui, d: &mut ImgDlg, units: base_core::units::Un
         ui.end_row();
     });
     ui.checkbox(&mut d.adj.auto_levels, tr("Auto levels"));
-    ui.checkbox(&mut d.negative, tr("Negative image")).on_hover_text(tr("Engrave the light parts instead of the dark parts"));
+    ui.checkbox(&mut d.negative, tr("Negative image")).on_hover_text(tr("Swap the light and the dark parts of the picture"));
     ui.add_space(4.0);
     ui.label(RichText::new(tr("Size")).strong());
     ui.horizontal(|ui| {
