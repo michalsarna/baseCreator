@@ -946,3 +946,10 @@
 945	Line spacing
 946	Align
 947	Turn the text into editable Bézier shapes
+948	Arrange
+949	Drag on the work area to draw it.
+950	Save G-code
+951	Number of sides
+952	Number of turns
+953	Polygon
+954	Spiral

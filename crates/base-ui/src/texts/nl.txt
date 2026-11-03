@@ -946,3 +946,10 @@
 945|Regelafstand
 946|Uitlijning
 947|De tekst omzetten in bewerkbare Bézier-vormen
+948|Rangschikken
+949|Sleep op het werkgebied om te tekenen.
+950|G-code opslaan
+951|Aantal zijden
+952|Aantal windingen
+953|Veelhoek
+954|Spiraal

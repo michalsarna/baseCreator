@@ -946,3 +946,10 @@
 945|Rindstarpa
 946|Līdzināšana
 947|Pārvērst tekstu rediģējamās Bezjē formās
+948|Izkārtot
+949|Velciet darba apgabalā, lai to uzzīmētu.
+950|Saglabāt G-code
+951|Malu skaits
+952|Apgriezienu skaits
+953|Daudzstūris
+954|Spirāle

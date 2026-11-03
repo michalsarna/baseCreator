@@ -946,3 +946,10 @@
 945|Radavstånd
 946|Justering
 947|Gör texten till redigerbara Bézier-former
+948|Ordna
+949|Dra på arbetsytan för att rita den.
+950|Spara G-code
+951|Antal sidor
+952|Antal varv
+953|Polygon
+954|Spiral

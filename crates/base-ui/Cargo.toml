@@ -22,6 +22,8 @@ nokhwa = { version = "0.10", default-features = false, features = ["input-native
 camera = ["dep:nokhwa"]
 # The harness of the tests against the GRBL simulator (`sim_test`), for the tests of the programs too.
 sim-tests = []
+# The check of the tools through the real window of a program (`tool_check`), for the tests of the programs.
+tool-checks = []
 
 [target.'cfg(target_os = "macos")'.dependencies]
 # Native macOS menu bar: Tauri's menu crate, AppKit menus behind a safe API.

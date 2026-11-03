@@ -946,3 +946,10 @@
 945|Spásáil línte
 946|Ailíniú
 947|Tiontaigh an téacs ina chruthanna Bézier in-eagarthóireachta
+948|Socraigh
+949|Tarraing ar an limistéar oibre chun é a tharraingt.
+950|Sábháil G-code
+951|Líon na dtaobh
+952|Líon na gcas
+953|Polagán
+954|Bís

@@ -946,3 +946,10 @@
 945|Sorköz
 946|Igazítás
 947|A szöveg átalakítása szerkeszthető Bézier-alakzatokká
+948|Elrendezés
+949|Húzással rajzolhatja meg a munkaterületen.
+950|G-code mentése
+951|Oldalak száma
+952|Fordulatok száma
+953|Sokszög
+954|Spirál

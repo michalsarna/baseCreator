@@ -745,6 +745,7 @@ pub trait EditorCanvas: EditorHost {
                 });
             });
         }
+        super::keys::shape_popup(self, &ui.ctx().clone());
     }
 
 

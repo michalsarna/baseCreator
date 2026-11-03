@@ -946,3 +946,10 @@
 945|Reavahe
 946|Joondus
 947|Muuda tekst muudetavateks Bézier' kujunditeks
+948|Korrasta
+949|Lohistage tööalal, et see joonistada.
+950|Salvesta G-code
+951|Külgede arv
+952|Keerdude arv
+953|Hulknurk
+954|Spiraal

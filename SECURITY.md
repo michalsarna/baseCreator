@@ -6,7 +6,7 @@ baseCreator holds the libraries of LightCreator, MillCreator and PenCreator, and
 
 | Version | Supported |
 |---------|-----------|
-| v1.63.0 (latest) | yes |
+| v1.64.0 (latest) | yes |
 | older | no, please update |
 
 ## Reporting a vulnerability

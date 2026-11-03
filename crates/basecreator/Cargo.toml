@@ -49,3 +49,4 @@ assets = [
 [dev-dependencies]
 # Renders the UI headlessly to PNG for the screenshots (see src/screenshots.rs).
 egui_kittest = { version = "0.37", features = ["wgpu"] }
+base-ui = { path = "../base-ui", features = ["tool-checks"] }

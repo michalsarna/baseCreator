@@ -41,6 +41,8 @@ pub mod seasonal;
 pub mod native_menu;
 #[cfg(any(test, feature = "sim-tests"))]
 pub mod sim_test;
+#[cfg(feature = "tool-checks")]
+pub mod tool_check;
 pub mod side_tabs;
 pub mod start;
 pub mod texts;

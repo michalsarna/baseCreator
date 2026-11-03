@@ -946,3 +946,10 @@
 945|Riadkovanie
 946|Zarovnanie
 947|Zmeniť text na upraviteľné Bézierove tvary
+948|Usporiadať
+949|Potiahnutím na pracovnej ploche ju nakreslíte.
+950|Uložiť G-code
+951|Počet strán
+952|Počet závitov
+953|Mnohouholník
+954|Špirála

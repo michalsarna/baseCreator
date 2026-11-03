@@ -49,10 +49,9 @@ fn separator(ui: &mut egui::Ui) {
     ui.add_space(4.0);
 }
 
-/// The tool palette: selecting and node editing, the tools that insert objects, then what `between` adds (the
-/// application's own operations on the selection), then view navigation with the two fit buttons, then the generators and
-/// the clipart from the internet.
-pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option<&mut dyn FnMut(&mut H, &mut egui::Ui)>) {
+/// The tool palette: selecting and node editing, the tools that insert objects, then the boolean operations on the selection, then
+/// view navigation with the two fit buttons, then the generators and the clipart from the internet.
+pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) {
     ui.add_space(6.0);
     let size = palette_button_size(ui);
     let avail = ui.available_height();
@@ -67,10 +66,18 @@ pub fn tool_palette<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, between: Option
             for (t, tip, _) in Tool::ALL.into_iter().filter(|t| t.0.is_insert()) {
                 tool_button(h, ui, t, tip);
             }
-            // The application's operations on the selected objects.
-            if let Some(between) = between {
-                separator(ui);
-                between(h, ui);
+            // The operations on two or more selected objects.
+            separator(ui);
+            let multi = h.ed().sel.len() >= 2;
+            for (a, icon, tip) in [
+                (StdAct::BoolUnion, "squares-unite", "Union"),
+                (StdAct::BoolIntersect, "squares-intersect", "Intersection"),
+                (StdAct::BoolSubtract, "squares-subtract", "Subtract"),
+                (StdAct::BoolXor, "squares-exclude", "Exclusive or"),
+            ] {
+                if icon_button(ui, icon, tr(tip), multi, size) {
+                    a.run(h);
+                }
             }
             // View navigation, apart from the rest.
             separator(ui);
