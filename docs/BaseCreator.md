@@ -6,6 +6,8 @@ and [PenCreator](https://github.com/michalsarna/PenCreator), so a drawing can be
 
 ![The editor](basecreator/editor.png)
 
+The user's guide, in English and Polish, is in the [wiki](https://github.com/michalsarna/baseCreator/wiki).
+
 ## Installing
 
 Every [release](https://github.com/michalsarna/baseCreator/releases) holds these files and `SHA256SUMS.txt` to verify them:
@@ -20,6 +22,8 @@ Every [release](https://github.com/michalsarna/baseCreator/releases) holds these
 
 The programs are not signed by a paid developer account: macOS and Windows warn about them the first time. On macOS open the program with
 right click → Open.
+
+With a package manager: `brew install --cask michalsarna/tap/basecreator` (macOS), `scoop bucket add creator https://github.com/michalsarna/scoop-bucket` and `scoop install basecreator` (Windows).
 
 From source: `cargo run --release -p basecreator`.
 
@@ -40,8 +44,7 @@ they were, and those programs keep `draw`. A project without `draw` gets the pag
 
 ## Export
 
-*File → Export → Export SVG…* or *Export PLT / DXF…* writes all the shapes, also those on hidden layers; *Export selection as…* only the selected ones. Pictures have no outlines and are left out, and the program says how many.
-Pictures have no outlines and are not written (trace them first).
+*File → Export → Export SVG…* or *Export PLT / DXF…* writes all the shapes, also those on hidden layers; *Export selection as…* only the selected ones. Pictures have no outlines and are left out, and the program says how many (trace them first).
 
 ## Plugins
 
@@ -53,7 +56,7 @@ postprocessors (`gcode-tools`, `gcode-dialects`) can be installed, but does noth
 ## Po polsku
 
 Program do rysowania bez żadnej części maszynowej. Zapisuje te same pliki `.cre` co LightCreator, MillCreator i PenCreator: rysunek zrobiony tutaj
-otwiera się tam, a to, co należy do tamtych programów, zostaje w pliku po zapisie tutaj. Wydania są na stronie
+otwiera się tam, a to, co należy do tamtych programów, zostaje w pliku po zapisie tutaj. Podręcznik jest w [wiki](https://github.com/michalsarna/baseCreator/wiki). Wydania są na stronie
 [Releases](https://github.com/michalsarna/baseCreator/releases) i mają numery tagów tego repozytorium; program sam sprawdza przy starcie, czy jest nowsza
 wersja. Zamiast pola roboczego maszyny jest strona (*Plik → Ustawienia strony…*). Wtyczki generujące kształty i importery działają; wtyczki z
 postprocesorami G-code można zainstalować, ale tutaj nic nie robią.

@@ -1,0 +1,23 @@
+# Maintainer: Michał Sarna <michalsarna at users dot noreply dot github dot com>
+pkgname=basecreator-bin
+pkgver=1.60.1
+pkgrel=1
+pkgdesc="Open-source drawing program that writes the project files of LightCreator, MillCreator and PenCreator"
+arch=('x86_64' 'aarch64')
+url="https://github.com/michalsarna/baseCreator"
+license=('MIT OR Apache-2.0')
+depends=('glibc' 'gcc-libs' 'libgl' 'libxkbcommon-x11')
+optdepends=('wayland: native Wayland session support')
+provides=('basecreator')
+conflicts=('basecreator')
+options=('!strip' '!debug')
+source_x86_64=("$url/releases/download/v$pkgver/basecreator-v$pkgver-linux-amd64.deb")
+source_aarch64=("$url/releases/download/v$pkgver/basecreator-v$pkgver-linux-arm64.deb")
+sha256sums_x86_64=('SKIP')
+sha256sums_aarch64=('SKIP')
+
+package() {
+  bsdtar -xf data.tar.* -C "$pkgdir"
+  install -dm755 "$pkgdir/usr/share/licenses/$pkgname"
+  mv "$pkgdir/usr/share/doc/basecreator/LICENSE" "$pkgdir/usr/share/doc/basecreator/LICENSE-APACHE" "$pkgdir/usr/share/licenses/$pkgname/"
+}

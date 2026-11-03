@@ -1,0 +1,37 @@
+name: Wiki sync
+
+on:
+  push:
+    branches: [main]
+    paths: ["docs/wiki/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wiki-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      # Needs the wiki enabled in Settings and its first page created once in the GitHub UI,
+      # otherwise baseCreator.wiki.git does not exist yet and this checkout fails.
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: wiki
+      - name: Copy docs/wiki into the wiki repository
+        run: rsync -a --delete --exclude '.git' --exclude 'README.md' docs/wiki/ wiki/
+      - name: Commit and push
+        working-directory: wiki
+        run: |
+          git add -A
+          if git diff --cached --quiet; then echo "wiki already up to date"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync wiki from ${GITHUB_SHA::7}"
+          git push
