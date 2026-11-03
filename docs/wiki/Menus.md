@@ -53,7 +53,7 @@ The same commands are in the right-click menu of a shape; they are explained on 
 
 | Entry | What it does |
 |---|---|
-| **View options…** | The grid, the colours of the work area, the thickness of the lines, **Show layer names**. Its two G-code switches come from the common window and have no use here. |
+| **View options…** | The grid, the colours of the work area, the thickness of the lines, **Show layer names**. |
 | **Program options…** | **Look for a newer version when the program starts** (on by default). |
 | **Plugins…** | See [Plugins](Plugins). |
 | **Language** | 30 languages. |

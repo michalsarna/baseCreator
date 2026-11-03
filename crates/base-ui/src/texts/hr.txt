@@ -931,3 +931,10 @@
 930|Slojevi programa Illustrator
 931|Datoteka ima {} sloja programa Illustrator. Postavite staze na slojeve programa prema:
 932|Prvi sloj programa Illustrator ide na sloj 1, drugi na sloj 2 i tako dalje; ostali idu na zadnji sloj.
+933|G-code konzola
+934|Vaše naredbe
+935|Naredbe programa
+936|Odgovori stroja
+937|Poruke programa
+938|Pozadina
+939|Veličina fonta

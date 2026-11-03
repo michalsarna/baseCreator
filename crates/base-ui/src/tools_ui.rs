@@ -482,7 +482,7 @@ pub fn diagnostics_window(
                             format!(
                                 "{} {}\n",
                                 match l.dir {
-                                    crate::link::Dir::Tx => ">",
+                                    crate::link::Dir::Tx | crate::link::Dir::User => ">",
                                     crate::link::Dir::Rx => "<",
                                     crate::link::Dir::Info => "#",
                                 },

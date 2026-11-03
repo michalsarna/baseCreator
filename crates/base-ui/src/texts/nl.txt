@@ -931,3 +931,10 @@
 930|Illustrator-lagen
 931|Het bestand heeft {} Illustrator-lagen. Zet de paden op de lagen van het programma op basis van:
 932|De eerste Illustrator-laag komt op laag 1, de tweede op laag 2, enzovoort; de rest komt op de laatste laag.
+933|G-code-console
+934|Uw opdrachten
+935|Opdrachten van het programma
+936|Antwoorden van de machine
+937|Berichten van het programma
+938|Achtergrond
+939|Lettergrootte

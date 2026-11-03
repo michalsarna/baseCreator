@@ -931,3 +931,10 @@
 930|Illustrator slāņi
 931|Failā ir {} Illustrator slāņi. Novietot ceļus programmas slāņos pēc:
 932|Pirmais Illustrator slānis iet uz 1. slāni, otrais uz 2. slāni un tā tālāk; pārējie iet uz pēdējo slāni.
+933|G-koda konsole
+934|Jūsu komandas
+935|Programmas komandas
+936|Mašīnas atbildes
+937|Programmas ziņojumi
+938|Fons
+939|Fonta lielums

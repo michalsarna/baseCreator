@@ -925,6 +925,9 @@ impl ClipHost for App {
 }
 
 impl EditorHost for App {
+    fn has_machine(&self) -> bool {
+        false
+    }
     fn panes_mut(&mut self) -> Option<&mut base_ui::work_panes::Panes> {
         Some(&mut self.panes)
     }

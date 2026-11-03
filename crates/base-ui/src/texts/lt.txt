@@ -931,3 +931,10 @@
 930|Illustrator sluoksniai
 931|Faile yra {} Illustrator sluoksnių. Padėti kelius ant programos sluoksnių pagal:
 932|Pirmasis Illustrator sluoksnis patenka į 1 sluoksnį, antrasis į 2 sluoksnį ir taip toliau; likusieji į paskutinį sluoksnį.
+933|G kodo konsolė
+934|Jūsų komandos
+935|Programos komandos
+936|Mašinos atsakymai
+937|Programos pranešimai
+938|Fonas
+939|Šrifto dydis

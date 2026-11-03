@@ -170,6 +170,9 @@ pub struct GridPrefs {
     /// Show the name of the variable beside the label of a field that has one (see `widgets::var_label`).
     #[serde(default)]
     pub variable_names: bool,
+    /// The colours and the size of the letters of the console.
+    #[serde(default)]
+    pub console: crate::console_ui::ConsoleLook,
 }
 
 fn default_line_width() -> f32 {
@@ -194,7 +197,7 @@ impl GridPrefs {
 
 impl Default for GridPrefs {
     fn default() -> Self {
-        GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, line_width: 1.0, layer_names: false, gcode_preview_after_save: false, variable_names: false }
+        GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, line_width: 1.0, layer_names: false, gcode_preview_after_save: false, variable_names: false, console: Default::default() }
     }
 }
 

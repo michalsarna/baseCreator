@@ -931,3 +931,10 @@
 930|Capes d'Illustrator
 931|El fitxer té {} capes d'Illustrator. Posa els traçats a les capes del programa segons:
 932|La primera capa d'Illustrator va a la capa 1, la segona a la capa 2 i així successivament; la resta van a l'última capa.
+933|Consola de G-code
+934|Les vostres ordres
+935|Ordres del programa
+936|Respostes de la màquina
+937|Missatges del programa
+938|Fons
+939|Mida de la lletra

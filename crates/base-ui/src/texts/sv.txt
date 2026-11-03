@@ -931,3 +931,10 @@
 930|Illustrator-lager
 931|Filen har {} Illustrator-lager. Lägg banorna på programmets lager efter:
 932|Det första Illustrator-lagret hamnar på lager 1, det andra på lager 2 och så vidare; resten hamnar på det sista lagret.
+933|G-kodskonsol
+934|Dina kommandon
+935|Programmets kommandon
+936|Maskinens svar
+937|Programmets meddelanden
+938|Bakgrund
+939|Teckenstorlek

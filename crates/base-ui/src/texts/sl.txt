@@ -931,3 +931,10 @@
 930|Plasti Illustratorja
 931|Datoteka ima {} plasti Illustratorja. Poti postavi na plasti programa glede na:
 932|Prva plast Illustratorja gre na plast 1, druga na plast 2 in tako naprej; ostale gredo na zadnjo plast.
+933|Konzola G-kode
+934|Vaši ukazi
+935|Ukazi programa
+936|Odgovori stroja
+937|Sporočila programa
+938|Ozadje
+939|Velikost pisave
