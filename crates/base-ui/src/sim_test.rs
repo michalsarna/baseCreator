@@ -351,6 +351,23 @@ mod tests {
         assert!(s.errors().is_empty(), "{:?}", s.errors_described());
     }
 
+    /// The check before every run: when the last line is answered `$C` ends the check mode (a soft reset) and the job goes straight after it.
+    #[test]
+    #[ignore = "needs grbl-sim: tools/grbl-sim/build.sh"]
+    fn grbl_sim_a_job_sent_right_after_the_check_mode_ends_is_not_lost() {
+        let mut s = Session::connect();
+        s.wait_banner();
+        s.fast_machine(&[]);
+        s.link.send(Cmd::Line("$C".into()));
+        s.wait("check mode", 10.0, |v| v.state == "Check");
+        let job = vec!["G1 X5 F2000".to_string(), "G1 X10".to_string(), "G1 Y5".to_string(), "G1 X0 Y0".to_string()];
+        s.run_job(job.clone(), 20.0);
+        s.link.send(Cmd::Line("$C".into()));
+        s.link.send(Cmd::Job(job.clone()));
+        s.wait("the job ran to its end", 60.0, |v| v.state == "Idle" && v.progress == (4, 4) && v.trail.iter().any(|l| l.contains(" Run ")));
+        assert!(s.errors().is_empty(), "{:?}\n{}", s.errors_described(), s.report());
+    }
+
     /// What a stop does to the check mode of GRBL: the answer decides what a program has to send after it.
     #[test]
     #[ignore = "needs grbl-sim: tools/grbl-sim/build.sh"]

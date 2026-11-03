@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.65.1
+
+- **F1** opens the quick guide in every program: a function key now works alone in `menu::shortcut_act` (the menu showed F1, but only LightCreator had the key).
+- The texts of the check of the program are in the shared table, so LightCreator shows them translated too.
+- `tool_check::check_windows` presses F1 and Ctrl+P, and `check_guide_paths` takes the language of the guide, so the Polish guides are checked against the Polish menus.
+- A simulator test: a job sent right after the check mode ends is not lost.
+
 ## v1.65.0
 
 - Printing is shared: `base_core::print` (the PDF, from shapes and the look of their layers) and `base_ui::print_ui` (the window). BaseCreator has **File → Print…** now.

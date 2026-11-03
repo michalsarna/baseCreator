@@ -438,7 +438,9 @@ fn every_text_of_the_menus_has_a_translation() {
 /// The guide sends nobody to a place in the menus that is not there.
 #[test]
 fn the_quick_guide_names_only_what_the_menus_have() {
-    base_ui::tool_check::check_guide_paths(crate::guide::EN, &crate::menu::menus());
+    let _ = app();
+    base_ui::tool_check::check_guide_paths(crate::guide::EN, &crate::menu::menus(), base_ui::i18n::Lang::En);
+    base_ui::tool_check::check_guide_paths(crate::guide::PL, &crate::menu::menus(), base_ui::i18n::Lang::Pl);
 }
 
 /// The picture under the drawing goes into the project and comes back from it, with its corners, and in a new project it is gone.

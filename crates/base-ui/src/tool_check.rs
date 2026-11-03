@@ -254,6 +254,17 @@ where
 /// The windows only some programs have, or that are not commands of the editor: each action opens a window with this text.
 pub fn check_windows<D: Drive>(d: &mut D, windows: &[(<D::App as MenuHost>::Act, &'static str)]) {
     let ctx = d.ctx();
+    if windows.iter().any(|(_, title)| *title == "Quick guide") {
+        press(d, Key::F1);
+        assert!(shows(d, "Quick guide"), "F1 opens the quick guide");
+    }
+    if windows.iter().any(|(_, title)| *title == "Print") {
+        d.send(Event::Key { key: Key::P, physical_key: None, pressed: true, repeat: false, modifiers: Modifiers::COMMAND });
+        d.frames();
+        d.send(Event::Key { key: Key::P, physical_key: None, pressed: false, repeat: false, modifiers: Modifiers::COMMAND });
+        d.frames();
+        assert!(shows(d, "Prints the design on a paper printer, for checking placement or as a template."), "Ctrl+P opens the window of printing");
+    }
     for (act, title) in windows {
         d.app().run_act(&ctx, *act);
         d.frames();
@@ -291,23 +302,24 @@ pub fn check_menu_texts<A>(menus: &Menus<A>) {
     assert!(left.is_empty(), "menu texts without a translation: {left:#?}");
 }
 
-/// Every `Menu > Entry` a quick guide names exists in the menus of the program, so that the guide cannot send anybody to a place that
-/// is gone. The guide is the English one; a name that is not a menu of this program is not a path.
-pub fn check_guide_paths<A>(sections: &[crate::dialogs::Section], menus: &Menus<A>) {
-    fn has<A>(entries: &[Entry<A>], name: &str, rest: &[&str]) -> bool {
+/// Every `Menu > Entry` a quick guide names exists in the menus of the program, with its name in the language of the guide, so that the
+/// guide cannot send anybody to a place that is gone. A name that is not a menu of this program is not a path.
+pub fn check_guide_paths<A>(sections: &[crate::dialogs::Section], menus: &Menus<A>, lang: Lang) {
+    fn same(lang: Lang, label: &'static str, name: &str) -> bool {
+        tr_in(lang, label).trim_end_matches('…') == name.trim_end_matches('…')
+    }
+    fn has<A>(entries: &[Entry<A>], lang: Lang, name: &str, rest: &[&str]) -> bool {
         entries.iter().any(|e| match e {
-            Entry::Item(_, label, _) => rest.is_empty() && same(label, name),
-            Entry::Sub(label, more) => same(label, name) && (rest.is_empty() || has(more, rest[0], &rest[1..])),
+            Entry::Item(_, label, _) => rest.is_empty() && same(lang, label, name),
+            Entry::Sub(label, more) => same(lang, label, name) && (rest.is_empty() || has(more, lang, rest[0], &rest[1..])),
+            Entry::Recent => rest.is_empty() && same(lang, "Open recent", name),
             _ => false,
         })
-    }
-    fn same(label: &str, name: &str) -> bool {
-        label.trim_end_matches('…') == name.trim_end_matches('…')
     }
     let mut wrong = vec![];
     for line in sections.iter().flat_map(|s| s.lines) {
         for (title, entries) in menus {
-            let start = format!("{title} > ");
+            let start = format!("{} > ", tr_in(lang, title));
             for (at, _) in line.match_indices(&start) {
                 if at > 0 && line[..at].ends_with(|c: char| c.is_alphanumeric()) {
                     continue;
@@ -319,10 +331,10 @@ pub fn check_guide_paths<A>(sections: &[crate::dialogs::Section], menus: &Menus<
                     let text = words[..n].join(" ");
                     let text = text.trim_end_matches([',', '.', ';', ':', ')']);
                     let parts: Vec<&str> = text.split(" > ").collect();
-                    has(entries, parts[0], &parts[1..])
+                    has(entries, lang, parts[0], &parts[1..])
                 });
                 if !found {
-                    wrong.push(format!("{title} > {}", words.join(" ")));
+                    wrong.push(format!("{} > {}", tr_in(lang, title), words.join(" ")));
                 }
             }
         }
@@ -341,12 +353,12 @@ mod guide_path_tests {
 
     #[test]
     fn a_guide_that_names_the_real_entries_passes() {
-        check_guide_paths(&[Section { title: "x", lines: &["Press File > Open… first. Then Machine > Device settings…, and File > Export > Export SVG…"] }], &menus());
+        check_guide_paths(&[Section { title: "x", lines: &["Press File > Open… first. Then Machine > Device settings…, and File > Export > Export SVG…"] }], &menus(), Lang::En);
     }
 
     #[test]
     #[should_panic(expected = "Machine > Switch")]
     fn a_guide_that_names_an_entry_that_is_gone_fails() {
-        check_guide_paths(&[Section { title: "x", lines: &["Machine > Switch device… returns to the start window."] }], &menus());
+        check_guide_paths(&[Section { title: "x", lines: &["Machine > Switch device… returns to the start window."] }], &menus(), Lang::En);
     }
 }
