@@ -946,3 +946,10 @@
 945|Razmak redaka
 946|Poravnanje
 947|Pretvori tekst u uredive Bézierove oblike
+948|Razmjesti
+949|Povucite po radnom području da je nacrtate.
+950|Spremi G-code
+951|Broj stranica
+952|Broj zavoja
+953|Mnogokut
+954|Spirala

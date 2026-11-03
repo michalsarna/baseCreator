@@ -946,3 +946,10 @@
 945|Interlineado
 946|Alineación
 947|Convertir el texto en formas de Bézier editables
+948|Organizar
+949|Arrastre sobre el área de trabajo para dibujarla.
+950|Guardar G-code
+951|Número de lados
+952|Número de vueltas
+953|Polígono
+954|Espiral

@@ -3,6 +3,16 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.64.0
+
+The audit of the tools of all the programs: the same things now work the same way in BaseCreator, MillCreator, PenCreator and LightCreator.
+
+- **Polygon and spiral:** the small window with the number of sides or turns was in LightCreator only, so these shapes could not be changed elsewhere. It is in the editor now, and a change also applies to the shape drawn last.
+- **Keys:** Space holds the hand, the arrows move the selection (Shift: 10 mm), a tool's letter also ends a line being drawn and opens the window of the polygon or spiral, and Esc clears the chosen nodes first in node editing.
+- **Union, Intersection, Subtract and Exclusive or** are buttons of the tool palette in every program.
+- The lock on a locked shape is the same icon everywhere. Menu and window texts that were English in some programs (*Arrange*, *Save G-code*) are translated.
+- New: `editor::{hold_space, plain_keys}`, `tool_check` (feature `tool-checks`: a check of every tool through the real window, run by every program); `tool_palette` has no `between` any more.
+
 ## v1.63.0
 
 - **The text tool works in BaseCreator, MillCreator and PenCreator:** a click with **Text (T)** did nothing there. It puts a text on the page and the Properties tab opens with the field to type in, the font, size, style, spacing and alignment, and **Convert to curves**. It is one shared code now, also for LightCreator.

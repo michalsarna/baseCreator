@@ -89,12 +89,7 @@ pub trait EditorHost: Sized {
     fn paint_over_shapes(&mut self, _v: &CanvasView) {}
     /// Draw the mark of a locked shape inside `rect`.
     fn paint_lock(&self, ui: &egui::Ui, rect: egui::Rect) {
-        let c = crate::theme::accent();
-        let body = egui::Rect::from_min_max(rect.left_center(), rect.right_bottom()).shrink2(egui::vec2(1.0, 0.0));
-        ui.painter().rect_filled(body, 1.0, c);
-        let r = body.width() * 0.32;
-        let top = egui::pos2(body.center().x, body.top());
-        ui.painter().circle_stroke(top, r, egui::Stroke::new(1.6, c));
+        crate::icons::paint(ui, rect, "lock", crate::theme::accent());
     }
     /// Let the application take the pointer for itself (dragging the corners of a camera picture): return true
     /// while it does, and the canvas leaves the tools alone.
@@ -117,6 +112,39 @@ pub trait EditorHost: Sized {
     fn show_properties_tab(&mut self) {}
 
     // ---- the view ----
+
+    /// Space held down: pan with the hand tool, and go back to the previous tool when it is released.
+    fn update_space(&mut self, down: bool) {
+        if down && self.ed().space_prev.is_none() {
+            if self.ed().tool != Tool::Pan {
+                let tool = self.ed().tool;
+                self.ed_mut().space_prev = Some(tool);
+                self.ed_mut().tool = Tool::Pan;
+                self.ed_mut().pen_pts.clear();
+            }
+        } else if !down {
+            if let Some(t) = self.ed_mut().space_prev.take() {
+                if self.ed().tool == Tool::Pan {
+                    self.ed_mut().tool = t;
+                }
+            }
+        }
+    }
+
+    /// A second Escape within half a second goes back to the select tool.
+    fn note_escape(&mut self, now: f64) {
+        if now - self.ed().esc_time < 0.5 {
+            self.ed_mut().tool = Tool::Select;
+            self.ed_mut().esc_time = -10.0;
+        } else {
+            self.ed_mut().esc_time = now;
+        }
+    }
+
+    /// Give the polygon or spiral drawn last the number of sides / turns now set, keeping its place and size.
+    fn reshape_last(&mut self, tool: Tool) {
+        super::keys::reshaped(self, tool);
+    }
 
     /// Screen position of a point of the work area; `o` is the top-left corner of the canvas.
     fn w2s(&self, o: Pos2, p: Pt) -> Pos2 {

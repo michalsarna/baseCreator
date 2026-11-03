@@ -946,3 +946,10 @@
 945|Spazjar tal-linji
 946|Allinjament
 947|Ibdel it-test f'forom ta' Bézier editjabbli
+948|Irranġa
+949|Kaxkar fiż-żona tax-xogħol biex tiddisinjah.
+950|Salva l-G-code
+951|Numru ta' ġnub
+952|Għadd ta' dawriet
+953|Poligonu
+954|Spiral

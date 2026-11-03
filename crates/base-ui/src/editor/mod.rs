@@ -6,6 +6,7 @@ mod canvas;
 mod commands;
 mod context_menu;
 mod host;
+mod keys;
 mod image_ui;
 mod prefs;
 mod props;
@@ -19,6 +20,7 @@ pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use context_menu::context_menu;
 pub use host::EditorHost;
+pub use keys::{hold_space, plain_keys};
 pub use shape_ops::EditorShapeOps;
 pub use background_ui::{Background, EditorBackground};
 pub use design_ui::{CodeKind, DesignCmd, DesignState, EditorDesign};
@@ -274,6 +276,8 @@ pub struct EditorState {
     pub image_tex: std::collections::HashMap<(u64, bool), egui::TextureHandle>,
     /// The tool to return to when Space (temporary pan) is released.
     pub space_prev: Option<Tool>,
+    /// When Escape was pressed last: a second press soon after goes back to the select tool.
+    pub esc_time: f64,
     /// What was copied (shapes with their groups), ready to paste.
     pub clipboard: Vec<Shape>,
     /// The import / adjust dialog of a picture, and the trace dialog.
@@ -369,6 +373,7 @@ impl EditorState {
             canvas_origin: egui::Pos2::ZERO,
             image_tex: Default::default(),
             space_prev: None,
+            esc_time: -10.0,
             clipboard: vec![],
             img_dlg: None,
             drawing_choice: None,

@@ -946,3 +946,10 @@
 945|Linjeavstand
 946|Justering
 947|Gjør teksten om til redigerbare Bézier-former
+948|Ordne
+949|Dra på arbeidsområdet for å tegne den.
+950|Lagre G-code
+951|Antall sider
+952|Antall omganger
+953|Mangekant
+954|Spiral

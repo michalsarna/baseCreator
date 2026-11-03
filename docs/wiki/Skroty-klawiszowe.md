@@ -44,6 +44,9 @@ Ctrl to Cmd na Macu. Klawisze działają w edytorze, nie na ekranie startowym, i
 |---|---|
 | Esc | Czyści zaznaczenie (i rysowaną łamaną). |
 | Dwa razy Esc (w ciągu pół sekundy) | Powrót do **Zaznaczanie (V)**. |
+| Spacja (przytrzymana) | Przesuwanie widoku przy każdym narzędziu; po puszczeniu wraca poprzednie narzędzie. |
+| Strzałki | Przesuwają zaznaczenie o 1 mm; **Shift** + strzałka = 10 mm. |
+| G, I | Wielokąt i spirala: małe okno ustawia liczbę boków lub zwojów, także w kształcie narysowanym ostatnio. |
 | Enter | Kończy rysowaną łamaną. |
 
 ## Mysz z klawiszami

@@ -946,3 +946,10 @@
 945|Razmik med vrsticami
 946|Poravnava
 947|Pretvori besedilo v obdelovalne Bézierove oblike
+948|Razporedi
+949|Povlecite po delovnem območju, da jo narišete.
+950|Shrani G-code
+951|Število stranic
+952|Število ovojev
+953|Večkotnik
+954|Spirala

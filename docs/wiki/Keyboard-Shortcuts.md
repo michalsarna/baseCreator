@@ -44,6 +44,9 @@ Ctrl is Cmd on a Mac. The keys work in the editor, not on the start screen, and 
 |---|---|
 | Esc | Clears the selection (and a polyline being drawn). |
 | Esc twice (within half a second) | Back to **Select (V)**. |
+| Space (hold) | Pan with any tool; release it to go back to the tool you had. |
+| Arrow keys | Move the selection by 1 mm; **Shift** + arrow = 10 mm. |
+| G, I | Polygon and spiral: a small window sets the number of sides or turns, also of the shape drawn last. |
 | Enter | Ends the polyline being drawn. |
 
 ## Mouse with keys

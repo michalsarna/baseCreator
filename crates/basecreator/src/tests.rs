@@ -385,3 +385,47 @@ fn a_click_with_the_text_tool_on_the_work_area_makes_a_text() {
         h.render().unwrap().save(format!("{dir}/text.png")).unwrap();
     }
 }
+
+/// The window of the program for the check of the tools.
+struct Window(egui_kittest::Harness<'static, Option<App>>);
+
+impl base_ui::tool_check::Drive for Window {
+    type App = App;
+    fn app(&mut self) -> &mut App {
+        self.0.state_mut().as_mut().unwrap()
+    }
+    fn send(&mut self, e: egui::Event) {
+        self.0.event(e);
+    }
+    fn frames(&mut self) {
+        self.0.run_steps(3);
+    }
+    fn shows(&mut self, text: &str) -> bool {
+        egui_kittest::kittest::Queryable::query_all_by_label_contains(&self.0, text).next().is_some()
+    }
+    fn ctx(&mut self) -> egui::Context {
+        self.0.ctx.clone()
+    }
+}
+
+/// Every tool through the real window: the same check runs in every program.
+#[test]
+fn every_tool_works_in_the_window() {
+    let mut h = egui_kittest::Harness::builder().with_accessibility_check(false).with_size([1280.0, 800.0]).build_ui_state(
+        |ui, state: &mut Option<App>| {
+            let a = state.get_or_insert_with(|| App::build(ui.ctx(), None, false));
+            a.draw(ui);
+        },
+        None,
+    );
+    h.run_steps(2);
+    h.state_mut().as_mut().unwrap().new_tab();
+    h.run_steps(4);
+    base_ui::tool_check::check_tools(&mut Window(h));
+}
+
+#[test]
+fn every_text_of_the_menus_has_a_translation() {
+    let _ = app();
+    base_ui::tool_check::check_menu_texts(&crate::menu::menus());
+}

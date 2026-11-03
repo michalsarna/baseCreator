@@ -946,3 +946,10 @@
 945|Interligne
 946|Alignement
 947|Transformer le texte en formes de Bézier modifiables
+948|Disposition
+949|Faites glisser sur la zone de travail pour la dessiner.
+950|Enregistrer le G-code
+951|Nombre de côtés
+952|Nombre de tours
+953|Polygone
+954|Spirale

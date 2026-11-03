@@ -946,3 +946,10 @@
 945|Eilučių tarpai
 946|Lygiavimas
 947|Paversti tekstą redaguojamomis Bezjė formomis
+948|Išdėstyti
+949|Vilkite darbo srityje, kad ją nupieštumėte.
+950|Įrašyti G-code
+951|Kraštinių skaičius
+952|Vijų skaičius
+953|Daugiakampis
+954|Spiralė

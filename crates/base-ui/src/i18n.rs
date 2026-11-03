@@ -148,6 +148,20 @@ pub fn tr(s: &'static str) -> &'static str {
     BASE.lookup(i, s).unwrap_or(s)
 }
 
+/// The text in a given language, whatever the language of the window is.
+pub fn tr_in(lang: Lang, s: &'static str) -> &'static str {
+    let i = Lang::ALL.iter().position(|l| *l == lang).unwrap_or(0);
+    if i == 0 {
+        return s;
+    }
+    if let Ok(sets) = SETS.read() {
+        if let Some(t) = sets.iter().find_map(|t| t.lookup(i, s)) {
+            return t;
+        }
+    }
+    BASE.lookup(i, s).unwrap_or(s)
+}
+
 static SETS: RwLock<Vec<&'static Texts>> = RwLock::new(Vec::new());
 
 use crate::texts::TEXTS as BASE;

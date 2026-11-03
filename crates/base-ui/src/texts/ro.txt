@@ -946,3 +946,10 @@
 945|Spațiere rânduri
 946|Aliniere
 947|Transformă textul în forme Bézier editabile
+948|Aranjare
+949|Trageți pe zona de lucru pentru a o desena.
+950|Salvează G-code
+951|Număr de laturi
+952|Număr de spire
+953|Poligon
+954|Spirală

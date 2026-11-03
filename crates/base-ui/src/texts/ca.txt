@@ -946,3 +946,10 @@
 945|Interlineat
 946|Alineació
 947|Converteix el text en formes de Bézier editables
+948|Organitza
+949|Arrossegueu sobre l'àrea de treball per dibuixar-la.
+950|Desa el G-code
+951|Nombre de costats
+952|Nombre de voltes
+953|Polígon
+954|Espiral

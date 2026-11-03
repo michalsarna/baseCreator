@@ -953,6 +953,13 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Line spacing", "Interlinia", "Zeilenabstand", "Interlinea", "Riviväli", "行距", "पंक्ति अंतराल"],
     ["Align", "Wyrównanie", "Ausrichtung", "Allineamento", "Tasaus", "对齐", "संरेखण"],
     ["Turn the text into editable Bézier shapes", "Zamień tekst na edytowalne kształty Béziera", "Text in bearbeitbare Bézier-Formen umwandeln", "Trasforma il testo in forme di Bézier modificabili", "Muunna teksti muokattaviksi Bézier-muodoiksi", "将文字转换为可编辑的贝塞尔形状", "टेक्स्ट को संपादन योग्य बेज़ियर आकारों में बदलें"],
+    ["Arrange", "Rozmieść", "Anordnen", "Disponi", "Järjestä", "排列", "व्यवस्थित करें"],
+    ["Drag on the work area to draw it.", "Przeciągnij na obszarze roboczym, aby ją narysować.", "Zum Zeichnen auf der Arbeitsfläche ziehen.", "Trascina sull'area di lavoro per disegnarla.", "Piirrä vetämällä työalueella.", "在工作区拖动以绘制。", "बनाने के लिए कार्य क्षेत्र पर खींचें।"],
+    ["Save G-code", "Zapisz G-code", "G-Code speichern", "Salva G-code", "Tallenna G-koodi", "保存 G-code", "G-code सहेजें"],
+    ["Number of sides", "Liczba boków", "Anzahl der Seiten", "Numero di lati", "Sivujen määrä", "边数", "भुजाओं की संख्या"],
+    ["Number of turns", "Liczba zwojów", "Anzahl der Windungen", "Numero di giri", "Kierrosten määrä", "圈数", "फेरों की संख्या"],
+    ["Polygon", "Wielokąt", "Vieleck", "Poligono", "Monikulmio", "多边形", "बहुभुज"],
+    ["Spiral", "Spirala", "Spirale", "Spirale", "Spiraali", "螺旋", "सर्पिल"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
@@ -990,7 +997,7 @@ mod tests {
     use crate::i18n::Lang;
 
     /// The sources that call `tr` or `trf`.
-    const SOURCES: [&str; 29] = [
+    const SOURCES: [&str; 47] = [
         include_str!("editor/shape_ops.rs"),
         include_str!("side_tabs.rs"),
         include_str!("editor/host.rs"),
@@ -1020,17 +1027,44 @@ mod tests {
         include_str!("autosave_ui.rs"),
         include_str!("layer_bar.rs"),
         include_str!("alert_ui.rs"),
+        include_str!("camera_feed.rs"),
+        include_str!("camera_rec.rs"),
+        include_str!("camera_stream.rs"),
+        include_str!("description_ui.rs"),
+        include_str!("doc_tabs.rs"),
+        include_str!("editor/background_ui.rs"),
+        include_str!("editor/context_menu.rs"),
+        include_str!("editor/design_ui.rs"),
+        include_str!("editor/keys.rs"),
+        include_str!("editor/text_ui.rs"),
+        include_str!("gcode_out_ui.rs"),
+        include_str!("gcode_text_ui.rs"),
+        include_str!("gcode_view_ui.rs"),
+        include_str!("layer_presets_ui.rs"),
+        include_str!("native_menu.rs"),
+        include_str!("navicube.rs"),
+        include_str!("playback.rs"),
+        include_str!("work_panes.rs"),
     ];
 
     fn literals() -> Vec<String> {
         let mut out = vec![];
         for src in SOURCES {
             for call in ["tr(\"", "trf(\""] {
-                for part in src.split(call).skip(1) {
+                // Not the end of a longer name (`from_str("…")`).
+                for (at, _) in src.match_indices(call) {
+                    if src[..at].ends_with(|c: char| c.is_alphanumeric() || c == '_') {
+                        continue;
+                    }
+                    let part = &src[at + call.len()..];
                     let end = part.find('"').unwrap();
                     out.push(part[..end].to_string());
                 }
             }
+        }
+        // The texts of the small window of the polygon and spiral tools, chosen by the tool.
+        for text in ["Polygon", "Spiral", "Number of sides", "Number of turns"] {
+            out.push(text.to_string());
         }
         // The names of the tools.
         for (_, label, _) in crate::editor::Tool::ALL {

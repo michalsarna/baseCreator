@@ -946,3 +946,10 @@
 945|Línubil
 946|Jöfnun
 947|Breyta textanum í breytanleg Bézier-form
+948|Raða
+949|Dragðu á vinnusvæðinu til að teikna hann.
+950|Vista G-code
+951|Fjöldi hliða
+952|Fjöldi hringja
+953|Marghyrningur
+954|Spírall
