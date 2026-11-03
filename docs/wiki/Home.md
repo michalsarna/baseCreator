@@ -39,4 +39,4 @@ An open-source drawing program written in Rust, with nothing of a machine: no de
 
 Releases have the numbers of the tags of the repository, which is why the numbers differ from those of the other programs.
 
-Latest release: **v1.61.0** · [Releases](https://github.com/michalsarna/baseCreator/releases) · [Issues](https://github.com/michalsarna/baseCreator/issues) · Licence: [MIT](https://github.com/michalsarna/baseCreator/blob/main/LICENSE) or [Apache-2.0](https://github.com/michalsarna/baseCreator/blob/main/LICENSE-APACHE), at your option
+Latest release: **v1.63.0** · [Releases](https://github.com/michalsarna/baseCreator/releases) · [Issues](https://github.com/michalsarna/baseCreator/issues) · Licence: [MIT](https://github.com/michalsarna/baseCreator/blob/main/LICENSE) or [Apache-2.0](https://github.com/michalsarna/baseCreator/blob/main/LICENSE-APACHE), at your option
