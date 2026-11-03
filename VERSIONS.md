@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.65.3
+
+- **Fix:** symbols that no font of the programs has showed as empty boxes: the delete, rename and confirm buttons of layer presets, the delete button of saved positions and of the rows of a CSV file, and the mark in front of the explanation of an alarm or error in the console. egui 0.37 ships its symbols only on request. They now use characters of the fonts and the icons of the programs.
+- `tool_check::check_symbols` looks at every character in the string literals of a program against its fonts.
+
 ## v1.65.2
 
 - **Negative image** is in Properties of a selected picture in every program (it was there only in LightCreator; the import and adjust window has had it everywhere). It can be undone and it does not change a locked picture. The tip no longer speaks of engraving, because a plotter draws and BaseCreator only keeps the picture.

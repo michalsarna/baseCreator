@@ -207,7 +207,7 @@ pub fn window<T: Serialize + DeserializeOwned + Clone>(ctx: &egui::Context, st: 
                     if let Some((j, text)) = &mut st.renaming {
                         if *j == i {
                             let r = ui.add(egui::TextEdit::singleline(text).desired_width(200.0));
-                            if r.lost_focus() && ui.input(|k| k.key_pressed(egui::Key::Enter)) || ui.small_button("✔").clicked() {
+                            if r.lost_focus() && ui.input(|k| k.key_pressed(egui::Key::Enter)) || ui.add(egui::Button::image(crate::icons::slot(Some("check"), theme::text()))).clicked() {
                                 rename = Some((i, text.clone()));
                             } else if r.lost_focus() && ui.input(|k| k.key_pressed(egui::Key::Escape)) {
                                 st.renaming = None;
@@ -219,10 +219,10 @@ pub fn window<T: Serialize + DeserializeOwned + Clone>(ctx: &egui::Context, st: 
                         pick = Some(Pick::Apply(i));
                     }
                     ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-                        if ui.small_button("✖").on_hover_text(tr("Forget this preset")).clicked() {
+                        if ui.small_button("×").on_hover_text(tr("Forget this preset")).clicked() {
                             remove = Some(i);
                         }
-                        if ui.small_button("✎").on_hover_text(tr("Rename")).clicked() {
+                        if ui.add(egui::Button::image(crate::icons::slot(Some("pencil"), theme::text()))).on_hover_text(tr("Rename")).clicked() {
                             st.renaming = Some((i, lib.items[i].name.clone()));
                         }
                     });

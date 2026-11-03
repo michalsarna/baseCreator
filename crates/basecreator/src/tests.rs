@@ -466,3 +466,8 @@ fn the_overlay_is_kept_in_the_project_file() {
     let b = a.ed.background.as_ref().expect("it came back");
     assert_eq!((b.size, b.corners[2].x, b.visible, b.name.as_str()), ((8, 4), 55.0, false, "photo.jpg"));
 }
+
+#[test]
+fn the_fonts_draw_every_symbol_of_the_program() {
+    base_ui::tool_check::check_symbols(&std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src"));
+}

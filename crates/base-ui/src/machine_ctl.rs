@@ -672,7 +672,7 @@ impl Machine {
                 }
             }
             if let Some(t) = x.text {
-                self.info(format!("   ↳ {}", tr(t)));
+                self.info(format!("   → {}", tr(t)));
             }
         }
     }

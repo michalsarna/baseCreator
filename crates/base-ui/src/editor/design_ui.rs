@@ -526,7 +526,7 @@ pub trait EditorDesign: EditorHost {
                             }
                             if !st.csv.is_empty() {
                                 ui.label(trf("{} rows from the file", &[&st.csv.len()]));
-                                if ui.small_button("✖").clicked() {
+                                if ui.small_button("×").clicked() {
                                     st.csv.clear();
                                 }
                             }

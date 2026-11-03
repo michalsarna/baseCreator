@@ -342,8 +342,83 @@ pub fn check_guide_paths<A>(sections: &[crate::dialogs::Section], menus: &Menus<
     assert!(wrong.is_empty(), "the guide names what the menus do not have: {wrong:#?}");
 }
 
+/// Can the fonts of the program draw every character in the string literals of the sources in `dir`? A character that no font has
+/// shows as an empty box; egui 0.37 no longer ships its symbols unless asked, so a symbol that worked before can turn into one.
+pub fn check_symbols(dir: &std::path::Path) {
+    fn walk(dir: &std::path::Path, out: &mut Vec<std::path::PathBuf>) {
+        for e in std::fs::read_dir(dir).unwrap().flatten() {
+            let p = e.path();
+            if p.is_dir() {
+                walk(&p, out);
+            } else if p.extension().is_some_and(|x| x == "rs") {
+                out.push(p);
+            }
+        }
+    }
+    let ctx = egui::Context::default();
+    crate::fonts::install(&ctx);
+    let mut out = ctx.run_ui(egui::RawInput::default(), |_| {});
+    out.textures_delta.clear();
+    let font = egui::FontId::proportional(14.0);
+    let mut files = vec![];
+    walk(dir, &mut files);
+    assert!(!files.is_empty(), "no sources in {dir:?}");
+    let mut missing = vec![];
+    for file in files {
+        let text = std::fs::read_to_string(&file).unwrap();
+        for (n, line) in text.lines().enumerate() {
+            if line.trim_start().starts_with("//") {
+                continue;
+            }
+            for c in chars_in_literals(line) {
+                if !c.is_ascii() && !ctx.fonts_mut(|f| f.has_glyph(&font, c)) {
+                    missing.push(format!("{}:{} {c} (U+{:04X})", file.display(), n + 1, c as u32));
+                }
+            }
+        }
+    }
+    assert!(missing.is_empty(), "no font has these characters:\n{}", missing.join("\n"));
+}
+
+/// The characters inside the string literals of one line of code.
+fn chars_in_literals(line: &str) -> Vec<char> {
+    let (mut out, mut inside, mut escaped) = (vec![], false, false);
+    for c in line.chars() {
+        if inside {
+            match (escaped, c) {
+                (true, _) => escaped = false,
+                (false, '\\') => escaped = true,
+                (false, '"') => inside = false,
+                _ => out.push(c),
+            }
+        } else if c == '"' {
+            inside = true;
+        }
+    }
+    out
+}
+
 #[cfg(test)]
 mod guide_path_tests {
+    #[test]
+    fn the_fonts_draw_every_symbol_of_the_shared_code() {
+        super::check_symbols(&std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src"));
+    }
+
+    #[test]
+    fn only_the_characters_of_literals_are_looked_at() {
+        assert_eq!(super::chars_in_literals(r#"let a = "x\"y"; // z"#), vec!['x', 'y']);
+    }
+
+    #[test]
+    #[should_panic(expected = "U+270E")]
+    fn a_symbol_no_font_has_is_found() {
+        let dir = std::env::temp_dir().join(format!("base-symbols-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        std::fs::write(dir.join("a.rs"), "let a = \"\u{270E}\";").unwrap();
+        super::check_symbols(&dir);
+    }
+
     use super::*;
     use crate::dialogs::Section;
 
