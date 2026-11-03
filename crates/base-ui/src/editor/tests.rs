@@ -498,16 +498,18 @@ fn escape_stays_for_what_else_is_open() {
         ..Default::default()
     };
     let mut seen = false;
-    let _ = ctx.run_ui(key(egui::Key::Escape), |ui| {
+    let mut out = ctx.run_ui(key(egui::Key::Escape), |ui| {
         super::plain_keys(&mut h, ui.ctx(), true);
         seen = ui.input(|i| i.key_pressed(egui::Key::Escape));
     });
+    out.textures_delta.clear();
     assert!(h.ed.sel.is_empty(), "the selection is cleared");
     assert!(seen, "and whatever comes later in the frame still sees the key");
-    let _ = ctx.run_ui(key(egui::Key::R), |ui| {
+    let mut out = ctx.run_ui(key(egui::Key::R), |ui| {
         super::plain_keys(&mut h, ui.ctx(), true);
         seen = ui.input(|i| i.key_pressed(egui::Key::R));
     });
+    out.textures_delta.clear();
     assert_eq!(h.ed.tool, Tool::Rect);
     assert!(!seen, "a letter of a tool is used up");
 }
