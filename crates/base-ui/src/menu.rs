@@ -558,10 +558,20 @@ pub struct MenuParts<A> {
     pub check_updates: A,
     /// File, after *Save as…* (e.g. *Project setup…*).
     pub file_extra: Vec<Entry<A>>,
-    /// The importers of the program; *Import image…* comes before them, the importers of plugins after them.
-    pub import: Vec<Entry<A>>,
-    /// The exports of the program, *Export G-code…* first; the export of the selection comes after them.
-    pub export: Vec<Entry<A>>,
+    /// The file formats: every program imports and exports the same ones, in the same order (`Import`, `Export`).
+    pub import_svg: A,
+    pub import_ai: A,
+    pub import_dxf: A,
+    pub import_lightburn: A,
+    pub import_ugsd: A,
+    pub export_svg: A,
+    pub export_cam: A,
+    /// What only this program imports, after the common formats (e.g. a 3D model); the importers of plugins come after it.
+    pub import_extra: Vec<Entry<A>>,
+    /// What only a program with a machine exports, before the common formats (*Export G-code…*).
+    pub export_first: Vec<Entry<A>>,
+    /// What only this program exports, after the common formats (e.g. a relief as STL); the export of the selection comes after it.
+    pub export_extra: Vec<Entry<A>>,
     /// File, after *View G-code file…* (e.g. *Print…*).
     pub output_extra: Vec<Entry<A>>,
     /// View, after the grid, the zoom and the split view: what the program shows besides the drawing.
@@ -589,9 +599,17 @@ pub fn standard_menus<A: Copy + From<StdAct>>(p: MenuParts<A>) -> Menus<A> {
     let mut file = vec![Item(p.new, "New", key("CmdOrCtrl+N", "Ctrl+N")), Item(p.open, "Open…", key("CmdOrCtrl+O", "Ctrl+O")), Recent, Sep, Item(p.save, "Save", key("CmdOrCtrl+S", "Ctrl+S")), Item(p.save_as, "Save as…", key("CmdOrCtrl+Shift+S", "Ctrl+Shift+S"))];
     file.extend(p.file_extra);
     file.push(Sep);
-    let import = [std(std_entries::import_image()), p.import, vec![Sep, Item(p.import_plugin, crate::plugins_ui::MENU_IMPORT, None), Item(p.generate, crate::plugins_ui::MENU_GENERATE, None)]].concat();
+    let formats = vec![
+        Item(p.import_svg, "Import SVG…", key("CmdOrCtrl+I", "Ctrl+I")),
+        Item(p.import_ai, "Import Adobe Illustrator / PDF…", None),
+        Item(p.import_dxf, "Import DXF…", None),
+        Item(p.import_lightburn, "Import LightBurn project…", None),
+        Item(p.import_ugsd, "Import UGS design…", None),
+    ];
+    let import = [std(std_entries::import_image()), formats, p.import_extra, vec![Sep, Item(p.import_plugin, crate::plugins_ui::MENU_IMPORT, None), Item(p.generate, crate::plugins_ui::MENU_GENERATE, None)]].concat();
     file.push(Sub("Import", import));
-    file.push(Sub("Export", [p.export, vec![Sep], std(std_entries::export_selection())].concat()));
+    let formats = vec![Item(p.export_svg, "Export SVG…", None), Item(p.export_cam, "Export PLT / DXF…", None)];
+    file.push(Sub("Export", [p.export_first, formats, p.export_extra, vec![Sep], std(std_entries::export_selection())].concat()));
     file.push(Item(p.view_gcode, crate::gcode_view_ui::MENU_VIEW, None));
     file.extend(p.output_extra);
     if !mac {
@@ -812,8 +830,16 @@ mod tests {
             restore_backup: T::App(16),
             check_updates: T::App(17),
             file_extra: vec![],
-            import: vec![Item(T::App(20), "Import DXF…", None)],
-            export: vec![Item(T::App(21), "Export G-code…", None)],
+            import_svg: T::App(30),
+            import_ai: T::App(31),
+            import_dxf: T::App(20),
+            import_lightburn: T::App(32),
+            import_ugsd: T::App(33),
+            export_svg: T::App(34),
+            export_cam: T::App(35),
+            import_extra: vec![],
+            export_first: vec![Item(T::App(21), "Export G-code…", None)],
+            export_extra: vec![],
             output_extra: vec![],
             view_extra: vec![],
             background: true,
@@ -823,6 +849,26 @@ mod tests {
             help_first: vec![],
             help_extra: vec![],
         }
+    }
+
+    /// The labels of a submenu of File, with a line as "-".
+    fn sub_labels(m: &Menus<T>, title: &str) -> Vec<&'static str> {
+        let inner = m[0].1.iter().find_map(|e| match e {
+            Entry::Sub(t, inner) if *t == title => Some(inner),
+            _ => None,
+        });
+        inner.unwrap().iter().map(|e| match e { Entry::Item(_, l, _) => *l, _ => "-" }).collect()
+    }
+
+    /// Every program imports and exports the same formats in the same order; only what is its own comes on top of them.
+    #[test]
+    fn every_program_has_the_same_formats_in_the_same_order() {
+        let mut p = parts();
+        p.import_extra = vec![Item(T::App(40), "Import 3D model as relief…", None)];
+        p.export_extra = vec![Item(T::App(41), "Export relief as STL…", None)];
+        let m = standard_menus(p);
+        assert_eq!(sub_labels(&m, "Import"), ["Import image…", "Import SVG…", "Import Adobe Illustrator / PDF…", "Import DXF…", "Import LightBurn project…", "Import UGS design…", "Import 3D model as relief…", "-", crate::plugins_ui::MENU_IMPORT, crate::plugins_ui::MENU_GENERATE]);
+        assert_eq!(sub_labels(&m, "Export"), ["Export G-code…", "Export SVG…", "Export PLT / DXF…", "Export relief as STL…", "-", "Export selection as SVG…", "Export selection as DXF…"]);
     }
 
     #[test]

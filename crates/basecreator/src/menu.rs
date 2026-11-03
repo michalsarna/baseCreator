@@ -14,11 +14,14 @@ pub enum Act {
     Save,
     SaveAs,
     PageSetup,
-    ImportLightburn,
+    ImportSvg,
+    ImportAi,
     ImportDxf,
+    ImportLightburn,
+    ImportUgsd,
     ImportPlugin,
     ExportSvg,
-    ExportDxf,
+    ExportCam,
     /// The place of *View G-code file…* in the common layout: taken out of the menus by `menus`.
     NoGcode,
     Plugins,
@@ -82,8 +85,16 @@ pub fn menus() -> Menus<Act> {
         restore_backup: Act::RestoreBackup,
         check_updates: Act::CheckUpdates,
         file_extra: vec![Item(Act::PageSetup, "Page setup…", None)],
-        import: vec![Item(Act::ImportDxf, "Import DXF…", None), Item(Act::ImportLightburn, "Import LightBurn project…", None)],
-        export: vec![Item(Act::ExportSvg, "Export drawing as SVG…", None), Item(Act::ExportDxf, "Export drawing as DXF…", None)],
+        import_svg: Act::ImportSvg,
+        import_ai: Act::ImportAi,
+        import_dxf: Act::ImportDxf,
+        import_lightburn: Act::ImportLightburn,
+        import_ugsd: Act::ImportUgsd,
+        export_svg: Act::ExportSvg,
+        export_cam: Act::ExportCam,
+        import_extra: vec![],
+        export_first: vec![],
+        export_extra: vec![],
         output_extra: vec![],
         view_extra: vec![],
         background: true,
@@ -117,6 +128,7 @@ mod tests {
         assert_eq!(titles, ["File", "Edit", "Insert", "Arrange", "View", "Settings", "Help"]);
         assert!(m.iter().all(|(_, e)| !has(e, Act::NoGcode)), "no View G-code file…");
         let file = &m[0].1;
-        assert!(has(file, Act::ExportSvg) && has(file, Act::ExportDxf) && has(file, Act::PageSetup));
+        assert!(has(file, Act::ExportSvg) && has(file, Act::ExportCam) && has(file, Act::PageSetup));
+        assert!([Act::ImportSvg, Act::ImportAi, Act::ImportDxf, Act::ImportLightburn, Act::ImportUgsd].iter().all(|a| has(file, *a)));
     }
 }

@@ -135,6 +135,39 @@ pub trait EditorShapeOps: EditorHost {
         }
     }
 
+    /// File > Export > *Export SVG…*: the whole drawing, the size of the work area. `stem` is the first name of the file.
+    fn export_drawing_svg(&mut self, stem: &str) {
+        let Some(path) = rfd::FileDialog::new().add_filter("SVG", &["svg"]).set_file_name(format!("{stem}.svg")).save_file() else { return };
+        let (w, h) = self.work_size();
+        let layer_name = |l: usize| self.layer_title(l);
+        let color = |l: usize| -> [u8; 3] {
+            let c = self.layer_color(l);
+            [c.r(), c.g(), c.b()]
+        };
+        let text = base_core::export::svg(self.scene(), &[], w, h, &layer_name, &color);
+        self.say_exported(&path, text);
+    }
+
+    /// File > Export > *Export PLT / DXF…*: the outlines of the whole drawing as HPGL or DXF, by the extension the file gets.
+    fn export_drawing_cam(&mut self, stem: &str) {
+        let Some(path) = rfd::FileDialog::new().add_filter("HPGL plot", &["plt"]).add_filter("DXF", &["dxf"]).set_file_name(format!("{stem}.plt")).save_file() else { return };
+        let h = self.work_size().1;
+        let is_dxf = path.extension().is_some_and(|e| e.eq_ignore_ascii_case("dxf"));
+        let layer_name = |l: usize| self.layer_title(l);
+        let text = if is_dxf { base_core::export::dxf(self.scene(), &[], h, &layer_name) } else { base_core::export::hpgl(self.scene(), &[], h) };
+        self.say_exported(&path, text);
+    }
+
+    /// Write an exported drawing and say how it went, with the pictures such a file cannot hold.
+    fn say_exported(&mut self, path: &std::path::Path, text: String) {
+        let skipped = base_core::export::pictures_in(self.scene(), &[]);
+        match std::fs::write(path, text) {
+            Ok(()) if skipped > 0 => self.say(trf("Exported {}. {} image(s) skipped: this format has no raster.", &[&path.display(), &skipped])),
+            Ok(()) => self.say(trf("Exported {}", &[&path.display()])),
+            Err(e) => self.say(trf("Export failed: {}", &[&e])),
+        }
+    }
+
     /// Offset the outlines of the selected shapes by `d` mm (negative shrinks).
     fn offset_selected(&mut self, d: f64, keep_original: bool) {
         let ids: Vec<u64> = self.ed().sel.clone();

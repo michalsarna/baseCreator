@@ -23,7 +23,7 @@ use base_core::scene::{Kind, Scene};
 use base_core::units::Units;
 use base_ui::clipart_ui::{self, ClipGallery, ClipHost, ClipState};
 use base_ui::dialogs::AboutInfo;
-use base_ui::editor::{EditorCommands, EditorHost, EditorImages, EditorState, Tool};
+use base_ui::editor::{EditorCommands, EditorHost, EditorImages, EditorShapeOps, EditorState, Tool};
 use base_ui::i18n::{self, tr, Lang};
 use base_ui::menu::{MenuHost, Menus};
 use base_ui::theme::{self, Scheme};
@@ -89,8 +89,8 @@ pub fn act_icon(a: Act) -> Option<&'static str> {
         Act::Open => Some("folder-open"),
         Act::Save | Act::SaveAs => Some("save"),
         Act::PageSetup => Some("settings"),
-        Act::ImportLightburn | Act::ImportDxf | Act::ImportPlugin => Some("file-input"),
-        Act::ExportSvg | Act::ExportDxf => Some("file-output"),
+        Act::ImportSvg | Act::ImportAi | Act::ImportDxf | Act::ImportLightburn | Act::ImportUgsd | Act::ImportPlugin => Some("file-input"),
+        Act::ExportSvg | Act::ExportCam => Some("file-output"),
         Act::Plugins => Some("package-open"),
         Act::GenerateShape => Some("shapes"),
         Act::OnlineClipart => Some("globe"),
@@ -229,7 +229,7 @@ fn dxf_scene(outlines: Vec<base_core::svg::Outline>, used: &std::collections::Ha
 
 /// A file that is imported into the drawing: a LightBurn project or a DXF.
 fn is_import(p: &std::path::Path) -> bool {
-    p.extension().is_some_and(|e| ["lbrn2", "lbrn", "dxf"].iter().any(|x| e.eq_ignore_ascii_case(x)))
+    p.extension().is_some_and(|e| ["lbrn2", "lbrn", "ugsd", "dxf"].iter().any(|x| e.eq_ignore_ascii_case(x)))
 }
 
 impl App {
@@ -423,12 +423,13 @@ impl App {
         }
     }
 
-    /// Import a LightBurn project or a DXF into the drawing: its shapes are added, selected, and undoable.
+    /// Import a LightBurn project, a UGS design or a DXF into the drawing: its shapes are added, selected, and undoable.
     fn import_file(&mut self, path: PathBuf) {
         if self.screen == Screen::Start {
             self.new_design();
         }
         let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+        let is_ugsd = path.extension().is_some_and(|e| e.eq_ignore_ascii_case("ugsd"));
         let is_dxf = path.extension().is_some_and(|e| e.eq_ignore_ascii_case("dxf"));
         let area_h = self.work_size().1;
         // A DXF drawing: its layers go to the layers of the project that have no shapes yet, one after the other.
@@ -443,6 +444,10 @@ impl App {
                 return Ok((scene, warnings));
             }
             let text = String::from_utf8(d).map_err(|_| "this is not a text file".to_string())?;
+            if is_ugsd {
+                let imp = base_core::ugsd::import(&text, area_h, section::LAYER_COUNT)?;
+                return Ok((imp.scene, imp.warnings));
+            }
             let imp = base_core::lightburn::import(&text, area_h)?;
             Ok((imp.scene, imp.warnings))
         });
@@ -507,6 +512,24 @@ impl App {
         }
     }
 
+    /// File > Import > Import UGS design…: the shapes of the file are added to the drawing, one layer for each way of cutting. Its feeds
+    /// and depths mean nothing here and are not taken.
+    fn import_ugsd_dialog(&mut self) {
+        if let Some(p) = rfd::FileDialog::new().add_filter("UGS Designer", &["ugsd"]).pick_file() {
+            self.open(p);
+        }
+    }
+
+    /// File > Import > Import SVG… and Import Adobe Illustrator / PDF…: the paths are added to the drawing. (*Open…* makes a new tab of them.)
+    fn import_drawing_dialog(&mut self, what: &str, extensions: &[&str]) {
+        if let Some(p) = rfd::FileDialog::new().add_filter(what, extensions).pick_file() {
+            if self.screen == Screen::Start {
+                self.new_design();
+            }
+            self.import_drawing_path(p);
+        }
+    }
+
     /// File > Import > Import LightBurn project…: the shapes of the project are added to the drawing.
     fn import_lightburn_dialog(&mut self) {
         if let Some(p) = rfd::FileDialog::new().add_filter("LightBurn", &["lbrn2", "lbrn"]).pick_file() {
@@ -514,26 +537,9 @@ impl App {
         }
     }
 
-    /// The whole drawing as SVG or DXF text, the size of the page. Pictures have no outlines and are not in it.
-    fn drawing_text(&self, dxf: bool) -> String {
-        let names = |l: usize| self.layer_title(l);
-        if dxf {
-            base_core::export::dxf(&self.scene, &[], self.page.h, &names)
-        } else {
-            let color = |l: usize| self.layers.get(l).map_or(base_core::layers::color(l), |x| x.color);
-            base_core::export::svg(&self.scene, &[], self.page.w, self.page.h, &names, &color)
-        }
-    }
-
-    /// File > Export > Export drawing as SVG… and as DXF…
-    fn export_drawing(&mut self, dxf: bool) {
-        let ext = if dxf { "dxf" } else { "svg" };
-        let stem = self.path.as_ref().and_then(|p| p.file_stem()).map_or("drawing".to_string(), |s| s.to_string_lossy().into_owned());
-        let Some(path) = rfd::FileDialog::new().add_filter(ext.to_uppercase(), &[ext]).set_file_name(format!("{stem}.{ext}")).save_file() else { return };
-        self.status = match std::fs::write(&path, self.drawing_text(dxf)) {
-            Ok(()) => i18n::trf("Saved {}", &[&path.display()]),
-            Err(e) => i18n::trf("Could not save: {}", &[&e]),
-        };
+    /// The first name of an exported file: that of the project.
+    fn file_stem(&self) -> String {
+        self.path.as_ref().and_then(|p| p.file_stem()).map_or("drawing".to_string(), |s| s.to_string_lossy().into_owned())
     }
 
     /// The size of the page in mm.
@@ -989,7 +995,7 @@ impl MenuHost for App {
     fn act_enabled(&self, a: Act) -> bool {
         match a {
             Act::Std(s) => self.screen == Screen::Editor && s.enabled(self),
-            Act::Save | Act::SaveAs | Act::PageSetup | Act::ExportSvg | Act::ExportDxf => self.screen == Screen::Editor,
+            Act::Save | Act::SaveAs | Act::PageSetup | Act::ExportSvg | Act::ExportCam => self.screen == Screen::Editor,
             _ => true,
         }
     }
@@ -1022,11 +1028,20 @@ impl MenuHost for App {
             Act::Save => self.save(false),
             Act::SaveAs => self.save(true),
             Act::PageSetup => self.show_page = true,
-            Act::ImportLightburn => self.import_lightburn_dialog(),
+            Act::ImportSvg => self.import_drawing_dialog("SVG", &["svg"]),
+            Act::ImportAi => self.import_drawing_dialog("Adobe Illustrator / PDF", &["ai", "pdf"]),
             Act::ImportDxf => self.import_dxf_dialog(),
+            Act::ImportLightburn => self.import_lightburn_dialog(),
+            Act::ImportUgsd => self.import_ugsd_dialog(),
             Act::ImportPlugin => self.import_with_plugin_dialog(),
-            Act::ExportSvg => self.export_drawing(false),
-            Act::ExportDxf => self.export_drawing(true),
+            Act::ExportSvg => {
+                let stem = self.file_stem();
+                self.export_drawing_svg(&stem);
+            }
+            Act::ExportCam => {
+                let stem = self.file_stem();
+                self.export_drawing_cam(&stem);
+            }
             Act::NoGcode => {}
             Act::Plugins => self.plugins.open = true,
             Act::GenerateShape => self.plugins.gen_open = true,

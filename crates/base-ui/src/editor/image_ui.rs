@@ -186,6 +186,58 @@ pub trait EditorImages: EditorHost {
         }
     }
 
+    /// Read an SVG, PDF or Illustrator file into the drawing. A file with Illustrator layers first asks how to put the paths on the
+    /// layers of the program.
+    fn import_drawing_path(&mut self, p: std::path::PathBuf) {
+        match std::fs::read(&p).map_err(|e| e.to_string()).and_then(|d| base_core::svg::read_drawing(&d)) {
+            Ok(outlines) if !base_core::svg::layer_names(&outlines).is_empty() => self.ed_mut().drawing_choice = Some((p, outlines)),
+            Ok(outlines) => self.place_drawing(&p, outlines, false),
+            Err(e) => self.say(trf("Import failed: {}", &[&e])),
+        }
+    }
+
+    /// Add read outlines to the drawing, selected and undoable.
+    fn place_drawing(&mut self, p: &std::path::Path, outlines: Vec<base_core::svg::Outline>, by_layers: bool) {
+        self.checkpoint();
+        let ids = self.scene_mut().append(base_core::svg::into_scene(outlines, by_layers), base_core::layers::LAYER_COUNT - 1);
+        self.say(trf("Imported {} paths from {}", &[&ids.len(), &p.display()]));
+        let ed = self.ed_mut();
+        ed.sel = ids;
+        ed.node_sel.clear();
+        ed.view.need_fit = true;
+        self.touch();
+    }
+
+    /// The question after reading a file with Illustrator layers: by colour or by layers.
+    fn drawing_choice_window(&mut self, ctx: &egui::Context) {
+        let Some((p, outlines)) = self.ed_mut().drawing_choice.take() else { return };
+        let n = base_core::svg::layer_names(&outlines).len();
+        let mut open = true;
+        let mut pick: Option<bool> = None;
+        let mut cancel = false;
+        popup(ctx, "drawing_layers", &tr("Illustrator layers"), [480.0, 170.0], &mut open, |ui| {
+            ui.label(trf("The file has {} Illustrator layers. Put the paths on the layers of the program by:", &[&n]));
+            ui.label(egui::RichText::new(tr("The first Illustrator layer goes on layer 1, the second on layer 2, and so on; the rest go on the last layer.")).small().weak());
+            ui.add_space(6.0);
+            ui.horizontal(|ui| {
+                if ui.button(tr("Colour")).clicked() {
+                    pick = Some(false);
+                }
+                if ui.button(tr("Illustrator layers")).clicked() {
+                    pick = Some(true);
+                }
+                if ui.button(tr("Cancel")).clicked() {
+                    cancel = true;
+                }
+            });
+        });
+        match pick {
+            Some(by_layers) => self.place_drawing(&p, outlines, by_layers),
+            None if open && !cancel => self.ed_mut().drawing_choice = Some((p, outlines)),
+            None => {}
+        }
+    }
+
     /// Open the import dialog for a picture that is already decoded.
     fn open_import_dialog_with(&mut self, im: ImageData) {
         self.ed_mut().img_dlg = Some(ImgDlg::new(None, im));
@@ -206,6 +258,7 @@ pub trait EditorImages: EditorHost {
 
     fn image_dialogs(&mut self, ctx: &egui::Context) {
         self.import_dialog(ctx);
+        self.drawing_choice_window(ctx);
         self.trace_dialog(ctx);
         super::EditorShapeOps::shape_op_windows(self, ctx);
         super::EditorDesign::design_windows(self, ctx);

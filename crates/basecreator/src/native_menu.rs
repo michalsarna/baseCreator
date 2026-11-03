@@ -13,7 +13,7 @@ fn is_check(a: Act) -> bool {
 /// Accelerators the system menu owns. Editing shortcuts (copy, paste, delete...) stay with egui so text fields keep
 /// working; the egui shortcut handler skips the ones listed here.
 pub fn owns_shortcut(a: Act) -> bool {
-    matches!(a, Act::New | Act::Open | Act::Save | Act::SaveAs)
+    matches!(a, Act::New | Act::Open | Act::Save | Act::SaveAs | Act::ImportSvg)
 }
 
 fn act_icon(a: Act) -> Option<&'static str> {

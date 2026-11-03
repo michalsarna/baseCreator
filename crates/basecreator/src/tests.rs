@@ -98,15 +98,66 @@ fn an_svg_opens_as_a_drawing_that_asks_for_a_name_and_a_drawing_is_exported_whol
     // One selected: the export of the drawing still has both.
     a.ed.sel = vec![a.scene.shapes[0].id];
     a.layers[0].name = "Lines".into();
-    let svg = a.drawing_text(false);
+    let names = |l: usize| a.layer_title(l);
+    let svg = base_core::export::svg(&a.scene, &[], a.page.w, a.page.h, &names, &|l| base_core::layers::color(l));
     assert_eq!(svg.matches("<path").count(), 2, "{svg}");
     assert!(svg.contains("id=\"Lines\"") && svg.contains(&format!("width=\"{}mm\"", a.page.w)), "{svg}");
     // What was written is read back as the same two outlines.
     assert_eq!(base_core::svg::parse(svg.as_bytes()).unwrap().len(), 2);
-    let dxf = a.drawing_text(true);
+    let dxf = base_core::export::dxf(&a.scene, &[], a.page.h, &names);
     assert!(dxf.contains("ENTITIES") && dxf.contains("Lines"), "{dxf}");
     assert_eq!(base_core::dxf::parse(dxf.as_bytes(), a.page.h).unwrap().outlines.len(), 2);
     let _ = std::fs::remove_dir_all(&dir);
+}
+
+/// *Import SVG…* adds to the drawing that is open, on the layers of the colours, and can be undone; *Open…* would make a new tab.
+#[test]
+fn an_imported_svg_joins_the_drawing_by_colour_and_can_be_undone() {
+    let dir = temp_dir("import-svg");
+    let file = dir.join("in.svg");
+    std::fs::write(&file, SVG).unwrap();
+    let mut a = app();
+    a.scene.add(5, Kind::Rect { w: 5.0, h: 5.0 }, Xf::IDENTITY);
+    let tabs = a.tabs_state.parked.len();
+    a.import_drawing_path(file.clone());
+    assert_eq!(a.scene.shapes.len(), 3, "{}", a.status);
+    assert_eq!(a.tabs_state.parked.len(), tabs, "no new tab");
+    assert_eq!(a.ed.sel.len(), 2, "what came is selected");
+    assert_eq!(a.scene.shapes[1].layer, base_core::layers::nearest([255, 0, 0]));
+    assert_eq!(a.scene.shapes[2].layer, base_core::layers::nearest([0, 0, 0]));
+    a.undo();
+    assert_eq!(a.scene.shapes.len(), 1);
+}
+
+/// A file with Illustrator layers waits for the answer; the answer puts the paths on the layers.
+#[test]
+fn outlines_with_illustrator_layers_go_on_the_layers_of_the_program_when_asked() {
+    let c = base_core::bezier::Contour::rect(10.0, 10.0);
+    let o = |l: &str| base_core::svg::Outline { contours: vec![c.clone()], color: [0, 0, 0], layer: Some(l.to_string()) };
+    let mut a = app();
+    a.place_drawing(std::path::Path::new("x.ai"), vec![o("Cut"), o("Mark")], true);
+    assert_eq!(a.scene.shapes.iter().map(|s| s.layer).collect::<Vec<_>>(), [0, 1]);
+}
+
+/// What the program writes it reads back: SVG, DXF; and UGS designs come in, as in the other programs.
+#[test]
+fn drawings_written_as_dxf_come_back_and_a_ugs_design_is_imported() {
+    let dir = temp_dir("formats");
+    let mut a = app();
+    a.scene.add(0, Kind::Rect { w: 40.0, h: 20.0 }, Xf::translate(10.0, 10.0));
+    let names = |l: usize| format!("L{l}");
+    let dxf_file = dir.join("out.dxf");
+    std::fs::write(&dxf_file, base_core::export::dxf(&a.scene, &[], a.page.h, &names)).unwrap();
+    let plt = base_core::export::hpgl(&a.scene, &[], a.page.h);
+    assert!(plt.contains("SP1;") && plt.contains("PD"), "{plt}");
+    let mut b = app();
+    b.import_file(dxf_file);
+    assert_eq!(b.scene.shapes.len(), 1, "{}", b.status);
+    let ugs = dir.join("in.ugsd");
+    std::fs::write(&ugs, r#"{"version":"1","entities":[{"type":"RECTANGLE","cutType":"ON_PATH","cornerRadius":0,"transform":{"m00":100,"m10":0,"m01":0,"m11":20,"m02":0,"m12":0}}]}"#).unwrap();
+    assert!(is_import(&ugs));
+    b.import_file(ugs);
+    assert_eq!(b.scene.shapes.len(), 2, "{}", b.status);
 }
 
 #[test]

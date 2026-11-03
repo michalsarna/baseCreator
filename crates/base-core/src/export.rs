@@ -112,10 +112,56 @@ pub fn dxf(scene: &Scene, ids: &[u64], area_h: f64, layer_name: &dyn Fn(usize) -
     s
 }
 
+/// How many of the shapes `ids` (all when empty) are pictures: they have no outlines, so no file of outlines holds them.
+pub fn pictures_in(scene: &Scene, ids: &[u64]) -> usize {
+    scene.shapes.iter().filter(|x| x.is_image() && (ids.is_empty() || ids.contains(&x.id))).count()
+}
+
+/// HPGL (`.plt`) of the shapes `ids` (all when empty): 40 plotter units per millimetre, one pen per layer (pen = layer + 1); the curves
+/// are flattened to within 0.01 mm. `area_h` is the height of the work area: the scene counts Y down, HPGL up.
+pub fn hpgl(scene: &Scene, ids: &[u64], area_h: f64) -> String {
+    let unit = |v: f64| (v * 40.0).round() as i64;
+    let mut layers: Vec<usize> = scene.shapes.iter().filter(|x| ids.is_empty() || ids.contains(&x.id)).map(|x| x.layer).collect();
+    layers.sort_unstable();
+    layers.dedup();
+    let mut s = String::from("IN;\n");
+    for l in layers {
+        let _ = writeln!(s, "SP{};", l + 1);
+        for sh in scene.shapes.iter().filter(|x| x.layer == l && (ids.is_empty() || ids.contains(&x.id))) {
+            for c in contours_of(sh) {
+                let p: Polyline = c.flatten(0.01);
+                if p.pts.len() < 2 {
+                    continue;
+                }
+                let at = |q: &Pt| format!("{},{}", unit(q.x), unit(area_h - q.y));
+                let _ = writeln!(s, "PU{};", at(&p.pts[0]));
+                let mut down: Vec<String> = p.pts[1..].iter().map(at).collect();
+                if p.closed {
+                    down.push(at(&p.pts[0]));
+                }
+                let _ = writeln!(s, "PD{};", down.join(","));
+            }
+        }
+    }
+    s.push_str("PU;\nSP0;\n");
+    s
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
     use crate::geom::Xf;
+
+    #[test]
+    fn hpgl_has_one_pen_per_layer_counts_y_up_and_closes_what_is_closed() {
+        let (sc, ids) = scene();
+        let all = hpgl(&sc, &[], 50.0);
+        assert!(all.starts_with("IN;\nSP1;\n") && all.contains("SP2;") && all.ends_with("PU;\nSP0;\n"), "{all}");
+        // The rectangle from (10, 10) to (50, 30) on an area 50 high: it starts at y = 40 mm, 1600 units, and comes back there.
+        assert!(all.contains("PU400,1600;\nPD2000,1600,2000,800,400,800,400,1600;\n"), "{all}");
+        let one = hpgl(&sc, &ids[..1], 50.0);
+        assert!(one.contains("SP1;") && !one.contains("SP2;"), "{one}");
+    }
 
     fn scene() -> (Scene, Vec<u64>) {
         let mut sc = Scene::default();
