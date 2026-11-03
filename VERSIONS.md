@@ -8,7 +8,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 - **F1** opens the quick guide in every program: a function key now works alone in `menu::shortcut_act` (the menu showed F1, but only LightCreator had the key).
 - The texts of the check of the program are in the shared table, so LightCreator shows them translated too.
 - `tool_check::check_windows` presses F1 and Ctrl+P, and `check_guide_paths` takes the language of the guide, so the Polish guides are checked against the Polish menus.
-- A simulator test: a job sent right after the check mode ends is not lost.
+- **Fix:** a job sent right after the check mode ends is no longer lost. Leaving check mode restarts GRBL, and the link now waits for the banner as it does after a stop. With *Check the program before every run* the job could hang at 0 lines. A simulator test covers it; it failed on CI before this fix.
 
 ## v1.65.0
 
