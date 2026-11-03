@@ -351,6 +351,37 @@ mod tests {
         assert!(s.errors().is_empty(), "{:?}", s.errors_described());
     }
 
+    /// What a stop does to the check mode of GRBL: the answer decides what a program has to send after it.
+    #[test]
+    #[ignore = "needs grbl-sim: tools/grbl-sim/build.sh"]
+    fn grbl_sim_a_stop_in_check_mode_leaves_it() {
+        let mut s = Session::connect();
+        s.wait_banner();
+        s.fast_machine(&[]);
+        s.link.send(Cmd::Line("$C".into()));
+        s.wait("check mode", 10.0, |v| v.state == "Check");
+        s.link.send(Cmd::Job(dense_job(400)));
+        s.wait("the job has begun", 20.0, |v| v.progress.0 > 5);
+        s.link.send(Cmd::Abort);
+        s.wait("idle after the stop", 15.0, |v| v.state == "Idle" || v.state.starts_with("Alarm"));
+        assert_eq!(s.seen.state, "Idle", "{}", s.report());
+    }
+
+    #[test]
+    #[ignore = "needs grbl-sim: tools/grbl-sim/build.sh"]
+    fn grbl_sim_check_mode_reports_a_bad_line_and_moves_nothing() {
+        let mut s = Session::connect();
+        s.wait_banner();
+        s.fast_machine(&[]);
+        s.link.send(Cmd::Line("$C".into()));
+        s.wait("check mode", 10.0, |v| v.state == "Check");
+        s.run_job(vec!["G1 X10 F500".into(), "G5 X1".into(), "G1 X20".into()], 20.0);
+        assert_eq!(s.errors().len(), 1, "{:?}", s.errors_described());
+        assert_eq!(s.seen.pos, (0.0, 0.0), "nothing moved");
+        s.link.send(Cmd::Line("$C".into()));
+        s.wait("out of check mode", 10.0, |v| v.state == "Idle");
+    }
+
     #[test]
     #[ignore = "needs grbl-sim: tools/grbl-sim/build.sh"]
     fn grbl_sim_abort_then_new_job_runs() {

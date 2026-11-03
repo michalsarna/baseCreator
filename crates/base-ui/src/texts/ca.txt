@@ -818,7 +818,7 @@
 817|Opacitat
 818|Mou les cantonades
 819|Ajusta a l'àrea de treball
-820|La imatge és sota el dibuix: arrossega'n les cantonades fins a les cantonades del material o de l'àrea de treball. No es desa al projecte.
+820|La imatge és sota el dibuix: arrossega'n les cantonades fins a les cantonades del material o de l'àrea de treball. Es desa al projecte.
 821|S'executen en aquest ordre: {}
 822|Desactiva tots els postprocessadors
 823|Els postprocessadors triats canvien el G-code d'Exporta G-code…; una feina enviada a la màquina no es canvia.
@@ -953,3 +953,81 @@
 952|Nombre de voltes
 953|Polígon
 954|Espiral
+955|Un client nou substitueix el connectat
+956|Velocitat en bauds
+957|A mà: sudo cp <fitxer desat> {} && sudo systemctl restart ser2net
+958|Confirma
+959|Copiat.
+960|No s'ha pogut instal·lar la configuració: {}
+961|No s'ha pogut crear la pàgina: {}
+962|No s'ha pogut obrir el visualitzador: {}
+963|Impressora predeterminada
+964|Fitxer: {}
+965|Marc
+966|Instal·la i reinicia ser2net…
+967|{} instal·lat i ser2net reiniciat.
+968|Escolta només en aquest ordinador (per usar amb un túnel SSH)
+969|Marge
+970|Només objectes de capes visibles
+971|Només els objectes, tan grans com permeti la pàgina
+972|Obre el PDF
+973|S'ha obert al visualitzador de PDF.
+974|Obre la pàgina al visualitzador de PDF, que la pot imprimir amb més opcions
+975|Paper
+976|Port
+977|Imprimeix
+978|Impressora
+979|Imprimeix el disseny en una impressora de paper, per comprovar la col·locació o com a plantilla.
+980|Imprimeix…
+981|Actualitza
+982|Desa com a PDF…
+983|Desa com a…
+984|No s'ha pogut desar: {}
+985|Enviat a la impressora. {}
+986|Comparteix per la xarxa (ser2net)
+987|Comparteix per la xarxa (ser2net)…
+988|Inicia el treball
+989|Canvia de dispositiu…
+990|Port TCP
+991|La impressora no l'ha acceptat: {}
+992|Tota l'àrea de treball, a escala
+993|Després connecteu-vos des de l'altre ordinador a {}:{}
+994|No hi ha res per imprimir.
+995|Aquesta guia està disponible en anglès i en polonès; les altres llengües mostren el text en anglès.
+996|Això substitueix {} (es conserva una còpia) i reinicia ser2net. Es demanen permisos d'administrador.
+997|S'espera l'aprovació de l'administrador…
+998|ser2net trobat: {}
+999|Versió de ser2net
+1000|No s'ha trobat ser2net. Instal·leu-lo primer, per exemple: sudo apt install ser2net
+1001|{} objecte(s) surten de l'àrea de treball; al paper es tallen a la vora.
+1002|{} objecte(s) surten de l'àrea de treball; s'imprimeixen igualment.
+1003|Comparteix a la xarxa el port sèrie de la màquina d'aquest ordinador, perquè el programa d'un altre ordinador s'hi pugui connectar amb el tipus de connexió «Xarxa (TCP)».
+1004|Avís: qualsevol de la xarxa que arribi a aquest port pot controlar la màquina. Feu servir una xarxa de confiança, un tallafoc o l'opció només local amb un túnel SSH.
+1005|Aquest controlador no informa de les seves entrades.
+1006|Afegeix un punt
+1007|Alinea pels punts
+1008|Alineació: arrossegueu les quatre cantonades sobre l'àrea de treball
+1009|Superposició de la càmera
+1010|Elimina aquest punt
+1011|Arrossegueu cada cantonada a la cantonada corresponent del material o de l'àrea de treball; la perspectiva es corregeix.
+1012|Ajusta la imatge als punts (mínims quadrats) i mou els cantons en conseqüència.
+1013|Congela la imatge
+1014|Carrega una imatge…
+1015|No hi ha prou punts, o estan en una recta.
+1016|Superposició des de…
+1017|Superposició: {}
+1018|Parelles d'un punt de la imatge (píxels) i el lloc que té a l'àrea de treball (mm). Almenys 3, es recomanen 4; fixen l'alineació, perspectiva inclosa.
+1019|Punts dels cantons actuals
+1020|Punts de referència
+1021|Substitueix els punts pels quatre cantons de la imatge i el lloc on són ara.
+1022|Restableix a l'àrea de treball
+1023|Gira 90°
+1024|Mostra una foto o la càmera en directe sota el disseny per col·locar la feina sobre el material.
+1025|Mostra la superposició de la càmera
+1026|Mostra la superposició
+1027|Inicia la càmera
+1028|Configuració del dispositiu…
+1029|Comprova el programa
+1030|Diagnòstic i estadístiques…
+1031|Configuració del firmware ($$)…
+1032|Superposició

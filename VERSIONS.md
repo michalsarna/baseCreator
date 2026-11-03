@@ -3,6 +3,16 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.65.0
+
+- Printing is shared: `base_core::print` (the PDF, from shapes and the look of their layers) and `base_ui::print_ui` (the window). BaseCreator has **File → Print…** now.
+- The quick guide in BaseCreator (Help, F1). `tool_check::check_guide_paths`: every `Menu > Entry` a guide names must exist in the menus of the program.
+- `menu::machine_menu`: the same Machine menu, in the same order, in every program with a machine. `ser2net_ui` is shared too.
+- `tools_ui::diagnostics_view` works from plain data, so a program that does not use `Machine` can have the window; `export_diagnostics` can be called on its own.
+- The picture under the drawing is a camera overlay where the program has a camera: the live picture, reference points kept with the device, flip and rotate. It is saved with the project, in the `overlay` section that LightCreator already wrote (`base_core::overlay_data`), so a project brings its picture along to any program.
+- **Fix:** a stop during a check run no longer turns the check mode of GRBL on again. The stop itself ends it (checked in the simulator), and the `$C` sent after it would have kept the next job from moving.
+- `tool_check::check_windows`: the windows a program has of its own, opened through its menus.
+
 ## v1.64.1
 
 - Esc closes the question when a tab is closed and the G-code view again, and cancels picking a place on the work area (it was taken by the keys of the editor in v1.64.0).

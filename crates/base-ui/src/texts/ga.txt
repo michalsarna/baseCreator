@@ -818,7 +818,7 @@
 817|Teimhneacht
 818|Bog na coirnéil
 819|Oiriúnaigh don limistéar oibre
-820|Tá an pictiúr faoin tarraingt: tarraing a choirnéil ar choirnéil an ábhair nó an limistéir oibre. Ní shábháiltear sa tionscadal é.
+820|Tá an pictiúr faoin tarraingt: tarraing a choirnéil ar choirnéil an ábhair nó an limistéir oibre. Sábháiltear sa tionscadal é.
 821|Rithfidh siad san ord seo: {}
 822|Cuir gach iarphróiseálaí as
 823|Athraíonn na hiarphróiseálaithe roghnaithe G-code Easpórtáil G-code…; ní athraítear jab a seoltar chuig an meaisín.
@@ -953,3 +953,81 @@
 952|Líon na gcas
 953|Polagán
 954|Bís
+955|Cuireann cliant nua in ionad an chliaint atá ceangailte
+956|Ráta baud
+957|De láimh: sudo cp <comhad sábháilte> {} && sudo systemctl restart ser2net
+958|Deimhnigh
+959|Cóipeáilte.
+960|Níorbh fhéidir an chumraíocht a shuiteáil: {}
+961|Níorbh fhéidir an leathanach a dhéanamh: {}
+962|Níorbh fhéidir an breathnóir a oscailt: {}
+963|Priontáil réamhshocraithe
+964|Comhad: {}
+965|Fráma
+966|Suiteáil agus atosaigh ser2net…
+967|Suiteáladh {} agus atosaíodh ser2net.
+968|Éist ar an ríomhaire seo amháin (le húsáid le tollán SSH)
+969|Imeall
+970|Réada ar chiseal infheicthe amháin
+971|Na réada amháin, chomh mór agus a cheadaíonn an leathanach
+972|Oscail an PDF
+973|Oscailte sa bhreathnóir PDF.
+974|Osclaíonn sé an leathanach sa bhreathnóir PDF, ar féidir leis é a phriontáil le tuilleadh roghanna
+975|Páipéar
+976|Port
+977|Priontáil
+978|Priontáil
+979|Priontálann sé an dearadh ar phriontáil pháipéir, chun an láithriú a sheiceáil nó mar theimpléad.
+980|Priontáil…
+981|Athnuaigh
+982|Sábháil mar PDF…
+983|Sábháil mar…
+984|Theip ar an sábháil: {}
+985|Seolta chuig an bpriontáil. {}
+986|Roinn ar an líonra (ser2net)
+987|Roinn ar an líonra (ser2net)…
+988|Tosaigh an obair
+989|Athraigh an gléas…
+990|Port TCP
+991|Níor ghlac an phriontáil leis: {}
+992|An limistéar oibre ar fad, de réir scála
+993|Ansin ceangail ón ríomhaire eile le {}:{}
+994|Níl aon rud le priontáil.
+995|Tá an treoir seo ar fáil i mBéarla agus i bPolainnis; taispeánann teangacha eile an téacs Béarla.
+996|Cuireann sé seo {} in ionad (coinnítear cúltaca) agus atosaíonn sé ser2net. Iarrtar cearta riarthóra.
+997|Ag fanacht le ceadú an riarthóra…
+998|ser2net aimsithe: {}
+999|Leagan ser2net
+1000|Níor aimsíodh ser2net. Suiteáil ar dtús é, mar shampla: sudo apt install ser2net
+1001|Sroicheann {} réad lasmuigh den limistéar oibre; ar an bpáipéar gearrtar iad ag a imeall.
+1002|Sroicheann {} réad lasmuigh den limistéar oibre; priontáiltear iad ar aon nós.
+1003|Roinneann sé port sraitheach an mheaisín ar an ríomhaire seo thar an líonra, ionas gur féidir leis an gclár ar ríomhaire eile ceangal leis an gcineál ceangail "Líonra (TCP)".
+1004|Rabhadh: is féidir le duine ar bith ar an líonra a shroicheann an port seo an meaisín a stiúradh. Úsáid líonra iontaofa, balla dóiteáin, nó an rogha áitiúil amháin le tollán SSH.
+1005|Ní thuairiscíonn an rialaitheoir seo a ionchuir.
+1006|Cuir pointe leis
+1007|Ailínigh de réir na bpointí
+1008|Ailíniú: tarraing na ceithre chúinne ar an limistéar oibre
+1009|Forleagan ceamara
+1010|Scrios an pointe seo
+1011|Tarraing gach cúinne chuig cúinne comhfhreagrach an ábhair nó an limistéir oibre; ceartaítear an peirspictíocht.
+1012|Oiriúnaíonn sé an pictiúr do na pointí (uasmhéid chearnóg is lú) agus bogann sé na coirnéil dá réir.
+1013|Reoigh an fráma
+1014|Luchtaigh íomhá…
+1015|Pointí easnamhacha, nó tá siad ar líne amháin.
+1016|Forleagan ó…
+1017|Forleagan: {}
+1018|Péirí de phointe sa phictiúr (picteilíní) agus a áit sa limistéar oibre (mm). 3 ar a laghad, moltar 4; socraíonn siad an t-ailíniú, peirspictíocht san áireamh.
+1019|Pointí ó na coirnéil reatha
+1020|Pointí tagartha
+1021|Cuireann sé ceithre choirnéal an phictiúir agus a n-áit anois in ionad na bpointí.
+1022|Athshocraigh go dtí an limistéar oibre
+1023|Rothlaigh 90°
+1024|Taispeánann grianghraf nó an ceamara beo faoin dearadh chun an obair a shuíomh ar an ábhar.
+1025|Taispeáin forleagan an cheamara
+1026|Taispeáin an forleagan
+1027|Tosaigh an ceamara
+1028|Socruithe an ghléis…
+1029|Seiceáil an clár
+1030|Diagnóisic agus staitisticí…
+1031|Socruithe an dochtearraí ($$)…
+1032|Forleagan

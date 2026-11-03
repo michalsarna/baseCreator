@@ -818,7 +818,7 @@
 817|Opacité
 818|Déplacer les coins
 819|Ajuster à la zone de travail
-820|L'image est sous le dessin : faites glisser ses coins sur les coins du matériau ou de la zone de travail. Elle n'est pas enregistrée dans le projet.
+820|L'image est sous le dessin : faites glisser ses coins sur les coins du matériau ou de la zone de travail. Elle est enregistrée dans le projet.
 821|Ils s'exécutent dans cet ordre : {}
 822|Désactiver tous les postprocesseurs
 823|Les postprocesseurs choisis modifient le G-code de Exporter le G-code… ; un travail envoyé à la machine n'est pas modifié.
@@ -953,3 +953,81 @@
 952|Nombre de tours
 953|Polygone
 954|Spirale
+955|Un nouveau client remplace celui qui est connecté
+956|Débit en bauds
+957|À la main : sudo cp <fichier enregistré> {} && sudo systemctl restart ser2net
+958|Confirmer
+959|Copié.
+960|Impossible d'installer la configuration : {}
+961|Impossible de créer la page : {}
+962|Impossible d'ouvrir la visionneuse : {}
+963|Imprimante par défaut
+964|Fichier : {}
+965|Cadre
+966|Installer et redémarrer ser2net…
+967|{} installé et ser2net redémarré.
+968|Écouter uniquement sur cet ordinateur (à utiliser avec un tunnel SSH)
+969|Marge
+970|Seulement les objets des calques visibles
+971|Seulement les objets, aussi grands que la page le permet
+972|Ouvrir le PDF
+973|Ouvert dans la visionneuse PDF.
+974|Ouvre la page dans la visionneuse PDF, qui peut l'imprimer avec plus d'options
+975|Papier
+976|Port
+977|Imprimer
+978|Imprimante
+979|Imprime le dessin sur une imprimante papier, pour vérifier la disposition ou comme gabarit.
+980|Imprimer…
+981|Actualiser
+982|Enregistrer en PDF…
+983|Enregistrer sous…
+984|Échec de l'enregistrement : {}
+985|Envoyé à l'imprimante. {}
+986|Partager sur le réseau (ser2net)
+987|Partager sur le réseau (ser2net)…
+988|Lancer le travail
+989|Changer d'appareil…
+990|Port TCP
+991|L'imprimante ne l'a pas pris : {}
+992|Toute la zone de travail, à l'échelle
+993|Connectez-vous ensuite depuis l'autre ordinateur à {}:{}
+994|Il n'y a rien à imprimer.
+995|Ce guide est disponible en anglais et en polonais ; les autres langues affichent le texte anglais.
+996|Ceci remplace {} (une sauvegarde est conservée) et redémarre ser2net. Les droits d'administrateur sont demandés.
+997|En attente de l'approbation de l'administrateur…
+998|ser2net trouvé : {}
+999|Version de ser2net
+1000|ser2net est introuvable. Installez-le d'abord, par exemple : sudo apt install ser2net
+1001|{} objet(s) dépassent de la zone de travail ; sur le papier ils sont coupés au bord.
+1002|{} objet(s) dépassent de la zone de travail ; ils sont imprimés quand même.
+1003|Partage sur le réseau le port série de la machine reliée à cet ordinateur, pour que le programme sur un autre ordinateur puisse s'y connecter avec le type de connexion « Réseau (TCP) ».
+1004|Attention : toute personne du réseau qui atteint ce port peut piloter la machine. Utilisez un réseau de confiance, un pare-feu ou l'option locale uniquement avec un tunnel SSH.
+1005|Ce contrôleur ne signale pas ses entrées.
+1006|Ajouter un point
+1007|Aligner d'après les points
+1008|Alignement : faites glisser les quatre coins sur la zone de travail
+1009|Superposition caméra
+1010|Supprimer ce point
+1011|Faites glisser chaque coin vers le coin correspondant du matériau ou de la zone de travail ; la perspective est corrigée.
+1012|Ajuste l'image aux points (moindres carrés) et déplace les coins en conséquence.
+1013|Figer l'image
+1014|Charger une image…
+1015|Pas assez de points, ou ils sont alignés.
+1016|Superposition depuis…
+1017|Superposition : {}
+1018|Paires d'un point de l'image (pixels) et de sa place dans la zone de travail (mm). Au moins 3, 4 recommandés ; ils fixent l'alignement, perspective comprise.
+1019|Points depuis les coins actuels
+1020|Points de référence
+1021|Remplace les points par les quatre coins de l'image et l'endroit où ils sont maintenant.
+1022|Revenir à la zone de travail
+1023|Pivoter de 90°
+1024|Affiche une photo ou la caméra en direct sous le dessin pour positionner le travail sur le matériau.
+1025|Afficher la superposition caméra
+1026|Afficher la superposition
+1027|Démarrer la caméra
+1028|Paramètres de l'appareil…
+1029|Vérifier le programme
+1030|Diagnostic et statistiques…
+1031|Réglages du firmware ($$)…
+1032|Superposition

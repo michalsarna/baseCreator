@@ -22,6 +22,8 @@ Pasek menu ma siedem menu: **Plik · Edycja · Wstawianie · Rozmieść · Widok
 | **Eksport → …** | | Zobacz [Import i eksport](Import-i-eksport). |
 | **Zakończ** | Ctrl+Q | Zamyka program; najpierw pyta o każdy rysunek z niezapisaną pracą. |
 
+**Drukuj…** (Ctrl+P) drukuje projekt na drukarce papierowej albo zapisuje go jako PDF.
+
 ## Edycja
 
 **Cofnij** (Ctrl+Z), **Ponów** (Ctrl+Y), **Kopiuj** (Ctrl+C), **Wklej** (Ctrl+V), **Powiel** (Ctrl+D), **Usuń** (Del), **Zaznacz wszystko** (Ctrl+A).
@@ -61,4 +63,4 @@ Te same polecenia są w menu kształtu pod prawym przyciskiem; opisuje je strona
 
 ## Pomoc
 
-**Strona projektu na GitHubie**, **Pobierz kopię zapasową…** i **Przywróć z kopii zapasowej…** (zobacz [Ustawienia i pliki](Ustawienia-i-pliki)), **Sprawdź aktualizacje…**, **O programie**.
+**Krótki przewodnik** (F1), przewodnik w programie. **Strona projektu na GitHubie**, **Pobierz kopię zapasową…** i **Przywróć z kopii zapasowej…** (zobacz [Ustawienia i pliki](Ustawienia-i-pliki)), **Sprawdź aktualizacje…**, **O programie**.

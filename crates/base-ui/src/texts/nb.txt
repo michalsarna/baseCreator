@@ -818,7 +818,7 @@
 817|Dekkevne
 818|Flytt hjørnene
 819|Tilpass arbeidsområdet
-820|Bildet ligger under tegningen: dra hjørnene til hjørnene på materialet eller arbeidsområdet. Det lagres ikke i prosjektet.
+820|Bildet ligger under tegningen: dra hjørnene til hjørnene på materialet eller arbeidsområdet. Det lagres i prosjektet.
 821|De kjører i denne rekkefølgen: {}
 822|Slå av alle postprosessorer
 823|De valgte postprosessorene endrer G-koden fra Eksporter G-kode…; en jobb sendt til maskinen endres ikke.
@@ -953,3 +953,81 @@
 952|Antall omganger
 953|Mangekant
 954|Spiral
+955|En ny klient erstatter den tilkoblede
+956|Baudrate
+957|For hånd: sudo cp <lagret fil> {} && sudo systemctl restart ser2net
+958|Bekreft
+959|Kopiert.
+960|Kunne ikke installere konfigurasjonen: {}
+961|Siden kunne ikke lages: {}
+962|Visningsprogrammet kunne ikke åpnes: {}
+963|Standardskriver
+964|Fil: {}
+965|Ramme
+966|Installer og start ser2net på nytt…
+967|{} installert og ser2net startet på nytt.
+968|Lytt bare på denne datamaskinen (brukes med en SSH-tunnel)
+969|Marg
+970|Bare objekter på synlige lag
+971|Bare objektene, så store som siden tillater
+972|Åpne PDF
+973|Åpnet i PDF-visningen.
+974|Åpner siden i PDF-visningen, som kan skrive den ut med flere valg
+975|Papir
+976|Port
+977|Skriv ut
+978|Skriver
+979|Skriver ut designet på en papirskriver, for å sjekke plasseringen eller som mal.
+980|Skriv ut…
+981|Oppdater
+982|Lagre som PDF…
+983|Lagre som…
+984|Kunne ikke lagre: {}
+985|Sendt til skriveren. {}
+986|Del over nettverket (ser2net)
+987|Del over nettverket (ser2net)…
+988|Start jobb
+989|Bytt enhet…
+990|TCP-port
+991|Skriveren tok ikke imot den: {}
+992|Hele arbeidsområdet i målestokk
+993|Koble deretter fra den andre datamaskinen til {}:{}
+994|Det er ingenting å skrive ut.
+995|Denne guiden finnes på engelsk og polsk; andre språk viser den engelske teksten.
+996|Dette erstatter {} (en sikkerhetskopi beholdes) og starter ser2net på nytt. Administratorrettigheter etterspørres.
+997|Venter på administratorens godkjenning…
+998|ser2net funnet: {}
+999|ser2net-versjon
+1000|ser2net ble ikke funnet. Installer det først, for eksempel: sudo apt install ser2net
+1001|{} objekt(er) rager utenfor arbeidsområdet; på papiret kuttes de ved kanten.
+1002|{} objekt(er) rager utenfor arbeidsområdet; de skrives ut likevel.
+1003|Deler maskinens serieport på denne datamaskinen over nettverket, slik at programmet på en annen datamaskin kan koble til med tilkoblingstypen «Nettverk (TCP)».
+1004|Advarsel: Alle på nettverket som når denne porten, kan styre maskinen. Bruk et klarert nettverk, en brannmur eller kun lokalt-valget med en SSH-tunnel.
+1005|Denne kontrolleren rapporterer ikke inngangene sine.
+1006|Legg til et punkt
+1007|Juster etter punktene
+1008|Juster: dra de fire hjørnene på arbeidsområdet
+1009|Kameraoverlegg
+1010|Slett dette punktet
+1011|Dra hvert hjørne til det tilsvarende hjørnet på materialet eller arbeidsområdet; perspektivet korrigeres.
+1012|Tilpasser bildet til punktene (minste kvadraters metode) og flytter hjørnene tilsvarende.
+1013|Frys bildet
+1014|Last inn bilde…
+1015|For få punkter, eller de ligger på en linje.
+1016|Overlegg fra…
+1017|Overlegg: {}
+1018|Par av et punkt i bildet (piksler) og stedet det har i arbeidsområdet (mm). Minst 3, 4 anbefales; de fastlegger justeringen inkludert perspektiv.
+1019|Punkter fra de nåværende hjørnene
+1020|Referansepunkter
+1021|Erstatter punktene med bildets fire hjørner og hvor de ligger nå.
+1022|Tilbakestill til arbeidsområdet
+1023|Roter 90°
+1024|Vis et bilde eller direktebildet fra kameraet under designet for å plassere arbeidet på materialet.
+1025|Vis kameraoverlegg
+1026|Vis overlegg
+1027|Start kamera
+1028|Enhetsinnstillinger…
+1029|Sjekk programmet
+1030|Diagnostikk og statistikk…
+1031|Fastvareinnstillinger ($$)…
+1032|Overlegg

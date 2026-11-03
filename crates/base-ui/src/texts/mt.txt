@@ -818,7 +818,7 @@
 817|Opaċità
 818|Mexxi l-kantunieri
 819|Adatta għaż-żona tax-xogħol
-820|L-istampa tinsab taħt id-disinn: ġorr il-kantunieri tagħha fuq il-kantunieri tal-materjal jew taż-żona tax-xogħol. Ma tinħażinx fil-proġett.
+820|L-istampa tinsab taħt id-disinn: ġorr il-kantunieri tagħha fuq il-kantunieri tal-materjal jew taż-żona tax-xogħol. Tinħażen fil-proġett.
 821|Jaħdmu f'dan l-ordni: {}
 822|Itfi l-postprocessors kollha
 823|Il-postprocessors magħżula jibdlu l-G-code ta' Esporta G-code…; xogħol mibgħut lill-magna ma jinbidilx.
@@ -953,3 +953,81 @@
 952|Għadd ta' dawriet
 953|Poligonu
 954|Spiral
+955|Klijent ġdid jissostitwixxi dak imqabbad
+956|Veloċità baud
+957|Bl-idejn: sudo cp <fajl salvat> {} && sudo systemctl restart ser2net
+958|Ikkonferma
+959|Ikkupjat.
+960|Ma setgħetx tiġi installata l-konfigurazzjoni: {}
+961|Ma setgħetx issir il-paġna: {}
+962|Ma setax jinfetaħ il-vewer: {}
+963|Stampatur default
+964|Fajl: {}
+965|Qafas
+966|Installa u erġa' ibda ser2net…
+967|{} installat u ser2net reġa' beda.
+968|Isma' biss fuq dan il-kompjuter (użah ma' mina SSH)
+969|Marġni
+970|Oġġetti biss fuq saffi viżibbli
+971|L-oġġetti biss, kemm jippermetti l-paġna
+972|Iftaħ il-PDF
+973|Miftuħ fil-vewer tal-PDF.
+974|Jiftaħ il-paġna fil-vewer tal-PDF, li jista' jistampaha b'aktar għażliet
+975|Karta
+976|Port
+977|Stampa
+978|Stampatur
+979|Jistampa d-disinn fuq stampatur tal-karta, biex tiċċekkja l-pożizzjoni jew bħala mudell.
+980|Stampa…
+981|Aġġorna
+982|Ħlief bħala PDF…
+983|Salva bħala…
+984|Il-ħażna fallet: {}
+985|Mibgħut lill-istampatur. {}
+986|Aqsam fin-netwerk (ser2net)
+987|Aqsam fin-netwerk (ser2net)…
+988|Ibda x-xogħol
+989|Biddel it-tagħmir…
+990|Port TCP
+991|L-istampatur ma aċċettahx: {}
+992|L-erja tax-xogħol kollha, bi skala
+993|Imbagħad qabbad mill-kompjuter l-ieħor ma' {}:{}
+994|M'hemm xejn x'tistampa.
+995|Din il-gwida hija disponibbli bl-Ingliż u bil-Polonż; lingwi oħra juru t-test bl-Ingliż.
+996|Dan jissostitwixxi {} (jinżamm backup) u jerġa' jibda ser2net. Jintalbu d-drittijiet tal-amministratur.
+997|Qed tistenna l-approvazzjoni tal-amministratur…
+998|ser2net instab: {}
+999|Verżjoni ta' ser2net
+1000|ser2net ma nstabx. Installah l-ewwel, pereżempju: sudo apt install ser2net
+1001|{} oġġett(i) joħorġu barra mill-erja tax-xogħol; fuq il-karta jinqatgħu fit-tarf tagħha.
+1002|{} oġġett(i) joħorġu barra mill-erja tax-xogħol; jiġu stampati xorta.
+1003|Dan jaqsam il-port serjali tal-magna fuq dan il-kompjuter min-netwerk, biex il-programm fuq kompjuter ieħor ikun jista' jgħaqqad bit-tip ta' konnessjoni "Netwerk (TCP)".
+1004|Twissija: kull min fuq in-netwerk jilħaq dan il-port jista' jmexxi l-magna. Uża netwerk fdat, firewall, jew l-għażla lokali biss b'mina SSH.
+1005|Dan il-kontrollur ma jirrappurtax l-inputs tiegħu.
+1006|Żid punt
+1007|Allinja skont il-punti
+1008|Allinjament: kaxkar l-erba' kantunieri fiż-żona tax-xogħol
+1009|Overlay tal-kamera
+1010|Neħħi dan il-punt
+1011|Kaxkar kull kantuniera għall-kantuniera korrispondenti tal-materjal jew taż-żona tax-xogħol; il-perspettiva tiġi kkorreġuta.
+1012|Jadatta x-xbieha mal-punti (l-inqas kwadri) u jċaqlaq il-kantunieri skont dan.
+1013|Iffriża l-frejm
+1014|Illoddja stampa…
+1015|Punti mhux biżżejjed, jew jinsabu fuq linja waħda.
+1016|Overlay minn…
+1017|Overlay: {}
+1018|Pari ta' punt fix-xbieha (pikseli) u l-post tiegħu fl-erja tax-xogħol (mm). Mill-inqas 3, 4 rakkomandati; jiffissaw l-allinjament, il-prospettiva inkluża.
+1019|Punti mill-kantunieri attwali
+1020|Punti ta' referenza
+1021|Jissostitwixxi l-punti bl-erba' kantunieri tax-xbieha u fejn jinsabu issa.
+1022|Irrisettja għaż-żona tax-xogħol
+1023|Dawwar 90°
+1024|Juri ritratt jew il-kamera ħajja taħt id-disinn biex tpoġġi x-xogħol fuq il-materjal.
+1025|Uri l-overlay tal-kamera
+1026|Uri l-overlay
+1027|Ibda l-kamera
+1028|Issettjar tat-tagħmir…
+1029|Iċċekkja l-programm
+1030|Dijanjostika u statistika…
+1031|Settings tal-firmware ($$)…
+1032|Overlay

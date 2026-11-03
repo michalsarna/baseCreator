@@ -818,7 +818,7 @@
 817|Átlátszatlanság
 818|Sarkok mozgatása
 819|Illesztés a munkaterülethez
-820|A kép a rajz alatt van: húzza a sarkait az anyag vagy a munkaterület sarkaira. Nem kerül a projektbe mentésre.
+820|A kép a rajz alatt van: húzza a sarkait az anyag vagy a munkaterület sarkaira. A projektbe mentésre kerül.
 821|Ebben a sorrendben futnak: {}
 822|Minden utófeldolgozó kikapcsolása
 823|A kiválasztott utófeldolgozók a G-kód exportálása… G-kódját módosítják; a gépnek küldött munka nem változik.
@@ -953,3 +953,81 @@
 952|Fordulatok száma
 953|Sokszög
 954|Spirál
+955|Az új kliens felváltja a csatlakoztatottat
+956|Baudráta
+957|Kézzel: sudo cp <mentett fájl> {} && sudo systemctl restart ser2net
+958|Megerősítés
+959|Másolva.
+960|A konfigurációt nem sikerült telepíteni: {}
+961|Az oldalt nem sikerült elkészíteni: {}
+962|A megjelenítőt nem sikerült megnyitni: {}
+963|Alapértelmezett nyomtató
+964|Fájl: {}
+965|Keret
+966|A ser2net telepítése és újraindítása…
+967|{} telepítve, a ser2net újraindítva.
+968|Csak ezen a számítógépen figyeljen (SSH-alagúttal használja)
+969|Margó
+970|Csak a látható rétegek objektumai
+971|Csak az objektumok, amilyen nagyra az oldal engedi
+972|PDF megnyitása
+973|Megnyitva a PDF-megjelenítőben.
+974|Megnyitja az oldalt a PDF-megjelenítőben, amely több beállítással tudja kinyomtatni
+975|Papír
+976|Port
+977|Nyomtatás
+978|Nyomtató
+979|Papírnyomtatón kinyomtatja a tervet az elrendezés ellenőrzéséhez vagy sablonként.
+980|Nyomtatás…
+981|Frissítés
+982|Mentés PDF-ként…
+983|Mentés másként…
+984|A mentés nem sikerült: {}
+985|Elküldve a nyomtatónak. {}
+986|Megosztás a hálózaton (ser2net)
+987|Megosztás a hálózaton (ser2net)…
+988|Munka indítása
+989|Eszköz váltása…
+990|TCP-port
+991|A nyomtató nem fogadta el: {}
+992|A teljes munkaterület, méretarányosan
+993|Ezután csatlakozzon a másik számítógépről ide: {}:{}
+994|Nincs mit nyomtatni.
+995|Ez az útmutató angolul és lengyelül érhető el; a többi nyelv az angol szöveget mutatja.
+996|Ez felváltja ezt: {} (egy másolat megmarad), és újraindítja a ser2netet. Rendszergazdai jogosultságot kér.
+997|Várakozás a rendszergazda jóváhagyására…
+998|ser2net megtalálva: {}
+999|ser2net verziója
+1000|A ser2net nem található. Először telepítse, például: sudo apt install ser2net
+1001|{} objektum túlnyúlik a munkaterületen; a papíron a szélénél levágódik.
+1002|{} objektum túlnyúlik a munkaterületen; ettől még kinyomtatódik.
+1003|Megosztja a hálózaton a géphez tartozó soros portot ezen a számítógépen, így egy másik számítógépen futó program a „Hálózat (TCP)” kapcsolattípussal csatlakozhat.
+1004|Figyelem: a hálózaton bárki, aki eléri ezt a portot, vezérelheti a gépet. Használjon megbízható hálózatot, tűzfalat vagy a csak helyi beállítást SSH-alagúttal.
+1005|Ez a vezérlő nem jelenti a bemeneteit.
+1006|Pont hozzáadása
+1007|Igazítás a pontok szerint
+1008|Igazítás: húzza a négy sarkot a munkaterületen
+1009|Kamera-átfedés
+1010|Pont törlése
+1011|Húzza az egyes sarkokat az anyag vagy a munkaterület megfelelő sarkához; a perspektíva korrigálódik.
+1012|A képet a pontokhoz illeszti (legkisebb négyzetek), és ennek megfelelően mozgatja a sarkokat.
+1013|Kép befagyasztása
+1014|Kép betöltése…
+1015|Kevés pont, vagy egy egyenesen vannak.
+1016|Fedőkép innen…
+1017|Átfedés: {}
+1018|Párok: egy pont a képen (pixel) és helye a munkaterületen (mm). Legalább 3, 4 ajánlott; ezek határozzák meg az igazítást a perspektívával együtt.
+1019|Pontok a jelenlegi sarkokból
+1020|Referenciapontok
+1021|A pontokat a kép négy sarkával és jelenlegi helyükkel váltja fel.
+1022|Visszaállítás a munkaterületre
+1023|Forgatás 90°-kal
+1024|Fénykép vagy élő kameraképet jelenít meg a terv alatt, hogy a munkát az anyagon pozícionálhassa.
+1025|Kamera-átfedés megjelenítése
+1026|Átfedés megjelenítése
+1027|Kamera indítása
+1028|Eszközbeállítások…
+1029|Program ellenőrzése
+1030|Diagnosztika és statisztika…
+1031|Firmware-beállítások ($$)…
+1032|Átfedés

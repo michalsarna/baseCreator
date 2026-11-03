@@ -818,7 +818,7 @@
 817|Ógegnsæi
 818|Færa hornin
 819|Laga að vinnusvæðinu
-820|Myndin er undir teikningunni: dragðu horn hennar á horn efnisins eða vinnusvæðisins. Hún er ekki vistuð í verkefninu.
+820|Myndin er undir teikningunni: dragðu horn hennar á horn efnisins eða vinnusvæðisins. Hún er vistuð í verkefninu.
 821|Þeir keyra í þessari röð: {}
 822|Slökkva á öllum eftirvinnslum
 823|Valdar eftirvinnslur breyta G-kóðanum í Flytja út G-kóða…; verk sem er sent til vélarinnar breytist ekki.
@@ -953,3 +953,81 @@
 952|Fjöldi hringja
 953|Marghyrningur
 954|Spírall
+955|Nýr biðlari kemur í stað þess tengda
+956|Baud-hraði
+957|Í höndunum: sudo cp <vistuð skrá> {} && sudo systemctl restart ser2net
+958|Staðfesta
+959|Afritað.
+960|Ekki tókst að setja upp stillinguna: {}
+961|Ekki tókst að búa til síðuna: {}
+962|Ekki tókst að opna skoðarann: {}
+963|Sjálfgefinn prentari
+964|Skrá: {}
+965|Rammi
+966|Setja upp og endurræsa ser2net…
+967|{} sett upp og ser2net endurræst.
+968|Hlusta aðeins á þessari tölvu (nota með SSH-göngum)
+969|Spássía
+970|Aðeins hlutir á sýnilegum lögum
+971|Aðeins hlutirnir, eins stórir og síðan leyfir
+972|Opna PDF
+973|Opnað í PDF-skoðaranum.
+974|Opnar síðuna í PDF-skoðara, sem getur prentað hana með fleiri valkostum
+975|Pappír
+976|Tengi
+977|Prenta
+978|Prentari
+979|Prentar hönnunina á pappírsprentara, til að athuga staðsetningu eða sem sniðmát.
+980|Prenta…
+981|Endurnýja
+982|Vista sem PDF…
+983|Vista sem…
+984|Ekki tókst að vista: {}
+985|Sent á prentarann. {}
+986|Deila á netinu (ser2net)
+987|Deila á netinu (ser2net)…
+988|Hefja verk
+989|Skipta um tæki…
+990|TCP-tengi
+991|Prentarinn tók ekki við því: {}
+992|Allt vinnusvæðið, í réttum kvarða
+993|Tengstu síðan frá hinni tölvunni við {}:{}
+994|Ekkert er til að prenta.
+995|Þessar leiðbeiningar eru til á ensku og pólsku; önnur tungumál sýna enska textann.
+996|Þetta kemur í stað {} (afrit er geymt) og endurræsir ser2net. Beðið er um stjórnandaréttindi.
+997|Bíð eftir samþykki stjórnanda…
+998|ser2net fannst: {}
+999|Útgáfa ser2net
+1000|ser2net fannst ekki. Settu það fyrst upp, t.d.: sudo apt install ser2net
+1001|{} hlutur(ir) ná út fyrir vinnusvæðið; á pappírnum eru þeir skornir af við jaðarinn.
+1002|{} hlutur(ir) ná út fyrir vinnusvæðið; þeir eru samt prentaðir.
+1003|Deilir raðtengi vélarinnar á þessari tölvu um netið, svo forritið á annarri tölvu geti tengst með tengigerðinni „Net (TCP)“.
+1004|Viðvörun: hver sem er á netinu sem nær í þetta tengi getur stýrt vélinni. Notaðu traust net, eldvegg eða aðeins-staðbundna valkostinn með SSH-göngum.
+1005|Þessi stýring tilkynnir ekki inntök sín.
+1006|Bæta við punkti
+1007|Stilla eftir punktunum
+1008|Jöfnun: dragðu hornin fjögur á vinnusvæðinu
+1009|Myndavélaryfirlag
+1010|Eyða þessum punkti
+1011|Dragðu hvert horn á samsvarandi horn efnisins eða vinnusvæðisins; sjónarhorn er leiðrétt.
+1012|Aðlagar myndina að punktunum (minnstu ferningar) og færir hornin til samræmis.
+1013|Frysta mynd
+1014|Hlaða mynd…
+1015|Of fáir punktar, eða þeir liggja á einni línu.
+1016|Yfirlag frá…
+1017|Yfirlag: {}
+1018|Pör af punkti á myndinni (dílar) og stað hans á vinnusvæðinu (mm). Að minnsta kosti 3, 4 mælt með; þeir ákvarða stillinguna ásamt fjarvídd.
+1019|Punktar úr núverandi hornum
+1020|Viðmiðunarpunktar
+1021|Skiptir punktunum út fyrir fjögur horn myndarinnar og stöðu þeirra núna.
+1022|Endurstilla á vinnusvæði
+1023|Snúa 90°
+1024|Sýnir ljósmynd eða beina mynd úr myndavél undir hönnuninni til að staðsetja verkið á efninu.
+1025|Sýna myndavélaryfirlag
+1026|Sýna yfirlag
+1027|Ræsa myndavél
+1028|Stillingar tækis…
+1029|Athuga forritið
+1030|Greining og tölfræði…
+1031|Fastbúnaðarstillingar ($$)…
+1032|Yfirlag

@@ -818,7 +818,7 @@
 817	Opacity
 818	Move the corners
 819	Fit to the work area
-820	The picture lies under the drawing: drag its corners onto the corners of the material or of the work area. It is not saved with the project.
+820	The picture lies under the drawing: drag its corners onto the corners of the material or of the work area. It is saved with the project.
 821	They run in this order: {}
 822	Switch all postprocessors off
 823	The chosen postprocessors change the G-code of Export G-code…; a job sent to the machine is not changed.
@@ -953,3 +953,81 @@
 952	Number of turns
 953	Polygon
 954	Spiral
+955	A new client replaces the connected one
+956	Baud rate
+957	By hand: sudo cp <saved file> {} && sudo systemctl restart ser2net
+958	Confirm
+959	Copied.
+960	Could not install the configuration: {}
+961	Could not make the page: {}
+962	Could not open the viewer: {}
+963	Default printer
+964	File: {}
+965	Frame
+966	Install and restart ser2net…
+967	Installed {} and restarted ser2net.
+968	Listen only on this computer (use with an SSH tunnel)
+969	Margin
+970	Only objects on visible layers
+971	Only the objects, as large as the page allows
+972	Open the PDF
+973	Opened in the PDF viewer.
+974	Opens the page in the PDF viewer, which can print it with more options
+975	Paper
+976	Port
+977	Print
+978	Printer
+979	Prints the design on a paper printer, for checking placement or as a template.
+980	Print…
+981	Refresh
+982	Save as PDF…
+983	Save as…
+984	Save failed: {}
+985	Sent to the printer. {}
+986	Share over network (ser2net)
+987	Share over network (ser2net)…
+988	Start job
+989	Switch device…
+990	TCP port
+991	The printer did not take it: {}
+992	The whole work area, to scale
+993	Then connect from the other computer to {}:{}
+994	There is nothing to print.
+995	This guide is available in English and Polish; other languages show the English text.
+996	This replaces {} (a backup is kept) and restarts ser2net. Administrator rights are requested.
+997	Waiting for administrator approval…
+998	ser2net found: {}
+999	ser2net version
+1000	ser2net was not found. Install it first, for example: sudo apt install ser2net
+1001	{} object(s) reach outside the work area; on the paper they are cut off at its edge.
+1002	{} object(s) reach outside the work area; they are printed anyway.
+1003	This shares the serial port of the machine on this computer over the network, so the program on another computer can connect with the connection type Network (TCP).
+1004	Warning: anyone on the network who reaches this port can drive the machine. Use a trusted network, a firewall, or the local-only option with an SSH tunnel.
+1005	This controller does not report its inputs.
+1006	Add a point
+1007	Align by the points
+1008	Align: drag the four corners on the work area
+1009	Camera overlay
+1010	Delete this point
+1011	Drag each corner to the matching corner of the material or work area; perspective is corrected.
+1012	Fits the picture to the points (least squares) and moves the corners accordingly.
+1013	Freeze frame
+1014	Load picture…
+1015	Not enough points, or they lie on one line.
+1016	Overlay from…
+1017	Overlay: {}
+1018	Pairs of a point in the picture (pixels) and the place it has in the work area (mm). At least 3, 4 recommended; they fix the alignment, perspective included.
+1019	Points from the current corners
+1020	Reference points
+1021	Replaces the points with the four corners of the picture and where they lie now.
+1022	Reset to work area
+1023	Rotate 90°
+1024	Show a photo or the live camera under the design to position work on the material.
+1025	Show camera overlay
+1026	Show overlay
+1027	Start camera
+1028	Device settings…
+1029	Check the program
+1030	Diagnostics and statistics…
+1031	Firmware settings ($$)…
+1032	Overlay

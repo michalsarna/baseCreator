@@ -22,7 +22,7 @@ pub use context_menu::context_menu;
 pub use host::EditorHost;
 pub use keys::{hold_space, plain_keys};
 pub use shape_ops::EditorShapeOps;
-pub use background_ui::{Background, EditorBackground};
+pub use background_ui::{background_section, Background, EditorBackground};
 pub use design_ui::{CodeKind, DesignCmd, DesignState, EditorDesign};
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
 pub use view_only::{show_other_doc, Look};
@@ -255,6 +255,11 @@ pub struct EditorState {
     /// A picture under the drawing (a photo, a plan, the camera) and its window.
     pub background: Option<Background>,
     pub show_background: bool,
+    /// The picture under the drawing follows the camera.
+    pub background_live: bool,
+    pub background_seq: u64,
+    /// The picture of a project that was opened, to be shown in the next frame.
+    pub background_pending: Option<base_core::overlay_data::OverlayData>,
     pub join_tol: f64,
     pub show_round: bool,
     pub offset_dist: f64,
@@ -295,11 +300,14 @@ pub struct DocView {
     pub active_seg: Option<NodeRef>,
     pub active_layer: usize,
     pub view: View,
+    pub background: Option<Background>,
+    pub background_live: bool,
+    pub background_pending: Option<base_core::overlay_data::OverlayData>,
 }
 
 impl Default for DocView {
     fn default() -> Self {
-        DocView { sel: vec![], node_sel: vec![], active_seg: None, active_layer: 0, view: View { zoom: 2.0, pan: egui::vec2(40.0, 40.0), need_fit: true, auto_fit: true } }
+        DocView { sel: vec![], node_sel: vec![], active_seg: None, active_layer: 0, view: View { zoom: 2.0, pan: egui::vec2(40.0, 40.0), need_fit: true, auto_fit: true }, background: None, background_live: false, background_pending: None }
     }
 }
 
@@ -312,6 +320,10 @@ impl EditorState {
         std::mem::swap(&mut self.active_seg, &mut other.active_seg);
         std::mem::swap(&mut self.active_layer, &mut other.active_layer);
         std::mem::swap(&mut self.view, &mut other.view);
+        std::mem::swap(&mut self.background, &mut other.background);
+        std::mem::swap(&mut self.background_live, &mut other.background_live);
+        std::mem::swap(&mut self.background_pending, &mut other.background_pending);
+        self.background_seq = 0;
         self.drag = None;
         self.pen_pts.clear();
         self.snap_targets = None;
@@ -360,6 +372,9 @@ impl EditorState {
             design: DesignState::default(),
             background: None,
             show_background: false,
+            background_live: false,
+            background_seq: 0,
+            background_pending: None,
             join_tol: 0.1,
             show_round: false,
             offset_dist: -1.0,

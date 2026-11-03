@@ -4,6 +4,7 @@
 mod autosave_glue;
 mod backup_ui;
 mod layers_ui;
+mod guide;
 mod menu;
 #[cfg(target_os = "macos")]
 mod native_menu;
@@ -17,6 +18,7 @@ mod texts;
 mod update_glue;
 mod workspaces;
 
+use base_ui::editor::EditorBackground;
 use base_core::geom::Xf;
 use base_core::project::{self, Project};
 use base_core::scene::{Kind, Scene};
@@ -117,6 +119,8 @@ pub fn act_icon(a: Act) -> Option<&'static str> {
         Act::RestoreBackup => Some("package-open"),
         Act::OpenGithub => Some("github"),
         Act::About => Some("info"),
+        Act::Print => Some("printer"),
+        Act::QuickGuide => Some("book-open"),
         Act::SetLang(_) | Act::SetScheme(_) => None,
     }
 }
@@ -216,6 +220,9 @@ struct App {
     update: base_ui::dialogs::UpdateState,
     show_program_options: bool,
     show_about: bool,
+    show_guide: bool,
+    guide_filter: String,
+    print: Option<base_ui::print_ui::PrintDlg>,
     #[cfg(target_os = "macos")]
     native_menu: Option<native_menu::NativeMenu>,
 }
@@ -311,6 +318,9 @@ impl App {
             update: Default::default(),
             show_program_options: false,
             show_about: false,
+            show_guide: false,
+            guide_filter: String::new(),
+            print: None,
             #[cfg(target_os = "macos")]
             native_menu: native_menu.then(|| native_menu::install(ctx)),
         };
@@ -353,6 +363,7 @@ impl App {
         self.path = None;
         self.description.clear();
         self.kept = Project::default();
+        self.background_from_project(&Project::default());
         self.layers = section::default_layers();
         self.page = self.new_page;
         self.touch_rev();
@@ -419,6 +430,9 @@ impl App {
                 self.description = file.as_ref().map(|p| p.description.clone()).unwrap_or_default();
                 self.kept = file.unwrap_or_default();
                 self.kept.scene = Scene::default();
+                let kept = std::mem::take(&mut self.kept);
+                self.background_from_project(&kept);
+                self.kept = kept;
                 self.status = format!("Opened {name}: {} shapes", scene.shapes.len());
                 self.scene = scene;
                 self.history = History::default();
@@ -489,6 +503,7 @@ impl App {
         p.set_section(section::SECTION, &section::DrawSection { format: section::SECTION_FORMAT, page: self.page, layers: self.layers.clone() });
         p.restore_sections(&self.kept.other_sections(section::SECTION));
         p.restore_extra(self.kept.extra());
+        self.background_to_project(&mut p);
         p
     }
 
@@ -843,6 +858,16 @@ impl App {
             credits: include_str!("../../../CREDITS.md"),
         };
         base_ui::dialogs::about_window(ctx, &mut self.show_about, &about, self.logo.as_ref());
+        let mut print = self.print.take();
+        if print.is_some() {
+            let layers: Vec<base_core::print::PrintLayer> = self.layers.iter().map(|l| base_core::print::PrintLayer { rgb: l.color, filled: false, visible: l.visible }).collect();
+            let order = (0..layers.len()).collect();
+            let name = self.file_stem();
+            base_ui::print_ui::window(ctx, &mut print, &base_core::print::PrintSource { shapes: &self.scene.shapes, layers, order, work: self.work_size(), program: "BaseCreator", device: &name });
+        }
+        self.print = print;
+        let footer = tr("This guide is available in English and Polish; other languages show the English text.");
+        base_ui::dialogs::guide_window(ctx, &mut self.show_guide, &mut self.guide_filter, guide::sections(), &["Getting started", "Pierwsze kroki"], REPO_URL, footer);
     }
 
     fn draw(&mut self, ui: &mut egui::Ui) {
@@ -1066,6 +1091,8 @@ impl MenuHost for App {
             Act::RestoreBackup => self.restore_backup_dialog(ctx),
             Act::OpenGithub => ctx.open_url(egui::OpenUrl::new_tab(REPO_URL)),
             Act::About => self.show_about = true,
+            Act::Print => self.print = Some(base_ui::print_ui::PrintDlg::open()),
+            Act::QuickGuide => self.show_guide = true,
         }
     }
 }

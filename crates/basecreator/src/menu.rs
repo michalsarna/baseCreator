@@ -1,7 +1,7 @@
 //! What the menus of BaseCreator can do and how they are laid out. The layout comes from base-ui, without what needs a machine: no
 //! Machine menu, no menu of a process, no G-code.
 use base_ui::i18n::Lang;
-use base_ui::menu::{standard_menus, Entry, MenuParts, Menus, StdAct};
+use base_ui::menu::{key, standard_menus, Entry, MenuParts, Menus, StdAct};
 use base_ui::theme::Scheme;
 
 /// How many recent files the File menu keeps.
@@ -40,6 +40,8 @@ pub enum Act {
     DownloadBackup,
     RestoreBackup,
     About,
+    Print,
+    QuickGuide,
 }
 
 impl From<StdAct> for Act {
@@ -95,13 +97,13 @@ pub fn menus() -> Menus<Act> {
         import_extra: vec![],
         export_first: vec![],
         export_extra: vec![],
-        output_extra: vec![],
+        output_extra: vec![Item(Act::Print, "Print…", key("CmdOrCtrl+P", "Ctrl+P"))],
         view_extra: vec![],
         background: true,
         machine: vec![],
         process: ("", vec![]),
         settings_extra: vec![],
-        help_first: vec![],
+        help_first: vec![Item(Act::QuickGuide, "Quick guide", key("F1", "F1"))],
         help_extra: vec![],
     });
     all.into_iter().filter(|(_, entries)| !entries.is_empty()).map(|(title, entries)| (title, without_gcode(entries))).collect()

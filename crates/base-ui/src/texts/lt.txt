@@ -818,7 +818,7 @@
 817|Nepermatomumas
 818|Judinti kampus
 819|Pritaikyti darbo sričiai
-820|Paveikslėlis yra po brėžiniu: nutempkite jo kampus ant medžiagos arba darbo srities kampų. Jis neišsaugomas projekte.
+820|Paveikslėlis yra po brėžiniu: nutempkite jo kampus ant medžiagos arba darbo srities kampų. Jis išsaugomas projekte.
 821|Jie vykdomi šia tvarka: {}
 822|Išjungti visus postprocesorius
 823|Pasirinkti postprocesoriai keičia G-kodą iš Eksportuoti G-kodą…; į stakles išsiųsta užduotis nekeičiama.
@@ -953,3 +953,81 @@
 952|Vijų skaičius
 953|Daugiakampis
 954|Spiralė
+955|Naujas klientas pakeičia prisijungusį
+956|Perdavimo sparta (baud)
+957|Rankiniu būdu: sudo cp <įrašytas failas> {} && sudo systemctl restart ser2net
+958|Patvirtinti
+959|Nukopijuota.
+960|Nepavyko įdiegti konfigūracijos: {}
+961|Nepavyko sukurti puslapio: {}
+962|Nepavyko atidaryti peržiūros programos: {}
+963|Numatytasis spausdintuvas
+964|Failas: {}
+965|Rėmelis
+966|Įdiegti ir iš naujo paleisti ser2net…
+967|{} įdiegtas ir ser2net paleistas iš naujo.
+968|Klausytis tik šiame kompiuteryje (naudoti su SSH tuneliu)
+969|Paraštė
+970|Tik matomų sluoksnių objektai
+971|Tik objektai, kuo didesni, kiek leidžia puslapis
+972|Atidaryti PDF
+973|Atidaryta PDF peržiūros programoje.
+974|Atidaro puslapį PDF peržiūros programoje, kuri gali jį atspausdinti su daugiau parinkčių
+975|Popierius
+976|Prievadas
+977|Spausdinti
+978|Spausdintuvas
+979|Atspausdina dizainą popieriniu spausdintuvu, išdėstymui patikrinti arba kaip šabloną.
+980|Spausdinti…
+981|Atnaujinti
+982|Įrašyti kaip PDF…
+983|Įrašyti kaip…
+984|Nepavyko įrašyti: {}
+985|Išsiųsta spausdintuvui. {}
+986|Bendrinti tinkle (ser2net)
+987|Bendrinti tinkle (ser2net)…
+988|Pradėti darbą
+989|Pakeisti įrenginį…
+990|TCP prievadas
+991|Spausdintuvas jo nepriėmė: {}
+992|Visa darbo sritis mastelyje
+993|Tada iš kito kompiuterio prisijunkite prie {}:{}
+994|Nėra ką spausdinti.
+995|Šis vadovas pateikiamas anglų ir lenkų kalbomis; kitomis kalbomis rodomas angliškas tekstas.
+996|Tai pakeičia {} (išsaugoma kopija) ir iš naujo paleidžia ser2net. Prašoma administratoriaus teisių.
+997|Laukiama administratoriaus patvirtinimo…
+998|ser2net rastas: {}
+999|ser2net versija
+1000|ser2net nerastas. Pirmiausia jį įdiekite, pavyzdžiui: sudo apt install ser2net
+1001|{} objektų išeina už darbo srities ribų; ant popieriaus jie nupjaunami prie krašto.
+1002|{} objektų išeina už darbo srities ribų; jie vis tiek atspausdinami.
+1003|Bendrina tinkle šio kompiuterio mašinos nuoseklųjį prievadą, kad programa kitame kompiuteryje galėtų prisijungti ryšio tipu „Tinklas (TCP)“.
+1004|Įspėjimas: bet kas tinkle, pasiekęs šį prievadą, gali valdyti mašiną. Naudokite patikimą tinklą, užkardą arba tik vietinę parinktį su SSH tuneliu.
+1005|Šis valdiklis nepraneša savo įėjimų.
+1006|Pridėti tašką
+1007|Lygiuoti pagal taškus
+1008|Lygiavimas: vilkite keturis kampus darbo srityje
+1009|Kameros perdanga
+1010|Ištrinti šį tašką
+1011|Vilkite kiekvieną kampą į atitinkamą medžiagos ar darbo srities kampą; perspektyva ištaisoma.
+1012|Pritaiko vaizdą prie taškų (mažiausių kvadratų metodas) ir atitinkamai perkelia kampus.
+1013|Sustabdyti kadrą
+1014|Įkelti paveikslėlį…
+1015|Per mažai taškų arba jie yra vienoje tiesėje.
+1016|Uždanga iš…
+1017|Perdanga: {}
+1018|Poros: taškas vaizde (pikseliai) ir jo vieta darbo srityje (mm). Bent 3, rekomenduojami 4; jie nustato lygiavimą, įskaitant perspektyvą.
+1019|Taškai iš dabartinių kampų
+1020|Atskaitos taškai
+1021|Pakeičia taškus keturiais vaizdo kampais ir jų dabartine vieta.
+1022|Atstatyti į darbo sritį
+1023|Pasukti 90°
+1024|Rodo nuotrauką arba tiesioginį kameros vaizdą po dizainu, kad galėtumėte padėti darbą ant medžiagos.
+1025|Rodyti kameros perdangą
+1026|Rodyti perdangą
+1027|Paleisti kamerą
+1028|Įrenginio nustatymai…
+1029|Tikrinti programą
+1030|Diagnostika ir statistika…
+1031|Programinės įrangos nustatymai ($$)…
+1032|Perdanga

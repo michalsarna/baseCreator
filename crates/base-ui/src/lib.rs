@@ -36,6 +36,8 @@ pub mod menu;
 pub mod navicube;
 pub mod playback;
 pub mod plugins_ui;
+pub mod print_ui;
+pub mod ser2net_ui;
 pub mod seasonal;
 #[cfg(target_os = "macos")]
 pub mod native_menu;

@@ -531,6 +531,41 @@ pub mod std_entries {
     }
 }
 
+/// The two entries of the camera overlay in the View menu: the same in every program with a camera.
+pub fn overlay_entries<A>(toggle: A, from: A) -> Vec<Entry<A>> {
+    vec![Entry::Item(toggle, "Show camera overlay", None), Entry::Item(from, "Overlay from…", None)]
+}
+
+/// The entries of the Machine menu of a program with a machine: the same ones in the same order everywhere.
+pub struct MachineMenu<A> {
+    pub switch_device: A,
+    pub device_settings: A,
+    pub firmware: A,
+    pub calibration: A,
+    /// What only this program has, after *Calibration…* (e.g. *Tool length sensor…*).
+    pub own: Vec<Entry<A>>,
+    pub diagnostics: A,
+    /// Shared over the network from this computer: only on Linux.
+    pub share: A,
+    pub frame: A,
+    pub start_job: A,
+    pub start_from: A,
+    pub check_program: A,
+}
+
+/// The Machine menu.
+pub fn machine_menu<A>(m: MachineMenu<A>) -> Vec<Entry<A>> {
+    use Entry::{Item, Sep};
+    let mut v = vec![Item(m.switch_device, "Switch device…", None), Item(m.device_settings, "Device settings…", None), Item(m.firmware, "Firmware settings ($$)…", None), Item(m.calibration, "Calibration…", None)];
+    v.extend(m.own);
+    v.push(Item(m.diagnostics, "Diagnostics and statistics…", None));
+    if cfg!(target_os = "linux") {
+        v.push(Item(m.share, "Share over network (ser2net)…", None));
+    }
+    v.extend([Sep, Item(m.frame, "Frame", None), Item(m.start_job, "Start job", None), Item(m.start_from, "Start from line…", None), Item(m.check_program, "Check the program", None)]);
+    v
+}
+
 /// What differs between the menus of the programs. The layout is the same in all of them (see [`standard_menus`]):
 ///
 /// **File · Edit · Insert · Arrange · View · Machine · (the menu of the process) · Settings · Help**
