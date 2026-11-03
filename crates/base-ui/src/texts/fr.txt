@@ -931,3 +931,10 @@
 930|Calques d'Illustrator
 931|Le fichier a {} calques d'Illustrator. Placer les tracés sur les calques du programme selon :
 932|Le premier calque d'Illustrator va sur le calque 1, le deuxième sur le calque 2, et ainsi de suite ; les autres vont sur le dernier calque.
+933|Console G-code
+934|Vos commandes
+935|Commandes du programme
+936|Réponses de la machine
+937|Messages du programme
+938|Arrière-plan
+939|Taille de police

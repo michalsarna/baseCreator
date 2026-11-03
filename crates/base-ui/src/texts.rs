@@ -938,6 +938,13 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Illustrator layers", "Warstwy Illustratora", "Illustrator-Ebenen", "Livelli di Illustrator", "Illustratorin tasot", "Illustrator 图层", "Illustrator लेयर"],
     ["The file has {} Illustrator layers. Put the paths on the layers of the program by:", "Plik ma {} warstw Illustratora. Umieść ścieżki na warstwach programu według:", "Die Datei hat {} Illustrator-Ebenen. Die Pfade auf die Ebenen des Programms legen nach:", "Il file ha {} livelli di Illustrator. Metti i tracciati sui livelli del programma in base a:", "Tiedostossa on {} Illustrator-tasoa. Sijoita polut ohjelman tasoille perusteella:", "该文件有 {} 个 Illustrator 图层。按以下方式将路径放到程序的图层上：", "फ़ाइल में {} Illustrator लेयर हैं। पथों को प्रोग्राम की लेयरों पर इस आधार पर रखें:"],
     ["The first Illustrator layer goes on layer 1, the second on layer 2, and so on; the rest go on the last layer.", "Pierwsza warstwa Illustratora trafia na warstwę 1, druga na warstwę 2 itd.; reszta na ostatnią warstwę.", "Die erste Illustrator-Ebene kommt auf Ebene 1, die zweite auf Ebene 2 usw.; der Rest auf die letzte Ebene.", "Il primo livello di Illustrator va sul livello 1, il secondo sul livello 2 e così via; gli altri sull'ultimo livello.", "Ensimmäinen Illustrator-taso menee tasolle 1, toinen tasolle 2 ja niin edelleen; loput viimeiselle tasolle.", "第一个 Illustrator 图层放到图层 1，第二个放到图层 2，依此类推；其余的放到最后一个图层。", "पहली Illustrator लेयर लेयर 1 पर, दूसरी लेयर 2 पर, और इसी तरह; बाकी अंतिम लेयर पर जाती हैं।"],
+    ["G-code console", "Konsola G-code", "G-Code-Konsole", "Console G-code", "G-code-konsoli", "G 代码控制台", "G-code कंसोल"],
+    ["Your commands", "Twoje polecenia", "Ihre Befehle", "I tuoi comandi", "Omat komennot", "您的命令", "आपके कमांड"],
+    ["Commands of the program", "Polecenia programu", "Befehle des Programms", "Comandi del programma", "Ohjelman komennot", "程序的命令", "प्रोग्राम के कमांड"],
+    ["Replies of the machine", "Odpowiedzi maszyny", "Antworten der Maschine", "Risposte della macchina", "Koneen vastaukset", "机器的回复", "मशीन के उत्तर"],
+    ["Messages of the program", "Komunikaty programu", "Meldungen des Programms", "Messaggi del programma", "Ohjelman viestit", "程序的消息", "प्रोग्राम के संदेश"],
+    ["Background", "Tło", "Hintergrund", "Sfondo", "Tausta", "背景", "पृष्ठभूमि"],
+    ["Font size", "Rozmiar czcionki", "Schriftgröße", "Dimensione del carattere", "Fonttikoko", "字号", "फ़ॉन्ट आकार"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

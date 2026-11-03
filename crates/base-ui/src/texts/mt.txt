@@ -931,3 +931,10 @@
 930|Is-saffi tal-Illustrator
 931|Il-fajl għandu {} saffi tal-Illustrator. Poġġi t-toroq fuq is-saffi tal-programm skont:
 932|L-ewwel saff tal-Illustrator imur fuq is-saff 1, it-tieni fuq is-saff 2 u hekk 'il quddiem; il-bqija jmorru fuq l-aħħar saff.
+933|Konsola tal-G-code
+934|Il-kmandi tiegħek
+935|Il-kmandi tal-programm
+936|It-tweġibiet tal-magna
+937|Il-messaġġi tal-programm
+938|Sfond
+939|Daqs tat-tipa

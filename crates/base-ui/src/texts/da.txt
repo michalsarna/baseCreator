@@ -931,3 +931,10 @@
 930|Illustrator-lag
 931|Filen har {} Illustrator-lag. Læg stierne på programmets lag efter:
 932|Det første Illustrator-lag kommer på lag 1, det andet på lag 2 og så videre; resten kommer på det sidste lag.
+933|G-code-konsol
+934|Dine kommandoer
+935|Programmets kommandoer
+936|Maskinens svar
+937|Programmets meddelelser
+938|Baggrund
+939|Skriftstørrelse

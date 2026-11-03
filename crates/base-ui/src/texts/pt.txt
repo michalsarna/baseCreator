@@ -931,3 +931,10 @@
 930|Camadas do Illustrator
 931|O ficheiro tem {} camadas do Illustrator. Colocar os caminhos nas camadas do programa segundo:
 932|A primeira camada do Illustrator vai para a camada 1, a segunda para a camada 2 e assim por diante; as restantes vão para a última camada.
+933|Consola de G-code
+934|Os seus comandos
+935|Comandos do programa
+936|Respostas da máquina
+937|Mensagens do programa
+938|Fundo
+939|Tamanho da letra

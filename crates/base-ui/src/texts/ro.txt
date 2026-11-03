@@ -931,3 +931,10 @@
 930|Straturile Illustrator
 931|Fișierul are {} straturi Illustrator. Puneți traseele pe straturile programului după:
 932|Primul strat Illustrator merge pe stratul 1, al doilea pe stratul 2 și așa mai departe; restul merg pe ultimul strat.
+933|Consolă G-code
+934|Comenzile dvs.
+935|Comenzile programului
+936|Răspunsurile mașinii
+937|Mesajele programului
+938|Fundal
+939|Dimensiunea fontului

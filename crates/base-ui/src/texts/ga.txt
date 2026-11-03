@@ -931,3 +931,10 @@
 930|Sraitheanna Illustrator
 931|Tá {} sraith Illustrator sa chomhad. Cuir na cosáin ar shraitheanna an chláir de réir:
 932|Téann an chéad sraith Illustrator ar shraith 1, an dara ceann ar shraith 2, agus mar sin de; téann an chuid eile ar an tsraith dheireanach.
+933|Consól G-code
+934|Do chuid orduithe
+935|Orduithe an chláir
+936|Freagraí an mheaisín
+937|Teachtaireachtaí an chláir
+938|Cúlra
+939|Méid an chló

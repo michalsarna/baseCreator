@@ -3,6 +3,16 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.62.0
+
+For the programs with a machine; in BaseCreator only *View options* changes.
+
+- **The console remembers your commands:** the Up and Down keys in its field go through what you sent from the console, and only that; what you were typing comes back at the end.
+- **Your commands have a colour of their own**, so they stand out from what the program sends.
+- *Settings → View options…* has a new **G-code console** part: the font size and the colours. The default look of the other lines is as before.
+- BaseCreator's *View options* no longer shows the switches about G-code.
+- `ConsoleState::show` takes a `&ConsoleLook` (from `GridPrefs::console`); new: `Dir::User`, `EditorHost::has_machine`.
+
 ## v1.61.0
 
 This release also brings what is below under v1.60.1 and v1.60.0: the same file formats in every program, a wiki and package managers.

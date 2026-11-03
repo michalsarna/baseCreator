@@ -53,7 +53,7 @@ Te same polecenia są w menu kształtu pod prawym przyciskiem; opisuje je strona
 
 | Pozycja | Co robi |
 |---|---|
-| **Opcje widoku…** | Siatka, kolory obszaru roboczego, grubość linii, **Pokaż nazwy warstw**. Dwa przełączniki G-code pochodzą ze wspólnego okna i nie mają tu zastosowania. |
+| **Opcje widoku…** | Siatka, kolory obszaru roboczego, grubość linii, **Pokaż nazwy warstw**. |
 | **Opcje programu…** | **Szukaj nowszej wersji przy uruchamianiu programu** (domyślnie włączone). |
 | **Wtyczki…** | Zobacz [Wtyczki](Wtyczki). |
 | **Język** | 30 języków. |

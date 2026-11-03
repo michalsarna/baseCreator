@@ -931,3 +931,10 @@
 930|Illustrator-lög
 931|Skráin er með {} Illustrator-lög. Settu ferlana á lög forritsins eftir:
 932|Fyrsta Illustrator-lagið fer á lag 1, annað á lag 2 og svo framvegis; afgangurinn fer á síðasta lagið.
+933|G-kóða stjórnborð
+934|Skipanir þínar
+935|Skipanir forritsins
+936|Svör vélarinnar
+937|Skilaboð forritsins
+938|Bakgrunnur
+939|Leturstærð

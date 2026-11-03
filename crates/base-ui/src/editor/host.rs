@@ -35,6 +35,10 @@ pub trait EditorHost: Sized {
     /// for clipart on the internet.
     fn open_shape_generators(&mut self);
     fn open_online_clipart_search(&mut self, ctx: &egui::Context);
+    /// Does the program talk to a machine? Without one, the View options leave out what is about G-code and the console.
+    fn has_machine(&self) -> bool {
+        true
+    }
     /// Show a message in the status line.
     fn say(&mut self, msg: String);
     /// The message now shown in the status line.

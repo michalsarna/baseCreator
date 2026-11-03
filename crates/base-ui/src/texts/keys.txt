@@ -931,3 +931,10 @@
 930	Illustrator layers
 931	The file has {} Illustrator layers. Put the paths on the layers of the program by:
 932	The first Illustrator layer goes on layer 1, the second on layer 2, and so on; the rest go on the last layer.
+933	G-code console
+934	Your commands
+935	Commands of the program
+936	Replies of the machine
+937	Messages of the program
+938	Background
+939	Font size

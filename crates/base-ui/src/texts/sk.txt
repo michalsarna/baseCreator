@@ -931,3 +931,10 @@
 930|Vrstvy Illustratora
 931|Súbor má {} vrstiev Illustratora. Umiestniť dráhy na vrstvy programu podľa:
 932|Prvá vrstva Illustratora ide na vrstvu 1, druhá na vrstvu 2 a tak ďalej; zvyšok ide na poslednú vrstvu.
+933|Konzola G-kódu
+934|Vaše príkazy
+935|Príkazy programu
+936|Odpovede stroja
+937|Správy programu
+938|Pozadie
+939|Veľkosť písma

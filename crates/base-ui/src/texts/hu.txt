@@ -931,3 +931,10 @@
 930|Illustrator-rétegek
 931|A fájlban {} Illustrator-réteg van. Az útvonalakat a program rétegeire helyezze a következő szerint:
 932|Az első Illustrator-réteg az 1. rétegre kerül, a második a 2. rétegre és így tovább; a többi az utolsó rétegre.
+933|G-kód konzol
+934|Az Ön parancsai
+935|A program parancsai
+936|A gép válaszai
+937|A program üzenetei
+938|Háttér
+939|Betűméret

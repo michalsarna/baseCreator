@@ -931,3 +931,10 @@
 930|Capas de Illustrator
 931|El archivo tiene {} capas de Illustrator. Colocar los trazados en las capas del programa según:
 932|La primera capa de Illustrator va a la capa 1, la segunda a la capa 2 y así sucesivamente; el resto va a la última capa.
+933|Consola de G-code
+934|Sus comandos
+935|Comandos del programa
+936|Respuestas de la máquina
+937|Mensajes del programa
+938|Fondo
+939|Tamaño de letra

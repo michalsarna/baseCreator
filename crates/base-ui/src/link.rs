@@ -71,7 +71,7 @@ pub enum Cmd {
 }
 
 /// Direction of a console line.
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dir {
     /// Message from the application itself.
     Info,
@@ -79,6 +79,8 @@ pub enum Dir {
     Tx,
     /// Received from the controller.
     Rx,
+    /// Sent to the controller, typed by the user in the console. Only the console makes these, out of `Tx`.
+    User,
 }
 
 #[derive(Clone)]

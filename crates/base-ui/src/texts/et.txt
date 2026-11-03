@@ -931,3 +931,10 @@
 930|Illustratori kihid
 931|Failis on {} Illustratori kihti. Aseta rajad programmi kihtidele järgmise alusel:
 932|Esimene Illustratori kiht läheb kihile 1, teine kihile 2 ja nii edasi; ülejäänud lähevad viimasele kihile.
+933|G-koodi konsool
+934|Teie käsud
+935|Programmi käsud
+936|Masina vastused
+937|Programmi teated
+938|Taust
+939|Kirja suurus
