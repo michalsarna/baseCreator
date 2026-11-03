@@ -35,8 +35,8 @@ Otwartoźródłowy program do rysowania napisany w Ruście, bez żadnej części
 * **Import:** obraz, SVG, Adobe Illustrator / PDF, DXF, projekt LightBurn, projekt UGS oraz to, co czytają wtyczki. **Eksport:** SVG, PLT, DXF.
 * **Plik projektu:** `.cre`, wspólny z trzema pozostałymi programami; ich sekcje zostają w pliku po zapisie tutaj.
 * **Cliparty:** 310 obrazków wspólnych z innymi programami, z wyszukiwaniem w internecie.
-* **Interfejs:** 30 języków i 14 schematów kolorów.
+* **Interfejs:** 30 języków i 14 schematów kolorów; w okolicach Bożego Narodzenia, Nowego Roku, Halloween i Wielkanocy także świąteczna ikona i dwa świąteczne schematy.
 
 Wydania mają numery tagów repozytorium, dlatego różnią się od numerów pozostałych programów.
 
-Najnowsza wersja: **v1.60.1** · [Wydania](https://github.com/michalsarna/baseCreator/releases) · [Zgłoszenia](https://github.com/michalsarna/baseCreator/issues) · Licencja: [MIT](https://github.com/michalsarna/baseCreator/blob/main/LICENSE) lub [Apache-2.0](https://github.com/michalsarna/baseCreator/blob/main/LICENSE-APACHE), do wyboru
+Najnowsza wersja: **v1.61.0** · [Wydania](https://github.com/michalsarna/baseCreator/releases) · [Zgłoszenia](https://github.com/michalsarna/baseCreator/issues) · Licencja: [MIT](https://github.com/michalsarna/baseCreator/blob/main/LICENSE) lub [Apache-2.0](https://github.com/michalsarna/baseCreator/blob/main/LICENSE-APACHE), do wyboru

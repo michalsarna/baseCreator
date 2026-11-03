@@ -12,7 +12,7 @@ Co tu działa:
 * **Generatory:** **Plik → Importuj → Generuj kształt…** (także **Wstawianie → Generuj kształt…**) pokazuje formularz generatora i dodaje utworzone kształty.
 * **Cliparty i tłumaczenia.**
 
-Wtyczkę z **postprocesorami G-code** (`gcode-tools`, `gcode-dialects`) można zainstalować, ale tutaj nic nie robi, bo nie ma G-code.
+Wtyczki z **postprocesorami G-code** (`gcode-tools`, `gcode-dialects`) nie da się tu zainstalować, bo nie ma G-code: oficjalna lista oznacza ją *Nie dla tego programu*, a plik `.zip` jest odrzucany. Wtyczka zainstalowana przez inny program we wspólnym katalogu jest pokazana z tym samym opisem, tutaj nic nie robi i zostaje dla tamtego programu. Usunięcie jej tutaj usuwa ją także z pozostałych programów.
 
 **Bezpieczeństwo.** Skrypty wtyczek (Rhai) działają w piaskownicy bez dostępu do plików, sieci i systemu, z limitem czasu i pamięci. Instaluj tylko wtyczki, którym ufasz.
 

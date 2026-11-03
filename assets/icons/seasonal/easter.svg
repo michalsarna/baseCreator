@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="bg" cx="512" cy="330" r="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5620f"/>
+      <stop offset="0.45" stop-color="#f5620f"/>
+      <stop offset="1" stop-color="#cf530d"/>
+    </radialGradient>
+    <clipPath id="clip"><rect width="1024" height="1024" rx="225"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+    <rect y="735" width="1024" height="289" fill="#241808"/>
+    <rect y="735" width="1024" height="1" fill="#7f4317"/>
+    <rect y="736" width="1024" height="3" fill="#5a3a1a"/>
+  
+    <g transform="translate(512 0)">
+      <g transform="rotate(-12 -95 300)"><ellipse cx="-95" cy="175" rx="62" ry="160" fill="#fff"/><ellipse cx="-95" cy="185" rx="30" ry="115" fill="#f9b6c6"/></g>
+      <g transform="rotate(12 95 300)"><ellipse cx="95" cy="175" rx="62" ry="160" fill="#fff"/><ellipse cx="95" cy="185" rx="30" ry="115" fill="#f9b6c6"/></g>
+      <ellipse cx="0" cy="470" rx="205" ry="185" fill="#fff"/>
+      <circle cx="-75" cy="430" r="24" fill="#2b2b2b"/><circle cx="75" cy="430" r="24" fill="#2b2b2b"/>
+      <circle cx="-67" cy="422" r="8" fill="#fff"/><circle cx="83" cy="422" r="8" fill="#fff"/>
+      <path d="M-22 492 L22 492 L0 520 Z" fill="#ec7f9b"/>
+      <path d="M0 520 L0 548 M0 548 Q-30 585 -62 555 M0 548 Q30 585 62 555" fill="none" stroke="#2b2b2b" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="-130" cy="510" r="30" fill="#fbd4de"/><circle cx="130" cy="510" r="30" fill="#fbd4de"/>
+    </g>
+  </g>
+</svg>

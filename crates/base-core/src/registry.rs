@@ -124,7 +124,12 @@ pub fn verify(bytes: &[u8], sha256: &str) -> bool {
 impl Entry {
     /// Is the plugin for this program (`lightcreator`, ...)?
     pub fn is_for(&self, app: &str) -> bool {
-        self.programs.is_empty() || self.programs.iter().any(|p| p == app)
+        !self.refused_by(app) && (self.programs.is_empty() || self.programs.iter().any(|p| p == app))
+    }
+
+    /// Does this program refuse the plugin, because it changes G-code and the program has none?
+    pub fn refused_by(&self, app: &str) -> bool {
+        crate::plugins::WITHOUT_GCODE.contains(&app) && self.provides.iter().any(|p| p == "postprocessors")
     }
 
     pub fn status(&self, installed: &Registry) -> Status {
@@ -146,6 +151,11 @@ impl Index {
     /// How many installed plugins have a newer version in the list.
     pub fn updates(&self, installed: &Registry) -> Vec<&Entry> {
         self.plugins.iter().filter(|e| matches!(e.status(installed), Status::Update { .. })).collect()
+    }
+
+    /// The same for one program: without what it refuses to install.
+    pub fn updates_for(&self, installed: &Registry, app: &str) -> Vec<&Entry> {
+        self.updates(installed).into_iter().filter(|e| !e.refused_by(app)).collect()
     }
 }
 

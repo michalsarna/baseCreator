@@ -1,6 +1,6 @@
 //! Plugins in BaseCreator: the windows, the importers and the generators (the machinery is in baseCreator: `base_core::plugins`,
-//! `base_ui::plugins_ui`). A plugin that brings a postprocessor can be installed (the plugins folder is shared with the other
-//! programs), but it does nothing here: this program has no G-code.
+//! `base_ui::plugins_ui`). A plugin that changes G-code cannot be installed here, as this program has no G-code; one that another
+//! program installed in the shared folder is shown as not for this program and can be removed.
 use crate::{App, Screen};
 use base_core::plugin_script::Shapes;
 use base_ui::editor::EditorHost;

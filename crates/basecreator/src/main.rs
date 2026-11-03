@@ -41,6 +41,20 @@ const UNDO_STEPS: usize = 100;
 const ICON_256: &[u8] = include_bytes!("../../../assets/icons/icon-256.png");
 const ICON_512: &[u8] = include_bytes!("../../../assets/icons/icon-512.png");
 
+// Easter egg: around a holiday the program wears a festive icon (see `base_ui::seasonal`). The sources are the SVG files next to them.
+const FESTIVE: base_ui::seasonal::Variants = base_ui::seasonal::Variants {
+    christmas: (include_bytes!("../../../assets/icons/seasonal/christmas-256.png"), include_bytes!("../../../assets/icons/seasonal/christmas-512.png")),
+    new_years_eve: (include_bytes!("../../../assets/icons/seasonal/newyear-256.png"), include_bytes!("../../../assets/icons/seasonal/newyear-512.png")),
+    halloween: (include_bytes!("../../../assets/icons/seasonal/halloween-256.png"), include_bytes!("../../../assets/icons/seasonal/halloween-512.png")),
+    easter: (include_bytes!("../../../assets/icons/seasonal/easter-256.png"), include_bytes!("../../../assets/icons/seasonal/easter-512.png")),
+};
+
+/// The 256 px and 512 px logo of the day; the tests (and so the screenshots) always get the normal one.
+fn app_icon() -> base_ui::seasonal::Icon {
+    let normal = (ICON_256, ICON_512);
+    if cfg!(test) { normal } else { base_ui::seasonal::icon_today(&FESTIVE, normal) }
+}
+
 /// Read an SVG or PDF (by its content) into a new scene. Every outline becomes one shape on layer 0.
 fn read_scene(data: &[u8]) -> Result<Scene, String> {
     let is_pdf = data.windows(5).take(1024).any(|w| w == b"%PDF-");
@@ -269,7 +283,7 @@ impl App {
             screen: Screen::Start,
             path: None,
             recent,
-            logo: base_ui::start::load_logo(ctx, ICON_256, "basecreator-logo"),
+            logo: base_ui::start::load_logo(ctx, app_icon().0, "basecreator-logo"),
             side_tab: SideTab::Properties,
             tabs: base_ui::side_tabs::SideTabs::new(&SideTab::IDS, &saved("tab_order").unwrap_or_default(), saved("side_collapsed").is_some_and(|v| v == "1")),
             clip: ClipState::new(base_core::clipart::Library::open(data_paths().gallery.clone())),
@@ -1133,7 +1147,7 @@ fn main() -> eframe::Result {
         .with_min_inner_size([900.0, 560.0])
         // The application draws its own flat, square frame, as the other programs do.
         .with_decorations(false);
-    if let Some(icon) = base_ui::start::window_icon(ICON_512) {
+    if let Some(icon) = base_ui::start::window_icon(app_icon().1) {
         viewport = viewport.with_icon(icon);
     }
     let opts = eframe::NativeOptions { viewport, persistence_path: Some(data_paths().settings.clone()), ..Default::default() };
@@ -1142,7 +1156,7 @@ fn main() -> eframe::Result {
         opts,
         Box::new(|cc| {
             #[cfg(target_os = "macos")]
-            native_menu::set_dock_icon(ICON_512);
+            native_menu::set_dock_icon(app_icon().1);
             let mut app = App::new(cc);
             if let Some(p) = std::env::args().nth(1) {
                 app.open(p.into());
