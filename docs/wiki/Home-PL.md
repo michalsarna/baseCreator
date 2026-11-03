@@ -39,4 +39,4 @@ Otwartoźródłowy program do rysowania napisany w Ruście, bez żadnej części
 
 Wydania mają numery tagów repozytorium, dlatego różnią się od numerów pozostałych programów.
 
-Najnowsza wersja: **v1.61.0** · [Wydania](https://github.com/michalsarna/baseCreator/releases) · [Zgłoszenia](https://github.com/michalsarna/baseCreator/issues) · Licencja: [MIT](https://github.com/michalsarna/baseCreator/blob/main/LICENSE) lub [Apache-2.0](https://github.com/michalsarna/baseCreator/blob/main/LICENSE-APACHE), do wyboru
+Najnowsza wersja: **v1.63.0** · [Wydania](https://github.com/michalsarna/baseCreator/releases) · [Zgłoszenia](https://github.com/michalsarna/baseCreator/issues) · Licencja: [MIT](https://github.com/michalsarna/baseCreator/blob/main/LICENSE) lub [Apache-2.0](https://github.com/michalsarna/baseCreator/blob/main/LICENSE-APACHE), do wyboru
