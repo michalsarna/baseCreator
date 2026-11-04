@@ -785,7 +785,7 @@
 784|Emplacements
 785|Angle total
 786|Tourner les copies
-787|Début
+787|Start
 788|Garder l'intérieur de la forme
 789|Texte
 790|{n} est le numéro ; avec un fichier CSV, {1}, {2}… sont ses colonnes

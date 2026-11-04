@@ -785,7 +785,7 @@
 784|Plaatsen
 785|Totale hoek
 786|Draai de kopieën
-787|Begin
+787|Start
 788|Houd de binnenkant van de vorm
 789|Tekst
 790|{n} is het nummer; bij een CSV-bestand zijn {1}, {2}… de kolommen

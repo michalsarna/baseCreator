@@ -785,7 +785,7 @@
 784|Posições
 785|Ângulo total
 786|Rodar as cópias
-787|Início
+787|Start
 788|Manter o interior da forma
 789|Texto
 790|{n} é o número; com um ficheiro CSV {1}, {2}… são as suas colunas

@@ -785,7 +785,7 @@
 784|Llocs
 785|Angle total
 786|Gira les còpies
-787|Inici
+787|Start
 788|Conserva l'interior de la forma
 789|Text
 790|{n} és el número; amb un fitxer CSV {1}, {2}… són les seves columnes

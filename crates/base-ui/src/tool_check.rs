@@ -345,8 +345,12 @@ pub fn check_guide_paths<A>(sections: &[crate::dialogs::Section], menus: &Menus<
 /// The same thing has one Polish name in every program. A program's own table is asked before the shared one, so a row of its own can
 /// give a name of its own; the buttons that start a job once said one thing here and another there.
 pub fn check_polish_names() {
-    for (en, pl) in [("Start", "Start"), ("Export", "Eksportuj"), ("Import", "Importuj"), ("Opacity", "Przezroczystość (krycie)")] {
+    for (en, pl) in [("Export", "Eksportuj"), ("Import", "Importuj"), ("Opacity", "Przezroczystość (krycie)")] {
         assert_eq!(tr_in(Lang::Pl, en), pl, "the Polish name of {en}");
+    }
+    // Start is the same word in every language.
+    for lang in Lang::ALL {
+        assert_eq!(tr_in(lang, "Start"), "Start", "Start in {lang:?}");
     }
 }
 

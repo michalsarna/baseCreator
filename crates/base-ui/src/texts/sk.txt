@@ -785,7 +785,7 @@
 784|Miesta
 785|Celkový uhol
 786|Otáčať kópie
-787|Začiatok
+787|Start
 788|Ponechať vnútro tvaru
 789|Text
 790|{n} je číslo; pri súbore CSV sú {1}, {2}… jeho stĺpce

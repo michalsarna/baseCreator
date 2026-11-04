@@ -792,7 +792,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Places", "Miejsca", "Plätze", "Posizioni", "Paikat", "位置数", "स्थान"],
     ["Total angle", "Kąt całkowity", "Gesamtwinkel", "Angolo totale", "Kokonaiskulma", "总角度", "कुल कोण"],
     ["Turn the copies", "Obracaj kopie", "Kopien drehen", "Ruota le copie", "Käännä kopiot", "旋转副本", "प्रतियाँ घुमाएँ"],
-    ["Start", "Start", "Anfang", "Inizio", "Alku", "起点", "प्रारंभ"],
+    ["Start", "Start", "Start", "Start", "Start", "Start", "Start"],
     ["Keep the inside of the shape", "Zostaw wnętrze kształtu", "Das Innere der Form behalten", "Mantieni l'interno della forma", "Säilytä muodon sisäpuoli", "保留形状内部", "आकार का भीतरी भाग रखें"],
     ["Text", "Tekst", "Text", "Testo", "Teksti", "文字", "टेक्स्ट"],
     ["{n} is the number; with a CSV file {1}, {2}… are its columns", "{n} to numer; przy pliku CSV {1}, {2}… to jego kolumny", "{n} ist die Nummer; bei einer CSV-Datei sind {1}, {2}… ihre Spalten", "{n} è il numero; con un file CSV {1}, {2}… sono le sue colonne", "{n} on numero; CSV-tiedostossa {1}, {2}… ovat sen sarakkeet", "{n} 是编号；使用 CSV 文件时，{1}、{2}… 是它的列", "{n} संख्या है; CSV फ़ाइल के साथ {1}, {2}… उसके स्तंभ हैं"],

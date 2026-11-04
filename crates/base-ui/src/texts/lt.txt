@@ -785,7 +785,7 @@
 784|Vietos
 785|Bendras kampas
 786|Sukti kopijas
-787|Pradžia
+787|Start
 788|Palikti formos vidų
 789|Tekstas
 790|{n} yra numeris; su CSV failu {1}, {2}… yra jo stulpeliai

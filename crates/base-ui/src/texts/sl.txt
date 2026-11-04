@@ -785,7 +785,7 @@
 784|Mesta
 785|Skupni kot
 786|Zasukaj kopije
-787|Začetek
+787|Start
 788|Obdrži notranjost oblike
 789|Besedilo
 790|{n} je številka; pri datoteki CSV so {1}, {2}… njeni stolpci
