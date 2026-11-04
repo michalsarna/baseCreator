@@ -1038,3 +1038,7 @@
 1037|D'aimsigh an seiceáil {} fadhb, an chéad cheann i líne {}. Níor cuireadh tús leis an obair.
 1038|Malartaigh codanna geala agus dorcha na híomhá
 1039|Luchtaigh réamhshocrú
+1040|Superman
+1041|Batman
+1042|Joker (Dorcha)
+1043|Joker (Éadrom)

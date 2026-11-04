@@ -1038,3 +1038,7 @@
 1037|Iċ-ċekk sab {} problemi, l-ewwel fir-riga {}. Ix-xogħol ma nbediex.
 1038|Aqleb il-partijiet ċari u skuri tal-istampa
 1039|Tella' l-preset
+1040|Superman
+1041|Batman
+1042|Joker (Skur)
+1043|Joker (Ċar)

@@ -1038,3 +1038,7 @@
 1037|Pārbaude atrada {} problēmas, pirmo rindā {}. Darbs netika sākts.
 1038|Apmainīt attēla gaišās un tumšās daļas
 1039|Ielādēt sagatavi
+1040|Superman
+1041|Batman
+1042|Joker (Tumša)
+1043|Joker (Gaiša)

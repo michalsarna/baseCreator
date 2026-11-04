@@ -1038,3 +1038,7 @@
 1037|Kontrola našla {} problémů, první na řádku {}. Úloha nebyla spuštěna.
 1038|Prohodit světlé a tmavé části obrázku
 1039|Načíst předvolbu
+1040|Superman
+1041|Batman
+1042|Joker (Tmavé)
+1043|Joker (Světlé)

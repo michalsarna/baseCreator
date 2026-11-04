@@ -1038,3 +1038,7 @@
 1037|Kontrollen hittade {} problem, det första på rad {}. Jobbet startades inte.
 1038|Byt plats på bildens ljusa och mörka delar
 1039|Läs in förinställning
+1040|Superman
+1041|Batman
+1042|Joker (Mörkt)
+1043|Joker (Ljust)

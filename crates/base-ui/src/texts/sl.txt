@@ -1038,3 +1038,7 @@
 1037|Preverjanje je našlo {} težav, prvo v vrstici {}. Opravilo ni bilo zagnano.
 1038|Zamenjaj svetle in temne dele slike
 1039|Naloži prednastavitev
+1040|Superman
+1041|Batman
+1042|Joker (Temna)
+1043|Joker (Svetla)

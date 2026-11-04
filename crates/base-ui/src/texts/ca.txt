@@ -1038,3 +1038,7 @@
 1037|La comprovació ha trobat {} problemes, el primer a la línia {}. La tasca no s'ha iniciat.
 1038|Intercanvia les parts clares i fosques de la imatge
 1039|Carrega el predefinit
+1040|Superman
+1041|Batman
+1042|Joker (Fosc)
+1043|Joker (Clar)

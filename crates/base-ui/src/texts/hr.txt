@@ -1038,3 +1038,7 @@
 1037|Provjera je našla {} problema, prvi u retku {}. Zadatak nije pokrenut.
 1038|Zamijeni svijetle i tamne dijelove slike
 1039|Učitaj predložak
+1040|Superman
+1041|Batman
+1042|Joker (Tamna)
+1043|Joker (Svijetla)
