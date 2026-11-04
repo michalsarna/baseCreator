@@ -19,7 +19,7 @@ Pasek menu ma siedem menu: **Plik · Edycja · Wstawianie · Rozmieść · Widok
 | **Zapisz jako…** | Ctrl+Shift+S | Zapisuje go pod nową nazwą. |
 | **Ustawienia strony…** | | Rozmiar strony. Zobacz [Strona i warstwy](Strona-i-warstwy). |
 | **Importuj → …** | Ctrl+I dla SVG | Zobacz [Import i eksport](Import-i-eksport). **Generuj kształt…** uruchamia generatory wtyczek. |
-| **Eksport → …** | | Zobacz [Import i eksport](Import-i-eksport). |
+| **Eksportuj → …** | | Zobacz [Import i eksport](Import-i-eksport). |
 | **Zakończ** | Ctrl+Q | Zamyka program; najpierw pyta o każdy rysunek z niezapisaną pracą. |
 
 **Drukuj…** (Ctrl+P) drukuje projekt na drukarce papierowej albo zapisuje go jako PDF.

@@ -75,6 +75,7 @@ pub fn write(dest: &Path, title: &str, version: &str, settings: &[(&str, String)
          app.ron   the settings of {title}: device profiles, language, colour scheme, recent files and so on\n\
          clipart/  the picture gallery shared by LightCreator, MillCreator and PenCreator, with index.json\n\n\
          To restore, use Help > Restore from backup in {title}. The settings are replaced; the pictures are added to the gallery.\n\
+         Layer presets, in the programs that have them, are in app.ron too and come back only with Restore from backup.\n\
          By hand: close {title}, copy app.ron into apps/{program} and the clipart folder into clipart, both inside the\n\
          baseCreator data folder (macOS: ~/Library/Application Support/baseCreator, Windows: %APPDATA%\\baseCreator,\n\
          Linux: ~/.local/share/baseCreator).\n"

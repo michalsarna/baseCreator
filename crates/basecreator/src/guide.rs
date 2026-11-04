@@ -24,7 +24,7 @@ const PL: &[Section] = &[
         title: "Pierwsze kroki",
         lines: &[
             "Ekran startowy ma Nowy, Otwórz… i ostatnie pliki, a pod nimi język i schemat kolorów. Nie ma urządzenia do wybrania: Nowy zaczyna rysunek na stronie, a Plik > Ustawienia strony… (albo kliknięcie rozmiaru na pasku stanu) ustawiają jej rozmiar i kierunek.",
-            "Otwórz projekt .cre w LightCreatorze, MillCreatorze albo PenCreatorze, żeby przygotować go dla maszyny, albo zapisz go dla innych programów przez Plik > Eksport.",
+            "Otwórz projekt .cre w LightCreatorze, MillCreatorze albo PenCreatorze, żeby przygotować go dla maszyny, albo zapisz go dla innych programów przez Plik > Eksportuj.",
         ],
     },
     Section {

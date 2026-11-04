@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.67.1
+
+- **Polish names:** the Start screen says *Start* (it said *Początek*), and *Export* in the File menu is *Eksportuj*, like *Importuj*. `tool_check::check_polish_names` keeps Start, Export, Import and Opacity the same in every program.
+- For layer presets in the backups of LightCreator, MillCreator and PenCreator: `layer_presets_ui::backup_pair` and `Library::replace_text`. BaseCreator has no layer presets.
+
 ## v1.67.0
 
 - **One quick guide:** the sections on the window, drawing, import, the gallery, the machine and the keys are in `base_ui::guide`, in English and Polish, and every program adds its own sections around them. BaseCreator's guide now explains node editing, rounding corners, locked objects, text and the clipart gallery.
