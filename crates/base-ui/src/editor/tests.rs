@@ -13,13 +13,17 @@ struct Host {
     status: String,
     undo: Vec<Scene>,
     clip: ClipState,
+    calibration: Option<([base_core::geom::Pt; 4], f32)>,
+    cam: Option<base_core::camimg::CameraSource>,
+    changed: usize,
+    frames: u64,
 }
 
 impl Default for Host {
     fn default() -> Host {
         // Never touch the real user library in tests.
         let dir = std::env::temp_dir().join(format!("base-ui-clip-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
-        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN) }
+        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0 }
     }
 }
 
@@ -47,6 +51,23 @@ impl EditorHost for Host {
     }
     fn layer_visible(&self, layer: usize) -> bool {
         layer != 9
+    }
+    fn overlay_calibration(&self) -> Option<([base_core::geom::Pt; 4], f32)> {
+        self.calibration
+    }
+    fn overlay_changed(&mut self) {
+        self.changed += 1;
+    }
+    fn overlay_camera(&mut self) -> Option<&mut base_core::camimg::CameraSource> {
+        self.cam.as_mut()
+    }
+    fn live_camera(&mut self, _ctx: &egui::Context) -> Option<u64> {
+        self.frames += 1;
+        Some(self.frames)
+    }
+    fn background_camera_image(&self) -> Option<(egui::ColorImage, String)> {
+        self.cam.as_ref()?;
+        Some((egui::ColorImage::from_rgba_unmultiplied([4, 2], &[255u8; 32]), "cam".to_string()))
     }
     fn checkpoint(&mut self) {
         self.undo.push(self.scene.clone());
@@ -420,6 +441,35 @@ fn the_measure_window_reports_the_box_area_and_the_gap_of_two_shapes() {
     assert!(lines.contains("Area 200.000"), "{lines}");
     assert!(lines.contains("Gap between the boxes: 20.000"), "{lines}");
     assert!(lines.contains("Between the centres: 30.000"), "{lines}");
+}
+
+/// A program that keeps the corners with the device: LightCreator. Without kept corners it is the case of the other programs.
+#[test]
+fn the_corners_kept_for_the_device_are_used_for_a_new_picture_and_win_over_the_reference_points() {
+    use base_core::camimg::RefPoint;
+    use base_core::geom::Pt;
+    let ctx = egui::Context::default();
+    let img = || egui::ColorImage::from_rgba_unmultiplied([4, 2], &[255u8; 32]);
+    let kept = [Pt::new(1.0, 2.0), Pt::new(30.0, 2.0), Pt::new(30.0, 20.0), Pt::new(1.0, 20.0)];
+    let mut h = Host::default();
+    h.calibration = Some((kept, 0.25));
+    h.set_background(&ctx, img(), "photo");
+    let b = h.ed.background.as_ref().unwrap();
+    assert_eq!((b.corners, b.opacity), (kept, 0.25), "the corners and the opacity of the device");
+    // The live camera too, although the points would put the picture elsewhere.
+    h.ed.background = None;
+    let mut cam = base_core::camimg::CameraSource::url("cam", "http://x", 0);
+    cam.reference = (0..4).map(|i| RefPoint { px: ([0.0, 4.0, 4.0, 0.0][i], [0.0, 0.0, 2.0, 2.0][i]), mm: ([5.0, 9.0, 9.0, 5.0][i], [5.0, 5.0, 9.0, 9.0][i]) }).collect();
+    h.cam = Some(cam);
+    h.ed.background_live = true;
+    h.background_tick(&ctx);
+    assert_eq!(h.ed.background.as_ref().unwrap().corners, kept);
+    // Without kept corners the points do it.
+    h.calibration = None;
+    h.ed.background = None;
+    h.background_tick(&ctx);
+    assert!((h.ed.background.as_ref().unwrap().corners[2].x - 9.0).abs() < 1e-6);
+    assert_eq!(h.changed, 0, "a frame of the camera is not a change by hand");
 }
 
 #[test]
