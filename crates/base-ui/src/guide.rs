@@ -140,7 +140,7 @@ const PL: Shared = Shared {
         title: "Tekst, obrazy i import",
         lines: &[
             "Narzędzie tekstu: kliknij na obszarze roboczym i wpisz tekst na karcie Właściwości. Wybierz czcionkę, rozmiar, styl i odstępy; Zamień na krzywe robi z tekstu edytowalne kształty.",
-            "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF, DXF, projekty LightBurn i projekty UGS. Plik > Eksport zapisuje SVG i PLT / DXF. Obraz otwiera okno z obrotem, odbiciem, jasnością, kontrastem, gammą, automatycznymi poziomami, negatywem i rozmiarem; dostosowanie i trasowanie obrazu są później w menu Rozmieść. Obraz negatywowy jest też we Właściwościach zaznaczonego obrazu.",
+            "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF, DXF, projekty LightBurn i projekty UGS. Plik > Eksportuj zapisuje SVG i PLT / DXF. Obraz otwiera okno z obrotem, odbiciem, jasnością, kontrastem, gammą, automatycznymi poziomami, negatywem i rozmiarem; dostosowanie i trasowanie obrazu są później w menu Rozmieść. Obraz negatywowy jest też we Właściwościach zaznaczonego obrazu.",
             "Widok > Nakładka z… kładzie pod rysunkiem zdjęcie albo obraz na żywo z kamery, gdy urządzenie ją ma; przeciągnij jego cztery narożniki na materiał. Widok > Pokaż nakładkę z kamery pokazuje ją lub ukrywa. Jest zapisywana w projekcie.",
         ],
     },
@@ -148,7 +148,7 @@ const PL: Shared = Shared {
         title: "Tekst, obrazy i import",
         lines: &[
             "Narzędzie tekstu: kliknij na obszarze roboczym i wpisz tekst na karcie Właściwości. Wybierz czcionkę, rozmiar, styl i odstępy; Zamień na krzywe robi z tekstu edytowalne kształty.",
-            "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF, DXF, projekty LightBurn i projekty UGS. Plik > Eksport zapisuje SVG i PLT / DXF. Obraz otwiera okno z obrotem, odbiciem, jasnością, kontrastem, gammą, automatycznymi poziomami, negatywem i rozmiarem; dostosowanie i trasowanie obrazu są później w menu Rozmieść. Obraz negatywowy jest też we Właściwościach zaznaczonego obrazu.",
+            "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF, DXF, projekty LightBurn i projekty UGS. Plik > Eksportuj zapisuje SVG i PLT / DXF. Obraz otwiera okno z obrotem, odbiciem, jasnością, kontrastem, gammą, automatycznymi poziomami, negatywem i rozmiarem; dostosowanie i trasowanie obrazu są później w menu Rozmieść. Obraz negatywowy jest też we Właściwościach zaznaczonego obrazu.",
             "Widok > Obraz w tle… kładzie zdjęcie albo plan pod rysunkiem; przeciągnij jego cztery narożniki na narożniki strony. Jest zapisywany w projekcie.",
         ],
     },

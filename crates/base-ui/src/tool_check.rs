@@ -342,6 +342,14 @@ pub fn check_guide_paths<A>(sections: &[crate::dialogs::Section], menus: &Menus<
     assert!(wrong.is_empty(), "the guide names what the menus do not have: {wrong:#?}");
 }
 
+/// The same thing has one Polish name in every program. A program's own table is asked before the shared one, so a row of its own can
+/// give a name of its own; the buttons that start a job once said one thing here and another there.
+pub fn check_polish_names() {
+    for (en, pl) in [("Start", "Start"), ("Export", "Eksportuj"), ("Import", "Importuj"), ("Opacity", "Przezroczystość (krycie)")] {
+        assert_eq!(tr_in(Lang::Pl, en), pl, "the Polish name of {en}");
+    }
+}
+
 /// Can the fonts of the program draw every character in the string literals of the sources in `dir`? A character that no font has
 /// shows as an empty box; egui 0.37 no longer ships its symbols unless asked, so a symbol that worked before can turn into one.
 pub fn check_symbols(dir: &std::path::Path) {
@@ -400,6 +408,11 @@ fn chars_in_literals(line: &str) -> Vec<char> {
 
 #[cfg(test)]
 mod guide_path_tests {
+    #[test]
+    fn the_shared_table_has_the_polish_names() {
+        super::check_polish_names();
+    }
+
     #[test]
     fn the_fonts_draw_every_symbol_of_the_shared_code() {
         super::check_symbols(&std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src"));

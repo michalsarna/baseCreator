@@ -13,6 +13,8 @@ pub const MAX_PRESETS: usize = 60;
 const MAX_NAME: usize = 60;
 /// An exported file is never read when it is bigger than this (bytes).
 const MAX_FILE: u64 = 4_000_000;
+/// The key of the presets in the settings of a backup.
+pub const BACKUP_KEY: &str = "layer_presets";
 
 /// A preset: a name and the settings of a layer.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -99,11 +101,32 @@ impl<T: Serialize + DeserializeOwned + Clone> Library<T> {
         n
     }
 
+    /// Put the list of a backup in the place of this one and keep it in the file. Presets that are not valid are left out. A text
+    /// that is not a list at all changes nothing: `false`.
+    pub fn replace_text(&mut self, text: &str, valid: &dyn Fn(&T) -> bool) -> bool {
+        if serde_json::from_str::<Vec<Named<T>>>(text).is_err() {
+            return false;
+        }
+        self.items = parse(text, valid);
+        self.store();
+        true
+    }
+
     /// The indices of the presets whose name has `filter` in it (any case); all of them for an empty filter.
     pub fn matching(&self, filter: &str) -> Vec<usize> {
         let f = filter.trim().to_lowercase();
         (0..self.items.len()).filter(|i| f.is_empty() || self.items[*i].name.to_lowercase().contains(&f)).collect()
     }
+}
+
+/// The entry of the presets in the settings of a backup. It is not one of the settings saved with the program: the presets have their
+/// own file. `lib` is the list when it is open; otherwise it comes from `file_name`.
+pub fn backup_pair<T: Serialize + DeserializeOwned + Clone>(lib: Option<&Library<T>>, file_name: &str, valid: &dyn Fn(&T) -> bool) -> (&'static str, String) {
+    let text = match lib {
+        Some(l) => l.export_text(),
+        None => Library::load(file_name, valid).export_text(),
+    };
+    (BACKUP_KEY, text)
 }
 
 /// What a text holds: the valid presets with a name, at most [`MAX_PRESETS`].
@@ -261,6 +284,33 @@ mod tests {
 
     fn ok(s: &S) -> bool {
         s.depth >= 0.0
+    }
+
+    #[test]
+    fn a_backup_replaces_the_list_and_keeps_it_in_the_file() {
+        let dir = std::env::temp_dir().join(format!("presets-backup-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        let file = dir.join("p.json");
+        let mut old = Library::<S>::from_path(Some(file.clone()), &ok);
+        old.put("old", S { depth: 1.0 });
+        let mut from = Library::<S>::from_path(None, &ok);
+        from.put("kept", S { depth: 2.0 });
+        from.items.push(Named { name: "too deep".into(), layer: S { depth: -1.0 } });
+        let (key, text) = backup_pair(Some(&from), "not used", &ok);
+        assert_eq!(key, BACKUP_KEY);
+        assert!(old.replace_text(&text, &ok));
+        assert_eq!(old.items, vec![Named { name: "kept".to_string(), layer: S { depth: 2.0 } }]);
+        let again = Library::<S>::from_path(Some(file), &ok);
+        assert_eq!(again.items, old.items, "the file holds the list of the backup");
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn a_text_that_is_not_a_list_leaves_the_presets_alone() {
+        let mut l = Library::<S>::from_path(None, &ok);
+        l.put("mine", S { depth: 1.0 });
+        assert!(!l.replace_text("not a list", &ok));
+        assert_eq!(l.items.len(), 1);
     }
 
     fn lib() -> Library<S> {

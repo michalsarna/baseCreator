@@ -31,4 +31,4 @@ Rząd kolorów pod obszarem roboczym to 64 warstwy. Zaznacz kształty i kliknij 
 ## 6. Użyj rysunku
 
 * Otwórz `.cre` w LightCreatorze, MillCreatorze lub PenCreatorze, aby przygotować go dla maszyny. Zobacz [Plik projektu](Plik-projektu).
-* Albo zapisz go dla innych programów: **Plik → Eksport → Eksportuj SVG…** lub **Eksportuj PLT / DXF…**.
+* Albo zapisz go dla innych programów: **Plik → Eksportuj → Eksportuj SVG…** lub **Eksportuj PLT / DXF…**.
