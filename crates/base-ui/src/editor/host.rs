@@ -94,6 +94,23 @@ pub trait EditorHost: Sized {
     fn camera_error(&self) -> String {
         String::new()
     }
+    /// The corners and the opacity kept for the overlay of this device, for a new picture. They win over the reference points, which are
+    /// used only when *Align by the points* is pressed then. `None`: the corners of the work area, or the reference points of the camera.
+    fn overlay_calibration(&self) -> Option<([base_core::geom::Pt; 4], f32)> {
+        None
+    }
+    /// The picture changed by hand: moved, shown or hidden, replaced or removed; not when the next frame of a camera came.
+    fn overlay_changed(&mut self) {}
+    /// Is the window the one of a camera overlay, even when no camera with reference points is set up?
+    fn overlay_is_camera(&mut self) -> bool {
+        self.overlay_camera().is_some()
+    }
+    /// Can the camera be started now?
+    fn overlay_can_start_camera(&self) -> bool {
+        true
+    }
+    /// What the program adds to the window of a camera overlay: the choice of the camera.
+    fn overlay_camera_ui(&mut self, _ui: &mut egui::Ui) {}
 
     /// Drawn after the work area and its grid: markings of the machine, zones, home, the live position.
     fn paint_work_area(&mut self, _v: &CanvasView) {}

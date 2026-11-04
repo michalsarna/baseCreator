@@ -27,6 +27,14 @@ pub struct Background {
     pub image: std::sync::Arc<egui::ColorImage>,
 }
 
+impl Background {
+    /// The picture as a project file keeps it (`None`: it cannot be written).
+    pub fn data(&self) -> Option<OverlayData> {
+        let rgb: Vec<u8> = self.image.pixels.iter().flat_map(|c| [c.r(), c.g(), c.b()]).collect();
+        OverlayData::new(&self.name, self.corners, self.opacity as f64, self.visible, &rgb, self.size.0 as u32, self.size.1 as u32).ok()
+    }
+}
+
 /// The point of the quad `c` that the unit square point (`u`, `v`) goes to (a perspective transform).
 pub fn quad_map(c: &[Pt; 4], u: f64, v: f64) -> Pt {
     let (x0, y0, x1, y1, x2, y2, x3, y3) = (c[0].x, c[0].y, c[1].x, c[1].y, c[2].x, c[2].y, c[3].x, c[3].y);
@@ -57,10 +65,7 @@ pub fn read_picture(path: &std::path::Path) -> Result<egui::ColorImage, String> 
 /// The section of the picture in a project that is being saved. One that was read and not shown yet, and one of a newer format, stay as
 /// they are. Also for a tab that is not shown.
 pub fn background_section(background: &Option<Background>, pending: &Option<OverlayData>, p: &mut Project) {
-    if let Some(d) = background.as_ref().and_then(|b| {
-        let rgb: Vec<u8> = b.image.pixels.iter().flat_map(|c| [c.r(), c.g(), c.b()]).collect();
-        OverlayData::new(&b.name, b.corners, b.opacity as f64, b.visible, &rgb, b.size.0 as u32, b.size.1 as u32).ok()
-    }) {
+    if let Some(d) = background.as_ref().and_then(Background::data) {
         p.set_section(OVERLAY_SECTION, &d);
     } else if pending.is_none() && p.section::<OverlayData>(OVERLAY_SECTION).ok().flatten().is_some_and(|d| d.is_readable()) {
         p.remove_section(OVERLAY_SECTION);
@@ -68,8 +73,8 @@ pub fn background_section(background: &Option<Background>, pending: &Option<Over
 }
 
 pub trait EditorBackground: EditorHost {
-    /// Put a picture under the drawing, its corners on the work area (the corners the last picture had are kept when the picture
-    /// has the same size).
+    /// Put a picture under the drawing, its corners on the work area or where they were kept for the device (the corners the last
+    /// picture had are kept when the picture has the same size).
     fn set_background(&mut self, ctx: &egui::Context, img: egui::ColorImage, name: &str) {
         let (w, h) = self.work_size();
         let size = (img.width(), img.height());
@@ -81,9 +86,9 @@ pub trait EditorBackground: EditorHost {
             b.name = name.to_string();
             return;
         }
-        let corners = [Pt::new(0.0, 0.0), Pt::new(w, 0.0), Pt::new(w, h), Pt::new(0.0, h)];
+        let (corners, opacity) = self.overlay_calibration().unwrap_or(([Pt::new(0.0, 0.0), Pt::new(w, 0.0), Pt::new(w, h), Pt::new(0.0, h)], 0.6));
         let tex = ctx.load_texture("editor-background", image.clone(), egui::TextureOptions::LINEAR);
-        self.ed_mut().background = Some(Background { tex, size, corners, opacity: 0.6, name: name.to_string(), visible: true, edit: false, drag: None, image });
+        self.ed_mut().background = Some(Background { tex, size, corners, opacity, name: name.to_string(), visible: true, edit: false, drag: None, image });
     }
 
     /// Called every frame: the overlay of a project that was just opened, and the next picture of the camera.
@@ -111,7 +116,7 @@ pub trait EditorBackground: EditorHost {
         let (pw, ph) = (img.width() as f64, img.height() as f64);
         self.set_background(ctx, img, &name);
         // A camera that was aligned before needs no new alignment: its points are kept with the device.
-        if first {
+        if first && self.overlay_calibration().is_none() {
             let saved = self.overlay_camera().and_then(|c| camimg::homography(&c.reference)).and_then(|h| camimg::corners(&h, pw, ph));
             if let (Some(c), Some(b)) = (saved, self.ed_mut().background.as_mut()) {
                 b.corners = c;
@@ -151,7 +156,8 @@ pub trait EditorBackground: EditorHost {
         match read_picture(&p) {
             Ok(img) => {
                 self.set_background(ctx, img, &name);
-                self.say(trf("Background picture: {}", &[&name]));
+                let said = if self.overlay_is_camera() { trf("Overlay: {}", &[&name]) } else { trf("Background picture: {}", &[&name]) };
+                self.say(said);
             }
             Err(e) => self.say(trf("Could not read the picture: {}", &[&e])),
         }
@@ -219,6 +225,7 @@ pub trait EditorBackground: EditorHost {
             }
         } else if !resp.is_pointer_button_down_on() {
             self.ed_mut().background.as_mut().unwrap().drag = None;
+            self.overlay_changed();
         }
         true
     }
@@ -230,13 +237,16 @@ pub trait EditorBackground: EditorHost {
         }
         let mut open = true;
         let (mut load, mut fit, mut remove) = (false, false, false);
-        let has_cam = self.overlay_camera().is_some();
+        let has_cam = self.overlay_is_camera();
+        let can_start = self.overlay_can_start_camera();
         let cam_error = self.camera_error();
         let mut live = self.ed().background_live;
         let mut points = self.overlay_camera().map(|c| c.reference.clone());
         let before = points.clone();
         let title = if has_cam { tr("Camera overlay") } else { tr("Background picture") };
         let mut b = self.ed_mut().background.take();
+        let state = |b: &Option<Background>| b.as_ref().map(|b| (b.corners, b.opacity, b.visible));
+        let was = state(&b);
         popup(ctx, "background_window", &title, [400.0, 280.0], &mut open, |ui| {
             if has_cam {
                 ui.label(RichText::new(tr("Show a photo or the live camera under the design to position work on the material.")).color(theme::text_dim()));
@@ -249,13 +259,16 @@ pub trait EditorBackground: EditorHost {
                     if live {
                         live = !ui.button(tr("Freeze frame")).clicked();
                     } else {
-                        live = ui.button(tr("Start camera")).clicked();
+                        live = ui.add_enabled(can_start, egui::Button::new(tr("Start camera"))).clicked();
                     }
                 }
                 if b.is_some() {
                     remove = crate::window::delete_button(ui, &tr("Remove")).clicked();
                 }
             });
+            if has_cam {
+                self.overlay_camera_ui(ui);
+            }
             if !cam_error.is_empty() {
                 ui.label(RichText::new(&cam_error).color(Color32::from_rgb(0xc0, 0x30, 0x30)));
             }
@@ -321,6 +334,11 @@ pub trait EditorBackground: EditorHost {
                 });
             }
         });
+        // The handles go with the window that switches them.
+        if let Some(o) = b.as_mut().filter(|_| !open) {
+            o.edit = false;
+        }
+        let moved = state(&b) != was;
         self.ed_mut().background = b;
         self.ed_mut().background_live = live;
         if points != before {
@@ -340,6 +358,9 @@ pub trait EditorBackground: EditorHost {
             let ed = self.ed_mut();
             ed.background = None;
             ed.background_live = false;
+        }
+        if moved || load || fit || remove {
+            self.overlay_changed();
         }
         self.ed_mut().show_background = open;
     }

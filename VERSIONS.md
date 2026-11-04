@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.66.0
+
+- The window of the picture under the drawing closes its corner handles with it.
+- For LightCreator's move to the shared overlay: hooks for corners kept with the device (`overlay_calibration`, `overlay_changed`), for the choice of a camera in the window (`overlay_camera_ui`, `overlay_is_camera`, `overlay_can_start_camera`), and `Background::data`.
+
 ## v1.65.3
 
 - **Fix:** symbols that no font of the programs has showed as empty boxes: the delete, rename and confirm buttons of layer presets, the delete button of saved positions and of the rows of a CSV file, and the mark in front of the explanation of an alarm or error in the console. egui 0.37 ships its symbols only on request. They now use characters of the fonts and the icons of the programs.
