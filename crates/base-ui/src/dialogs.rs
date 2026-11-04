@@ -205,6 +205,7 @@ fn credits_list(ui: &mut egui::Ui, credits: &[Credit]) {
 }
 
 /// A part of the quick guide.
+#[derive(Clone, Copy)]
 pub struct Section {
     pub title: &'static str,
     pub lines: &'static [&'static str],

@@ -16,6 +16,7 @@ pub mod device_pages;
 pub mod doc_tabs;
 pub mod work_panes;
 pub mod dialogs;
+pub mod guide;
 pub mod duet;
 pub mod editor;
 pub mod firmware_ui;

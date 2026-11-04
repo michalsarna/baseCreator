@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.67.0
+
+- **One quick guide:** the sections on the window, drawing, import, the gallery, the machine and the keys are in `base_ui::guide`, in English and Polish, and every program adds its own sections around them. BaseCreator's guide now explains node editing, rounding corners, locked objects, text and the clipart gallery.
+
 ## v1.66.0
 
 - The window of the picture under the drawing closes its corner handles with it.
