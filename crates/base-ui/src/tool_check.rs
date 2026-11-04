@@ -350,7 +350,7 @@ pub fn check_polish_names() {
     }
     // Start is the same word in every language.
     for lang in Lang::ALL {
-        assert_eq!(tr_in(*lang, "Start"), "Start", "Start in {lang:?}");
+        assert_eq!(tr_in(lang, "Start"), "Start", "Start in {lang:?}");
     }
 }
 
