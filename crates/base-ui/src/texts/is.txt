@@ -785,7 +785,7 @@
 784|Staðir
 785|Heildarhorn
 786|Snúa afritunum
-787|Upphaf
+787|Start
 788|Halda innra byrði formsins
 789|Texti
 790|{n} er talan; með CSV-skrá eru {1}, {2}… dálkar hennar

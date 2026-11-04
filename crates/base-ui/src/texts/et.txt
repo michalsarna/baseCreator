@@ -785,7 +785,7 @@
 784|Kohad
 785|Koguurk
 786|Pööra koopiaid
-787|Algus
+787|Start
 788|Jäta kujundi sisemus
 789|Tekst
 790|{n} on number; CSV-failiga on {1}, {2}… selle veerud

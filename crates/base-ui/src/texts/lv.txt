@@ -785,7 +785,7 @@
 784|Vietas
 785|Kopējais leņķis
 786|Pagriezt kopijas
-787|Sākums
+787|Start
 788|Paturēt formas iekšpusi
 789|Teksts
 790|{n} ir numurs; ar CSV failu {1}, {2}… ir tā kolonnas

@@ -785,7 +785,7 @@
 784|Postijiet
 785|Angolu totali
 786|Dawwar il-kopji
-787|Bidu
+787|Start
 788|Żomm il-ġewwa tal-forma
 789|Test
 790|{n} huwa n-numru; b'fajl CSV {1}, {2}… huma l-kolonni tiegħu

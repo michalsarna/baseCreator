@@ -785,7 +785,7 @@
 784|Mjesta
 785|Ukupni kut
 786|Zakreni kopije
-787|Početak
+787|Start
 788|Zadrži unutrašnjost oblika
 789|Tekst
 790|{n} je broj; s CSV datotekom {1}, {2}… su njezini stupci

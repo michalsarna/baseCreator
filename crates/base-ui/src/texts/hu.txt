@@ -785,7 +785,7 @@
 784|Helyek
 785|Teljes szög
 786|Másolatok forgatása
-787|Kezdet
+787|Start
 788|A alakzat belsejének megtartása
 789|Szöveg
 790|{n} a szám; CSV-fájlnál {1}, {2}… az oszlopai

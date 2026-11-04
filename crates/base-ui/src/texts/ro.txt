@@ -785,7 +785,7 @@
 784|Locuri
 785|Unghi total
 786|Rotește copiile
-787|Început
+787|Start
 788|Păstrează interiorul formei
 789|Text
 790|{n} este numărul; cu un fișier CSV {1}, {2}… sunt coloanele lui

@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.67.2
+
+- **Start** is the word *Start* in every language, on the Start screen and in the text on a path.
+
 ## v1.67.1
 
 - **Polish names:** the Start screen says *Start* (it said *Początek*), and *Export* in the File menu is *Eksportuj*, like *Importuj*. `tool_check::check_polish_names` keeps Start, Export, Import and Opacity the same in every program.

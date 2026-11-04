@@ -785,7 +785,7 @@
 784|Áiteanna
 785|Iomlán uillinn
 786|Rothaigh na cóipeanna
-787|Tús
+787|Start
 788|Coinnigh taobh istigh an chrutha
 789|Téacs
 790|Is é {n} an uimhir; le comhad CSV is iad {1}, {2}… a cholúin
