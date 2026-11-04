@@ -35,7 +35,7 @@ An open-source drawing program written in Rust, with nothing of a machine: no de
 * **Import:** image, SVG, Adobe Illustrator / PDF, DXF, LightBurn project, UGS design, and what plugins read. **Export:** SVG, PLT, DXF.
 * **Project file:** `.cre`, shared with the three other programs; their sections stay in the file when you save here.
 * **Clipart:** 310 pictures shared with the other programs, with online search.
-* **Interface:** 30 languages and 14 colour schemes; around Christmas, the New Year, Halloween and Easter also a festive icon and two festive schemes.
+* **Interface:** 30 languages and 18 colour schemes; around Christmas, the New Year, Halloween and Easter also a festive icon and two festive schemes.
 
 Releases have the numbers of the tags of the repository, which is why the numbers differ from those of the other programs.
 
