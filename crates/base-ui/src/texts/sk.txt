@@ -1038,3 +1038,7 @@
 1037|Kontrola našla {} problémov, prvý na riadku {}. Úloha nebola spustená.
 1038|Vymeniť svetlé a tmavé časti obrázka
 1039|Načítať predvoľbu
+1040|Superman
+1041|Batman
+1042|Joker (Tmavá)
+1043|Joker (Svetlá)

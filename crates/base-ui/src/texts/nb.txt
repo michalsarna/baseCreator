@@ -1038,3 +1038,7 @@
 1037|Kontrollen fant {} problemer, det første i linje {}. Jobben ble ikke startet.
 1038|Bytt om de lyse og mørke delene av bildet
 1039|Last inn forhåndsinnstilling
+1040|Superman
+1041|Batman
+1042|Joker (Mørk)
+1043|Joker (Lys)

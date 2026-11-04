@@ -1038,3 +1038,7 @@
 1037|Kontroll leidis {} probleemi, esimene real {}. Tööd ei alustatud.
 1038|Vaheta pildi heledad ja tumedad osad
 1039|Laadi eelseade
+1040|Superman
+1041|Batman
+1042|Joker (Tume)
+1043|Joker (Hele)

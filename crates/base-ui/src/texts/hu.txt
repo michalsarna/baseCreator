@@ -1038,3 +1038,7 @@
 1037|Az ellenőrzés {} problémát talált, az elsőt a(z) {}. sorban. A munka nem indult el.
 1038|A kép világos és sötét részeinek felcserélése
 1039|Beállítás betöltése
+1040|Superman
+1041|Batman
+1042|Joker (Sötét)
+1043|Joker (Világos)

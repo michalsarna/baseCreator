@@ -1045,6 +1045,10 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["The check found {} problems, the first in line {}. The job was not started.", "Sprawdzanie znalazło {} problemów, pierwszy w wierszu {}. Zadania nie uruchomiono.", "Die Prüfung hat {} Probleme gefunden, das erste in Zeile {}. Der Auftrag wurde nicht gestartet.", "Il controllo ha trovato {} problemi, il primo alla riga {}. Il lavoro non è stato avviato.", "Tarkistus löysi {} ongelmaa, ensimmäisen riviltä {}. Työtä ei aloitettu.", "检查发现 {} 个问题，第一个在第 {} 行。作业未启动。", "जाँच में {} समस्याएँ मिलीं, पहली पंक्ति {} में। कार्य शुरू नहीं हुआ।"],
     ["Swap the light and the dark parts of the picture", "Zamień jasne i ciemne części obrazu", "Helle und dunkle Bereiche des Bildes tauschen", "Scambia le parti chiare e scure dell'immagine", "Vaihda kuvan vaaleat ja tummat osat keskenään", "互换图片的明暗部分", "चित्र के हल्के और गहरे हिस्सों को आपस में बदलें"],
     ["Load preset", "Wczytaj preset", "Vorlage laden", "Carica preset", "Lataa esiasetus", "载入预设", "प्रीसेट लोड करें"],
+    ["Superman", "Superman", "Superman", "Superman", "Superman", "超人", "सुपरमैन"],
+    ["Batman", "Batman", "Batman", "Batman", "Batman", "蝙蝠侠", "बैटमैन"],
+    ["Joker (Dark)", "Joker (Ciemny)", "Joker (Dunkel)", "Joker (Scuro)", "Joker (Tumma)", "小丑 (深色)", "जोकर (गहरा)"],
+    ["Joker (Light)", "Joker (Jasny)", "Joker (Hell)", "Joker (Chiaro)", "Joker (Vaalea)", "小丑 (浅色)", "जोकर (हल्का)"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

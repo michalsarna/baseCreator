@@ -1038,3 +1038,7 @@
 1037|La comprobación encontró {} problemas, el primero en la línea {}. El trabajo no se inició.
 1038|Intercambiar las partes claras y oscuras de la imagen
 1039|Cargar preajuste
+1040|Superman
+1041|Batman
+1042|Joker (Oscuro)
+1043|Joker (Claro)

@@ -1038,3 +1038,7 @@
 1037|Verificarea a găsit {} probleme, prima la linia {}. Lucrarea nu a fost pornită.
 1038|Schimbă între ele părțile luminoase și întunecate ale imaginii
 1039|Încarcă presetarea
+1040|Superman
+1041|Batman
+1042|Joker (Întunecat)
+1043|Joker (Luminos)

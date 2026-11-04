@@ -1038,3 +1038,7 @@
 1037|A verificação encontrou {} problemas, o primeiro na linha {}. O trabalho não foi iniciado.
 1038|Trocar as partes claras e escuras da imagem
 1039|Carregar predefinição
+1040|Superman
+1041|Batman
+1042|Joker (Escuro)
+1043|Joker (Claro)

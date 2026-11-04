@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.68.0
+
+- **New colour schemes:** Superman, Batman, and Joker in a dark and a light version, in the menu and on the start screen, 18 in all.
+
 ## v1.67.2
 
 - **Start** is the word *Start* in every language, on the Start screen and in the text on a path.

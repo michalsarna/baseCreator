@@ -33,17 +33,22 @@ pub enum Scheme {
     HalloweenLight,
     EasterDark,
     EasterLight,
+    Superman,
+    Batman,
+    JokerDark,
+    JokerLight,
 }
 
 impl Scheme {
-    pub const ALL: [Scheme; 14] = [Scheme::Dark, Scheme::LightDark, Scheme::MediumLight, Scheme::Light, Scheme::BlueDark, Scheme::BlueLight, Scheme::GreenDark, Scheme::GreenLight, Scheme::PurpleDark, Scheme::PurpleLight, Scheme::BrownDark, Scheme::BrownLight, Scheme::OrangeDark, Scheme::OrangeLight];
+    pub const ALL: [Scheme; 18] = [Scheme::Dark, Scheme::LightDark, Scheme::MediumLight, Scheme::Light, Scheme::BlueDark, Scheme::BlueLight, Scheme::GreenDark, Scheme::GreenLight, Scheme::PurpleDark, Scheme::PurpleLight, Scheme::BrownDark, Scheme::BrownLight, Scheme::OrangeDark, Scheme::OrangeLight, Scheme::Superman, Scheme::Batman, Scheme::JokerDark, Scheme::JokerLight];
 
     /// The schemes of the holidays: two for each, offered only around that holiday.
     pub const FESTIVE: [Scheme; 8] = [Scheme::ChristmasDark, Scheme::ChristmasLight, Scheme::NewYearDark, Scheme::NewYearLight, Scheme::HalloweenDark, Scheme::HalloweenLight, Scheme::EasterDark, Scheme::EasterLight];
     /// All of them; the position is the index of the palette.
-    const EVERY: [Scheme; 22] = [
+    const EVERY: [Scheme; 26] = [
         Scheme::Dark, Scheme::LightDark, Scheme::MediumLight, Scheme::Light, Scheme::BlueDark, Scheme::BlueLight, Scheme::GreenDark, Scheme::GreenLight, Scheme::PurpleDark, Scheme::PurpleLight, Scheme::BrownDark, Scheme::BrownLight, Scheme::OrangeDark, Scheme::OrangeLight,
         Scheme::ChristmasDark, Scheme::ChristmasLight, Scheme::NewYearDark, Scheme::NewYearLight, Scheme::HalloweenDark, Scheme::HalloweenLight, Scheme::EasterDark, Scheme::EasterLight,
+        Scheme::Superman, Scheme::Batman, Scheme::JokerDark, Scheme::JokerLight,
     ];
 
     /// The holiday of a festive scheme.
@@ -112,6 +117,10 @@ impl Scheme {
             Scheme::ChristmasLight => "Christmas (Light)",
             Scheme::NewYearDark => "New Year's Eve (Dark)",
             Scheme::NewYearLight => "New Year's Eve (Light)",
+            Scheme::Superman => "Superman",
+            Scheme::Batman => "Batman",
+            Scheme::JokerDark => "Joker (Dark)",
+            Scheme::JokerLight => "Joker (Light)",
             Scheme::HalloweenDark => "Halloween (Dark)",
             Scheme::HalloweenLight => "Halloween (Light)",
             Scheme::EasterDark => "Easter (Dark)",
@@ -138,6 +147,10 @@ impl Scheme {
             Scheme::ChristmasLight => "christmas-light",
             Scheme::NewYearDark => "new-year-dark",
             Scheme::NewYearLight => "new-year-light",
+            Scheme::Superman => "superman",
+            Scheme::Batman => "batman",
+            Scheme::JokerDark => "joker-dark",
+            Scheme::JokerLight => "joker-light",
             Scheme::HalloweenDark => "halloween-dark",
             Scheme::HalloweenLight => "halloween-light",
             Scheme::EasterDark => "easter-dark",
@@ -152,7 +165,7 @@ impl Scheme {
         Scheme::EVERY.into_iter().find(|x| x.id() == s)
     }
     pub fn is_dark(self) -> bool {
-        matches!(self, Scheme::Dark | Scheme::LightDark | Scheme::OrangeDark | Scheme::BrownDark | Scheme::PurpleDark | Scheme::GreenDark | Scheme::BlueDark | Scheme::ChristmasDark | Scheme::NewYearDark | Scheme::HalloweenDark | Scheme::EasterDark)
+        matches!(self, Scheme::Superman | Scheme::Batman | Scheme::JokerDark | Scheme::Dark | Scheme::LightDark | Scheme::OrangeDark | Scheme::BrownDark | Scheme::PurpleDark | Scheme::GreenDark | Scheme::BlueDark | Scheme::ChristmasDark | Scheme::NewYearDark | Scheme::HalloweenDark | Scheme::EasterDark)
     }
     fn index(self) -> u8 {
         Scheme::EVERY.iter().position(|x| *x == self).unwrap_or(3) as u8
@@ -178,6 +191,10 @@ impl Scheme {
             Scheme::ChristmasLight => CHRISTMAS_LIGHT,
             Scheme::NewYearDark => NEW_YEAR_DARK,
             Scheme::NewYearLight => NEW_YEAR_LIGHT,
+            Scheme::Superman => SUPERMAN,
+            Scheme::Batman => BATMAN,
+            Scheme::JokerDark => JOKER_DARK,
+            Scheme::JokerLight => JOKER_LIGHT,
             Scheme::HalloweenDark => HALLOWEEN_DARK,
             Scheme::HalloweenLight => HALLOWEEN_LIGHT,
             Scheme::EasterDark => EASTER_DARK,
@@ -348,6 +365,62 @@ const HALLOWEEN_LIGHT: Palette = Palette {
     widget_hover: rgb(0xd9, 0xcc, 0xe5),
     widget_hover_weak: rgb(0xdf, 0xd3, 0xea),
     input: rgb(0xff, 0xfc, 0xff),
+};
+const SUPERMAN: Palette = Palette {
+    accent: rgb(0xd8, 0x23, 0x2a),
+    panel: rgb(0x12, 0x29, 0x5a),
+    panel_dark: rgb(0x0d, 0x1f, 0x48),
+    border: rgb(0x27, 0x45, 0x7f),
+    workspace: rgb(0x08, 0x15, 0x34),
+    text: rgb(0xf3, 0xf5, 0xfb),
+    text_dim: rgb(0xa9, 0xb9, 0xd8),
+    widget: rgb(0x1c, 0x38, 0x70),
+    widget_weak: rgb(0x18, 0x32, 0x65),
+    widget_hover: rgb(0x28, 0x48, 0x7f),
+    widget_hover_weak: rgb(0x23, 0x42, 0x78),
+    input: rgb(0x0a, 0x1a, 0x3e),
+};
+const BATMAN: Palette = Palette {
+    accent: rgb(0xd4, 0xa9, 0x0f),
+    panel: rgb(0x1d, 0x1e, 0x21),
+    panel_dark: rgb(0x15, 0x16, 0x18),
+    border: rgb(0x35, 0x36, 0x3b),
+    workspace: rgb(0x0d, 0x0d, 0x0f),
+    text: rgb(0xec, 0xeb, 0xe4),
+    text_dim: rgb(0x98, 0x96, 0x8a),
+    widget: rgb(0x2b, 0x2c, 0x30),
+    widget_weak: rgb(0x25, 0x26, 0x2a),
+    widget_hover: rgb(0x3a, 0x3b, 0x40),
+    widget_hover_weak: rgb(0x33, 0x34, 0x38),
+    input: rgb(0x11, 0x12, 0x14),
+};
+const JOKER_DARK: Palette = Palette {
+    accent: rgb(0x3f, 0xa8, 0x4b),
+    panel: rgb(0x2b, 0x17, 0x40),
+    panel_dark: rgb(0x21, 0x10, 0x2f),
+    border: rgb(0x47, 0x29, 0x5f),
+    workspace: rgb(0x17, 0x0a, 0x22),
+    text: rgb(0xf1, 0xec, 0xf7),
+    text_dim: rgb(0xab, 0x9b, 0xbd),
+    widget: rgb(0x3a, 0x22, 0x52),
+    widget_weak: rgb(0x33, 0x1d, 0x49),
+    widget_hover: rgb(0x4a, 0x2e, 0x66),
+    widget_hover_weak: rgb(0x42, 0x28, 0x5c),
+    input: rgb(0x1a, 0x0d, 0x27),
+};
+const JOKER_LIGHT: Palette = Palette {
+    accent: rgb(0x2e, 0x8b, 0x3a),
+    panel: rgb(0xef, 0xe6, 0xf7),
+    panel_dark: rgb(0xe3, 0xd6, 0xef),
+    border: rgb(0xcd, 0xbb, 0xdd),
+    workspace: rgb(0xd8, 0xc9, 0xe6),
+    text: rgb(0x2b, 0x17, 0x3d),
+    text_dim: rgb(0x74, 0x60, 0x8a),
+    widget: rgb(0xe4, 0xd8, 0xee),
+    widget_weak: rgb(0xeb, 0xe1, 0xf3),
+    widget_hover: rgb(0xd8, 0xc9, 0xe6),
+    widget_hover_weak: rgb(0xdf, 0xd2, 0xea),
+    input: rgb(0xfd, 0xfa, 0xff),
 };
 const EASTER_DARK: Palette = Palette {
     accent: rgb(0x5f, 0xc0, 0x8a),

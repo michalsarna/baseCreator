@@ -1038,3 +1038,7 @@
 1037	The check found {} problems, the first in line {}. The job was not started.
 1038	Swap the light and the dark parts of the picture
 1039	Load preset
+1040	Superman
+1041	Batman
+1042	Joker (Dark)
+1043	Joker (Light)
