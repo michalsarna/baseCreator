@@ -358,7 +358,7 @@ impl ControlDevicesUi {
                     ui.set_width(210.0);
                     self.device_list(ui);
                 });
-                ui.separator();
+                ui.add_space(10.0);
                 ui.vertical(|ui| self.keys_of_device(ui, actions));
             });
             ui.separator();
