@@ -136,7 +136,7 @@ mod tests {
 /// test, the turn, the picture and the lens. The camera to test goes to `test`.
 pub fn camera_page(ui: &mut egui::Ui, cameras: &mut Vec<CameraSource>, active: &mut usize, test: &mut Option<CameraSource>) {
     use crate::i18n::{tr, trf};
-    use egui::{Color32, RichText};
+    use egui::RichText;
     ui.label(RichText::new(tr("Cameras that watch the machine. The one that is ticked gives the live picture; ticking another switches the first off.")).color(crate::theme::text_dim()));
     let mut remove = None;
     let mut toggle: Option<(usize, bool)> = None;
