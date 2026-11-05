@@ -213,6 +213,20 @@ pub enum StdAct {
 
 use Entry::{Item, Sep};
 
+/// Copy and Paste of the menu while the cursor stands in a text field are for the field, not for the shapes of the drawing: the system is
+/// asked to do them as it does for the keys. The answer says the command is taken.
+pub fn goes_to_text_field(ctx: &egui::Context, a: StdAct) -> bool {
+    if !ctx.egui_wants_keyboard_input() {
+        return false;
+    }
+    match a {
+        StdAct::Copy => ctx.send_viewport_cmd(egui::ViewportCommand::RequestCopy),
+        StdAct::Paste => ctx.send_viewport_cmd(egui::ViewportCommand::RequestPaste),
+        _ => return false,
+    }
+    true
+}
+
 impl StdAct {
     /// Carry the command out on an editor.
     pub fn run<H: EditorHost>(self, h: &mut H) {
