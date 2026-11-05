@@ -1100,3 +1100,4 @@
 1099|A macOS blokkolhatja ezt a programot: engedélyezze a Rendszerbeállítások, Adatvédelem és biztonság, Helyi hálózat menüben.
 1100|A gép élő képe: MJPEG-adatfolyam, JPEG-pillanatkép címe (http vagy https), vagy az ffmpeg által olvasott adatfolyam (rtsp, udp, rtp, rtmp).
 1101|Az objektív torzításának együtthatói (radiális k1–k3, tangenciális p1, p2) a középponttól mért koordinátákra, a kép hosszabb oldalának egységeiben. Mind 0 = nincs korrekció. Kézzel adandók meg: nincs automatikus kalibrálás.
+1102|Adja meg a kamera címét, vagy törölje a kamerát.

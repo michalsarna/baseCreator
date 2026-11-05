@@ -1100,3 +1100,4 @@
 1099|macOS jista' jkun qed jimblokka dan il-programm: ħallih f'System Settings, Privacy & Security, Local Network.
 1100|Xbieha ħajja tal-magna: fluss MJPEG, indirizz ta' snapshot JPEG (http jew https), jew fluss li jaqra ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Koeffiċjenti tad-distorsjoni tal-lenti (radjali k1–k3, tanġenzjali p1, p2) għal koordinati mil-ċentru f'unitajiet tal-iktar ġenb twil tax-xbieha. Kollha 0 = l-ebda korrezzjoni. Jiddaħħlu bl-idejn: m'hemmx kalibrazzjoni awtomatika.
+1102|Daħħal l-indirizz tal-kamera, jew ħassar il-kamera.

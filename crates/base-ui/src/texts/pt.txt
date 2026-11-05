@@ -1100,3 +1100,4 @@
 1099|O macOS pode estar a bloquear este programa: permita-o em Definições do Sistema, Privacidade e Segurança, Rede local.
 1100|Imagem em direto da máquina: um fluxo MJPEG, o endereço de um instantâneo JPEG (http ou https) ou um fluxo lido pelo ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Coeficientes da distorção da lente (radial k1–k3, tangencial p1, p2) para coordenadas medidas a partir do centro em unidades do lado maior da imagem. Todos 0 = sem correção. Introduzidos à mão: não há calibração automática.
+1102|Introduza o endereço da câmara ou elimine a câmara.

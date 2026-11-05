@@ -1100,3 +1100,4 @@
 1099|macOS gali blokuoti šią programą: leiskite ją Sistemos nuostatose, Privatumas ir sauga, Vietinis tinklas.
 1100|Staklių vaizdas tiesiogiai: MJPEG srautas, JPEG momentinės nuotraukos adresas (http arba https) arba srautas, kurį skaito ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Objektyvo iškraipymo koeficientai (radialiniai k1–k3, tangentiniai p1, p2) koordinatėms nuo centro vaizdo ilgesniosios kraštinės vienetais. Visi 0 = be pataisos. Įvedama ranka: automatinio kalibravimo nėra.
+1102|Įveskite kameros adresą arba ištrinkite kamerą.

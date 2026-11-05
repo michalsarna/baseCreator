@@ -1100,3 +1100,4 @@
 1099|macOS võib selle programmi blokeerida: lubage see jaotises Süsteemiseaded, Privaatsus ja turvalisus, Kohalik võrk.
 1100|Masina otsepilt: MJPEG-voog, JPEG-hetktõmmise aadress (http või https) või voog, mida ffmpeg loeb (rtsp, udp, rtp, rtmp).
 1101|Objektiivi moonutuse koefitsiendid (radiaalne k1–k3, tangentsiaalne p1, p2) keskpunktist mõõdetud koordinaatidele pildi pikema külje ühikutes. Kõik 0 = korrektuuri pole. Sisestatakse käsitsi: automaatset kalibreerimist pole.
+1102|Sisestage kaamera aadress või kustutage kaamera.

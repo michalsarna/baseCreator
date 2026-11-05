@@ -1100,3 +1100,4 @@
 1099|macOS kan blockera det här programmet: tillåt det i Systeminställningar, Integritet och säkerhet, Lokalt nätverk.
 1100|Livebild av maskinen: en MJPEG-ström, en adress till en JPEG-bild (http eller https) eller en ström som ffmpeg läser (rtsp, udp, rtp, rtmp).
 1101|Koefficienter för linsdistorsionen (radiell k1–k3, tangentiell p1, p2) för koordinater mätta från mitten i enheter av bildens längsta sida. Alla 0 = ingen korrigering. Anges för hand: det finns ingen automatisk kalibrering.
+1102|Ange kamerans adress eller ta bort kameran.

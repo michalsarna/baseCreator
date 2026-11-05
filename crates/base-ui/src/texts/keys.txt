@@ -1100,3 +1100,4 @@
 1099	macOS may be blocking this program: allow it in System Settings, Privacy & Security, Local Network.
 1100	Live picture of the machine: an MJPEG stream, a JPEG snapshot address (http or https), or a stream that ffmpeg reads (rtsp, udp, rtp, rtmp).
 1101	Coefficients of the lens distortion (radial k1–k3, tangential p1, p2) for coordinates measured from the centre in units of the longer side of the picture. All 0 = no correction. Entered by hand: there is no automatic calibration.
+1102	Enter the address of the camera, or delete the camera.

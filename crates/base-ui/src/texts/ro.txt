@@ -1100,3 +1100,4 @@
 1099|macOS poate bloca acest program: permiteți-l în Configurări sistem, Confidențialitate și securitate, Rețea locală.
 1100|Imagine live a mașinii: un flux MJPEG, adresa unui instantaneu JPEG (http sau https) sau un flux citit de ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Coeficienți ai distorsiunii obiectivului (radială k1–k3, tangențială p1, p2) pentru coordonate măsurate de la centru în unități ale laturii mai lungi a imaginii. Toți 0 = fără corecție. Se introduc manual: nu există calibrare automată.
+1102|Introduceți adresa camerei sau ștergeți camera.

@@ -1100,3 +1100,4 @@
 1099|macOS možda blokira ovaj program: dopustite ga u Postavke sustava, Privatnost i sigurnost, Lokalna mreža.
 1100|Slika uživo sa stroja: MJPEG tok, adresa JPEG snimke (http ili https) ili tok koji čita ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Koeficijenti izobličenja leće (radijalni k1–k3, tangencijalni p1, p2) za koordinate od središta u jedinicama duže stranice slike. Svi 0 = bez korekcije. Unose se ručno: nema automatske kalibracije.
+1102|Unesite adresu kamere ili izbrišite kameru.

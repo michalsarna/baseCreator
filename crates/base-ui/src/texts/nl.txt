@@ -1100,3 +1100,4 @@
 1099|macOS blokkeert dit programma mogelijk: sta het toe in Systeeminstellingen, Privacy en beveiliging, Lokaal netwerk.
 1100|Live beeld van de machine: een MJPEG-stream, het adres van een JPEG-momentopname (http of https) of een stream die ffmpeg leest (rtsp, udp, rtp, rtmp).
 1101|Coëfficiënten van de lensvervorming (radiaal k1–k3, tangentieel p1, p2) voor coördinaten gemeten vanuit het midden in eenheden van de langste zijde van het beeld. Alle 0 = geen correctie. Met de hand ingevoerd: er is geen automatische kalibratie.
+1102|Voer het adres van de camera in of verwijder de camera.

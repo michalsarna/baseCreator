@@ -1100,3 +1100,4 @@
 1099|macOS, iespējams, bloķē šo programmu: atļaujiet to sadaļā Sistēmas iestatījumi, Privātums un drošība, Lokālais tīkls.
 1100|Iekārtas tiešraides attēls: MJPEG straume, JPEG momentuzņēmuma adrese (http vai https) vai straume, ko lasa ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Objektīva kropļojuma koeficienti (radiālie k1–k3, tangenciālie p1, p2) koordinātēm no centra attēla garākās malas vienībās. Visi 0 = bez korekcijas. Ievada ar roku: automātiskas kalibrēšanas nav.
+1102|Ievadiet kameras adresi vai izdzēsiet kameru.

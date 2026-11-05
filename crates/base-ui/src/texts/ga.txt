@@ -1100,3 +1100,4 @@
 1099|D'fhéadfadh macOS an clár seo a bhlocáil: ceadaigh é in System Settings, Privacy & Security, Local Network.
 1100|Pictiúr beo den inneall: sruth MJPEG, seoladh seat JPEG (http nó https), nó sruth a léann ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Comhéifeachtaí díchumtha an lionsa (gathach k1–k3, tadhlaíoch p1, p2) do chomhordanáidí ón lár in aonaid de thaobh is faide an phictiúir. Gach 0 = gan ceartú. Cuirtear isteach de láimh iad: níl calabrú uathoibríoch ann.
+1102|Cuir isteach seoladh an cheamara, nó scrios an ceamara.
