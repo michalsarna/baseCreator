@@ -1070,3 +1070,33 @@
 1069|Slabý paprsek při držení
 1070|Pero nahoru
 1071|Pero dolů
+1072|Dostupné v systému
+1073|Nakonfigurované
+1074|Výchozí zařízení
+1075|Přidat kameru
+1076|Adresa
+1077|Auto
+1078|Název kamery
+1079|Číslo kamery
+1080|Kamera tohoto počítače
+1081|Otočení kamery
+1082|Test kamery: {}
+1083|Kamera {}
+1084|Kamery sledující stroj. Zaškrtnutá dává živý obraz; zaškrtnutí jiné vypne první.
+1085|Smazat tuto kameru
+1086|Pro kameru tohoto počítače: požádat o nekomprimovaný formát YUYV, pokud to systém dovolí.
+1087|Formát
+1088|Korekce objektivu
+1089|Potlačení šumu
+1090|Není to adresa kamery (http, https, rtsp, udp, rtp nebo rtmp).
+1091|Otevře obraz této kamery s nastavením zde, bez uložení
+1092|Obraz
+1093|Upřednostnit YUYV
+1094|Chyba proudu: {}
+1095|Zapnout tuto kameru: dává živý obraz
+1096|Testovat
+1097|Čekání na obraz…
+1098|Vyvážení bílé
+1099|macOS možná blokuje tento program: povolte ho v Nastavení systému, Soukromí a zabezpečení, Místní síť.
+1100|Živý obraz ze stroje: proud MJPEG, adresa snímku JPEG (http nebo https) nebo proud, který čte ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Koeficienty zkreslení objektivu (radiální k1–k3, tangenciální p1, p2) pro souřadnice od středu v jednotkách delší strany obrazu. Všechny 0 = bez korekce. Zadávají se ručně: automatická kalibrace neexistuje.

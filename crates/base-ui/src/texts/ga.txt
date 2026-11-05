@@ -1070,3 +1070,33 @@
 1069|Léas lag fad a choinnítear
 1070|Peann suas
 1071|Peann síos
+1072|Ar fáil sa chóras
+1073|Cumraithe
+1074|Gléas réamhshocraithe
+1075|Cuir ceamara leis
+1076|Seoladh
+1077|Uath
+1078|Ainm an cheamara
+1079|Uimhir an cheamara
+1080|Ceamara an ríomhaire seo
+1081|Rothlú an cheamara
+1082|Tástáil ceamara: {}
+1083|Ceamara {}
+1084|Ceamaraí a choimeádann súil ar an meaisín. Tugann an ceann ticeáilte an pictiúr beo; múchann ticeáil ceann eile an chéad cheann.
+1085|Scrios an ceamara seo
+1086|Do cheamara den ríomhaire seo: iarr an fhormáid YUYV neamhchomhbhrúite nuair a cheadaíonn an córas.
+1087|Formáid
+1088|Ceartú lionsa
+1089|Laghdú torainn
+1090|Ní seoladh ceamara é (http, https, rtsp, udp, rtp nó rtmp).
+1091|Osclaíonn sé pictiúr an cheamara seo leis na socruithe anseo, gan sábháil
+1092|Pictiúr
+1093|Roghnaigh YUYV
+1094|Earráid sreabha: {}
+1095|Cuir an ceamara seo air: tugann sé an pictiúr beo
+1096|Tástáil
+1097|Ag fanacht leis an íomhá…
+1098|Cothromaíocht bhán
+1099|D'fhéadfadh macOS an clár seo a bhlocáil: ceadaigh é in System Settings, Privacy & Security, Local Network.
+1100|Pictiúr beo den inneall: sruth MJPEG, seoladh seat JPEG (http nó https), nó sruth a léann ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Comhéifeachtaí díchumtha an lionsa (gathach k1–k3, tadhlaíoch p1, p2) do chomhordanáidí ón lár in aonaid de thaobh is faide an phictiúir. Gach 0 = gan ceartú. Cuirtear isteach de láimh iad: níl calabrú uathoibríoch ann.

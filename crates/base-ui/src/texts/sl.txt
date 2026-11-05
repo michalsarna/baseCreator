@@ -1070,3 +1070,33 @@
 1069|Šibek žarek med držanjem
 1070|Pero gor
 1071|Pero dol
+1072|Na voljo v sistemu
+1073|Nastavljeno
+1074|Privzeta naprava
+1075|Dodaj kamero
+1076|Naslov
+1077|Samodejno
+1078|Ime kamere
+1079|Številka kamere
+1080|Kamera tega računalnika
+1081|Vrtenje kamere
+1082|Preizkus kamere: {}
+1083|Kamera {}
+1084|Kamere, ki nadzirajo stroj. Označena daje sliko v živo; označitev druge izklopi prvo.
+1085|Izbriši to kamero
+1086|Za kamero tega računalnika: zahtevaj nestisnjeno obliko YUYV, če sistem dovoljuje.
+1087|Oblika
+1088|Popravek leče
+1089|Zmanjšanje šuma
+1090|To ni naslov kamere (http, https, rtsp, udp, rtp ali rtmp).
+1091|Odpre sliko te kamere z nastavitvami tukaj, brez shranjevanja
+1092|Slika
+1093|Raje YUYV
+1094|Napaka toka: {}
+1095|Vklopi to kamero: daje sliko v živo
+1096|Preizkusi
+1097|Čakanje na sliko…
+1098|Ravnovesje beline
+1099|macOS morda blokira ta program: dovolite ga v Sistemske nastavitve, Zasebnost in varnost, Lokalno omrežje.
+1100|Slika stroja v živo: tok MJPEG, naslov posnetka JPEG (http ali https) ali tok, ki ga bere ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Koeficienti popačenja leče (radialni k1–k3, tangencialni p1, p2) za koordinate od središča v enotah daljše stranice slike. Vsi 0 = brez popravka. Vnesejo se ročno: samodejne kalibracije ni.

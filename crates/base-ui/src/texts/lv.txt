@@ -1070,3 +1070,33 @@
 1069|Vājš stars, kamēr nospiests
 1070|Pildspalva augšā
 1071|Pildspalva lejā
+1072|Pieejamas sistēmā
+1073|Konfigurētas
+1074|Noklusējuma ierīce
+1075|Pievienot kameru
+1076|Adrese
+1077|Auto
+1078|Kameras nosaukums
+1079|Kameras numurs
+1080|Šī datora kamera
+1081|Kameras pagriešana
+1082|Kameras tests: {}
+1083|Kamera {}
+1084|Kameras, kas vēro iekārtu. Atzīmētā dod tiešraides attēlu; atzīmējot citu, pirmā tiek izslēgta.
+1085|Dzēst šo kameru
+1086|Šī datora kamerai: pieprasīt nesaspiesto YUYV formātu, ja sistēma atļauj.
+1087|Formāts
+1088|Objektīva korekcija
+1089|Trokšņu samazināšana
+1090|Nav kameras adrese (http, https, rtsp, udp, rtp vai rtmp).
+1091|Atver šīs kameras attēlu ar šeit norādītajiem iestatījumiem, nesaglabājot
+1092|Attēls
+1093|Dot priekšroku YUYV
+1094|Straumes kļūda: {}
+1095|Ieslēgt šo kameru: tā dod tiešraides attēlu
+1096|Pārbaudīt
+1097|Gaida attēlu…
+1098|Baltā balanss
+1099|macOS, iespējams, bloķē šo programmu: atļaujiet to sadaļā Sistēmas iestatījumi, Privātums un drošība, Lokālais tīkls.
+1100|Iekārtas tiešraides attēls: MJPEG straume, JPEG momentuzņēmuma adrese (http vai https) vai straume, ko lasa ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Objektīva kropļojuma koeficienti (radiālie k1–k3, tangenciālie p1, p2) koordinātēm no centra attēla garākās malas vienībās. Visi 0 = bez korekcijas. Ievada ar roku: automātiskas kalibrēšanas nav.

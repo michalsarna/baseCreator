@@ -1070,3 +1070,33 @@
 1069|Svak stråle mens den holdes
 1070|Penn opp
 1071|Penn ned
+1072|Tilgjengelige i systemet
+1073|Konfigurerte
+1074|Standardenhet
+1075|Legg til et kamera
+1076|Adresse
+1077|Auto
+1078|Kameranavn
+1079|Kameranummer
+1080|Kamera på denne datamaskinen
+1081|Kameraets rotasjon
+1082|Kameratest: {}
+1083|Kamera {}
+1084|Kameraer som overvåker maskinen. Det avkryssede gir live-bildet; å krysse av et annet slår det første av.
+1085|Slett dette kameraet
+1086|For et kamera på denne datamaskinen: be om det ukomprimerte YUYV-formatet der systemet tillater det.
+1087|Format
+1088|Linsekorreksjon
+1089|Støyreduksjon
+1090|Ikke en kameraadresse (http, https, rtsp, udp, rtp eller rtmp).
+1091|Åpner bildet fra dette kameraet med innstillingene her, uten å lagre
+1092|Bilde
+1093|Foretrekk YUYV
+1094|Strømfeil: {}
+1095|Slå på dette kameraet: det gir live-bildet
+1096|Test
+1097|Venter på bildet…
+1098|Hvitbalanse
+1099|macOS blokkerer kanskje dette programmet: tillat det i Systeminnstillinger, Personvern og sikkerhet, Lokalt nettverk.
+1100|Direktebilde av maskinen: en MJPEG-strøm, en adresse til et JPEG-bilde (http eller https) eller en strøm som ffmpeg leser (rtsp, udp, rtp, rtmp).
+1101|Koeffisienter for linseforvrengning (radiell k1–k3, tangentiell p1, p2) for koordinater målt fra midten i enheter av bildets lengste side. Alle 0 = ingen korreksjon. Legges inn for hånd: det finnes ingen automatisk kalibrering.

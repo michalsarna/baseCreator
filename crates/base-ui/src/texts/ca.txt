@@ -1070,3 +1070,33 @@
 1069|Feix feble mentre es prem
 1070|Llapis amunt
 1071|Llapis avall
+1072|Disponibles al sistema
+1073|Configurats
+1074|Dispositiu predeterminat
+1075|Afegeix una càmera
+1076|Adreça
+1077|Auto
+1078|Nom de la càmera
+1079|Número de la càmera
+1080|Càmera d'aquest ordinador
+1081|Rotació de la càmera
+1082|Prova de la càmera: {}
+1083|Càmera {}
+1084|Càmeres que vigilen la màquina. La marcada dona la imatge en directe; marcar-ne una altra apaga la primera.
+1085|Elimina aquesta càmera
+1086|Per a una càmera d'aquest ordinador: demana el format YUYV sense comprimir si el sistema ho permet.
+1087|Format
+1088|Correcció de la lent
+1089|Reducció de soroll
+1090|No és una adreça de càmera (http, https, rtsp, udp, rtp o rtmp).
+1091|Obre la imatge d'aquesta càmera amb els valors indicats aquí, sense desar
+1092|Imatge
+1093|Prefereix YUYV
+1094|Error del flux: {}
+1095|Activa aquesta càmera: dona la imatge en directe
+1096|Prova
+1097|S'espera la imatge…
+1098|Balanç de blancs
+1099|macOS pot estar bloquejant aquest programa: permeteu-ho a Configuració del Sistema, Privacitat i seguretat, Xarxa local.
+1100|Imatge en directe de la màquina: un flux MJPEG, l'adreça d'una instantània JPEG (http o https) o un flux que llegeix ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Coeficients de la distorsió de la lent (radial k1–k3, tangencial p1, p2) per a coordenades mesurades des del centre en unitats del costat més llarg de la imatge. Tots 0 = sense correcció. S'introdueixen a mà: no hi ha calibratge automàtic.

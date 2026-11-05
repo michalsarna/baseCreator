@@ -25,6 +25,16 @@ impl Target {
     }
 }
 
+/// What the system says when it cannot reach an address, with what to do about the case that looks like a broken network and is not:
+/// macOS refuses a program the local network until it is allowed in the settings, and a newly built program has to be allowed again.
+pub fn explain_net_error(msg: &str) -> String {
+    if cfg!(target_os = "macos") && msg.contains("os error 65") {
+        format!("{msg}. {}", crate::i18n::tr("macOS may be blocking this program: allow it in System Settings, Privacy & Security, Local Network."))
+    } else {
+        msg.to_string()
+    }
+}
+
 /// A byte stream to the controller: a serial port or a TCP socket.
 trait Link: Read + Write + Send {}
 impl<T: Read + Write + Send> Link for T {}
@@ -44,7 +54,7 @@ fn open_link(t: &Target) -> Result<(Box<dyn Link>, bool), String> {
                         let _ = s.set_write_timeout(Some(Duration::from_secs(3)));
                         return Ok((Box::new(s), true));
                     }
-                    Err(e) => last = e.to_string(),
+                    Err(e) => last = explain_net_error(&e.to_string()),
                 }
             }
             Err(last)

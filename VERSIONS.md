@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.69.3
+
+- The window of the control devices has two lists, what is available in the system and what is configured, with arrows between them, and a choice of the default device with *No default device*. A device taken off the list keeps its keys in case it comes back.
+- **One page of the cameras** of a device and one test window (`camera_feed::camera_page`, `CamTest`), which LightCreator had to itself.
+- **Messages can be copied:** `widgets::message`, selectable and with Copy on the right button.
+- **macOS:** a connection or a camera on the local network that the system refuses now says where to allow the program.
+
 ## v1.69.2
 
 - The window of the control devices fits on the screen.
