@@ -1073,3 +1073,30 @@
 1072	Available in the system
 1073	Configured
 1074	Default device
+1075	Add a camera
+1076	Address
+1077	Auto
+1078	Camera name
+1079	Camera number
+1080	Camera of this computer
+1081	Camera rotation
+1082	Camera test: {}
+1083	Camera {}
+1084	Cameras that watch the machine. The one that is ticked gives the live picture; ticking another switches the first off.
+1085	Delete this camera
+1086	For a camera of this computer: ask for the uncompressed YUYV format where the system allows it.
+1087	Format
+1088	Lens correction
+1089	Noise reduction
+1090	Not a camera address (http, https, rtsp, udp, rtp or rtmp).
+1091	Opens the picture of this camera as set here, without saving
+1092	Picture
+1093	Prefer YUYV
+1094	Stream error: {}
+1095	Switch this camera on: it gives the live picture
+1096	Test
+1097	Waiting for the picture…
+1098	White balance
+1099	macOS may be blocking this program: allow it in System Settings, Privacy & Security, Local Network.
+1100	Live picture of the machine: an MJPEG stream, a JPEG snapshot address (http or https), or a stream that ffmpeg reads (rtsp, udp, rtp, rtmp).
+1101	Coefficients of the lens distortion (radial k1–k3, tangential p1, p2) for coordinates measured from the centre in units of the longer side of the picture. All 0 = no correction. Entered by hand: there is no automatic calibration.

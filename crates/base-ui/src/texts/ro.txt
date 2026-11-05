@@ -1073,3 +1073,30 @@
 1072|Disponibile în sistem
 1073|Configurate
 1074|Dispozitiv implicit
+1075|Adaugă o cameră
+1076|Adresă
+1077|Auto
+1078|Numele camerei
+1079|Numărul camerei
+1080|Camera acestui calculator
+1081|Rotirea camerei
+1082|Test cameră: {}
+1083|Camera {}
+1084|Camere care supraveghează mașina. Cea bifată dă imaginea live; bifarea alteia o oprește pe prima.
+1085|Șterge această cameră
+1086|Pentru o cameră a acestui calculator: cere formatul YUYV necomprimat dacă sistemul permite.
+1087|Format
+1088|Corecția obiectivului
+1089|Reducerea zgomotului
+1090|Nu este o adresă de cameră (http, https, rtsp, udp, rtp sau rtmp).
+1091|Deschide imaginea acestei camere cu setările de aici, fără salvare
+1092|Imagine
+1093|Preferă YUYV
+1094|Eroare de flux: {}
+1095|Pornește această cameră: dă imaginea live
+1096|Testează
+1097|Se așteaptă imaginea…
+1098|Balansul de alb
+1099|macOS poate bloca acest program: permiteți-l în Configurări sistem, Confidențialitate și securitate, Rețea locală.
+1100|Imagine live a mașinii: un flux MJPEG, adresa unui instantaneu JPEG (http sau https) sau un flux citit de ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Coeficienți ai distorsiunii obiectivului (radială k1–k3, tangențială p1, p2) pentru coordonate măsurate de la centru în unități ale laturii mai lungi a imaginii. Toți 0 = fără corecție. Se introduc manual: nu există calibrare automată.

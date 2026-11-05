@@ -1073,3 +1073,30 @@
 1072|Dostupno u sustavu
 1073|Konfigurirano
 1074|Zadani uređaj
+1075|Dodaj kameru
+1076|Adresa
+1077|Auto
+1078|Naziv kamere
+1079|Broj kamere
+1080|Kamera ovog računala
+1081|Rotacija kamere
+1082|Test kamere: {}
+1083|Kamera {}
+1084|Kamere koje nadziru stroj. Označena daje sliku uživo; označavanje druge isključuje prvu.
+1085|Izbriši ovu kameru
+1086|Za kameru ovog računala: zatraži nekomprimirani format YUYV ako sustav dopušta.
+1087|Format
+1088|Korekcija leće
+1089|Smanjenje šuma
+1090|Nije adresa kamere (http, https, rtsp, udp, rtp ili rtmp).
+1091|Otvara sliku ove kamere s ovdje zadanim postavkama, bez spremanja
+1092|Slika
+1093|Preferiraj YUYV
+1094|Pogreška toka: {}
+1095|Uključi ovu kameru: daje sliku uživo
+1096|Testiraj
+1097|Čekanje slike…
+1098|Ravnoteža bijele
+1099|macOS možda blokira ovaj program: dopustite ga u Postavke sustava, Privatnost i sigurnost, Lokalna mreža.
+1100|Slika uživo sa stroja: MJPEG tok, adresa JPEG snimke (http ili https) ili tok koji čita ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Koeficijenti izobličenja leće (radijalni k1–k3, tangencijalni p1, p2) za koordinate od središta u jedinicama duže stranice slike. Svi 0 = bez korekcije. Unose se ručno: nema automatske kalibracije.

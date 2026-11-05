@@ -1073,3 +1073,30 @@
 1072|Tiltæk í kerfinu
 1073|Stillt
 1074|Sjálfgefið tæki
+1075|Bæta við myndavél
+1076|Heimilisfang
+1077|Sjálfvirkt
+1078|Nafn myndavélar
+1079|Númer myndavélar
+1080|Myndavél þessarar tölvu
+1081|Snúningur myndavélar
+1082|Prófun myndavélar: {}
+1083|Myndavél {}
+1084|Myndavélar sem fylgjast með vélinni. Sú sem er merkt gefur beina mynd; að merkja aðra slekkur á fyrstu.
+1085|Eyða þessari myndavél
+1086|Fyrir myndavél þessarar tölvu: biðja um óþjappað YUYV snið þar sem kerfið leyfir.
+1087|Snið
+1088|Linsuleiðrétting
+1089|Hávaðaminnkun
+1090|Ekki vistfang myndavélar (http, https, rtsp, udp, rtp eða rtmp).
+1091|Opnar mynd þessarar myndavélar með stillingunum hér, án þess að vista
+1092|Mynd
+1093|Kjósa YUYV
+1094|Straumvilla: {}
+1095|Kveikja á þessari myndavél: hún gefur beina mynd
+1096|Prófa
+1097|Bíð eftir myndinni…
+1098|Hvítjöfnun
+1099|macOS gæti verið að loka á þetta forrit: leyfðu það í System Settings, Privacy & Security, Local Network.
+1100|Bein mynd af vélinni: MJPEG-straumur, vistfang JPEG-skyndimyndar (http eða https) eða straumur sem ffmpeg les (rtsp, udp, rtp, rtmp).
+1101|Stuðlar linsubjögunar (geislægur k1–k3, snertilægur p1, p2) fyrir hnit frá miðju í einingum lengri hliðar myndarinnar. Allir 0 = engin leiðrétting. Slegið inn handvirkt: engin sjálfvirk kvörðun.

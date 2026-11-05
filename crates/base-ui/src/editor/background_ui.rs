@@ -270,7 +270,7 @@ pub trait EditorBackground: EditorHost {
                 self.overlay_camera_ui(ui);
             }
             if !cam_error.is_empty() {
-                ui.label(RichText::new(&cam_error).color(Color32::from_rgb(0xc0, 0x30, 0x30)));
+                crate::widgets::message(ui, RichText::new(&cam_error).color(Color32::from_rgb(0xc0, 0x30, 0x30)));
             }
             let Some(o) = b.as_mut() else { return };
             ui.separator();

@@ -84,7 +84,7 @@ fn spawn_process_with(ctx: egui::Context, command: impl Fn() -> Option<(std::pat
         let mut last_error = String::new();
         let mut say = |msg: String, tx: &std::sync::mpsc::Sender<Msg>, ctx: &egui::Context| {
             if msg != last_error {
-                let _ = tx.send(Msg::Error(msg.clone()));
+                let _ = tx.send(Msg::Error(crate::link::explain_net_error(&msg)));
                 ctx.request_repaint();
                 last_error = msg;
             }
@@ -197,7 +197,7 @@ pub fn spawn_with(url: String, opts: crate::ffmpeg::StreamOptions, ctx: egui::Co
                             Ok(n) => buf.extend_from_slice(&chunk[..n]),
                             Err(e) => {
                                 if !matches!(e.kind(), std::io::ErrorKind::TimedOut | std::io::ErrorKind::WouldBlock) {
-                                    let _ = tx.send(Msg::Error(e.to_string()));
+                                    let _ = tx.send(Msg::Error(crate::link::explain_net_error(&e.to_string())));
                                 }
                                 break;
                             }
@@ -228,7 +228,7 @@ pub fn spawn_with(url: String, opts: crate::ffmpeg::StreamOptions, ctx: egui::Co
                 Err(e) => {
                     let msg = e.to_string();
                     if msg != last_error {
-                        let _ = tx.send(Msg::Error(msg.clone()));
+                        let _ = tx.send(Msg::Error(crate::link::explain_net_error(&msg)));
                         ctx.request_repaint();
                         last_error = msg;
                     }

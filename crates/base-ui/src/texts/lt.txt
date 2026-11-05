@@ -1073,3 +1073,30 @@
 1072|Pasiekiami sistemoje
 1073|Sukonfigūruoti
 1074|Numatytasis įrenginys
+1075|Pridėti kamerą
+1076|Adresas
+1077|Auto
+1078|Kameros pavadinimas
+1079|Kameros numeris
+1080|Šio kompiuterio kamera
+1081|Kameros pasukimas
+1082|Kameros bandymas: {}
+1083|Kamera {}
+1084|Kameros, stebinčios mašiną. Pažymėta duoda gyvą vaizdą; pažymėjus kitą, pirmoji išjungiama.
+1085|Ištrinti šią kamerą
+1086|Šio kompiuterio kamerai: prašyti nesuspausto YUYV formato, jei sistema leidžia.
+1087|Formatas
+1088|Objektyvo korekcija
+1089|Triukšmo mažinimas
+1090|Tai ne kameros adresas (http, https, rtsp, udp, rtp arba rtmp).
+1091|Atidaro šios kameros vaizdą su čia nustatytomis reikšmėmis, neįrašant
+1092|Vaizdas
+1093|Teikti pirmenybę YUYV
+1094|Srauto klaida: {}
+1095|Įjungti šią kamerą: ji duoda gyvą vaizdą
+1096|Išbandyti
+1097|Laukiama vaizdo…
+1098|Baltos spalvos balansas
+1099|macOS gali blokuoti šią programą: leiskite ją Sistemos nuostatose, Privatumas ir sauga, Vietinis tinklas.
+1100|Staklių vaizdas tiesiogiai: MJPEG srautas, JPEG momentinės nuotraukos adresas (http arba https) arba srautas, kurį skaito ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Objektyvo iškraipymo koeficientai (radialiniai k1–k3, tangentiniai p1, p2) koordinatėms nuo centro vaizdo ilgesniosios kraštinės vienetais. Visi 0 = be pataisos. Įvedama ranka: automatinio kalibravimo nėra.

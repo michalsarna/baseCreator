@@ -1073,3 +1073,30 @@
 1072|Beschikbaar in het systeem
 1073|Geconfigureerd
 1074|Standaardapparaat
+1075|Camera toevoegen
+1076|Adres
+1077|Auto
+1078|Cameranaam
+1079|Cameranummer
+1080|Camera van deze computer
+1081|Camerarotatie
+1082|Cameratest: {}
+1083|Camera {}
+1084|Camera's die de machine in de gaten houden. De aangevinkte geeft het live beeld; een andere aanvinken schakelt de eerste uit.
+1085|Deze camera verwijderen
+1086|Voor een camera van deze computer: vraag om het ongecomprimeerde YUYV-formaat als het systeem dat toestaat.
+1087|Formaat
+1088|Lenscorrectie
+1089|Ruisonderdrukking
+1090|Geen cameraadres (http, https, rtsp, udp, rtp of rtmp).
+1091|Opent het beeld van deze camera met de instellingen hier, zonder op te slaan
+1092|Beeld
+1093|YUYV voorkeur
+1094|Streamfout: {}
+1095|Deze camera inschakelen: hij geeft het live beeld
+1096|Testen
+1097|Wachten op het beeld…
+1098|Witbalans
+1099|macOS blokkeert dit programma mogelijk: sta het toe in Systeeminstellingen, Privacy en beveiliging, Lokaal netwerk.
+1100|Live beeld van de machine: een MJPEG-stream, het adres van een JPEG-momentopname (http of https) of een stream die ffmpeg leest (rtsp, udp, rtp, rtmp).
+1101|Coëfficiënten van de lensvervorming (radiaal k1–k3, tangentieel p1, p2) voor coördinaten gemeten vanuit het midden in eenheden van de langste zijde van het beeld. Alle 0 = geen correctie. Met de hand ingevoerd: er is geen automatische kalibratie.

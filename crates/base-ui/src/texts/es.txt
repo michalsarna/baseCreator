@@ -1073,3 +1073,30 @@
 1072|Disponibles en el sistema
 1073|Configurados
 1074|Dispositivo predeterminado
+1075|Añadir una cámara
+1076|Dirección
+1077|Auto
+1078|Nombre de la cámara
+1079|Número de cámara
+1080|Cámara de este ordenador
+1081|Rotación de la cámara
+1082|Prueba de la cámara: {}
+1083|Cámara {}
+1084|Cámaras que vigilan la máquina. La marcada da la imagen en vivo; marcar otra apaga la primera.
+1085|Eliminar esta cámara
+1086|Para una cámara de este ordenador: pide el formato YUYV sin comprimir si el sistema lo permite.
+1087|Formato
+1088|Corrección de la lente
+1089|Reducción de ruido
+1090|No es una dirección de cámara (http, https, rtsp, udp, rtp o rtmp).
+1091|Abre la imagen de esta cámara con los ajustes de aquí, sin guardar
+1092|Imagen
+1093|Preferir YUYV
+1094|Error de transmisión: {}
+1095|Activar esta cámara: da la imagen en vivo
+1096|Probar
+1097|Esperando la imagen…
+1098|Balance de blancos
+1099|macOS puede estar bloqueando este programa: permítalo en Ajustes del Sistema, Privacidad y seguridad, Red local.
+1100|Imagen en directo de la máquina: un flujo MJPEG, la dirección de una instantánea JPEG (http o https) o un flujo que lee ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Coeficientes de la distorsión de la lente (radial k1–k3, tangencial p1, p2) para coordenadas medidas desde el centro en unidades del lado más largo de la imagen. Todos 0 = sin corrección. Se introducen a mano: no hay calibración automática.

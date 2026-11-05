@@ -1073,3 +1073,30 @@
 1072|Dostupné v systéme
 1073|Nakonfigurované
 1074|Predvolené zariadenie
+1075|Pridať kameru
+1076|Adresa
+1077|Auto
+1078|Názov kamery
+1079|Číslo kamery
+1080|Kamera tohto počítača
+1081|Otočenie kamery
+1082|Test kamery: {}
+1083|Kamera {}
+1084|Kamery sledujúce stroj. Zaškrtnutá dáva živý obraz; zaškrtnutie inej vypne prvú.
+1085|Odstrániť túto kameru
+1086|Pre kameru tohto počítača: požiadať o nekomprimovaný formát YUYV, ak to systém dovolí.
+1087|Formát
+1088|Korekcia objektívu
+1089|Potlačenie šumu
+1090|Nie je to adresa kamery (http, https, rtsp, udp, rtp alebo rtmp).
+1091|Otvorí obraz tejto kamery s nastaveniami tu, bez uloženia
+1092|Obraz
+1093|Uprednostniť YUYV
+1094|Chyba prúdu: {}
+1095|Zapnúť túto kameru: dáva živý obraz
+1096|Testovať
+1097|Čaká sa na obraz…
+1098|Vyváženie bielej
+1099|macOS možno blokuje tento program: povoľte ho v Nastavenia systému, Súkromie a bezpečnosť, Lokálna sieť.
+1100|Živý obraz zo stroja: prúd MJPEG, adresa snímky JPEG (http alebo https) alebo prúd, ktorý číta ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Koeficienty skreslenia objektívu (radiálne k1–k3, tangenciálne p1, p2) pre súradnice od stredu v jednotkách dlhšej strany obrazu. Všetky 0 = bez korekcie. Zadávajú sa ručne: automatická kalibrácia neexistuje.

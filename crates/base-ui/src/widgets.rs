@@ -269,3 +269,17 @@ mod var_label_tests {
         assert!(on.iter().any(|t| t == "Diameter") && on.iter().any(|t| t == "(tool_diameter)"), "{on:?}");
     }
 }
+
+/// A message of the program: it can be selected with the mouse, and the right button copies all of it.
+pub fn message(ui: &mut egui::Ui, text: impl Into<egui::RichText>) -> egui::Response {
+    let text: egui::RichText = text.into();
+    let plain = text.text().to_string();
+    let r = ui.add(egui::Label::new(text).selectable(true));
+    r.context_menu(|ui| {
+        if ui.button(crate::i18n::tr("Copy")).clicked() {
+            ui.ctx().copy_text(plain.clone());
+            ui.close();
+        }
+    });
+    r
+}

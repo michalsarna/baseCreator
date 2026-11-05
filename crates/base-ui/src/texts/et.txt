@@ -1073,3 +1073,30 @@
 1072|Süsteemis saadaval
 1073|Seadistatud
 1074|Vaikeseade
+1075|Lisa kaamera
+1076|Aadress
+1077|Auto
+1078|Kaamera nimi
+1079|Kaamera number
+1080|Selle arvuti kaamera
+1081|Kaamera pööramine
+1082|Kaamera test: {}
+1083|Kaamera {}
+1084|Masinat jälgivad kaamerad. Märgitud kaamera annab reaalajapildi; teise märkimine lülitab esimese välja.
+1085|Kustuta see kaamera
+1086|Selle arvuti kaamera jaoks: küsi pakkimata YUYV-vormingut, kui süsteem lubab.
+1087|Vorming
+1088|Objektiivi korrektsioon
+1089|Müra vähendamine
+1090|See pole kaamera aadress (http, https, rtsp, udp, rtp või rtmp).
+1091|Avab selle kaamera pildi siin määratud seadetega, salvestamata
+1092|Pilt
+1093|Eelista YUYV-d
+1094|Voo viga: {}
+1095|Lülita see kaamera sisse: see annab reaalajapildi
+1096|Testi
+1097|Ootan pilti…
+1098|Valge tasakaal
+1099|macOS võib selle programmi blokeerida: lubage see jaotises Süsteemiseaded, Privaatsus ja turvalisus, Kohalik võrk.
+1100|Masina otsepilt: MJPEG-voog, JPEG-hetktõmmise aadress (http või https) või voog, mida ffmpeg loeb (rtsp, udp, rtp, rtmp).
+1101|Objektiivi moonutuse koefitsiendid (radiaalne k1–k3, tangentsiaalne p1, p2) keskpunktist mõõdetud koordinaatidele pildi pikema külje ühikutes. Kõik 0 = korrektuuri pole. Sisestatakse käsitsi: automaatset kalibreerimist pole.

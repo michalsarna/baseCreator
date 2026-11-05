@@ -1073,3 +1073,30 @@
 1072|Disponibbli fis-sistema
 1073|Konfigurati
 1074|Apparat default
+1075|Żid kamera
+1076|Indirizz
+1077|Awto
+1078|Isem tal-kamera
+1079|Numru tal-kamera
+1080|Kamera ta' dan il-kompjuter
+1081|Rotazzjoni tal-kamera
+1082|Test tal-kamera: {}
+1083|Kamera {}
+1084|Kameras li josservaw il-magna. Dik immarkata tagħti x-xbieha dirett; li timmarka oħra titfi l-ewwel waħda.
+1085|Neħħi din il-kamera
+1086|Għal kamera ta' dan il-kompjuter: itlob il-format YUYV mhux ikkompressat meta s-sistema tippermetti.
+1087|Format
+1088|Korrezzjoni tal-lenti
+1089|Tnaqqis tal-istorbju
+1090|Mhuwiex indirizz ta' kamera (http, https, rtsp, udp, rtp jew rtmp).
+1091|Jiftaħ ix-xbieha ta' din il-kamera bl-issettjar hawn, mingħajr ma jissejvja
+1092|Xbieha
+1093|Ippreferi YUYV
+1094|Żball fil-fluss: {}
+1095|Ixgħel din il-kamera: tagħti x-xbieha dirett
+1096|Ittesta
+1097|Qed tistenna l-istampa…
+1098|Bilanċ tal-abjad
+1099|macOS jista' jkun qed jimblokka dan il-programm: ħallih f'System Settings, Privacy & Security, Local Network.
+1100|Xbieha ħajja tal-magna: fluss MJPEG, indirizz ta' snapshot JPEG (http jew https), jew fluss li jaqra ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Koeffiċjenti tad-distorsjoni tal-lenti (radjali k1–k3, tanġenzjali p1, p2) għal koordinati mil-ċentru f'unitajiet tal-iktar ġenb twil tax-xbieha. Kollha 0 = l-ebda korrezzjoni. Jiddaħħlu bl-idejn: m'hemmx kalibrazzjoni awtomatika.

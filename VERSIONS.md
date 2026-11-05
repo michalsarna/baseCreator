@@ -6,6 +6,9 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 ## v1.69.3
 
 - The window of the control devices has two lists, what is available in the system and what is configured, with arrows between them, and a choice of the default device with *No default device*. A device taken off the list keeps its keys in case it comes back.
+- **One page of the cameras** of a device and one test window (`camera_feed::camera_page`, `CamTest`), which LightCreator had to itself.
+- **Messages can be copied:** `widgets::message`, selectable and with Copy on the right button.
+- **macOS:** a connection or a camera on the local network that the system refuses now says where to allow the program.
 
 ## v1.69.2
 

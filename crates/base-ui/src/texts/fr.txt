@@ -1073,3 +1073,30 @@
 1072|Disponibles dans le système
 1073|Configurés
 1074|Périphérique par défaut
+1075|Ajouter une caméra
+1076|Adresse
+1077|Auto
+1078|Nom de la caméra
+1079|Numéro de la caméra
+1080|Caméra de cet ordinateur
+1081|Rotation de la caméra
+1082|Test de la caméra : {}
+1083|Caméra {}
+1084|Caméras qui surveillent la machine. Celle qui est cochée donne l'image en direct ; en cocher une autre éteint la première.
+1085|Supprimer cette caméra
+1086|Pour une caméra de cet ordinateur : demande le format YUYV non compressé si le système le permet.
+1087|Format
+1088|Correction de l'objectif
+1089|Réduction du bruit
+1090|Ce n'est pas une adresse de caméra (http, https, rtsp, udp, rtp ou rtmp).
+1091|Ouvre l'image de cette caméra avec les réglages d'ici, sans enregistrer
+1092|Image
+1093|Préférer YUYV
+1094|Erreur de flux : {}
+1095|Activer cette caméra : elle donne l'image en direct
+1096|Tester
+1097|En attente de l'image…
+1098|Balance des blancs
+1099|macOS bloque peut-être ce programme : autorisez-le dans Réglages Système, Confidentialité et sécurité, Réseau local.
+1100|Image en direct de la machine : un flux MJPEG, l'adresse d'un instantané JPEG (http ou https) ou un flux lu par ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Coefficients de la distorsion de l'objectif (radiale k1–k3, tangentielle p1, p2) pour des coordonnées mesurées depuis le centre en unités du plus grand côté de l'image. Tous 0 = aucune correction. Saisis à la main : il n'y a pas d'étalonnage automatique.

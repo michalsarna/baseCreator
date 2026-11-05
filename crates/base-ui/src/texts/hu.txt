@@ -1073,3 +1073,30 @@
 1072|Elérhető a rendszerben
 1073|Beállítva
 1074|Alapértelmezett eszköz
+1075|Kamera hozzáadása
+1076|Cím
+1077|Auto
+1078|Kamera neve
+1079|Kamera száma
+1080|Ennek a számítógépnek a kamerája
+1081|Kamera elforgatása
+1082|Kamerateszt: {}
+1083|{}. kamera
+1084|A gépet figyelő kamerák. A bejelölt adja az élő képet; egy másik bejelölése kikapcsolja az elsőt.
+1085|Kamera törlése
+1086|Ennek a számítógépnek a kamerájához: kéri a tömörítetlen YUYV formátumot, ha a rendszer engedi.
+1087|Formátum
+1088|Objektívkorrekció
+1089|Zajcsökkentés
+1090|Nem kameracím (http, https, rtsp, udp, rtp vagy rtmp).
+1091|Megnyitja a kamera képét az itt megadott beállításokkal, mentés nélkül
+1092|Kép
+1093|YUYV előnyben
+1094|Adatfolyam-hiba: {}
+1095|Kamera bekapcsolása: ez adja az élő képet
+1096|Teszt
+1097|Várakozás a képre…
+1098|Fehéregyensúly
+1099|A macOS blokkolhatja ezt a programot: engedélyezze a Rendszerbeállítások, Adatvédelem és biztonság, Helyi hálózat menüben.
+1100|A gép élő képe: MJPEG-adatfolyam, JPEG-pillanatkép címe (http vagy https), vagy az ffmpeg által olvasott adatfolyam (rtsp, udp, rtp, rtmp).
+1101|Az objektív torzításának együtthatói (radiális k1–k3, tangenciális p1, p2) a középponttól mért koordinátákra, a kép hosszabb oldalának egységeiben. Mind 0 = nincs korrekció. Kézzel adandók meg: nincs automatikus kalibrálás.
