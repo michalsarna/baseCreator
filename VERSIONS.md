@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.69.6
+
+- **The system clipboard:** BaseCreator was built without it, so nothing could be pasted from another program and nothing copied into one. The programs on this base need the `clipboard` feature of eframe too.
+- The address of a camera: what is pasted loses the line breaks and spaces around it, and an empty one asks for an address (`camera_feed::address_field`, `lacks_address`).
+
 ## v1.69.5
 
 - A camera of the computer opens on macOS: the library throws an exception out of some formats, not always the same ones, so each try is guarded and smaller sizes follow.

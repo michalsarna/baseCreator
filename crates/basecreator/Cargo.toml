@@ -8,7 +8,7 @@ description = "BaseCreator: an open-source drawing program that writes the proje
 [dependencies]
 base-core = { path = "../base-core" }
 base-ui = { path = "../base-ui" }
-eframe = { version = "0.37", default-features = false, features = ["default_fonts", "glow", "x11", "wayland", "persistence", "links"] }
+eframe = { version = "0.37", default-features = false, features = ["clipboard", "default_fonts", "glow", "x11", "wayland", "persistence", "links"] }
 rfd = "0.17"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"

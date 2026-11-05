@@ -1100,3 +1100,4 @@
 1099|macOS gæti verið að loka á þetta forrit: leyfðu það í System Settings, Privacy & Security, Local Network.
 1100|Bein mynd af vélinni: MJPEG-straumur, vistfang JPEG-skyndimyndar (http eða https) eða straumur sem ffmpeg les (rtsp, udp, rtp, rtmp).
 1101|Stuðlar linsubjögunar (geislægur k1–k3, snertilægur p1, p2) fyrir hnit frá miðju í einingum lengri hliðar myndarinnar. Allir 0 = engin leiðrétting. Slegið inn handvirkt: engin sjálfvirk kvörðun.
+1102|Sláðu inn vistfang myndavélarinnar eða eyddu henni.

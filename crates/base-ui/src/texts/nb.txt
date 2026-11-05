@@ -1100,3 +1100,4 @@
 1099|macOS blokkerer kanskje dette programmet: tillat det i Systeminnstillinger, Personvern og sikkerhet, Lokalt nettverk.
 1100|Direktebilde av maskinen: en MJPEG-strøm, en adresse til et JPEG-bilde (http eller https) eller en strøm som ffmpeg leser (rtsp, udp, rtp, rtmp).
 1101|Koeffisienter for linseforvrengning (radiell k1–k3, tangentiell p1, p2) for koordinater målt fra midten i enheter av bildets lengste side. Alle 0 = ingen korreksjon. Legges inn for hånd: det finnes ingen automatisk kalibrering.
+1102|Skriv inn adressen til kameraet, eller slett kameraet.

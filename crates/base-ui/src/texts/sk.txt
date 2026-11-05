@@ -1100,3 +1100,4 @@
 1099|macOS možno blokuje tento program: povoľte ho v Nastavenia systému, Súkromie a bezpečnosť, Lokálna sieť.
 1100|Živý obraz zo stroja: prúd MJPEG, adresa snímky JPEG (http alebo https) alebo prúd, ktorý číta ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Koeficienty skreslenia objektívu (radiálne k1–k3, tangenciálne p1, p2) pre súradnice od stredu v jednotkách dlhšej strany obrazu. Všetky 0 = bez korekcie. Zadávajú sa ručne: automatická kalibrácia neexistuje.
+1102|Zadajte adresu kamery alebo kameru odstráňte.

@@ -169,10 +169,7 @@ pub fn camera_page(ui: &mut egui::Ui, cameras: &mut Vec<CameraSource>, active: &
             });
             match &mut c.kind {
                 CameraKind::Url(u) => {
-                    ui.add(egui::TextEdit::singleline(u).hint_text("http://raspberrypi.local:8080/stream.mjpg").desired_width(340.0)).on_hover_text(tr("Live picture of the machine: an MJPEG stream, a JPEG snapshot address (http or https), or a stream that ffmpeg reads (rtsp, udp, rtp, rtmp)."));
-                    if !base_core::camimg::valid_url(u) && !u.trim().is_empty() {
-                        ui.label(RichText::new(tr("Not a camera address (http, https, rtsp, udp, rtp or rtmp).")).color(Color32::from_rgb(0xc0, 0x30, 0x30)));
-                    }
+                    address_field(ui, u);
                 }
                 CameraKind::Local(n) => {
                     if camera::SUPPORTED {
@@ -259,6 +256,35 @@ pub fn camera_page(ui: &mut egui::Ui, cameras: &mut Vec<CameraSource>, active: &
     }
 }
 
+/// The address of a camera. What is pasted often brings a line break or a space along: they are cut off both ends.
+pub fn address_field(ui: &mut egui::Ui, u: &mut String) {
+    use crate::i18n::tr;
+    use egui::{Color32, RichText};
+    let r = ui.add(egui::TextEdit::singleline(u).hint_text("http://raspberrypi.local:8080/stream.mjpg").desired_width(340.0)).on_hover_text(tr("Live picture of the machine: an MJPEG stream, a JPEG snapshot address (http or https), or a stream that ffmpeg reads (rtsp, udp, rtp, rtmp)."));
+    if r.changed() {
+        let clean = clean_address(u);
+        if clean != *u {
+            *u = clean;
+        }
+    }
+    let red = Color32::from_rgb(0xc0, 0x30, 0x30);
+    if u.is_empty() {
+        ui.label(RichText::new(tr("Enter the address of the camera, or delete the camera.")).color(red));
+    } else if !base_core::camimg::valid_url(u) {
+        ui.label(RichText::new(tr("Not a camera address (http, https, rtsp, udp, rtp or rtmp).")).color(red));
+    }
+}
+
+/// The address without what stands around it.
+pub fn clean_address(u: &str) -> String {
+    u.trim().to_string()
+}
+
+/// A camera by address without one: the device cannot be saved like that.
+pub fn lacks_address(cameras: &[CameraSource]) -> bool {
+    cameras.iter().any(|c| matches!(&c.kind, CameraKind::Url(u) if u.trim().is_empty()))
+}
+
 /// This camera on, the others off.
 pub fn activate(cameras: &mut [CameraSource], active: &mut usize, i: usize) {
     if i < cameras.len() {
@@ -316,5 +342,29 @@ impl CamTest {
         if !open {
             *slot = None;
         }
+    }
+}
+
+#[cfg(test)]
+mod address_tests {
+    use super::*;
+
+    #[test]
+    fn a_pasted_address_loses_what_stands_around_it() {
+        assert_eq!(clean_address("\r\n http://h/s \n"), "http://h/s");
+        assert_eq!(clean_address("\n\n"), "");
+    }
+
+    #[test]
+    fn only_a_camera_by_address_needs_an_address() {
+        let mut c = CameraSource::url("x", "", 0);
+        assert!(lacks_address(std::slice::from_ref(&c)));
+        c.kind = CameraKind::Url(" \n".into());
+        assert!(lacks_address(std::slice::from_ref(&c)));
+        c.kind = CameraKind::Url("http://h/s".into());
+        assert!(!lacks_address(std::slice::from_ref(&c)));
+        c.kind = CameraKind::Local(0);
+        assert!(!lacks_address(&[c]));
+        assert!(!lacks_address(&[]));
     }
 }

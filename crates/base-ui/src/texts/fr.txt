@@ -1100,3 +1100,4 @@
 1099|macOS bloque peut-être ce programme : autorisez-le dans Réglages Système, Confidentialité et sécurité, Réseau local.
 1100|Image en direct de la machine : un flux MJPEG, l'adresse d'un instantané JPEG (http ou https) ou un flux lu par ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Coefficients de la distorsion de l'objectif (radiale k1–k3, tangentielle p1, p2) pour des coordonnées mesurées depuis le centre en unités du plus grand côté de l'image. Tous 0 = aucune correction. Saisis à la main : il n'y a pas d'étalonnage automatique.
+1102|Saisissez l'adresse de la caméra ou supprimez la caméra.
