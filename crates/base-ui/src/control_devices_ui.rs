@@ -353,10 +353,13 @@ impl ControlDevicesUi {
                 });
                 ui.separator();
             }
-            ui.columns(2, |cols| {
-                cols[0].set_max_width(250.0);
-                self.device_list(&mut cols[0]);
-                self.keys_of_device(&mut cols[1], actions);
+            ui.horizontal_top(|ui| {
+                ui.vertical(|ui| {
+                    ui.set_width(210.0);
+                    self.device_list(ui);
+                });
+                ui.separator();
+                ui.vertical(|ui| self.keys_of_device(ui, actions));
             });
             ui.separator();
             ui.label(RichText::new(tr("Only the window in front takes the presses. A move lasts while the key is held and stops when it is let go or when another window comes to the front.")).color(theme::text_dim()));
@@ -483,7 +486,7 @@ impl ControlDevicesUi {
                 egui::Grid::new("control_device_keys_grid").num_columns(3).striped(true).show(ui, |ui| {
                     for a in actions {
                         ui.label(tr(a.label()));
-                        ui.horizontal_wrapped(|ui| {
+                        ui.horizontal(|ui| {
                             for input in d.inputs(*a) {
                                 if ui.small_button(format!("{} ×", input.label())).clicked() {
                                     self.lib.devices[i].unassign(*a, input);
