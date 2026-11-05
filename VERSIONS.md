@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.69.2
+
+- The window of the control devices fits on the screen.
+
 ## v1.69.1
 
 - The window of the control devices: the keys of a device stand on one line.
