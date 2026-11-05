@@ -1,4 +1,4 @@
-//! Live camera capture (optional: build with `--features camera`).
+//! Live camera capture. The programs build it in by default (`camera` feature).
 use std::sync::mpsc::Receiver;
 
 /// One captured picture: RGB bytes, row-major.
@@ -69,7 +69,7 @@ mod imp {
     use super::*;
     use nokhwa::pixel_format::RgbFormat;
     use std::sync::mpsc::{channel, Sender};
-    use nokhwa::utils::{ApiBackend, CameraIndex, FrameFormat, RequestedFormat, RequestedFormatType};
+    use nokhwa::utils::{ApiBackend, CameraIndex, FrameFormat, RequestedFormat, RequestedFormatType, Resolution};
     use std::sync::atomic::{AtomicBool, Ordering};
     use std::sync::Arc;
     use std::time::Duration;
@@ -89,6 +89,35 @@ mod imp {
         nokhwa::query(ApiBackend::Auto).map(|v| v.into_iter().map(|c| c.human_name()).collect()).unwrap_or_default()
     }
 
+    /// Open a camera. On macOS the library throws an exception out of some formats of some cameras, and not always the same ones (a
+    /// webcam with several formats of one size): each try is guarded, and smaller sizes follow. A build for debugging cannot catch it,
+    /// so there the camera only gets the format the system gives it first.
+    fn open_camera(index: u32, prefer_yuyv: bool) -> Result<nokhwa::Camera, String> {
+        use std::panic::{catch_unwind, AssertUnwindSafe};
+        let macos = cfg!(target_os = "macos");
+        // YUYV is asked for first where the backend can give it; otherwise whatever the camera offers.
+        let preferred = [FrameFormat::YUYV, FrameFormat::MJPEG];
+        let wanted = if prefer_yuyv { RequestedFormat::with_formats(RequestedFormatType::AbsoluteHighestResolution, &preferred) } else { RequestedFormat::new::<RgbFormat>(RequestedFormatType::AbsoluteHighestResolution) };
+        let size = |w, h| RequestedFormat::new::<RgbFormat>(RequestedFormatType::HighestResolution(Resolution::new(w, h)));
+        let plain = RequestedFormat::new::<RgbFormat>(RequestedFormatType::None);
+        let tries: Vec<RequestedFormat> = if macos && cfg!(debug_assertions) {
+            vec![plain]
+        } else if macos {
+            vec![wanted, size(1920, 1080), size(1280, 720), size(640, 480), wanted, size(1920, 1080), size(1280, 720), plain]
+        } else {
+            vec![wanted]
+        };
+        let mut last = String::new();
+        for f in tries {
+            match catch_unwind(AssertUnwindSafe(|| nokhwa::Camera::new(CameraIndex::Index(index), f))) {
+                Ok(Ok(c)) => return Ok(c),
+                Ok(Err(e)) => last = e.to_string(),
+                Err(_) => last = "the system refused this format of the camera".to_string(),
+            }
+        }
+        Err(last)
+    }
+
     pub struct Worker {
         pub rx: Receiver<Result<Frame, String>>,
         stop: Arc<AtomicBool>,
@@ -106,13 +135,10 @@ mod imp {
         let stop = Arc::new(AtomicBool::new(false));
         let flag = stop.clone();
         std::thread::spawn(move || {
-            // YUYV is asked for first where the backend can give it; otherwise whatever the camera offers.
-            let preferred = [FrameFormat::YUYV, FrameFormat::MJPEG];
-            let fmt = if prefer_yuyv { RequestedFormat::with_formats(RequestedFormatType::AbsoluteHighestResolution, &preferred) } else { RequestedFormat::new::<RgbFormat>(RequestedFormatType::AbsoluteHighestResolution) };
-            let mut cam = match nokhwa::Camera::new(CameraIndex::Index(index), fmt) {
+            let mut cam = match open_camera(index, prefer_yuyv) {
                 Ok(c) => c,
                 Err(e) => {
-                    let _ = tx.send(Err(e.to_string()));
+                    let _ = tx.send(Err(e));
                     return;
                 }
             };
