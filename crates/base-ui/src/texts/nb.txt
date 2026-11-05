@@ -1070,3 +1070,6 @@
 1069|Svak stråle mens den holdes
 1070|Penn opp
 1071|Penn ned
+1072|Tilgjengelige i systemet
+1073|Konfigurerte
+1074|Standardenhet

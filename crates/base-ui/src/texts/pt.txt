@@ -1070,3 +1070,6 @@
 1069|Feixe fraco enquanto premido
 1070|Caneta para cima
 1071|Caneta para baixo
+1072|Disponíveis no sistema
+1073|Configurados
+1074|Dispositivo predefinido

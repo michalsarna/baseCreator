@@ -1070,3 +1070,6 @@
 1069|Šibek žarek med držanjem
 1070|Pero gor
 1071|Pero dol
+1072|Na voljo v sistemu
+1073|Nastavljeno
+1074|Privzeta naprava

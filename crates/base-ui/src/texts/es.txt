@@ -1070,3 +1070,6 @@
 1069|Haz débil mientras se mantiene
 1070|Lápiz arriba
 1071|Lápiz abajo
+1072|Disponibles en el sistema
+1073|Configurados
+1074|Dispositivo predeterminado

@@ -1070,3 +1070,6 @@
 1069|Fascicul slab cât timp e ținut
 1070|Stilou sus
 1071|Stilou jos
+1072|Disponibile în sistem
+1073|Configurate
+1074|Dispozitiv implicit

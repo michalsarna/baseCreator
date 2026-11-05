@@ -237,6 +237,9 @@ pub struct ControlDevices {
     /// The device of the machines that have none of their own.
     #[serde(default)]
     pub default: Option<String>,
+    /// Devices taken off the list: their keys wait here in case they come back.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub parked: Vec<ControlDevice>,
 }
 
 impl ControlDevices {
@@ -253,18 +256,29 @@ impl ControlDevices {
         self.devices.iter().any(|d| matches!(d.kind, Kind::Pad { .. }))
     }
 
-    /// Add a device; the first one becomes the default. Nothing happens when it is there already or the list is full.
+    /// Add a device; the first one becomes the default. One that was on the list before comes back with its keys. Nothing happens when
+    /// it is there already or the list is full.
     pub fn add(&mut self, d: ControlDevice) {
         if self.get(&d.id).is_none() && self.devices.len() < MAX_DEVICES {
-            if self.default.is_none() {
+            let d = match self.parked.iter().position(|p| p.id == d.id) {
+                Some(i) => self.parked.remove(i),
+                None => d,
+            };
+            if self.default.is_none() && self.devices.is_empty() {
                 self.default = Some(d.id.clone());
             }
             self.devices.push(d);
         }
     }
 
+    /// Take a device off the list. It is no longer the default one.
     pub fn remove(&mut self, id: &str) {
-        self.devices.retain(|d| d.id != id);
+        if let Some(i) = self.devices.iter().position(|d| d.id == id) {
+            let d = self.devices.remove(i);
+            self.parked.retain(|p| p.id != id);
+            self.parked.push(d);
+            self.parked.truncate(MAX_DEVICES);
+        }
         if self.default.as_deref() == Some(id) {
             self.default = None;
         }
@@ -276,7 +290,9 @@ impl ControlDevices {
         let mut seen = std::collections::BTreeSet::new();
         v.devices.retain(|d| !d.id.is_empty() && d.id.len() <= 200 && seen.insert(d.id.clone()));
         v.devices.truncate(MAX_DEVICES);
-        for d in &mut v.devices {
+        v.parked.retain(|d| !d.id.is_empty() && d.id.len() <= 200 && seen.insert(d.id.clone()));
+        v.parked.truncate(MAX_DEVICES);
+        for d in v.devices.iter_mut().chain(v.parked.iter_mut()) {
             d.name = d.name.chars().filter(|c| !c.is_control()).take(MAX_NAME).collect();
             if d.name.trim().is_empty() {
                 d.name = d.id.clone();
@@ -366,6 +382,21 @@ mod tests {
         assert!(l.default.is_none());
         assert!(l.for_machine(None).is_none());
         assert_eq!(l.for_machine(Some("pad-abc")).unwrap().id, "pad-abc");
+    }
+
+    #[test]
+    fn a_device_taken_off_the_list_comes_back_with_its_keys_and_is_not_the_default_again() {
+        let mut l = ControlDevices::default();
+        l.add(ControlDevice::keyboard("Keyboard"));
+        l.add(ControlDevice::pad("abc", "Pad"));
+        l.devices[0].assign(Action::Spindle, key("S"));
+        l.remove(KEYBOARD_ID);
+        assert!(l.get(KEYBOARD_ID).is_none() && l.default.is_none());
+        assert_eq!(ControlDevices::parse(&l.to_text()).unwrap(), l, "the keys that wait are in the file");
+        l.add(ControlDevice::keyboard("Keyboard"));
+        assert_eq!(l.get(KEYBOARD_ID).unwrap().action_of(&key("S")), Some(Action::Spindle));
+        assert!(l.parked.is_empty());
+        assert!(l.default.is_none(), "having no default one was a choice");
     }
 
     #[test]

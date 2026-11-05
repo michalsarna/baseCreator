@@ -1070,3 +1070,6 @@
 1069|Faisceau faible tant que maintenu
 1070|Stylo levé
 1071|Stylo baissé
+1072|Disponibles dans le système
+1073|Configurés
+1074|Périphérique par défaut

@@ -1070,3 +1070,6 @@
 1069|Slab snop dok je pritisnuto
 1070|Olovka gore
 1071|Olovka dolje
+1072|Dostupno u sustavu
+1073|Konfigurirano
+1074|Zadani uređaj

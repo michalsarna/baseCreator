@@ -1070,3 +1070,6 @@
 1069|Slabý lúč pri držaní
 1070|Pero hore
 1071|Pero dole
+1072|Dostupné v systéme
+1073|Nakonfigurované
+1074|Predvolené zariadenie

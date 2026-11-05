@@ -1070,3 +1070,6 @@
 1069	Low-power beam while held
 1070	Pen up
 1071	Pen down
+1072	Available in the system
+1073	Configured
+1074	Default device

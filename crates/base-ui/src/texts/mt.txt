@@ -1070,3 +1070,6 @@
 1069|Raġġ dgħajjef sakemm jinżamm
 1070|Pinna 'l fuq
 1071|Pinna 'l isfel
+1072|Disponibbli fis-sistema
+1073|Konfigurati
+1074|Apparat default

@@ -1070,3 +1070,6 @@
 1069|Slabý paprsek při držení
 1070|Pero nahoru
 1071|Pero dolů
+1072|Dostupné v systému
+1073|Nakonfigurované
+1074|Výchozí zařízení

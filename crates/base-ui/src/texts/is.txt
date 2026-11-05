@@ -1070,3 +1070,6 @@
 1069|Veikur geisli á meðan haldið er
 1070|Penni upp
 1071|Penni niður
+1072|Tiltæk í kerfinu
+1073|Stillt
+1074|Sjálfgefið tæki

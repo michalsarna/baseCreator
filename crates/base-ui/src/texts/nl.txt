@@ -1070,3 +1070,6 @@
 1069|Zwakke straal tijdens indrukken
 1070|Pen omhoog
 1071|Pen omlaag
+1072|Beschikbaar in het systeem
+1073|Geconfigureerd
+1074|Standaardapparaat

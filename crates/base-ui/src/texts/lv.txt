@@ -1070,3 +1070,6 @@
 1069|Vājš stars, kamēr nospiests
 1070|Pildspalva augšā
 1071|Pildspalva lejā
+1072|Pieejamas sistēmā
+1073|Konfigurētas
+1074|Noklusējuma ierīce

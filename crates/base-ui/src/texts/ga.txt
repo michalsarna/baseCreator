@@ -1070,3 +1070,6 @@
 1069|Léas lag fad a choinnítear
 1070|Peann suas
 1071|Peann síos
+1072|Ar fáil sa chóras
+1073|Cumraithe
+1074|Gléas réamhshocraithe

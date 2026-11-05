@@ -1070,3 +1070,6 @@
 1069|Feix feble mentre es prem
 1070|Llapis amunt
 1071|Llapis avall
+1072|Disponibles al sistema
+1073|Configurats
+1074|Dispositiu predeterminat

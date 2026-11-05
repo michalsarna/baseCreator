@@ -353,9 +353,14 @@ impl ControlDevicesUi {
                 });
                 ui.separator();
             }
+            ui.horizontal(|ui| {
+                ui.label(tr("Default device"));
+                self.default_choice(ui);
+            });
+            ui.separator();
             ui.horizontal_top(|ui| {
                 ui.vertical(|ui| {
-                    ui.set_width(210.0);
+                    ui.set_width(250.0);
                     self.device_list(ui);
                 });
                 ui.add_space(10.0);
@@ -411,11 +416,66 @@ impl ControlDevicesUi {
         changed
     }
 
+    /// The default device, or none.
+    fn default_choice(&mut self, ui: &mut egui::Ui) {
+        let none = tr("No default device");
+        let shown = self.lib.default.as_deref().and_then(|id| self.lib.get(id)).map_or(none.to_string(), |d| d.name.clone());
+        let mut chosen = None;
+        egui::ComboBox::from_id_salt("control_device_default").selected_text(shown).width(280.0).show_ui(ui, |ui| {
+            if ui.selectable_label(self.lib.default.is_none(), none).clicked() {
+                chosen = Some(None);
+            }
+            for d in &self.lib.devices {
+                if ui.selectable_label(self.lib.default.as_deref() == Some(d.id.as_str()), &d.name).clicked() {
+                    chosen = Some(Some(d.id.clone()));
+                }
+            }
+        });
+        if let Some(c) = chosen {
+            self.lib.default = c;
+            self.store();
+        }
+    }
+
+    /// What the system has and what is set up: a device goes from one list to the other with its arrow.
     fn device_list(&mut self, ui: &mut egui::Ui) {
         if self.selected.as_deref().is_none_or(|id| self.lib.get(id).is_none()) {
             self.selected = self.lib.devices.first().map(|d| d.id.clone());
         }
-        let mut changed = false;
+        let row = |ui: &mut egui::Ui, add: &mut dyn FnMut(&mut egui::Ui)| {
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| add(ui));
+        };
+        let mut to_add = None;
+        let mut to_remove = None;
+        ui.label(RichText::new(tr("Available in the system")).strong());
+        if self.lib.get(KEYBOARD_ID).is_none() {
+            ui.horizontal(|ui| {
+                row(ui, &mut |ui| {
+                    if ui.small_button("→").clicked() {
+                        to_add = Some(ControlDevice::keyboard(tr("Keyboard")));
+                    }
+                    ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| ui.label(tr("Keyboard")));
+                });
+            });
+        }
+        let new_pads: Vec<PadInfo> = self.pads.iter().filter(|p| self.lib.get(&p.id).is_none()).cloned().collect();
+        for p in &new_pads {
+            ui.horizontal(|ui| {
+                row(ui, &mut |ui| {
+                    if ui.small_button("→").clicked() {
+                        to_add = Some(ControlDevice::pad(&p.uuid, &p.name));
+                    }
+                    ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| ui.label(&p.name));
+                });
+            });
+        }
+        if new_pads.is_empty() {
+            let text = self.pad_error.clone().unwrap_or_else(|| tr("No new pad found. Connect one and wait a moment.").to_string());
+            ui.label(RichText::new(text).color(theme::text_dim()));
+        }
+        ui.add_space(10.0);
+        ui.label(RichText::new(tr("Configured")).strong());
+        let mut pick = None;
         for d in &self.lib.devices {
             let connected = match &d.kind {
                 Kind::Keyboard => true,
@@ -423,30 +483,28 @@ impl ControlDevicesUi {
             };
             let on = self.selected.as_deref() == Some(d.id.as_str());
             let text = if connected { RichText::new(&d.name) } else { RichText::new(trf("{} (not connected)", &[&d.name])).color(theme::text_dim()) };
-            if ui.selectable_label(on, text).clicked() {
-                self.selected = Some(d.id.clone());
-                self.capture = None;
-            }
+            ui.horizontal(|ui| {
+                if ui.small_button("←").clicked() {
+                    to_remove = Some(d.id.clone());
+                }
+                if ui.selectable_label(on, text).clicked() {
+                    pick = Some(d.id.clone());
+                }
+            });
         }
-        ui.add_space(8.0);
-        if self.lib.get(KEYBOARD_ID).is_none() && ui.button(tr("Add the keyboard")).clicked() {
-            self.lib.add(ControlDevice::keyboard(tr("Keyboard")));
-            self.selected = Some(KEYBOARD_ID.to_string());
-            changed = true;
+        if let Some(id) = pick {
+            self.selected = Some(id);
+            self.capture = None;
         }
-        let new_pads: Vec<PadInfo> = self.pads.iter().filter(|p| self.lib.get(&p.id).is_none()).cloned().collect();
-        for p in &new_pads {
-            if ui.button(trf("Add {}", &[&p.name])).clicked() {
-                self.lib.add(ControlDevice::pad(&p.uuid, &p.name));
-                self.selected = Some(p.id.clone());
-                changed = true;
-            }
+        if let Some(d) = to_add {
+            self.selected = Some(d.id.clone());
+            self.lib.add(d);
+            self.store();
         }
-        if new_pads.is_empty() {
-            let text = self.pad_error.clone().unwrap_or_else(|| tr("No new pad found. Connect one and wait a moment.").to_string());
-            ui.label(RichText::new(text).color(theme::text_dim()));
-        }
-        if changed {
+        if let Some(id) = to_remove {
+            self.lib.remove(&id);
+            self.capture = None;
+            self.selected = None;
             self.store();
         }
     }
@@ -459,21 +517,10 @@ impl ControlDevicesUi {
             ui.label(tr("Name"));
             changed |= ui.text_edit_singleline(&mut self.lib.devices[i].name).changed();
         });
-        let mut is_default = self.lib.default.as_deref() == Some(id.as_str());
-        if ui.checkbox(&mut is_default, tr("Default for all machines and programs")).changed() {
-            self.lib.default = is_default.then(|| id.clone());
-            changed = true;
-        }
         ui.horizontal(|ui| {
             if ui.button(tr("Back to the first keys")).clicked() {
                 self.lib.devices[i].reset_keys();
                 self.capture = None;
-                changed = true;
-            }
-            if ui.button(tr("Remove")).clicked() {
-                self.lib.remove(&id);
-                self.capture = None;
-                self.selected = None;
                 changed = true;
             }
             if let Some(l) = &self.last_input {

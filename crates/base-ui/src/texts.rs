@@ -1077,6 +1077,9 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Low-power beam while held", "Słaba wiązka, gdy wciśnięty", "Schwacher Strahl beim Halten", "Raggio debole mentre premuto", "Heikko säde painettaessa", "按住时低功率光束", "दबाए रखने पर कम शक्ति की किरण"],
     ["Pen up", "Pisak w górę", "Stift hoch", "Penna su", "Kynä ylös", "抬笔", "पेन ऊपर"],
     ["Pen down", "Pisak w dół", "Stift runter", "Penna giù", "Kynä alas", "落笔", "पेन नीचे"],
+    ["Available in the system", "Dostępne w systemie", "Im System verfügbar", "Disponibili nel sistema", "Saatavilla järjestelmässä", "系统中可用", "सिस्टम में उपलब्ध"],
+    ["Configured", "Skonfigurowane", "Eingerichtet", "Configurati", "Määritetyt", "已配置", "कॉन्फ़िगर किए गए"],
+    ["Default device", "Domyślne urządzenie", "Standardgerät", "Dispositivo predefinito", "Oletuslaite", "默认设备", "डिफ़ॉल्ट उपकरण"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
