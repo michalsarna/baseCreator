@@ -227,7 +227,7 @@ pub fn camera_page(ui: &mut egui::Ui, cameras: &mut Vec<CameraSource>, active: &
                 });
             });
             egui::CollapsingHeader::new(tr("Lens correction")).id_salt(("cam_lens", i)).show(ui, |ui| {
-                ui.label(RichText::new(tr("Coefficients of the lens distortion (radial k1–k3, tangential p1, p2) for coordinates measured from the centre in units of the longer side of the picture. All 0 = no correction. Entered by hand: there is no automatic calibration.")).color(theme::text_dim()));
+                ui.label(RichText::new(tr("Coefficients of the lens distortion (radial k1–k3, tangential p1, p2) for coordinates measured from the centre in units of the longer side of the picture. All 0 = no correction. Entered by hand: there is no automatic calibration.")).color(crate::theme::text_dim()));
                 ui.horizontal_wrapped(|ui| {
                     for (name, v) in [("k1", &mut c.lens.k1), ("k2", &mut c.lens.k2), ("k3", &mut c.lens.k3), ("p1", &mut c.lens.p1), ("p2", &mut c.lens.p2)] {
                         ui.label(name);
