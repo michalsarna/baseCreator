@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.69.5
+
+- A camera of the computer opens on macOS: the library throws an exception out of some formats, not always the same ones, so each try is guarded and smaller sizes follow.
+
 ## v1.69.4
 
 - **Edit → Copy and Paste** of the menu work in a text field; they copied and pasted shapes of the drawing.
