@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Temna)
 1043|Joker (Svetla)
+1044|Krmilne naprave
+1045|Nastavitve krmilnih naprav…
+1046|Krmilna naprava tega stroja…
+1047|Privzeto: {}
+1048|Ni privzete naprave
+1049|{} (ni povezano)
+1050|Dodaj tipkovnico
+1051|Dodaj {}
+1052|Nove igralne plošče ni bilo mogoče najti. Priključite jo in malo počakajte.
+1053|Privzeto za vse stroje in programe
+1054|Nazaj na prvotne tipke
+1055|Nazadnje pritisnjeno: {}
+1056|Pritisnite tipko ali gumb…
+1057|Dodeli
+1058|Pritiske sprejema samo okno v ospredju. Premik traja, dokler držite tipko, in se ustavi, ko jo spustite ali ko v ospredje pride drugo okno.
+1059|Vse tipkovnice so ena naprava, ki med tipkanjem v polje ne naredi ničesar. Dve igralni plošči istega modela štejeta kot ena naprava.
+1060|Premik levo (X-)
+1061|Premik desno (X+)
+1062|Premik naprej (Y-)
+1063|Premik nazaj (Y+)
+1064|Premik gor (Z+)
+1065|Premik dol (Z-)
+1066|Vreteno vklop / izklop
+1067|Zrak vklop / izklop
+1068|Voda vklop / izklop
+1069|Šibek žarek med držanjem
+1070|Pero gor
+1071|Pero dol

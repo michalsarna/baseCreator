@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Tume)
 1043|Joker (Hele)
+1044|Juhtseadmed
+1045|Juhtseadmete seaded…
+1046|Selle masina juhtseade…
+1047|Vaikimisi: {}
+1048|Vaikeseade puudub
+1049|{} (pole ühendatud)
+1050|Lisa klaviatuur
+1051|Lisa {}
+1052|Uut mängupulti ei leitud. Ühendage see ja oodake hetk.
+1053|Vaikimisi kõigile masinatele ja programmidele
+1054|Tagasi esialgsete klahvide juurde
+1055|Viimati vajutatud: {}
+1056|Vajutage klahvi või nuppu…
+1057|Määra
+1058|Vajutusi võtab vastu ainult esiplaanil olev aken. Liikumine kestab klahvi all hoides ja peatub, kui see vabastatakse või teine aken esiplaanile tuleb.
+1059|Kõik klaviatuurid on üks seade, mis väljale kirjutamise ajal midagi ei tee. Kaks sama mudeli mängupulti loetakse üheks seadmeks.
+1060|Liigu vasakule (X-)
+1061|Liigu paremale (X+)
+1062|Liigu ette (Y-)
+1063|Liigu taha (Y+)
+1064|Liigu üles (Z+)
+1065|Liigu alla (Z-)
+1066|Spindel sees / väljas
+1067|Õhk sees / väljas
+1068|Vesi sees / väljas
+1069|Nõrk kiir all hoides
+1070|Pliiats üles
+1071|Pliiats alla

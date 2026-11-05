@@ -55,7 +55,7 @@ jobs:
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
       - name: Linux build dependencies
         if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y libxkbcommon-x11-dev libgl1-mesa-dev
+        run: sudo apt-get update && sudo apt-get install -y libudev-dev libxkbcommon-x11-dev libgl1-mesa-dev
       - run: cargo build --release -p basecreator
 
       # Plain archive (Linux .tar.gz, Windows .zip): binary + README + LICENSE. macOS gets only the .dmg.

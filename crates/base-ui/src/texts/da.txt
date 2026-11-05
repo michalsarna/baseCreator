@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Mørk)
 1043|Joker (Lys)
+1044|Styreenheder
+1045|Indstillinger for styreenheder…
+1046|Denne maskines styreenhed…
+1047|Standard: {}
+1048|Ingen standardenhed
+1049|{} (ikke tilsluttet)
+1050|Tilføj tastaturet
+1051|Tilføj {}
+1052|Ingen ny gamepad fundet. Tilslut en, og vent et øjeblik.
+1053|Standard for alle maskiner og programmer
+1054|Tilbage til de første taster
+1055|Sidst trykket: {}
+1056|Tryk på en tast eller knap…
+1057|Tildel
+1058|Kun vinduet forrest modtager tryk. En bevægelse varer, mens tasten holdes, og stopper, når den slippes, eller når et andet vindue kommer forrest.
+1059|Alle tastaturer er én enhed, som ikke gør noget, mens du skriver i et felt. To gamepads af samme model tæller som én enhed.
+1060|Flyt til venstre (X-)
+1061|Flyt til højre (X+)
+1062|Flyt frem (Y-)
+1063|Flyt tilbage (Y+)
+1064|Flyt op (Z+)
+1065|Flyt ned (Z-)
+1066|Spindel til / fra
+1067|Luft til / fra
+1068|Vand til / fra
+1069|Svag stråle, mens den holdes
+1070|Pen op
+1071|Pen ned

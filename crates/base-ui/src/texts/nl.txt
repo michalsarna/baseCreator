@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Donker)
 1043|Joker (Licht)
+1044|Bedieningsapparaten
+1045|Instellingen van bedieningsapparaten…
+1046|Bedieningsapparaat van deze machine…
+1047|Standaard: {}
+1048|Geen standaardapparaat
+1049|{} (niet verbonden)
+1050|Toetsenbord toevoegen
+1051|{} toevoegen
+1052|Geen nieuwe gamepad gevonden. Sluit er een aan en wacht even.
+1053|Standaard voor alle machines en programma's
+1054|Terug naar de eerste toetsen
+1055|Laatst ingedrukt: {}
+1056|Druk op een toets of knop…
+1057|Toewijzen
+1058|Alleen het voorste venster ontvangt de invoer. Een beweging duurt zolang de toets is ingedrukt en stopt bij loslaten of wanneer een ander venster naar voren komt.
+1059|Alle toetsenborden zijn één apparaat, dat niets doet terwijl u in een veld typt. Twee gamepads van hetzelfde model tellen als één apparaat.
+1060|Naar links (X-)
+1061|Naar rechts (X+)
+1062|Naar voren (Y-)
+1063|Naar achteren (Y+)
+1064|Omhoog (Z+)
+1065|Omlaag (Z-)
+1066|Spil aan / uit
+1067|Lucht aan / uit
+1068|Water aan / uit
+1069|Zwakke straal tijdens indrukken
+1070|Pen omhoog
+1071|Pen omlaag

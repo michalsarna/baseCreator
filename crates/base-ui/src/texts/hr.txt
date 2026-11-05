@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Tamna)
 1043|Joker (Svijetla)
+1044|Upravljački uređaji
+1045|Postavke upravljačkih uređaja…
+1046|Upravljački uređaj ovog stroja…
+1047|Zadano: {}
+1048|Nema zadanog uređaja
+1049|{} (nije povezano)
+1050|Dodaj tipkovnicu
+1051|Dodaj {}
+1052|Nije pronađen novi gamepad. Povežite ga i pričekajte trenutak.
+1053|Zadano za sve strojeve i programe
+1054|Vrati prve tipke
+1055|Zadnje pritisnuto: {}
+1056|Pritisnite tipku ili gumb…
+1057|Dodijeli
+1058|Pritiske prima samo prozor u prvom planu. Pomak traje dok je tipka pritisnuta i staje kad se otpusti ili kad drugi prozor dođe u prvi plan.
+1059|Sve tipkovnice jedan su uređaj, koji ne radi ništa dok tipkate u polje. Dva gamepada istog modela računaju se kao jedan uređaj.
+1060|Pomak lijevo (X-)
+1061|Pomak desno (X+)
+1062|Pomak naprijed (Y-)
+1063|Pomak natrag (Y+)
+1064|Pomak gore (Z+)
+1065|Pomak dolje (Z-)
+1066|Vreteno uklj. / isklj.
+1067|Zrak uklj. / isklj.
+1068|Voda uklj. / isklj.
+1069|Slab snop dok je pritisnuto
+1070|Olovka gore
+1071|Olovka dolje

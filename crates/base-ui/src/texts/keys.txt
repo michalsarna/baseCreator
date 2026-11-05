@@ -1042,3 +1042,31 @@
 1041	Batman
 1042	Joker (Dark)
 1043	Joker (Light)
+1044	Control devices
+1045	Control device settings…
+1046	Control device of this machine…
+1047	The default one: {}
+1048	No default device
+1049	{} (not connected)
+1050	Add the keyboard
+1051	Add {}
+1052	No new pad found. Connect one and wait a moment.
+1053	Default for all machines and programs
+1054	Back to the first keys
+1055	Last pressed: {}
+1056	Press a key or a button…
+1057	Assign
+1058	Only the window in front takes the presses. A move lasts while the key is held and stops when it is let go or when another window comes to the front.
+1059	All keyboards are one device, and it does nothing while you type in a field. Two pads of the same model count as one device.
+1060	Move left (X-)
+1061	Move right (X+)
+1062	Move forward (Y-)
+1063	Move back (Y+)
+1064	Move up (Z+)
+1065	Move down (Z-)
+1066	Spindle on / off
+1067	Air on / off
+1068	Water on / off
+1069	Low-power beam while held
+1070	Pen up
+1071	Pen down

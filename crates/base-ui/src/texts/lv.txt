@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Tumša)
 1043|Joker (Gaiša)
+1044|Vadības ierīces
+1045|Vadības ierīču iestatījumi…
+1046|Šīs mašīnas vadības ierīce…
+1047|Noklusējums: {}
+1048|Nav noklusējuma ierīces
+1049|{} (nav pievienota)
+1050|Pievienot tastatūru
+1051|Pievienot {}
+1052|Jauna spēļu pults nav atrasta. Pievienojiet to un mazliet uzgaidiet.
+1053|Noklusējums visām mašīnām un programmām
+1054|Atpakaļ uz sākotnējiem taustiņiem
+1055|Pēdējais nospiestais: {}
+1056|Nospiediet taustiņu vai pogu…
+1057|Piešķirt
+1058|Nospiedienus saņem tikai priekšplāna logs. Kustība ilgst, kamēr taustiņš ir nospiests, un apstājas, kad to atlaiž vai priekšplānā nonāk cits logs.
+1059|Visas tastatūras ir viena ierīce, kas neko nedara, kamēr rakstāt laukā. Divas viena modeļa spēļu pultis skaitās viena ierīce.
+1060|Pa kreisi (X-)
+1061|Pa labi (X+)
+1062|Uz priekšu (Y-)
+1063|Atpakaļ (Y+)
+1064|Uz augšu (Z+)
+1065|Uz leju (Z-)
+1066|Vārpsta iesl. / izsl.
+1067|Gaiss iesl. / izsl.
+1068|Ūdens iesl. / izsl.
+1069|Vājš stars, kamēr nospiests
+1070|Pildspalva augšā
+1071|Pildspalva lejā

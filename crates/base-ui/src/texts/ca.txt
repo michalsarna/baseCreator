@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Fosc)
 1043|Joker (Clar)
+1044|Dispositius de control
+1045|Configuració dels dispositius de control…
+1046|Dispositiu de control d'aquesta màquina…
+1047|Predeterminat: {}
+1048|Cap dispositiu predeterminat
+1049|{} (no connectat)
+1050|Afegeix el teclat
+1051|Afegeix {}
+1052|No s'ha trobat cap comandament nou. Connecteu-ne un i espereu un moment.
+1053|Predeterminat per a totes les màquines i programes
+1054|Torna a les primeres tecles
+1055|Darrer premut: {}
+1056|Premeu una tecla o un botó…
+1057|Assigna
+1058|Només la finestra del davant rep les pulsacions. Un moviment dura mentre es manté la tecla i s'atura en deixar-la anar o quan una altra finestra passa al davant.
+1059|Tots els teclats són un sol dispositiu, que no fa res mentre escriviu en un camp. Dos comandaments del mateix model compten com un sol dispositiu.
+1060|Mou a l'esquerra (X-)
+1061|Mou a la dreta (X+)
+1062|Mou endavant (Y-)
+1063|Mou enrere (Y+)
+1064|Mou amunt (Z+)
+1065|Mou avall (Z-)
+1066|Fus activat / desactivat
+1067|Aire activat / desactivat
+1068|Aigua activada / desactivada
+1069|Feix feble mentre es prem
+1070|Llapis amunt
+1071|Llapis avall

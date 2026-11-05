@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Skur)
 1043|Joker (Ċar)
+1044|Apparati tal-kontroll
+1045|Settings tal-apparati tal-kontroll…
+1046|L-apparat tal-kontroll ta' din il-magna…
+1047|Default: {}
+1048|L-ebda apparat default
+1049|{} (mhux imqabbad)
+1050|Żid it-tastiera
+1051|Żid {}
+1052|Ma nstab l-ebda gamepad ġdid. Qabbad wieħed u stenna ftit.
+1053|Default għall-magni u l-programmi kollha
+1054|Lura għall-ewwel tasti
+1055|L-aħħar magħfus: {}
+1056|Agħfas tast jew buttuna…
+1057|Assenja
+1058|It-tieqa ta' quddiem biss tieħu t-tagħfis. Moviment idum sakemm it-tast jinżamm u jieqaf meta jintelaq jew meta tieqa oħra tiġi quddiem.
+1059|It-tastieri kollha huma apparat wieħed, li ma jagħmel xejn waqt li tkun qed tikteb f'qasam. Żewġ gamepads tal-istess mudell jgħoddu bħala apparat wieħed.
+1060|Mexxi lejn ix-xellug (X-)
+1061|Mexxi lejn il-lemin (X+)
+1062|Mexxi 'l quddiem (Y-)
+1063|Mexxi lura (Y+)
+1064|Mexxi 'l fuq (Z+)
+1065|Mexxi 'l isfel (Z-)
+1066|Spindle mixgħul / mitfi
+1067|Arja mixgħul / mitfi
+1068|Ilma mixgħul / mitfi
+1069|Raġġ dgħajjef sakemm jinżamm
+1070|Pinna 'l fuq
+1071|Pinna 'l isfel

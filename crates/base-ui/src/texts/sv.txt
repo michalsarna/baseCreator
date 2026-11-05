@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Mörkt)
 1043|Joker (Ljust)
+1044|Styrenheter
+1045|Inställningar för styrenheter…
+1046|Den här maskinens styrenhet…
+1047|Standard: {}
+1048|Ingen standardenhet
+1049|{} (inte ansluten)
+1050|Lägg till tangentbordet
+1051|Lägg till {}
+1052|Ingen ny handkontroll hittades. Anslut en och vänta en stund.
+1053|Standard för alla maskiner och program
+1054|Tillbaka till de första tangenterna
+1055|Senast tryckt: {}
+1056|Tryck på en tangent eller knapp…
+1057|Tilldela
+1058|Bara fönstret längst fram tar emot tryck. En rörelse pågår medan tangenten hålls ned och stannar när den släpps eller när ett annat fönster kommer längst fram.
+1059|Alla tangentbord är en enhet, som inte gör något medan du skriver i ett fält. Två handkontroller av samma modell räknas som en enhet.
+1060|Flytta åt vänster (X-)
+1061|Flytta åt höger (X+)
+1062|Flytta framåt (Y-)
+1063|Flytta bakåt (Y+)
+1064|Flytta uppåt (Z+)
+1065|Flytta nedåt (Z-)
+1066|Spindel på / av
+1067|Luft på / av
+1068|Vatten på / av
+1069|Svag stråle medan den hålls
+1070|Penna upp
+1071|Penna ned

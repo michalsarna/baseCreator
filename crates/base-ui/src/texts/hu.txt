@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Sötét)
 1043|Joker (Világos)
+1044|Vezérlőeszközök
+1045|Vezérlőeszközök beállításai…
+1046|E gép vezérlőeszköze…
+1047|Alapértelmezett: {}
+1048|Nincs alapértelmezett eszköz
+1049|{} (nincs csatlakoztatva)
+1050|Billentyűzet hozzáadása
+1051|{} hozzáadása
+1052|Nem található új játékvezérlő. Csatlakoztasson egyet, és várjon egy kicsit.
+1053|Alapértelmezett minden géphez és programhoz
+1054|Vissza az eredeti billentyűkre
+1055|Utoljára lenyomva: {}
+1056|Nyomjon meg egy billentyűt vagy gombot…
+1057|Hozzárendelés
+1058|Csak az elöl lévő ablak fogadja a lenyomásokat. A mozgás addig tart, amíg a billentyűt nyomva tartja, és leáll, ha elengedi, vagy ha másik ablak kerül előre.
+1059|Minden billentyűzet egy eszköz, amely nem csinál semmit, amíg mezőbe gépel. Két azonos típusú játékvezérlő egy eszköznek számít.
+1060|Mozgatás balra (X-)
+1061|Mozgatás jobbra (X+)
+1062|Mozgatás előre (Y-)
+1063|Mozgatás hátra (Y+)
+1064|Mozgatás fel (Z+)
+1065|Mozgatás le (Z-)
+1066|Orsó be / ki
+1067|Levegő be / ki
+1068|Víz be / ki
+1069|Gyenge sugár nyomva tartáskor
+1070|Toll fel
+1071|Toll le

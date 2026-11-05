@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Dökkt)
 1043|Joker (Ljóst)
+1044|Stýritæki
+1045|Stillingar stýritækja…
+1046|Stýritæki þessarar vélar…
+1047|Sjálfgefið: {}
+1048|Ekkert sjálfgefið tæki
+1049|{} (ekki tengt)
+1050|Bæta við lyklaborðinu
+1051|Bæta við {}
+1052|Engin ný stýripinni fannst. Tengdu hann og bíddu augnablik.
+1053|Sjálfgefið fyrir allar vélar og forrit
+1054|Aftur í upphaflega lykla
+1055|Síðast ýtt á: {}
+1056|Ýttu á lykil eða hnapp…
+1057|Úthluta
+1058|Aðeins glugginn fremst tekur við ásláttum. Hreyfing varir á meðan lyklinum er haldið og stöðvast þegar honum er sleppt eða annar gluggi kemur fremst.
+1059|Öll lyklaborð eru eitt tæki, sem gerir ekkert á meðan þú skrifar í reit. Tveir stýripinnar af sömu gerð teljast eitt tæki.
+1060|Færa til vinstri (X-)
+1061|Færa til hægri (X+)
+1062|Færa fram (Y-)
+1063|Færa aftur (Y+)
+1064|Færa upp (Z+)
+1065|Færa niður (Z-)
+1066|Snælda á / af
+1067|Loft á / af
+1068|Vatn á / af
+1069|Veikur geisli á meðan haldið er
+1070|Penni upp
+1071|Penni niður

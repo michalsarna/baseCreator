@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Dorcha)
 1043|Joker (Éadrom)
+1044|Gléasanna rialaithe
+1045|Socruithe gléasanna rialaithe…
+1046|Gléas rialaithe an mheaisín seo…
+1047|Réamhshocrú: {}
+1048|Gan gléas réamhshocraithe
+1049|{} (gan nasc)
+1050|Cuir an méarchlár leis
+1051|Cuir {} leis
+1052|Níor aimsíodh ceap nua. Ceangail ceann agus fan nóiméad.
+1053|Réamhshocrú do gach meaisín agus clár
+1054|Ar ais go dtí na chéad eochracha
+1055|Brúite go deireanach: {}
+1056|Brúigh eochair nó cnaipe…
+1057|Sann
+1058|Ní ghlacann ach an fhuinneog chun tosaigh leis na brúnna. Maireann gluaiseacht fad a choinnítear an eochair agus stopann sí nuair a scaoiltear í nó nuair a thagann fuinneog eile chun tosaigh.
+1059|Is gléas amháin iad na méarchláir uile, agus ní dhéanann sé faic fad a chlóscríobhann tú i réimse. Áirítear dhá cheap den tsamhail chéanna mar ghléas amháin.
+1060|Bog ar chlé (X-)
+1061|Bog ar dheis (X+)
+1062|Bog ar aghaidh (Y-)
+1063|Bog ar gcúl (Y+)
+1064|Bog suas (Z+)
+1065|Bog síos (Z-)
+1066|Fearsaid ar siúl / as
+1067|Aer ar siúl / as
+1068|Uisce ar siúl / as
+1069|Léas lag fad a choinnítear
+1070|Peann suas
+1071|Peann síos
