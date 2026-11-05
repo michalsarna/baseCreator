@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Mørk)
 1043|Joker (Lys)
+1044|Styreenheter
+1045|Innstillinger for styreenheter…
+1046|Styreenheten til denne maskinen…
+1047|Standard: {}
+1048|Ingen standardenhet
+1049|{} (ikke tilkoblet)
+1050|Legg til tastaturet
+1051|Legg til {}
+1052|Fant ingen ny spillkontroll. Koble til en og vent litt.
+1053|Standard for alle maskiner og programmer
+1054|Tilbake til de første tastene
+1055|Sist trykket: {}
+1056|Trykk på en tast eller knapp…
+1057|Tildel
+1058|Bare vinduet foran tar imot trykk. En bevegelse varer mens tasten holdes, og stopper når den slippes eller når et annet vindu kommer foran.
+1059|Alle tastaturer er én enhet, som ikke gjør noe mens du skriver i et felt. To spillkontroller av samme modell teller som én enhet.
+1060|Flytt til venstre (X-)
+1061|Flytt til høyre (X+)
+1062|Flytt fremover (Y-)
+1063|Flytt bakover (Y+)
+1064|Flytt opp (Z+)
+1065|Flytt ned (Z-)
+1066|Spindel på / av
+1067|Luft på / av
+1068|Vann på / av
+1069|Svak stråle mens den holdes
+1070|Penn opp
+1071|Penn ned

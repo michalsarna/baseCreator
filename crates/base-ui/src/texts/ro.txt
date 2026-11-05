@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Întunecat)
 1043|Joker (Luminos)
+1044|Dispozitive de comandă
+1045|Setările dispozitivelor de comandă…
+1046|Dispozitivul de comandă al acestei mașini…
+1047|Implicit: {}
+1048|Niciun dispozitiv implicit
+1049|{} (neconectat)
+1050|Adaugă tastatura
+1051|Adaugă {}
+1052|Nu s-a găsit niciun gamepad nou. Conectați unul și așteptați puțin.
+1053|Implicit pentru toate mașinile și programele
+1054|Înapoi la primele taste
+1055|Ultima apăsare: {}
+1056|Apăsați o tastă sau un buton…
+1057|Atribuie
+1058|Doar fereastra din față primește apăsările. O mișcare durează cât timp tasta este ținută și se oprește la eliberare sau când altă fereastră trece în față.
+1059|Toate tastaturile sunt un singur dispozitiv, care nu face nimic cât timp scrieți într-un câmp. Două gamepaduri de același model contează ca un singur dispozitiv.
+1060|Mută la stânga (X-)
+1061|Mută la dreapta (X+)
+1062|Mută înainte (Y-)
+1063|Mută înapoi (Y+)
+1064|Mută în sus (Z+)
+1065|Mută în jos (Z-)
+1066|Ax pornit / oprit
+1067|Aer pornit / oprit
+1068|Apă pornită / oprită
+1069|Fascicul slab cât timp e ținut
+1070|Stilou sus
+1071|Stilou jos

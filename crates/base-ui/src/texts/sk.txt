@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Tmavá)
 1043|Joker (Svetlá)
+1044|Ovládacie zariadenia
+1045|Nastavenia ovládacích zariadení…
+1046|Ovládacie zariadenie tohto stroja…
+1047|Predvolené: {}
+1048|Žiadne predvolené zariadenie
+1049|{} (nepripojené)
+1050|Pridať klávesnicu
+1051|Pridať {}
+1052|Nový gamepad sa nenašiel. Pripojte ho a chvíľu počkajte.
+1053|Predvolené pre všetky stroje a programy
+1054|Späť na pôvodné klávesy
+1055|Naposledy stlačené: {}
+1056|Stlačte kláves alebo tlačidlo…
+1057|Priradiť
+1058|Stlačenia prijíma len okno v popredí. Pohyb trvá, kým je kláves držaný, a skončí po jeho uvoľnení alebo keď sa do popredia dostane iné okno.
+1059|Všetky klávesnice sú jedno zariadenie, ktoré pri písaní do poľa nič nerobí. Dva gamepady rovnakého modelu sa počítajú ako jedno zariadenie.
+1060|Pohyb vľavo (X-)
+1061|Pohyb vpravo (X+)
+1062|Pohyb dopredu (Y-)
+1063|Pohyb dozadu (Y+)
+1064|Pohyb nahor (Z+)
+1065|Pohyb nadol (Z-)
+1066|Vreteno zap. / vyp.
+1067|Vzduch zap. / vyp.
+1068|Voda zap. / vyp.
+1069|Slabý lúč pri držaní
+1070|Pero hore
+1071|Pero dole

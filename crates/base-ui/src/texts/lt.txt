@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Tamsi)
 1043|Joker (Šviesi)
+1044|Valdymo įrenginiai
+1045|Valdymo įrenginių nuostatos…
+1046|Šios mašinos valdymo įrenginys…
+1047|Numatytasis: {}
+1048|Nėra numatytojo įrenginio
+1049|{} (neprijungtas)
+1050|Pridėti klaviatūrą
+1051|Pridėti {}
+1052|Naujas pultelis nerastas. Prijunkite jį ir šiek tiek palaukite.
+1053|Numatytasis visoms mašinoms ir programoms
+1054|Grąžinti pradinius klavišus
+1055|Paskutinis paspaustas: {}
+1056|Paspauskite klavišą arba mygtuką…
+1057|Priskirti
+1058|Paspaudimus priima tik priekyje esantis langas. Judesys trunka, kol laikomas klavišas, ir sustoja jį atleidus arba kai į priekį iškyla kitas langas.
+1059|Visos klaviatūros yra vienas įrenginys, kuris nieko nedaro, kai rašote lauke. Du to paties modelio pulteliai laikomi vienu įrenginiu.
+1060|Judėti kairėn (X-)
+1061|Judėti dešinėn (X+)
+1062|Judėti pirmyn (Y-)
+1063|Judėti atgal (Y+)
+1064|Judėti aukštyn (Z+)
+1065|Judėti žemyn (Z-)
+1066|Suklys įj. / išj.
+1067|Oras įj. / išj.
+1068|Vanduo įj. / išj.
+1069|Silpnas spindulys laikant
+1070|Rašiklis aukštyn
+1071|Rašiklis žemyn

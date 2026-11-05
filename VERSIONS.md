@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.69.0
+
+- For the USB keyboards and pads of LightCreator, MillCreator and PenCreator: the definitions, the keys and the logic of a press (`base_core::control_devices`), reading the pads with `gilrs`, moves that last while a key is held, the windows of the settings (`base_ui::control_devices_ui`) and a submenu of the Machine menu. BaseCreator has no machine: it changes nothing there, but building it on Linux now needs `libudev-dev`.
+
 ## v1.68.0
 
 - **New colour schemes:** Superman, Batman, and Joker in a dark and a light version, in the menu and on the start screen, 18 in all.

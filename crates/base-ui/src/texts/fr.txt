@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Sombre)
 1043|Joker (Clair)
+1044|Périphériques de commande
+1045|Réglages des périphériques de commande…
+1046|Périphérique de commande de cette machine…
+1047|Par défaut : {}
+1048|Aucun périphérique par défaut
+1049|{} (non connecté)
+1050|Ajouter le clavier
+1051|Ajouter {}
+1052|Aucune nouvelle manette trouvée. Branchez-en une et patientez un instant.
+1053|Par défaut pour toutes les machines et tous les programmes
+1054|Revenir aux premières touches
+1055|Dernier appui : {}
+1056|Appuyez sur une touche ou un bouton…
+1057|Attribuer
+1058|Seule la fenêtre au premier plan reçoit les appuis. Un déplacement dure tant que la touche est maintenue et s'arrête au relâchement ou quand une autre fenêtre passe au premier plan.
+1059|Tous les claviers forment un seul périphérique, inactif pendant la saisie dans un champ. Deux manettes du même modèle comptent pour un seul périphérique.
+1060|Déplacer à gauche (X-)
+1061|Déplacer à droite (X+)
+1062|Déplacer vers l'avant (Y-)
+1063|Déplacer vers l'arrière (Y+)
+1064|Déplacer vers le haut (Z+)
+1065|Déplacer vers le bas (Z-)
+1066|Broche marche / arrêt
+1067|Air marche / arrêt
+1068|Eau marche / arrêt
+1069|Faisceau faible tant que maintenu
+1070|Stylo levé
+1071|Stylo baissé

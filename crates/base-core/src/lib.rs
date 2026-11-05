@@ -8,6 +8,7 @@ pub mod calibration;
 pub mod camimg;
 pub mod clipart;
 pub mod control;
+pub mod control_devices;
 pub mod design;
 pub mod diag;
 pub mod dxf;

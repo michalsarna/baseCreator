@@ -1042,3 +1042,31 @@
 1041|Batman
 1042|Joker (Escuro)
 1043|Joker (Claro)
+1044|Dispositivos de controlo
+1045|Definições dos dispositivos de controlo…
+1046|Dispositivo de controlo desta máquina…
+1047|Predefinido: {}
+1048|Nenhum dispositivo predefinido
+1049|{} (não ligado)
+1050|Adicionar o teclado
+1051|Adicionar {}
+1052|Nenhum comando novo encontrado. Ligue um e aguarde um momento.
+1053|Predefinido para todas as máquinas e programas
+1054|Voltar às primeiras teclas
+1055|Último premido: {}
+1056|Prima uma tecla ou um botão…
+1057|Atribuir
+1058|Só a janela em primeiro plano recebe as pressões. Um movimento dura enquanto a tecla está premida e para quando é largada ou quando outra janela passa para a frente.
+1059|Todos os teclados são um só dispositivo, que não faz nada enquanto escreve num campo. Dois comandos do mesmo modelo contam como um só dispositivo.
+1060|Mover para a esquerda (X-)
+1061|Mover para a direita (X+)
+1062|Mover para a frente (Y-)
+1063|Mover para trás (Y+)
+1064|Mover para cima (Z+)
+1065|Mover para baixo (Z-)
+1066|Mandril ligado / desligado
+1067|Ar ligado / desligado
+1068|Água ligada / desligada
+1069|Feixe fraco enquanto premido
+1070|Caneta para cima
+1071|Caneta para baixo

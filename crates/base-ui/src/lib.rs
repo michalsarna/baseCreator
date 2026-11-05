@@ -10,6 +10,7 @@ pub mod camera_stream;
 pub mod clip_net;
 pub mod clipart_ui;
 pub mod console_ui;
+pub mod control_devices_ui;
 pub mod control_ui;
 pub mod description_ui;
 pub mod device_pages;

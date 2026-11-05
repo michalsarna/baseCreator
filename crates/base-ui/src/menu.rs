@@ -544,6 +544,9 @@ pub struct MachineMenu<A> {
     pub calibration: A,
     /// What only this program has, after *Calibration…* (e.g. *Tool length sensor…*).
     pub own: Vec<Entry<A>>,
+    /// The window of the keyboards and pads, and the choice of the one of this machine.
+    pub control_devices: A,
+    pub control_device_of_machine: A,
     pub diagnostics: A,
     /// Shared over the network from this computer: only on Linux.
     pub share: A,
@@ -558,6 +561,7 @@ pub fn machine_menu<A>(m: MachineMenu<A>) -> Vec<Entry<A>> {
     use Entry::{Item, Sep};
     let mut v = vec![Item(m.switch_device, "Switch device…", None), Item(m.device_settings, "Device settings…", None), Item(m.firmware, "Firmware settings ($$)…", None), Item(m.calibration, "Calibration…", None)];
     v.extend(m.own);
+    v.push(Entry::Sub("Control devices", vec![Item(m.control_devices, "Control device settings…", None), Item(m.control_device_of_machine, "Control device of this machine…", None)]));
     v.push(Item(m.diagnostics, "Diagnostics and statistics…", None));
     if cfg!(target_os = "linux") {
         v.push(Item(m.share, "Share over network (ser2net)…", None));

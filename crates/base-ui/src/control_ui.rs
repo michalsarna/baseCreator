@@ -311,6 +311,12 @@ fn step_label(v: f64) -> String {
 }
 
 /// The value typed in a field of steps; `None` when it is not a sane distance.
+/// The steps and the speeds that a move from outside the tab uses: the ones the tab shows.
+pub fn jog_numbers(st: &ControlUi, control: &Control) -> (f64, f64, f64, f64) {
+    let step = |t: &str, list: &[f64]| parse_step(t).or(list.first().copied()).unwrap_or(1.0);
+    (step(&st.xy_text, &control.jog.xy_steps), step(&st.z_text, &control.jog.z_steps), st.feed_xy.unwrap_or(control.jog.xy_feed), st.feed_z.unwrap_or(control.jog.z_feed))
+}
+
 fn parse_step(text: &str) -> Option<f64> {
     let v: f64 = text.trim().replace(',', ".").parse().ok()?;
     (v.is_finite() && v > 0.0 && v <= 1000.0).then_some(v)
