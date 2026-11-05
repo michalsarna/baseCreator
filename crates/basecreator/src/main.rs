@@ -722,7 +722,7 @@ impl App {
 
     fn status_bar(&mut self, ui: &mut egui::Ui) {
         ui.horizontal_centered(|ui| {
-            ui.label(&self.status);
+            base_ui::widgets::message(ui, self.status.as_str());
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 base_ui::editor::zoom_and_cursor(self, ui);
                 ui.separator();
@@ -1073,7 +1073,9 @@ impl MenuHost for App {
             Act::Quit => self.request_close(ctx),
             Act::Std(s) => {
                 if self.screen == Screen::Editor {
-                    s.run(self)
+                    if !base_ui::menu::goes_to_text_field(ctx, s) {
+                        s.run(self)
+                    }
                 }
             }
             Act::ViewOptions => self.show_options = true,
