@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.71.2
+
+- **Import and adjust an image:** the picture zooms and moves as in the trace window: the wheel zooms about the pointer, a drag moves it, a double click shows it whole, and the buttons in its corner zoom in, zoom out and show the whole picture (`PictureView`, shared by both windows).
+
 ## v1.71.1
 
 - **The list of fonts of a text:** with the list open, the up and down arrows go through it and change the font of the text at once, and the list scrolls to the font; the list shows ten fonts at a time.

@@ -18,6 +18,74 @@ const HIST_W: f32 = 240.0;
 /// The controls of the trace dialog (sliders with their value boxes) are wider.
 const TRACE_CONTROLS_W: f32 = 300.0;
 
+/// How a picture is seen in the frame of a dialog: the zoom (1 = the whole picture in the frame) and where its middle lies.
+/// Scrolling zooms about the pointer, dragging moves the picture, a double click shows it whole again; the buttons do the same
+/// for a mouse without a wheel.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PictureView {
+    pub zoom: f32,
+    pub pan: egui::Vec2,
+}
+
+impl Default for PictureView {
+    fn default() -> Self {
+        PictureView { zoom: 1.0, pan: egui::Vec2::ZERO }
+    }
+}
+
+impl PictureView {
+    const MAX_ZOOM: f32 = 40.0;
+
+    /// The wheel, the drag and the double click on the frame `rect` (`resp` is its response, sensing clicks and drags).
+    pub fn input(&mut self, ui: &egui::Ui, resp: &egui::Response, rect: egui::Rect) {
+        if resp.hovered() {
+            let scroll = ui.input(|i| i.smooth_scroll_delta.y);
+            if let (Some(m), true) = (resp.hover_pos(), scroll != 0.0) {
+                let z = (self.zoom * (scroll * 0.0025).exp()).clamp(1.0, Self::MAX_ZOOM);
+                let k = z / self.zoom;
+                // The point under the pointer stays where it is.
+                self.pan = (m - rect.center()) * (1.0 - k) + self.pan * k;
+                self.zoom = z;
+            }
+        }
+        if resp.dragged() {
+            self.pan += resp.drag_delta();
+        }
+        if resp.double_clicked() {
+            *self = PictureView::default();
+        }
+    }
+
+    /// Where a picture of `size` pixels lies in the frame `rect`. It may not leave the frame altogether.
+    pub fn place(&mut self, rect: egui::Rect, size: egui::Vec2) -> egui::Rect {
+        let k = (rect.width() / size.x).min(rect.height() / size.y) * self.zoom;
+        let half = size * k / 2.0;
+        self.pan.x = self.pan.x.clamp(-(half.x + rect.width() / 2.0 - 20.0), half.x + rect.width() / 2.0 - 20.0);
+        self.pan.y = self.pan.y.clamp(-(half.y + rect.height() / 2.0 - 20.0), half.y + rect.height() / 2.0 - 20.0);
+        egui::Rect::from_center_size(rect.center() + self.pan, size * k)
+    }
+
+    /// Zoom by `k` about the middle of the frame.
+    pub fn zoom_by(&mut self, k: f32) {
+        let z = (self.zoom * k).clamp(1.0, Self::MAX_ZOOM);
+        self.pan *= z / self.zoom;
+        self.zoom = z;
+    }
+
+    /// Zoom in, zoom out, the whole picture.
+    pub fn buttons(&mut self, ui: &mut egui::Ui) {
+        if crate::widgets::icon_button(ui, "zoom-in", &tr("Zoom in"), true, 26.0) {
+            self.zoom_by(1.5);
+        }
+        if crate::widgets::icon_button(ui, "zoom-out", &tr("Zoom out"), true, 26.0) {
+            self.zoom_by(1.0 / 1.5);
+        }
+        if crate::widgets::icon_button(ui, "scan", &tr("Reset view"), true, 26.0) {
+            *self = PictureView::default();
+        }
+    }
+}
+
 /// A column of a dialog in a fixed place: what is in it is cut at its edges and never makes the window larger.
 pub(super) fn column(ui: &mut egui::Ui, r: egui::Rect, add: impl FnOnce(&mut egui::Ui)) {
     let mut c = ui.new_child(egui::UiBuilder::new().max_rect(r).layout(egui::Layout::top_down(egui::Align::Min)));
@@ -50,12 +118,14 @@ pub struct ImgDlg {
     hist_out: [u32; 256],
     /// Height / width of the adjusted picture.
     aspect: f64,
+    /// How the picture is seen in the frame.
+    pub view: PictureView,
 }
 
 impl ImgDlg {
     pub fn new(target: Option<u64>, base: ImageData) -> ImgDlg {
         let thumb = base.downscaled(PREVIEW_PX);
-        ImgDlg { target, adj: Adjust::default(), negative: base.invert, width: base.w, hist_in: thumb.histogram(), hist_out: [0; 256], base, thumb, tex: None, shown: None, aspect: 1.0 }
+        ImgDlg { target, adj: Adjust::default(), negative: base.invert, width: base.w, hist_in: thumb.histogram(), hist_out: [0; 256], base, thumb, tex: None, shown: None, aspect: 1.0, view: PictureView::default() }
     }
 
     /// The final picture with all adjustments, sized to `width` millimetres.
@@ -169,9 +239,8 @@ pub struct TraceDlg {
     tex: Option<egui::TextureHandle>,
     preview: Vec<Vec<Pt>>,
     shown: Option<TraceParams>,
-    /// The view of the picture: the zoom (1 = the whole picture in the frame) and where the middle of the picture lies.
-    zoom: f32,
-    pan: egui::Vec2,
+    /// How the picture is seen in the frame.
+    view: PictureView,
 }
 
 /// The picture dialogs: import, adjust and trace. Implemented for every `EditorHost`.
@@ -260,7 +329,7 @@ pub trait EditorImages: EditorHost {
     fn open_trace(&mut self) {
         let Some(id) = self.ed().sel.first().copied() else { return };
         if let Some(Kind::Image(im)) = self.scene().shape(id).map(|s| s.kind.clone()) {
-            self.ed_mut().trace_dlg = Some(TraceDlg { shape: id, params: TraceParams::default(), delete_original: false, thumb: im.downscaled(1200), tex: None, preview: vec![], shown: None, zoom: 1.0, pan: egui::Vec2::ZERO });
+            self.ed_mut().trace_dlg = Some(TraceDlg { shape: id, params: TraceParams::default(), delete_original: false, thumb: im.downscaled(1200), tex: None, preview: vec![], shown: None, view: PictureView::default() });
         }
     }
 
@@ -301,13 +370,26 @@ pub trait EditorImages: EditorHost {
             // The picture takes what the two columns leave, as large as the page.
             let pw = (page.width() - CONTROLS_W - HIST_W - 2.0 * gap).max(160.0);
             let rect = egui::Rect::from_min_size(page.min, egui::vec2(pw, page.height()));
-            ui.painter().rect_filled(rect, 4.0, Color32::from_gray(0x80));
+            let resp = ui.interact(rect, ui.scope_id().with("image_dlg_picture"), egui::Sense::click_and_drag());
+            d.view.input(ui, &resp, rect);
+            let painter = ui.painter_at(rect);
+            painter.rect_filled(rect, 4.0, Color32::from_gray(0x80));
             if let Some(t) = &d.tex {
-                let sz = t.size_vec2();
-                let k = (rect.width() / sz.x).min(rect.height() / sz.y);
-                let r = egui::Rect::from_center_size(rect.center(), sz * k);
-                ui.painter().image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::WHITE);
+                let r = d.view.place(rect, t.size_vec2());
+                painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::WHITE);
             }
+            // The zoom buttons in the corner of the picture, with the zoom and how to move it.
+            let bar = egui::Rect::from_min_size(rect.left_bottom() + egui::vec2(6.0, -34.0), egui::vec2(rect.width() - 12.0, 30.0));
+            let mut bar_ui = ui.new_child(egui::UiBuilder::new().max_rect(bar).layout(egui::Layout::left_to_right(egui::Align::Center)));
+            bar_ui.set_clip_rect(rect);
+            egui::Frame::new().fill(ui.visuals().window_fill()).corner_radius(4.0).inner_margin(2.0).show(&mut bar_ui, |ui| {
+                ui.horizontal(|ui| {
+                    d.view.buttons(ui);
+                    ui.label(RichText::new(format!("×{:.1}", d.view.zoom)).color(theme::text_dim()));
+                })
+                .response
+                .on_hover_text(tr("Scroll to zoom, drag to move, double click to see the whole picture"));
+            });
             let controls = egui::Rect::from_min_size(egui::pos2(rect.right() + gap, page.top()), egui::vec2(CONTROLS_W, page.height()));
             column(ui, controls, |ui| {
                 egui::ScrollArea::vertical().id_salt("image_dlg_controls").auto_shrink([false, false]).max_height(page.height()).show(ui, |ui| image_controls(ui, &mut d, units));
@@ -373,32 +455,9 @@ pub trait EditorImages: EditorHost {
                     let (rect, resp) = ui.allocate_exact_size(egui::vec2(pw, page_h.max(160.0)), egui::Sense::click_and_drag());
                     let painter = ui.painter_at(rect);
                     painter.rect_filled(rect, 4.0, Color32::WHITE);
-                    // Scrolling zooms about the pointer, dragging moves the picture, a double click shows it whole again.
-                    if resp.hovered() {
-                        let scroll = ui.input(|i| i.smooth_scroll_delta.y);
-                        if let (Some(m), true) = (resp.hover_pos(), scroll != 0.0) {
-                            let z = (d.zoom * (scroll * 0.0025).exp()).clamp(1.0, 40.0);
-                            let k = z / d.zoom;
-                            // The point under the pointer stays where it is.
-                            d.pan = (m - rect.center()) * (1.0 - k) + d.pan * k;
-                            d.zoom = z;
-                        }
-                    }
-                    if resp.dragged() {
-                        d.pan += resp.drag_delta();
-                    }
-                    if resp.double_clicked() {
-                        d.zoom = 1.0;
-                        d.pan = egui::Vec2::ZERO;
-                    }
+                    d.view.input(ui, &resp, rect);
                     if let Some(t) = &d.tex {
-                        let ts = t.size_vec2();
-                        let k = (rect.width() / ts.x).min(rect.height() / ts.y) * d.zoom;
-                        // The picture may not leave the frame altogether.
-                        let half = ts * k / 2.0;
-                        d.pan.x = d.pan.x.clamp(-(half.x + rect.width() / 2.0 - 20.0), half.x + rect.width() / 2.0 - 20.0);
-                        d.pan.y = d.pan.y.clamp(-(half.y + rect.height() / 2.0 - 20.0), half.y + rect.height() / 2.0 - 20.0);
-                        let r = egui::Rect::from_center_size(rect.center() + d.pan, ts * k);
+                        let r = d.view.place(rect, t.size_vec2());
                         painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::from_white_alpha(70));
                         let (sx, sy) = (r.width() / d.thumb.w as f32, r.height() / d.thumb.h as f32);
                         for poly in &d.preview {
@@ -407,7 +466,7 @@ pub trait EditorImages: EditorHost {
                                 painter.add(egui::Shape::closed_line(pts, Stroke::new(1.3, theme::accent())));
                             }
                         }
-                        painter.text(rect.left_bottom() + egui::vec2(8.0, -6.0), egui::Align2::LEFT_BOTTOM, format!("×{:.1}", d.zoom), egui::FontId::proportional(12.0), Color32::from_gray(0x60));
+                        painter.text(rect.left_bottom() + egui::vec2(8.0, -6.0), egui::Align2::LEFT_BOTTOM, format!("×{:.1}", d.view.zoom), egui::FontId::proportional(12.0), Color32::from_gray(0x60));
                     }
                     // A fixed column, so that a long text cannot widen the window frame after frame.
                     let (cols, _) = ui.allocate_exact_size(egui::vec2(TRACE_CONTROLS_W, rect.height()), egui::Sense::hover());
@@ -431,24 +490,7 @@ pub trait EditorImages: EditorHost {
                         ui.label(RichText::new(trf("{} outlines", &[&d.preview.len()])).color(theme::text_dim()));
                         ui.add_space(6.0);
                         // The same as the scroll wheel and the double click, for a mouse without a wheel: zoom in, zoom out, the whole picture.
-                        ui.horizontal(|ui| {
-                            let zoom_by = |d: &mut TraceDlg, k: f32| {
-                                let z = (d.zoom * k).clamp(1.0, 40.0);
-                                // About the middle of the frame.
-                                d.pan *= z / d.zoom;
-                                d.zoom = z;
-                            };
-                            if crate::widgets::icon_button(ui, "zoom-in", &tr("Zoom in"), true, 26.0) {
-                                zoom_by(&mut d, 1.5);
-                            }
-                            if crate::widgets::icon_button(ui, "zoom-out", &tr("Zoom out"), true, 26.0) {
-                                zoom_by(&mut d, 1.0 / 1.5);
-                            }
-                            if crate::widgets::icon_button(ui, "scan", &tr("Reset view"), true, 26.0) {
-                                d.zoom = 1.0;
-                                d.pan = egui::Vec2::ZERO;
-                            }
-                        });
+                        ui.horizontal(|ui| d.view.buttons(ui));
                         ui.label(RichText::new(tr("Scroll to zoom, drag to move, double click to see the whole picture")).color(theme::text_dim()));
                     });
                 });

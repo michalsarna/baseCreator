@@ -703,3 +703,45 @@ fn the_arrows_change_the_font_in_the_open_list_and_it_shows_ten() {
     let seen = popup.height() / row;
     assert!((10.5..13.5).contains(&seen), "about ten names and the search field: {seen} rows of {row}");
 }
+
+/// The picture of the import window zooms and moves as in the trace window: the zoom button, a drag, a double click.
+#[test]
+fn the_picture_of_the_import_window_zooms_and_moves() {
+    let mut h = Host::default();
+    let im = base_core::image::ImageData { name: "p.png".into(), px_w: 80, px_h: 60, gray: vec![128; 4800], w: 80.0, h: 60.0, invert: false };
+    h.ed.img_dlg = Some(ImgDlg::new(None, im));
+    let ctx = egui::Context::default();
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1000.0));
+    let mut t = 0.0;
+    let mut frame = |h: &mut Host, events: Vec<egui::Event>| {
+        t += 0.05;
+        let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), time: Some(t), events, ..Default::default() }, |ui| h.image_dialogs(&ui.ctx().clone()));
+        out.textures_delta.clear();
+    };
+    let press = |at: egui::Pos2, down: bool| egui::Event::PointerButton { pos: at, button: egui::PointerButton::Primary, pressed: down, modifiers: Default::default() };
+    for _ in 0..3 {
+        frame(&mut h, vec![]);
+    }
+    // The zoom-in button: the first square clickable widget of about 26 points in the window.
+    let button = ctx.viewport(|v| v.prev_pass.widgets.layers().filter(|(l, _)| l.order != egui::Order::Background).flat_map(|(_, w)| w.iter().filter(|w| w.sense.senses_click()).map(|w| w.rect)).find(|r| (r.width() - r.height()).abs() < 4.0 && r.width() > 20.0 && r.width() < 34.0)).expect("the zoom-in button");
+    frame(&mut h, vec![egui::Event::PointerMoved(button.center())]);
+    frame(&mut h, vec![press(button.center(), true), press(button.center(), false)]);
+    frame(&mut h, vec![]);
+    assert!((h.ed.img_dlg.as_ref().unwrap().view.zoom - 1.5).abs() < 1e-6, "zoomed in by the button");
+    // A drag in the picture (above the buttons) moves it.
+    let a = button.center() + egui::vec2(150.0, -200.0);
+    frame(&mut h, vec![egui::Event::PointerMoved(a)]);
+    frame(&mut h, vec![press(a, true)]);
+    for i in 1..=5 {
+        frame(&mut h, vec![egui::Event::PointerMoved(a + egui::vec2(8.0 * i as f32, 4.0 * i as f32))]);
+    }
+    frame(&mut h, vec![press(a + egui::vec2(40.0, 20.0), false)]);
+    let pan = h.ed.img_dlg.as_ref().unwrap().view.pan;
+    assert!(pan.x > 10.0 && pan.y > 5.0, "moved by the drag: {pan:?}");
+    // A double click shows the whole picture again.
+    let b = a + egui::vec2(40.0, 20.0);
+    frame(&mut h, vec![press(b, true), press(b, false)]);
+    frame(&mut h, vec![press(b, true), press(b, false)]);
+    frame(&mut h, vec![]);
+    assert_eq!(h.ed.img_dlg.as_ref().unwrap().view, super::image_ui::PictureView::default());
+}
