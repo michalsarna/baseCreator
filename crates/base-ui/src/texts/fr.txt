@@ -1119,3 +1119,6 @@
 1118|Sans contrôle de flux, un traceur perd des commandes dès que sa mémoire tampon est pleine.
 1119|Un traceur ne répond rien : une ligne compte comme faite dès que le port l'a prise, et un arrêt lève le stylo tandis que le traceur dessine encore ce qu'il a dans sa mémoire tampon.
 1120|Le traceur n'a rien pris depuis 20 s : vérifiez le contrôle de flux et le câble.
+1121|Pas de prise d'origine
+1122|Le contrôleur indique que la machine n'a pas fait de prise d'origine depuis son démarrage.
+1123|Outil {}

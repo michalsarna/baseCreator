@@ -1119,3 +1119,6 @@
 1118|Bez plūsmas vadības plotteris zaudē komandas, tiklīdz tā buferis ir pilns.
 1119|Plotteris neko neatbild: rinda skaitās izpildīta, tiklīdz ports to pieņēmis, un apturēšana paceļ pildspalvu, kamēr plotteris vēl zīmē to, kas ir tā buferī.
 1120|Plotteris 20 s neko nav pieņēmis: pārbaudiet plūsmas vadību un kabeli.
+1121|Nav sākuma pozīcijas
+1122|Kontrolieris ziņo, ka mašīna kopš palaišanas nav nobraukusi uz sākuma pozīciju.
+1123|Instruments {}

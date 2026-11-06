@@ -1119,3 +1119,6 @@
 1118|Zonder stroombesturing verliest een plotter opdrachten zodra zijn buffer vol is.
 1119|Een plotter antwoordt niet: een regel telt als klaar zodra de poort hem heeft aangenomen, en een stop tilt de pen op terwijl de plotter nog tekent wat in zijn buffer staat.
 1120|De plotter neemt al 20 s niets aan: controleer de stroombesturing en de kabel.
+1121|Niet gehomed
+1122|De controller meldt dat de machine sinds het opstarten niet gehomed is.
+1123|Gereedschap {}

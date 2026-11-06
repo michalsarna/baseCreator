@@ -1119,3 +1119,6 @@
 1118|Án flæðistýringar týnir teiknari skipunum þegar biðminni hans er fullt.
 1119|Teiknari svarar engu: lína telst búin þegar tengið hefur tekið við henni, og stöðvun lyftir pennanum á meðan teiknarinn teiknar enn það sem er í biðminni hans.
 1120|Teiknarinn hefur ekki tekið við neinu í 20 s: athugaðu flæðistýringu og snúru.
+1121|Ekki núllstillt
+1122|Stýringin segir að vélin hafi ekki verið núllstillt frá ræsingu.
+1123|Verkfæri {}

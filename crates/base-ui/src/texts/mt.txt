@@ -1119,3 +1119,6 @@
 1118|Mingħajr kontroll tal-fluss, plotter jitlef kmandi hekk kif il-buffer tiegħu jimtela.
 1119|Plotter ma jwieġeb xejn: linja titqies magħmula hekk kif il-port ħadha, u waqfa tgħolli l-pinna waqt li l-plotter għadu jpinġi dak li hemm fil-buffer tiegħu.
 1120|Il-plotter ilu 20 s ma jieħu xejn: iċċekkja l-kontroll tal-fluss u l-kejbil.
+1121|Mhux homed
+1122|Il-kontrollur jgħid li l-magna ma saritx homed minn meta bdiet.
+1123|Għodda {}

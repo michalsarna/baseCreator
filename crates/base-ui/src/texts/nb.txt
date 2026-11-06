@@ -1119,3 +1119,6 @@
 1118|Uten flytkontroll mister en plotter kommandoer når bufferen er full.
 1119|En plotter svarer ingenting: en linje regnes som utført når porten har tatt imot den, og en stopp løfter pennen mens plotteren fortsatt tegner det som er i bufferen.
 1120|Plotteren har ikke tatt imot noe på 20 s: sjekk flytkontrollen og kabelen.
+1121|Ikke referansekjørt
+1122|Kontrolleren sier at maskinen ikke er referansekjørt siden start.
+1123|Verktøy {}

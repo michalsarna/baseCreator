@@ -1119,3 +1119,6 @@
 1118|Be srauto valdymo braižytuvas praranda komandas, kai tik jo buferis prisipildo.
 1119|Braižytuvas nieko neatsako: eilutė laikoma atlikta, kai tik prievadas ją priėmė, o sustabdymas pakelia rašiklį, nors braižytuvas dar piešia tai, kas yra jo buferyje.
 1120|Braižytuvas 20 s nieko nepriėmė: patikrinkite srauto valdymą ir kabelį.
+1121|Nenustatyta pradinė padėtis
+1122|Valdiklis praneša, kad nuo paleidimo mašinai nenustatyta pradinė padėtis.
+1123|Įrankis {}

@@ -19,6 +19,10 @@ pub struct Report {
     pub feed_spindle: Option<(f64, f64)>,
     /// Overrides in percent: feed, rapids, spindle.
     pub overrides: Option<(u32, u32, u32)>,
+    /// grblHAL: has the machine been homed since it started (`H:1`)?
+    pub homed: Option<bool>,
+    /// grblHAL: the tool in the spindle (`T:3`).
+    pub tool: Option<u32>,
 }
 
 fn triple(v: &str) -> Option<[f64; 3]> {
@@ -57,6 +61,9 @@ pub fn parse(line: &str) -> Option<Report> {
                     r.feed_spindle = Some((n[0], n.get(1).copied().unwrap_or(0.0)));
                 }
             }
+            // grblHAL: `H:1` or `H:1,7` (homed, and which axes).
+            "H" => r.homed = v.split(',').next().and_then(|h| h.trim().parse::<u32>().ok()).map(|h| h != 0),
+            "T" => r.tool = v.trim().parse().ok(),
             "Ov" => {
                 let n: Vec<u32> = v.split(',').filter_map(|s| s.parse().ok()).collect();
                 if n.len() == 3 {
@@ -186,6 +193,16 @@ mod tests {
         assert!(parse("<>").is_none());
         assert!(parse("<Idle,MPos:1,2,3,WPos:1,2,3>").is_none(), "Smoothieware has its own reader");
         assert_eq!(parse("<Hold:0|MPos:0,0,0>").unwrap().state, "Hold:0");
+    }
+
+    #[test]
+    fn the_extra_fields_of_grblhal_are_read() {
+        let r = parse("<Tool|MPos:1.000,2.000,3.000|Bf:35,1023|FS:0,0|H:1,7|T:3|TLR:1|A:S>").unwrap();
+        assert_eq!((r.state.as_str(), r.homed, r.tool), ("Tool", Some(true), Some(3)));
+        assert_eq!(r.buffer, Some((35, 1023)));
+        assert_eq!(parse("<Idle|MPos:0,0,0|H:0>").unwrap().homed, Some(false));
+        let plain = parse("<Idle|MPos:0,0,0|FS:0,0>").unwrap();
+        assert_eq!((plain.homed, plain.tool), (None, None), "GRBL 1.1 says nothing of it");
     }
 
     #[test]

@@ -245,8 +245,16 @@ pub fn layer_marks_in_text(text: &str) -> Vec<usize> {
     marks.into_iter().skip(1).collect()
 }
 
+/// The start-up line of GRBL and of the firmware built on it: `Grbl 1.1h ['$' for help]`, `GrblHAL 1.1f ['$' or '$HELP' for
+/// help]`, `Grbl 3.7 [FluidNC v3.7.8 (wifi) '$' for help]`.
+fn is_banner(line: &str) -> bool {
+    let l = line.to_ascii_lowercase();
+    l.starts_with("grbl ") || l.starts_with("grblhal ")
+}
+
 fn realtime_name(b: u8) -> String {
     match b {
+        0x87 => "0x87 (complete status report)".into(),
         0x18 => "0x18 (soft reset)".into(),
         0x85 => "0x85 (jog cancel)".into(),
         b'!' => "! (feed hold)".into(),
@@ -595,7 +603,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     }
                     continue;
                 }
-                if restarting.is_some() && line.starts_with("Grbl ") {
+                if restarting.is_some() && is_banner(&line) {
                     // Restarted: anything sent before the reset is gone, and so are its acknowledgements.
                     restarting = None;
                     pending.clear();
@@ -694,7 +702,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
             }
             // A job that waits for an answer while the machine stands still: say so, ask for the state, and leave the
             // decision to the user (nothing is resumed or sent on its own).
-            let moving = plot.is_some() || matches!(machine_state.split(':').next().unwrap_or(""), "Run" | "Hold" | "Home" | "Jog" | "Door" | "Check");
+            let moving = plot.is_some() || matches!(machine_state.split(':').next().unwrap_or(""), "Run" | "Hold" | "Home" | "Jog" | "Door" | "Check" | "Tool");
             let running_job = total > 0 && done < total;
             if let (Some(t), true) = (waiting_since, running_job && !pending.is_empty() && !moving && !stall_reported) {
                 if t.elapsed() >= stall_after {
@@ -1184,6 +1192,41 @@ mod tests {
         assert!(finishes(&link, 5, 3.0));
         link.send(Cmd::Disconnect);
         assert_eq!(rx.recv_timeout(Duration::from_secs(5)).unwrap(), "IN;SP1;PU;PA400,200;PD;VS2;PA800,200;PU;PA0,0;");
+    }
+
+    #[test]
+    fn the_banner_of_grblhal_ends_the_wait_after_the_reset_at_once() {
+        assert!(is_banner("GrblHAL 1.1f ['$' or '$HELP' for help]") && is_banner("Grbl 3.7 [FluidNC v3.7.8 (wifi) '$' for help]"));
+        assert!(is_banner("Grbl 1.1h ['$' for help]") && !is_banner("[MSG:INFO: FluidNC]") && !is_banner("ok"));
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        std::thread::spawn(move || {
+            let (mut s, _) = listener.accept().unwrap();
+            let _ = s.set_read_timeout(Some(Duration::from_millis(10)));
+            let (mut chunk, start) = ([0u8; 64], Instant::now());
+            while start.elapsed() < Duration::from_secs(4) {
+                if let Ok(n) = s.read(&mut chunk) {
+                    for &b in &chunk[..n] {
+                        match b {
+                            0x18 => {
+                                let _ = s.write_all(b"\r\nGrblHAL 1.1f ['$' or '$HELP' for help]\r\n");
+                            }
+                            b'\n' => {
+                                let _ = s.write_all(b"ok\n");
+                            }
+                            _ => {}
+                        }
+                    }
+                }
+            }
+        });
+        let link = LaserLink::spawn(egui::Context::default());
+        link.send(Cmd::Connect { target: Target::Tcp { host: "127.0.0.1".into(), port }, controller: Controller::Grbl, streaming: base_core::machine::Streaming::Counting });
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Connected(true))));
+        let t = Instant::now();
+        link.send(Cmd::Job(vec!["G21".into()]));
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Progress { done: 1, total: 1 })));
+        assert!(t.elapsed() < BANNER_TIMEOUT / 2, "the job did not wait for the banner timeout: {:?}", t.elapsed());
     }
 
     #[test]

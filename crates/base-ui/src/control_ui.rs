@@ -108,6 +108,10 @@ pub trait ControlTarget {
     fn state(&self) -> String;
     /// The firmware, when it is known (`Grbl 1.1h`).
     fn fw_label(&self) -> Option<String>;
+    /// What grblHAL reports besides GRBL 1.1: whether the machine was homed, and the tool in the spindle.
+    fn homed_and_tool(&self) -> (Option<bool>, Option<u32>) {
+        (None, None)
+    }
     fn alarm_code(&self) -> Option<u32>;
     fn is_alarm(&self) -> bool;
     fn wpos(&self) -> [f64; 3];
@@ -180,6 +184,9 @@ impl ControlTarget for Machine {
     }
     fn fw_label(&self) -> Option<String> {
         self.fw.info.is_known().then(|| self.fw.info.label())
+    }
+    fn homed_and_tool(&self) -> (Option<bool>, Option<u32>) {
+        (self.homed, self.tool)
     }
     fn alarm_code(&self) -> Option<u32> {
         self.alarm
@@ -364,6 +371,13 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
         ui.label(RichText::new(state).strong().size(17.0).color(if alarm { Color32::from_rgb(0xc0, 0x30, 0x30) } else { theme::text() }));
         if let Some(fw) = m.fw_label() {
             ui.label(RichText::new(fw).color(theme::text_dim()));
+        }
+        let (homed, tool) = m.homed_and_tool();
+        if homed == Some(false) {
+            ui.label(RichText::new(tr("Not homed")).color(Color32::from_rgb(0xe8, 0x8a, 0x1f))).on_hover_text(tr("The controller says the machine has not been homed since it started."));
+        }
+        if let Some(t) = tool.filter(|t| *t > 0) {
+            ui.label(RichText::new(trf("Tool {}", &[&t])).color(theme::text_dim()));
         }
         if alarm && tip(ui.button(tr("Unlock")), &tr("Clear an alarm ($X)")).clicked() {
             m.unlock();
