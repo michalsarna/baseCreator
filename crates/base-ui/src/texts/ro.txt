@@ -1118,3 +1118,4 @@
 1117|Controlul fluxului
 1118|Fără controlul fluxului, un plotter pierde comenzi când i se umple memoria tampon.
 1119|Un plotter nu răspunde: o linie contează ca făcută când portul a preluat-o, iar oprirea ridică stiloul în timp ce plotterul încă desenează ce are în memoria tampon.
+1120|Plotterul nu a preluat nimic de 20 s: verificați controlul fluxului și cablul.

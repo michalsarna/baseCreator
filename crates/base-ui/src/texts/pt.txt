@@ -1118,3 +1118,4 @@
 1117|Controlo de fluxo
 1118|Sem controlo de fluxo, um plotter perde comandos assim que o seu buffer fica cheio.
 1119|Um plotter não responde: uma linha conta como feita assim que a porta a recebeu, e uma paragem levanta a caneta enquanto o plotter ainda desenha o que tem no buffer.
+1120|O plotter não recebe nada há 20 s: verifique o controlo de fluxo e o cabo.

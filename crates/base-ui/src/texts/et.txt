@@ -1118,3 +1118,4 @@
 1117|Vookontroll
 1118|Ilma vookontrollita kaotab plotter käske, kui tema puhver on täis.
 1119|Plotter ei vasta midagi: rida loetakse tehtuks, kui port on selle vastu võtnud, ja peatamine tõstab pliiatsi, kuid plotter joonistab ikka puhvris oleva.
+1120|Plotter pole 20 s jooksul midagi vastu võtnud: kontrollige vookontrolli ja kaablit.

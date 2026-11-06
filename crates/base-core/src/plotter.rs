@@ -13,7 +13,8 @@ pub enum Kinematics {
     /// AxiDraw: both motors drive one belt; motor 1 moves by X + Y, motor 2 by X − Y.
     #[default]
     AxiDraw,
-    /// EggBot and similar: motor 1 is X, motor 2 is Y.
+    /// EggBot and similar: motor 1 turns the pen arm (Y), motor 2 the egg (X), as `doXYMove` of evil-mad's plotink sends them
+    /// (`SM,time,Y,X`); the EggBot's own program reverses the pen arm, as `reverse_y` does.
     EggBot,
 }
 
@@ -250,7 +251,7 @@ impl Translator {
         let k = s.steps_per_mm;
         let (tx, ty) = match s.kinematics {
             Kinematics::AxiDraw => ((a + b) as f64 / (2.0 * k), (a - b) as f64 / (2.0 * k)),
-            Kinematics::EggBot => (a as f64 / k, b as f64 / k),
+            Kinematics::EggBot => (b as f64 / k, a as f64 / k),
         };
         let mx = if s.reverse_x { -tx } else { tx };
         let my = if s.reverse_y { -ty } else { ty };
@@ -405,7 +406,7 @@ impl Translator {
                 let k = s.steps_per_mm;
                 match s.kinematics {
                     Kinematics::AxiDraw => [((x + y) * k).round() as i64, ((x - y) * k).round() as i64],
-                    Kinematics::EggBot => [(x * k).round() as i64, (y * k).round() as i64],
+                    Kinematics::EggBot => [(y * k).round() as i64, (x * k).round() as i64],
                 }
             }
         }
@@ -515,9 +516,16 @@ mod tests {
 
     #[test]
     fn the_eggbot_has_a_motor_for_each_axis_and_the_axes_can_be_reversed() {
+        // Motor 1 is the pen arm (Y), motor 2 the egg (X).
         let mut t = Translator::new(Setup { language: Language::Ebb, settings: PlotterSettings { kinematics: Kinematics::EggBot, reverse_x: true, reverse_y: false, ..Default::default() }, pen: PenSense::default(), rapid: 6000.0 });
         let (_, a, b) = sm(&t.translate("G1 X1 Y2 F600")[0]);
-        assert_eq!((a, b), (-80, 160));
+        assert_eq!((a, b), (160, -80));
+        // With the default reversed Y, as the EggBot's own program drives the pen arm.
+        let mut e = Translator::new(Setup { language: Language::Ebb, settings: PlotterSettings { kinematics: Kinematics::EggBot, ..Default::default() }, pen: PenSense::default(), rapid: 6000.0 });
+        let (_, a, b) = sm(&e.translate("G1 X1 Y2 F600")[0]);
+        assert_eq!((a, b), (-160, 80));
+        assert!(e.sync_steps("-80,40"));
+        assert_eq!(e.work_position(), [0.5, 1.0]);
     }
 
     #[test]

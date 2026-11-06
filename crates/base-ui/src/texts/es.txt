@@ -1118,3 +1118,4 @@
 1117|Control de flujo
 1118|Sin control de flujo, un trazador pierde órdenes en cuanto su búfer está lleno.
 1119|Un trazador no responde: una línea cuenta como hecha en cuanto el puerto la tomó, y una parada levanta el bolígrafo mientras el trazador aún dibuja lo que tiene en su búfer.
+1120|El trazador lleva 20 s sin aceptar nada: comprueba el control de flujo y el cable.

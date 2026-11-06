@@ -1118,3 +1118,4 @@
 1117|Flowkontrol
 1118|Uden flowkontrol mister en plotter kommandoer, når dens buffer er fuld.
 1119|En plotter svarer ikke: en linje tæller som udført, når porten har taget den, og et stop løfter pennen, mens plotteren stadig tegner det, der er i dens buffer.
+1120|Plotteren har ikke taget imod noget i 20 s: kontrollér flowkontrollen og kablet.

@@ -1118,3 +1118,4 @@
 1117|Control de flux
 1118|Sense control de flux, un traçador perd ordres quan se li omple la memòria intermèdia.
 1119|Un traçador no respon: una línia es compta com a feta quan el port l'ha presa, i una aturada aixeca la ploma mentre el traçador encara dibuixa el que té a la memòria intermèdia.
+1120|El traçador fa 20 s que no accepta res: comprova el control de flux i el cable.

@@ -1118,3 +1118,4 @@
 1117|Flödeskontroll
 1118|Utan flödeskontroll tappar en plotter kommandon när dess buffert är full.
 1119|En plotter svarar inget: en rad räknas som klar när porten har tagit emot den, och ett stopp lyfter pennan medan plottern fortfarande ritar det som finns i dess buffert.
+1120|Plottern har inte tagit emot något på 20 s: kontrollera flödeskontrollen och kabeln.

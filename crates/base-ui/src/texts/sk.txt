@@ -1118,3 +1118,4 @@
 1117|Riadenie toku
 1118|Bez riadenia toku plotter stráca príkazy, len čo sa mu zaplní vyrovnávacia pamäť.
 1119|Plotter nič neodpovedá: riadok sa počíta za hotový, len čo ho port prevzal, a zastavenie zdvihne pero, kým plotter ešte kreslí, čo má vo vyrovnávacej pamäti.
+1120|Plotter 20 s nič neprijal: skontrolujte riadenie toku a kábel.

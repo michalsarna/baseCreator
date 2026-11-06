@@ -1118,3 +1118,4 @@
 1117|Kontrola toka
 1118|Bez kontrole toka crtalo gubi naredbe čim mu se međuspremnik napuni.
 1119|Crtalo ništa ne odgovara: redak se smatra izvršenim čim ga je priključak preuzeo, a zaustavljanje podiže olovku dok crtalo još crta ono što ima u međuspremniku.
+1120|Crtalo 20 s ništa ne prima: provjerite kontrolu toka i kabel.

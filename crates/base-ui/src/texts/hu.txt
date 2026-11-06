@@ -1118,3 +1118,4 @@
 1117|Adatfolyam-vezérlés
 1118|Adatfolyam-vezérlés nélkül a rajzgép parancsokat veszít, amint megtelik a puffere.
 1119|A rajzgép nem válaszol: egy sor akkor számít késznek, amikor a port átvette, a leállítás pedig felemeli a tollat, miközben a rajzgép még megrajzolja, ami a pufferében van.
+1120|A rajzgép 20 mp óta semmit sem fogad: ellenőrizze az adatfolyam-vezérlést és a kábelt.

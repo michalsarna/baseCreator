@@ -6,8 +6,8 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 ## v1.70.0
 
 - **Plotters that do not speak G-code:** the AxiDraw and the EggBot (EiBotBoard, EBB) and HPGL plotters and cutters on a serial port. The programs make G-code as for a GRBL; the link turns every line into the plotter's own commands (`plotter::Translator`), so the buttons, the progress, the pauses at a pen change, the hold and the stop work the same way.
-  - EBB: one command at a time, each answered with `OK`; the motors of the AxiDraw are mixed (X + Y, X − Y), 80 steps per mm, the pen heights in percent (`SC,4`, `SC,5`), at most 24 steps a millisecond. A stop drops the board's queue (`ES`), lifts the pen and reads where the motors are (`QS`).
-  - HPGL: absolute plotter units (40 per mm), `PU`/`PD`/`PA`, the speed with `VS`; the port's flow control (RTS/CTS or XON/XOFF) keeps the plotter's buffer from overflowing.
+  - EBB: one command at a time, each answered with `OK`; the motors of the AxiDraw are mixed (X + Y, X − Y), 80 steps per mm, the pen heights in percent (`SC,4`, `SC,5`), at most 24 steps a millisecond. The EggBot's motor 1 is the pen arm (Y) and motor 2 the egg (X), as evil-mad's plotink sends them. The board's `OK` means a move is queued, so before a pause the link asks it (`QM`) until its motors stand. A stop drops the board's queue (`ES`), lifts the pen and reads where the motors are (`QS`).
+  - HPGL: absolute plotter units (40 per mm), `PU`/`PD`/`PA`, the speed with `VS`; the port's flow control (RTS/CTS or XON/XOFF) keeps the plotter's buffer from overflowing; a plotter that takes nothing for 20 s is reported once.
   - Offered as `GrblVersion::PLOTTERS` (after `ALL`, which stays the same for the laser and the milling machine); the settings are `Connection::plotter` and `plotter_ui::settings_rows`.
   - A plotter is never asked for `$I`, `$$` or `$G`, a check run is skipped (it would draw), jogs are plain moves.
   - Not tried on a real AxiDraw or HPGL plotter yet: only against stand-ins in the tests.

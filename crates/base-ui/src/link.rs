@@ -289,13 +289,20 @@ struct Plot {
     hold: bool,
     /// What was last reported, so a report goes out only when something changed.
     shown: Option<(String, [f64; 2])>,
+    /// EBB: its `OK` means a move is queued, not done; at a pause the board is asked (`QM`) until its motors stand.
+    /// `Some(true)`: they stood at the last answer.
+    still: Option<bool>,
+    asked_at: Option<Instant>,
+    /// HPGL: since when the port has taken nothing, and whether that was said.
+    stuck_since: Option<Instant>,
+    stuck_said: bool,
 }
 
 impl Plot {
     fn new(setup: base_core::plotter::Setup) -> Plot {
         let mut tr = base_core::plotter::Translator::new(setup);
         let out = tr.start().into_iter().map(|c| (c, Kind::Raw, true)).collect();
-        Plot { tr, out, waiting: VecDeque::new(), bytes: vec![], at: 0, bytes_of: (Kind::Raw, true), hold: false, shown: None }
+        Plot { tr, out, waiting: VecDeque::new(), bytes: vec![], at: 0, bytes_of: (Kind::Raw, true), hold: false, shown: None, still: None, asked_at: None, stuck_since: None, stuck_said: false }
     }
 
     fn is_ebb(&self) -> bool {
@@ -324,6 +331,11 @@ impl Plot {
         if line == "OK" || line.starts_with('!') {
             return Some(self.waiting.pop_front().unwrap_or((Kind::Raw, true)));
         }
+        // `QM,0,0,0,0`: nothing runs and nothing is queued. This answer has no `OK` after it.
+        if let Some(rest) = line.strip_prefix("QM,") {
+            self.still = Some(rest.split(',').all(|v| v.trim() == "0"));
+            return Some(self.waiting.pop_front().unwrap_or((Kind::Poll, true)));
+        }
         // The answer to `QS` after a stop: where the motors really are.
         self.tr.sync_steps(line);
         None
@@ -344,11 +356,22 @@ fn plot_send(pl: &mut Plot, p: &mut dyn Link, queue: &mut VecDeque<(String, Kind
         // HPGL: first the rest of a command the port did not take at once (the plotter's buffer is full).
         if pl.at < pl.bytes.len() {
             match p.write(&pl.bytes[pl.at..]) {
-                Ok(n) => pl.at += n,
+                Ok(n) if n > 0 => {
+                    pl.at += n;
+                    pl.stuck_since = None;
+                }
+                Ok(_) => {}
                 Err(e) if matches!(e.kind(), std::io::ErrorKind::TimedOut | std::io::ErrorKind::WouldBlock | std::io::ErrorKind::Interrupted) => {}
                 Err(_) => return false,
             }
             if pl.at < pl.bytes.len() {
+                // A plotter whose buffer is full takes nothing for a while; one that takes nothing for long is not listening
+                // (the flow control does not match, or the cable has no CTS line). Said once.
+                let since = *pl.stuck_since.get_or_insert_with(Instant::now);
+                if !pl.stuck_said && since.elapsed() >= Duration::from_secs(20) {
+                    pl.stuck_said = true;
+                    emit(Evt::Log(crate::i18n::tr("The plotter has taken nothing for 20 s: check the flow control and the cable.").into()));
+                }
                 return true;
             }
             let (k, last) = pl.bytes_of;
@@ -371,7 +394,21 @@ fn plot_send(pl: &mut Plot, p: &mut dyn Link, queue: &mut VecDeque<(String, Kind
                 return true;
             }
             if barriers && kind == Kind::Job && base_core::resume::is_pause(l) {
-                // Stop here once everything before has gone out, and tell the program.
+                // Stop here once everything before has gone out and, on an EBB, its motors stand; then tell the program.
+                if pl.is_ebb() && pl.still != Some(true) {
+                    if pl.asked_at.is_none_or(|t| t.elapsed() >= Duration::from_millis(50)) {
+                        pl.asked_at = Some(Instant::now());
+                        pl.still = None;
+                        emit(Evt::Traffic(ConsoleLine { dir: Dir::Tx, text: "QM".into(), poll: true }));
+                        if p.write_all(b"QM\r").is_err() {
+                            return false;
+                        }
+                        pl.waiting.push_back((Kind::Poll, true));
+                    }
+                    return true;
+                }
+                pl.still = None;
+                pl.asked_at = None;
                 let (text, _) = queue.pop_front().unwrap();
                 emit(Evt::Log(text.clone()));
                 emit(Evt::Barrier { text, line: *done });
@@ -551,7 +588,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     if answered.is_some() && line.starts_with('!') {
                         emit(Evt::Log(crate::i18n::trf("The plotter did not take a command: {}", &[&line])));
                     }
-                    emit(traffic(Dir::Rx, line, false));
+                    emit(traffic(Dir::Rx, line, answered == Some((Kind::Poll, true))));
                     if answered == Some((Kind::Job, true)) {
                         done += 1;
                         emit(Evt::Progress { done, total });
@@ -1034,6 +1071,9 @@ mod tests {
                         std::thread::sleep(Duration::from_millis(delay_ms));
                         let answer = match cmd.as_str() {
                             "QS" => "123,45\r\nOK\r\n".to_string(),
+                            // Moving at the first question, standing after it; this answer has no OK.
+                            "QM" if !got.iter().any(|c| c == "QM") => "QM,1,1,0,1\n\r".to_string(),
+                            "QM" => "QM,0,0,0,0\n\r".to_string(),
                             "ES" => "1\r\nOK\r\n".to_string(),
                             "XX" => "!8 Err: Unknown command\r\n".to_string(),
                             _ => "OK\r\n".to_string(),
@@ -1115,6 +1155,9 @@ mod tests {
         let got = got.recv_timeout(Duration::from_secs(8)).unwrap();
         let n = got.len();
         assert_eq!(&got[n - 3..], ["ES", "SP,1", "QS"], "{got:?}");
+        // Before the pause the board was asked until its motors stood.
+        let qm: Vec<usize> = got.iter().enumerate().filter(|(_, c)| *c == "QM").map(|(i, _)| i).collect();
+        assert!(qm.len() >= 2 && qm[0] == 5, "asked after the first move, twice at least: {got:?}");
         assert!(!got.iter().any(|c| c.contains("SM") && c.ends_with(",400,400")), "X5 was never sent: {got:?}");
     }
 

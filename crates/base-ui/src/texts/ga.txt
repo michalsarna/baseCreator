@@ -1118,3 +1118,4 @@
 1117|Rialú sreafa
 1118|Gan rialú sreafa, cailleann breacadóir orduithe a luaithe is atá a mhaolán lán.
 1119|Ní fhreagraíonn breacadóir: comhairtear líne déanta a luaithe a ghlac an port í, agus ardaíonn stad an peann fad is a tharraingíonn an breacadóir a bhfuil ina mhaolán fós.
+1120|Níor ghlac an breacadóir le haon rud le 20 s: seiceáil an rialú sreafa agus an cábla.
