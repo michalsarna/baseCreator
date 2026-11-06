@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.69.7
+
+- **The image import window keeps its size:** in Polish (and other languages with longer words) the row of the rotate and flip buttons was wider than its column, and the window grew a little every frame up to the width of the screen. The columns of the import and trace windows now have fixed places, and the row breaks into two lines when it has to.
+
 ## v1.69.6
 
 - **The system clipboard:** BaseCreator was built without it, so nothing could be pasted from another program and nothing copied into one. The programs on this base need the `clipboard` feature of eframe too.

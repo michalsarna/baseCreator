@@ -18,6 +18,14 @@ const HIST_W: f32 = 240.0;
 /// The controls of the trace dialog (sliders with their value boxes) are wider.
 const TRACE_CONTROLS_W: f32 = 300.0;
 
+/// A column of a dialog in a fixed place: what is in it is cut at its edges and never makes the window larger.
+pub(super) fn column(ui: &mut egui::Ui, r: egui::Rect, add: impl FnOnce(&mut egui::Ui)) {
+    let mut c = ui.new_child(egui::UiBuilder::new().max_rect(r).layout(egui::Layout::top_down(egui::Align::Min)));
+    c.set_clip_rect(r.intersect(ui.clip_rect()));
+    c.set_width(r.width());
+    add(&mut c);
+}
+
 /// The picture files that can be imported (what a dropped file is checked against too).
 pub const IMAGE_EXTENSIONS: &[&str] = &["png", "jpg", "jpeg", "bmp", "gif", "webp"];
 
@@ -66,7 +74,7 @@ fn image_controls(ui: &mut egui::Ui, d: &mut ImgDlg, units: base_core::units::Un
     ui.label(RichText::new(&d.base.name).color(theme::text_dim()));
     ui.add_space(4.0);
     ui.label(RichText::new(tr("Rotate and flip")).strong());
-    ui.horizontal(|ui| {
+    ui.horizontal_wrapped(|ui| {
         if ui.add(egui::Button::image_and_text(icons::slot(Some("rotate-ccw"), theme::text()), "90°")).clicked() {
             d.adj.quarter_turns = (d.adj.quarter_turns + 3) % 4;
         }
@@ -286,29 +294,26 @@ pub trait EditorImages: EditorHost {
         popup(ctx, "w_image_ui_6", &title, [1060.0, 640.0], &mut open, |ui| {
             // The page takes the height that is left above the buttons, so they stay at the bottom whatever the size.
             let page_h = crate::window::height_above(ui, "image_dlg", crate::window::fill_size(ui).y);
-            ui.allocate_ui(egui::vec2(ui.available_width(), page_h), |ui| {
-                ui.horizontal_top(|ui| {
-                    let gap = ui.spacing().item_spacing.x;
-                    // The picture takes what the two columns leave, as large as the page.
-                    let pw = (ui.available_width() - CONTROLS_W - HIST_W - 2.0 * gap).max(160.0);
-                    let (rect, _) = ui.allocate_exact_size(egui::vec2(pw, page_h.max(160.0)), egui::Sense::hover());
-                    ui.painter().rect_filled(rect, 4.0, Color32::from_gray(0x80));
-                    if let Some(t) = &d.tex {
-                        let sz = t.size_vec2();
-                        let k = (rect.width() / sz.x).min(rect.height() / sz.y);
-                        let r = egui::Rect::from_center_size(rect.center(), sz * k);
-                        ui.painter().image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::WHITE);
-                    }
-                    ui.vertical(|ui| {
-                        ui.set_width(CONTROLS_W);
-                        egui::ScrollArea::vertical().id_salt("image_dlg_controls").auto_shrink([false, false]).max_height(page_h).show(ui, |ui| image_controls(ui, &mut d, units));
-                    });
-                    ui.vertical(|ui| {
-                        ui.set_width(HIST_W);
-                        levels_panel(ui, &mut d);
-                    });
-                });
+            // The page is cut into three fixed parts. Nothing in a column can make the window wider: a text longer in another
+            // language than the column once widened the window a little every frame, up to the width of the screen.
+            let gap = ui.spacing().item_spacing.x;
+            let (page, _) = ui.allocate_exact_size(egui::vec2(ui.available_width(), page_h.max(160.0)), egui::Sense::hover());
+            // The picture takes what the two columns leave, as large as the page.
+            let pw = (page.width() - CONTROLS_W - HIST_W - 2.0 * gap).max(160.0);
+            let rect = egui::Rect::from_min_size(page.min, egui::vec2(pw, page.height()));
+            ui.painter().rect_filled(rect, 4.0, Color32::from_gray(0x80));
+            if let Some(t) = &d.tex {
+                let sz = t.size_vec2();
+                let k = (rect.width() / sz.x).min(rect.height() / sz.y);
+                let r = egui::Rect::from_center_size(rect.center(), sz * k);
+                ui.painter().image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::WHITE);
+            }
+            let controls = egui::Rect::from_min_size(egui::pos2(rect.right() + gap, page.top()), egui::vec2(CONTROLS_W, page.height()));
+            column(ui, controls, |ui| {
+                egui::ScrollArea::vertical().id_salt("image_dlg_controls").auto_shrink([false, false]).max_height(page.height()).show(ui, |ui| image_controls(ui, &mut d, units));
             });
+            let hist = egui::Rect::from_min_size(egui::pos2(controls.right() + gap, page.top()), egui::vec2(HIST_W, page.height()));
+            column(ui, hist, |ui| levels_panel(ui, &mut d));
             crate::window::footer(ui, "image_dlg", |ui| {
                 ui.horizontal(|ui| {
                     accept = if d.target.is_some() { ui.button(tr("Apply")) } else { import_button(ui, &tr("Import")) }.clicked();
@@ -404,8 +409,9 @@ pub trait EditorImages: EditorHost {
                         }
                         painter.text(rect.left_bottom() + egui::vec2(8.0, -6.0), egui::Align2::LEFT_BOTTOM, format!("×{:.1}", d.zoom), egui::FontId::proportional(12.0), Color32::from_gray(0x60));
                     }
-                    ui.vertical(|ui| {
-                        ui.set_width(TRACE_CONTROLS_W);
+                    // A fixed column, so that a long text cannot widen the window frame after frame.
+                    let (cols, _) = ui.allocate_exact_size(egui::vec2(TRACE_CONTROLS_W, rect.height()), egui::Sense::hover());
+                    column(ui, cols, |ui| {
                         egui::Grid::new("trace_params").num_columns(2).spacing([8.0, 6.0]).show(ui, |ui| {
                             let mut th = d.params.threshold as i32;
                             ui.label(tr("Threshold"));

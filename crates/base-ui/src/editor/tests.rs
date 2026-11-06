@@ -599,3 +599,55 @@ fn the_new_rows_of_the_table_are_found() {
         }
     }
 }
+
+/// The width of a window over a few frames: it must not change on its own.
+fn window_widths(ctx: &egui::Context, frames: usize, mut draw: impl FnMut(&egui::Context)) -> Vec<f32> {
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1800.0, 1100.0));
+    (0..frames)
+        .map(|_| {
+            let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), ..Default::default() }, |ui| draw(&ui.ctx().clone()));
+            out.textures_delta.clear();
+            // The window opens in the middle of the screen.
+            ctx.layer_id_at(screen.center()).and_then(|l| ctx.memory(|m| m.area_rect(l.id))).map_or(0.0, |r| r.width())
+        })
+        .collect()
+}
+
+/// The image dialog in Polish, whose "Rotate and flip" row is wider than its column: the window once grew by that much every frame
+/// up to the width of the screen. The language is the same for the whole program, so this runs in a process of its own (below).
+#[test]
+#[ignore = "run by the_image_dialog_keeps_its_width_in_a_longer_language in a process of its own"]
+fn image_dialog_width_in_polish() {
+    if std::env::var_os("BASE_UI_ALONE").is_none() {
+        return;
+    }
+    crate::i18n::set_lang(crate::i18n::Lang::Pl);
+    let mut h = Host::default();
+    let im = base_core::image::ImageData { name: "1793909638446.jpeg".into(), px_w: 96, px_h: 102, gray: vec![128; 96 * 102], w: 188.0, h: 200.0, invert: false };
+    h.ed.img_dlg = Some(ImgDlg::new(None, im));
+    let ctx = egui::Context::default();
+    let w = window_widths(&ctx, 30, |ctx| h.image_dialogs(ctx));
+    assert!(w[3] > 500.0 && w[3] < 1200.0 && w.windows(2).skip(3).all(|p| p[0] == p[1]), "{w:?}");
+}
+
+#[test]
+fn the_image_dialog_keeps_its_width_in_a_longer_language() {
+    let out = std::process::Command::new(std::env::current_exe().unwrap())
+        .args(["--exact", "editor::tests::image_dialog_width_in_polish", "--ignored", "--nocapture"])
+        .env("BASE_UI_ALONE", "1")
+        .output()
+        .unwrap();
+    let text = String::from_utf8_lossy(&out.stdout).to_string() + String::from_utf8_lossy(&out.stderr).as_ref();
+    assert!(out.status.success() && text.contains("1 passed"), "{text}");
+}
+
+#[test]
+fn the_image_dialog_keeps_its_width() {
+    let mut h = Host::default();
+    let im = base_core::image::ImageData { name: "a picture with a rather long file name of many words.jpeg".into(), px_w: 40, px_h: 30, gray: vec![128; 1200], w: 40.0, h: 30.0, invert: false };
+    h.ed.img_dlg = Some(ImgDlg::new(None, im));
+    let ctx = egui::Context::default();
+    let w = window_widths(&ctx, 30, |ctx| h.image_dialogs(ctx));
+    assert!(w[3] > 500.0 && w[3] < 1200.0 && w.windows(2).skip(3).all(|p| p[0] == p[1]), "{w:?}");
+}
+
