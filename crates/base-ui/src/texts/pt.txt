@@ -1119,3 +1119,6 @@
 1118|Sem controlo de fluxo, um plotter perde comandos assim que o seu buffer fica cheio.
 1119|Um plotter não responde: uma linha conta como feita assim que a porta a recebeu, e uma paragem levanta a caneta enquanto o plotter ainda desenha o que tem no buffer.
 1120|O plotter não recebe nada há 20 s: verifique o controlo de fluxo e o cabo.
+1121|Sem referência
+1122|O controlador indica que a máquina não foi referenciada desde que arrancou.
+1123|Ferramenta {}

@@ -1119,3 +1119,6 @@
 1118	Without flow control a plotter loses commands once its buffer is full.
 1119	A plotter answers nothing: a line counts as done once the port took it, and a stop lifts the pen while the plotter still draws what is in its buffer.
 1120	The plotter has taken nothing for 20 s: check the flow control and the cable.
+1121	Not homed
+1122	The controller says the machine has not been homed since it started.
+1123	Tool {}

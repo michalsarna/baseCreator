@@ -204,6 +204,9 @@ pub struct Machine {
     pub overrides: Option<(u32, u32, u32)>,
     /// The work coordinate system, 1 for G54 … 6 for G59.
     pub wcs: u8,
+    /// grblHAL: homed since it started, and the tool in the spindle (GRBL 1.1 does not say).
+    pub homed: Option<bool>,
+    pub tool: Option<u32>,
     /// Where the last probe move stopped.
     pub probe: Option<([f64; 3], bool)>,
     /// Lines of the job acknowledged and the number of lines of the job.
@@ -250,6 +253,8 @@ impl Machine {
             feed: 0.0,
             spindle: 0.0,
             wcs: 1,
+            homed: None,
+            tool: None,
             probe: None,
             progress: (0, 0),
             console: Default::default(),
@@ -292,7 +297,7 @@ impl Machine {
 
     /// The machine is at work: a job (also while it waits at a pause), a jog, homing or a held move.
     pub fn working(&self) -> bool {
-        self.job_running() || self.job_active() || matches!(self.state.split(':').next().unwrap_or(""), "Run" | "Hold" | "Jog" | "Home")
+        self.job_running() || self.job_active() || matches!(self.state.split(':').next().unwrap_or(""), "Run" | "Hold" | "Jog" | "Home" | "Tool")
     }
 
     pub fn checking(&self) -> bool {
@@ -451,6 +456,11 @@ impl Machine {
             Ask::Info => {
                 let info = firmware::parse_info(&c.lines);
                 if info.is_known() {
+                    // grblHAL sends the whole report (the offset, the overrides) at once when asked with 0x87; GRBL 1.1
+                    // sends them only every few reports.
+                    if info.is_grblhal() {
+                        self.realtime(0x87);
+                    }
                     self.fw.info = info;
                 }
             }
@@ -536,6 +546,8 @@ impl Machine {
                         self.tls_run = None;
                         self.center_run = None;
                         self.overrides = None;
+                        self.homed = None;
+                        self.tool = None;
                         self.barrier = None;
                         self.capture = None;
                         self.asks.clear();
@@ -629,6 +641,12 @@ impl Machine {
         }
         if r.overrides.is_some() {
             self.overrides = r.overrides;
+        }
+        if r.homed.is_some() {
+            self.homed = r.homed;
+        }
+        if r.tool.is_some() {
+            self.tool = r.tool;
         }
     }
 
@@ -1347,6 +1365,60 @@ mod tests {
         let cmds = seen.lock().unwrap().clone();
         assert!(cmds.contains(&"SM,200,160,160".to_string()), "{cmds:?}");
         assert!(!cmds.iter().any(|c| c.starts_with('$') || c.starts_with('G')), "no G-code reached the board: {cmds:?}");
+    }
+
+    #[test]
+    fn grblhal_is_asked_for_a_complete_report_once_and_its_tool_and_homing_are_kept() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let full = std::sync::Arc::new(std::sync::atomic::AtomicUsize::new(0));
+        let asked = full.clone();
+        std::thread::spawn(move || {
+            let (mut s, _) = listener.accept().unwrap();
+            let _ = s.set_read_timeout(Some(Duration::from_millis(10)));
+            let (mut buf, mut chunk, start) = (Vec::new(), [0u8; 64], Instant::now());
+            while start.elapsed() < Duration::from_secs(6) {
+                match s.read(&mut chunk) {
+                    Ok(0) => break,
+                    Ok(n) => {
+                        for &b in &chunk[..n] {
+                            match b {
+                                b'?' => {
+                                    let _ = s.write_all(b"<Idle|MPos:0.000,0.000,0.000|FS:0,0>\n");
+                                }
+                                0x87 => {
+                                    asked.fetch_add(1, std::sync::atomic::Ordering::SeqCst);
+                                    let _ = s.write_all(b"<Idle|MPos:0.000,0.000,0.000|FS:0,0|WCO:1.000,2.000,0.000|Ov:100,100,100|H:0|T:4>\n");
+                                }
+                                0x18 => {
+                                    let _ = s.write_all(b"\r\nGrblHAL 1.1f ['$' or '$HELP' for help]\r\n");
+                                }
+                                b'\n' => {
+                                    let line = String::from_utf8_lossy(&buf).to_string();
+                                    buf.clear();
+                                    let reply: &[u8] = match line.as_str() {
+                                        "$I" => b"[VER:1.1f.20240624:]\n[OPT:VNMSL,35,1024,3,0]\n[NEWOPT:ENUMS,RT+,HOME,TC,SD]\n[FIRMWARE:grblHAL]\nok\n",
+                                        _ => b"ok\n",
+                                    };
+                                    let _ = s.write_all(reply);
+                                }
+                                _ => buf.push(b),
+                            }
+                        }
+                    }
+                    _ => {}
+                }
+            }
+        });
+        let mut m = Machine::new(&Context::default());
+        connect(&mut m, port);
+        assert!(wait(&mut m, 3.0, |m, _| m.connected));
+        m.read_all();
+        assert!(wait(&mut m, 4.0, |m, _| m.fw.info.is_grblhal() && m.tool == Some(4) && m.wco() == Some([1.0, 2.0, 0.0])), "info {:?} tool {:?}", m.fw.info, m.tool);
+        assert_eq!(m.homed, Some(false));
+        assert!(m.fw.info.has_extension("TC"));
+        std::thread::sleep(Duration::from_millis(300));
+        assert_eq!(full.load(std::sync::atomic::Ordering::SeqCst), 1, "0x87 once, not with every poll");
     }
 
     #[test]

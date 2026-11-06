@@ -9,13 +9,24 @@ pub struct FirmwareInfo {
     pub version: String,
     /// The option letters of `[OPT:…]`.
     pub options: String,
-    /// The `[VER:…]` and `[OPT:…]` lines, as received.
+    /// The `[VER:…]` and `[OPT:…]` lines, as received (and grblHAL's `[NEWOPT:…]`, `[FIRMWARE:…]`, `[AXS:…]`, `[BOARD:…]`,
+    /// `[DRIVER:…]`).
     pub raw: Vec<String>,
+    /// What grblHAL says it can do besides GRBL 1.1 (`[NEWOPT:ENUMS,RT+,HOME,TC,SD,ETH]`).
+    pub extensions: Vec<String>,
 }
 
 impl FirmwareInfo {
     pub fn is_known(&self) -> bool {
         !self.name.is_empty()
+    }
+    /// grblHAL, with its extra real-time commands (`0x87`: a complete status report) and its extra report fields.
+    pub fn is_grblhal(&self) -> bool {
+        self.name == "grblHAL"
+    }
+    /// Did grblHAL say it has `what` (`SD`, `TC`, `ETH`…)?
+    pub fn has_extension(&self, what: &str) -> bool {
+        self.extensions.iter().any(|e| e.eq_ignore_ascii_case(what))
     }
     /// `grblHAL 1.1f` for a line in a window.
     pub fn label(&self) -> String {
@@ -57,6 +68,20 @@ pub fn parse_info(lines: &[String]) -> FirmwareInfo {
         } else if l.starts_with("[OPT:") {
             info.raw.push(l.to_string());
             info.options = crate::machine::grbl_options(&[l.to_string()]).unwrap_or_default();
+        } else if let Some(v) = l.strip_prefix("[NEWOPT:") {
+            info.raw.push(l.to_string());
+            info.extensions = v.trim_end_matches(']').split(',').map(|e| e.trim().to_string()).filter(|e| !e.is_empty()).collect();
+            // Only grblHAL says this.
+            if info.name.is_empty() || info.name == "Grbl" {
+                info.name = "grblHAL".into();
+            }
+        } else if let Some(v) = l.strip_prefix("[FIRMWARE:") {
+            info.raw.push(l.to_string());
+            if v.to_ascii_lowercase().starts_with("grblhal") {
+                info.name = "grblHAL".into();
+            }
+        } else if l.starts_with("[AXS:") || l.starts_with("[BOARD:") || l.starts_with("[DRIVER:") {
+            info.raw.push(l.to_string());
         } else if info.name.is_empty() {
             // `Grbl 1.1h ['$' for help]`, `GrblHAL 1.1f ['$' or '$HELP' for help]`
             if let Some((w, rest)) = l.split_once(' ') {
@@ -130,6 +155,18 @@ mod tests {
         let b = parse_info(&lines(&["Grbl 1.1h ['$' for help]"]));
         assert_eq!((b.name.as_str(), b.version.as_str()), ("Grbl", "1.1h"));
         assert!(!parse_info(&lines(&["ok", "garbage"])).is_known());
+    }
+
+    #[test]
+    fn grblhal_is_known_by_its_extra_lines_even_when_the_version_line_says_nothing() {
+        // `$I` of grblHAL: the name is not in [VER:…], but [NEWOPT:…] and [FIRMWARE:…] tell.
+        let h = parse_info(&lines(&["[VER:1.1f.20240624:]", "[OPT:VNMSL,35,1024,3,0]", "[AXS:3:XYZ]", "[NEWOPT:ENUMS,RT+,HOME,TC,SED,ETH,SD]", "[FIRMWARE:grblHAL]", "[DRIVER:STM32F407]", "[BOARD:BTT SKR-2]", "ok"]));
+        assert!(h.is_grblhal(), "{h:?}");
+        assert_eq!((h.version.as_str(), h.options.as_str()), ("1.1f", "VNMSL"));
+        assert!(h.has_extension("sd") && h.has_extension("TC") && !h.has_extension("ATC"));
+        assert_eq!(h.raw.len(), 7, "every line is shown in the firmware window");
+        assert!(!parse_info(&lines(&["[VER:1.1h.20190825:]", "[OPT:V,15,128]"])).is_grblhal());
+        assert!(parse_info(&lines(&["[VER:1.1f.20240101:]", "[FIRMWARE:grblHAL]"])).is_grblhal());
     }
 
     #[test]

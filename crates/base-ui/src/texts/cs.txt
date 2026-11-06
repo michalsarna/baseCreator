@@ -1119,3 +1119,6 @@
 1118|Bez řízení toku plotr ztrácí příkazy, jakmile se mu zaplní vyrovnávací paměť.
 1119|Plotr nic neodpovídá: řádek se počítá za hotový, jakmile ho port převzal, a zastavení zvedne pero, zatímco plotr ještě kreslí, co má ve vyrovnávací paměti.
 1120|Plotr 20 s nic nepřijal: zkontrolujte řízení toku a kabel.
+1121|Bez najetí do výchozí polohy
+1122|Řadič hlásí, že stroj od spuštění nenajel do výchozí polohy.
+1123|Nástroj {}

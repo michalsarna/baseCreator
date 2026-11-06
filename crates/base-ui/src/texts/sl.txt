@@ -1119,3 +1119,6 @@
 1118|Brez nadzora pretoka risalnik izgublja ukaze, ko se mu medpomnilnik napolni.
 1119|Risalnik ne odgovarja: vrstica velja za opravljeno, ko jo vrata sprejmejo, ustavitev pa dvigne pisalo, medtem ko risalnik še riše, kar ima v medpomnilniku.
 1120|Risalnik že 20 s ne sprejme ničesar: preverite nadzor pretoka in kabel.
+1121|Brez iskanja izhodišča
+1122|Krmilnik sporoča, da stroj od zagona ni poiskal izhodišča.
+1123|Orodje {}
