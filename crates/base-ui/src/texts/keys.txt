@@ -1123,3 +1123,6 @@
 1122	The controller says the machine has not been homed since it started.
 1123	Tool {}
 1124	Pasted image
+1125	Separate window
+1126	Side tab
+1127	Camera view

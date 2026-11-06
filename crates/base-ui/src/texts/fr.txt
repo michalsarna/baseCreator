@@ -1123,3 +1123,6 @@
 1122|Le contrôleur indique que la machine n'a pas fait de prise d'origine depuis son démarrage.
 1123|Outil {}
 1124|Image collée
+1125|Fenêtre séparée
+1126|Onglet latéral
+1127|Vue caméra

@@ -1123,3 +1123,6 @@
 1122|De controller meldt dat de machine sinds het opstarten niet gehomed is.
 1123|Gereedschap {}
 1124|Geplakte afbeelding
+1125|Apart venster
+1126|Zijtabblad
+1127|Cameraweergave

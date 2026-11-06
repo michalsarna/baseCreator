@@ -1123,3 +1123,6 @@
 1122|Krmilnik sporoča, da stroj od zagona ni poiskal izhodišča.
 1123|Orodje {}
 1124|Prilepljena slika
+1125|Ločeno okno
+1126|Stranski zavihek
+1127|Pogled kamere

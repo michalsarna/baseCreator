@@ -1123,3 +1123,6 @@
 1122|Řadič hlásí, že stroj od spuštění nenajel do výchozí polohy.
 1123|Nástroj {}
 1124|Vložený obrázek
+1125|Samostatné okno
+1126|Boční karta
+1127|Pohled z kamery

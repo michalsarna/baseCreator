@@ -1123,3 +1123,6 @@
 1122|Il-kontrollur jgħid li l-magna ma saritx homed minn meta bdiet.
 1123|Għodda {}
 1124|Stampa mwaħħla
+1125|Tieqa separata
+1126|Tab fuq il-ġenb
+1127|Vista tal-kamera

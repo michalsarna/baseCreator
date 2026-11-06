@@ -1123,3 +1123,6 @@
 1122|El controlador diu que la màquina no s'ha referenciat des que s'ha engegat.
 1123|Eina {}
 1124|Imatge enganxada
+1125|Finestra independent
+1126|Pestanya lateral
+1127|Vista de la càmera

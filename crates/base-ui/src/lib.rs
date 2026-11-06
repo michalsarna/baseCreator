@@ -7,6 +7,7 @@ pub mod camera;
 pub mod camera_feed;
 pub mod camera_rec;
 pub mod camera_stream;
+pub mod camera_view;
 pub mod clip_image;
 pub mod clip_net;
 pub mod clipart_ui;

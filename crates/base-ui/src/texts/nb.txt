@@ -1123,3 +1123,6 @@
 1122|Kontrolleren sier at maskinen ikke er referansekjørt siden start.
 1123|Verktøy {}
 1124|Innlimt bilde
+1125|Separat vindu
+1126|Sidefane
+1127|Kameravisning

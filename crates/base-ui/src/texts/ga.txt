@@ -1123,3 +1123,6 @@
 1122|Deir an rialaitheoir nár aimsíodh baile an mheaisín ó thosaigh sé.
 1123|Uirlis {}
 1124|Íomhá ghreamaithe
+1125|Fuinneog ar leith
+1126|Cluaisín taoibh
+1127|Amharc ceamara

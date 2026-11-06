@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.72.0
+
+- **One camera view for every program** (`camera_view`): the three ways of showing it (a window of its own with the bar of the main window, a tab of the side panel, a tab of the work area) with their buttons and their numbers as LightCreator kept them, the picture that zooms (the wheel and the zoom bar, up to 8×), moves and shows itself whole on a double click, the window that keeps its place and is cut to its picture when let go, and keeping the way with the device and each camera. LightCreator's view moved here; MillCreator and PenCreator get the same view (they showed only the picture in a tab).
+- Texts: **Separate window**, **Side tab** and **Camera view** in 30 languages (LightCreator's translations).
+
 ## v1.71.5
 
 - **Windows of their own look like the main window:** a tab taken out into a window of its own (the preview, the camera of MillCreator and PenCreator…) has no frame of the system any more (so no rounded corners on macOS), but the same flat bar across the top as the main window, with the icon, the title and the minimise, maximise and close buttons, and it is resized by its edges. Close puts the tab back, as before. `window::own_window` and `own_window_builder` are for the programs' own windows too (the camera view of LightCreator); `PaneHost::window_logo` gives the icon.
