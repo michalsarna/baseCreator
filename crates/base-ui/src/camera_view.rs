@@ -284,7 +284,7 @@ mod tests {
         assert!((zoom - crate::zoom_bar::STEP).abs() < 1e-6, "zoom {zoom}");
         assert!(frame(vec![], &mut zoom, &mut pan, &mut fit).is_some());
         let mut none = 1.0;
-        let out = ctx.run_ui(Default::default(), |ui| assert!(picture(ui, None, &mut none, &mut pan, &mut fit, 40.0).is_none()));
-        drop(out);
+        let mut out = ctx.run_ui(Default::default(), |ui| assert!(picture(ui, None, &mut none, &mut pan, &mut fit, 40.0).is_none()));
+        out.textures_delta.clear();
     }
 }
