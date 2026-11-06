@@ -1126,3 +1126,4 @@
 1125|Ločeno okno
 1126|Stranski zavihek
 1127|Pogled kamere
+1128|Vidi se pri povečavi nad 200 %.

@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.72.1
+
+- **The secondary grid only close up:** when it is switched on, it is drawn only at a zoom of more than 200 % (further away its lines filled the sheet). The tooltip of its button and the view options say so.
+
 ## v1.72.0
 
 - **One camera view for every program** (`camera_view`): the three ways of showing it (a window of its own with the bar of the main window, a tab of the side panel, a tab of the work area) with their buttons and their numbers as LightCreator kept them, the picture that zooms (the wheel and the zoom bar, up to 8×), moves and shows itself whole on a double click, the window that keeps its place and is cut to its picture when let go, and keeping the way with the device and each camera. LightCreator's view moved here; MillCreator and PenCreator get the same view (they showed only the picture in a tab).

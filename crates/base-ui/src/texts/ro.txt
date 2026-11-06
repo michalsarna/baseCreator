@@ -1126,3 +1126,4 @@
 1125|Fereastră separată
 1126|Filă laterală
 1127|Vizualizare cameră
+1128|Se vede la o mărire mai mare de 200 %.

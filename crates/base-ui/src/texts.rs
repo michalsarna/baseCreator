@@ -1133,6 +1133,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Separate window", "Osobne okno", "Eigenes Fenster", "Finestra separata", "Erillinen ikkuna", "独立窗口", "अलग विंडो"],
     ["Side tab", "Zakładka boczna", "Seitenreiter", "Scheda laterale", "Sivuvälilehti", "侧边标签页", "साइड टैब"],
     ["Camera view", "Widok z kamery", "Kameraansicht", "Vista fotocamera", "Kameran näkymä", "摄像头画面", "कैमरा दृश्य"],
+    ["It is seen when zoomed in more than 200 %.", "Widać ją przy powiększeniu większym niż 200 %.", "Es ist ab einer Vergrößerung von mehr als 200 % zu sehen.", "È visibile con uno zoom superiore al 200 %.", "Se näkyy, kun lähennys on yli 200 %.", "缩放大于 200 % 时可见。", "यह 200 % से अधिक ज़ूम करने पर दिखता है।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

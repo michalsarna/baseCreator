@@ -82,6 +82,7 @@ pub fn view_options_window<H: EditorHost>(h: &mut H, ctx: &egui::Context, show: 
             ui.end_row();
         });
         ui.label(RichText::new(tr("The secondary grid must be finer than the main grid.")).color(theme::text_dim()));
+        ui.label(RichText::new(format!("{} {}", tr("Secondary grid"), tr("It is seen when zoomed in more than 200 %."))).color(theme::text_dim()));
         ui.add_space(8.0);
         ui.label(RichText::new(tr("Work area")).strong());
         egui::Grid::new("bed_bg").num_columns(2).spacing([12.0, 6.0]).show(ui, |ui| {

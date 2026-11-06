@@ -1126,3 +1126,4 @@
 1125|Finestra independent
 1126|Pestanya lateral
 1127|Vista de la càmera
+1128|Es veu quan l'ampliació és superior al 200 %.

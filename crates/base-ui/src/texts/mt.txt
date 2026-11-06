@@ -1126,3 +1126,4 @@
 1125|Tieqa separata
 1126|Tab fuq il-ġenb
 1127|Vista tal-kamera
+1128|Jidher meta ż-żum ikun aktar minn 200 %.

@@ -1126,3 +1126,4 @@
 1125|Separat fönster
 1126|Sidoflik
 1127|Kameravy
+1128|Det syns vid zoom över 200 %.

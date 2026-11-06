@@ -208,7 +208,7 @@ pub fn grid_toggles<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) {
     if toggle_icon(ui, "grid-2x2", &tr("Show or hide the grid"), h.ed().show_grid) {
         h.ed_mut().show_grid = !h.ed().show_grid;
     }
-    if toggle_icon(ui, "grid-3x3", &tr("Show or hide the secondary grid"), minor) {
+    if toggle_icon(ui, "grid-3x3", &format!("{}\n{}", tr("Show or hide the secondary grid"), tr("It is seen when zoomed in more than 200 %.")), minor) {
         h.ed_mut().grid_prefs.minor_on = !minor;
     }
     if toggle_icon(ui, "magnet", &tr("Snap to grid"), h.ed().snap) {
@@ -229,7 +229,7 @@ pub fn selection_size<H: EditorHost>(h: &H, ui: &mut egui::Ui) {
 
 /// The zoom and the pointer position for the right end of the status bar (call it in a right-to-left layout).
 pub fn zoom_and_cursor<H: EditorHost>(h: &H, ui: &mut egui::Ui) {
-    ui.label(format!("{}%", (h.ed().view.zoom / 2.0 * 100.0).round()));
+    ui.label(format!("{}%", super::zoom_percent(h.ed().view.zoom).round()));
     if let Some(p) = h.ed().cursor_mm {
         let u = h.units();
         let (x, y) = (u.from_mm(p.x), u.from_mm(p.y));

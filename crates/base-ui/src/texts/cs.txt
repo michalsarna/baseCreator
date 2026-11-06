@@ -1126,3 +1126,4 @@
 1125|Samostatné okno
 1126|Boční karta
 1127|Pohled z kamery
+1128|Je vidět při přiblížení větším než 200 %.
