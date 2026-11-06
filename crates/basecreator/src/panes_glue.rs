@@ -62,6 +62,9 @@ impl App {
 }
 
 impl PaneHost for App {
+    fn window_logo(&self) -> Option<egui::TextureHandle> {
+        self.logo.clone()
+    }
     fn tab_title(&self, c: Content) -> String {
         match c {
             Content::Doc(slot) if slot == self.slot => base_ui::doc_tabs::title_of(self.path.as_deref()),
