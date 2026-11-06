@@ -285,6 +285,9 @@ pub struct EditorState {
     pub esc_time: f64,
     /// What was copied (shapes with their groups), ready to paste.
     pub clipboard: Vec<Shape>,
+    /// The picture that was in the clipboard of the system when shapes were last copied: a paste takes the shapes while it is
+    /// still there, and a picture copied later (from another program) when it changed.
+    pub clipboard_image_at_copy: Option<u64>,
     /// The import / adjust dialog of a picture, and the trace dialog.
     pub img_dlg: Option<ImgDlg>,
     /// A file with Illustrator layers that was read and waits for the answer how to put its paths on the layers.
@@ -390,6 +393,7 @@ impl EditorState {
             space_prev: None,
             esc_time: -10.0,
             clipboard: vec![],
+            clipboard_image_at_copy: None,
             img_dlg: None,
             drawing_choice: None,
             trace_dlg: None,

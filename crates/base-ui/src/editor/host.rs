@@ -48,6 +48,10 @@ pub trait EditorHost: Sized {
 
     /// Size of the work area in millimetres.
     fn work_size(&self) -> (f64, f64);
+    /// The picture in the clipboard of the system (the tests give their own).
+    fn clipboard_image(&self) -> Option<crate::clip_image::ClipImage> {
+        crate::clip_image::read()
+    }
     /// The units rulers and fields show.
     fn units(&self) -> base_core::units::Units;
     /// Colour of the space around the work area, and of the work area itself.

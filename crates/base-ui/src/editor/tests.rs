@@ -17,13 +17,15 @@ struct Host {
     cam: Option<base_core::camimg::CameraSource>,
     changed: usize,
     frames: u64,
+    /// The picture in the clipboard of the system, as the tests set it (never the real one).
+    clip_img: Option<crate::clip_image::ClipImage>,
 }
 
 impl Default for Host {
     fn default() -> Host {
         // Never touch the real user library in tests.
         let dir = std::env::temp_dir().join(format!("base-ui-clip-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
-        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0 }
+        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0, clip_img: None }
     }
 }
 
@@ -94,6 +96,9 @@ impl EditorHost for Host {
     }
     fn work_size(&self) -> (f64, f64) {
         (200.0, 100.0)
+    }
+    fn clipboard_image(&self) -> Option<crate::clip_image::ClipImage> {
+        self.clip_img.clone()
     }
     fn units(&self) -> base_core::units::Units {
         base_core::units::Units::Mm
@@ -744,4 +749,58 @@ fn the_picture_of_the_import_window_zooms_and_moves() {
     frame(&mut h, vec![press(b, true), press(b, false)]);
     frame(&mut h, vec![]);
     assert_eq!(h.ed.img_dlg.as_ref().unwrap().view, super::image_ui::PictureView::default());
+}
+
+fn clip(w: u32, h: u32, v: u8) -> crate::clip_image::ClipImage {
+    crate::clip_image::ClipImage { w, h, rgba: [v, v, v, 255].repeat((w * h) as usize) }
+}
+
+/// A picture in the clipboard of the system opens the import window on Paste; shapes copied in the program after it are pasted
+/// as shapes, and a picture that came later wins again.
+#[test]
+fn paste_opens_the_import_window_for_a_picture_and_keeps_the_copied_shapes() {
+    let (mut h, a, _) = host_with_two_rects();
+    h.clip_img = Some(clip(40, 20, 0));
+    h.paste();
+    let d = h.ed.img_dlg.take().expect("the import window");
+    assert_eq!((d.base.px_w, d.base.px_h), (40, 20));
+    assert!((d.base.w - 50.0).abs() < 1e-9, "the longer side is half the shorter side of the work area");
+    // Shapes copied now are pasted as shapes while the same picture stays in the clipboard.
+    h.ed.sel = vec![a];
+    h.copy();
+    let n = h.scene.shapes.len();
+    h.paste();
+    assert!(h.ed.img_dlg.is_none() && h.scene.shapes.len() == n + 1, "the shapes");
+    // Another picture comes into the clipboard: it is pasted.
+    h.clip_img = Some(clip(10, 30, 200));
+    h.paste();
+    assert_eq!(h.ed.img_dlg.as_ref().map(|d| (d.base.px_w, d.base.px_h)), Some((10, 30)));
+    // Nothing in the clipboard of the system: the shapes as always.
+    h.ed.img_dlg = None;
+    h.clip_img = None;
+    h.paste();
+    assert!(h.ed.img_dlg.is_none() && h.scene.shapes.len() == n + 2);
+}
+
+/// Ctrl/Cmd+V over the canvas arrives as a paste event: a picture opens the import window, text pastes the copied shapes.
+#[test]
+fn a_paste_event_over_the_canvas_pastes_a_picture_or_the_shapes() {
+    let (mut h, a, _) = host_with_two_rects();
+    let ctx = egui::Context::default();
+    let mut frame = |h: &mut Host, events: Vec<egui::Event>| {
+        let mut out = ctx.run_ui(egui::RawInput { events, ..Default::default() }, |ui| {
+            egui::CentralPanel::no_frame().show(ui, |ui| h.canvas(ui));
+        });
+        out.textures_delta.clear();
+    };
+    frame(&mut h, vec![]);
+    let img = egui::ColorImage::new([6, 4], vec![egui::Color32::BLACK; 24]);
+    frame(&mut h, vec![egui::Event::PasteImage(std::sync::Arc::new(img))]);
+    assert_eq!(h.ed.img_dlg.as_ref().map(|d| (d.base.px_w, d.base.px_h, d.base.gray[0])), Some((6, 4, 0)));
+    h.ed.img_dlg = None;
+    h.ed.sel = vec![a];
+    h.copy();
+    let n = h.scene.shapes.len();
+    frame(&mut h, vec![egui::Event::Paste("some text".into())]);
+    assert_eq!(h.scene.shapes.len(), n + 1, "the copied shapes");
 }

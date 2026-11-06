@@ -28,11 +28,22 @@ pub trait EditorCommands: EditorHost {
 
     fn copy(&mut self) {
         // A copy of a locked object is a normal, editable object.
-        let copy = self.ed().sel.iter().filter_map(|i| self.scene().shape(*i).cloned()).map(|mut s| { s.locked = false; s }).collect();
+        let copy: Vec<Shape> = self.ed().sel.iter().filter_map(|i| self.scene().shape(*i).cloned()).map(|mut s| { s.locked = false; s }).collect();
+        if !copy.is_empty() {
+            self.ed_mut().clipboard_image_at_copy = self.clipboard_image().map(|c| c.fingerprint());
+        }
         self.ed_mut().clipboard = copy;
     }
 
+    /// Paste the shapes copied in the program or, when a picture came into the clipboard of the system after them (or there are
+    /// none), open the import window with that picture.
     fn paste(&mut self) {
+        if let Some(img) = self.clipboard_image() {
+            if self.ed().clipboard.is_empty() || self.ed().clipboard_image_at_copy != Some(img.fingerprint()) {
+                self.paste_picture(img.w, img.h, &img.rgba);
+                return;
+            }
+        }
         if self.ed().clipboard.is_empty() {
             return;
         }
@@ -59,6 +70,16 @@ pub trait EditorCommands: EditorHost {
         // Next paste lands a bit further away.
         let next = self.ed().sel.iter().filter_map(|i| self.scene().shape(*i).cloned()).collect();
         self.ed_mut().clipboard = next;
+    }
+
+    /// Open the import window with a pasted picture (RGBA pixels), its longer side half of the shorter side of the work area.
+    fn paste_picture(&mut self, w: u32, h: u32, rgba: &[u8]) {
+        let (bw, bh) = self.work_size();
+        let longest = (bw.min(bh) * 0.5).clamp(10.0, 200.0);
+        match base_core::image::ImageData::from_rgba(w, h, rgba, &tr("Pasted image"), longest) {
+            Ok(im) => self.ed_mut().img_dlg = Some(super::ImgDlg::new(None, im)),
+            Err(e) => self.say(trf("Import failed: {}", &[&e])),
+        }
     }
 
     fn duplicate(&mut self) {

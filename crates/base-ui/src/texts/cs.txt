@@ -1122,3 +1122,4 @@
 1121|Bez najetí do výchozí polohy
 1122|Řadič hlásí, že stroj od spuštění nenajel do výchozí polohy.
 1123|Nástroj {}
+1124|Vložený obrázek

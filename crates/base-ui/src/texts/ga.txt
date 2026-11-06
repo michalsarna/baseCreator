@@ -1122,3 +1122,4 @@
 1121|Gan aimsiú baile
 1122|Deir an rialaitheoir nár aimsíodh baile an mheaisín ó thosaigh sé.
 1123|Uirlis {}
+1124|Íomhá ghreamaithe
