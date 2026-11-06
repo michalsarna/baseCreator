@@ -140,7 +140,14 @@ pub fn window_edges(ctx: &egui::Context) {
 /// Continue a resize started on the right or bottom edge (macOS).
 #[cfg(target_os = "macos")]
 pub fn window_edge_drag(ctx: &egui::Context) {
-    let id = Id::unique("edge_grab");
+    window_edge_drag_min(ctx, egui::vec2(900.0, 560.0));
+}
+
+/// The same for a window that may be as small as `min`.
+#[cfg(target_os = "macos")]
+pub fn window_edge_drag_min(ctx: &egui::Context, min: egui::Vec2) {
+    // Each window (viewport) has its own grab.
+    let id = Id::unique(("edge_grab", ctx.viewport_id()));
     let Some((east, south, grab)) = ctx.data(|d| d.get_temp::<(bool, bool, egui::Vec2)>(id)) else { return };
     let (down, pos) = ctx.input(|i| (i.pointer.primary_down(), i.pointer.latest_pos()));
     let (Some(p), true) = (pos, down) else {
@@ -150,7 +157,26 @@ pub fn window_edge_drag(ctx: &egui::Context) {
     let size = ctx.content_rect().size();
     let w = if east { p.x + grab.x } else { size.x };
     let h = if south { p.y + grab.y } else { size.y };
-    ctx.send_viewport_cmd(ViewportCommand::InnerSize(egui::vec2(w.max(900.0), h.max(560.0))));
+    ctx.send_viewport_cmd(ViewportCommand::InnerSize(egui::vec2(w.max(min.x), h.max(min.y))));
+}
+
+/// A window of its own (a tab taken out, the camera view) in the style of the main window: no frame of the system (so no
+/// rounded corners), the same bar across the top with the icon, the title and the buttons, and resizing by the edges. The
+/// window is opened with [`own_window_builder`]; call this first in its ui. True when its close button was clicked.
+pub fn own_window(ui: &mut egui::Ui, title: &str, logo: Option<&egui::TextureHandle>, min: egui::Vec2) -> bool {
+    let ctx = ui.ctx().clone();
+    let close = title_bar(ui, title, logo);
+    window_edges(&ctx);
+    #[cfg(target_os = "macos")]
+    window_edge_drag_min(&ctx, min);
+    #[cfg(not(target_os = "macos"))]
+    let _ = min;
+    close
+}
+
+/// The builder of such a window: without the frame of the system.
+pub fn own_window_builder(title: &str) -> egui::ViewportBuilder {
+    egui::ViewportBuilder::default().with_title(title).with_decorations(false)
 }
 
 /// Move the window of `layer` by what its title line ([`mini_title`]) was dragged by in this frame. A window that is movable by its

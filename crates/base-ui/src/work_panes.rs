@@ -413,6 +413,10 @@ pub trait PaneHost {
     }
     /// Draw what the tab shows. `view` is the zoom and the shift of the pane for a drawing that is not the active one.
     fn draw_pane(&mut self, ui: &mut egui::Ui, content: Content, view: &mut Option<View>) -> PaneEvent;
+    /// The icon of the program, for the bar of a window of its own.
+    fn window_logo(&self) -> Option<egui::TextureHandle> {
+        None
+    }
     /// Can this tab be taken out into a window of its own?
     fn can_pop_out(&self, _content: Content) -> bool {
         false
@@ -584,7 +588,9 @@ impl Panes {
             let content = self.windows[i].content;
             let now = (self.windows[i].pos, self.windows[i].size);
             let (start_pos, start_size) = *self.windows[i].start.get_or_insert(now);
-            let mut builder = egui::ViewportBuilder::default().with_title(h.tab_title(content)).with_inner_size(start_size);
+            let title = h.tab_title(content);
+            let logo = h.window_logo();
+            let mut builder = crate::window::own_window_builder(&title).with_inner_size(start_size).with_min_inner_size([320.0, 240.0]);
             if let Some(p) = start_pos {
                 builder = builder.with_position(p);
             }
@@ -592,6 +598,10 @@ impl Panes {
             let mut seen: Option<([f32; 2], [f32; 2])> = None;
             let id = egui::ViewportId::from_hash_of(("work_pane_window", content));
             ctx.show_viewport_immediate(id, builder, |ctx, _class| {
+                // The same bar, edges and square corners as the main window.
+                if crate::window::own_window(ctx, &title, logo.as_ref(), egui::vec2(320.0, 240.0)) {
+                    back = Some(i);
+                }
                 egui::CentralPanel::default().show(ctx, |ui| {
                     ui.horizontal(|ui| {
                         if ui.button(tr("Back to the main window")).clicked() {

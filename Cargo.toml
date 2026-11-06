@@ -3,6 +3,6 @@ resolver = "2"
 members = ["crates/base-core", "crates/base-ui", "crates/basecreator"]
 
 [workspace.package]
-version = "1.71.4"
+version = "1.71.5"
 edition = "2021"
 license = "MIT OR Apache-2.0"
