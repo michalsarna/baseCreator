@@ -1101,3 +1101,21 @@
 1100|Xbieha ħajja tal-magna: fluss MJPEG, indirizz ta' snapshot JPEG (http jew https), jew fluss li jaqra ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Koeffiċjenti tad-distorsjoni tal-lenti (radjali k1–k3, tanġenzjali p1, p2) għal koordinati mil-ċentru f'unitajiet tal-iktar ġenb twil tax-xbieha. Kollha 0 = l-ebda korrezzjoni. Jiddaħħlu bl-idejn: m'hemmx kalibrazzjoni awtomatika.
 1102|Daħħal l-indirizz tal-kamera, jew ħassar il-kamera.
+1103|AxiDraw / EggBot (EBB, mhux GRBL)
+1104|Plotter HPGL (mhux GRBL)
+1105|AxiDraw (iż-żewġ muturi fuq ċinga waħda)
+1106|EggBot (mutur wieħed għal kull fus)
+1107|Ħardwer (RTS/CTS)
+1108|Softwer (XON/XOFF)
+1109|Il-plotter ma aċċettax kmand: {}
+1110|Dan il-plotter m'għandux modalità ta' verifika: il-verifika tinqabeż.
+1111|Muturi
+1112|Passi kull mm
+1113|Aqleb
+1114|L-AxiDraw għandu 80 pass kull mm u jgħodd Y lejn quddiem, għalhekk il-Y tiegħu huwa maqlub.
+1115|L-EBB m'għandux swiċċijiet tal-limitu: qabel tikkonnettja, poġġi l-pinna fil-kantuniera fejn jibda t-tpinġija (iż-żero tagħha).
+1116|Unitajiet tal-plotter kull mm
+1117|Kontroll tal-fluss
+1118|Mingħajr kontroll tal-fluss, plotter jitlef kmandi hekk kif il-buffer tiegħu jimtela.
+1119|Plotter ma jwieġeb xejn: linja titqies magħmula hekk kif il-port ħadha, u waqfa tgħolli l-pinna waqt li l-plotter għadu jpinġi dak li hemm fil-buffer tiegħu.
+1120|Il-plotter ilu 20 s ma jieħu xejn: iċċekkja l-kontroll tal-fluss u l-kejbil.

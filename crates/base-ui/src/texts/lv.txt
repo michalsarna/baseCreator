@@ -1101,3 +1101,21 @@
 1100|Iekārtas tiešraides attēls: MJPEG straume, JPEG momentuzņēmuma adrese (http vai https) vai straume, ko lasa ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Objektīva kropļojuma koeficienti (radiālie k1–k3, tangenciālie p1, p2) koordinātēm no centra attēla garākās malas vienībās. Visi 0 = bez korekcijas. Ievada ar roku: automātiskas kalibrēšanas nav.
 1102|Ievadiet kameras adresi vai izdzēsiet kameru.
+1103|AxiDraw / EggBot (EBB, nav GRBL)
+1104|HPGL plotteris (nav GRBL)
+1105|AxiDraw (abi motori uz vienas siksnas)
+1106|EggBot (katrai asij savs motors)
+1107|Aparatūras (RTS/CTS)
+1108|Programmatūras (XON/XOFF)
+1109|Plotteris nepieņēma komandu: {}
+1110|Šim plotterim nav pārbaudes režīma: pārbaude tiek izlaista.
+1111|Motori
+1112|Soļi uz mm
+1113|Apgriezt
+1114|AxiDraw ir 80 soļi uz mm, un tas skaita Y uz priekšu, tāpēc tā Y ir apgriezts.
+1115|EBB nav gala slēdžu: pirms savienošanas novietojiet pildspalvu stūrī, kur sākas zīmējums (tā nullē).
+1116|Plottera vienības uz mm
+1117|Plūsmas vadība
+1118|Bez plūsmas vadības plotteris zaudē komandas, tiklīdz tā buferis ir pilns.
+1119|Plotteris neko neatbild: rinda skaitās izpildīta, tiklīdz ports to pieņēmis, un apturēšana paceļ pildspalvu, kamēr plotteris vēl zīmē to, kas ir tā buferī.
+1120|Plotteris 20 s neko nav pieņēmis: pārbaudiet plūsmas vadību un kabeli.

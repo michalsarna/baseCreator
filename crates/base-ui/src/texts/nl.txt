@@ -1101,3 +1101,21 @@
 1100|Live beeld van de machine: een MJPEG-stream, het adres van een JPEG-momentopname (http of https) of een stream die ffmpeg leest (rtsp, udp, rtp, rtmp).
 1101|Coëfficiënten van de lensvervorming (radiaal k1–k3, tangentieel p1, p2) voor coördinaten gemeten vanuit het midden in eenheden van de langste zijde van het beeld. Alle 0 = geen correctie. Met de hand ingevoerd: er is geen automatische kalibratie.
 1102|Voer het adres van de camera in of verwijder de camera.
+1103|AxiDraw / EggBot (EBB, geen GRBL)
+1104|HPGL-plotter (geen GRBL)
+1105|AxiDraw (beide motoren aan één riem)
+1106|EggBot (één motor per as)
+1107|Hardware (RTS/CTS)
+1108|Software (XON/XOFF)
+1109|De plotter heeft een opdracht niet aangenomen: {}
+1110|Deze plotter heeft geen controlemodus: de controle wordt overgeslagen.
+1111|Motoren
+1112|Stappen per mm
+1113|Omkeren
+1114|De AxiDraw heeft 80 stappen per mm en telt Y naar voren, dus zijn Y is omgekeerd.
+1115|Het EBB heeft geen eindschakelaars: zet de pen vóór het verbinden in de hoek waar de tekening begint (haar nulpunt).
+1116|Plottereenheden per mm
+1117|Stroombesturing
+1118|Zonder stroombesturing verliest een plotter opdrachten zodra zijn buffer vol is.
+1119|Een plotter antwoordt niet: een regel telt als klaar zodra de poort hem heeft aangenomen, en een stop tilt de pen op terwijl de plotter nog tekent wat in zijn buffer staat.
+1120|De plotter neemt al 20 s niets aan: controleer de stroombesturing en de kabel.

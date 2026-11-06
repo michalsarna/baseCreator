@@ -1101,3 +1101,21 @@
 1100|Direktebilde av maskinen: en MJPEG-strøm, en adresse til et JPEG-bilde (http eller https) eller en strøm som ffmpeg leser (rtsp, udp, rtp, rtmp).
 1101|Koeffisienter for linseforvrengning (radiell k1–k3, tangentiell p1, p2) for koordinater målt fra midten i enheter av bildets lengste side. Alle 0 = ingen korreksjon. Legges inn for hånd: det finnes ingen automatisk kalibrering.
 1102|Skriv inn adressen til kameraet, eller slett kameraet.
+1103|AxiDraw / EggBot (EBB, ikke GRBL)
+1104|HPGL-plotter (ikke GRBL)
+1105|AxiDraw (begge motorene på én reim)
+1106|EggBot (én motor for hver akse)
+1107|Maskinvare (RTS/CTS)
+1108|Programvare (XON/XOFF)
+1109|Plotteren tok ikke imot en kommando: {}
+1110|Denne plotteren har ingen kontrollmodus: kontrollen hoppes over.
+1111|Motorer
+1112|Steg per mm
+1113|Snu
+1114|AxiDraw har 80 steg per mm og teller Y mot forsiden, så Y er snudd.
+1115|EBB har ingen endebrytere: før du kobler til, sett pennen i hjørnet der tegningen starter (nullpunktet).
+1116|Plotterenheter per mm
+1117|Flytkontroll
+1118|Uten flytkontroll mister en plotter kommandoer når bufferen er full.
+1119|En plotter svarer ingenting: en linje regnes som utført når porten har tatt imot den, og en stopp løfter pennen mens plotteren fortsatt tegner det som er i bufferen.
+1120|Plotteren har ikke tatt imot noe på 20 s: sjekk flytkontrollen og kabelen.

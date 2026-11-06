@@ -1101,3 +1101,21 @@
 1100|Pictiúr beo den inneall: sruth MJPEG, seoladh seat JPEG (http nó https), nó sruth a léann ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Comhéifeachtaí díchumtha an lionsa (gathach k1–k3, tadhlaíoch p1, p2) do chomhordanáidí ón lár in aonaid de thaobh is faide an phictiúir. Gach 0 = gan ceartú. Cuirtear isteach de láimh iad: níl calabrú uathoibríoch ann.
 1102|Cuir isteach seoladh an cheamara, nó scrios an ceamara.
+1103|AxiDraw / EggBot (EBB, ní GRBL é)
+1104|Breacadóir HPGL (ní GRBL é)
+1105|AxiDraw (an dá mhótar ar aon chrios amháin)
+1106|EggBot (mótar amháin do gach ais)
+1107|Crua-earraí (RTS/CTS)
+1108|Bogearraí (XON/XOFF)
+1109|Níor ghlac an breacadóir le hordú: {}
+1110|Níl mód seiceála ag an mbreacadóir seo: fágtar an tseiceáil ar lár.
+1111|Mótair
+1112|Céimeanna in aghaidh an mm
+1113|Aisiompaigh
+1114|Tá 80 céim in aghaidh an mm ag an AxiDraw agus comhaireann sé Y i dtreo an tosaigh, mar sin tá a Y aisiompaithe.
+1115|Níl lasca teorann ag an EBB: sula gceanglaíonn tú, cuir an peann sa chúinne ina dtosaíonn an líníocht (a nialas).
+1116|Aonaid breacadóra in aghaidh an mm
+1117|Rialú sreafa
+1118|Gan rialú sreafa, cailleann breacadóir orduithe a luaithe is atá a mhaolán lán.
+1119|Ní fhreagraíonn breacadóir: comhairtear líne déanta a luaithe a ghlac an port í, agus ardaíonn stad an peann fad is a tharraingíonn an breacadóir a bhfuil ina mhaolán fós.
+1120|Níor ghlac an breacadóir le haon rud le 20 s: seiceáil an rialú sreafa agus an cábla.

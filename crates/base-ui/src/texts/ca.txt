@@ -1101,3 +1101,21 @@
 1100|Imatge en directe de la màquina: un flux MJPEG, l'adreça d'una instantània JPEG (http o https) o un flux que llegeix ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Coeficients de la distorsió de la lent (radial k1–k3, tangencial p1, p2) per a coordenades mesurades des del centre en unitats del costat més llarg de la imatge. Tots 0 = sense correcció. S'introdueixen a mà: no hi ha calibratge automàtic.
 1102|Introduïu l'adreça de la càmera o suprimiu la càmera.
+1103|AxiDraw / EggBot (EBB, no GRBL)
+1104|Traçador HPGL (no GRBL)
+1105|AxiDraw (els dos motors en una corretja)
+1106|EggBot (un motor per a cada eix)
+1107|Maquinari (RTS/CTS)
+1108|Programari (XON/XOFF)
+1109|El traçador no ha acceptat una ordre: {}
+1110|Aquest traçador no té mode de comprovació: la comprovació s'omet.
+1111|Motors
+1112|Passos per mm
+1113|Inverteix
+1114|L'AxiDraw té 80 passos per mm i compta la Y cap al davant, per això la seva Y està invertida.
+1115|L'EBB no té finals de cursa: abans de connectar, posa la ploma a la cantonada on comença el dibuix (el seu zero).
+1116|Unitats del traçador per mm
+1117|Control de flux
+1118|Sense control de flux, un traçador perd ordres quan se li omple la memòria intermèdia.
+1119|Un traçador no respon: una línia es compta com a feta quan el port l'ha presa, i una aturada aixeca la ploma mentre el traçador encara dibuixa el que té a la memòria intermèdia.
+1120|El traçador fa 20 s que no accepta res: comprova el control de flux i el cable.

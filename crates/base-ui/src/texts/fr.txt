@@ -1101,3 +1101,21 @@
 1100|Image en direct de la machine : un flux MJPEG, l'adresse d'un instantané JPEG (http ou https) ou un flux lu par ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Coefficients de la distorsion de l'objectif (radiale k1–k3, tangentielle p1, p2) pour des coordonnées mesurées depuis le centre en unités du plus grand côté de l'image. Tous 0 = aucune correction. Saisis à la main : il n'y a pas d'étalonnage automatique.
 1102|Saisissez l'adresse de la caméra ou supprimez la caméra.
+1103|AxiDraw / EggBot (EBB, pas GRBL)
+1104|Traceur HPGL (pas GRBL)
+1105|AxiDraw (les deux moteurs sur une courroie)
+1106|EggBot (un moteur par axe)
+1107|Matériel (RTS/CTS)
+1108|Logiciel (XON/XOFF)
+1109|Le traceur n'a pas accepté une commande : {}
+1110|Ce traceur n'a pas de mode de vérification : la vérification est sautée.
+1111|Moteurs
+1112|Pas par mm
+1113|Inverser
+1114|L'AxiDraw a 80 pas par mm et compte Y vers l'avant : son Y est donc inversé.
+1115|L'EBB n'a pas de fins de course : avant de vous connecter, placez le stylo dans le coin où commence le dessin (son zéro).
+1116|Unités du traceur par mm
+1117|Contrôle de flux
+1118|Sans contrôle de flux, un traceur perd des commandes dès que sa mémoire tampon est pleine.
+1119|Un traceur ne répond rien : une ligne compte comme faite dès que le port l'a prise, et un arrêt lève le stylo tandis que le traceur dessine encore ce qu'il a dans sa mémoire tampon.
+1120|Le traceur n'a rien pris depuis 20 s : vérifiez le contrôle de flux et le câble.

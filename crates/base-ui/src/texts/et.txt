@@ -1101,3 +1101,21 @@
 1100|Masina otsepilt: MJPEG-voog, JPEG-hetktõmmise aadress (http või https) või voog, mida ffmpeg loeb (rtsp, udp, rtp, rtmp).
 1101|Objektiivi moonutuse koefitsiendid (radiaalne k1–k3, tangentsiaalne p1, p2) keskpunktist mõõdetud koordinaatidele pildi pikema külje ühikutes. Kõik 0 = korrektuuri pole. Sisestatakse käsitsi: automaatset kalibreerimist pole.
 1102|Sisestage kaamera aadress või kustutage kaamera.
+1103|AxiDraw / EggBot (EBB, mitte GRBL)
+1104|HPGL-plotter (mitte GRBL)
+1105|AxiDraw (mõlemad mootorid ühel rihmal)
+1106|EggBot (iga telje jaoks oma mootor)
+1107|Riistvaraline (RTS/CTS)
+1108|Tarkvaraline (XON/XOFF)
+1109|Plotter ei võtnud käsku vastu: {}
+1110|Sellel plotteril pole kontrollrežiimi: kontroll jäetakse vahele.
+1111|Mootorid
+1112|Samme mm kohta
+1113|Pööra
+1114|AxiDraw'l on 80 sammu mm kohta ja see loeb Y-d ettepoole, seega on selle Y pööratud.
+1115|EBB-l pole piirlüliteid: enne ühendamist pange pliiats nurka, kust joonis algab (selle null).
+1116|Plotteri ühikuid mm kohta
+1117|Vookontroll
+1118|Ilma vookontrollita kaotab plotter käske, kui tema puhver on täis.
+1119|Plotter ei vasta midagi: rida loetakse tehtuks, kui port on selle vastu võtnud, ja peatamine tõstab pliiatsi, kuid plotter joonistab ikka puhvris oleva.
+1120|Plotter pole 20 s jooksul midagi vastu võtnud: kontrollige vookontrolli ja kaablit.

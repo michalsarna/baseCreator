@@ -1,5 +1,6 @@
 //! The link to a controller (GRBL, Marlin, Smoothieware) over a serial port or a TCP socket, running on a worker
 //! thread: streaming of jobs with the character-counting protocol, immediate lines, realtime bytes and status polling.
+//! A plotter that does not speak G-code (EBB, HPGL) gets the same G-code, turned into its own commands line by line (`Plot`).
 //! Shared by every program that talks to a machine.
 use std::collections::VecDeque;
 use std::io::{Read, Write};
@@ -39,9 +40,17 @@ pub fn explain_net_error(msg: &str) -> String {
 trait Link: Read + Write + Send {}
 impl<T: Read + Write + Send> Link for T {}
 
-fn open_link(t: &Target) -> Result<(Box<dyn Link>, bool), String> {
+fn open_link(t: &Target, flow: base_core::plotter::FlowControl) -> Result<(Box<dyn Link>, bool), String> {
+    use base_core::plotter::FlowControl;
     match t {
-        Target::Serial { port, baud } => serialport::new(port, *baud).timeout(Duration::from_millis(5)).open().map(|p| (Box::new(p) as Box<dyn Link>, false)).map_err(|e| e.to_string()),
+        Target::Serial { port, baud } => {
+            let flow = match flow {
+                FlowControl::Hardware => serialport::FlowControl::Hardware,
+                FlowControl::Software => serialport::FlowControl::Software,
+                FlowControl::None => serialport::FlowControl::None,
+            };
+            serialport::new(port, *baud).timeout(Duration::from_millis(5)).flow_control(flow).open().map(|p| (Box::new(p) as Box<dyn Link>, false)).map_err(|e| e.to_string())
+        }
         Target::Tcp { host, port } => {
             use std::net::{TcpStream, ToSocketAddrs};
             let addrs = (host.as_str(), *port).to_socket_addrs().map_err(|e| e.to_string())?;
@@ -78,6 +87,8 @@ pub enum Cmd {
     Barriers(bool),
     /// Go on with a job that stopped at a pause.
     Continue,
+    /// How to talk to a plotter that does not speak G-code; used by the next `Connect` to an EBB or HPGL controller.
+    Plotter(base_core::plotter::Setup),
 }
 
 /// Direction of a console line.
@@ -252,11 +263,183 @@ const BANNER_TIMEOUT: Duration = Duration::from_millis(2500);
 const STALL_AFTER: Duration = Duration::from_secs(10);
 
 /// Why a line is in the queue; decides how its `ok` is shown in the console.
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 enum Kind {
     Job,
     Immediate,
     Poll,
+    /// A command of a plotter's own (its start, its stop), sent as it is.
+    Raw,
+}
+
+/// A plotter that does not speak G-code (EBB, HPGL): the lines of the queue are turned into its commands here, and its
+/// answers read. The EBB answers every command with `OK` and gets one at a time; an HPGL plotter answers nothing and stops
+/// the flow of the port (RTS/CTS or XON/XOFF) when its buffer is full, so a line counts as done once the port took it.
+struct Plot {
+    tr: base_core::plotter::Translator,
+    /// The commands of the line being sent; `true` for the last one of its line (it makes the line done).
+    out: VecDeque<(String, Kind, bool)>,
+    /// EBB: what was sent and not yet answered.
+    waiting: VecDeque<(Kind, bool)>,
+    /// HPGL: the bytes of a command the port has not taken yet.
+    bytes: Vec<u8>,
+    at: usize,
+    bytes_of: (Kind, bool),
+    /// Held by `!` until `~`: nothing more is sent.
+    hold: bool,
+    /// What was last reported, so a report goes out only when something changed.
+    shown: Option<(String, [f64; 2])>,
+    /// EBB: its `OK` means a move is queued, not done; at a pause the board is asked (`QM`) until its motors stand.
+    /// `Some(true)`: they stood at the last answer.
+    still: Option<bool>,
+    asked_at: Option<Instant>,
+    /// HPGL: since when the port has taken nothing, and whether that was said.
+    stuck_since: Option<Instant>,
+    stuck_said: bool,
+}
+
+impl Plot {
+    fn new(setup: base_core::plotter::Setup) -> Plot {
+        let mut tr = base_core::plotter::Translator::new(setup);
+        let out = tr.start().into_iter().map(|c| (c, Kind::Raw, true)).collect();
+        Plot { tr, out, waiting: VecDeque::new(), bytes: vec![], at: 0, bytes_of: (Kind::Raw, true), hold: false, shown: None, still: None, asked_at: None, stuck_since: None, stuck_said: false }
+    }
+
+    fn is_ebb(&self) -> bool {
+        self.tr.language() == base_core::plotter::Language::Ebb
+    }
+
+    /// Something is sent and not done, or ready to be sent.
+    fn busy(&self) -> bool {
+        !self.out.is_empty() || !self.waiting.is_empty() || self.at < self.bytes.len()
+    }
+
+    /// Stop at once: what waits is dropped, the plotter is told to stop. A command that is half out still goes out whole.
+    fn abort(&mut self) {
+        self.out.clear();
+        self.waiting.clear();
+        self.bytes_of = (Kind::Raw, true);
+        self.hold = false;
+        self.out.extend(self.tr.stop().into_iter().map(|c| (c, Kind::Raw, true)));
+    }
+
+    /// A line from the plotter. Returns the kind and the "last" flag of the command it answers, when it is an answer.
+    fn answer(&mut self, line: &str) -> Option<(Kind, bool)> {
+        if !self.is_ebb() {
+            return None;
+        }
+        if line == "OK" || line.starts_with('!') {
+            return Some(self.waiting.pop_front().unwrap_or((Kind::Raw, true)));
+        }
+        // `QM,0,0,0,0`: nothing runs and nothing is queued. This answer has no `OK` after it.
+        if let Some(rest) = line.strip_prefix("QM,") {
+            self.still = Some(rest.split(',').all(|v| v.trim() == "0"));
+            return Some(self.waiting.pop_front().unwrap_or((Kind::Poll, true)));
+        }
+        // The answer to `QS` after a stop: where the motors really are.
+        self.tr.sync_steps(line);
+        None
+    }
+}
+
+/// Send to a plotter what it can take now; false when the port is gone.
+#[allow(clippy::too_many_arguments)]
+fn plot_send(pl: &mut Plot, p: &mut dyn Link, queue: &mut VecDeque<(String, Kind)>, held: &mut bool, barriers: bool, done: &mut usize, total: usize, emit: &dyn Fn(Evt)) -> bool {
+    let traffic = |text: String| Evt::Traffic(ConsoleLine { dir: Dir::Tx, text, poll: false });
+    let finished = |kind: Kind, last: bool, done: &mut usize| {
+        if kind == Kind::Job && last {
+            *done += 1;
+            emit(Evt::Progress { done: *done, total });
+        }
+    };
+    loop {
+        // HPGL: first the rest of a command the port did not take at once (the plotter's buffer is full).
+        if pl.at < pl.bytes.len() {
+            match p.write(&pl.bytes[pl.at..]) {
+                Ok(n) if n > 0 => {
+                    pl.at += n;
+                    pl.stuck_since = None;
+                }
+                Ok(_) => {}
+                Err(e) if matches!(e.kind(), std::io::ErrorKind::TimedOut | std::io::ErrorKind::WouldBlock | std::io::ErrorKind::Interrupted) => {}
+                Err(_) => return false,
+            }
+            if pl.at < pl.bytes.len() {
+                // A plotter whose buffer is full takes nothing for a while; one that takes nothing for long is not listening
+                // (the flow control does not match, or the cable has no CTS line). Said once.
+                let since = *pl.stuck_since.get_or_insert_with(Instant::now);
+                if !pl.stuck_said && since.elapsed() >= Duration::from_secs(20) {
+                    pl.stuck_said = true;
+                    emit(Evt::Log(crate::i18n::tr("The plotter has taken nothing for 20 s: check the flow control and the cable.").into()));
+                }
+                return true;
+            }
+            let (k, last) = pl.bytes_of;
+            finished(k, last, done);
+            pl.bytes_of = (Kind::Raw, true);
+        }
+        // The EBB gets one command at a time.
+        if !pl.waiting.is_empty() {
+            return true;
+        }
+        // A stop goes out even while held.
+        let raw_first = pl.out.front().is_some_and(|(_, k, _)| *k == Kind::Raw);
+        if pl.hold && !raw_first {
+            return true;
+        }
+        if pl.out.is_empty() {
+            let Some((l, kind)) = queue.front() else { return true };
+            let kind = *kind;
+            if *held && kind == Kind::Job {
+                return true;
+            }
+            if barriers && kind == Kind::Job && base_core::resume::is_pause(l) {
+                // Stop here once everything before has gone out and, on an EBB, its motors stand; then tell the program.
+                if pl.is_ebb() && pl.still != Some(true) {
+                    if pl.asked_at.is_none_or(|t| t.elapsed() >= Duration::from_millis(50)) {
+                        pl.asked_at = Some(Instant::now());
+                        pl.still = None;
+                        emit(Evt::Traffic(ConsoleLine { dir: Dir::Tx, text: "QM".into(), poll: true }));
+                        if p.write_all(b"QM\r").is_err() {
+                            return false;
+                        }
+                        pl.waiting.push_back((Kind::Poll, true));
+                    }
+                    return true;
+                }
+                pl.still = None;
+                pl.asked_at = None;
+                let (text, _) = queue.pop_front().unwrap();
+                emit(Evt::Log(text.clone()));
+                emit(Evt::Barrier { text, line: *done });
+                *done += 1;
+                emit(Evt::Progress { done: *done, total });
+                *held = true;
+                return true;
+            }
+            let (l, kind) = queue.pop_front().unwrap();
+            let cmds = pl.tr.translate(&l);
+            if cmds.is_empty() {
+                // Nothing for the plotter in this line (a comment, `$X`, `G21`…): it is done.
+                finished(kind, true, done);
+                continue;
+            }
+            let n = cmds.len();
+            pl.out.extend(cmds.into_iter().enumerate().map(|(i, c)| (c, kind, i + 1 == n)));
+        }
+        let Some((cmd, kind, last)) = pl.out.pop_front() else { return true };
+        emit(traffic(cmd.clone()));
+        if pl.is_ebb() {
+            if p.write_all(format!("{cmd}\r").as_bytes()).is_err() {
+                return false;
+            }
+            pl.waiting.push_back((kind, last));
+        } else {
+            pl.bytes = cmd.into_bytes();
+            pl.at = 0;
+            pl.bytes_of = (kind, last);
+        }
+    }
 }
 
 fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: Duration) {
@@ -283,13 +466,26 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
     let mut machine_state = String::new();
     let mut barriers = false;
     let mut held = false;
+    let mut plot_setup: Option<base_core::plotter::Setup> = None;
+    let mut plot: Option<Plot> = None;
     loop {
         loop {
             match rx.try_recv() {
+                Ok(Cmd::Plotter(s)) => plot_setup = Some(s),
                 Ok(Cmd::Connect { target, controller: c, streaming }) => {
                     let label = target.label();
-                    match open_link(&target) {
+                    let setup = c.plotter_language().map(|lang| match &plot_setup {
+                        Some(s) => base_core::plotter::Setup { language: lang, ..s.clone() },
+                        None => base_core::plotter::Setup::new(lang),
+                    });
+                    // Only an HPGL plotter needs the flow control of the port; a USB board (GRBL, the EBB) has none.
+                    let flow = match &setup {
+                        Some(s) if s.language == base_core::plotter::Language::Hpgl => s.settings.flow,
+                        _ => base_core::plotter::FlowControl::None,
+                    };
+                    match open_link(&target, flow) {
                         Ok((mut p, tcp)) => {
+                            plot = setup.map(Plot::new);
                             is_tcp = tcp;
                             controller = c;
                             simple = streaming == base_core::machine::Streaming::Simple;
@@ -311,6 +507,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                 }
                 Ok(Cmd::Disconnect) => {
                     port = None;
+                    plot = None;
                     queue.clear();
                     pending.clear();
                     held = false;
@@ -330,6 +527,15 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     queue.extend(lines.into_iter().map(|l| (l, Kind::Job)));
                     emit(Evt::Progress { done, total });
                 }
+                Ok(Cmd::Realtime(b)) if plot.is_some() => {
+                    // A plotter has no real-time bytes: the link holds the sending itself.
+                    let pl = plot.as_mut().unwrap();
+                    match b {
+                        b'!' => pl.hold = true,
+                        b'~' => pl.hold = false,
+                        _ => {}
+                    }
+                }
                 Ok(Cmd::Realtime(b)) => {
                     if let Some(p) = port.as_mut() {
                         let _ = p.write_all(&[b]);
@@ -341,7 +547,9 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     pending.clear();
                     held = false;
                     total = 0;
-                    if let Some(p) = port.as_mut() {
+                    if let Some(pl) = plot.as_mut().filter(|_| port.is_some()) {
+                        pl.abort();
+                    } else if let Some(p) = port.as_mut() {
                         if let Some(b) = controller.abort_byte() {
                             let _ = p.write_all(&[b]);
                             emit(traffic(Dir::Tx, realtime_name(b), false));
@@ -373,6 +581,18 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                 let line: Vec<u8> = inbuf.drain(..=i).collect();
                 let line = String::from_utf8_lossy(&line).trim().to_string();
                 if line.is_empty() {
+                    continue;
+                }
+                if let Some(pl) = plot.as_mut() {
+                    let answered = pl.answer(&line);
+                    if answered.is_some() && line.starts_with('!') {
+                        emit(Evt::Log(crate::i18n::trf("The plotter did not take a command: {}", &[&line])));
+                    }
+                    emit(traffic(Dir::Rx, line, answered == Some((Kind::Poll, true))));
+                    if answered == Some((Kind::Job, true)) {
+                        done += 1;
+                        emit(Evt::Progress { done, total });
+                    }
                     continue;
                 }
                 if restarting.is_some() && line.starts_with("Grbl ") {
@@ -410,8 +630,23 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                 restarting = None;
                 pending.clear();
             }
+            if let Some(pl) = plot.as_mut() {
+                if !plot_send(pl, p.as_mut(), &mut queue, &mut held, barriers, &mut done, total, &emit) {
+                    lost = true;
+                }
+                // The state and the position as the plotter would report them, when they changed.
+                // A job that waits at a pause leaves the plotter standing.
+                let queued = queue.iter().any(|(_, k)| !(held && *k == Kind::Job));
+                let state = if pl.hold { "Hold" } else if pl.busy() || queued { "Run" } else { "Idle" };
+                let (w, m) = (pl.tr.work_position(), pl.tr.machine_position());
+                if pl.shown.as_ref() != Some(&(state.to_string(), w)) {
+                    pl.shown = Some((state.to_string(), w));
+                    emit(Evt::Status { state: state.to_string(), x: w[0], y: w[1], z: f64::NAN });
+                    emit(Evt::Report(base_core::grbl_status::Report { state: state.to_string(), mpos: Some([m[0], m[1], 0.0]), wpos: Some([w[0], w[1], 0.0]), ..Default::default() }));
+                }
+            }
             // Write while the controller's RX buffer has room.
-            while let Some((l, front_kind)) = queue.front().filter(|_| restarting.is_none()) {
+            while let Some((l, front_kind)) = queue.front().filter(|_| restarting.is_none() && plot.is_none()) {
                 let front_kind = *front_kind;
                 // A job that stopped at a pause sends nothing more of itself; immediate lines still go.
                 if held && front_kind == Kind::Job {
@@ -459,7 +694,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
             }
             // A job that waits for an answer while the machine stands still: say so, ask for the state, and leave the
             // decision to the user (nothing is resumed or sent on its own).
-            let moving = matches!(machine_state.split(':').next().unwrap_or(""), "Run" | "Hold" | "Home" | "Jog" | "Door" | "Check");
+            let moving = plot.is_some() || matches!(machine_state.split(':').next().unwrap_or(""), "Run" | "Hold" | "Home" | "Jog" | "Door" | "Check");
             let running_job = total > 0 && done < total;
             if let (Some(t), true) = (waiting_since, running_job && !pending.is_empty() && !moving && !stall_reported) {
                 if t.elapsed() >= stall_after {
@@ -473,7 +708,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     }
                 }
             }
-            if last_poll.elapsed() > Duration::from_millis(controller.poll_interval_ms()) {
+            if plot.is_none() && last_poll.elapsed() > Duration::from_millis(controller.poll_interval_ms()) {
                 last_poll = Instant::now();
                 match controller.status_poll() {
                     StatusPoll::Byte(b) => {
@@ -488,6 +723,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
         }
         if lost {
             port = None;
+            plot = None;
             queue.clear();
             pending.clear();
             emit(Evt::Connected(false));
@@ -808,6 +1044,146 @@ mod tests {
             finished
         }));
         assert!(!barrier);
+    }
+
+    /// A stand-in for an EiBotBoard: every command (ended by CR) is answered with `OK` after `delay_ms`, `QS` with a step
+    /// position first, `ES` with whether it stopped something. The commands it got go back through the channel.
+    fn fake_ebb(listener: TcpListener, delay_ms: u64, run_ms: u64) -> std::sync::mpsc::Receiver<Vec<String>> {
+        let (tx, rx) = std::sync::mpsc::channel();
+        std::thread::spawn(move || {
+            let (mut s, _) = listener.accept().unwrap();
+            let _ = s.set_read_timeout(Some(Duration::from_millis(10)));
+            let start = Instant::now();
+            let (mut buf, mut chunk, mut got) = (Vec::<u8>::new(), [0u8; 64], Vec::<String>::new());
+            while start.elapsed() < Duration::from_millis(run_ms) {
+                let read = s.read(&mut chunk);
+                if matches!(read, Ok(0)) {
+                    break;
+                }
+                if let Ok(n) = read {
+                    for &b in &chunk[..n] {
+                        if b != b'\r' {
+                            buf.push(b);
+                            continue;
+                        }
+                        let cmd = String::from_utf8_lossy(&buf).to_string();
+                        buf.clear();
+                        std::thread::sleep(Duration::from_millis(delay_ms));
+                        let answer = match cmd.as_str() {
+                            "QS" => "123,45\r\nOK\r\n".to_string(),
+                            // Moving at the first question, standing after it; this answer has no OK.
+                            "QM" if !got.iter().any(|c| c == "QM") => "QM,1,1,0,1\n\r".to_string(),
+                            "QM" => "QM,0,0,0,0\n\r".to_string(),
+                            "ES" => "1\r\nOK\r\n".to_string(),
+                            "XX" => "!8 Err: Unknown command\r\n".to_string(),
+                            _ => "OK\r\n".to_string(),
+                        };
+                        let _ = s.write_all(answer.as_bytes());
+                        got.push(cmd);
+                    }
+                }
+            }
+            let _ = tx.send(got);
+        });
+        rx
+    }
+
+    fn plot_setup(language: base_core::plotter::Language) -> base_core::plotter::Setup {
+        base_core::plotter::Setup { language, settings: base_core::plotter::PlotterSettings { reverse_y: false, ..Default::default() }, pen: base_core::plotter::PenSense::Z { up: 3.0, down: 0.0 }, rapid: 6000.0 }
+    }
+
+    fn connect_plotter(controller: Controller, port: u16) -> LaserLink {
+        let link = LaserLink::spawn(egui::Context::default());
+        link.send(Cmd::Plotter(plot_setup(controller.plotter_language().unwrap())));
+        link.send(Cmd::Connect { target: Target::Tcp { host: "127.0.0.1".into(), port }, controller, streaming: base_core::machine::Streaming::Counting });
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Connected(true))));
+        link
+    }
+
+    fn finishes(link: &LaserLink, n: usize, secs: f32) -> bool {
+        let mut finished = false;
+        wait_for(link, secs, |e| {
+            if let Evt::Progress { done, total } = e {
+                finished = *done == n && *total == n;
+            }
+            finished
+        })
+    }
+
+    #[test]
+    fn an_ebb_gets_its_own_commands_one_at_a_time_and_reports_where_the_pen_is() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let got = fake_ebb(listener, 2, 2500);
+        let link = connect_plotter(Controller::Ebb, port);
+        link.send(Cmd::Job(vec!["G21 G90".into(), "G0 X10".into(), "G0 Z0".into(), "G1 X20 F600 (draw)".into(), "G0 Z3".into()]));
+        let (mut finished, mut idle_at_20) = (false, false);
+        assert!(wait_for(&link, 3.0, |e| {
+            match e {
+                Evt::Progress { done, total } => finished = *done == 5 && *total == 5,
+                Evt::Status { state, x, .. } => idle_at_20 = state == "Idle" && (*x - 20.0).abs() < 1e-9,
+                _ => {}
+            }
+            finished && idle_at_20
+        }), "every line is acknowledged and the pen stands at X20: {finished} {idle_at_20}");
+        link.send(Cmd::Disconnect);
+        let got = got.recv_timeout(Duration::from_secs(5)).unwrap();
+        assert_eq!(&got[..4], ["EM,1,1", "SC,4,20641", "SC,5,15248", "SP,1"]);
+        assert_eq!(&got[4..], ["SM,100,800,800", "SP,0", "SM,1000,800,800", "SP,1"]);
+    }
+
+    #[test]
+    fn an_ebb_stops_at_a_pause_holds_and_a_stop_lifts_the_pen_and_finds_the_motors() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let got = fake_ebb(listener, 40, 5000);
+        let link = connect_plotter(Controller::Ebb, port);
+        link.send(Cmd::Barriers(true));
+        link.send(Cmd::Job(vec!["G0 X1".into(), "M0 (Change the pen to: red)".into(), "G0 X2".into(), "G0 X3".into(), "G0 X4".into(), "G0 X5".into()]));
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Barrier { line: 1, .. })), "the job stops at M0 with the plotter standing");
+        // Held by `!`: going on from the pause sends nothing until `~`.
+        link.send(Cmd::Realtime(b'!'));
+        link.send(Cmd::Continue);
+        assert!(wait_for(&link, 1.0, |e| matches!(e, Evt::Status { state, .. } if state == "Hold")));
+        assert!(!wait_for(&link, 0.5, |e| matches!(e, Evt::Progress { done, .. } if *done > 2)), "nothing goes out while held");
+        link.send(Cmd::Realtime(b'~'));
+        assert!(wait_for(&link, 2.0, |e| matches!(e, Evt::Progress { done: 3, .. })), "it goes on after ~");
+        link.send(Cmd::Abort);
+        // The motors are where the board says, not where the job would have got.
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Status { x, .. } if (*x - 168.0 / 160.0).abs() < 1e-9)), "the position comes from QS");
+        link.send(Cmd::Disconnect);
+        let got = got.recv_timeout(Duration::from_secs(8)).unwrap();
+        let n = got.len();
+        assert_eq!(&got[n - 3..], ["ES", "SP,1", "QS"], "{got:?}");
+        // Before the pause the board was asked until its motors stood.
+        let qm: Vec<usize> = got.iter().enumerate().filter(|(_, c)| *c == "QM").map(|(i, _)| i).collect();
+        assert!(qm.len() >= 2 && qm[0] == 5, "asked after the first move, twice at least: {got:?}");
+        assert!(!got.iter().any(|c| c.contains("SM") && c.ends_with(",400,400")), "X5 was never sent: {got:?}");
+    }
+
+    #[test]
+    fn an_hpgl_plotter_gets_the_bytes_and_a_line_is_done_when_the_port_took_it() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let (tx, rx) = std::sync::mpsc::channel();
+        std::thread::spawn(move || {
+            let (mut s, _) = listener.accept().unwrap();
+            let _ = s.set_read_timeout(Some(Duration::from_millis(10)));
+            let (mut all, mut chunk, start) = (Vec::new(), [0u8; 256], Instant::now());
+            while start.elapsed() < Duration::from_secs(3) {
+                match s.read(&mut chunk) {
+                    Ok(0) => break,
+                    Ok(n) => all.extend_from_slice(&chunk[..n]),
+                    Err(_) => {}
+                }
+            }
+            let _ = tx.send(String::from_utf8_lossy(&all).to_string());
+        });
+        let link = connect_plotter(Controller::Hpgl, port);
+        link.send(Cmd::Job(vec!["G0 X10 Y5".into(), "G0 Z0".into(), "G1 X20 F1200".into(), "G0 Z3".into(), "$H".into()]));
+        assert!(finishes(&link, 5, 3.0));
+        link.send(Cmd::Disconnect);
+        assert_eq!(rx.recv_timeout(Duration::from_secs(5)).unwrap(), "IN;SP1;PU;PA400,200;PD;VS2;PA800,200;PU;PA0,0;");
     }
 
     #[test]

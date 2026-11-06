@@ -1101,3 +1101,21 @@
 1100|Živý obraz ze stroje: proud MJPEG, adresa snímku JPEG (http nebo https) nebo proud, který čte ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Koeficienty zkreslení objektivu (radiální k1–k3, tangenciální p1, p2) pro souřadnice od středu v jednotkách delší strany obrazu. Všechny 0 = bez korekce. Zadávají se ručně: automatická kalibrace neexistuje.
 1102|Zadejte adresu kamery nebo kameru odstraňte.
+1103|AxiDraw / EggBot (EBB, není GRBL)
+1104|Plotr HPGL (není GRBL)
+1105|AxiDraw (oba motory na jednom řemenu)
+1106|EggBot (jeden motor pro každou osu)
+1107|Hardwarové (RTS/CTS)
+1108|Softwarové (XON/XOFF)
+1109|Plotr nepřijal příkaz: {}
+1110|Tento plotr nemá režim kontroly: kontrola se přeskakuje.
+1111|Motory
+1112|Kroků na mm
+1113|Obrátit
+1114|AxiDraw má 80 kroků na mm a počítá Y směrem dopředu, proto je jeho Y obrácené.
+1115|EBB nemá koncové spínače: před připojením dejte pero do rohu, kde kresba začíná (její nula).
+1116|Jednotek plotru na mm
+1117|Řízení toku
+1118|Bez řízení toku plotr ztrácí příkazy, jakmile se mu zaplní vyrovnávací paměť.
+1119|Plotr nic neodpovídá: řádek se počítá za hotový, jakmile ho port převzal, a zastavení zvedne pero, zatímco plotr ještě kreslí, co má ve vyrovnávací paměti.
+1120|Plotr 20 s nic nepřijal: zkontrolujte řízení toku a kabel.
