@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.71.4
+
+- **One zoom bar for every picture:** zoom in, zoom out and the whole picture, with the zoom (`×1.5`), on a small bar in the lower left corner of the picture, as in the image import window: now also in the trace window (the buttons were in its column of settings) and in the G-code viewer (it had a **Reset view** button in its toolbar). `zoom_bar::overlay` is for the programs' own previews too.
+
 ## v1.71.3
 
 - **Paste a picture:** Ctrl/Cmd+V or **Edit → Paste** with a picture in the clipboard of the system (a screenshot, a picture copied in a browser or a graphics program) opens the usual import window with it. Shapes copied in the program are still pasted as shapes, unless a picture was copied after them.

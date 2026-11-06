@@ -58,3 +58,4 @@ pub mod tools_ui;
 pub mod units_ui;
 pub mod window;
 pub mod widgets;
+pub mod zoom_bar;

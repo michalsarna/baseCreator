@@ -72,16 +72,13 @@ impl PictureView {
         self.zoom = z;
     }
 
-    /// Zoom in, zoom out, the whole picture.
-    pub fn buttons(&mut self, ui: &mut egui::Ui) {
-        if crate::widgets::icon_button(ui, "zoom-in", &tr("Zoom in"), true, 26.0) {
-            self.zoom_by(1.5);
-        }
-        if crate::widgets::icon_button(ui, "zoom-out", &tr("Zoom out"), true, 26.0) {
-            self.zoom_by(1.0 / 1.5);
-        }
-        if crate::widgets::icon_button(ui, "scan", &tr("Reset view"), true, 26.0) {
-            *self = PictureView::default();
+    /// The zoom bar in the lower left corner of the frame `rect`.
+    pub fn bar(&mut self, ui: &mut egui::Ui, rect: egui::Rect) {
+        match crate::zoom_bar::overlay(ui, rect, self.zoom, &tr("Scroll to zoom, drag to move, double click to see the whole picture")) {
+            Some(crate::zoom_bar::ZoomCmd::In) => self.zoom_by(crate::zoom_bar::STEP),
+            Some(crate::zoom_bar::ZoomCmd::Out) => self.zoom_by(1.0 / crate::zoom_bar::STEP),
+            Some(crate::zoom_bar::ZoomCmd::Whole) => *self = PictureView::default(),
+            None => {}
         }
     }
 }
@@ -378,18 +375,7 @@ pub trait EditorImages: EditorHost {
                 let r = d.view.place(rect, t.size_vec2());
                 painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::WHITE);
             }
-            // The zoom buttons in the corner of the picture, with the zoom and how to move it.
-            let bar = egui::Rect::from_min_size(rect.left_bottom() + egui::vec2(6.0, -34.0), egui::vec2(rect.width() - 12.0, 30.0));
-            let mut bar_ui = ui.new_child(egui::UiBuilder::new().max_rect(bar).layout(egui::Layout::left_to_right(egui::Align::Center)));
-            bar_ui.set_clip_rect(rect);
-            egui::Frame::new().fill(ui.visuals().window_fill()).corner_radius(4.0).inner_margin(2.0).show(&mut bar_ui, |ui| {
-                ui.horizontal(|ui| {
-                    d.view.buttons(ui);
-                    ui.label(RichText::new(format!("×{:.1}", d.view.zoom)).color(theme::text_dim()));
-                })
-                .response
-                .on_hover_text(tr("Scroll to zoom, drag to move, double click to see the whole picture"));
-            });
+            d.view.bar(ui, rect);
             let controls = egui::Rect::from_min_size(egui::pos2(rect.right() + gap, page.top()), egui::vec2(CONTROLS_W, page.height()));
             column(ui, controls, |ui| {
                 egui::ScrollArea::vertical().id_salt("image_dlg_controls").auto_shrink([false, false]).max_height(page.height()).show(ui, |ui| image_controls(ui, &mut d, units));
@@ -466,8 +452,8 @@ pub trait EditorImages: EditorHost {
                                 painter.add(egui::Shape::closed_line(pts, Stroke::new(1.3, theme::accent())));
                             }
                         }
-                        painter.text(rect.left_bottom() + egui::vec2(8.0, -6.0), egui::Align2::LEFT_BOTTOM, format!("×{:.1}", d.view.zoom), egui::FontId::proportional(12.0), Color32::from_gray(0x60));
                     }
+                    d.view.bar(ui, rect);
                     // A fixed column, so that a long text cannot widen the window frame after frame.
                     let (cols, _) = ui.allocate_exact_size(egui::vec2(TRACE_CONTROLS_W, rect.height()), egui::Sense::hover());
                     column(ui, cols, |ui| {
@@ -488,10 +474,6 @@ pub trait EditorImages: EditorHost {
                         ui.checkbox(&mut d.params.invert, tr("Trace the light areas"));
                         ui.checkbox(&mut d.delete_original, tr("Delete the image afterwards"));
                         ui.label(RichText::new(trf("{} outlines", &[&d.preview.len()])).color(theme::text_dim()));
-                        ui.add_space(6.0);
-                        // The same as the scroll wheel and the double click, for a mouse without a wheel: zoom in, zoom out, the whole picture.
-                        ui.horizontal(|ui| d.view.buttons(ui));
-                        ui.label(RichText::new(tr("Scroll to zoom, drag to move, double click to see the whole picture")).color(theme::text_dim()));
                     });
                 });
             });

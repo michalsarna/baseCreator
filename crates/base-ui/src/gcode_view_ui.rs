@@ -38,6 +38,12 @@ impl Cam {
             Cam { yaw: 0.0, pitch: 0.0, zoom: 1.0, pan: Vec2::ZERO }
         }
     }
+    /// Zoom by `f` about the middle of the picture (the pan is an offset from it).
+    pub fn zoom_by(&mut self, f: f32) {
+        let z = (self.zoom * f).clamp(0.02, 2000.0);
+        self.pan *= z / self.zoom;
+        self.zoom = z;
+    }
 }
 
 pub struct GcodeViewer {
@@ -134,9 +140,6 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
         ui.horizontal_wrapped(|ui| {
             ui.label(egui::RichText::new(format!("{} · {}", tr("G-code viewer"), v.path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default())).strong());
             ui.separator();
-            if ui.button(tr("Reset view")).clicked() {
-                v.cam = Cam::home(v.tp.is_3d);
-            }
             ui.checkbox(&mut v.show_rapid, tr("Show travel moves"));
             if v.tp.is_3d {
                 ui.checkbox(&mut v.by_height, tr("Colour by height"));
@@ -166,8 +169,6 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
                 crate::widgets::fmt_time(t.est_seconds),
                 trf("{} moves", &[&t.segs.len()])
             )).color(theme::text_dim()));
-            ui.separator();
-            ui.label(egui::RichText::new(tr(if v.tp.is_3d { "Drag: rotate · right drag or Shift+drag: move · wheel: zoom" } else { "Drag: move · wheel: zoom" })).color(theme::text_dim()));
         });
     });
     let rect = ui.available_rect_before_wrap();
@@ -256,6 +257,14 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
             Some(crate::navicube::Nav::Home) => v.cam = Cam::home(true),
             None => {}
         }
+    }
+    // The zoom bar of every picture, in the lower left corner.
+    let hint = tr(if v.tp.is_3d { "Drag: rotate · right drag or Shift+drag: move · wheel: zoom" } else { "Drag: move · wheel: zoom" });
+    match crate::zoom_bar::overlay(ui, rect, v.cam.zoom, &hint) {
+        Some(crate::zoom_bar::ZoomCmd::In) => v.cam.zoom_by(crate::zoom_bar::STEP),
+        Some(crate::zoom_bar::ZoomCmd::Out) => v.cam.zoom_by(1.0 / crate::zoom_bar::STEP),
+        Some(crate::zoom_bar::ZoomCmd::Whole) => v.cam = Cam::home(v.tp.is_3d),
+        None => {}
     }
     if close {
         return false;
