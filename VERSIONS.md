@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.71.1
+
+- **The list of fonts of a text:** with the list open, the up and down arrows go through it and change the font of the text at once, and the list scrolls to the font; the list shows ten fonts at a time.
+
 ## v1.71.0
 
 - **grblHAL and FluidNC:** the start-up line of grblHAL (`GrblHAL 1.1f …`) is known, so a job no longer waits 2.5 s after the reset of the connection (FluidNC's `Grbl 3.7 [FluidNC …]` was known already). `$I` of grblHAL is read whole: `[NEWOPT:…]` (what it can do besides GRBL 1.1, `FirmwareInfo::extensions`), `[FIRMWARE:grblHAL]`, `[AXS:…]`, `[BOARD:…]`, `[DRIVER:…]`; grblHAL is recognised by them even when the version line does not name it.
