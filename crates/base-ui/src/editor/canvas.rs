@@ -676,6 +676,11 @@ pub trait EditorCanvas: EditorHost {
             if let (Some(d), Some(m)) = (self.ed_mut().drag.take(), hpos) {
                 let w = self.s2w(o, m);
                 match d {
+                    // A single node dropped onto another one: the two become one.
+                    Drag::NodeMove { orig, .. } if orig.len() == 1 => {
+                        let tol = 8.0 / self.ed().view.zoom.max(1e-6) as f64;
+                        self.join_dropped_node(orig[0].0, tol);
+                    }
                     Drag::Marquee { start } => {
                         let r = Rect::from_pts([start, w]).unwrap();
                         let hits = self.marquee_hits(&r, w.x >= start.x);

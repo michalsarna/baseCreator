@@ -1127,3 +1127,9 @@
 1126|Pestanya lateral
 1127|Vista de la càmera
 1128|Es veu quan l'ampliació és superior al 200 %.
+1129|Trenca
+1130|Trenca el camí al node seleccionat: un de tancat s'obre allà, un d'obert es divideix en dos
+1131|Al final d'un camí no hi ha res per trencar.
+1132|El camí s'ha tancat.
+1133|Els dos nodes ara són un.
+1134|Els dos camins ara són un.

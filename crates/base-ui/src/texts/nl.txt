@@ -1127,3 +1127,9 @@
 1126|Zijtabblad
 1127|Cameraweergave
 1128|Het is te zien bij een zoom van meer dan 200 %.
+1129|Breken
+1130|Breek het pad bij het gekozen knooppunt: een gesloten pad gaat daar open, een open pad wordt in tweeën gedeeld
+1131|Aan het eind van een pad valt niets te breken.
+1132|Het pad is gesloten.
+1133|De twee knooppunten zijn nu één.
+1134|De twee paden zijn nu één.

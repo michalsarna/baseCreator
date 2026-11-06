@@ -1127,3 +1127,9 @@
 1126|Sidefane
 1127|Kameravisning
 1128|Det ses ved en zoom på mere end 200 %.
+1129|Bryd
+1130|Bryd stien i den valgte knude: en lukket åbnes der, en åben deles i to
+1131|Der er intet at bryde ved enden af en sti.
+1132|Stien blev lukket.
+1133|De to knuder er nu én.
+1134|De to stier er nu én.

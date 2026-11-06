@@ -1127,3 +1127,9 @@
 1126|Sidoflik
 1127|Kameravy
 1128|Det syns vid zoom över 200 %.
+1129|Bryt
+1130|Bryt banan vid den valda noden: en sluten öppnas där, en öppen delas i två
+1131|Det finns inget att bryta i änden av en bana.
+1132|Banan stängdes.
+1133|De två noderna är nu en.
+1134|De två banorna är nu en.

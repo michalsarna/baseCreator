@@ -1127,3 +1127,9 @@
 1126|Sānu cilne
 1127|Kameras skats
 1128|Tas redzams, ja tālummaiņa pārsniedz 200 %.
+1129|Pārraut
+1130|Pārraut ceļu atlasītajā mezglā: slēgts tur atveras, atvērts sadalās divos
+1131|Ceļa galā nav ko pārraut.
+1132|Ceļš tika aizvērts.
+1133|Abi mezgli tagad ir viens.
+1134|Abi ceļi tagad ir viens.

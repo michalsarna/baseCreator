@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.73.0
+
+- **Keys of the node tool:** D deletes the selected nodes, I inserts a node, L makes the segment a line, S a curve, C makes the nodes corners, R rounds them (with the radius of the bar), B breaks the path at the node (a closed path opens there, an open one is cut in two; also a new **Break** button). In the node tool these letters come before the tools that have them (I, L, S, R). The tooltips of the buttons show the keys.
+- **A node dropped onto another joins them:** the end of a path on its other end closes the path, a node on its neighbour merges with it, an end on the end of another path makes one path of the two.
+- **Width and height** in the Properties have arrows of their direction before W and H.
+- **Fit all objects on the zoom bar:** `zoom_bar::overlay_with` adds a fourth button for the previews of a job (they had their own fit buttons in their title line).
+
 ## v1.72.1
 
 - **The secondary grid only close up:** when it is switched on, it is drawn only at a zoom of more than 200 % (further away its lines filled the sheet). The tooltip of its button and the view options say so.

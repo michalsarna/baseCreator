@@ -29,6 +29,10 @@ pub fn plain_keys<H: EditorHost>(h: &mut H, ctx: &egui::Context, arrows: bool) {
             h.delete_selection();
         }
     }
+    // In the node tool the letters of the nodes come before the letters of the tools (I, L, S and R are also tools).
+    if h.ed().tool == Tool::Node {
+        node_keys(h, &plain);
+    }
     for (t, _, k) in Tool::ALL {
         if plain(k) {
             select_tool(h.ed_mut(), t);
@@ -55,6 +59,35 @@ pub fn plain_keys<H: EditorHost>(h: &mut H, ctx: &egui::Context, arrows: bool) {
                 h.transform_selection(Xf::translate(dx, dy));
             }
         }
+    }
+}
+
+/// The keys of the node tool: D delete, I insert, L to line, S to curve, C corner, R round (with the radius of the bar), B break.
+fn node_keys<H: EditorHost>(h: &mut H, plain: &impl Fn(Key) -> bool) {
+    if plain(Key::D) {
+        h.delete_nodes();
+    }
+    if plain(Key::I) {
+        let at = h.ed().active_seg.map(|s| (s, 0.5));
+        if at.is_some() || !h.ed().node_sel.is_empty() {
+            h.nodes_insert(at);
+        }
+    }
+    if plain(Key::L) {
+        h.segments_set(false);
+    }
+    if plain(Key::S) {
+        h.segments_set(true);
+    }
+    if plain(Key::C) {
+        h.nodes_smooth(false);
+    }
+    if plain(Key::R) {
+        let r = h.ed().fillet_radius;
+        h.round_selected_nodes(r);
+    }
+    if plain(Key::B) {
+        h.nodes_break();
     }
 }
 

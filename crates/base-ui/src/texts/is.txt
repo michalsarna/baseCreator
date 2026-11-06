@@ -1127,3 +1127,9 @@
 1126|Hliðarflipi
 1127|Myndavélarsýn
 1128|Það sést við meira en 200 % stækkun.
+1129|Rjúfa
+1130|Rjúfa slóðina við valinn hnút: lokuð opnast þar, opin klofnar í tvennt
+1131|Það er ekkert að rjúfa við enda slóðar.
+1132|Slóðinni var lokað.
+1133|Hnútarnir tveir eru nú einn.
+1134|Slóðirnar tvær eru nú ein.

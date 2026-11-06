@@ -264,7 +264,7 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
         Some(crate::zoom_bar::ZoomCmd::In) => v.cam.zoom_by(crate::zoom_bar::STEP),
         Some(crate::zoom_bar::ZoomCmd::Out) => v.cam.zoom_by(1.0 / crate::zoom_bar::STEP),
         Some(crate::zoom_bar::ZoomCmd::Whole) => v.cam = Cam::home(v.tp.is_3d),
-        None => {}
+        Some(crate::zoom_bar::ZoomCmd::FitObjects) | None => {}
     }
     if close {
         return false;

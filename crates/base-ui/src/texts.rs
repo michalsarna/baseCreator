@@ -1134,6 +1134,12 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Side tab", "Zakładka boczna", "Seitenreiter", "Scheda laterale", "Sivuvälilehti", "侧边标签页", "साइड टैब"],
     ["Camera view", "Widok z kamery", "Kameraansicht", "Vista fotocamera", "Kameran näkymä", "摄像头画面", "कैमरा दृश्य"],
     ["It is seen when zoomed in more than 200 %.", "Widać ją przy powiększeniu większym niż 200 %.", "Es ist ab einer Vergrößerung von mehr als 200 % zu sehen.", "È visibile con uno zoom superiore al 200 %.", "Se näkyy, kun lähennys on yli 200 %.", "缩放大于 200 % 时可见。", "यह 200 % से अधिक ज़ूम करने पर दिखता है।"],
+    ["Break", "Rozdziel", "Auftrennen", "Spezza", "Katkaise", "断开", "तोड़ें"],
+    ["Break the path at the selected node: a closed one opens there, an open one is cut in two", "Rozdziel ścieżkę w zaznaczonym węźle: zamknięta otwiera się w nim, otwarta dzieli się na dwie", "Den Pfad am gewählten Knoten auftrennen: ein geschlossener öffnet sich dort, ein offener wird zweigeteilt", "Spezza il tracciato nel nodo selezionato: uno chiuso si apre lì, uno aperto si divide in due", "Katkaise polku valitussa solmussa: suljettu aukeaa siitä, avoin jakautuu kahdeksi", "在选中的节点处断开路径：闭合路径在此打开，开放路径一分为二", "चुने गए नोड पर पाथ तोड़ें: बंद पाथ वहाँ खुलता है, खुला पाथ दो भागों में बँटता है"],
+    ["An end of a path has nothing to break.", "Na końcu ścieżki nie ma czego rozdzielać.", "Am Ende eines Pfades gibt es nichts aufzutrennen.", "All'estremità di un tracciato non c'è nulla da spezzare.", "Polun päässä ei ole mitään katkaistavaa.", "路径的端点无可断开。", "पाथ के सिरे पर तोड़ने को कुछ नहीं है।"],
+    ["The path was closed.", "Ścieżka została zamknięta.", "Der Pfad wurde geschlossen.", "Il tracciato è stato chiuso.", "Polku suljettiin.", "路径已闭合。", "पाथ बंद कर दिया गया।"],
+    ["The two nodes are one now.", "Dwa węzły są teraz jednym.", "Die beiden Knoten sind jetzt einer.", "I due nodi ora sono uno.", "Kaksi solmua on nyt yksi.", "两个节点已合为一个。", "दोनों नोड अब एक हैं।"],
+    ["The two paths are one now.", "Dwie ścieżki są teraz jedną.", "Die beiden Pfade sind jetzt einer.", "I due tracciati ora sono uno.", "Kaksi polkua on nyt yksi.", "两条路径已合为一条。", "दोनों पाथ अब एक हैं।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

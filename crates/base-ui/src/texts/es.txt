@@ -1127,3 +1127,9 @@
 1126|Pestaña lateral
 1127|Vista de cámara
 1128|Se ve con un zoom superior al 200 %.
+1129|Romper
+1130|Romper el trazado en el nodo seleccionado: uno cerrado se abre ahí, uno abierto se divide en dos
+1131|En el extremo de un trazado no hay nada que romper.
+1132|El trazado se ha cerrado.
+1133|Los dos nodos ahora son uno.
+1134|Los dos trazados ahora son uno.

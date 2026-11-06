@@ -556,6 +556,81 @@ pub trait EditorHost: Sized {
         self.touch();
     }
 
+    /// Break the path at the selected node: a closed path opens there, an open one is cut in two (B).
+    fn nodes_break(&mut self) {
+        let Some(&(id, ci, ni)) = self.ed().node_sel.first() else { return };
+        let Some(mut c) = self.contour_mut(id, ci).cloned() else { return };
+        let was_closed = c.closed;
+        let tail = base_core::join::break_at(&mut c, ni);
+        if !was_closed && tail.is_none() {
+            self.say(tr("An end of a path has nothing to break.").to_string());
+            return;
+        }
+        self.checkpoint();
+        if let Some(Kind::Bezier(cs)) = self.scene_mut().unlocked_mut(id).map(|s| &mut s.kind) {
+            cs[ci] = c;
+            if let Some(t) = tail {
+                cs.push(t);
+            }
+        }
+        self.ed_mut().node_sel.clear();
+        self.touch();
+    }
+
+    /// After a single node was dragged: dropped onto another node of the selected shapes, the two become one. The other end of its
+    /// path closes the path, a neighbour merges with it, an end of another open path joins the two paths. `tol` is in mm. True when
+    /// something was joined.
+    fn join_dropped_node(&mut self, (id, ci, ni): NodeRef, tol: f64) -> bool {
+        let Some(p) = self.node_at((id, ci, ni)).map(|n| n.p) else { return false };
+        // The nearest other node within reach; the ends of paths first.
+        let mut best: Option<(NodeRef, f64, bool)> = None;
+        for (sid, cs) in self.bezier_shapes() {
+            for (cj, c) in cs.iter().enumerate() {
+                for (nj, n) in c.nodes.iter().enumerate() {
+                    if (sid, cj, nj) == (id, ci, ni) {
+                        continue;
+                    }
+                    let d = n.p.dist(p);
+                    let end = !c.closed && (nj == 0 || nj + 1 == c.nodes.len());
+                    if d <= tol && best.is_none_or(|(_, bd, be)| (end && !be) || (end == be && d < bd)) {
+                        best = Some(((sid, cj, nj), d, end));
+                    }
+                }
+            }
+        }
+        let Some(((tid, tci, tni), _, _)) = best else { return false };
+        if (tid, tci) == (id, ci) {
+            let Some(mut c) = self.contour_mut(id, ci).cloned() else { return false };
+            let Some(what) = base_core::join::drop_on_same(&mut c, ni, tni) else { return false };
+            if let Some(slot) = self.contour_mut(id, ci) {
+                *slot = c;
+            }
+            self.say(tr(match what {
+                base_core::join::Dropped::Closed => "The path was closed.",
+                base_core::join::Dropped::Merged => "The two nodes are one now.",
+            }).to_string());
+        } else {
+            let (Some(a), Some(b)) = (self.contour_mut(id, ci).cloned(), self.contour_mut(tid, tci).cloned()) else { return false };
+            let Some(joined) = base_core::join::drop_on_other(&a, ni, &b, tni) else { return false };
+            if let Some(slot) = self.contour_mut(id, ci) {
+                *slot = joined;
+            }
+            // The other path is part of this one now.
+            if let Some(Kind::Bezier(cs)) = self.scene_mut().unlocked_mut(tid).map(|s| &mut s.kind) {
+                cs.remove(tci);
+            }
+            self.scene_mut().shapes.retain(|s| !matches!(&s.kind, Kind::Bezier(cs) if cs.is_empty()));
+            let gone: Vec<u64> = self.ed().sel.iter().copied().filter(|i| self.scene().shape(*i).is_none()).collect();
+            self.ed_mut().sel.retain(|i| !gone.contains(i));
+            self.say(tr("The two paths are one now.").to_string());
+        }
+        let ed = self.ed_mut();
+        ed.node_sel.clear();
+        ed.active_seg = None;
+        self.touch();
+        true
+    }
+
     /// Round the selected nodes (node tool) with `radius` mm.
     fn round_selected_nodes(&mut self, radius: f64) {
         if self.ed().node_sel.is_empty() || radius <= 0.0 {
@@ -589,32 +664,37 @@ pub trait EditorHost: Sized {
     fn node_bar(&mut self, ui: &mut egui::Ui) {
         let has_nodes = !self.ed().node_sel.is_empty();
         let has_seg = has_nodes || self.ed().active_seg.is_some();
-        if ui.add_enabled(has_nodes, egui::Button::new(tr("Corner"))).on_hover_text(tr("Make the selected nodes corners")).clicked() {
+        // The key of each button is in its tooltip (`node_keys`).
+        let tip = |text: &'static str, key: &str| format!("{} ({key})", tr(text));
+        if ui.add_enabled(has_nodes, egui::Button::new(tr("Corner"))).on_hover_text(tip("Make the selected nodes corners", "C")).clicked() {
             self.nodes_smooth(false);
         }
         if ui.add_enabled(has_nodes, egui::Button::new(tr("Smooth"))).on_hover_text(tr("Make the selected nodes smooth")).clicked() {
             self.nodes_smooth(true);
         }
-        if ui.add_enabled(has_seg, egui::Button::new(tr("To line"))).on_hover_text(tr("Make the segment after each selected node straight")).clicked() {
+        if ui.add_enabled(has_seg, egui::Button::new(tr("To line"))).on_hover_text(tip("Make the segment after each selected node straight", "L")).clicked() {
             self.segments_set(false);
         }
-        if ui.add_enabled(has_seg, egui::Button::new(tr("To curve"))).on_hover_text(tr("Make the segment after each selected node a curve")).clicked() {
+        if ui.add_enabled(has_seg, egui::Button::new(tr("To curve"))).on_hover_text(tip("Make the segment after each selected node a curve", "S")).clicked() {
             self.segments_set(true);
         }
-        if ui.add_enabled(has_seg, egui::Button::new(tr("Add node"))).on_hover_text(tr("Insert a node (or double-click a segment)")).clicked() {
+        if ui.add_enabled(has_seg, egui::Button::new(tr("Add node"))).on_hover_text(tip("Insert a node (or double-click a segment)", "I")).clicked() {
             let at = self.ed().active_seg.map(|s| (s, 0.5));
             self.nodes_insert(at);
         }
-        if self.delete_button(ui, has_nodes, &tr("Delete node")).clicked() {
+        if self.delete_button(ui, has_nodes, &tr("Delete node")).on_hover_text(format!("{} (D)", tr("Delete node"))).clicked() {
             self.delete_nodes();
         }
         ui.add(egui::DragValue::new(&mut self.ed_mut().fillet_radius).range(0.05..=500.0).speed(0.1).suffix(" mm")).on_hover_text(tr("Radius for rounding"));
-        if ui.add_enabled(has_nodes, egui::Button::new(tr("Round"))).on_hover_text(tr("Round the selected corners with this radius")).clicked() {
+        if ui.add_enabled(has_nodes, egui::Button::new(tr("Round"))).on_hover_text(tip("Round the selected corners with this radius", "R")).clicked() {
             let r = self.ed().fillet_radius;
             self.round_selected_nodes(r);
         }
         if ui.add_enabled(has_nodes, egui::Button::new(tr("Open / close"))).on_hover_text(tr("Close an open path, or open a closed one at the selected node")).clicked() {
             self.nodes_toggle_closed();
+        }
+        if ui.add_enabled(has_nodes, egui::Button::new(tr("Break"))).on_hover_text(tip("Break the path at the selected node: a closed one opens there, an open one is cut in two", "B")).clicked() {
+            self.nodes_break();
         }
     }
 }

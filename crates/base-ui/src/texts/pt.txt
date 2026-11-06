@@ -1127,3 +1127,9 @@
 1126|Separador lateral
 1127|Vista da câmara
 1128|É visível com um zoom superior a 200 %.
+1129|Quebrar
+1130|Quebrar o caminho no nó selecionado: um fechado abre-se aí, um aberto divide-se em dois
+1131|Na ponta de um caminho não há nada para quebrar.
+1132|O caminho foi fechado.
+1133|Os dois nós são agora um só.
+1134|Os dois caminhos são agora um só.

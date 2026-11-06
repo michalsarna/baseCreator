@@ -1127,3 +1127,9 @@
 1126|Bočna kartica
 1127|Prikaz kamere
 1128|Vidi se pri povećanju većem od 200 %.
+1129|Prekini
+1130|Prekini putanju u odabranom čvoru: zatvorena se tu otvara, otvorena se dijeli na dvije
+1131|Na kraju putanje nema se što prekinuti.
+1132|Putanja je zatvorena.
+1133|Dva čvora sada su jedan.
+1134|Dvije putanje sada su jedna.

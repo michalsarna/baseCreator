@@ -107,7 +107,7 @@ pub fn picture(ui: &mut egui::Ui, tex: Option<&egui::TextureHandle>, zoom: &mut 
             *zoom = 1.0;
             None
         }
-        None => None,
+        Some(crate::zoom_bar::ZoomCmd::FitObjects) | None => None,
     };
     if let Some(k) = k {
         let z = (*zoom * k).clamp(1.0, MAX_ZOOM);
