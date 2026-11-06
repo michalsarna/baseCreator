@@ -1123,3 +1123,6 @@
 1122|Upravljač kaže da stroj nije referenciran od pokretanja.
 1123|Alat {}
 1124|Zalijepljena slika
+1125|Zaseban prozor
+1126|Bočna kartica
+1127|Prikaz kamere

@@ -674,7 +674,7 @@ fn the_arrows_change_the_font_in_the_open_list_and_it_shows_ten() {
     let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(500.0, 900.0));
     let mut frame = |h: &mut Host, events: Vec<egui::Event>| {
         let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), events, ..Default::default() }, |ui| {
-            egui::CentralPanel::default().show_inside(ui, |ui| super::text_ui::section(h, ui));
+            egui::CentralPanel::default().show(ui, |ui| super::text_ui::section(h, ui));
         });
         out.textures_delta.clear();
     };

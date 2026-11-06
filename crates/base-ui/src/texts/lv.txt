@@ -1123,3 +1123,6 @@
 1122|Kontrolieris ziņo, ka mašīna kopš palaišanas nav nobraukusi uz sākuma pozīciju.
 1123|Instruments {}
 1124|Ielīmēts attēls
+1125|Atsevišķs logs
+1126|Sānu cilne
+1127|Kameras skats

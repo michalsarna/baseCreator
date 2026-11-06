@@ -1123,3 +1123,6 @@
 1122|Controlerul spune că mașina nu a fost referențiată de la pornire.
 1123|Sculă {}
 1124|Imagine lipită
+1125|Fereastră separată
+1126|Filă laterală
+1127|Vizualizare cameră

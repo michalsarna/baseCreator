@@ -1123,3 +1123,6 @@
 1122|El controlador indica que la máquina no se ha referenciado desde que arrancó.
 1123|Herramienta {}
 1124|Imagen pegada
+1125|Ventana separada
+1126|Pestaña lateral
+1127|Vista de cámara

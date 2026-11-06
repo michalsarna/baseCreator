@@ -1123,3 +1123,6 @@
 1122|Valdiklis praneša, kad nuo paleidimo mašinai nenustatyta pradinė padėtis.
 1123|Įrankis {}
 1124|Įklijuotas paveikslėlis
+1125|Atskiras langas
+1126|Šoninis skirtukas
+1127|Kameros vaizdas

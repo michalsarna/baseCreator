@@ -1123,3 +1123,6 @@
 1122|Stýringin segir að vélin hafi ekki verið núllstillt frá ræsingu.
 1123|Verkfæri {}
 1124|Límd mynd
+1125|Sérstakur gluggi
+1126|Hliðarflipi
+1127|Myndavélarsýn

@@ -1123,3 +1123,6 @@
 1122|Riadiaca jednotka hlási, že stroj od spustenia nenabehol do východiskovej polohy.
 1123|Nástroj {}
 1124|Vložený obrázok
+1125|Samostatné okno
+1126|Bočná karta
+1127|Pohľad z kamery

@@ -1123,3 +1123,6 @@
 1122|A vezérlő szerint a gép indulás óta nem volt referenciázva.
 1123|Szerszám {}
 1124|Beillesztett kép
+1125|Külön ablak
+1126|Oldalsó fül
+1127|Kameranézet

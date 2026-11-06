@@ -1123,3 +1123,6 @@
 1122|Kontroller ütleb, et masinat pole pärast käivitumist kodupositsiooni viidud.
 1123|Tööriist {}
 1124|Kleebitud pilt
+1125|Eraldi aken
+1126|Külgsakk
+1127|Kaameravaade

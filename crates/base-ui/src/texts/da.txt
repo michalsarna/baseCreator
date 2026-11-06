@@ -1123,3 +1123,6 @@
 1122|Styringen siger, at maskinen ikke er referencekørt siden start.
 1123|Værktøj {}
 1124|Indsat billede
+1125|Separat vindue
+1126|Sidefane
+1127|Kameravisning
