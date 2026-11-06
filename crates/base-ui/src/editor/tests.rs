@@ -651,3 +651,55 @@ fn the_image_dialog_keeps_its_width() {
     assert!(w[3] > 500.0 && w[3] < 1200.0 && w.windows(2).skip(3).all(|p| p[0] == p[1]), "{w:?}");
 }
 
+
+/// The list of fonts of the text tool: open it with a click, then the arrows go down and up through it and change the font of
+/// the text at once; the list shows ten fonts.
+#[test]
+fn the_arrows_change_the_font_in_the_open_list_and_it_shows_ten() {
+    let fams = base_core::text::families();
+    if fams.len() < 12 {
+        return; // a machine with almost no fonts
+    }
+    let mut h = Host::default();
+    let mut t = base_core::text::TextData::default();
+    t.family = fams[0].clone();
+    let id = h.scene.add(0, Kind::Text(t), Xf::translate(0.0, 0.0));
+    h.ed.sel = vec![id];
+    let ctx = egui::Context::default();
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(500.0, 900.0));
+    let mut frame = |h: &mut Host, events: Vec<egui::Event>| {
+        let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), events, ..Default::default() }, |ui| {
+            egui::CentralPanel::default().show_inside(ui, |ui| super::text_ui::section(h, ui));
+        });
+        out.textures_delta.clear();
+    };
+    let family = |h: &Host| match &h.scene.shape(id).unwrap().kind {
+        Kind::Text(t) => t.family.clone(),
+        _ => unreachable!(),
+    };
+    frame(&mut h, vec![]);
+    frame(&mut h, vec![]);
+    // The button of the list: the first clickable widget about 190 points wide (with its arrow) under the text field.
+    let button = ctx.viewport(|v| v.prev_pass.widgets.layers().flat_map(|(_, w)| w.iter().filter(|w| w.sense.senses_click()).map(|w| w.rect)).find(|r| r.width() > 185.0 && r.width() < 240.0)).expect("the font button");
+    let at = button.center();
+    frame(&mut h, vec![egui::Event::PointerMoved(at)]);
+    frame(&mut h, vec![egui::Event::PointerButton { pos: at, button: egui::PointerButton::Primary, pressed: true, modifiers: Default::default() }, egui::Event::PointerButton { pos: at, button: egui::PointerButton::Primary, pressed: false, modifiers: Default::default() }]);
+    frame(&mut h, vec![]);
+    frame(&mut h, vec![egui::Event::PointerMoved(egui::pos2(490.0, 890.0))]);
+    let key = |k: egui::Key| vec![egui::Event::Key { key: k, physical_key: None, pressed: true, repeat: false, modifiers: Default::default() }];
+    frame(&mut h, key(egui::Key::ArrowDown));
+    assert_eq!(family(&h), fams[1], "down: the next font");
+    frame(&mut h, key(egui::Key::ArrowDown));
+    frame(&mut h, key(egui::Key::ArrowUp));
+    assert_eq!(family(&h), fams[1], "up: back one");
+    // Ten names of the list are inside the popup at once, not more.
+    let names: Vec<egui::Rect> = ctx.viewport(|v| {
+        v.prev_pass.widgets.layers().filter(|(l, _)| l.order != egui::Order::Background).flat_map(|(_, w)| w.iter().map(|w| w.rect)).collect()
+    });
+    let row = names.iter().filter(|r| r.height() > 10.0 && r.height() < 30.0 && r.width() > 100.0).map(|r| r.height()).fold(0.0, f32::max);
+    let layer = ctx.viewport(|v| v.prev_pass.widgets.layers().map(|(l, _)| *l).find(|l| l.order != egui::Order::Background)).expect("the popup layer");
+    let popup = ctx.memory(|m| m.area_rect(layer.id)).expect("the popup's place");
+    assert!(row > 0.0, "the list is open");
+    let seen = popup.height() / row;
+    assert!((10.5..13.5).contains(&seen), "about ten names and the search field: {seen} rows of {row}");
+}
