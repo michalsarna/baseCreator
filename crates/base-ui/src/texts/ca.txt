@@ -1133,3 +1133,21 @@
 1132|El camí s'ha tancat.
 1133|Els dos nodes ara són un.
 1134|Els dos camins ara són un.
+1135|Tipus de connexió
+1136|Cap port
+1137|Amfitrió
+1138|Llegit
+1139|Error de lectura
+1140|Llegeix del dispositiu
+1141|Si la màquina és connectada ara, es poden llegir del controlador l'àrea de treball i la velocitat.
+1142|La configuració s'ha llegit del controlador.
+1143|Val la pena comprovar
+1144|Afegeix un dispositiu
+1145|Més opcions…
+1146|Obre tota la finestra del dispositiu amb el que s'ha introduït aquí
+1147|No tinc cap dispositiu
+1148|Encara no hi ha port ni amfitrió: trieu-lo a la configuració del dispositiu abans de connectar.
+1149|Afegeix un dispositiu
+1150|Res d'això no s'ha provat a la vostra màquina: feu una primera prova sense fresa o amb la fresa ben per sobre del material.
+1151|Res d'això no s'ha provat al vostre traçador: feu una primera prova amb la ploma aixecada i sense paper.
+1152|S'ha afegit el dispositiu. Premeu Nou per començar.

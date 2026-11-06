@@ -1133,3 +1133,21 @@
 1132|El trazado se ha cerrado.
 1133|Los dos nodos ahora son uno.
 1134|Los dos trazados ahora son uno.
+1135|Tipo de conexión
+1136|Sin puerto
+1137|Host
+1138|Lectura OK
+1139|Error de lectura
+1140|Leer del dispositivo
+1141|Si la máquina está conectada ahora, su área de trabajo y su velocidad se pueden leer del controlador.
+1142|Los ajustes se leyeron del controlador.
+1143|Conviene comprobar
+1144|Añadir dispositivo
+1145|Más ajustes…
+1146|Abre la ventana completa del dispositivo con lo introducido aquí
+1147|No tengo dispositivo
+1148|Aún no hay puerto ni host: elíjalo en los ajustes del dispositivo antes de conectar.
+1149|Añadir un dispositivo
+1150|Nada de esto se ha probado en su máquina: haga una primera prueba sin fresa o con la fresa bien por encima del material.
+1151|Nada de esto se ha probado en su trazador: haga una primera prueba con el bolígrafo levantado y sin papel.
+1152|Se añadió el dispositivo. Pulse Nuevo para empezar.

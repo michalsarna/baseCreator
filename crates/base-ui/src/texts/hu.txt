@@ -1133,3 +1133,21 @@
 1132|Az útvonal bezárult.
 1133|A két csomópont most egy.
 1134|A két útvonal most egy.
+1135|Kapcsolat típusa
+1136|Nincs port
+1137|Gazdagép
+1138|Beolvasva
+1139|Olvasási hiba
+1140|Beolvasás az eszközről
+1141|Ha a gép most csatlakoztatva van, a munkaterülete és sebessége kiolvasható a vezérlőből.
+1142|A beállításokat kiolvastuk a vezérlőből.
+1143|Érdemes ellenőrizni
+1144|Eszköz hozzáadása
+1145|További beállítások…
+1146|Megnyitja a teljes eszközablakot az itt megadottakkal
+1147|Nincs eszközöm
+1148|Még nincs port vagy gazda beállítva: csatlakozás előtt válassza ki az eszközbeállításokban.
+1149|Eszköz hozzáadása
+1150|Ezek közül semmit sem próbáltak ki a gépén: az első próbát maró nélkül vagy a marót jóval az anyag fölött végezze.
+1151|Ezek közül semmit sem próbáltak ki a rajzgépén: az első próbát felemelt tollal és papír nélkül végezze.
+1152|Az eszköz hozzáadva. A kezdéshez nyomja meg az Új gombot.

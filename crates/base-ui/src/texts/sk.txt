@@ -1133,3 +1133,21 @@
 1132|Cesta bola uzavretá.
 1133|Oba uzly sú teraz jeden.
 1134|Obe cesty sú teraz jedna.
+1135|Typ pripojenia
+1136|Žiadny port
+1137|Hostiteľ
+1138|Načítané
+1139|Chyba čítania
+1140|Načítať zo zariadenia
+1141|Ak je stroj práve pripojený, jeho pracovnú plochu a rýchlosť možno prečítať z riadiacej jednotky.
+1142|Nastavenia boli prečítané z riadiacej jednotky.
+1143|Stojí za kontrolu
+1144|Pridať zariadenie
+1145|Ďalšie nastavenia…
+1146|Otvorí celé okno zariadenia s tým, čo je tu zadané
+1147|Nemám zariadenie
+1148|Zatiaľ nie je nastavený port ani hostiteľ: vyberte ho v nastaveniach zariadenia pred pripojením.
+1149|Pridať zariadenie
+1150|Nič z toho nebolo na vašom stroji vyskúšané: prvý test urobte bez frézy alebo s frézou vysoko nad materiálom.
+1151|Nič z toho nebolo na vašom plotri vyskúšané: prvý test urobte so zdvihnutým perom a bez papiera.
+1152|Zariadenie bolo pridané. Začnite tlačidlom Nový.

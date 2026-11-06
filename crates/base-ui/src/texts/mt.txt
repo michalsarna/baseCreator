@@ -1133,3 +1133,21 @@
 1132|Il-mogħdija ingħalqet.
 1133|Iż-żewġ nodi issa huma wieħed.
 1134|Iż-żewġ mogħdijiet issa huma waħda.
+1135|Tip ta' konnessjoni
+1136|L-ebda port
+1137|Host
+1138|Qari OK
+1139|Żball fil-qari
+1140|Aqra mit-tagħmir
+1141|Jekk il-magna hija konnessa issa, iż-żona tax-xogħol u l-veloċità tagħha jistgħu jinqraw mill-kontrollur.
+1142|L-issettjar inqara mill-kontrollur.
+1143|Ta' min jiċċekkja
+1144|Żid apparat
+1145|Aktar settings…
+1146|Jiftaħ it-tieqa sħiħa tal-apparat b'dak li ddaħħal hawn
+1147|M'għandi l-ebda apparat
+1148|Għad ma hemmx port jew host: agħżlu fl-issettjar tal-apparat qabel tikkonnettja.
+1149|Żid apparat
+1150|Xejn minn dan ma ġie ppruvat fuq il-magna tiegħek: agħmel l-ewwel test mingħajr bit, jew bil-bit ferm 'il fuq mill-materjal.
+1151|Xejn minn dan ma ġie ppruvat fuq il-plotter tiegħek: agħmel l-ewwel test bil-pinna merfugħa u mingħajr karta.
+1152|L-apparat ġie miżjud. Agħfas Ġdid biex tibda.

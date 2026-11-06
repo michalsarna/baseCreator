@@ -1133,3 +1133,21 @@
 1132|Dúnadh an cosán.
 1133|Is aon nód amháin an dá nód anois.
 1134|Is aon chosán amháin an dá chosán anois.
+1135|Cineál ceangail
+1136|Gan port
+1137|Óstríomhaire
+1138|Léite go maith
+1139|Earráid léite
+1140|Léigh ón ngléas
+1141|Má tá an meaisín ceangailte anois, is féidir a limistéar oibre agus a luas a léamh ón rialaitheoir.
+1142|Léadh na socruithe ón rialaitheoir.
+1143|Fiú a sheiceáil
+1144|Cuir gléas leis
+1145|Tuilleadh socruithe…
+1146|Osclaíonn sé fuinneog iomlán an ghléis leis an méid a cuireadh isteach anseo
+1147|Níl feiste agam
+1148|Níl port ná óstach socraithe fós: roghnaigh é i socruithe an ghléis sula gceanglaíonn tú.
+1149|Cuir gléas leis
+1150|Níor tástáladh aon chuid de seo ar do mheaisín: déan an chéad tástáil gan giotán, nó leis an ngiotán i bhfad os cionn an ábhair.
+1151|Níor tástáladh aon chuid de seo ar do bhreacadóir: déan an chéad tástáil leis an bpeann ardaithe agus gan páipéar.
+1152|Cuireadh an gléas leis. Brúigh Nua chun tosú.

@@ -1133,3 +1133,21 @@
 1132|Ceļš tika aizvērts.
 1133|Abi mezgli tagad ir viens.
 1134|Abi ceļi tagad ir viens.
+1135|Savienojuma veids
+1136|Nav porta
+1137|Resursdators
+1138|Nolasīts
+1139|Lasīšanas kļūda
+1140|Nolasīt no ierīces
+1141|Ja iekārta tagad ir pievienota, tās darba zonu un ātrumu var nolasīt no kontroliera.
+1142|Iestatījumi nolasīti no kontroliera.
+1143|Vērts pārbaudīt
+1144|Pievienot ierīci
+1145|Vairāk iestatījumu…
+1146|Atver visu ierīces logu ar šeit ievadīto
+1147|Man nav ierīces
+1148|Ports vai resursdators vēl nav iestatīts: izvēlieties to ierīces iestatījumos pirms savienošanas.
+1149|Pievienot ierīci
+1150|Nekas no tā nav izmēģināts uz jūsu mašīnas: pirmo testu veiciet bez frēzes vai ar frēzi krietni virs materiāla.
+1151|Nekas no tā nav izmēģināts uz jūsu plottera: pirmo testu veiciet ar paceltu pildspalvu un bez papīra.
+1152|Ierīce pievienota. Nospiediet Jauns, lai sāktu.

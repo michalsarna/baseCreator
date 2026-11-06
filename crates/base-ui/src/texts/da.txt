@@ -1133,3 +1133,21 @@
 1132|Stien blev lukket.
 1133|De to knuder er nu én.
 1134|De to stier er nu én.
+1135|Forbindelsestype
+1136|Ingen port
+1137|Vært
+1138|Læst OK
+1139|Fejl ved læsning
+1140|Læs fra enheden
+1141|Hvis maskinen er tilsluttet nu, kan dens arbejdsflade og hastighed læses fra styringen.
+1142|Indstillingerne blev læst fra styringen.
+1143|Værd at tjekke
+1144|Tilføj enhed
+1145|Flere indstillinger…
+1146|Åbner hele enhedsvinduet med det, der er indtastet her
+1147|Jeg har ingen enhed
+1148|Der er endnu ikke sat en port eller vært: vælg den i enhedsindstillingerne, før du forbinder.
+1149|Tilføj en enhed
+1150|Intet af dette er afprøvet på din maskine: kør en første test uden fræser eller med fræseren et godt stykke over materialet.
+1151|Intet af dette er afprøvet på din plotter: kør en første test med pennen løftet og uden papir.
+1152|Enheden blev tilføjet. Tryk på Ny for at starte.

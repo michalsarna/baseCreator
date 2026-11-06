@@ -1133,3 +1133,21 @@
 1132	The path was closed.
 1133	The two nodes are one now.
 1134	The two paths are one now.
+1135	Connection type
+1136	No port
+1137	Host
+1138	Read OK
+1139	Error reading
+1140	Read from device
+1141	If the machine is connected now, its work area and speed can be read from the controller.
+1142	The settings were read from the controller.
+1143	Worth checking
+1144	Add device
+1145	More settings…
+1146	Open the whole device window with what is entered here
+1147	I have no device
+1148	No port or host is set yet: choose it in the device settings before connecting.
+1149	Add a device
+1150	Nothing here has been tried on your machine: run a first test without a bit, or with the bit well above the material.
+1151	Nothing here has been tried on your plotter: run a first test with the pen raised and no paper.
+1152	The device was added. Press New to start.

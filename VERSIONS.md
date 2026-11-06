@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.74.0
+
+- **One window for adding a device** (`add_device_ui`), as LightCreator had it: the name, the controller, the connection (its type, the port with Refresh or the host and its TCP port), **Read from device** (the button says how the read went), the rows of the machine (the program's own), an optional camera with a test, **Worth checking**, and **Add device**, **More settings…**, **I have no device** and **Cancel**. MillCreator and PenCreator use it too (they opened the whole device window).
+- 18 texts moved here from LightCreator with its translations; two reminders of the first test for a milling machine and a plotter.
+
 ## v1.73.0
 
 - **Keys of the node tool:** D deletes the selected nodes, I inserts a node, L makes the segment a line, S a curve, C makes the nodes corners, R rounds them (with the radius of the bar), B breaks the path at the node (a closed path opens there, an open one is cut in two; also a new **Break** button). In the node tool these letters come before the tools that have them (I, L, S, R). The tooltips of the buttons show the keys.
