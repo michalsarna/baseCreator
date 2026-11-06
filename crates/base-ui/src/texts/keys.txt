@@ -1126,3 +1126,4 @@
 1125	Separate window
 1126	Side tab
 1127	Camera view
+1128	It is seen when zoomed in more than 200 %.

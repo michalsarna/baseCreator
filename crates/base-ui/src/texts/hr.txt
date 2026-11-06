@@ -1126,3 +1126,4 @@
 1125|Zaseban prozor
 1126|Bočna kartica
 1127|Prikaz kamere
+1128|Vidi se pri povećanju većem od 200 %.

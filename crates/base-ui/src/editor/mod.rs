@@ -418,3 +418,27 @@ impl Default for EditorState {
 
 #[cfg(test)]
 mod tests;
+
+/// The zoom of the drawing as the status bar shows it, in percent.
+pub fn zoom_percent(zoom: f32) -> f32 {
+    zoom / 2.0 * 100.0
+}
+
+/// The zoom (in percent) above which the secondary grid is drawn.
+pub const MINOR_GRID_FROM: f32 = 200.0;
+
+/// Is the secondary grid drawn at this zoom? Only closer than 200 %.
+pub fn minor_grid_seen(zoom: f32) -> bool {
+    zoom_percent(zoom) > MINOR_GRID_FROM
+}
+
+#[cfg(test)]
+mod minor_grid_tests {
+    #[test]
+    fn the_secondary_grid_is_seen_only_closer_than_200_percent() {
+        assert!(!super::minor_grid_seen(2.0), "100 %");
+        assert!(!super::minor_grid_seen(4.0), "200 % itself");
+        assert!(super::minor_grid_seen(4.02), "201 %");
+        assert_eq!(super::zoom_percent(2.72).round(), 136.0);
+    }
+}

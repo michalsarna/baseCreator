@@ -1126,3 +1126,4 @@
 1125|Separat vindue
 1126|Sidefane
 1127|Kameravisning
+1128|Det ses ved en zoom på mere end 200 %.

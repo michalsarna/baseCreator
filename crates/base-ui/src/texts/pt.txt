@@ -1126,3 +1126,4 @@
 1125|Janela separada
 1126|Separador lateral
 1127|Vista da câmara
+1128|É visível com um zoom superior a 200 %.

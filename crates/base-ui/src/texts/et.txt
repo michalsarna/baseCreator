@@ -1126,3 +1126,4 @@
 1125|Eraldi aken
 1126|Külgsakk
 1127|Kaameravaade
+1128|See on näha suurendusel üle 200 %.

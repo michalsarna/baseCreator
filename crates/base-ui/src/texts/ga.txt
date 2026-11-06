@@ -1126,3 +1126,4 @@
 1125|Fuinneog ar leith
 1126|Cluaisín taoibh
 1127|Amharc ceamara
+1128|Feictear é nuair a bhíonn an zúmáil os cionn 200 %.

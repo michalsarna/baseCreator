@@ -1126,3 +1126,4 @@
 1125|Fenêtre séparée
 1126|Onglet latéral
 1127|Vue caméra
+1128|Elle est visible au-delà d'un zoom de 200 %.

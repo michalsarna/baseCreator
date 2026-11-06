@@ -1126,3 +1126,4 @@
 1125|Sérstakur gluggi
 1126|Hliðarflipi
 1127|Myndavélarsýn
+1128|Það sést við meira en 200 % stækkun.

@@ -1126,3 +1126,4 @@
 1125|Apart venster
 1126|Zijtabblad
 1127|Cameraweergave
+1128|Het is te zien bij een zoom van meer dan 200 %.

@@ -1126,3 +1126,4 @@
 1125|Atskiras langas
 1126|Šoninis skirtukas
 1127|Kameros vaizdas
+1128|Matomas, kai priartinimas didesnis nei 200 %.

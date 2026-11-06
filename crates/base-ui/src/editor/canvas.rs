@@ -119,7 +119,8 @@ pub trait EditorCanvas: EditorHost {
                     y += step;
                 }
             };
-            if gp.minor_on {
+            // The secondary grid only close up: further away its lines would fill the sheet.
+            if gp.minor_on && super::minor_grid_seen(self.ed().view.zoom) {
                 lines(gp.minor_mm.min(self.ed().grid * 0.99), gp.minor_color, 0.6);
             }
             if self.ed().show_grid {

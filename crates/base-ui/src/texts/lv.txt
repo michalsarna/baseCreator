@@ -1126,3 +1126,4 @@
 1125|Atsevišķs logs
 1126|Sānu cilne
 1127|Kameras skats
+1128|Tas redzams, ja tālummaiņa pārsniedz 200 %.

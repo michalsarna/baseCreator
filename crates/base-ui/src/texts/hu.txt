@@ -1126,3 +1126,4 @@
 1125|Külön ablak
 1126|Oldalsó fül
 1127|Kameranézet
+1128|200 %-nál nagyobb nagyításnál látszik.
