@@ -1127,3 +1127,9 @@
 1126|Külgsakk
 1127|Kaameravaade
 1128|See on näha suurendusel üle 200 %.
+1129|Katkesta
+1130|Katkesta tee valitud sõlmes: suletud avaneb seal, avatud jaguneb kaheks
+1131|Tee otsas pole midagi katkestada.
+1132|Tee suleti.
+1133|Kaks sõlme on nüüd üks.
+1134|Kaks teed on nüüd üks.

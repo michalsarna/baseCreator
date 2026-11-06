@@ -78,7 +78,7 @@ impl PictureView {
             Some(crate::zoom_bar::ZoomCmd::In) => self.zoom_by(crate::zoom_bar::STEP),
             Some(crate::zoom_bar::ZoomCmd::Out) => self.zoom_by(1.0 / crate::zoom_bar::STEP),
             Some(crate::zoom_bar::ZoomCmd::Whole) => *self = PictureView::default(),
-            None => {}
+            Some(crate::zoom_bar::ZoomCmd::FitObjects) | None => {}
         }
     }
 }

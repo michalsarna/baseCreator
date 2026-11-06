@@ -1127,3 +1127,9 @@
 1126|Stranski zavihek
 1127|Pogled kamere
 1128|Vidi se pri povečavi nad 200 %.
+1129|Prekini
+1130|Prekini pot v izbranem vozlišču: zaprta se tam odpre, odprta se razdeli na dve
+1131|Na koncu poti ni ničesar za prekiniti.
+1132|Pot je bila zaprta.
+1133|Vozlišči sta zdaj eno.
+1134|Poti sta zdaj ena.

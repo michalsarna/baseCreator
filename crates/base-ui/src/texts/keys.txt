@@ -1127,3 +1127,9 @@
 1126	Side tab
 1127	Camera view
 1128	It is seen when zoomed in more than 200 %.
+1129	Break
+1130	Break the path at the selected node: a closed one opens there, an open one is cut in two
+1131	An end of a path has nothing to break.
+1132	The path was closed.
+1133	The two nodes are one now.
+1134	The two paths are one now.

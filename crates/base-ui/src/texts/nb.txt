@@ -1127,3 +1127,9 @@
 1126|Sidefane
 1127|Kameravisning
 1128|Det vises ved zoom over 200 %.
+1129|Bryt
+1130|Bryt banen ved den valgte noden: en lukket åpnes der, en åpen deles i to
+1131|Det er ingenting å bryte ved enden av en bane.
+1132|Banen ble lukket.
+1133|De to nodene er nå én.
+1134|De to banene er nå én.

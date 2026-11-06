@@ -18,15 +18,31 @@ pub fn properties_sections<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) -> bool 
     let mut started = false;
     egui::Grid::new("props").num_columns(4).spacing([6.0, 6.0]).show(ui, |ui| {
         ui.spacing_mut().interact_size.x = 78.0;
-        let f = |ui: &mut egui::Ui, label: &str, v: &mut f64| -> egui::Response {
-            ui.label(label);
+        // The width and the height have an arrow of their direction before the letter.
+        let f = |ui: &mut egui::Ui, label: &str, icon: Option<(&str, &str)>, v: &mut f64| -> egui::Response {
+            match icon {
+                Some((name, tip)) => {
+                    ui.horizontal(|ui| {
+                        ui.spacing_mut().item_spacing.x = 2.0;
+                        if let Some(img) = icons::image(name, 14.0, theme::text_dim()) {
+                            ui.add(img);
+                        }
+                        ui.label(label);
+                    })
+                    .response
+                    .on_hover_text(tip);
+                }
+                None => {
+                    ui.label(label);
+                }
+            }
             drag_len(ui, units, v, 0.1, None)
         };
-        let rx = f(ui, "X", &mut x);
-        let ry = f(ui, "Y", &mut y);
+        let rx = f(ui, "X", None, &mut x);
+        let ry = f(ui, "Y", None, &mut y);
         ui.end_row();
-        let rw = f(ui, "W", &mut w);
-        let rh = f(ui, "H", &mut hh);
+        let rw = f(ui, "W", Some(("move-horizontal", &tr("Width"))), &mut w);
+        let rh = f(ui, "H", Some(("move-vertical", &tr("Height"))), &mut hh);
         ui.end_row();
         for (r, which) in [(&rx, 0), (&ry, 1), (&rw, 2), (&rh, 3)] {
             if r.drag_started() || r.gained_focus() {

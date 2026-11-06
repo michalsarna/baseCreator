@@ -1127,3 +1127,9 @@
 1126|Tab fuq il-ġenb
 1127|Vista tal-kamera
 1128|Jidher meta ż-żum ikun aktar minn 200 %.
+1129|Aqsam
+1130|Aqsam il-mogħdija fin-nodu magħżul: waħda magħluqa tinfetaħ hemm, waħda miftuħa tinqasam fi tnejn
+1131|Fit-tarf ta' mogħdija m'hemm xejn x'jinqasam.
+1132|Il-mogħdija ingħalqet.
+1133|Iż-żewġ nodi issa huma wieħed.
+1134|Iż-żewġ mogħdijiet issa huma waħda.

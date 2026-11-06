@@ -1127,3 +1127,9 @@
 1126|Bočná karta
 1127|Pohľad z kamery
 1128|Je viditeľná pri priblížení väčšom ako 200 %.
+1129|Rozdeliť
+1130|Rozdeliť cestu vo vybranom uzle: uzavretá sa v ňom otvorí, otvorená sa rozdelí na dve
+1131|Na konci cesty nie je čo rozdeliť.
+1132|Cesta bola uzavretá.
+1133|Oba uzly sú teraz jeden.
+1134|Obe cesty sú teraz jedna.

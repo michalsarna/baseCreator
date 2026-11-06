@@ -1127,3 +1127,9 @@
 1126|Šoninis skirtukas
 1127|Kameros vaizdas
 1128|Matomas, kai priartinimas didesnis nei 200 %.
+1129|Atskirti
+1130|Atskirti kelią pažymėtame mazge: uždaras ten atsidaro, atviras padalijamas į du
+1131|Kelio gale nėra ką atskirti.
+1132|Kelias uždarytas.
+1133|Abu mazgai dabar yra vienas.
+1134|Abu keliai dabar yra vienas.

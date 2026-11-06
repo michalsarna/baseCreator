@@ -804,3 +804,68 @@ fn a_paste_event_over_the_canvas_pastes_a_picture_or_the_shapes() {
     frame(&mut h, vec![egui::Event::Paste("some text".into())]);
     assert_eq!(h.scene.shapes.len(), n + 1, "the copied shapes");
 }
+
+fn open_path(h: &mut Host, pts: &[(f64, f64)]) -> u64 {
+    let c = base_core::bezier::Contour { nodes: pts.iter().map(|(x, y)| base_core::bezier::Node::corner(base_core::geom::Pt::new(*x, *y))).collect(), closed: false };
+    h.scene.add(0, Kind::Bezier(vec![c]), Xf::IDENTITY)
+}
+
+fn contours(h: &Host, id: u64) -> Vec<base_core::bezier::Contour> {
+    match h.scene.shape(id).map(|s| &s.kind) {
+        Some(Kind::Bezier(cs)) => cs.clone(),
+        _ => vec![],
+    }
+}
+
+/// The letters of the node tool act on the selected nodes, and do not switch to the tools that have the same letters.
+#[test]
+fn the_keys_of_the_node_tool_edit_the_nodes_and_keep_the_tool() {
+    let mut h = Host::default();
+    let id = open_path(&mut h, &[(0.0, 0.0), (10.0, 0.0), (20.0, 0.0), (30.0, 0.0)]);
+    h.ed.sel = vec![id];
+    h.ed.tool = Tool::Node;
+    let ctx = egui::Context::default();
+    let press = |h: &mut Host, k: egui::Key| {
+        let ev = vec![egui::Event::Key { key: k, physical_key: None, pressed: true, repeat: false, modifiers: Default::default() }];
+        let mut out = ctx.run_ui(egui::RawInput { events: ev, ..Default::default() }, |ui| super::keys::plain_keys(h, ui.ctx(), true));
+        out.textures_delta.clear();
+    };
+    h.ed.node_sel = vec![(id, 0, 0)];
+    press(&mut h, egui::Key::S);
+    assert!(contours(&h, id)[0].seg_is_curve(0), "S: a curve");
+    h.ed.node_sel = vec![(id, 0, 0)];
+    press(&mut h, egui::Key::L);
+    assert!(!contours(&h, id)[0].seg_is_curve(0), "L: a line");
+    h.ed.node_sel = vec![(id, 0, 0)];
+    press(&mut h, egui::Key::I);
+    assert_eq!(contours(&h, id)[0].nodes.len(), 5, "I: a node inserted");
+    h.ed.node_sel = vec![(id, 0, 1)];
+    press(&mut h, egui::Key::D);
+    assert_eq!(contours(&h, id)[0].nodes.len(), 4, "D: deleted");
+    h.ed.node_sel = vec![(id, 0, 1)];
+    press(&mut h, egui::Key::C);
+    press(&mut h, egui::Key::R);
+    h.ed.node_sel = vec![(id, 0, 2)];
+    press(&mut h, egui::Key::B);
+    assert_eq!(contours(&h, id).len(), 2, "B: cut in two");
+    assert_eq!(h.ed.tool, Tool::Node, "none of the letters switched the tool");
+    h.ed.tool = Tool::Select;
+    press(&mut h, egui::Key::R);
+    assert_eq!(h.ed.tool, Tool::Rect, "outside the node tool R is still the rectangle");
+}
+
+/// A node dropped onto another one: the end of a path on its other end closes it, an end of another path joins the two.
+#[test]
+fn a_node_dropped_on_another_joins_them() {
+    let mut h = Host::default();
+    let a = open_path(&mut h, &[(0.0, 0.0), (10.0, 0.0), (10.0, 10.0), (0.2, 0.1)]);
+    let b = open_path(&mut h, &[(50.0, 0.0), (60.0, 0.0)]);
+    let c = open_path(&mut h, &[(60.1, 0.1), (70.0, 10.0)]);
+    h.ed.sel = vec![a, b, c];
+    assert!(h.join_dropped_node((a, 0, 3), 0.5));
+    assert!(contours(&h, a)[0].closed && contours(&h, a)[0].nodes.len() == 3);
+    assert!(h.join_dropped_node((b, 0, 1), 0.5));
+    assert_eq!(contours(&h, b)[0].nodes.len(), 3, "the two paths are one");
+    assert!(h.scene.shape(c).is_none() && !h.ed.sel.contains(&c), "the emptied shape is gone");
+    assert!(!h.join_dropped_node((b, 0, 0), 0.5), "nothing near");
+}

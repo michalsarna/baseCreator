@@ -1127,3 +1127,9 @@
 1126|Filă laterală
 1127|Vizualizare cameră
 1128|Se vede la o mărire mai mare de 200 %.
+1129|Rupe
+1130|Rupe calea în nodul selectat: una închisă se deschide acolo, una deschisă se taie în două
+1131|La capătul unei căi nu e nimic de rupt.
+1132|Calea a fost închisă.
+1133|Cele două noduri sunt acum unul.
+1134|Cele două căi sunt acum una.

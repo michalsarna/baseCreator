@@ -1127,3 +1127,9 @@
 1126|Onglet latéral
 1127|Vue caméra
 1128|Elle est visible au-delà d'un zoom de 200 %.
+1129|Couper
+1130|Couper le chemin au nœud choisi : un chemin fermé s'ouvre là, un chemin ouvert est coupé en deux
+1131|Il n'y a rien à couper au bout d'un chemin.
+1132|Le chemin a été fermé.
+1133|Les deux nœuds n'en font plus qu'un.
+1134|Les deux chemins n'en font plus qu'un.

@@ -1127,3 +1127,9 @@
 1126|Cluaisín taoibh
 1127|Amharc ceamara
 1128|Feictear é nuair a bhíonn an zúmáil os cionn 200 %.
+1129|Bris
+1130|Bris an cosán ag an nód roghnaithe: osclaítear cosán dúnta ansin, gearrtar cosán oscailte ina dhá chuid
+1131|Níl aon rud le briseadh ag deireadh cosáin.
+1132|Dúnadh an cosán.
+1133|Is aon nód amháin an dá nód anois.
+1134|Is aon chosán amháin an dá chosán anois.
