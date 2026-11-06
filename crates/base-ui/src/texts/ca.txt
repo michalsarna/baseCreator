@@ -1122,3 +1122,4 @@
 1121|Sense referència
 1122|El controlador diu que la màquina no s'ha referenciat des que s'ha engegat.
 1123|Eina {}
+1124|Imatge enganxada

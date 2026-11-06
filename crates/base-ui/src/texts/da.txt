@@ -1122,3 +1122,4 @@
 1121|Ikke referencekørt
 1122|Styringen siger, at maskinen ikke er referencekørt siden start.
 1123|Værktøj {}
+1124|Indsat billede

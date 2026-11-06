@@ -1122,3 +1122,4 @@
 1121|Sem referência
 1122|O controlador indica que a máquina não foi referenciada desde que arrancou.
 1123|Ferramenta {}
+1124|Imagem colada

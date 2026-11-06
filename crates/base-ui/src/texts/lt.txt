@@ -1122,3 +1122,4 @@
 1121|Nenustatyta pradinė padėtis
 1122|Valdiklis praneša, kad nuo paleidimo mašinai nenustatyta pradinė padėtis.
 1123|Įrankis {}
+1124|Įklijuotas paveikslėlis

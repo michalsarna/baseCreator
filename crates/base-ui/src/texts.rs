@@ -1129,6 +1129,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Not homed", "Bez bazowania", "Nicht referenziert", "Non azzerata", "Ei kotiajettu", "未回原点", "होम नहीं किया गया"],
     ["The controller says the machine has not been homed since it started.", "Sterownik mówi, że maszyna nie była bazowana od uruchomienia.", "Die Steuerung meldet, dass die Maschine seit dem Start nicht referenziert wurde.", "Il controller dice che la macchina non è stata azzerata dall'avvio.", "Ohjain kertoo, ettei konetta ole kotiajettu käynnistyksen jälkeen.", "控制器报告机器自启动以来尚未回原点。", "कंट्रोलर बताता है कि शुरू होने के बाद मशीन को होम नहीं किया गया है।"],
     ["Tool {}", "Narzędzie {}", "Werkzeug {}", "Utensile {}", "Työkalu {}", "刀具 {}", "टूल {}"],
+    ["Pasted image", "Wklejony obraz", "Eingefügtes Bild", "Immagine incollata", "Liitetty kuva", "粘贴的图像", "चिपकाई गई छवि"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

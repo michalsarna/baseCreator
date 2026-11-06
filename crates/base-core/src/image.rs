@@ -34,14 +34,18 @@ impl ImageData {
     /// `longest_mm` millimetres.
     pub fn from_bytes(bytes: &[u8], name: &str, longest_mm: f64) -> Result<ImageData, String> {
         let img = image::load_from_memory(bytes).map_err(|e| e.to_string())?.to_rgba8();
-        let (w, h) = (img.width(), img.height());
-        if w == 0 || h == 0 {
+        ImageData::from_rgba(img.width(), img.height(), img.as_raw(), name, longest_mm)
+    }
+
+    /// The same from RGBA pixels, row by row (a picture of the clipboard).
+    pub fn from_rgba(w: u32, h: u32, rgba: &[u8], name: &str, longest_mm: f64) -> Result<ImageData, String> {
+        if w == 0 || h == 0 || rgba.len() != w as usize * h as usize * 4 {
             return Err("empty image".into());
         }
-        let gray: Vec<u8> = img
-            .pixels()
+        let gray: Vec<u8> = rgba
+            .chunks_exact(4)
             .map(|p| {
-                let [r, g, b, a] = p.0;
+                let [r, g, b, a] = [p[0], p[1], p[2], p[3]];
                 let l = 0.299 * r as f32 + 0.587 * g as f32 + 0.114 * b as f32;
                 let a = a as f32 / 255.0;
                 (l * a + 255.0 * (1.0 - a)).round().clamp(0.0, 255.0) as u8
@@ -210,5 +214,21 @@ impl ImageData {
             .collect();
         im.gray.iter_mut().for_each(|g| *g = lut[*g as usize]);
         im
+    }
+}
+
+#[cfg(test)]
+mod rgba_tests {
+    use super::ImageData;
+
+    #[test]
+    fn pixels_of_the_clipboard_become_greys_and_transparent_is_white() {
+        // Black, white, red, and a transparent black.
+        let px = [0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 0, 0, 0, 0];
+        let im = ImageData::from_rgba(2, 2, &px, "p", 100.0).unwrap();
+        assert_eq!(im.gray, vec![0, 255, 76, 255]);
+        assert_eq!((im.w, im.h), (100.0, 100.0));
+        assert!(ImageData::from_rgba(2, 2, &px[..8], "p", 100.0).is_err(), "too few pixels");
+        assert!(ImageData::from_rgba(0, 0, &[], "p", 100.0).is_err());
     }
 }

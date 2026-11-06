@@ -22,6 +22,25 @@ pub struct CanvasView<'a> {
 pub trait EditorCanvas: EditorHost {
     fn canvas(&mut self, ui: &mut egui::Ui) {
         super::EditorBackground::background_tick(self, &ui.ctx().clone());
+        // Ctrl/Cmd+V over the drawing: the window system hands it over as a paste of text or of a picture, not as the key. A
+        // picture opens the import window; otherwise the copied shapes come (or a picture the clipboard got some other way).
+        if !ui.ctx().egui_wants_keyboard_input() && self.ed().img_dlg.is_none() {
+            let pasted = ui.input(|i| {
+                i.events.iter().find_map(|e| match e {
+                    egui::Event::PasteImage(img) => Some(Some(img.clone())),
+                    egui::Event::Paste(_) => Some(None),
+                    _ => None,
+                })
+            });
+            match pasted {
+                Some(Some(img)) => {
+                    let rgba: Vec<u8> = img.pixels.iter().flat_map(|c| c.to_srgba_unmultiplied()).collect();
+                    super::EditorCommands::paste_picture(self, img.size[0] as u32, img.size[1] as u32, &rgba);
+                }
+                Some(None) => super::EditorCommands::paste(self),
+                None => {}
+            }
+        }
         let avail = ui.available_size();
         let (resp, painter) = ui.allocate_painter(avail, Sense::click_and_drag());
         let rect = resp.rect;

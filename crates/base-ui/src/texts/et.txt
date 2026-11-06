@@ -1122,3 +1122,4 @@
 1121|Kodupositsioonita
 1122|Kontroller ütleb, et masinat pole pärast käivitumist kodupositsiooni viidud.
 1123|Tööriist {}
+1124|Kleebitud pilt
