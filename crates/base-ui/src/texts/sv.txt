@@ -1133,3 +1133,21 @@
 1132|Banan stängdes.
 1133|De två noderna är nu en.
 1134|De två banorna är nu en.
+1135|Anslutningstyp
+1136|Ingen port
+1137|Värd
+1138|Läst OK
+1139|Fel vid läsning
+1140|Läs från enheten
+1141|Om maskinen är ansluten nu kan dess arbetsyta och hastighet läsas från styrenheten.
+1142|Inställningarna lästes från styrenheten.
+1143|Värt att kontrollera
+1144|Lägg till enhet
+1145|Fler inställningar…
+1146|Öppnar hela enhetsfönstret med det som skrivits in här
+1147|Jag har ingen enhet
+1148|Ingen port eller värd är satt än: välj den i enhetsinställningarna innan du ansluter.
+1149|Lägg till en enhet
+1150|Inget av detta har provats på din maskin: kör ett första test utan fräs, eller med fräsen en bra bit ovanför materialet.
+1151|Inget av detta har provats på din plotter: kör ett första test med pennan uppe och utan papper.
+1152|Enheten lades till. Tryck på Ny för att börja.

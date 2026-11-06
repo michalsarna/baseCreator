@@ -1133,3 +1133,21 @@
 1132|Le chemin a été fermé.
 1133|Les deux nœuds n'en font plus qu'un.
 1134|Les deux chemins n'en font plus qu'un.
+1135|Type de connexion
+1136|Aucun port
+1137|Hôte
+1138|Lecture OK
+1139|Erreur de lecture
+1140|Lire depuis l'appareil
+1141|Si la machine est connectée maintenant, sa zone de travail et sa vitesse peuvent être lues depuis le contrôleur.
+1142|Les réglages ont été lus depuis le contrôleur.
+1143|À vérifier
+1144|Ajouter l'appareil
+1145|Plus de réglages…
+1146|Ouvre la fenêtre complète de l'appareil avec ce qui est saisi ici
+1147|Je n'ai pas d'appareil
+1148|Aucun port ni hôte n'est encore défini : choisissez-le dans les réglages de l'appareil avant de vous connecter.
+1149|Ajouter un appareil
+1150|Rien de tout cela n'a été essayé sur votre machine : faites un premier essai sans fraise, ou avec la fraise bien au-dessus du matériau.
+1151|Rien de tout cela n'a été essayé sur votre traceur : faites un premier essai avec le stylo levé et sans papier.
+1152|L'appareil a été ajouté. Appuyez sur Nouveau pour commencer.

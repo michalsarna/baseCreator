@@ -1133,3 +1133,21 @@
 1132|Banen ble lukket.
 1133|De to nodene er nå én.
 1134|De to banene er nå én.
+1135|Tilkoblingstype
+1136|Ingen port
+1137|Vert
+1138|Lest OK
+1139|Feil ved lesing
+1140|Les fra enheten
+1141|Hvis maskinen er tilkoblet nå, kan arbeidsflaten og hastigheten leses fra kontrolleren.
+1142|Innstillingene ble lest fra kontrolleren.
+1143|Verdt å sjekke
+1144|Legg til enhet
+1145|Flere innstillinger…
+1146|Åpner hele enhetsvinduet med det som er skrevet inn her
+1147|Jeg har ingen enhet
+1148|Ingen port eller vert er satt ennå: velg den i enhetsinnstillingene før du kobler til.
+1149|Legg til en enhet
+1150|Ingenting av dette er prøvd på maskinen din: kjør en første test uten fres, eller med fresen godt over materialet.
+1151|Ingenting av dette er prøvd på plotteren din: kjør en første test med pennen løftet og uten papir.
+1152|Enheten ble lagt til. Trykk Ny for å starte.

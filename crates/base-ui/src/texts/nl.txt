@@ -1133,3 +1133,21 @@
 1132|Het pad is gesloten.
 1133|De twee knooppunten zijn nu één.
 1134|De twee paden zijn nu één.
+1135|Verbindingstype
+1136|Geen poort
+1137|Host
+1138|Gelezen
+1139|Fout bij lezen
+1140|Van apparaat lezen
+1141|Als de machine nu is aangesloten, kunnen het werkgebied en de snelheid uit de besturing worden gelezen.
+1142|De instellingen zijn uit de besturing gelezen.
+1143|Het controleren waard
+1144|Apparaat toevoegen
+1145|Meer instellingen…
+1146|Opent het hele apparaatvenster met wat hier is ingevuld
+1147|Ik heb geen apparaat
+1148|Er is nog geen poort of host ingesteld: kies die in de apparaatinstellingen vóór het verbinden.
+1149|Apparaat toevoegen
+1150|Niets hiervan is op uw machine geprobeerd: doe een eerste test zonder frees of met de frees ruim boven het materiaal.
+1151|Niets hiervan is op uw plotter geprobeerd: doe een eerste test met de pen omhoog en zonder papier.
+1152|Het apparaat is toegevoegd. Druk op Nieuw om te beginnen.

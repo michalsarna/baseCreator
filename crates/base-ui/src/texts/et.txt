@@ -1133,3 +1133,21 @@
 1132|Tee suleti.
 1133|Kaks sõlme on nüüd üks.
 1134|Kaks teed on nüüd üks.
+1135|Ühenduse tüüp
+1136|Porti pole
+1137|Host
+1138|Loetud
+1139|Lugemisviga
+1140|Loe seadmest
+1141|Kui masin on praegu ühendatud, saab selle tööala ja kiiruse kontrollerist lugeda.
+1142|Seaded loeti kontrollerist.
+1143|Tasub kontrollida
+1144|Lisa seade
+1145|Veel seadeid…
+1146|Avab kogu seadme akna siin sisestatuga
+1147|Mul pole seadet
+1148|Porti ega hosti pole veel seatud: vali see enne ühendamist seadme seadetes.
+1149|Lisa seade
+1150|Midagi sellest pole teie masinal proovitud: tehke esimene test ilma freesita või freesiga materjalist kõrgel.
+1151|Midagi sellest pole teie plotteril proovitud: tehke esimene test tõstetud pliiatsiga ja ilma paberita.
+1152|Seade lisati. Alustamiseks vajuta Uus.

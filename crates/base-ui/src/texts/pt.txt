@@ -1133,3 +1133,21 @@
 1132|O caminho foi fechado.
 1133|Os dois nós são agora um só.
 1134|Os dois caminhos são agora um só.
+1135|Tipo de ligação
+1136|Sem porta
+1137|Anfitrião
+1138|Leitura OK
+1139|Erro de leitura
+1140|Ler do dispositivo
+1141|Se a máquina está ligada agora, a sua área de trabalho e velocidade podem ser lidas do controlador.
+1142|As definições foram lidas do controlador.
+1143|Vale a pena verificar
+1144|Adicionar dispositivo
+1145|Mais definições…
+1146|Abre a janela completa do dispositivo com o que foi introduzido aqui
+1147|Não tenho dispositivo
+1148|Ainda não há porta nem anfitrião: escolha-o nas definições do dispositivo antes de ligar.
+1149|Adicionar um dispositivo
+1150|Nada disto foi experimentado na sua máquina: faça um primeiro teste sem fresa ou com a fresa bem acima do material.
+1151|Nada disto foi experimentado no seu plotter: faça um primeiro teste com a caneta levantada e sem papel.
+1152|O dispositivo foi adicionado. Prima Novo para começar.

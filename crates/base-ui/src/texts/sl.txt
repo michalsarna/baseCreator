@@ -1133,3 +1133,21 @@
 1132|Pot je bila zaprta.
 1133|Vozlišči sta zdaj eno.
 1134|Poti sta zdaj ena.
+1135|Vrsta povezave
+1136|Ni vrat
+1137|Gostitelj
+1138|Prebrano
+1139|Napaka pri branju
+1140|Preberi iz naprave
+1141|Če je stroj zdaj povezan, je mogoče delovno območje in hitrost prebrati iz krmilnika.
+1142|Nastavitve so bile prebrane iz krmilnika.
+1143|Vredno preveriti
+1144|Dodaj napravo
+1145|Več nastavitev…
+1146|Odpre celotno okno naprave s tem, kar je vneseno tukaj
+1147|Nimam naprave
+1148|Vrata ali gostitelj še nista nastavljena: izberite ju v nastavitvah naprave pred povezavo.
+1149|Dodaj napravo
+1150|Nič od tega ni bilo preizkušeno na vašem stroju: prvi preizkus naredite brez rezkarja ali z rezkarjem visoko nad materialom.
+1151|Nič od tega ni bilo preizkušeno na vašem risalniku: prvi preizkus naredite z dvignjenim pisalom in brez papirja.
+1152|Naprava je dodana. Pritisnite Novo za začetek.

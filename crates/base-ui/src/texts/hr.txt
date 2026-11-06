@@ -1133,3 +1133,21 @@
 1132|Putanja je zatvorena.
 1133|Dva čvora sada su jedan.
 1134|Dvije putanje sada su jedna.
+1135|Vrsta veze
+1136|Nema priključka
+1137|Poslužitelj
+1138|Pročitano
+1139|Greška pri čitanju
+1140|Pročitaj s uređaja
+1141|Ako je stroj sada spojen, njegovo radno područje i brzina mogu se pročitati iz upravljača.
+1142|Postavke su pročitane iz upravljača.
+1143|Vrijedi provjeriti
+1144|Dodaj uređaj
+1145|Više postavki…
+1146|Otvara cijeli prozor uređaja s onim što je ovdje uneseno
+1147|Nemam uređaj
+1148|Port ili poslužitelj još nisu postavljeni: odaberite ga u postavkama uređaja prije spajanja.
+1149|Dodaj uređaj
+1150|Ništa od ovoga nije isprobano na vašem stroju: prvi test napravite bez glodala ili s glodalom visoko iznad materijala.
+1151|Ništa od ovoga nije isprobano na vašem crtalu: prvi test napravite s podignutom olovkom i bez papira.
+1152|Uređaj je dodan. Pritisnite Novo za početak.

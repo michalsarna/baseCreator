@@ -1133,3 +1133,21 @@
 1132|Calea a fost închisă.
 1133|Cele două noduri sunt acum unul.
 1134|Cele două căi sunt acum una.
+1135|Tip de conexiune
+1136|Fără port
+1137|Gazdă
+1138|Citit OK
+1139|Eroare la citire
+1140|Citește de pe dispozitiv
+1141|Dacă mașina este conectată acum, zona ei de lucru și viteza pot fi citite din controler.
+1142|Setările au fost citite din controler.
+1143|Merită verificat
+1144|Adaugă dispozitiv
+1145|Mai multe setări…
+1146|Deschide fereastra completă a dispozitivului cu ce s-a introdus aici
+1147|Nu am un dispozitiv
+1148|Nu este încă setat un port sau o gazdă: alegeți-l în setările dispozitivului înainte de conectare.
+1149|Adaugă un dispozitiv
+1150|Nimic din toate acestea nu a fost încercat pe mașina dvs.: faceți un prim test fără freză sau cu freza mult deasupra materialului.
+1151|Nimic din toate acestea nu a fost încercat pe plotterul dvs.: faceți un prim test cu stiloul ridicat și fără hârtie.
+1152|Dispozitivul a fost adăugat. Apăsați Nou pentru a începe.

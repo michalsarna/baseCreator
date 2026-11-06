@@ -1133,3 +1133,21 @@
 1132|Kelias uždarytas.
 1133|Abu mazgai dabar yra vienas.
 1134|Abu keliai dabar yra vienas.
+1135|Ryšio tipas
+1136|Nėra prievado
+1137|Pagrindinis kompiuteris
+1138|Nuskaityta
+1139|Skaitymo klaida
+1140|Nuskaityti iš įrenginio
+1141|Jei staklės dabar prijungtos, jų darbo sritį ir greitį galima nuskaityti iš valdiklio.
+1142|Nustatymai nuskaityti iš valdiklio.
+1143|Verta patikrinti
+1144|Pridėti įrenginį
+1145|Daugiau nustatymų…
+1146|Atidaro visą įrenginio langą su čia įvestais duomenimis
+1147|Neturiu įrenginio
+1148|Prievadas ar mazgas dar nenustatytas: pasirinkite jį įrenginio nustatymuose prieš jungiantis.
+1149|Pridėti įrenginį
+1150|Niekas iš to nebuvo išbandyta jūsų staklėse: pirmą bandymą atlikite be frezos arba su freza gerokai virš medžiagos.
+1151|Niekas iš to nebuvo išbandyta jūsų braižytuve: pirmą bandymą atlikite su pakeltu rašikliu ir be popieriaus.
+1152|Įrenginys pridėtas. Paspauskite Naujas, kad pradėtumėte.
