@@ -1101,3 +1101,20 @@
 1100|Imagine live a mașinii: un flux MJPEG, adresa unui instantaneu JPEG (http sau https) sau un flux citit de ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Coeficienți ai distorsiunii obiectivului (radială k1–k3, tangențială p1, p2) pentru coordonate măsurate de la centru în unități ale laturii mai lungi a imaginii. Toți 0 = fără corecție. Se introduc manual: nu există calibrare automată.
 1102|Introduceți adresa camerei sau ștergeți camera.
+1103|AxiDraw / EggBot (EBB, nu GRBL)
+1104|Plotter HPGL (nu GRBL)
+1105|AxiDraw (ambele motoare pe aceeași curea)
+1106|EggBot (câte un motor pentru fiecare axă)
+1107|Hardware (RTS/CTS)
+1108|Software (XON/XOFF)
+1109|Plotterul nu a acceptat o comandă: {}
+1110|Acest plotter nu are mod de verificare: verificarea este omisă.
+1111|Motoare
+1112|Pași pe mm
+1113|Inversează
+1114|AxiDraw are 80 de pași pe mm și numără Y spre față, de aceea Y-ul său este inversat.
+1115|EBB nu are limitatoare: înainte de conectare, puneți stiloul în colțul de unde începe desenul (zero-ul lui).
+1116|Unități de plotter pe mm
+1117|Controlul fluxului
+1118|Fără controlul fluxului, un plotter pierde comenzi când i se umple memoria tampon.
+1119|Un plotter nu răspunde: o linie contează ca făcută când portul a preluat-o, iar oprirea ridică stiloul în timp ce plotterul încă desenează ce are în memoria tampon.

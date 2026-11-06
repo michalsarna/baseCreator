@@ -1101,3 +1101,20 @@
 1100|Imagen en directo de la máquina: un flujo MJPEG, la dirección de una instantánea JPEG (http o https) o un flujo que lee ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Coeficientes de la distorsión de la lente (radial k1–k3, tangencial p1, p2) para coordenadas medidas desde el centro en unidades del lado más largo de la imagen. Todos 0 = sin corrección. Se introducen a mano: no hay calibración automática.
 1102|Introduzca la dirección de la cámara o elimine la cámara.
+1103|AxiDraw / EggBot (EBB, no GRBL)
+1104|Trazador HPGL (no GRBL)
+1105|AxiDraw (los dos motores en una correa)
+1106|EggBot (un motor para cada eje)
+1107|Hardware (RTS/CTS)
+1108|Software (XON/XOFF)
+1109|El trazador no aceptó una orden: {}
+1110|Este trazador no tiene modo de comprobación: la comprobación se omite.
+1111|Motores
+1112|Pasos por mm
+1113|Invertir
+1114|El AxiDraw tiene 80 pasos por mm y cuenta la Y hacia delante, por eso su Y está invertida.
+1115|El EBB no tiene finales de carrera: antes de conectar, pon el bolígrafo en la esquina donde empieza el dibujo (su cero).
+1116|Unidades del trazador por mm
+1117|Control de flujo
+1118|Sin control de flujo, un trazador pierde órdenes en cuanto su búfer está lleno.
+1119|Un trazador no responde: una línea cuenta como hecha en cuanto el puerto la tomó, y una parada levanta el bolígrafo mientras el trazador aún dibuja lo que tiene en su búfer.

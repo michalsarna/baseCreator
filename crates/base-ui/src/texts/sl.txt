@@ -1101,3 +1101,20 @@
 1100|Slika stroja v živo: tok MJPEG, naslov posnetka JPEG (http ali https) ali tok, ki ga bere ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Koeficienti popačenja leče (radialni k1–k3, tangencialni p1, p2) za koordinate od središča v enotah daljše stranice slike. Vsi 0 = brez popravka. Vnesejo se ročno: samodejne kalibracije ni.
 1102|Vnesite naslov kamere ali izbrišite kamero.
+1103|AxiDraw / EggBot (EBB, ni GRBL)
+1104|Risalnik HPGL (ni GRBL)
+1105|AxiDraw (oba motorja na enem jermenu)
+1106|EggBot (en motor za vsako os)
+1107|Strojno (RTS/CTS)
+1108|Programsko (XON/XOFF)
+1109|Risalnik ni sprejel ukaza: {}
+1110|Ta risalnik nima načina preverjanja: preverjanje je izpuščeno.
+1111|Motorji
+1112|Korakov na mm
+1113|Obrni
+1114|AxiDraw ima 80 korakov na mm in šteje Y proti sprednji strani, zato je njegov Y obrnjen.
+1115|EBB nima končnih stikal: pred povezavo postavite pisalo v kot, kjer se risba začne (njeno ničlo).
+1116|Enot risalnika na mm
+1117|Nadzor pretoka
+1118|Brez nadzora pretoka risalnik izgublja ukaze, ko se mu medpomnilnik napolni.
+1119|Risalnik ne odgovarja: vrstica velja za opravljeno, ko jo vrata sprejmejo, ustavitev pa dvigne pisalo, medtem ko risalnik še riše, kar ima v medpomnilniku.

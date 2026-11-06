@@ -1101,3 +1101,20 @@
 1100|Bein mynd af vélinni: MJPEG-straumur, vistfang JPEG-skyndimyndar (http eða https) eða straumur sem ffmpeg les (rtsp, udp, rtp, rtmp).
 1101|Stuðlar linsubjögunar (geislægur k1–k3, snertilægur p1, p2) fyrir hnit frá miðju í einingum lengri hliðar myndarinnar. Allir 0 = engin leiðrétting. Slegið inn handvirkt: engin sjálfvirk kvörðun.
 1102|Sláðu inn vistfang myndavélarinnar eða eyddu henni.
+1103|AxiDraw / EggBot (EBB, ekki GRBL)
+1104|HPGL-teiknari (ekki GRBL)
+1105|AxiDraw (báðir mótorar á einni reim)
+1106|EggBot (einn mótor fyrir hvern ás)
+1107|Vélbúnaður (RTS/CTS)
+1108|Hugbúnaður (XON/XOFF)
+1109|Teiknarinn tók ekki við skipun: {}
+1110|Þessi teiknari hefur engan prófunarham: prófuninni er sleppt.
+1111|Mótorar
+1112|Skref á mm
+1113|Snúa við
+1114|AxiDraw hefur 80 skref á mm og telur Y fram á við, svo Y hans er snúið við.
+1115|EBB hefur enga endarofa: áður en þú tengist skaltu setja pennann í hornið þar sem teikningin byrjar (núllpunkt hennar).
+1116|Teiknaraeiningar á mm
+1117|Flæðistýring
+1118|Án flæðistýringar týnir teiknari skipunum þegar biðminni hans er fullt.
+1119|Teiknari svarar engu: lína telst búin þegar tengið hefur tekið við henni, og stöðvun lyftir pennanum á meðan teiknarinn teiknar enn það sem er í biðminni hans.

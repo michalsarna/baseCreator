@@ -1101,3 +1101,20 @@
 1100|Staklių vaizdas tiesiogiai: MJPEG srautas, JPEG momentinės nuotraukos adresas (http arba https) arba srautas, kurį skaito ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Objektyvo iškraipymo koeficientai (radialiniai k1–k3, tangentiniai p1, p2) koordinatėms nuo centro vaizdo ilgesniosios kraštinės vienetais. Visi 0 = be pataisos. Įvedama ranka: automatinio kalibravimo nėra.
 1102|Įveskite kameros adresą arba ištrinkite kamerą.
+1103|AxiDraw / EggBot (EBB, ne GRBL)
+1104|HPGL braižytuvas (ne GRBL)
+1105|AxiDraw (abu varikliai ant vieno diržo)
+1106|EggBot (kiekvienai ašiai po variklį)
+1107|Aparatinis (RTS/CTS)
+1108|Programinis (XON/XOFF)
+1109|Braižytuvas nepriėmė komandos: {}
+1110|Šis braižytuvas neturi tikrinimo režimo: tikrinimas praleidžiamas.
+1111|Varikliai
+1112|Žingsniai mm
+1113|Apversti
+1114|AxiDraw turi 80 žingsnių mm ir skaičiuoja Y į priekį, todėl jo Y apverstas.
+1115|EBB neturi galinių jungiklių: prieš jungdamiesi pastatykite rašiklį į kampą, kuriame prasideda piešinys (jo nulis).
+1116|Braižytuvo vienetai mm
+1117|Srauto valdymas
+1118|Be srauto valdymo braižytuvas praranda komandas, kai tik jo buferis prisipildo.
+1119|Braižytuvas nieko neatsako: eilutė laikoma atlikta, kai tik prievadas ją priėmė, o sustabdymas pakelia rašiklį, nors braižytuvas dar piešia tai, kas yra jo buferyje.

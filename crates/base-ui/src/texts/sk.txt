@@ -1101,3 +1101,20 @@
 1100|Živý obraz zo stroja: prúd MJPEG, adresa snímky JPEG (http alebo https) alebo prúd, ktorý číta ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Koeficienty skreslenia objektívu (radiálne k1–k3, tangenciálne p1, p2) pre súradnice od stredu v jednotkách dlhšej strany obrazu. Všetky 0 = bez korekcie. Zadávajú sa ručne: automatická kalibrácia neexistuje.
 1102|Zadajte adresu kamery alebo kameru odstráňte.
+1103|AxiDraw / EggBot (EBB, nie GRBL)
+1104|Plotter HPGL (nie GRBL)
+1105|AxiDraw (oba motory na jednom remeni)
+1106|EggBot (jeden motor pre každú os)
+1107|Hardvérové (RTS/CTS)
+1108|Softvérové (XON/XOFF)
+1109|Plotter neprijal príkaz: {}
+1110|Tento plotter nemá režim kontroly: kontrola sa preskakuje.
+1111|Motory
+1112|Krokov na mm
+1113|Obrátiť
+1114|AxiDraw má 80 krokov na mm a počíta Y smerom dopredu, preto je jeho Y obrátené.
+1115|EBB nemá koncové spínače: pred pripojením dajte pero do rohu, kde kresba začína (jej nula).
+1116|Jednotiek plottra na mm
+1117|Riadenie toku
+1118|Bez riadenia toku plotter stráca príkazy, len čo sa mu zaplní vyrovnávacia pamäť.
+1119|Plotter nič neodpovedá: riadok sa počíta za hotový, len čo ho port prevzal, a zastavenie zdvihne pero, kým plotter ešte kreslí, čo má vo vyrovnávacej pamäti.

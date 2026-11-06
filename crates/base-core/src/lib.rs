@@ -32,6 +32,7 @@ pub mod overlay_data;
 pub mod paths;
 pub mod pdf;
 pub mod plugin_script;
+pub mod plotter;
 pub mod plugins;
 pub mod print;
 pub mod presets;

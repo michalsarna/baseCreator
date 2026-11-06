@@ -1101,3 +1101,20 @@
 1100|Slika uživo sa stroja: MJPEG tok, adresa JPEG snimke (http ili https) ili tok koji čita ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Koeficijenti izobličenja leće (radijalni k1–k3, tangencijalni p1, p2) za koordinate od središta u jedinicama duže stranice slike. Svi 0 = bez korekcije. Unose se ručno: nema automatske kalibracije.
 1102|Unesite adresu kamere ili izbrišite kameru.
+1103|AxiDraw / EggBot (EBB, nije GRBL)
+1104|HPGL crtalo (nije GRBL)
+1105|AxiDraw (oba motora na jednom remenu)
+1106|EggBot (jedan motor za svaku os)
+1107|Hardverska (RTS/CTS)
+1108|Softverska (XON/XOFF)
+1109|Crtalo nije prihvatilo naredbu: {}
+1110|Ovo crtalo nema način provjere: provjera se preskače.
+1111|Motori
+1112|Koraka po mm
+1113|Obrni
+1114|AxiDraw ima 80 koraka po mm i broji Y prema naprijed, pa je njegov Y obrnut.
+1115|EBB nema granične sklopke: prije spajanja postavite olovku u kut gdje crtež počinje (njegova nula).
+1116|Jedinica crtala po mm
+1117|Kontrola toka
+1118|Bez kontrole toka crtalo gubi naredbe čim mu se međuspremnik napuni.
+1119|Crtalo ništa ne odgovara: redak se smatra izvršenim čim ga je priključak preuzeo, a zaustavljanje podiže olovku dok crtalo još crta ono što ima u međuspremniku.

@@ -222,6 +222,8 @@ pub struct Machine {
     capture: Option<Capture>,
     /// The tool-change dialog and the other windows keep their own state in the programs.
     pub keyboard_jog: bool,
+    /// What `poll` reports without the link having said anything (a check run that a plotter cannot do).
+    own_notices: Vec<Notice>,
 }
 
 struct Job {
@@ -263,6 +265,7 @@ impl Machine {
             asks: VecDeque::new(),
             capture: None,
             keyboard_jog: false,
+            own_notices: vec![],
         }
     }
 
@@ -316,6 +319,22 @@ impl Machine {
         self.controller = dialect.controller();
     }
 
+    /// The controller the next connection talks to.
+    pub fn controller(&self) -> Controller {
+        self.controller
+    }
+
+    /// Is it a plotter that does not speak G-code (EBB, HPGL)? It has no `$` settings, no check mode and no status of its own.
+    pub fn is_plotter(&self) -> bool {
+        self.controller.is_plotter()
+    }
+
+    /// How to talk to a plotter that does not speak G-code (the pen, the speed of the moves, its settings); used by the next
+    /// connection when `set_grbl_version` chose such a plotter.
+    pub fn set_plotter(&mut self, setup: base_core::plotter::Setup) {
+        self.link.send(Cmd::Plotter(setup));
+    }
+
     pub fn disconnect(&mut self) {
         self.want_link = false;
         self.reconnect_at = None;
@@ -361,14 +380,16 @@ impl Machine {
 
     pub fn unlock(&mut self) {
         self.alarm = None;
-        self.line("$X");
+        if !self.is_plotter() {
+            self.line("$X");
+        }
     }
 
     // ---- reading what the controller says ----
 
     /// Ask for the build info (`$I`), the settings (`$$`) and the parser state (`$G`), one after the other.
     pub fn read_all(&mut self) {
-        if !self.connected {
+        if !self.connected || self.is_plotter() {
             return;
         }
         for a in [Ask::Info, Ask::Settings, Ask::Parser] {
@@ -381,6 +402,7 @@ impl Machine {
 
     pub fn read_settings(&mut self) {
         if self.connected
+            && !self.is_plotter()
             && !self.asks.contains(&Ask::Settings)
             && self.capture.as_ref().map(|c| c.ask) != Some(Ask::Settings)
         {
@@ -390,7 +412,7 @@ impl Machine {
     }
 
     pub fn read_parser(&mut self) {
-        if self.connected && !self.asks.contains(&Ask::Parser) {
+        if self.connected && !self.is_plotter() && !self.asks.contains(&Ask::Parser) {
             self.asks.push_back(Ask::Parser);
         }
     }
@@ -495,7 +517,7 @@ impl Machine {
 
     /// Take what the worker reports; call it every frame.
     pub fn poll(&mut self) -> Vec<Notice> {
-        let mut notices = vec![];
+        let mut notices = std::mem::take(&mut self.own_notices);
         for e in self.link.poll() {
             match e {
                 Evt::Log(s) => self.info(s),
@@ -582,6 +604,7 @@ impl Machine {
             || !self.asks.is_empty()
             || self.fw.reread_at.is_some()
             || self.reconnect_at.is_some()
+            || !self.own_notices.is_empty()
     }
 
     fn report(&mut self, r: &grbl_status::Report) {
@@ -690,6 +713,12 @@ impl Machine {
     ) {
         self.issues.clear();
         self.barrier = None;
+        if check && self.is_plotter() {
+            // A plotter would draw the program instead of checking it: the check is left out and counts as clean.
+            self.info(tr("This plotter has no check mode: the check is skipped."));
+            self.own_notices.push(Notice::JobFinished { seconds: 0, issues: 0, checked: true });
+            return;
+        }
         let mut after = after;
         if check {
             self.line("$C");
@@ -737,7 +766,7 @@ impl Machine {
         if words.is_empty() {
             return;
         }
-        if matches!(self.controller, Controller::GrblOld | Controller::Grbl07) {
+        if matches!(self.controller, Controller::GrblOld | Controller::Grbl07) || self.is_plotter() {
             // No `$J=` before GRBL 1.1: the move is an ordinary one, relative for just this line.
             self.line("G91 G21");
             self.line(format!("G1{words} F{}", num(feed)));
@@ -1266,6 +1295,58 @@ mod tests {
         assert_eq!(lines[at + 1], "G1 X1 Z-0.5 F3000");
         assert_eq!(lines[at + 2], "G90");
         assert!(!lines.iter().any(|l| l.starts_with("$J=")), "{lines:?}");
+    }
+
+    #[test]
+    fn a_plotter_is_not_asked_for_settings_skips_the_check_and_jogs_with_its_own_moves() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let seen = std::sync::Arc::new(std::sync::Mutex::new(Vec::<String>::new()));
+        let got = seen.clone();
+        // An EiBotBoard: `OK` for every command (ended by CR).
+        std::thread::spawn(move || {
+            let (mut s, _) = listener.accept().unwrap();
+            let _ = s.set_read_timeout(Some(Duration::from_millis(10)));
+            let (mut buf, mut chunk, start) = (Vec::new(), [0u8; 64], Instant::now());
+            while start.elapsed() < Duration::from_secs(6) {
+                match s.read(&mut chunk) {
+                    Ok(0) => break,
+                    Ok(n) => {
+                        for &b in &chunk[..n] {
+                            if b == b'\r' {
+                                got.lock().unwrap().push(String::from_utf8_lossy(&buf).to_string());
+                                buf.clear();
+                                let _ = s.write_all(b"OK\r\n");
+                            } else {
+                                buf.push(b);
+                            }
+                        }
+                    }
+                    _ => {}
+                }
+            }
+        });
+        let mut m = Machine::new(&Context::default());
+        m.set_grbl_version(base_core::machine::GrblVersion::Ebb);
+        assert!(m.is_plotter());
+        let mut setup = base_core::plotter::Setup::new(base_core::plotter::Language::Ebb);
+        setup.settings.reverse_y = false;
+        m.set_plotter(setup);
+        connect(&mut m, port);
+        assert!(wait(&mut m, 3.0, |m, _| m.connected));
+        m.read_all();
+        assert!(!m.fw.reading, "a plotter has no $ settings");
+        m.start_job(vec!["G1 X1".into()], vec![], vec![], true);
+        let mut checked = false;
+        assert!(wait(&mut m, 2.0, |_, n| {
+            checked |= n.iter().any(|x| matches!(x, Notice::JobFinished { checked: true, issues: 0, .. }));
+            checked
+        }), "the check counts as clean at once");
+        m.jog(2.0, 0.0, 0.0, 600.0);
+        assert!(wait(&mut m, 3.0, |m, _| (m.pos[0] - 2.0).abs() < 1e-9 && m.state == "Idle"), "pos {:?} state {:?}", m.pos, m.state);
+        let cmds = seen.lock().unwrap().clone();
+        assert!(cmds.contains(&"SM,200,160,160".to_string()), "{cmds:?}");
+        assert!(!cmds.iter().any(|c| c.starts_with('$') || c.starts_with('G')), "no G-code reached the board: {cmds:?}");
     }
 
     #[test]

@@ -23,6 +23,12 @@ pub enum Controller {
     /// GRBL 0.7 and older: no real-time commands at all (no status report, no pause, no reset) and no homing.
     /// Chosen through `GrblVersion`, not offered in `Controller::ALL`.
     Grbl07,
+    /// The EiBotBoard of the AxiDraw and the EggBot: the G-code is turned into its commands by the link (`plotter`).
+    /// Chosen through `GrblVersion`, not offered in `Controller::ALL`.
+    Ebb,
+    /// An HPGL plotter or cutter on a serial port: the G-code is turned into HPGL by the link (`plotter`).
+    /// Chosen through `GrblVersion`, not offered in `Controller::ALL`.
+    Hpgl,
 }
 
 /// Which GRBL a device has; the apps that offer the choice keep it in the connection.
@@ -41,10 +47,19 @@ pub enum GrblVersion {
     Grbl07,
     /// A Smoothieware board (not GRBL): streamed like GRBL, its own status report and no `$` settings.
     Smoothieware,
+    /// Not GRBL: the EiBotBoard of the AxiDraw and the EggBot (pen plotters only, see `GrblVersion::PLOTTERS`).
+    Ebb,
+    /// Not GRBL: an HPGL plotter or cutter on a serial port (pen plotters only).
+    Hpgl,
 }
 
 impl GrblVersion {
     pub const ALL: [GrblVersion; 6] = [GrblVersion::Grbl11, GrblVersion::Grbl10, GrblVersion::Grbl09, GrblVersion::Grbl08, GrblVersion::Grbl07, GrblVersion::Smoothieware];
+    /// The plotters that do not speak G-code; offered by the programs for pen plotters after `ALL`.
+    pub const PLOTTERS: [GrblVersion; 2] = [GrblVersion::Ebb, GrblVersion::Hpgl];
+    pub fn is_plotter(self) -> bool {
+        self.controller().is_plotter()
+    }
     pub fn label(self) -> &'static str {
         match self {
             GrblVersion::Grbl11 => "GRBL 1.1 or newer",
@@ -53,6 +68,8 @@ impl GrblVersion {
             GrblVersion::Grbl08 => "GRBL 0.8",
             GrblVersion::Grbl07 => "GRBL 0.7 or older",
             GrblVersion::Smoothieware => "Smoothieware (not GRBL)",
+            GrblVersion::Ebb => "AxiDraw / EggBot (EBB, not GRBL)",
+            GrblVersion::Hpgl => "HPGL plotter (not GRBL)",
         }
     }
     pub fn controller(self) -> Controller {
@@ -61,6 +78,8 @@ impl GrblVersion {
             GrblVersion::Grbl10 | GrblVersion::Grbl09 | GrblVersion::Grbl08 => Controller::GrblOld,
             GrblVersion::Grbl07 => Controller::Grbl07,
             GrblVersion::Smoothieware => Controller::Smoothieware,
+            GrblVersion::Ebb => Controller::Ebb,
+            GrblVersion::Hpgl => Controller::Hpgl,
         }
     }
 }
@@ -76,11 +95,25 @@ impl Controller {
             Controller::Smoothieware => "Smoothieware",
             Controller::GrblOld => "GRBL 0.8 to 1.0",
             Controller::Grbl07 => "GRBL 0.7",
+            Controller::Ebb => "EBB",
+            Controller::Hpgl => "HPGL",
+        }
+    }
+    /// A plotter that does not speak G-code: the link turns the G-code into its commands (see `plotter`).
+    pub fn is_plotter(self) -> bool {
+        matches!(self, Controller::Ebb | Controller::Hpgl)
+    }
+    /// The language of such a plotter.
+    pub fn plotter_language(self) -> Option<crate::plotter::Language> {
+        match self {
+            Controller::Ebb => Some(crate::plotter::Language::Ebb),
+            Controller::Hpgl => Some(crate::plotter::Language::Hpgl),
+            _ => None,
         }
     }
     /// Can the program talk to this controller over a serial port?
     pub fn is_serial(self) -> bool {
-        matches!(self, Controller::Grbl | Controller::GrblOld | Controller::Grbl07 | Controller::Marlin | Controller::Smoothieware)
+        matches!(self, Controller::Grbl | Controller::GrblOld | Controller::Grbl07 | Controller::Marlin | Controller::Smoothieware | Controller::Ebb | Controller::Hpgl)
     }
 }
 
@@ -162,11 +195,18 @@ pub struct Connection {
     /// The GRBL of the machine (1.1 or the older 0.9).
     #[serde(default)]
     pub grbl_version: GrblVersion,
+    /// The settings of a plotter that does not speak G-code (`GrblVersion::PLOTTERS`).
+    #[serde(default, skip_serializing_if = "is_default_plotter")]
+    pub plotter: crate::plotter::PlotterSettings,
+}
+
+fn is_default_plotter(p: &crate::plotter::PlotterSettings) -> bool {
+    *p == crate::plotter::PlotterSettings::default()
 }
 
 impl Default for Connection {
     fn default() -> Self {
-        Connection { link: LinkKind::Serial, host: String::new(), tcp_port: 3333, port: String::new(), baud: 115_200, streaming: Streaming::Counting, usb_id: String::new(), auto_reconnect: false, home_on_connect: false, unlock_on_connect: false, grbl_version: GrblVersion::Grbl11 }
+        Connection { link: LinkKind::Serial, host: String::new(), tcp_port: 3333, port: String::new(), baud: 115_200, streaming: Streaming::Counting, usb_id: String::new(), auto_reconnect: false, home_on_connect: false, unlock_on_connect: false, grbl_version: GrblVersion::Grbl11, plotter: Default::default() }
     }
 }
 
@@ -302,7 +342,7 @@ impl Controller {
     }
     pub fn home(self) -> Action {
         match self {
-            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => Action::Lines(vec!["$H".into()]),
+            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware | Controller::Ebb | Controller::Hpgl => Action::Lines(vec!["$H".into()]),
             Controller::Marlin => Action::Lines(vec!["G28 X Y".into()]),
             _ => Action::None,
         }
@@ -315,16 +355,17 @@ impl Controller {
             _ => Action::None,
         }
     }
+    /// A plotter is held by the link itself, which stops sending at `!` and goes on at `~`.
     pub fn pause(self) -> Action {
         match self {
-            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => Action::Byte(b'!'),
+            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware | Controller::Ebb | Controller::Hpgl => Action::Byte(b'!'),
             Controller::Marlin => Action::Lines(vec!["M25".into()]),
             _ => Action::None,
         }
     }
     pub fn resume(self) -> Action {
         match self {
-            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => Action::Byte(b'~'),
+            Controller::Grbl | Controller::GrblOld | Controller::Smoothieware | Controller::Ebb | Controller::Hpgl => Action::Byte(b'~'),
             Controller::Marlin => Action::Lines(vec!["M24".into()]),
             _ => Action::None,
         }
@@ -340,7 +381,7 @@ impl Controller {
     /// Jog by (dx, dy) millimetres at `feed` mm/min.
     pub fn jog(self, dx: f64, dy: f64, feed: f64) -> Action {
         match self {
-            Controller::GrblOld | Controller::Grbl07 => Action::Lines(vec!["G91 G21".into(), format!("G1 X{dx} Y{dy} F{feed}"), "G90".into()]),
+            Controller::GrblOld | Controller::Grbl07 | Controller::Ebb | Controller::Hpgl => Action::Lines(vec!["G91 G21".into(), format!("G1 X{dx} Y{dy} F{feed}"), "G90".into()]),
             Controller::Grbl => Action::Lines(vec![format!("$J=G91 G21 X{dx} Y{dy} F{feed}")]),
             Controller::Marlin | Controller::Smoothieware => Action::Lines(vec!["G91".into(), format!("G0 X{dx} Y{dy} F{feed}"), "G90".into()]),
             _ => Action::None,
@@ -349,7 +390,7 @@ impl Controller {
     /// Jog the Z axis by `dz` millimetres at `feed` mm/min.
     pub fn jog_z(self, dz: f64, feed: f64) -> Action {
         match self {
-            Controller::GrblOld | Controller::Grbl07 => Action::Lines(vec!["G91 G21".into(), format!("G1 Z{dz} F{feed}"), "G90".into()]),
+            Controller::GrblOld | Controller::Grbl07 | Controller::Ebb | Controller::Hpgl => Action::Lines(vec!["G91 G21".into(), format!("G1 Z{dz} F{feed}"), "G90".into()]),
             Controller::Grbl => Action::Lines(vec![format!("$J=G91 G21 Z{dz} F{feed}")]),
             Controller::Marlin | Controller::Smoothieware => Action::Lines(vec!["G91".into(), format!("G0 Z{dz} F{feed}"), "G90".into()]),
             _ => Action::None,
@@ -449,6 +490,15 @@ mod dialect_tests {
         }
         assert_eq!(GrblVersion::Smoothieware.controller(), Controller::Smoothieware);
         assert_eq!(GrblVersion::ALL.len(), 6);
+        // The plotters are not GRBL and are not in the list of the laser and the milling machine.
+        for v in GrblVersion::PLOTTERS {
+            assert!(v.is_plotter() && v.controller().is_serial() && !GrblVersion::ALL.contains(&v) && !Controller::ALL.contains(&v.controller()), "{v:?}");
+            assert!(v.controller().on_connect().is_none() && v.controller().abort_byte().is_none() && matches!(v.controller().status_poll(), StatusPoll::None));
+            assert!(matches!(v.controller().jog(1.0, 0.0, 100.0), Action::Lines(ref l) if l[0] == "G91 G21"));
+        }
+        assert!(GrblVersion::ALL.iter().all(|v| !v.is_plotter()));
+        // A connection without plotter settings has the defaults, and they are not written.
+        assert!(!serde_json::to_string(&Connection::default()).unwrap().contains("plotter"));
         // Old files without the new choice still read as they were.
         let c: Connection = serde_json::from_str("{\"baud\":115200}").unwrap();
         assert_eq!(c.grbl_version, GrblVersion::Grbl11);

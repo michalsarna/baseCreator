@@ -1101,3 +1101,20 @@
 1100|Imagem em direto da máquina: um fluxo MJPEG, o endereço de um instantâneo JPEG (http ou https) ou um fluxo lido pelo ffmpeg (rtsp, udp, rtp, rtmp).
 1101|Coeficientes da distorção da lente (radial k1–k3, tangencial p1, p2) para coordenadas medidas a partir do centro em unidades do lado maior da imagem. Todos 0 = sem correção. Introduzidos à mão: não há calibração automática.
 1102|Introduza o endereço da câmara ou elimine a câmara.
+1103|AxiDraw / EggBot (EBB, não GRBL)
+1104|Plotter HPGL (não GRBL)
+1105|AxiDraw (os dois motores numa correia)
+1106|EggBot (um motor para cada eixo)
+1107|Hardware (RTS/CTS)
+1108|Software (XON/XOFF)
+1109|O plotter não aceitou um comando: {}
+1110|Este plotter não tem modo de verificação: a verificação é ignorada.
+1111|Motores
+1112|Passos por mm
+1113|Inverter
+1114|O AxiDraw tem 80 passos por mm e conta Y para a frente, por isso o seu Y está invertido.
+1115|O EBB não tem fins de curso: antes de ligar, coloque a caneta no canto onde o desenho começa (o seu zero).
+1116|Unidades do plotter por mm
+1117|Controlo de fluxo
+1118|Sem controlo de fluxo, um plotter perde comandos assim que o seu buffer fica cheio.
+1119|Um plotter não responde: uma linha conta como feita assim que a porta a recebeu, e uma paragem levanta a caneta enquanto o plotter ainda desenha o que tem no buffer.

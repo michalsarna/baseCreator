@@ -3,6 +3,15 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.70.0
+
+- **Plotters that do not speak G-code:** the AxiDraw and the EggBot (EiBotBoard, EBB) and HPGL plotters and cutters on a serial port. The programs make G-code as for a GRBL; the link turns every line into the plotter's own commands (`plotter::Translator`), so the buttons, the progress, the pauses at a pen change, the hold and the stop work the same way.
+  - EBB: one command at a time, each answered with `OK`; the motors of the AxiDraw are mixed (X + Y, X − Y), 80 steps per mm, the pen heights in percent (`SC,4`, `SC,5`), at most 24 steps a millisecond. A stop drops the board's queue (`ES`), lifts the pen and reads where the motors are (`QS`).
+  - HPGL: absolute plotter units (40 per mm), `PU`/`PD`/`PA`, the speed with `VS`; the port's flow control (RTS/CTS or XON/XOFF) keeps the plotter's buffer from overflowing.
+  - Offered as `GrblVersion::PLOTTERS` (after `ALL`, which stays the same for the laser and the milling machine); the settings are `Connection::plotter` and `plotter_ui::settings_rows`.
+  - A plotter is never asked for `$I`, `$$` or `$G`, a check run is skipped (it would draw), jogs are plain moves.
+  - Not tried on a real AxiDraw or HPGL plotter yet: only against stand-ins in the tests.
+
 ## v1.69.7
 
 - **The image import window keeps its size:** in Polish (and other languages with longer words) the row of the rotate and flip buttons was wider than its column, and the window grew a little every frame up to the width of the screen. The columns of the import and trace windows now have fixed places, and the row breaks into two lines when it has to.

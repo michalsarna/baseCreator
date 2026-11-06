@@ -1101,3 +1101,20 @@
 1100|A gép élő képe: MJPEG-adatfolyam, JPEG-pillanatkép címe (http vagy https), vagy az ffmpeg által olvasott adatfolyam (rtsp, udp, rtp, rtmp).
 1101|Az objektív torzításának együtthatói (radiális k1–k3, tangenciális p1, p2) a középponttól mért koordinátákra, a kép hosszabb oldalának egységeiben. Mind 0 = nincs korrekció. Kézzel adandók meg: nincs automatikus kalibrálás.
 1102|Adja meg a kamera címét, vagy törölje a kamerát.
+1103|AxiDraw / EggBot (EBB, nem GRBL)
+1104|HPGL rajzgép (nem GRBL)
+1105|AxiDraw (mindkét motor egy szíjon)
+1106|EggBot (tengelyenként egy motor)
+1107|Hardveres (RTS/CTS)
+1108|Szoftveres (XON/XOFF)
+1109|A rajzgép nem fogadott el egy parancsot: {}
+1110|Ennek a rajzgépnek nincs ellenőrző módja: az ellenőrzés kimarad.
+1111|Motorok
+1112|Lépés / mm
+1113|Megfordítás
+1114|Az AxiDraw 80 lépés/mm, és az Y-t előre felé számolja, ezért az Y-ja meg van fordítva.
+1115|Az EBB-nek nincsenek végálláskapcsolói: csatlakozás előtt állítsa a tollat abba a sarokba, ahol a rajz kezdődik (a nullpontjába).
+1116|Rajzgép-egység / mm
+1117|Adatfolyam-vezérlés
+1118|Adatfolyam-vezérlés nélkül a rajzgép parancsokat veszít, amint megtelik a puffere.
+1119|A rajzgép nem válaszol: egy sor akkor számít késznek, amikor a port átvette, a leállítás pedig felemeli a tollat, miközben a rajzgép még megrajzolja, ami a pufferében van.
