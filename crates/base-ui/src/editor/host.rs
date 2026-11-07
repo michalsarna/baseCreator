@@ -71,6 +71,10 @@ pub trait EditorHost: Sized {
     fn layer_title(&self, layer: usize) -> String {
         format!("Layer {}", layer + 1)
     }
+    /// The first part of the name of an exported file (the name of the project; "drawing" when it has none).
+    fn export_stem(&self) -> String {
+        "drawing".into()
+    }
     /// Draw the pictures faintly (while a preview is shown over them).
     fn dim_pictures(&self) -> bool {
         false

@@ -869,3 +869,29 @@ fn a_node_dropped_on_another_joins_them() {
     assert!(h.scene.shape(c).is_none() && !h.ed.sel.contains(&c), "the emptied shape is gone");
     assert!(!h.join_dropped_node((b, 0, 0), 0.5), "nothing near");
 }
+
+#[test]
+fn an_svg_from_lightburn_brings_its_picture_and_every_export_format_is_written() {
+    use crate::editor::{EditorImages, Exchange};
+    let fixture = concat!(env!("CARGO_MANIFEST_DIR"), "/../base-core/tests/fixtures/interchange/zdjecie.svg");
+    let mut h = Host::default();
+    h.import_drawing_path(std::path::PathBuf::from(fixture));
+    assert_eq!(h.scene.shapes.len(), 1, "{}", h.said());
+    assert!(h.scene.shapes[0].is_image());
+    assert_eq!(h.ed.sel.len(), 1);
+    h.scene.add(0, Kind::Rect { w: 10.0, h: 20.0 }, Xf::translate(5.0, 5.0));
+    let names = |l: usize| format!("L{l}");
+    let colors = |_: usize| [0, 0, 0];
+    for f in Exchange::ALL {
+        let ext = if f == Exchange::LightBurn { "lbrn" } else { "x" };
+        let text = f.write(&h.scene, &[], (400.0, 400.0), std::path::Path::new(&format!("a.{ext}")), &names, &colors);
+        let ok = match f {
+            Exchange::Dxf => text.contains("AC1021"),
+            Exchange::DxfLegacy => text.contains("AC1009"),
+            Exchange::Illustrator => text.starts_with("%!PS-Adobe") && !text.contains("Bitmap"),
+            Exchange::LightBurn => text.contains("<LightBurnProject") && text.contains("FormatVersion=\"0\"") && text.contains("Type=\"Bitmap\""),
+            Exchange::MillMage => text.contains("<MillMageProject") && text.contains("LayerIndex") && text.contains("Type=\"Bitmap\""),
+        };
+        assert!(ok, "{f:?}");
+    }
+}

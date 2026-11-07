@@ -41,7 +41,7 @@ pub fn into_scene(outlines: Vec<Outline>, by_layers: bool) -> crate::scene::Scen
 
 /// Read a drawing into outlines: a PDF or Illustrator file (known by its content), or else an SVG.
 pub fn read_drawing(data: &[u8]) -> Result<Vec<Outline>, String> {
-    if data.windows(5).take(1024).any(|w| w == b"%PDF-") {
+    if crate::pdf::is_pdf_or_ai(data) {
         crate::pdf::parse(data)
     } else {
         parse(data)
@@ -54,6 +54,45 @@ pub fn parse(data: &[u8]) -> Result<Vec<Outline>, String> {
     let mut out = vec![];
     walk(tree.root(), &mut out);
     Ok(out)
+}
+
+/// The pictures of an SVG (`<image>` with a PNG, JPEG, GIF or WebP in it, as LightBurn writes them), each with where it lies: the
+/// transform from the picture (0..w, 0..h millimetres) to the drawing, in the millimetres of `parse`.
+pub fn images(data: &[u8]) -> Vec<(crate::image::ImageData, Xf)> {
+    let Ok(tree) = usvg::Tree::from_data(data, &usvg::Options::default()) else { return vec![] };
+    let mut out = vec![];
+    walk_images(tree.root(), &mut out);
+    out
+}
+
+fn walk_images(g: &usvg::Group, out: &mut Vec<(crate::image::ImageData, Xf)>) {
+    for node in g.children() {
+        match node {
+            usvg::Node::Group(g) => walk_images(g, out),
+            usvg::Node::Image(im) if im.is_visible() => {
+                let bytes = match im.kind() {
+                    usvg::ImageKind::PNG(b) | usvg::ImageKind::JPEG(b) | usvg::ImageKind::GIF(b) | usvg::ImageKind::WEBP(b) => b.clone(),
+                    usvg::ImageKind::SVG(_) => continue,
+                };
+                let size = im.size();
+                let (w, h) = (size.width() as f64 * PX_TO_MM, size.height() as f64 * PX_TO_MM);
+                if w <= 0.0 || h <= 0.0 {
+                    continue;
+                }
+                let name = if im.id().is_empty() { "picture" } else { im.id() };
+                let Ok(mut pic) = crate::image::ImageData::from_bytes(&bytes, name, w.max(h)) else { continue };
+                pic.w = w;
+                pic.h = h;
+                let t = im.abs_transform();
+                // The picture's millimetres → its SVG units → the drawing → millimetres.
+                let xf = Xf::scale(1.0 / PX_TO_MM, 1.0 / PX_TO_MM)
+                    .then(Xf { a: t.sx as f64, b: t.ky as f64, c: t.kx as f64, d: t.sy as f64, e: t.tx as f64, f: t.ty as f64 })
+                    .then(Xf::scale(PX_TO_MM, PX_TO_MM));
+                out.push((pic, xf));
+            }
+            _ => {}
+        }
+    }
 }
 
 fn walk(g: &usvg::Group, out: &mut Vec<Outline>) {

@@ -1,0 +1,190 @@
+  0
+SECTION
+  2
+HEADER
+  9
+$ACADVER
+  1
+AC1009
+  9
+$DWGCODEPAGE
+  3
+ansi_1252
+  9
+$INSUNITS
+  70
+4
+  0
+ENDSEC
+  0
+SECTION
+  2
+TABLES
+  0
+TABLE
+  2
+LAYER
+  70
+1
+  0
+LAYER
+  2
+Layer_0
+  70
+0
+  62
+7
+  6
+CONTINUOUS
+  0
+ENDTAB
+  0
+ENDSEC
+  0
+SECTION
+  2
+ENTITIES
+  0
+POLYLINE
+  5
+91
+  8
+Layer_0
+  62
+7
+  70
+1
+  66
+1
+  10
+0
+  20
+0
+  30
+0
+  0
+VERTEX
+  5
+92
+  8
+Layer_0
+  10
+168.5
+  20
+293
+  30
+0
+  0
+VERTEX
+  5
+93
+  8
+Layer_0
+  10
+188.13202
+  20
+235.84477
+  30
+0
+  0
+VERTEX
+  5
+94
+  8
+Layer_0
+  10
+247.91322
+  20
+234.61194
+  30
+0
+  0
+VERTEX
+  5
+95
+  8
+Layer_0
+  10
+200.26529
+  20
+198.05522
+  30
+0
+  0
+VERTEX
+  5
+96
+  8
+Layer_0
+  10
+217.58006
+  20
+140.13806
+  30
+0
+  0
+VERTEX
+  5
+97
+  8
+Layer_0
+  10
+168.5
+  20
+174.7
+  30
+0
+  0
+VERTEX
+  5
+98
+  8
+Layer_0
+  10
+119.41992
+  20
+140.13806
+  30
+0
+  0
+VERTEX
+  5
+99
+  8
+Layer_0
+  10
+136.73471
+  20
+198.05522
+  30
+0
+  0
+VERTEX
+  5
+9a
+  8
+Layer_0
+  10
+89.086784
+  20
+234.61194
+  30
+0
+  0
+VERTEX
+  5
+9b
+  8
+Layer_0
+  10
+148.86798
+  20
+235.84479
+  30
+0
+  0
+SEQEND
+  0
+ENDSEC
+  0
+EOF

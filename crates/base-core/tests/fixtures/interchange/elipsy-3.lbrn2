@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightBurnProject AppVersion="2.2.00" DeviceName="No Machine" FormatVersion="1" MaterialHeight="0" MirrorX="False" MirrorY="False" AskForSendName="True" CurrentPage="0" Page0Name="Page 1">
+    <VariableText>
+        <Start Value="0"/>
+        <End Value="999"/>
+        <Current Value="0"/>
+        <Increment Value="1"/>
+        <AutoAdvance Value="0"/>
+    </VariableText>
+    <UIPrefs>
+        <Optimize_ByLayer Value="0"/>
+        <Optimize_ByGroup Value="-1"/>
+        <Optimize_ByPriority Value="1"/>
+        <Optimize_WhichDirection Value="0"/>
+        <Optimize_InnerToOuter Value="1"/>
+        <Optimize_ByDirection Value="0"/>
+        <Optimize_ReduceTravel Value="1"/>
+        <Optimize_HideBacklash Value="0"/>
+        <Optimize_ReduceDirChanges Value="0"/>
+        <Optimize_ChooseCorners Value="0"/>
+        <Optimize_AllowReverse Value="1"/>
+        <Optimize_RemoveOverlaps Value="0"/>
+        <Optimize_OptimalEntryPoint Value="0"/>
+        <Optimize_OverlapDist Value="0.025"/>
+    </UIPrefs>
+    <CutSetting type="Cut">
+        <index Value="0"/>
+        <name Value="C00"/>
+        <maxPower Value="20"/>
+        <maxPower2 Value="20"/>
+        <speed Value="100"/>
+        <fgPathAlgorithm Value="CutGantry"/>
+        <priority Value="0"/>
+    </CutSetting>
+    <CutSetting type="Scan">
+        <index Value="1"/>
+        <name Value="C01"/>
+        <maxPower Value="20"/>
+        <maxPower2 Value="20"/>
+        <speed Value="100"/>
+        <fgPathAlgorithm Value="CutGantry"/>
+        <priority Value="2"/>
+    </CutSetting>
+    <CutSetting type="Offset">
+        <index Value="2"/>
+        <name Value="C02"/>
+        <maxPower Value="20"/>
+        <maxPower2 Value="20"/>
+        <speed Value="100"/>
+        <fgPathAlgorithm Value="CutGantry"/>
+        <priority Value="1"/>
+    </CutSetting>
+    <Shape Type="Ellipse" CutIndex="0" Rx="77.5" Ry="45">
+        <XForm>1 0 0 1 148.5 225</XForm>
+    </Shape>
+    <Shape Type="Ellipse" CutIndex="1" Rx="23" Ry="45.5">
+        <XForm>1 0 0 1 171 166.5</XForm>
+    </Shape>
+    <Shape Type="Ellipse" CutIndex="2" Rx="69" Ry="43">
+        <XForm>1 0 0 1 151 65</XForm>
+    </Shape>
+    <Notes ShowOnLoad="0" Notes=""/>
+</LightBurnProject>

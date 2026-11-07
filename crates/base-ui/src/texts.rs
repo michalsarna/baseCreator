@@ -1163,6 +1163,13 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Material colour", "Kolor materiału", "Materialfarbe", "Colore del materiale", "Materiaalin väri", "材料颜色", "सामग्री का रंग"],
     ["Back to the automatic colour", "Wróć do koloru automatycznego", "Zurück zur automatischen Farbe", "Torna al colore automatico", "Palaa automaattiseen väriin", "恢复为自动颜色", "स्वचालित रंग पर वापस जाएँ"],
     ["Stretch the greys of the picture to the full range by itself; the two sliders are not used then", "Rozciąga szarości obrazu na pełny zakres samodzielnie; dwa suwaki nie są wtedy używane", "Streckt die Grautöne des Bildes selbst auf den vollen Bereich; die zwei Schieberegler werden dann nicht verwendet", "Estende da solo i grigi dell'immagine all'intera gamma; i due cursori non vengono allora usati", "Venyttää kuvan harmaasävyt itse koko alueelle; kahta liukusäädintä ei silloin käytetä", "自动将图片的灰度拉伸到完整范围；此时不使用两个滑块", "चित्र के धूसर रंगों को अपने-आप पूरी सीमा तक फैलाता है; तब दोनों स्लाइडर उपयोग नहीं होते"],
+    ["Import LightBurn / MillMage project…", "Importuj projekt LightBurn / MillMage…", "LightBurn-/MillMage-Projekt importieren…", "Importa progetto LightBurn / MillMage…", "Tuo LightBurn- / MillMage-projekti…", "导入 LightBurn / MillMage 项目…", "LightBurn / MillMage प्रोजेक्ट आयात करें…"],
+    ["Export DXF…", "Eksportuj DXF…", "DXF exportieren…", "Esporta DXF…", "Vie DXF…", "导出 DXF…", "DXF निर्यात करें…"],
+    ["Export DXF R12 (legacy)…", "Eksportuj DXF R12 (starszy)…", "DXF R12 exportieren (älteres Format)…", "Esporta DXF R12 (legacy)…", "Vie DXF R12 (vanha muoto)…", "导出 DXF R12（旧版）…", "DXF R12 निर्यात करें (पुराना)…"],
+    ["Export Adobe Illustrator…", "Eksportuj Adobe Illustrator…", "Adobe Illustrator exportieren…", "Esporta Adobe Illustrator…", "Vie Adobe Illustrator…", "导出 Adobe Illustrator…", "Adobe Illustrator निर्यात करें…"],
+    ["Export LightBurn project…", "Eksportuj projekt LightBurn…", "LightBurn-Projekt exportieren…", "Esporta progetto LightBurn…", "Vie LightBurn-projekti…", "导出 LightBurn 项目…", "LightBurn प्रोजेक्ट निर्यात करें…"],
+    ["Export MillMage project…", "Eksportuj projekt MillMage…", "MillMage-Projekt exportieren…", "Esporta progetto MillMage…", "Vie MillMage-projekti…", "导出 MillMage 项目…", "MillMage प्रोजेक्ट निर्यात करें…"],
+    ["Imported {} paths and {} pictures from {}", "Zaimportowano {} ścieżek i {} obrazów z {}", "{} Pfade und {} Bilder importiert aus {}", "Importati {} tracciati e {} immagini da {}", "Tuotu {} polkua ja {} kuvaa kohteesta {}", "已导入 {} 条路径和 {} 张图片，来自 {}", "{} पाथ और {} चित्र आयात किए गए, स्रोत: {}"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

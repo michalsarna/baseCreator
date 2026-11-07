@@ -21,7 +21,7 @@ pub use commands::EditorCommands;
 pub use context_menu::context_menu;
 pub use host::EditorHost;
 pub use keys::{hold_space, plain_keys};
-pub use shape_ops::EditorShapeOps;
+pub use shape_ops::{EditorShapeOps, Exchange};
 pub use background_ui::{background_section, Background, EditorBackground};
 pub use design_ui::{CodeKind, DesignCmd, DesignState, EditorDesign};
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};

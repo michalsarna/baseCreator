@@ -57,7 +57,7 @@ fn path_data(cs: &[Contour]) -> String {
 /// layer (`color(layer)`), with the layer in a group named by `layer_name`.
 pub fn svg(scene: &Scene, ids: &[u64], w: f64, h: f64, layer_name: &dyn Fn(usize) -> String, color: &dyn Fn(usize) -> [u8; 3]) -> String {
     let mut s = String::new();
-    let _ = write!(s, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{w}mm\" height=\"{h}mm\" viewBox=\"0 0 {w} {h}\">\n");
+    let _ = write!(s, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"{w}mm\" height=\"{h}mm\" viewBox=\"0 0 {w} {h}\">\n");
     let mut layers: Vec<usize> = scene.shapes.iter().filter(|x| ids.is_empty() || ids.contains(&x.id)).map(|x| x.layer).collect();
     layers.sort_unstable();
     layers.dedup();
@@ -66,6 +66,15 @@ pub fn svg(scene: &Scene, ids: &[u64], w: f64, h: f64, layer_name: &dyn Fn(usize
         let c = color(l);
         let _ = writeln!(s, "<g id=\"{name}\" fill=\"none\" stroke=\"#{:02x}{:02x}{:02x}\" stroke-width=\"0.1\">", c[0], c[1], c[2]);
         for sh in scene.shapes.iter().filter(|x| x.layer == l && (ids.is_empty() || ids.contains(&x.id))) {
+            if let Kind::Image(im) = &sh.kind {
+                if let Some(png) = crate::lightburn::png_of(im) {
+                    use base64::Engine;
+                    let x = sh.xf;
+                    let data = base64::engine::general_purpose::STANDARD.encode(png);
+                    let _ = writeln!(s, "<image transform=\"matrix({},{},{},{},{},{})\" x=\"0\" y=\"0\" width=\"{}\" height=\"{}\" preserveAspectRatio=\"none\" xlink:href=\"data:image/png;base64,{data}\"/>", num(x.a), num(x.b), num(x.c), num(x.d), num(x.e), num(x.f), num(im.w), num(im.h));
+                }
+                continue;
+            }
             let d = path_data(&contours_of(sh));
             if !d.is_empty() {
                 let _ = writeln!(s, "<path d=\"{d}\"/>");
@@ -77,7 +86,7 @@ pub fn svg(scene: &Scene, ids: &[u64], w: f64, h: f64, layer_name: &dyn Fn(usize
     s
 }
 
-/// A DXF (R12, ASCII, millimetres) of the shapes `ids` (all when empty): one DXF layer for each layer of the project, named by
+/// A DXF of the old kind (R12, `AC1009`, ASCII, millimetres; *legacy* in LightBurn) of the shapes `ids` (all when empty): one DXF layer for each layer of the project, named by
 /// `layer_name`; the curves are flattened to within 0.01 mm. `area_h` is the height of the work area: the scene counts Y down, DXF up.
 pub fn dxf(scene: &Scene, ids: &[u64], area_h: f64, layer_name: &dyn Fn(usize) -> String) -> String {
     let clean = |n: String| -> String { n.chars().map(|c| if c.is_alphanumeric() || c == '_' || c == '-' { c } else { '_' }).collect() };
@@ -108,6 +117,72 @@ pub fn dxf(scene: &Scene, ids: &[u64], area_h: f64, layer_name: &dyn Fn(usize) -
             }
         }
     }
+    s.push_str("0\nENDSEC\n0\nEOF\n");
+    s
+}
+
+/// A DXF of the current kind (AutoCAD 2007, `AC1021`, ASCII, millimetres) of the shapes `ids` (all when empty), laid out as LightBurn
+/// writes it: the tables a strict reader wants (handles, block records, model and paper space), one DXF layer for each layer of the
+/// project, every contour an `LWPOLYLINE` with the curves flattened to within 0.01 mm. `dxf` writes the older R12 kind.
+pub fn dxf_modern(scene: &Scene, ids: &[u64], area_h: f64, layer_name: &dyn Fn(usize) -> String) -> String {
+    let clean = |n: String| -> String { n.chars().map(|c| if c.is_alphanumeric() || c == '_' || c == '-' { c } else { '_' }).collect() };
+    let mut layers: Vec<usize> = scene.shapes.iter().filter(|x| ids.is_empty() || ids.contains(&x.id)).map(|x| x.layer).collect();
+    layers.sort_unstable();
+    layers.dedup();
+    let names: Vec<String> = layers.iter().map(|l| clean(layer_name(*l))).collect();
+    // Handles below 0x30 are the fixed ones of the tables; the layers and entities count up from 0x30.
+    let mut next = 0x30u32;
+    let mut handle = || {
+        next += 1;
+        format!("{:X}", next)
+    };
+    let mut s = String::new();
+    s.push_str("0\nSECTION\n2\nHEADER\n9\n$ACADVER\n1\nAC1021\n9\n$DWGCODEPAGE\n3\nANSI_1252\n9\n$HANDSEED\n5\n20000\n9\n$INSUNITS\n70\n4\n0\nENDSEC\n");
+    s.push_str("0\nSECTION\n2\nTABLES\n");
+    s.push_str("0\nTABLE\n2\nVPORT\n5\n8\n330\n0\n100\nAcDbSymbolTable\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nLTYPE\n5\n5\n330\n0\n100\nAcDbSymbolTable\n70\n3\n");
+    for (h, name, text) in [("14", "ByBlock", ""), ("15", "ByLayer", ""), ("16", "Continuous", "Solid line")] {
+        let _ = write!(s, "0\nLTYPE\n5\n{h}\n330\n5\n100\nAcDbSymbolTableRecord\n100\nAcDbLinetypeTableRecord\n2\n{name}\n70\n0\n3\n{text}\n72\n65\n73\n0\n40\n0\n");
+    }
+    s.push_str("0\nENDTAB\n");
+    let _ = write!(s, "0\nTABLE\n2\nLAYER\n5\n2\n330\n0\n100\nAcDbSymbolTable\n70\n{}\n", names.len() + 1);
+    s.push_str("0\nLAYER\n5\n10\n330\n2\n100\nAcDbSymbolTableRecord\n100\nAcDbLayerTableRecord\n2\n0\n70\n0\n62\n7\n6\nCONTINUOUS\n370\n-3\n390\nF\n");
+    for n in &names {
+        let _ = write!(s, "0\nLAYER\n5\n{}\n330\n2\n100\nAcDbSymbolTableRecord\n100\nAcDbLayerTableRecord\n2\n{n}\n70\n0\n62\n7\n6\nCONTINUOUS\n370\n-3\n390\nF\n", handle());
+    }
+    s.push_str("0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nSTYLE\n5\n3\n330\n0\n100\nAcDbSymbolTable\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nVIEW\n5\n6\n330\n0\n100\nAcDbSymbolTable\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nUCS\n5\n7\n330\n0\n100\nAcDbSymbolTable\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nAPPID\n5\n9\n330\n0\n100\nAcDbSymbolTable\n70\n1\n0\nAPPID\n5\n12\n330\n9\n100\nAcDbSymbolTableRecord\n100\nAcDbRegAppTableRecord\n2\nACAD\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nDIMSTYLE\n5\nA\n330\n0\n100\nAcDbSymbolTable\n70\n0\n100\nAcDbDimStyleTable\n71\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nBLOCK_RECORD\n5\n1\n330\n0\n100\nAcDbSymbolTable\n70\n2\n");
+    s.push_str("0\nBLOCK_RECORD\n5\n1F\n330\n1\n100\nAcDbSymbolTableRecord\n100\nAcDbBlockTableRecord\n2\n*Model_Space\n70\n0\n280\n1\n281\n0\n");
+    s.push_str("0\nBLOCK_RECORD\n5\n1B\n330\n1\n100\nAcDbSymbolTableRecord\n100\nAcDbBlockTableRecord\n2\n*Paper_Space\n70\n0\n280\n1\n281\n0\n");
+    s.push_str("0\nENDTAB\n0\nENDSEC\n");
+    s.push_str("0\nSECTION\n2\nBLOCKS\n");
+    s.push_str("0\nBLOCK\n5\n20\n330\n1F\n100\nAcDbEntity\n8\n0\n100\nAcDbBlockBegin\n2\n*Model_Space\n70\n0\n10\n0\n20\n0\n30\n0\n3\n*Model_Space\n1\n\n");
+    s.push_str("0\nENDBLK\n5\n21\n330\n1F\n100\nAcDbEntity\n8\n0\n100\nAcDbBlockEnd\n");
+    s.push_str("0\nBLOCK\n5\n1C\n330\n1B\n100\nAcDbEntity\n67\n1\n8\n0\n100\nAcDbBlockBegin\n2\n*Paper_Space\n70\n0\n10\n0\n20\n0\n30\n0\n3\n*Paper_Space\n1\n\n");
+    s.push_str("0\nENDBLK\n5\n1D\n330\n1B\n100\nAcDbEntity\n67\n1\n8\n0\n100\nAcDbBlockEnd\n");
+    s.push_str("0\nENDSEC\n0\nSECTION\n2\nENTITIES\n");
+    for (l, name) in layers.iter().zip(&names) {
+        for sh in scene.shapes.iter().filter(|x| x.layer == *l && (ids.is_empty() || ids.contains(&x.id))) {
+            for c in contours_of(sh) {
+                let p: Polyline = c.flatten(0.01);
+                if p.pts.len() < 2 {
+                    continue;
+                }
+                let _ = write!(s, "0\nLWPOLYLINE\n5\n{}\n330\n1F\n100\nAcDbEntity\n8\n{name}\n100\nAcDbPolyline\n90\n{}\n70\n{}\n", handle(), p.pts.len(), if p.closed { 1 } else { 0 });
+                for q in &p.pts {
+                    let _ = write!(s, "10\n{}\n20\n{}\n", num(q.x), num(area_h - q.y));
+                }
+            }
+        }
+    }
+    s.push_str("0\nENDSEC\n0\nSECTION\n2\nOBJECTS\n");
+    s.push_str("0\nDICTIONARY\n5\nC\n330\n0\n100\nAcDbDictionary\n281\n1\n3\nACAD_GROUP\n350\nD\n");
+    s.push_str("0\nDICTIONARY\n5\nD\n330\nC\n100\nAcDbDictionary\n281\n1\n");
     s.push_str("0\nENDSEC\n0\nEOF\n");
     s
 }

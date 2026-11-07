@@ -11,6 +11,67 @@ use base_core::ops::{self, BoolOp};
 use base_core::scene::Kind;
 use egui::RichText;
 
+/// A file format of another program that the whole drawing is exported to (`File > Export`).
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
+pub enum Exchange {
+    /// DXF of the current kind (AutoCAD 2007), as LightBurn writes it.
+    Dxf,
+    /// DXF R12, for old programs and cutters (*legacy* in LightBurn).
+    DxfLegacy,
+    /// Adobe Illustrator of the PostScript kind, as LightBurn writes it.
+    Illustrator,
+    /// A LightBurn project (`.lbrn2`, or `.lbrn` when the file is named so).
+    LightBurn,
+    /// A MillMage project (`.mage`).
+    MillMage,
+}
+
+impl Exchange {
+    pub const ALL: [Exchange; 5] = [Exchange::Dxf, Exchange::DxfLegacy, Exchange::Illustrator, Exchange::LightBurn, Exchange::MillMage];
+
+    pub fn menu_label(self) -> &'static str {
+        match self {
+            Exchange::Dxf => "Export DXF…",
+            Exchange::DxfLegacy => "Export DXF R12 (legacy)…",
+            Exchange::Illustrator => "Export Adobe Illustrator…",
+            Exchange::LightBurn => "Export LightBurn project…",
+            Exchange::MillMage => "Export MillMage project…",
+        }
+    }
+
+    /// The name of the filter of the file window and its extensions (the first one is given to a new file).
+    fn filter(self) -> (&'static str, &'static [&'static str]) {
+        match self {
+            Exchange::Dxf => ("DXF", &["dxf"]),
+            Exchange::DxfLegacy => ("DXF R12", &["dxf"]),
+            Exchange::Illustrator => ("Adobe Illustrator", &["ai"]),
+            Exchange::LightBurn => ("LightBurn", &["lbrn2", "lbrn"]),
+            Exchange::MillMage => ("MillMage", &["mage"]),
+        }
+    }
+
+    /// Whether the file holds pictures (the others leave them out).
+    fn keeps_pictures(self) -> bool {
+        matches!(self, Exchange::LightBurn | Exchange::MillMage)
+    }
+
+    /// The text of the file of the whole drawing (`ids` empty) or of some shapes, written to `path`.
+    pub fn write(self, scene: &base_core::scene::Scene, ids: &[u64], area: (f64, f64), path: &std::path::Path, layer_name: &dyn Fn(usize) -> String, color: &dyn Fn(usize) -> [u8; 3]) -> String {
+        use base_core::lightburn::{Flavor, LayerInfo};
+        let info = LayerInfo { name: layer_name, color };
+        match self {
+            Exchange::Dxf => base_core::export::dxf_modern(scene, ids, area.1, layer_name),
+            Exchange::DxfLegacy => base_core::export::dxf(scene, ids, area.1, layer_name),
+            Exchange::Illustrator => base_core::ai::write(scene, ids, area.1, layer_name, color),
+            Exchange::LightBurn => {
+                let old = path.extension().is_some_and(|e| e.eq_ignore_ascii_case("lbrn"));
+                base_core::lightburn::write(scene, ids, area, &info, if old { Flavor::Lbrn } else { Flavor::Lbrn2 })
+            }
+            Exchange::MillMage => base_core::lightburn::write(scene, ids, area, &info, Flavor::Mage),
+        }
+    }
+}
+
 pub trait EditorShapeOps: EditorHost {
     /// Combine the selected shapes (in selection order) with a boolean operation.
     fn bool_op(&mut self, op: BoolOp) {
@@ -121,7 +182,7 @@ pub trait EditorShapeOps: EditorHost {
         let Some(path) = rfd::FileDialog::new().add_filter(filter.0, &[filter.1]).set_file_name(name).save_file() else { return };
         let layer_name = |l: usize| self.layer_title(l);
         let text = if dxf {
-            base_core::export::dxf(self.scene(), &ids, h, &layer_name)
+            base_core::export::dxf_modern(self.scene(), &ids, h, &layer_name)
         } else {
             let color = |l: usize| -> [u8; 3] {
                 let c = self.layer_color(l);
@@ -145,7 +206,8 @@ pub trait EditorShapeOps: EditorHost {
             [c.r(), c.g(), c.b()]
         };
         let text = base_core::export::svg(self.scene(), &[], w, h, &layer_name, &color);
-        self.say_exported(&path, text);
+        // The pictures go into an SVG too.
+        self.say_written(&path, text);
     }
 
     /// File > Export > *Export PLT / DXF…*: the outlines of the whole drawing as HPGL or DXF, by the extension the file gets.
@@ -156,6 +218,32 @@ pub trait EditorShapeOps: EditorHost {
         let layer_name = |l: usize| self.layer_title(l);
         let text = if is_dxf { base_core::export::dxf(self.scene(), &[], h, &layer_name) } else { base_core::export::hpgl(self.scene(), &[], h) };
         self.say_exported(&path, text);
+    }
+
+    /// File > Export > the formats of other programs: the whole drawing, the size of the work area.
+    fn export_exchange(&mut self, f: Exchange) {
+        let (filter, exts) = f.filter();
+        let stem = self.export_stem();
+        let Some(path) = rfd::FileDialog::new().add_filter(filter, exts).set_file_name(format!("{stem}.{}", exts[0])).save_file() else { return };
+        let layer_name = |l: usize| self.layer_title(l);
+        let color = |l: usize| -> [u8; 3] {
+            let c = self.layer_color(l);
+            [c.r(), c.g(), c.b()]
+        };
+        let text = f.write(self.scene(), &[], self.work_size(), &path, &layer_name, &color);
+        if f.keeps_pictures() {
+            self.say_written(&path, text);
+        } else {
+            self.say_exported(&path, text);
+        }
+    }
+
+    /// Write an exported file that holds everything and say how it went.
+    fn say_written(&mut self, path: &std::path::Path, text: String) {
+        match std::fs::write(path, text) {
+            Ok(()) => self.say(trf("Exported {}", &[&path.display()])),
+            Err(e) => self.say(trf("Export failed: {}", &[&e])),
+        }
     }
 
     /// Write an exported drawing and say how it went, with the pictures such a file cannot hold.

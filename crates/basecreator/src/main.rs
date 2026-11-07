@@ -249,7 +249,7 @@ fn dxf_scene(outlines: Vec<base_core::svg::Outline>, used: &std::collections::Ha
 
 /// A file that is imported into the drawing: a LightBurn project or a DXF.
 fn is_import(p: &std::path::Path) -> bool {
-    p.extension().is_some_and(|e| ["lbrn2", "lbrn", "ugsd", "dxf"].iter().any(|x| e.eq_ignore_ascii_case(x)))
+    p.extension().is_some_and(|e| base_core::lightburn::EXTENSIONS.iter().chain(&["ugsd", "dxf"]).any(|x| e.eq_ignore_ascii_case(x)))
 }
 
 impl App {
@@ -557,9 +557,9 @@ impl App {
         }
     }
 
-    /// File > Import > Import LightBurn project…: the shapes of the project are added to the drawing.
+    /// File > Import > Import LightBurn / MillMage project…: the shapes of the project are added to the drawing.
     fn import_lightburn_dialog(&mut self) {
-        if let Some(p) = rfd::FileDialog::new().add_filter("LightBurn", &["lbrn2", "lbrn"]).pick_file() {
+        if let Some(p) = rfd::FileDialog::new().add_filter("LightBurn / MillMage", &base_core::lightburn::EXTENSIONS).pick_file() {
             self.open(p);
         }
     }
@@ -1000,6 +1000,10 @@ impl EditorHost for App {
     fn layer_color(&self, layer: usize) -> egui::Color32 {
         self.layers.get(layer).map_or(egui::Color32::from_rgb(0x20, 0x20, 0x30), |l| l.color32())
     }
+    fn export_stem(&self) -> String {
+        self.file_stem()
+    }
+
     fn layer_title(&self, layer: usize) -> String {
         self.layers.get(layer).map_or_else(|| format!("Layer {}", layer + 1), |l| l.name.clone())
     }
