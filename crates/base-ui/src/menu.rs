@@ -190,6 +190,8 @@ pub enum StdAct {
     DogboneCorners,
     ExportSelectionSvg,
     ExportSelectionDxf,
+    /// The whole drawing in a format of another program (`File > Export`).
+    ExportAs(crate::editor::Exchange),
     GridArray,
     CircleArray,
     CopyAlongPath,
@@ -316,6 +318,7 @@ impl StdAct {
             }
             StdAct::ExportSelectionSvg => crate::editor::EditorShapeOps::export_selection(h, false),
             StdAct::ExportSelectionDxf => crate::editor::EditorShapeOps::export_selection(h, true),
+            StdAct::ExportAs(f) => crate::editor::EditorShapeOps::export_exchange(h, f),
             StdAct::ToggleAutoFit => {
                 let v = &mut h.ed_mut().view;
                 v.auto_fit = !v.auto_fit;
@@ -396,7 +399,7 @@ impl StdAct {
             StdAct::ToCurves => "spline",
             StdAct::AutoJoin | StdAct::ClosePath => "route",
             StdAct::DogboneCorners => "square-round-corner",
-            StdAct::ExportSelectionSvg | StdAct::ExportSelectionDxf => "file-output",
+            StdAct::ExportSelectionSvg | StdAct::ExportSelectionDxf | StdAct::ExportAs(_) => "file-output",
             StdAct::GridArray => "grid-3x3",
             StdAct::CircleArray => "rotate-cw",
             StdAct::CopyAlongPath => "copy-plus",
@@ -529,6 +532,10 @@ pub mod std_entries {
     pub fn export_selection() -> Vec<Entry<StdAct>> {
         vec![Item(StdAct::ExportSelectionSvg, "Export selection as SVG…", None), Item(StdAct::ExportSelectionDxf, "Export selection as DXF…", None)]
     }
+    /// The whole drawing in the formats of other programs: DXF (current and R12), Illustrator, LightBurn and MillMage.
+    pub fn export_formats() -> Vec<Entry<StdAct>> {
+        crate::editor::Exchange::ALL.into_iter().map(|f| Item(StdAct::ExportAs(f), f.menu_label(), None)).collect()
+    }
     /// The division of the central area into panes.
     pub fn split_view() -> Vec<Entry<StdAct>> {
         vec![Item(StdAct::SplitView(crate::work_panes::Dir::Beside), "Split view: side by side", None), Item(StdAct::SplitView(crate::work_panes::Dir::Stacked), "Split view: one above the other", None), Item(StdAct::SingleView, "Single view", None)]
@@ -656,13 +663,13 @@ pub fn standard_menus<A: Copy + From<StdAct>>(p: MenuParts<A>) -> Menus<A> {
         Item(p.import_svg, "Import SVG…", key("CmdOrCtrl+I", "Ctrl+I")),
         Item(p.import_ai, "Import Adobe Illustrator / PDF…", None),
         Item(p.import_dxf, "Import DXF…", None),
-        Item(p.import_lightburn, "Import LightBurn project…", None),
+        Item(p.import_lightburn, "Import LightBurn / MillMage project…", None),
         Item(p.import_ugsd, "Import UGS design…", None),
     ];
     let import = [std(std_entries::import_image()), formats, p.import_extra, vec![Sep, Item(p.import_plugin, crate::plugins_ui::MENU_IMPORT, None), Item(p.generate, crate::plugins_ui::MENU_GENERATE, None)]].concat();
     file.push(Sub("Import", import));
     let formats = vec![Item(p.export_svg, "Export SVG…", None), Item(p.export_cam, "Export PLT / DXF…", None)];
-    file.push(Sub("Export", [p.export_first, formats, p.export_extra, vec![Sep], std(std_entries::export_selection())].concat()));
+    file.push(Sub("Export", [p.export_first, formats, std(std_entries::export_formats()), p.export_extra, vec![Sep], std(std_entries::export_selection())].concat()));
     file.push(Item(p.view_gcode, crate::gcode_view_ui::MENU_VIEW, None));
     file.extend(p.output_extra);
     if !mac {
@@ -922,8 +929,8 @@ mod tests {
         p.import_extra = vec![Item(T::App(40), "Import 3D model as relief…", None)];
         p.export_extra = vec![Item(T::App(41), "Export relief as STL…", None)];
         let m = standard_menus(p);
-        assert_eq!(sub_labels(&m, "Import"), ["Import image…", "Import SVG…", "Import Adobe Illustrator / PDF…", "Import DXF…", "Import LightBurn project…", "Import UGS design…", "Import 3D model as relief…", "-", crate::plugins_ui::MENU_IMPORT, crate::plugins_ui::MENU_GENERATE]);
-        assert_eq!(sub_labels(&m, "Export"), ["Export G-code…", "Export SVG…", "Export PLT / DXF…", "Export relief as STL…", "-", "Export selection as SVG…", "Export selection as DXF…"]);
+        assert_eq!(sub_labels(&m, "Import"), ["Import image…", "Import SVG…", "Import Adobe Illustrator / PDF…", "Import DXF…", "Import LightBurn / MillMage project…", "Import UGS design…", "Import 3D model as relief…", "-", crate::plugins_ui::MENU_IMPORT, crate::plugins_ui::MENU_GENERATE]);
+        assert_eq!(sub_labels(&m, "Export"), ["Export G-code…", "Export SVG…", "Export PLT / DXF…", "Export DXF…", "Export DXF R12 (legacy)…", "Export Adobe Illustrator…", "Export LightBurn project…", "Export MillMage project…", "Export relief as STL…", "-", "Export selection as SVG…", "Export selection as DXF…"]);
     }
 
     #[test]

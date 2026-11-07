@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MillMageProject AppVersion="0.9.02" DeviceName="TwoTrees TTC450 Pro" WpBaseDevice="TwoTrees TTC450 Pro" FormatVersion="1" MaterialHeight="0" MirrorX="False" MirrorY="False" AskForSendName="True" CurrentPage="0" Page0Name="Page 1">
+    <CNCProjectSetup>
+        <SafeZ Value="20"/>
+        <RetractZ Value="5"/>
+        <UseRetractZ Value="1"/>
+        <PocketLift Value="5"/>
+        <MaxDepth Value="40"/>
+        <StockWidth Value="400"/>
+        <StockHeight Value="400"/>
+        <ProjectOrigin Value="0"/>
+        <ProjUnits Value="1"/>
+        <Z_Zero Value="0"/>
+        <LastPreviewTexture Value="WoodBirchPeeled.jpg"/>
+        <SimQuality Value="1"/>
+    </CNCProjectSetup>
+    <VariableText>
+        <Start Value="0"/>
+        <End Value="999"/>
+        <Current Value="0"/>
+        <Increment Value="1"/>
+        <AutoAdvance Value="0"/>
+    </VariableText>
+    <UIPrefs>
+        <Optimize_ByLayer Value="0"/>
+        <Optimize_ByGroup Value="-1"/>
+        <Optimize_ByPriority Value="1"/>
+        <Optimize_WhichDirection Value="0"/>
+        <Optimize_InnerToOuter Value="1"/>
+        <Optimize_ByDirection Value="0"/>
+        <Optimize_ReduceTravel Value="1"/>
+        <Optimize_HideBacklash Value="0"/>
+        <Optimize_ReduceDirChanges Value="0"/>
+        <Optimize_ChooseCorners Value="0"/>
+        <Optimize_AllowReverse Value="1"/>
+        <Optimize_RemoveOverlaps Value="0"/>
+        <Optimize_OptimalEntryPoint Value="0"/>
+        <Optimize_OverlapDist Value="0.025"/>
+    </UIPrefs>
+    <Layer>
+        <index Value="0"/>
+        <color r="0" g="0" b="0"/>
+        <name Value="C00"/>
+        <hide Value="0"/>
+        <fade Value="0"/>
+        <type Value="1"/>
+    </Layer>
+    <Shape Type="Rect" OpIndex="0" LayerIndex="0" W="119" H="91" Cr="0">
+        <XForm>1 0 0 1 181.44713 149.75262</XForm>
+    </Shape>
+    <Notes ShowOnLoad="0" Notes=""/>
+</MillMageProject>

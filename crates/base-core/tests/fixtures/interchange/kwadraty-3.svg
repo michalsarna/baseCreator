@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="270.000mm" height="202.000mm" viewBox="56.000000 -262.000000 270.000000 202.000000">
+    <rect transform="matrix(1,0,0,-1,115.5,-105.5)" style="stroke:#000000;stroke-width:0.050000mm;stroke-linecap:round;stroke-linejoin:round;fill:none" x="-59.5" y="-45.5" width="119" height="91"/>
+    <path transform="matrix(1,0,0,-1,0,0)" style="stroke:none;fill:#0000ff;fill-rule:evenodd" d="M326,182L187,182L187,262L326,262L326,182z"/>
+    <path transform="matrix(1,0,0,-1,0,0)" style="stroke:none;fill:#ff0000;fill-rule:evenodd" d="M244,122L112,122L112,213L244,213L244,122z"/>
+</svg>

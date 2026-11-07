@@ -274,11 +274,39 @@ pub trait EditorImages: EditorHost {
     /// Read an SVG, PDF or Illustrator file into the drawing. A file with Illustrator layers first asks how to put the paths on the
     /// layers of the program.
     fn import_drawing_path(&mut self, p: std::path::PathBuf) {
-        match std::fs::read(&p).map_err(|e| e.to_string()).and_then(|d| base_core::svg::read_drawing(&d)) {
+        let data = match std::fs::read(&p) {
+            Ok(d) => d,
+            Err(e) => return self.say(trf("Import failed: {}", &[&e])),
+        };
+        match base_core::svg::read_drawing(&data) {
             Ok(outlines) if !base_core::svg::layer_names(&outlines).is_empty() => self.ed_mut().drawing_choice = Some((p, outlines)),
-            Ok(outlines) => self.place_drawing(&p, outlines, false),
+            Ok(outlines) => {
+                // The pictures of an SVG (LightBurn writes them in) come with its paths.
+                let pictures = if base_core::pdf::is_pdf_or_ai(&data) { vec![] } else { base_core::svg::images(&data) };
+                self.place_drawing(&p, outlines, false);
+                self.place_pictures(&p, pictures);
+            }
             Err(e) => self.say(trf("Import failed: {}", &[&e])),
         }
+    }
+
+    /// Add the pictures of an imported drawing, on the active layer (as the import of a picture does), to what was just placed
+    /// (selected with it).
+    fn place_pictures(&mut self, p: &std::path::Path, pictures: Vec<(ImageData, Xf)>) {
+        if pictures.is_empty() {
+            return;
+        }
+        let layer = self.ed().active_layer;
+        let paths = self.ed().sel.len();
+        let mut ids = vec![];
+        for (im, xf) in pictures {
+            ids.push(self.scene_mut().add(layer, Kind::Image(im), xf));
+        }
+        self.say(trf("Imported {} paths and {} pictures from {}", &[&paths, &ids.len(), &p.display()]));
+        let ed = self.ed_mut();
+        ed.sel.extend(ids);
+        ed.view.need_fit = true;
+        self.touch();
     }
 
     /// Add read outlines to the drawing, selected and undoable.

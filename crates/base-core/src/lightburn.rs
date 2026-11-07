@@ -1,5 +1,6 @@
-//! Reading LightBurn projects (`.lbrn2`, and the older `.lbrn` of the same XML shape) into a `Scene` and the settings
-//! of its cut layers.
+//! Reading LightBurn projects (`.lbrn2`, and the older `.lbrn` of the same XML shape) and MillMage projects (`.mage`, the same
+//! shapes with `<Layer>` in place of `<CutSetting>` and `LayerIndex` in place of `CutIndex`) into a `Scene` and the settings
+//! of its cut layers; and writing them (`write`).
 //!
 //! LightBurn writes coordinates the way its work area shows them: millimetres, Y up from the bottom left corner of
 //! a machine with that origin. The scene of the programs here counts Y down from the top, so the height of the work
@@ -13,6 +14,8 @@ use crate::image::ImageData;
 use crate::scene::{Kind, Scene};
 use base64::Engine;
 
+/// The extensions of the project files this module reads: LightBurn's and MillMage's.
+pub const EXTENSIONS: [&str; 3] = ["lbrn2", "lbrn", "mage"];
 /// The biggest file read, in bytes.
 pub const MAX_BYTES: usize = 256 * 1024 * 1024;
 /// The most shapes taken from one file.
@@ -216,7 +219,10 @@ fn contours(verts: &Verts, prims: &[(bool, usize, usize)]) -> Vec<Contour> {
     let finish = |c: Option<(Contour, Vec<usize>)>, out: &mut Vec<Contour>| {
         if let Some((mut c, ids)) = c {
             if ids.len() > 2 && ids.first() == ids.last() {
-                c.nodes.pop();
+                // The last node is the first one again: the handle the closing segment comes in with belongs to the first.
+                if let Some(last) = c.nodes.pop() {
+                    c.nodes[0].hin = last.hin;
+                }
                 c.closed = true;
             }
             if c.nodes.len() > 1 {
@@ -336,7 +342,7 @@ struct Ctx<'a> {
 
 impl Ctx<'_> {
     fn layer(&mut self, shape: roxmltree::Node) -> usize {
-        let i = num(shape.attribute("CutIndex")).unwrap_or(0.0).max(0.0) as usize;
+        let i = num(shape.attribute("CutIndex").or_else(|| shape.attribute("LayerIndex"))).unwrap_or(0.0).max(0.0) as usize;
         if i > LAST_LAYER {
             self.dropped_layers = true;
         }
@@ -472,10 +478,10 @@ pub fn import(text: &str, area_h: f64) -> Result<Import, String> {
     let opts = roxmltree::ParsingOptions { allow_dtd: false, nodes_limit: 5_000_000, ..Default::default() };
     let doc = roxmltree::Document::parse_with_options(text, opts).map_err(|e| format!("this is not a LightBurn project: {e}"))?;
     let root = doc.root_element();
-    if !root.has_tag_name("LightBurnProject") {
+    if !root.has_tag_name("LightBurnProject") && !root.has_tag_name("MillMageProject") {
         return Err("this is not a LightBurn project".into());
     }
-    let mut cuts: Vec<Cut> = root.children().filter(|c| c.has_tag_name("CutSetting") || c.has_tag_name("CutSetting_Img")).filter_map(parse_cut).collect();
+    let mut cuts: Vec<Cut> = root.children().filter(|c| c.has_tag_name("CutSetting") || c.has_tag_name("CutSetting_Img") || c.has_tag_name("Layer")).filter_map(parse_cut).collect();
     cuts.sort_by_key(|c| c.index);
     cuts.dedup_by_key(|c| c.index);
     let area_h = if area_h.is_finite() { area_h } else { 0.0 };
@@ -493,4 +499,164 @@ pub fn import(text: &str, area_h: f64) -> Result<Import, String> {
         cx.warnings.push("the project has more shapes than are read; the rest was left out".into());
     }
     Ok(Import { scene: cx.scene, cuts, device_name: root.attribute("DeviceName").unwrap_or("").to_string(), warnings: cx.warnings })
+}
+
+/// Which project file `write` makes.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Flavor {
+    /// LightBurn's older `.lbrn` (`FormatVersion="0"`).
+    Lbrn,
+    /// LightBurn's `.lbrn2`.
+    Lbrn2,
+    /// MillMage's `.mage`: `<Layer>` in place of `<CutSetting>`, the size of the material from the work area.
+    Mage,
+}
+
+/// What `write` needs to know of a layer of the project besides its shapes.
+pub struct LayerInfo<'a> {
+    pub name: &'a dyn Fn(usize) -> String,
+    pub color: &'a dyn Fn(usize) -> [u8; 3],
+    /// How the layer cuts, when the program knows (a laser does): LightBurn then opens it with these settings, not its own.
+    pub cut: &'a dyn Fn(usize) -> Option<Cut>,
+}
+
+/// The children of a `CutSetting` that say how it cuts.
+fn cut_values(c: &Cut) -> String {
+    let mut s = format!(
+        "        <maxPower Value=\"{}\"/>\n        <minPower Value=\"{}\"/>\n        <speed Value=\"{}\"/>\n        <numPasses Value=\"{}\"/>\n",
+        fmt_num(c.power_max),
+        fmt_num(c.power_min),
+        fmt_num(c.speed_mm_s),
+        c.passes.max(1)
+    );
+    if let Some(i) = c.interval_mm {
+        s.push_str(&format!("        <interval Value=\"{}\"/>\n", fmt_num(i)));
+    }
+    s
+}
+
+fn xml_attr(s: &str) -> String {
+    s.replace('&', "&amp;").replace('<', "&lt;").replace('>', "&gt;").replace('"', "&quot;")
+}
+
+fn fmt_num(v: f64) -> String {
+    let s = format!("{v:.5}");
+    let s = s.trim_end_matches('0').trim_end_matches('.');
+    if s.is_empty() || s == "-0" { "0".into() } else { s.to_string() }
+}
+
+/// The `VertList` and `PrimList` of contours already in LightBurn's coordinates.
+fn vert_prim_lists(cs: &[Contour]) -> (String, String) {
+    use std::fmt::Write;
+    let (mut v, mut p) = (String::new(), String::new());
+    let mut base = 0usize;
+    for c in cs {
+        let n = c.nodes.len();
+        if n < 2 {
+            continue;
+        }
+        for nd in &c.nodes {
+            let _ = write!(v, "V{} {}", fmt_num(nd.p.x), fmt_num(nd.p.y));
+            if nd.has_out() {
+                let _ = write!(v, "c0x{}c0y{}", fmt_num(nd.hout.x), fmt_num(nd.hout.y));
+            } else {
+                v.push_str("c0x1");
+            }
+            if nd.has_in() {
+                let _ = write!(v, "c1x{}c1y{}", fmt_num(nd.hin.x), fmt_num(nd.hin.y));
+            } else {
+                v.push_str("c1x1");
+            }
+        }
+        let segs = if c.closed { n } else { n - 1 };
+        for i in 0..segs {
+            let j = (i + 1) % n;
+            let curve = c.nodes[i].has_out() || c.nodes[j].has_in();
+            // LightBurn writes the segments one after the other: `B0 1L1 2`.
+            let _ = write!(p, "{}{} {}", if curve { 'B' } else { 'L' }, base + i, base + j);
+        }
+        base += n;
+    }
+    (v, p)
+}
+
+/// A grey picture as PNG bytes, as it is shown (a negative is turned over).
+pub fn png_of(im: &ImageData) -> Option<Vec<u8>> {
+    let gray: Vec<u8> = if im.invert { im.gray.iter().map(|g| 255 - g).collect() } else { im.gray.clone() };
+    let img = image::GrayImage::from_raw(im.px_w, im.px_h, gray)?;
+    let mut out = std::io::Cursor::new(Vec::new());
+    img.write_to(&mut out, image::ImageFormat::Png).ok()?;
+    Some(out.into_inner())
+}
+
+/// A LightBurn or MillMage project of the shapes `ids` (all when empty): every shape as a path (curves kept) or a bitmap, on the
+/// layer of the same number, one cut setting (or MillMage layer) for each layer used. `area` is the work area (width, height) in
+/// millimetres: LightBurn's Y counts up from the bottom.
+pub fn write(scene: &Scene, ids: &[u64], area: (f64, f64), layers: &LayerInfo, flavor: Flavor) -> String {
+    use std::fmt::Write;
+    let picked = |x: &&crate::scene::Shape| ids.is_empty() || ids.contains(&x.id);
+    let mut used: Vec<usize> = scene.shapes.iter().filter(picked).map(|x| x.layer).collect();
+    used.sort_unstable();
+    used.dedup();
+    let flip = Xf { a: 1.0, b: 0.0, c: 0.0, d: -1.0, e: 0.0, f: area.1 };
+    let mut s = String::from("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+    let (root, idx) = match flavor {
+        Flavor::Mage => ("MillMageProject", "LayerIndex"),
+        _ => ("LightBurnProject", "CutIndex"),
+    };
+    let version = if flavor == Flavor::Lbrn { 0 } else { 1 };
+    let _ = writeln!(s, "<{root} AppVersion=\"2.2.00\" DeviceName=\"No Machine\" FormatVersion=\"{version}\" MaterialHeight=\"0\" MirrorX=\"False\" MirrorY=\"False\" AskForSendName=\"True\" CurrentPage=\"0\" Page0Name=\"Page 1\">");
+    if flavor == Flavor::Mage {
+        let _ = writeln!(s, "    <CNCProjectSetup>\n        <SafeZ Value=\"20\"/>\n        <RetractZ Value=\"5\"/>\n        <UseRetractZ Value=\"1\"/>\n        <StockWidth Value=\"{}\"/>\n        <StockHeight Value=\"{}\"/>\n        <ProjectOrigin Value=\"0\"/>\n        <ProjUnits Value=\"1\"/>\n        <Z_Zero Value=\"0\"/>\n    </CNCProjectSetup>", fmt_num(area.0), fmt_num(area.1));
+    }
+    for &l in &used {
+        let name = xml_attr(&(layers.name)(l));
+        let only_pictures = scene.shapes.iter().filter(picked).filter(|x| x.layer == l).all(|x| x.is_image());
+        match flavor {
+            Flavor::Mage => {
+                let c = (layers.color)(l);
+                let _ = writeln!(s, "    <Layer>\n        <index Value=\"{l}\"/>\n        <color r=\"{}\" g=\"{}\" b=\"{}\"/>\n        <name Value=\"{name}\"/>\n        <hide Value=\"0\"/>\n        <fade Value=\"0\"/>\n        <type Value=\"1\"/>\n    </Layer>", c[0], c[1], c[2]);
+            }
+            _ => {
+                let cut = (layers.cut)(l);
+                let kind = cut.as_ref().map(|c| c.kind).unwrap_or(if only_pictures { CutKind::Image } else { CutKind::Line });
+                let (tag, ty) = match kind {
+                    CutKind::Image => ("CutSetting_Img", "Image"),
+                    CutKind::Fill => ("CutSetting", "Scan"),
+                    CutKind::Offset => ("CutSetting", "Offset"),
+                    CutKind::Line => ("CutSetting", "Cut"),
+                };
+                let values = cut.as_ref().map(cut_values).unwrap_or_default();
+                let _ = writeln!(s, "    <{tag} type=\"{ty}\">\n        <index Value=\"{l}\"/>\n        <name Value=\"{name}\"/>\n{values}        <priority Value=\"{l}\"/>\n    </{tag}>");
+            }
+        }
+    }
+    for (op, sh) in scene.shapes.iter().filter(picked).enumerate() {
+        let op_attr = if flavor == Flavor::Mage { format!(" OpIndex=\"{op}\"") } else { String::new() };
+        if let Kind::Image(im) = &sh.kind {
+            let Some(png) = png_of(im) else { continue };
+            // The picture is centred on its local origin with Y up; its size on the work area is in W and H, the rest of the
+            // transform only turns, mirrors and moves it.
+            let (sx, sy) = (sh.xf.a.hypot(sh.xf.b), sh.xf.c.hypot(sh.xf.d));
+            if sx <= 0.0 || sy <= 0.0 {
+                continue;
+            }
+            let (w, h) = (im.w * sx, im.h * sy);
+            let from_lb = Xf { a: im.w / w, b: 0.0, c: 0.0, d: -im.h / h, e: im.w / 2.0, f: im.h / 2.0 };
+            let x = from_lb.then(sh.xf).then(flip);
+            let data = base64::engine::general_purpose::STANDARD.encode(png);
+            let file = xml_attr(if im.name.is_empty() { "picture.png" } else { &im.name });
+            let _ = writeln!(s, "    <Shape Type=\"Bitmap\"{op_attr} {idx}=\"{}\" W=\"{}\" H=\"{}\" Gamma=\"1\" Contrast=\"0\" Brightness=\"0\" EnhanceAmount=\"0\" EnhanceRadius=\"0\" EnhanceDenoise=\"0\" File=\"{file}\" SourceHash=\"0\" Data=\"{data}\">", sh.layer, fmt_num(w), fmt_num(h));
+            let _ = writeln!(s, "        <XForm>{} {} {} {} {} {}</XForm>\n    </Shape>", fmt_num(x.a), fmt_num(x.b), fmt_num(x.c), fmt_num(x.d), fmt_num(x.e), fmt_num(x.f));
+            continue;
+        }
+        let cs: Vec<Contour> = crate::export::contours_of(sh).iter().map(|c| c.transformed(&flip)).collect();
+        let (v, p) = vert_prim_lists(&cs);
+        if p.is_empty() {
+            continue;
+        }
+        let _ = writeln!(s, "    <Shape Type=\"Path\"{op_attr} {idx}=\"{}\">\n        <XForm>1 0 0 1 0 0</XForm>\n        <VertList>{v}</VertList>\n        <PrimList>{p}</PrimList>\n    </Shape>", sh.layer);
+    }
+    let _ = writeln!(s, "    <Notes ShowOnLoad=\"0\" Notes=\"\"/>\n</{root}>");
+    s
 }
