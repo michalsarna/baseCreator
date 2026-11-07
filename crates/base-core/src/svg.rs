@@ -48,6 +48,21 @@ pub fn read_drawing(data: &[u8]) -> Result<Vec<Outline>, String> {
     }
 }
 
+/// Read a drawing (SVG, PDF or Illustrator, by its content) into a new scene, as *File → Open…* does: every outline one shape on layer
+/// 0, and the pictures of an SVG on layer 0 too.
+pub fn read_scene(data: &[u8]) -> Result<crate::scene::Scene, String> {
+    let outlines = read_drawing(data)?;
+    let pictures = if crate::pdf::is_pdf_or_ai(data) { vec![] } else { images(data) };
+    let mut scene = crate::scene::Scene::default();
+    for o in outlines {
+        scene.add(0, crate::scene::Kind::Bezier(o.contours), Xf::IDENTITY);
+    }
+    for (im, xf) in pictures {
+        scene.add(0, crate::scene::Kind::Image(im), xf);
+    }
+    Ok(scene)
+}
+
 /// Read an SVG into outlines, in document order.
 pub fn parse(data: &[u8]) -> Result<Vec<Outline>, String> {
     let tree = usvg::Tree::from_data(data, &usvg::Options::default()).map_err(|e| e.to_string())?;

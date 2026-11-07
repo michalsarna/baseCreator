@@ -882,9 +882,11 @@ fn an_svg_from_lightburn_brings_its_picture_and_every_export_format_is_written()
     h.scene.add(0, Kind::Rect { w: 10.0, h: 20.0 }, Xf::translate(5.0, 5.0));
     let names = |l: usize| format!("L{l}");
     let colors = |_: usize| [0, 0, 0];
+    let cut = |_: usize| None;
+    let info = base_core::lightburn::LayerInfo { name: &names, color: &colors, cut: &cut };
     for f in Exchange::ALL {
         let ext = if f == Exchange::LightBurn { "lbrn" } else { "x" };
-        let text = f.write(&h.scene, &[], (400.0, 400.0), std::path::Path::new(&format!("a.{ext}")), &names, &colors);
+        let text = f.write(&h.scene, &[], (400.0, 400.0), std::path::Path::new(&format!("a.{ext}")), &info);
         let ok = match f {
             Exchange::Dxf => text.contains("AC1021"),
             Exchange::DxfLegacy => text.contains("AC1009"),

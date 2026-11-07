@@ -71,6 +71,10 @@ pub trait EditorHost: Sized {
     fn layer_title(&self, layer: usize) -> String {
         format!("Layer {}", layer + 1)
     }
+    /// How a layer cuts, for a LightBurn project that is exported (`None`: LightBurn's own settings; a laser program gives its own).
+    fn lightburn_cut(&self, _layer: usize) -> Option<base_core::lightburn::Cut> {
+        None
+    }
     /// The first part of the name of an exported file (the name of the project; "drawing" when it has none).
     fn export_stem(&self) -> String {
         "drawing".into()

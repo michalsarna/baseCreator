@@ -8,6 +8,9 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 - **Files of LightBurn and MillMage, both ways:** checked against the same drawings saved by LightBurn 2.2 and MillMage 0.9 (`tests/fixtures/interchange`, `tests/interchange.rs`).
   - **Import:** MillMage projects (`.mage`) with their layers; the old PostScript Illustrator files LightBurn writes (`ai`; before, only PDF-compatible ones were read); the pictures of an SVG (`svg::images`, LightBurn puts them there). DXF of both kinds and LightBurn projects were already read.
   - **Export** (*File → Export*, `StdAct::ExportAs`, `editor::Exchange`): *Export DXF…* (AutoCAD 2007, `AC1021`, the tables a strict reader wants, `export::dxf_modern`), *Export DXF R12 (legacy)…* (`export::dxf`), *Export Adobe Illustrator…* (`ai::write`), *Export LightBurn project…* (`.lbrn2`, or `.lbrn` when the file is named so) and *Export MillMage project…* (`lightburn::write`; paths keep their curves, pictures are kept). *Export SVG…* keeps the pictures now; *Export selection as DXF…* writes the current kind.
+  - *File → Open…* of an SVG, PDF or Illustrator file goes through `svg::read_scene` (by content, with the pictures of an SVG), so an `.ai` of LightBurn opens too.
+  - The settings of the layers go into a LightBurn project when the program knows them (`EditorHost::lightburn_cut`; LightCreator gives the mode, power, speed, passes and interval).
+  - **Fixed:** a LightBurn path closed by a curve into its first point lost the handle of that curve (an ellipse came back slightly flattened at its start).
   - `lightburn::EXTENSIONS` (`lbrn2`, `lbrn`, `mage`) for the file windows of the programs; `mage` is reserved for plugins; `EditorHost::export_stem` names the exported file.
 - 7 new texts in every language.
 

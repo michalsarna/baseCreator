@@ -57,15 +57,9 @@ fn app_icon() -> base_ui::seasonal::Icon {
     if cfg!(test) { normal } else { base_ui::seasonal::icon_today(&FESTIVE, normal) }
 }
 
-/// Read an SVG or PDF (by its content) into a new scene. Every outline becomes one shape on layer 0.
+/// Read an SVG, PDF or Illustrator file (by its content) into a new scene: every outline one shape on layer 0, with the pictures of an SVG.
 fn read_scene(data: &[u8]) -> Result<Scene, String> {
-    let is_pdf = data.windows(5).take(1024).any(|w| w == b"%PDF-");
-    let outlines = if is_pdf { base_core::pdf::parse(data)? } else { base_core::svg::parse(data)? };
-    let mut scene = Scene::default();
-    for o in outlines {
-        scene.add(0, Kind::Bezier(o.contours), Xf::IDENTITY);
-    }
-    Ok(scene)
+    base_core::svg::read_scene(data)
 }
 
 /// Undo and redo of whole scenes.

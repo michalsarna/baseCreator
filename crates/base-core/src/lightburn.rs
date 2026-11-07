@@ -219,7 +219,10 @@ fn contours(verts: &Verts, prims: &[(bool, usize, usize)]) -> Vec<Contour> {
     let finish = |c: Option<(Contour, Vec<usize>)>, out: &mut Vec<Contour>| {
         if let Some((mut c, ids)) = c {
             if ids.len() > 2 && ids.first() == ids.last() {
-                c.nodes.pop();
+                // The last node is the first one again: the handle the closing segment comes in with belongs to the first.
+                if let Some(last) = c.nodes.pop() {
+                    c.nodes[0].hin = last.hin;
+                }
                 c.closed = true;
             }
             if c.nodes.len() > 1 {
@@ -513,6 +516,23 @@ pub enum Flavor {
 pub struct LayerInfo<'a> {
     pub name: &'a dyn Fn(usize) -> String,
     pub color: &'a dyn Fn(usize) -> [u8; 3],
+    /// How the layer cuts, when the program knows (a laser does): LightBurn then opens it with these settings, not its own.
+    pub cut: &'a dyn Fn(usize) -> Option<Cut>,
+}
+
+/// The children of a `CutSetting` that say how it cuts.
+fn cut_values(c: &Cut) -> String {
+    let mut s = format!(
+        "        <maxPower Value=\"{}\"/>\n        <minPower Value=\"{}\"/>\n        <speed Value=\"{}\"/>\n        <numPasses Value=\"{}\"/>\n",
+        fmt_num(c.power_max),
+        fmt_num(c.power_min),
+        fmt_num(c.speed_mm_s),
+        c.passes.max(1)
+    );
+    if let Some(i) = c.interval_mm {
+        s.push_str(&format!("        <interval Value=\"{}\"/>\n", fmt_num(i)));
+    }
+    s
 }
 
 fn xml_attr(s: &str) -> String {
@@ -552,9 +572,7 @@ fn vert_prim_lists(cs: &[Contour]) -> (String, String) {
         for i in 0..segs {
             let j = (i + 1) % n;
             let curve = c.nodes[i].has_out() || c.nodes[j].has_in();
-            if !p.is_empty() {
-                p.push(' ');
-            }
+            // LightBurn writes the segments one after the other: `B0 1L1 2`.
             let _ = write!(p, "{}{} {}", if curve { 'B' } else { 'L' }, base + i, base + j);
         }
         base += n;
@@ -599,11 +617,17 @@ pub fn write(scene: &Scene, ids: &[u64], area: (f64, f64), layers: &LayerInfo, f
                 let c = (layers.color)(l);
                 let _ = writeln!(s, "    <Layer>\n        <index Value=\"{l}\"/>\n        <color r=\"{}\" g=\"{}\" b=\"{}\"/>\n        <name Value=\"{name}\"/>\n        <hide Value=\"0\"/>\n        <fade Value=\"0\"/>\n        <type Value=\"1\"/>\n    </Layer>", c[0], c[1], c[2]);
             }
-            _ if only_pictures => {
-                let _ = writeln!(s, "    <CutSetting_Img type=\"Image\">\n        <index Value=\"{l}\"/>\n        <name Value=\"{name}\"/>\n        <priority Value=\"{l}\"/>\n    </CutSetting_Img>");
-            }
             _ => {
-                let _ = writeln!(s, "    <CutSetting type=\"Cut\">\n        <index Value=\"{l}\"/>\n        <name Value=\"{name}\"/>\n        <priority Value=\"{l}\"/>\n    </CutSetting>");
+                let cut = (layers.cut)(l);
+                let kind = cut.as_ref().map(|c| c.kind).unwrap_or(if only_pictures { CutKind::Image } else { CutKind::Line });
+                let (tag, ty) = match kind {
+                    CutKind::Image => ("CutSetting_Img", "Image"),
+                    CutKind::Fill => ("CutSetting", "Scan"),
+                    CutKind::Offset => ("CutSetting", "Offset"),
+                    CutKind::Line => ("CutSetting", "Cut"),
+                };
+                let values = cut.as_ref().map(cut_values).unwrap_or_default();
+                let _ = writeln!(s, "    <{tag} type=\"{ty}\">\n        <index Value=\"{l}\"/>\n        <name Value=\"{name}\"/>\n{values}        <priority Value=\"{l}\"/>\n    </{tag}>");
             }
         }
     }

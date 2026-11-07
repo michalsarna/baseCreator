@@ -56,18 +56,18 @@ impl Exchange {
     }
 
     /// The text of the file of the whole drawing (`ids` empty) or of some shapes, written to `path`.
-    pub fn write(self, scene: &base_core::scene::Scene, ids: &[u64], area: (f64, f64), path: &std::path::Path, layer_name: &dyn Fn(usize) -> String, color: &dyn Fn(usize) -> [u8; 3]) -> String {
-        use base_core::lightburn::{Flavor, LayerInfo};
-        let info = LayerInfo { name: layer_name, color };
+    pub fn write(self, scene: &base_core::scene::Scene, ids: &[u64], area: (f64, f64), path: &std::path::Path, layers: &base_core::lightburn::LayerInfo) -> String {
+        use base_core::lightburn::Flavor;
+        let (info, layer_name, color) = (layers, layers.name, layers.color);
         match self {
             Exchange::Dxf => base_core::export::dxf_modern(scene, ids, area.1, layer_name),
             Exchange::DxfLegacy => base_core::export::dxf(scene, ids, area.1, layer_name),
             Exchange::Illustrator => base_core::ai::write(scene, ids, area.1, layer_name, color),
             Exchange::LightBurn => {
                 let old = path.extension().is_some_and(|e| e.eq_ignore_ascii_case("lbrn"));
-                base_core::lightburn::write(scene, ids, area, &info, if old { Flavor::Lbrn } else { Flavor::Lbrn2 })
+                base_core::lightburn::write(scene, ids, area, info, if old { Flavor::Lbrn } else { Flavor::Lbrn2 })
             }
-            Exchange::MillMage => base_core::lightburn::write(scene, ids, area, &info, Flavor::Mage),
+            Exchange::MillMage => base_core::lightburn::write(scene, ids, area, info, Flavor::Mage),
         }
     }
 }
@@ -230,7 +230,9 @@ pub trait EditorShapeOps: EditorHost {
             let c = self.layer_color(l);
             [c.r(), c.g(), c.b()]
         };
-        let text = f.write(self.scene(), &[], self.work_size(), &path, &layer_name, &color);
+        let cut = |l: usize| self.lightburn_cut(l);
+        let info = base_core::lightburn::LayerInfo { name: &layer_name, color: &color, cut: &cut };
+        let text = f.write(self.scene(), &[], self.work_size(), &path, &info);
         if f.keeps_pictures() {
             self.say_written(&path, text);
         } else {
