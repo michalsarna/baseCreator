@@ -1155,3 +1155,4 @@
 1154|Farba papiera
 1155|Farba materiálu
 1156|Späť na automatickú farbu
+1157|Sám roztiahne sivé tóny obrázka na celý rozsah; dva posuvníky sa vtedy nepoužívajú

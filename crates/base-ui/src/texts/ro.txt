@@ -1155,3 +1155,4 @@
 1154|Culoarea hârtiei
 1155|Culoarea materialului
 1156|Înapoi la culoarea automată
+1157|Întinde singur nuanțele de gri ale imaginii pe tot intervalul; cele două glisoare nu sunt folosite atunci

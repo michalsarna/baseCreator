@@ -1155,3 +1155,4 @@
 1154|Papirfarve
 1155|Materialefarve
 1156|Tilbage til den automatiske farve
+1157|Strækker selv billedets gråtoner til hele området; de to skydere bruges så ikke

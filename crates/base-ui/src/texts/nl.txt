@@ -1155,3 +1155,4 @@
 1154|Papierkleur
 1155|Materiaalkleur
 1156|Terug naar de automatische kleur
+1157|Rekt de grijstinten van de afbeelding zelf uit over het hele bereik; de twee schuifregelaars worden dan niet gebruikt

@@ -1155,3 +1155,4 @@
 1154|Papīra krāsa
 1155|Materiāla krāsa
 1156|Atpakaļ uz automātisko krāsu
+1157|Pats izstiepj attēla pelēkos toņus visā diapazonā; tad abi slīdņi netiek izmantoti

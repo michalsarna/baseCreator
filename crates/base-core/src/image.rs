@@ -105,6 +105,26 @@ impl Default for Adjust {
     }
 }
 
+/// The range of greys that auto levels stretch to the full scale: the darkest and the lightest grey with the outer 0.5 % of the
+/// pixels on each side left out, so a few black or white specks (there are some in nearly every photo) do not keep the range whole.
+pub fn auto_range(hist: &[u32; 256]) -> (u8, u8) {
+    let total: u64 = hist.iter().map(|c| *c as u64).sum();
+    let cut = total / 200;
+    let edge = |order: &mut dyn Iterator<Item = usize>| {
+        let mut seen = 0u64;
+        for i in order {
+            seen += hist[i] as u64;
+            if seen > cut {
+                return i as u8;
+            }
+        }
+        0
+    };
+    let lo = edge(&mut (0..256));
+    let hi = edge(&mut (0..256).rev());
+    if hi > lo { (lo, hi) } else { (0, 255) }
+}
+
 impl ImageData {
     /// Shrink so the longer side has at most `max_px` pixels (nearest neighbour is enough for previews).
     pub fn downscaled(&self, max_px: u32) -> ImageData {
@@ -193,14 +213,14 @@ impl ImageData {
             }
             im.gray = g;
         }
+        // Auto levels take the range of the picture itself and the range chosen by hand is not used.
         let (lo, hi) = if a.auto_levels {
-            (*im.gray.iter().min().unwrap_or(&0) as f32, *im.gray.iter().max().unwrap_or(&255) as f32)
+            let (lo, hi) = auto_range(&im.histogram());
+            (lo as f32, (hi as f32).max(lo as f32 + 1.0))
         } else {
-            (0.0, 255.0)
+            let lo = a.black.clamp(0.0, 1.0) * 255.0;
+            (lo, (a.white.clamp(0.0, 1.0) * 255.0).max(lo + 1.0))
         };
-        // The range chosen by hand narrows the one the picture has (or the whole scale).
-        let lo = lo.max(a.black.clamp(0.0, 1.0) * 255.0);
-        let hi = hi.min(a.white.clamp(0.0, 1.0) * 255.0).max(lo + 1.0);
         let span = (hi - lo).max(1.0);
         let k = ((a.contrast.clamp(-0.99, 0.99) + 1.0) * std::f32::consts::FRAC_PI_4).tan();
         let inv_gamma = 1.0 / a.gamma.clamp(0.2, 3.0);

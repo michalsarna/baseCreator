@@ -1155,3 +1155,4 @@
 1154|Barva papirja
 1155|Barva materiala
 1156|Nazaj na samodejno barvo
+1157|Sam raztegne sive tone slike čez ves razpon; drsnika se takrat ne uporabljata

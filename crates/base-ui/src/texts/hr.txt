@@ -1155,3 +1155,4 @@
 1154|Boja papira
 1155|Boja materijala
 1156|Natrag na automatsku boju
+1157|Sam razvlači sive tonove slike na cijeli raspon; dva klizača se tada ne koriste

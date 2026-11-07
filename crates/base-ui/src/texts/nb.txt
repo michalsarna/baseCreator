@@ -1155,3 +1155,4 @@
 1154|Papirfarge
 1155|Materialfarge
 1156|Tilbake til automatisk farge
+1157|Strekker selv bildets gråtoner over hele området; de to glidebryterne brukes da ikke

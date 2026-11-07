@@ -1155,3 +1155,4 @@
 1154|Color del paper
 1155|Color del material
 1156|Torna al color automàtic
+1157|Estira per si sol els grisos de la imatge a tot l'interval; aleshores els dos controls lliscants no s'utilitzen

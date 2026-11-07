@@ -1155,3 +1155,4 @@
 1154|Popieriaus spalva
 1155|Medžiagos spalva
 1156|Grįžti prie automatinės spalvos
+1157|Pats ištempia paveikslo pilkus tonus per visą intervalą; tada du slankikliai nenaudojami

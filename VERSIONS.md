@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.76.0
+
+- **Auto levels work on a real photo:** they stretched the range from the darkest to the lightest pixel, and nearly every photo has a pixel of pure black and one of pure white, so nothing changed. Now the outer 0.5 % of the pixels on each side are left out (`image::auto_range`). The checkbox moved from Tone to **Levels**: while it is on, the two sliders of the range are locked and show the range found in the picture, and the range chosen by hand is not used.
+- 1 new text in every language.
+
 ## v1.75.0
 
 - **The colour of the work area in the previews of a job:** `widgets::area_colour` (the label, a colour button and **Automatic** while a colour of one's own is set) and `GridPrefs::preview_color` (kept with the view settings; `None` is the colour of the drawing, `preview_fill`). LightCreator shows it as *Work area colour*, MillCreator as *Material colour* (the block in the 3D view) and PenCreator as *Paper colour*. BaseCreator has no preview of a job: the colour of its page is in the view options, as before.

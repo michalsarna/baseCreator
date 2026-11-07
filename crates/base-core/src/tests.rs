@@ -99,6 +99,15 @@ fn image_adjustments() {
     assert!(b.gray[0] >= 127 && b.gray[7] > wide.gray[7]);
     let c = wide.adjusted(&Adjust { auto_levels: true, ..Default::default() });
     assert_eq!((c.gray[0], c.gray[7]), (0, 255));
+    // A photo with a black and a white speck still has its middle stretched, and the range chosen by hand is not used then.
+    let mut photo = vec![100u8; 1000];
+    photo.iter_mut().enumerate().for_each(|(i, g)| *g = 100 + (i % 51) as u8);
+    (photo[0], photo[1]) = (0, 255);
+    let photo = ImageData { px_w: 1000, px_h: 1, gray: photo, ..im.clone() };
+    assert_eq!(crate::image::auto_range(&photo.histogram()), (100, 150));
+    let auto = photo.adjusted(&Adjust { auto_levels: true, black: 0.9, ..Default::default() });
+    assert_eq!((auto.gray[51], auto.gray[50]), (0, 255), "100 turns black, 150 white");
+    assert!(auto.gray[76] > 100 && auto.gray[76] < 160, "125 stays in the middle");
     // The range chosen by hand: the grey below `black` turns black, the one above `white` turns white.
     let range = wide.adjusted(&Adjust { black: 10.0 / 255.0, white: 20.0 / 255.0, ..Default::default() });
     assert_eq!((range.gray[0], range.gray[1], range.gray[2], range.gray[3]), (0, 0, 255, 255));
