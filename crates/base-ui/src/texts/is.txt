@@ -1151,3 +1151,7 @@
 1150|Ekkert af þessu hefur verið prófað á vélinni þinni: gerðu fyrstu prófun án fræsitönn eða með hana vel fyrir ofan efnið.
 1151|Ekkert af þessu hefur verið prófað á teiknaranum þínum: gerðu fyrstu prófun með pennann uppi og engan pappír.
 1152|Tækinu var bætt við. Ýttu á Ný til að byrja.
+1153|Litur vinnusvæðis
+1154|Litur pappírs
+1155|Litur efnis
+1156|Aftur í sjálfvirkan lit

@@ -1151,3 +1151,7 @@
 1150|Nič z toho nebolo na vašom stroji vyskúšané: prvý test urobte bez frézy alebo s frézou vysoko nad materiálom.
 1151|Nič z toho nebolo na vašom plotri vyskúšané: prvý test urobte so zdvihnutým perom a bez papiera.
 1152|Zariadenie bolo pridané. Začnite tlačidlom Nový.
+1153|Farba pracovnej plochy
+1154|Farba papiera
+1155|Farba materiálu
+1156|Späť na automatickú farbu

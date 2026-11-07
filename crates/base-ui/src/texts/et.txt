@@ -1151,3 +1151,7 @@
 1150|Midagi sellest pole teie masinal proovitud: tehke esimene test ilma freesita või freesiga materjalist kõrgel.
 1151|Midagi sellest pole teie plotteril proovitud: tehke esimene test tõstetud pliiatsiga ja ilma paberita.
 1152|Seade lisati. Alustamiseks vajuta Uus.
+1153|Tööala värv
+1154|Paberi värv
+1155|Materjali värv
+1156|Tagasi automaatse värvi juurde

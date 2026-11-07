@@ -161,6 +161,9 @@ pub struct GridPrefs {
     /// Colour of the space around the work area; `None` takes the one of the colour scheme.
     #[serde(default)]
     pub workspace_color: Option<[u8; 4]>,
+    /// Colour of the work area (the material, the paper) in the preview of a job; `None` takes the one of the drawing.
+    #[serde(default)]
+    pub preview_color: Option<[u8; 4]>,
     /// Thickness of the outlines drawn in the editor, in points. Previews use a little less.
     #[serde(default = "default_line_width")]
     pub line_width: f32,
@@ -192,6 +195,14 @@ impl GridPrefs {
         }
     }
 
+    /// Colour of the work area in the preview of a job: your choice there, or the one of the drawing.
+    pub fn preview_fill(&self, dark_scheme: bool) -> egui::Color32 {
+        match self.preview_color {
+            Some(c) => egui::Color32::from_rgba_unmultiplied(c[0], c[1], c[2], c[3]),
+            None => self.bed_fill(dark_scheme),
+        }
+    }
+
     /// Colour of the space around the work area: your choice, or the one of the colour scheme.
     pub fn workspace_fill(&self) -> egui::Color32 {
         self.workspace_color.map(|c| egui::Color32::from_rgba_unmultiplied(c[0], c[1], c[2], c[3])).unwrap_or_else(crate::theme::workspace)
@@ -200,7 +211,7 @@ impl GridPrefs {
 
 impl Default for GridPrefs {
     fn default() -> Self {
-        GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, line_width: 1.0, layer_names: false, gcode_preview_after_save: false, variable_names: false, console: Default::default() }
+        GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, preview_color: None, line_width: 1.0, layer_names: false, gcode_preview_after_save: false, variable_names: false, console: Default::default() }
     }
 }
 

@@ -1151,3 +1151,7 @@
 1150|Xejn minn dan ma ġie ppruvat fuq il-magna tiegħek: agħmel l-ewwel test mingħajr bit, jew bil-bit ferm 'il fuq mill-materjal.
 1151|Xejn minn dan ma ġie ppruvat fuq il-plotter tiegħek: agħmel l-ewwel test bil-pinna merfugħa u mingħajr karta.
 1152|L-apparat ġie miżjud. Agħfas Ġdid biex tibda.
+1153|Kulur taż-żona tax-xogħol
+1154|Kulur tal-karta
+1155|Kulur tal-materjal
+1156|Lura għall-kulur awtomatiku

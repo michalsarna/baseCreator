@@ -1151,3 +1151,7 @@
 1150|Inget av detta har provats på din maskin: kör ett första test utan fräs, eller med fräsen en bra bit ovanför materialet.
 1151|Inget av detta har provats på din plotter: kör ett första test med pennan uppe och utan papper.
 1152|Enheten lades till. Tryck på Ny för att börja.
+1153|Arbetsområdets färg
+1154|Pappersfärg
+1155|Materialfärg
+1156|Tillbaka till den automatiska färgen

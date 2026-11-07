@@ -1151,3 +1151,7 @@
 1150	Nothing here has been tried on your machine: run a first test without a bit, or with the bit well above the material.
 1151	Nothing here has been tried on your plotter: run a first test with the pen raised and no paper.
 1152	The device was added. Press New to start.
+1153	Work area colour
+1154	Paper colour
+1155	Material colour
+1156	Back to the automatic colour

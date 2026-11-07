@@ -1151,3 +1151,7 @@
 1150|Nič od tega ni bilo preizkušeno na vašem stroju: prvi preizkus naredite brez rezkarja ali z rezkarjem visoko nad materialom.
 1151|Nič od tega ni bilo preizkušeno na vašem risalniku: prvi preizkus naredite z dvignjenim pisalom in brez papirja.
 1152|Naprava je dodana. Pritisnite Novo za začetek.
+1153|Barva delovnega območja
+1154|Barva papirja
+1155|Barva materiala
+1156|Nazaj na samodejno barvo

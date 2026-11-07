@@ -2,6 +2,23 @@
 use crate::{icons, theme};
 use egui::{Color32, RichText};
 
+/// The colour of the work area in the bar of a preview: the label, the colour button and, while a colour of one's own is set,
+/// **Automatic** that goes back to `auto`. True when the colour changed.
+pub fn area_colour(ui: &mut egui::Ui, label: &str, colour: &mut Option<[u8; 4]>, auto: Color32) -> bool {
+    let mut changed = false;
+    ui.label(label);
+    let mut c = colour.map_or(auto, |c| Color32::from_rgba_unmultiplied(c[0], c[1], c[2], c[3]));
+    if egui::color_picker::color_edit_button_srgba(ui, &mut c, egui::color_picker::Alpha::Opaque).changed() {
+        *colour = Some(c.to_srgba_unmultiplied());
+        changed = true;
+    }
+    if colour.is_some() && ui.small_button(crate::i18n::tr("Automatic")).on_hover_text(crate::i18n::tr("Back to the automatic colour")).clicked() {
+        *colour = None;
+        changed = true;
+    }
+    changed
+}
+
 /// Double chevrons at the top and / or bottom edge of a scrolled icon strip when more icons lie beyond it.
 pub fn scroll_hints<R>(ui: &egui::Ui, out: &egui::scroll_area::ScrollAreaOutput<R>) {
     let view = out.inner_rect;
@@ -282,4 +299,32 @@ pub fn message(ui: &mut egui::Ui, text: impl Into<egui::RichText>) -> egui::Resp
         }
     });
     r
+}
+
+#[cfg(test)]
+mod area_colour_tests {
+    use super::*;
+
+    fn texts(colour: &mut Option<[u8; 4]>) -> Vec<String> {
+        let ctx = egui::Context::default();
+        let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+            ui.horizontal(|ui| area_colour(ui, "Paper colour", colour, Color32::WHITE));
+        });
+        out.textures_delta.clear();
+        out.shapes.iter().filter_map(|s| if let egui::epaint::Shape::Text(t) = &s.shape { Some(t.galley.text().to_string()) } else { None }).collect()
+    }
+
+    #[test]
+    fn the_preview_colour_is_the_drawing_one_until_one_is_chosen() {
+        let mut g = crate::editor::GridPrefs::default();
+        assert_eq!(g.preview_fill(false), g.bed_fill(false));
+        g.preview_color = Some([10, 20, 30, 255]);
+        assert_eq!(g.preview_fill(true), Color32::from_rgb(10, 20, 30));
+        // Automatic is offered only while a colour of one's own is set.
+        assert!(!texts(&mut None).iter().any(|t| t == "Automatic"));
+        assert!(texts(&mut Some([1, 2, 3, 255])).iter().any(|t| t == "Automatic"));
+        // A file of an earlier version has no preview colour.
+        let old: crate::editor::GridPrefs = serde_json::from_str(r#"{"main_color":[1,1,1,255],"minor_on":false,"minor_mm":2.0,"minor_color":[1,1,1,255]}"#).unwrap();
+        assert_eq!(old.preview_color, None);
+    }
 }
