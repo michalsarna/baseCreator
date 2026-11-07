@@ -897,3 +897,65 @@ fn an_svg_from_lightburn_brings_its_picture_and_every_export_format_is_written()
         assert!(ok, "{f:?}");
     }
 }
+
+#[test]
+fn the_ruler_takes_nodes_and_a_clicked_straight_segment_and_says_the_length() {
+    use base_core::geom::Pt;
+    let mut h = Host::default();
+    h.scene.add(0, Kind::Rect { w: 30.0, h: 40.0 }, Xf::translate(10.0, 10.0));
+    h.scene.add(0, Kind::Ellipse { w: 20.0, h: 20.0 }, Xf::translate(100.0, 10.0));
+    h.ed.view.zoom = 2.0;
+    h.ed.view.pan = egui::vec2(0.0, 0.0);
+    let o = egui::Pos2::ZERO;
+    // Near a corner of the rectangle the point is the corner itself; far from everything it is where the pointer is.
+    assert_eq!(h.measure_point(o, h.w2s(o, Pt::new(11.0, 10.5))), Pt::new(10.0, 10.0));
+    assert_eq!(h.measure_point(o, h.w2s(o, Pt::new(70.0, 70.0))), Pt::new(70.0, 70.0));
+    // A click on the top edge gives that edge; on the round ellipse nothing straight.
+    let (a, b) = h.straight_segment_at(o, h.w2s(o, Pt::new(25.0, 10.5))).expect("the top edge");
+    assert!((a.dist(b) - 30.0).abs() < 1e-9);
+    assert!(h.straight_segment_at(o, h.w2s(o, Pt::new(110.0, 10.0))).is_none(), "the ellipse has no straight segment");
+    let text = super::measure_text(Pt::new(0.0, 0.0), Pt::new(30.0, -40.0), base_core::units::Units::Mm);
+    assert!(text.starts_with("50") && text.contains("ΔX 30") && text.contains("ΔY -40") && text.contains("∠ 53.1°"), "{text}");
+    // The tool is in the palette with its key, and Escape forgets the measurement.
+    assert!(Tool::ALL.iter().any(|(t, l, k)| *t == Tool::Measure && *l == "Ruler (M)" && *k == egui::Key::M));
+    h.ed.measure = super::Measure { a: Some(Pt::new(0.0, 0.0)), b: None, segment: false, dragging: false };
+    assert_eq!(h.ed.measure.line(Some(Pt::new(3.0, 4.0))).map(|(a, b)| a.dist(b)), Some(5.0), "to the pointer while the end is not set");
+}
+
+#[test]
+fn a_right_click_with_a_tool_goes_back_to_selecting_and_several_selected_objects_have_frames() {
+    let (mut h, a, b) = host_with_two_rects();
+    let ctx = egui::Context::default();
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(800.0, 600.0));
+    let mut frame = |h: &mut Host, events: Vec<egui::Event>| {
+        let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), events, ..Default::default() }, |ui| {
+            egui::CentralPanel::no_frame().show(ui, |ui| h.canvas(ui));
+        });
+        out.textures_delta.clear();
+        out.shapes
+    };
+    let at = egui::pos2(400.0, 300.0);
+    for tool in [Tool::Rect, Tool::Pen, Tool::Node, Tool::Measure] {
+        super::select_tool(&mut h.ed, tool);
+        h.ed.sel = vec![a];
+        frame(&mut h, vec![egui::Event::PointerMoved(at)]);
+        let right = |down: bool| egui::Event::PointerButton { pos: at, button: egui::PointerButton::Secondary, pressed: down, modifiers: Default::default() };
+        frame(&mut h, vec![right(true), right(false)]);
+        assert_eq!(h.ed.tool, Tool::Select, "{tool:?}: back to the select tool");
+        assert!(h.ed.sel.is_empty(), "{tool:?}: as a double Escape");
+    }
+    // Two selected objects: each has a dashed frame of its own besides the frame of the selection.
+    h.ed.sel = vec![a, b];
+    let shapes = frame(&mut h, vec![]);
+    let dashes = shapes.iter().filter(|s| matches!(&s.shape, egui::Shape::LineSegment { .. })).count();
+    h.ed.sel = vec![a];
+    let single = frame(&mut h, vec![]).iter().filter(|s| matches!(&s.shape, egui::Shape::LineSegment { .. })).count();
+    assert!(dashes > single + 8, "dashes around both objects: {dashes} against {single}");
+}
+
+#[test]
+fn a_layer_that_is_not_made_is_faded_towards_the_work_area() {
+    let c = super::faded_colour(egui::Color32::BLACK, egui::Color32::WHITE);
+    assert!(c.r() > 150 && c.r() == c.g(), "{c:?}");
+    assert_eq!(super::faded_colour(egui::Color32::WHITE, egui::Color32::WHITE), egui::Color32::WHITE);
+}

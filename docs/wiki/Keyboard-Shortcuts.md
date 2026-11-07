@@ -38,7 +38,7 @@ Ctrl is Cmd on a Mac. The keys work in the editor, not on the start screen, and 
 | Y | **Triangle (Y)** | H | **Pan (H)** |
 | S | **Star (S)** | Z | **Zoom in (Z)** |
 | G | **Polygon (G)** | X | **Zoom out (X)** |
-| K | **Heart (K)** | | |
+| K | **Heart (K)** | M | **Ruler (M)** |
 
 | Key | What it does |
 |---|---|

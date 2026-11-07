@@ -93,6 +93,7 @@ pub fn title_bar(ui: &mut egui::Ui, title: &str, logo: Option<&egui::TextureHand
 
 /// Resizing by the window edges, which the missing system frame no longer offers.
 pub fn window_edges(ctx: &egui::Context) {
+    release_stuck_drag(ctx);
     if ctx.input(|i| i.viewport().maximized.unwrap_or(false) || i.viewport().fullscreen.unwrap_or(false)) {
         return;
     }
@@ -313,6 +314,18 @@ pub fn popup<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], open
 
 /// Is the pointer over a window, a menu or another layer above the panels (and no button held)? The edge of a resizable panel
 /// must not light up and take the drag then: the person is pointing at the window that covers it.
+/// A drag whose release was missed (the button let go outside the window or over another window, or the window lost the focus
+/// while the button was held) would go on: the object, the slider or the colour follows the pointer with no button pressed. Such a
+/// drag is ended when nothing is pressed any more, or when the window loses the focus. Called every frame through `window_edges`.
+pub fn release_stuck_drag(ctx: &egui::Context) {
+    let (nothing_pressed, focus_lost) = ctx.input(|i| {
+        (!i.pointer.any_down() && !i.pointer.any_released() && !i.pointer.any_pressed(), i.events.iter().any(|e| matches!(e, egui::Event::WindowFocused(false))))
+    });
+    if (nothing_pressed || focus_lost) && ctx.dragged_id().is_some() {
+        ctx.stop_dragging();
+    }
+}
+
 pub fn pointer_over_window(ctx: &egui::Context) -> bool {
     if ctx.input(|i| i.pointer.any_down()) {
         return false;
@@ -653,5 +666,33 @@ mod size_tests {
             frame(&mut fit);
         }
         assert!(fit.generation <= g + 1, "the window keeps being resized: {g} -> {}", fit.generation);
+    }
+}
+
+#[cfg(test)]
+mod stuck_drag_tests {
+    use super::*;
+
+    /// A drag goes on while the button is held; when the window loses the focus in the middle of it, it is ended.
+    #[test]
+    fn a_drag_ends_when_the_window_loses_the_focus() {
+        let ctx = egui::Context::default();
+        let at = egui::pos2(50.0, 50.0);
+        let mut frame = |events: Vec<egui::Event>| {
+            let mut out = ctx.run_ui(egui::RawInput { events, ..Default::default() }, |ui| {
+                release_stuck_drag(ui.ctx());
+                ui.allocate_rect(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(200.0, 200.0)), egui::Sense::drag());
+            });
+            out.textures_delta.clear();
+        };
+        frame(vec![egui::Event::PointerMoved(at)]);
+        frame(vec![egui::Event::PointerButton { pos: at, button: egui::PointerButton::Primary, pressed: true, modifiers: Default::default() }]);
+        for i in 1..5 {
+            frame(vec![egui::Event::PointerMoved(at + egui::vec2(i as f32 * 10.0, 0.0))]);
+        }
+        assert!(ctx.dragged_id().is_some(), "dragged while the button is held");
+        frame(vec![egui::Event::WindowFocused(false)]);
+        frame(vec![]);
+        assert!(ctx.dragged_id().is_none(), "ended with the focus");
     }
 }

@@ -53,10 +53,12 @@ pub enum Tool {
     Pan,
     Zoom,
     ZoomOut,
+    /// Measure the distance between two points, or the length of a straight segment that is clicked.
+    Measure,
 }
 
 impl Tool {
-    pub const ALL: [(Tool, &'static str, Key); 15] = [
+    pub const ALL: [(Tool, &'static str, Key); 16] = [
         (Tool::Select, "Select (V)", Key::V),
         (Tool::Node, "Node edit (N)", Key::N),
         (Tool::Rect, "Rectangle (R)", Key::R),
@@ -72,6 +74,7 @@ impl Tool {
         (Tool::Pan, "Pan (H)", Key::H),
         (Tool::Zoom, "Zoom in (Z)", Key::Z),
         (Tool::ZoomOut, "Zoom out (X)", Key::X),
+        (Tool::Measure, "Ruler (M)", Key::M),
     ];
 
     /// Selecting and editing tools, kept apart from the tools that insert new objects.
@@ -86,8 +89,36 @@ impl Tool {
 
     /// View navigation tools, kept apart from the drawing and editing tools.
     pub fn is_nav(self) -> bool {
-        matches!(self, Tool::Pan | Tool::Zoom | Tool::ZoomOut)
+        matches!(self, Tool::Pan | Tool::Zoom | Tool::ZoomOut | Tool::Measure)
     }
+}
+
+/// The measurement of the ruler: from `a` to `b` (while `b` is not set, to the pointer). `segment` says that it is the length of a
+/// straight segment that was clicked.
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct Measure {
+    pub a: Option<Pt>,
+    pub b: Option<Pt>,
+    pub segment: bool,
+    /// The button is held since `a`: the end follows the pointer and is set where it is let go.
+    pub dragging: bool,
+}
+
+impl Measure {
+    /// The line measured, with the pointer `live` as the end while it is not set.
+    pub fn line(&self, live: Option<Pt>) -> Option<(Pt, Pt)> {
+        Some((self.a?, self.b.or(live)?))
+    }
+}
+
+/// The words of a measurement: the length, the differences in X and Y (as the coordinates of the work area count them) and the angle
+/// from the X axis as it is seen (counter-clockwise).
+pub fn measure_text(a: Pt, b: Pt, units: base_core::units::Units) -> String {
+    let (dx, dy) = (b.x - a.x, b.y - a.y);
+    let len = dx.hypot(dy);
+    let angle = if len > 1e-9 { (-dy).atan2(dx).to_degrees() } else { 0.0 };
+    let f = |v: f64| crate::units_ui::fmt_len(units, v, 2);
+    format!("{}   ΔX {}   ΔY {}   ∠ {:.1}°", f(len), f(dx), f(dy), angle)
 }
 
 #[derive(Clone, Debug)]
@@ -135,6 +166,13 @@ pub fn fit_region(avail: (f32, f32), min: (f64, f64), size: (f64, f64), margin: 
     let z = ((avail.0 - 2.0 * margin) / size.0 as f32).min((avail.1 - 2.0 * margin) / size.1 as f32).clamp(0.05, 200.0);
     let (cx, cy) = (min.0 as f32 + size.0 as f32 / 2.0, min.1 as f32 + size.1 as f32 / 2.0);
     (z, egui::vec2(avail.0 / 2.0 - cx * z, avail.1 / 2.0 - cy * z))
+}
+
+/// The colour of the shapes of a layer that makes no output (not cut, milled or drawn): faded far towards the work area `bed`, so
+/// they stand apart from the ones that are made and still show.
+pub fn faded_colour(c: egui::Color32, bed: egui::Color32) -> egui::Color32 {
+    let mix = |a: u8, b: u8| (a as f32 * 0.3 + b as f32 * 0.7).round() as u8;
+    egui::Color32::from_rgb(mix(c.r(), bed.r()), mix(c.g(), bed.g()), mix(c.b(), bed.b()))
 }
 
 pub fn nice_step(min_mm: f64) -> f64 {
@@ -294,6 +332,8 @@ pub struct EditorState {
     pub space_prev: Option<Tool>,
     /// When Escape was pressed last: a second press soon after goes back to the select tool.
     pub esc_time: f64,
+    /// What the ruler shows over the drawing.
+    pub measure: Measure,
     /// What was copied (shapes with their groups), ready to paste.
     pub clipboard: Vec<Shape>,
     /// The picture that was in the clipboard of the system when shapes were last copied: a paste takes the shapes while it is
@@ -340,6 +380,7 @@ impl EditorState {
         self.background_seq = 0;
         self.drag = None;
         self.pen_pts.clear();
+        self.measure = Measure::default();
         self.snap_targets = None;
         self.snap_guides = (None, None);
         self.last_param = None;
@@ -403,6 +444,7 @@ impl EditorState {
             image_tex: Default::default(),
             space_prev: None,
             esc_time: -10.0,
+            measure: Measure::default(),
             clipboard: vec![],
             clipboard_image_at_copy: None,
             img_dlg: None,

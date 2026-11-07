@@ -3,6 +3,16 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.78.0
+
+- **Ruler (M):** a new tool (`Tool::Measure`, after the zoom tools): drag or click two points and a line over the drawing shows the length, ΔX, ΔY and the angle; a point near a node takes the node; a click on a straight segment measures it. `EditorState::measure`, `measure_text`. Esc, another tool or the next measurement takes it away.
+- **Right click with a tool** is a double Escape: back to the select tool (a line of the pen is finished first); only the select tool has the context menu.
+- **Several selected objects** each have a thin dashed frame besides the frame of the selection.
+- **Node bar:** the keys are in the names ("Break (B)"); **Open / close** is gone (Break opens, dropping an end on the other closes).
+- **A drag whose release was missed** (the button let go outside the window or over another window, or the focus lost while it was held) no longer goes on with the object, slider or colour following the pointer: `window::release_stuck_drag` (through `window_edges`, every frame) ends it, and the editor ends its own drag when the work area is no longer dragged.
+- `editor::faded_colour`: the shapes of a layer that is not made, faded towards the work area.
+- 1 new text in every language (the ruler).
+
 ## v1.77.0
 
 - **Files of LightBurn and MillMage, both ways:** checked against the same drawings saved by LightBurn 2.2 and MillMage 0.9 (`tests/fixtures/interchange`, `tests/interchange.rs`).

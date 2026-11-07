@@ -6,7 +6,7 @@ BaseCreator edits shapes with the same tools as LightCreator, MillCreator and Pe
 
 ## Drawing
 
-The palette at the left has **Select (V)**, **Node edit (N)**, **Rectangle (R)**, **Ellipse (E)**, **Triangle (Y)**, **Star (S)**, **Polygon (G)**, **Heart (K)**, **Spiral (I)**, **Line (L)**, **Polyline / pen (P)**, **Text (T)**, **Pan (H)**, **Zoom in (Z)** and **Zoom out (X)**. The tools that insert objects are also in the **Insert** menu, with **Generate shape…** (the generators of plugins) and **Online clipart…**.
+The palette at the left has **Select (V)**, **Node edit (N)**, **Rectangle (R)**, **Ellipse (E)**, **Triangle (Y)**, **Star (S)**, **Polygon (G)**, **Heart (K)**, **Spiral (I)**, **Line (L)**, **Polyline / pen (P)**, **Text (T)**, **Pan (H)**, **Zoom in (Z)**, **Zoom out (X)** and **Ruler (M)**. The tools that insert objects are also in the **Insert** menu, with **Generate shape…** (the generators of plugins) and **Online clipart…**.
 
 ## Text
 
@@ -46,3 +46,11 @@ The **Clipart** tab has ready-made pictures, in a gallery shared with the other 
 ## The right panel
 
 The tabs are **Properties**, **Layers**, **Clipart** and **Description**. See [Panes and Tabs](Panes-and-Tabs#the-right-panel).
+
+## Ruler, selection and the node bar
+
+* **Ruler (M):** the tool after **Zoom out (X)** in the palette. Drag from one point to another, or click two points: a line over the drawing shows the length, ΔX, ΔY and the angle, in the units of the program. A point near a node of a shape takes the node itself (otherwise the grid when snapping is on). A click on a straight segment of a shape (a side of a rectangle, a line) measures that segment. The measurement stays until the next one, **Esc** or another tool; nothing in the drawing is changed.
+* **Right click with a tool** (a shape, the pen, the node tool, the ruler…) works as a double **Esc**: back to **Select (V)** with nothing selected; a line being drawn with the pen is finished first. With the select tool the right click opens the context menu as before.
+* **Several objects selected:** besides the frame of the whole selection, every object has a thin dashed frame of its own.
+* **The node bar** shows the keys after the names: **Corner (C)**, **To line (L)**, **To curve (S)**, **Add node (I)**, **Delete node (D)**, **Round (R)**, **Break (B)**. **Open / close** is gone: **Break (B)** opens a path, and a path is closed by dropping one of its ends onto the other.
+* **A layer that is not made** (its output switched off) shows its objects faded towards the work area.

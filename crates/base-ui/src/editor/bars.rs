@@ -28,6 +28,7 @@ pub fn select_tool(ed: &mut super::EditorState, t: Tool) {
     ed.tool = t;
     ed.space_prev = None;
     ed.pen_pts.clear();
+    ed.measure = super::Measure::default();
     ed.show_shape_popup = matches!(t, Tool::Polygon | Tool::Spiral);
 }
 

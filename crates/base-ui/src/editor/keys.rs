@@ -42,6 +42,7 @@ pub fn plain_keys<H: EditorHost>(h: &mut H, ctx: &egui::Context, arrows: bool) {
     if ctx.input(|i| i.key_pressed(Key::Escape) && i.modifiers.is_none()) {
         h.note_escape(ctx.input(|i| i.time));
         h.ed_mut().pen_pts.clear();
+        h.ed_mut().measure = super::Measure::default();
         if h.ed().tool == Tool::Node && !h.ed().node_sel.is_empty() {
             h.ed_mut().node_sel.clear();
         } else {

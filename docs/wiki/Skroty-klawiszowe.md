@@ -38,7 +38,7 @@ Ctrl to Cmd na Macu. Klawisze działają w edytorze, nie na ekranie startowym, i
 | Y | **Trójkąt (Y)** | H | **Przesuwanie widoku (H)** |
 | S | **Gwiazda (S)** | Z | **Powiększ (Z)** |
 | G | **Wielokąt (G)** | X | **Pomniejsz (X)** |
-| K | **Serce (K)** | | |
+| K | **Serce (K)** | M | **Linijka (M)** |
 
 | Klawisz | Co robi |
 |---|---|

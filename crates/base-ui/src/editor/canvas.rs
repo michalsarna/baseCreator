@@ -183,6 +183,15 @@ pub trait EditorCanvas: EditorHost {
             // Red while the handles resize, blue while they turn and slant.
             let ink = if self.ed().rotate_mode { Color32::from_rgb(0x2f, 0x7f, 0xe8) } else { Color32::from_rgb(0xe0, 0x30, 0x30) };
             painter.rect_stroke(sr, 0.0, Stroke::new(1.0, ink), egui::StrokeKind::Outside);
+            // With several objects selected, each one has a thin dashed frame of its own, so it is seen what is in the selection.
+            if self.ed().sel.len() > 1 {
+                let thin = Stroke::new(1.0, ink.gamma_multiply(0.75));
+                for b in self.ed().sel.iter().filter_map(|id| self.scene().shape(*id)).filter_map(|s| s.bounds()) {
+                    let r = egui::Rect::from_min_max(self.w2s(o, b.min), self.w2s(o, b.max)).expand(2.0);
+                    let c = [r.left_top(), r.right_top(), r.right_bottom(), r.left_bottom(), r.left_top()];
+                    painter.extend(egui::Shape::dashed_line(&c, thin, 4.0, 3.0));
+                }
+            }
             let all_locked = self.ed().sel.iter().filter_map(|id| self.scene().shape(*id)).all(|s| s.locked);
             if self.ed().tool == Tool::Select && !all_locked {
                 for (i, h) in handle_pts(&b).into_iter().enumerate() {
@@ -261,7 +270,22 @@ pub trait EditorCanvas: EditorHost {
                 }
             }
         }
-        if !matches!(self.ed().tool, Tool::Pen | Tool::Pan | Tool::Zoom | Tool::ZoomOut) {
+        // Right click with any other tool is a double Escape: back to the select tool (a line being drawn with the pen is finished
+        // first, so it is not lost). Only the select tool has the context menu.
+        if resp.secondary_clicked() && self.ed().tool != Tool::Select {
+            if self.ed().tool == Tool::Pen && self.ed().pen_pts.len() >= 2 {
+                self.finish_pen(false);
+            }
+            let ed = self.ed_mut();
+            ed.pen_pts.clear();
+            ed.measure = super::Measure::default();
+            ed.node_sel.clear();
+            ed.sel.clear();
+            ed.drag = None;
+            super::select_tool(ed, Tool::Select);
+            return;
+        }
+        if self.ed().tool == Tool::Select {
             self.canvas_context_menu(ui, &resp);
         }
         let background_busy = super::EditorBackground::background_interact(self, &resp, o, press);
@@ -479,6 +503,34 @@ pub trait EditorCanvas: EditorHost {
                 }
             }
             Tool::Pan => ui.ctx().set_cursor_icon(if resp.dragged() { CursorIcon::Grabbing } else { CursorIcon::Grab }),
+            Tool::Measure => {
+                ui.ctx().set_cursor_icon(CursorIcon::Crosshair);
+                if resp.drag_started_by(PointerButton::Primary) {
+                    if let Some(m) = press {
+                        let a = self.measure_point(o, m);
+                        self.ed_mut().measure = super::Measure { a: Some(a), b: None, segment: false, dragging: true };
+                    }
+                } else if resp.drag_stopped_by(PointerButton::Primary) && self.ed().measure.dragging {
+                    let b = hpos.map(|m| self.measure_point(o, m));
+                    let ms = &mut self.ed_mut().measure;
+                    ms.b = b;
+                    ms.dragging = false;
+                } else if resp.clicked() {
+                    if let Some(m) = hpos {
+                        let ms = self.ed().measure;
+                        if ms.a.is_some() && ms.b.is_none() && !ms.dragging {
+                            // The second click ends the line.
+                            let b = self.measure_point(o, m);
+                            self.ed_mut().measure.b = Some(b);
+                        } else if let Some((a, b)) = self.straight_segment_at(o, m) {
+                            self.ed_mut().measure = super::Measure { a: Some(a), b: Some(b), segment: true, dragging: false };
+                        } else {
+                            let a = self.measure_point(o, m);
+                            self.ed_mut().measure = super::Measure { a: Some(a), b: None, segment: false, dragging: false };
+                        }
+                    }
+                }
+            }
         }
         }
 
@@ -670,7 +722,9 @@ pub trait EditorCanvas: EditorHost {
         if self.ed().drag.is_none() && !mouse.is_some_and(|m| bed.contains(m)) {
             ui.ctx().set_cursor_icon(CursorIcon::Default);
         }
-        if resp.drag_stopped_by(PointerButton::Primary) {
+        // A drag of the editor ends when the button is let go, also when the release itself was not seen by the work area.
+        let let_go = self.ed().drag.is_some() && !resp.dragged() && !resp.drag_stopped();
+        if resp.drag_stopped_by(PointerButton::Primary) || let_go {
             self.ed_mut().snap_guides = (None, None);
             self.ed_mut().snap_targets = None;
             if let (Some(d), Some(m)) = (self.ed_mut().drag.take(), hpos) {
@@ -752,6 +806,27 @@ pub trait EditorCanvas: EditorHost {
                 painter.circle_filled(*p, 3.0, theme::accent());
             }
             painter.add(egui::Shape::line(pts, st));
+        }
+
+        // ---- the ruler ----
+        let live = if self.ed().tool == Tool::Measure { mouse.map(|m| self.measure_point(o, m)) } else { None };
+        if let Some((a, b)) = self.ed().measure.line(live) {
+            let (pa, pb) = (self.w2s(o, a), self.w2s(o, b));
+            let ink = theme::accent();
+            let halo = Stroke::new(4.0, Color32::from_black_alpha(90));
+            painter.line_segment([pa, pb], halo);
+            painter.line_segment([pa, pb], Stroke::new(if self.ed().measure.segment { 2.5 } else { 1.6 }, ink));
+            for p in [pa, pb] {
+                painter.circle_filled(p, 3.5, Color32::WHITE);
+                painter.circle_stroke(p, 3.5, Stroke::new(1.5, ink));
+            }
+            let text = super::measure_text(a, b, self.units());
+            let at = pa + (pb - pa) / 2.0 + egui::vec2(10.0, -10.0);
+            let galley = painter.layout_no_wrap(text, egui::FontId::proportional(13.0), Color32::WHITE);
+            let r = egui::Rect::from_min_size(at - egui::vec2(0.0, galley.size().y), galley.size()).expand2(egui::vec2(6.0, 3.0));
+            painter.rect_filled(r, 4.0, Color32::from_rgba_unmultiplied(0x20, 0x20, 0x28, 225));
+            painter.rect_stroke(r, 4.0, Stroke::new(1.0, ink), egui::StrokeKind::Outside);
+            painter.galley(r.min + egui::vec2(6.0, 3.0), galley, Color32::WHITE);
         }
 
         self.rulers(&painter, rect);
