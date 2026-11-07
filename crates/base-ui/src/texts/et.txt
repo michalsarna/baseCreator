@@ -1155,3 +1155,4 @@
 1154|Paberi värv
 1155|Materjali värv
 1156|Tagasi automaatse värvi juurde
+1157|Venitab pildi hallid toonid ise kogu ulatusele; kahte liugurit siis ei kasutata

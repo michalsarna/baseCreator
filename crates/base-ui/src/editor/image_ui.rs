@@ -168,7 +168,6 @@ fn image_controls(ui: &mut egui::Ui, d: &mut ImgDlg, units: base_core::units::Un
         ui.add(egui::Slider::new(&mut d.adj.gamma, 0.2..=3.0).logarithmic(true));
         ui.end_row();
     });
-    ui.checkbox(&mut d.adj.auto_levels, tr("Auto levels"));
     ui.checkbox(&mut d.negative, tr("Negative image")).on_hover_text(tr("Swap the light and the dark parts of the picture"));
     ui.add_space(4.0);
     ui.label(RichText::new(tr("Size")).strong());
@@ -187,6 +186,14 @@ fn image_controls(ui: &mut egui::Ui, d: &mut ImgDlg, units: base_core::units::Un
 /// The histogram of the greys, with the two sliders of the range under it.
 fn levels_panel(ui: &mut egui::Ui, d: &mut ImgDlg) {
     ui.label(RichText::new(tr("Levels")).strong());
+    ui.checkbox(&mut d.adj.auto_levels, tr("Auto levels")).on_hover_text(tr("Stretch the greys of the picture to the full range by itself; the two sliders are not used then"));
+    // With auto levels the edges are the ones found in the picture, shown on the locked sliders.
+    let (black_at, white_at) = if d.adj.auto_levels {
+        let (lo, hi) = base_core::image::auto_range(&d.hist_in);
+        (lo as f32 / 255.0, hi as f32 / 255.0)
+    } else {
+        (d.adj.black, d.adj.white)
+    };
     let (rect, _) = ui.allocate_exact_size(egui::vec2(HIST_W, 150.0), egui::Sense::hover());
     let p = ui.painter_at(rect);
     p.rect_filled(rect, 3.0, theme::panel_dark());
@@ -203,7 +210,7 @@ fn levels_panel(ui: &mut egui::Ui, d: &mut ImgDlg) {
     let pts: Vec<egui::Pos2> = d.hist_out.iter().enumerate().map(|(i, c)| egui::pos2(rect.left() + (i as f32 + 0.5) * col, rect.bottom() - (*c as f32).sqrt() / top * (rect.height() - 4.0))).collect();
     p.add(egui::Shape::line(pts, Stroke::new(1.2, theme::accent())));
     // The grey outside the range is dimmed, the two edges are lines.
-    let (xb, xw) = (x_of(d.adj.black), x_of(d.adj.white));
+    let (xb, xw) = (x_of(black_at), x_of(white_at));
     let dim = Color32::from_black_alpha(140);
     p.rect_filled(egui::Rect::from_min_max(rect.min, egui::pos2(xb, rect.bottom())), 0.0, dim);
     p.rect_filled(egui::Rect::from_min_max(egui::pos2(xw, rect.top()), rect.max), 0.0, dim);
@@ -211,13 +218,17 @@ fn levels_panel(ui: &mut egui::Ui, d: &mut ImgDlg) {
         p.line_segment([egui::pos2(x, rect.top()), egui::pos2(x, rect.bottom())], Stroke::new(1.5, Color32::WHITE));
     }
     ui.spacing_mut().slider_width = HIST_W - 70.0;
-    let (mut black, mut white) = (d.adj.black * 255.0, d.adj.white * 255.0);
+    let (mut black, mut white) = (black_at * 255.0, white_at * 255.0);
+    let manual = !d.adj.auto_levels;
     ui.horizontal(|ui| {
-        ui.add(egui::Slider::new(&mut black, 0.0..=254.0).integer()).on_hover_text(tr("Everything darker than this turns black"));
+        ui.add_enabled(manual, egui::Slider::new(&mut black, 0.0..=254.0).integer()).on_hover_text(tr("Everything darker than this turns black"));
     });
     ui.horizontal(|ui| {
-        ui.add(egui::Slider::new(&mut white, 1.0..=255.0).integer()).on_hover_text(tr("Everything lighter than this turns white"));
+        ui.add_enabled(manual, egui::Slider::new(&mut white, 1.0..=255.0).integer()).on_hover_text(tr("Everything lighter than this turns white"));
     });
+    if !manual {
+        return;
+    }
     // The two never cross: the one that was not touched gives way.
     if (black / 255.0 - d.adj.black).abs() > 1e-6 {
         black = black.min(white - 1.0);
@@ -515,3 +526,23 @@ pub trait EditorImages: EditorHost {
 }
 
 impl<T: EditorHost> EditorImages for T {}
+
+#[cfg(test)]
+mod levels_tests {
+    use super::*;
+
+    #[test]
+    fn auto_levels_lock_the_sliders_and_keep_the_range_chosen_by_hand() {
+        let gray: Vec<u8> = (0..1000).map(|i| 100 + (i % 51) as u8).collect();
+        let im = ImageData { name: "p".into(), px_w: 1000, px_h: 1, gray, w: 100.0, h: 0.1, invert: false };
+        let mut d = ImgDlg::new(None, im);
+        d.adj.black = 0.2;
+        d.adj.auto_levels = true;
+        let ctx = egui::Context::default();
+        let mut out = ctx.run_ui(Default::default(), |ui| levels_panel(ui, &mut d));
+        out.textures_delta.clear();
+        assert_eq!((d.adj.black, d.adj.white), (0.2, 1.0), "the sliders show the found range but do not take it");
+        let r = d.result();
+        assert_eq!((r.gray[0], r.gray[50]), (0, 255), "the picture is stretched from 100 to 150");
+    }
+}

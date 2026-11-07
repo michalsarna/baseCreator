@@ -1155,3 +1155,4 @@
 1154	Paper colour
 1155	Material colour
 1156	Back to the automatic colour
+1157	Stretch the greys of the picture to the full range by itself; the two sliders are not used then

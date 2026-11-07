@@ -1155,3 +1155,4 @@
 1154|Litur pappírs
 1155|Litur efnis
 1156|Aftur í sjálfvirkan lit
+1157|Teygir sjálfkrafa gráa tóna myndarinnar yfir allt sviðið; sleðarnir tveir eru þá ekki notaðir

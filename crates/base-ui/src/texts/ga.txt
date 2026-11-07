@@ -1155,3 +1155,4 @@
 1154|Dath an pháipéir
 1155|Dath an ábhair
 1156|Ar ais go dtí an dath uathoibríoch
+1157|Síneann sé liatha an phictiúir go dtí an raon iomlán leis féin; ní úsáidtear an dá sleamhnán ansin

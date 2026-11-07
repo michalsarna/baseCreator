@@ -1155,3 +1155,4 @@
 1154|Couleur du papier
 1155|Couleur du matériau
 1156|Revenir à la couleur automatique
+1157|Étire d'elle-même les gris de l'image sur toute la plage ; les deux curseurs ne sont alors pas utilisés

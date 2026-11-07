@@ -1155,3 +1155,4 @@
 1154|Barva papíru
 1155|Barva materiálu
 1156|Zpět na automatickou barvu
+1157|Sám roztáhne šedé tóny obrázku na celý rozsah; dva posuvníky se pak nepoužívají

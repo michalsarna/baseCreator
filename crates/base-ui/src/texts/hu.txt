@@ -1155,3 +1155,4 @@
 1154|Papír színe
 1155|Az anyag színe
 1156|Vissza az automatikus színhez
+1157|Magától kiterjeszti a kép szürkéit a teljes tartományra; a két csúszka ilyenkor nincs használatban

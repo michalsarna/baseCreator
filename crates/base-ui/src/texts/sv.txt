@@ -1155,3 +1155,4 @@
 1154|Pappersfärg
 1155|Materialfärg
 1156|Tillbaka till den automatiska färgen
+1157|Sträcker själv ut bildens gråtoner över hela omfånget; de två reglagen används då inte

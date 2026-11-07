@@ -1155,3 +1155,4 @@
 1154|Cor do papel
 1155|Cor do material
 1156|Voltar à cor automática
+1157|Estica por si os cinzentos da imagem para todo o intervalo; os dois controlos deslizantes não são então usados

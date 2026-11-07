@@ -1155,3 +1155,4 @@
 1154|Color del papel
 1155|Color del material
 1156|Volver al color automático
+1157|Estira por sí solo los grises de la imagen a todo el rango; entonces los dos deslizadores no se usan

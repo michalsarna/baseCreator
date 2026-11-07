@@ -1155,3 +1155,4 @@
 1154|Kulur tal-karta
 1155|Kulur tal-materjal
 1156|Lura għall-kulur awtomatiku
+1157|Jistira waħdu l-griżi tal-istampa għall-medda sħiħa; iż-żewġ slajders ma jintużawx imbagħad

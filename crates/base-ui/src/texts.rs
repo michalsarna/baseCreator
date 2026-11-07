@@ -1162,6 +1162,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Paper colour", "Kolor papieru", "Papierfarbe", "Colore della carta", "Paperin väri", "纸张颜色", "कागज़ का रंग"],
     ["Material colour", "Kolor materiału", "Materialfarbe", "Colore del materiale", "Materiaalin väri", "材料颜色", "सामग्री का रंग"],
     ["Back to the automatic colour", "Wróć do koloru automatycznego", "Zurück zur automatischen Farbe", "Torna al colore automatico", "Palaa automaattiseen väriin", "恢复为自动颜色", "स्वचालित रंग पर वापस जाएँ"],
+    ["Stretch the greys of the picture to the full range by itself; the two sliders are not used then", "Rozciąga szarości obrazu na pełny zakres samodzielnie; dwa suwaki nie są wtedy używane", "Streckt die Grautöne des Bildes selbst auf den vollen Bereich; die zwei Schieberegler werden dann nicht verwendet", "Estende da solo i grigi dell'immagine all'intera gamma; i due cursori non vengono allora usati", "Venyttää kuvan harmaasävyt itse koko alueelle; kahta liukusäädintä ei silloin käytetä", "自动将图片的灰度拉伸到完整范围；此时不使用两个滑块", "चित्र के धूसर रंगों को अपने-आप पूरी सीमा तक फैलाता है; तब दोनों स्लाइडर उपयोग नहीं होते"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
