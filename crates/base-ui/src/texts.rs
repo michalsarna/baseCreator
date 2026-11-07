@@ -1170,6 +1170,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Export LightBurn project…", "Eksportuj projekt LightBurn…", "LightBurn-Projekt exportieren…", "Esporta progetto LightBurn…", "Vie LightBurn-projekti…", "导出 LightBurn 项目…", "LightBurn प्रोजेक्ट निर्यात करें…"],
     ["Export MillMage project…", "Eksportuj projekt MillMage…", "MillMage-Projekt exportieren…", "Esporta progetto MillMage…", "Vie MillMage-projekti…", "导出 MillMage 项目…", "MillMage प्रोजेक्ट निर्यात करें…"],
     ["Imported {} paths and {} pictures from {}", "Zaimportowano {} ścieżek i {} obrazów z {}", "{} Pfade und {} Bilder importiert aus {}", "Importati {} tracciati e {} immagini da {}", "Tuotu {} polkua ja {} kuvaa kohteesta {}", "已导入 {} 条路径和 {} 张图片，来自 {}", "{} पाथ और {} चित्र आयात किए गए, स्रोत: {}"],
+    ["Ruler (M)", "Linijka (M)", "Lineal (M)", "Righello (M)", "Viivain (M)", "标尺 (M)", "रूलर (M)"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

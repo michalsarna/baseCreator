@@ -228,6 +228,47 @@ pub trait EditorHost: Sized {
     }
 
     /// The shape under `p`: on an outline first, else the smallest closed shape that contains the point.
+/// A point for the ruler under the screen position `m`: a node of a shape near it (8 points), or else the point on the grid
+    /// when snapping is on, or the point itself.
+    fn measure_point(&self, o: Pos2, m: Pos2) -> Pt {
+        let w = self.s2w(o, m);
+        let tol = 8.0 / self.ed().view.zoom.max(1e-6) as f64;
+        let mut best: Option<(f64, Pt)> = None;
+        for s in self.scene().shapes.iter().filter(|s| self.layer_visible(s.layer)) {
+            for c in base_core::export::contours_of(s) {
+                for n in &c.nodes {
+                    let d = n.p.dist(w);
+                    if d <= tol && best.is_none_or(|(bd, _)| d < bd) {
+                        best = Some((d, n.p));
+                    }
+                }
+            }
+        }
+        best.map_or_else(|| self.snapped(w), |(_, p)| p)
+    }
+
+    /// The ends of the straight segment of a shape under the screen position `m` (within 6 points), the topmost shape first.
+    fn straight_segment_at(&self, o: Pos2, m: Pos2) -> Option<(Pt, Pt)> {
+        let w = self.s2w(o, m);
+        let tol = 6.0 / self.ed().view.zoom.max(1e-6) as f64;
+        for s in self.scene().shapes.iter().rev().filter(|s| self.layer_visible(s.layer)) {
+            for c in base_core::export::contours_of(s) {
+                let n = c.nodes.len();
+                let segs = if c.closed { n } else { n.saturating_sub(1) };
+                for i in 0..segs {
+                    let (a, b) = (c.nodes[i], c.nodes[(i + 1) % n]);
+                    if a.has_out() || b.has_in() {
+                        continue;
+                    }
+                    if base_core::geom::Polyline::new(vec![a.p, b.p], false).dist_to(w) <= tol {
+                        return Some((a.p, b.p));
+                    }
+                }
+            }
+        }
+        None
+    }
+
     fn hit_shape(&self, p: Pt) -> Option<u64> {
         let tol = 5.0 / self.ed().view.zoom as f64;
         let visible = || self.scene().shapes.iter().rev().filter(|s| self.layer_visible(s.layer));
@@ -543,27 +584,6 @@ pub trait EditorHost: Sized {
         self.touch();
     }
 
-    /// Close an open contour, or open a closed one at the selected node.
-    fn nodes_toggle_closed(&mut self) {
-        let Some(&(id, ci, ni)) = self.ed().node_sel.first() else { return };
-        self.checkpoint();
-        if let Some(c) = self.contour_mut(id, ci) {
-            if c.closed {
-                // Break at the selected node: it becomes both end points.
-                c.nodes.rotate_left(ni);
-                let mut end = c.nodes[0];
-                end.hout = end.p;
-                c.nodes[0].hin = c.nodes[0].p;
-                c.nodes.push(end);
-                c.closed = false;
-            } else if c.nodes.len() >= 3 {
-                c.closed = true;
-            }
-        }
-        self.ed_mut().node_sel.clear();
-        self.touch();
-    }
-
     /// Break the path at the selected node: a closed path opens there, an open one is cut in two (B).
     fn nodes_break(&mut self) {
         let Some(&(id, ci, ni)) = self.ed().node_sel.first() else { return };
@@ -668,40 +688,36 @@ pub trait EditorHost: Sized {
         }
     }
 
-    /// The buttons of the node-editing bar.
+    /// The buttons of the node-editing bar. A button with a key shows it after its name ("Break (B)"); the keys are `node_keys`.
     fn node_bar(&mut self, ui: &mut egui::Ui) {
         let has_nodes = !self.ed().node_sel.is_empty();
         let has_seg = has_nodes || self.ed().active_seg.is_some();
-        // The key of each button is in its tooltip (`node_keys`).
-        let tip = |text: &'static str, key: &str| format!("{} ({key})", tr(text));
-        if ui.add_enabled(has_nodes, egui::Button::new(tr("Corner"))).on_hover_text(tip("Make the selected nodes corners", "C")).clicked() {
+        let named = |text: &'static str, key: &str| format!("{} ({key})", tr(text));
+        if ui.add_enabled(has_nodes, egui::Button::new(named("Corner", "C"))).on_hover_text(tr("Make the selected nodes corners")).clicked() {
             self.nodes_smooth(false);
         }
         if ui.add_enabled(has_nodes, egui::Button::new(tr("Smooth"))).on_hover_text(tr("Make the selected nodes smooth")).clicked() {
             self.nodes_smooth(true);
         }
-        if ui.add_enabled(has_seg, egui::Button::new(tr("To line"))).on_hover_text(tip("Make the segment after each selected node straight", "L")).clicked() {
+        if ui.add_enabled(has_seg, egui::Button::new(named("To line", "L"))).on_hover_text(tr("Make the segment after each selected node straight")).clicked() {
             self.segments_set(false);
         }
-        if ui.add_enabled(has_seg, egui::Button::new(tr("To curve"))).on_hover_text(tip("Make the segment after each selected node a curve", "S")).clicked() {
+        if ui.add_enabled(has_seg, egui::Button::new(named("To curve", "S"))).on_hover_text(tr("Make the segment after each selected node a curve")).clicked() {
             self.segments_set(true);
         }
-        if ui.add_enabled(has_seg, egui::Button::new(tr("Add node"))).on_hover_text(tip("Insert a node (or double-click a segment)", "I")).clicked() {
+        if ui.add_enabled(has_seg, egui::Button::new(named("Add node", "I"))).on_hover_text(tr("Insert a node (or double-click a segment)")).clicked() {
             let at = self.ed().active_seg.map(|s| (s, 0.5));
             self.nodes_insert(at);
         }
-        if self.delete_button(ui, has_nodes, &tr("Delete node")).on_hover_text(format!("{} (D)", tr("Delete node"))).clicked() {
+        if self.delete_button(ui, has_nodes, &named("Delete node", "D")).on_hover_text(tr("Delete node")).clicked() {
             self.delete_nodes();
         }
         ui.add(egui::DragValue::new(&mut self.ed_mut().fillet_radius).range(0.05..=500.0).speed(0.1).suffix(" mm")).on_hover_text(tr("Radius for rounding"));
-        if ui.add_enabled(has_nodes, egui::Button::new(tr("Round"))).on_hover_text(tip("Round the selected corners with this radius", "R")).clicked() {
+        if ui.add_enabled(has_nodes, egui::Button::new(named("Round", "R"))).on_hover_text(tr("Round the selected corners with this radius")).clicked() {
             let r = self.ed().fillet_radius;
             self.round_selected_nodes(r);
         }
-        if ui.add_enabled(has_nodes, egui::Button::new(tr("Open / close"))).on_hover_text(tr("Close an open path, or open a closed one at the selected node")).clicked() {
-            self.nodes_toggle_closed();
-        }
-        if ui.add_enabled(has_nodes, egui::Button::new(tr("Break"))).on_hover_text(tip("Break the path at the selected node: a closed one opens there, an open one is cut in two", "B")).clicked() {
+        if ui.add_enabled(has_nodes, egui::Button::new(named("Break", "B"))).on_hover_text(tr("Break the path at the selected node: a closed one opens there, an open one is cut in two")).clicked() {
             self.nodes_break();
         }
     }

@@ -57,6 +57,7 @@ pub fn tool_icon(t: Tool) -> &'static str {
         Tool::Pan => "hand",
         Tool::Zoom => "zoom-in",
         Tool::ZoomOut => "zoom-out",
+        Tool::Measure => "ruler",
     }
 }
 
