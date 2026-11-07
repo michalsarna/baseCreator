@@ -1151,3 +1151,7 @@
 1150|Nimic din toate acestea nu a fost încercat pe mașina dvs.: faceți un prim test fără freză sau cu freza mult deasupra materialului.
 1151|Nimic din toate acestea nu a fost încercat pe plotterul dvs.: faceți un prim test cu stiloul ridicat și fără hârtie.
 1152|Dispozitivul a fost adăugat. Apăsați Nou pentru a începe.
+1153|Culoarea zonei de lucru
+1154|Culoarea hârtiei
+1155|Culoarea materialului
+1156|Înapoi la culoarea automată

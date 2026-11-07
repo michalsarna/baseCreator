@@ -1151,3 +1151,7 @@
 1150|Intet af dette er afprøvet på din maskine: kør en første test uden fræser eller med fræseren et godt stykke over materialet.
 1151|Intet af dette er afprøvet på din plotter: kør en første test med pennen løftet og uden papir.
 1152|Enheden blev tilføjet. Tryk på Ny for at starte.
+1153|Farve på arbejdsområdet
+1154|Papirfarve
+1155|Materialefarve
+1156|Tilbage til den automatiske farve

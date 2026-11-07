@@ -1151,3 +1151,7 @@
 1150|Níor tástáladh aon chuid de seo ar do mheaisín: déan an chéad tástáil gan giotán, nó leis an ngiotán i bhfad os cionn an ábhair.
 1151|Níor tástáladh aon chuid de seo ar do bhreacadóir: déan an chéad tástáil leis an bpeann ardaithe agus gan páipéar.
 1152|Cuireadh an gléas leis. Brúigh Nua chun tosú.
+1153|Dath an limistéir oibre
+1154|Dath an pháipéir
+1155|Dath an ábhair
+1156|Ar ais go dtí an dath uathoibríoch

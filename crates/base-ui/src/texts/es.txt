@@ -1151,3 +1151,7 @@
 1150|Nada de esto se ha probado en su máquina: haga una primera prueba sin fresa o con la fresa bien por encima del material.
 1151|Nada de esto se ha probado en su trazador: haga una primera prueba con el bolígrafo levantado y sin papel.
 1152|Se añadió el dispositivo. Pulse Nuevo para empezar.
+1153|Color del área de trabajo
+1154|Color del papel
+1155|Color del material
+1156|Volver al color automático

@@ -1151,3 +1151,7 @@
 1150|Ingenting av dette er prøvd på maskinen din: kjør en første test uten fres, eller med fresen godt over materialet.
 1151|Ingenting av dette er prøvd på plotteren din: kjør en første test med pennen løftet og uten papir.
 1152|Enheten ble lagt til. Trykk Ny for å starte.
+1153|Farge på arbeidsområdet
+1154|Papirfarge
+1155|Materialfarge
+1156|Tilbake til automatisk farge

@@ -1151,3 +1151,7 @@
 1150|Niets hiervan is op uw machine geprobeerd: doe een eerste test zonder frees of met de frees ruim boven het materiaal.
 1151|Niets hiervan is op uw plotter geprobeerd: doe een eerste test met de pen omhoog en zonder papier.
 1152|Het apparaat is toegevoegd. Druk op Nieuw om te beginnen.
+1153|Kleur van het werkgebied
+1154|Papierkleur
+1155|Materiaalkleur
+1156|Terug naar de automatische kleur

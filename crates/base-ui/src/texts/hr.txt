@@ -1151,3 +1151,7 @@
 1150|Ništa od ovoga nije isprobano na vašem stroju: prvi test napravite bez glodala ili s glodalom visoko iznad materijala.
 1151|Ništa od ovoga nije isprobano na vašem crtalu: prvi test napravite s podignutom olovkom i bez papira.
 1152|Uređaj je dodan. Pritisnite Novo za početak.
+1153|Boja radnog područja
+1154|Boja papira
+1155|Boja materijala
+1156|Natrag na automatsku boju

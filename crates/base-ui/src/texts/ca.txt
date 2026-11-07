@@ -1151,3 +1151,7 @@
 1150|Res d'això no s'ha provat a la vostra màquina: feu una primera prova sense fresa o amb la fresa ben per sobre del material.
 1151|Res d'això no s'ha provat al vostre traçador: feu una primera prova amb la ploma aixecada i sense paper.
 1152|S'ha afegit el dispositiu. Premeu Nou per començar.
+1153|Color de l'àrea de treball
+1154|Color del paper
+1155|Color del material
+1156|Torna al color automàtic

@@ -1151,3 +1151,7 @@
 1150|Ezek közül semmit sem próbáltak ki a gépén: az első próbát maró nélkül vagy a marót jóval az anyag fölött végezze.
 1151|Ezek közül semmit sem próbáltak ki a rajzgépén: az első próbát felemelt tollal és papír nélkül végezze.
 1152|Az eszköz hozzáadva. A kezdéshez nyomja meg az Új gombot.
+1153|A munkaterület színe
+1154|Papír színe
+1155|Az anyag színe
+1156|Vissza az automatikus színhez

@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.75.0
+
+- **The colour of the work area in the previews of a job:** `widgets::area_colour` (the label, a colour button and **Automatic** while a colour of one's own is set) and `GridPrefs::preview_color` (kept with the view settings; `None` is the colour of the drawing, `preview_fill`). LightCreator shows it as *Work area colour*, MillCreator as *Material colour* (the block in the 3D view) and PenCreator as *Paper colour*. BaseCreator has no preview of a job: the colour of its page is in the view options, as before.
+- 4 new texts in every language.
+
 ## v1.74.0
 
 - **One window for adding a device** (`add_device_ui`), as LightCreator had it: the name, the controller, the connection (its type, the port with Refresh or the host and its TCP port), **Read from device** (the button says how the read went), the rows of the machine (the program's own), an optional camera with a test, **Worth checking**, and **Add device**, **More settings…**, **I have no device** and **Cancel**. MillCreator and PenCreator use it too (they opened the whole device window).

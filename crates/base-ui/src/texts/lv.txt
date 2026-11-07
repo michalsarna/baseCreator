@@ -1151,3 +1151,7 @@
 1150|Nekas no tā nav izmēģināts uz jūsu mašīnas: pirmo testu veiciet bez frēzes vai ar frēzi krietni virs materiāla.
 1151|Nekas no tā nav izmēģināts uz jūsu plottera: pirmo testu veiciet ar paceltu pildspalvu un bez papīra.
 1152|Ierīce pievienota. Nospiediet Jauns, lai sāktu.
+1153|Darba zonas krāsa
+1154|Papīra krāsa
+1155|Materiāla krāsa
+1156|Atpakaļ uz automātisko krāsu

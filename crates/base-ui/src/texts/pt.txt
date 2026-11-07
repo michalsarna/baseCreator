@@ -1151,3 +1151,7 @@
 1150|Nada disto foi experimentado na sua máquina: faça um primeiro teste sem fresa ou com a fresa bem acima do material.
 1151|Nada disto foi experimentado no seu plotter: faça um primeiro teste com a caneta levantada e sem papel.
 1152|O dispositivo foi adicionado. Prima Novo para começar.
+1153|Cor da área de trabalho
+1154|Cor do papel
+1155|Cor do material
+1156|Voltar à cor automática

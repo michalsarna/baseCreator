@@ -1151,3 +1151,7 @@
 1150|Niekas iš to nebuvo išbandyta jūsų staklėse: pirmą bandymą atlikite be frezos arba su freza gerokai virš medžiagos.
 1151|Niekas iš to nebuvo išbandyta jūsų braižytuve: pirmą bandymą atlikite su pakeltu rašikliu ir be popieriaus.
 1152|Įrenginys pridėtas. Paspauskite Naujas, kad pradėtumėte.
+1153|Darbo srities spalva
+1154|Popieriaus spalva
+1155|Medžiagos spalva
+1156|Grįžti prie automatinės spalvos

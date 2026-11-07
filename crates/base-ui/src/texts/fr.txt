@@ -1151,3 +1151,7 @@
 1150|Rien de tout cela n'a été essayé sur votre machine : faites un premier essai sans fraise, ou avec la fraise bien au-dessus du matériau.
 1151|Rien de tout cela n'a été essayé sur votre traceur : faites un premier essai avec le stylo levé et sans papier.
 1152|L'appareil a été ajouté. Appuyez sur Nouveau pour commencer.
+1153|Couleur de la zone de travail
+1154|Couleur du papier
+1155|Couleur du matériau
+1156|Revenir à la couleur automatique
