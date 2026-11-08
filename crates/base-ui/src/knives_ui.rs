@@ -41,11 +41,11 @@ pub fn knife_rows(ui: &mut egui::Ui, k: &mut Knife) -> bool {
 
 /// The row of the knife of the library (a list of the knives and the button of the library): picking one takes its values.
 /// Returns true when the values changed; `open_library` is set when the library is to be opened.
-pub fn library_row(ui: &mut egui::Ui, salt: &str, lib: &KnifeLibrary, k: &mut Knife, open_library: &mut bool) -> bool {
+pub fn library_row(ui: &mut egui::Ui, id: &str, lib: &KnifeLibrary, k: &mut Knife, open_library: &mut bool) -> bool {
     let mut changed = false;
     ui.label(tr("Knife"));
     let now = lib.matching(k).map(|b| shown(b).0).unwrap_or_else(|| tr("Own values").to_string());
-    egui::ComboBox::from_id_salt(("knife_of_library", salt)).selected_text(now).width(180.0).show_ui(ui, |ui| {
+    egui::ComboBox::from_id_salt(("knife_of_library", id)).selected_text(now).width(180.0).show_ui(ui, |ui| {
         for b in lib.all() {
             let on = b.knife == *k;
             let (name, notes) = shown(b);
