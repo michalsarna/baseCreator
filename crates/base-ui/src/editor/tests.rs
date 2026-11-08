@@ -996,3 +996,13 @@ fn a_right_click_on_a_node_opens_the_menu_of_the_node_bar_and_elsewhere_goes_bac
     }
     assert_eq!(h.ed.tool, Tool::Select);
 }
+
+#[test]
+fn shift_draws_a_circle_with_the_ellipse_tool_and_a_square_with_the_rectangle() {
+    use base_core::geom::Pt;
+    let start = Pt::new(10.0, 10.0);
+    assert_eq!(super::keep_square(Tool::Ellipse, start, Pt::new(40.0, 20.0), true), Pt::new(40.0, 40.0));
+    assert_eq!(super::keep_square(Tool::Rect, start, Pt::new(0.0, -20.0), true), Pt::new(-20.0, -20.0), "towards the pointer");
+    assert_eq!(super::keep_square(Tool::Ellipse, start, Pt::new(40.0, 20.0), false), Pt::new(40.0, 20.0));
+    assert_eq!(super::keep_square(Tool::Line, start, Pt::new(40.0, 20.0), true), Pt::new(40.0, 20.0), "a line is not squared");
+}

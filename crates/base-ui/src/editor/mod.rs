@@ -122,6 +122,16 @@ impl Measure {
     }
 }
 
+/// The far corner of a shape being drawn from `start`: with Shift held, as wide as high (a circle of the ellipse tool, a square of
+/// the rectangle, the even shapes of the others) on the side the pointer is.
+pub fn keep_square(tool: Tool, start: Pt, end: Pt, shift: bool) -> Pt {
+    if !shift || !matches!(tool, Tool::Rect | Tool::Ellipse | Tool::Triangle | Tool::Star | Tool::Polygon | Tool::Heart | Tool::Spiral) {
+        return end;
+    }
+    let s = (end.x - start.x).abs().max((end.y - start.y).abs());
+    Pt::new(start.x + s * (end.x - start.x).signum(), start.y + s * (end.y - start.y).signum())
+}
+
 /// The words of a measurement: the length, the differences in X and Y (as the coordinates of the work area count them) and the angle
 /// from the X axis as it is seen (counter-clockwise).
 pub fn measure_text(a: Pt, b: Pt, units: base_core::units::Units) -> String {

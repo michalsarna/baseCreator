@@ -708,7 +708,8 @@ pub trait EditorCanvas: EditorHost {
                         painter.rect_stroke(r, 0.0, Stroke::new(1.0, c), egui::StrokeKind::Middle);
                     }
                     Drag::Create { start } => {
-                        let end = self.snapped(w);
+                        // Shift keeps the proportions while drawing too: a circle, a square, an even star.
+                        let end = super::keep_square(self.ed().tool, *start, self.snapped(w), shift);
                         let st = Stroke::new(self.ed().grid_prefs.line_width, self.layer_color(self.ed().active_layer));
                         let (a, b) = (self.w2s(o, *start), self.w2s(o, end));
                         match self.ed().tool {
@@ -800,11 +801,7 @@ pub trait EditorCanvas: EditorHost {
                         }
                     }
                     Drag::Create { start } => {
-                        let mut end = self.snapped(w);
-                        if shift && matches!(self.ed().tool, Tool::Rect | Tool::Ellipse | Tool::Triangle | Tool::Star | Tool::Polygon | Tool::Heart | Tool::Spiral) {
-                            let s = (end.x - start.x).abs().max((end.y - start.y).abs());
-                            end = Pt::new(start.x + s * (end.x - start.x).signum(), start.y + s * (end.y - start.y).signum());
-                        }
+                        let end = super::keep_square(self.ed().tool, start, self.snapped(w), shift);
                         let r = Rect::from_pts([start, end]).unwrap();
                         if r.width().max(r.height()) > 0.2 {
                             self.checkpoint();

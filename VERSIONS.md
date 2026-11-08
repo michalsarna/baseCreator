@@ -11,6 +11,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 - **Dimensions over the drawing** (`editor::dims_button`, next to the toolpaths in every program; `EditorState::show_dims`): `dims::Features` (every outline by itself, round ones as circles), `dims::drawing`, `dims::diameters` ("4 × Ø 6"), `dims::features3d` (on a plane seen in 3D).
 - **Ruler:** snaps to nodes, middles of segments and centres of circles and ellipses (marked); a click on a circle or an ellipse shows its radii, on a curve its length and, for an arc, the radius from its centre to the point (`editor::ruler`).
 - **Node edit:** a right click on a node or a segment opens the menu of the node bar; **Smooth (G)**; the radius after **Round (R)**.
+- **Shift while drawing** keeps the proportions in the picture of the shape being drawn too (a circle with the ellipse tool, a square with the rectangle), not only in the shape made at the end (`editor::keep_square`).
 - **`picture_out`**: what egui draws as a picture without a window (a small rasteriser with the fonts of the program), saved as PNG, JPEG or a PDF page (MillCreator's technical drawing).
 - **`work_panes::Content::Extra`**: a tab of a program's own.
 - 3 new texts in every language.
