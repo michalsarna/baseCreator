@@ -1175,3 +1175,37 @@
 1174|Fet (ft)
 1175|Eins og tækið
 1176|Einingar stærða í eiginleikum, reglustiku, málum og forskoðunum. G-kóðinn er alltaf í einingum tækisins.
+1177|Hliðrun oddsins
+1178|Hversu langt oddur blaðsins er á eftir ásnum: framleiðandi blaðsins gefur það upp
+1179|Snúa við horn sem eru skarpari en
+1180|Skera áfram fram hjá byrjuninni
+1181|Lokuð útlína er skorin svona langt fram hjá byrjun sinni svo hún lokist
+1182|Hnífasafn
+1183|Hnífur
+1184|Eigin gildi
+1185|Hnífasafn…
+1186|Tilbúnir hnífar
+1187|Mínir hnífar
+1188|Engir enn: afritaðu hníf til að breyta honum
+1189|Afrit meðal þinna hnífa, til að breyta
+1190|Minn hnífur
+1191|Ekki er hægt að breyta tilbúnum hníf: afritaðu hann til að breyta.
+1192|Athugasemdir
+1193|30° blað
+1194|45° blað
+1195|60° blað
+1196|Dráttarhnífur í haldara CNC-vélar
+1197|Þunn filma og pappír, fín smáatriði og smáir stafir.
+1198|Vínyl, flex, pappír og þunnt karton: venjulegt blað skurðarvélar.
+1199|Þykkt vínyl, karton, gúmmí, frauð og sandblástursskapalón.
+1200|Haldari í spennu snældunnar, snældan kyrr; stilltu dýptina á laginu.
+1201|Teiknarar og skurðarvélar skilja HPGL aðeins misjafnt: stilltu hér hvað þessi fær. Skipanir enda á ; og {speed} og {force} eru fyllt út.
+1202|Í upphafi
+1203|Í lokin
+1204|Penni eða hnífur niður
+1205|Penni eða hnífur upp
+1206|í mesta lagi
+1207|Sent þegar teiknihraðinn breytist; tómt: aldrei (teiknarinn heldur sínum).
+1208|Þrýstingur
+1209|Hversu fast penninn eða hnífurinn þrýstir, sent einu sinni í upphafi; 0: aldrei (teiknarinn heldur sínum).
+1210|Aftur í venjulegar skipanir

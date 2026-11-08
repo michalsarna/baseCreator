@@ -1175,3 +1175,37 @@
 1174|Pés (ft)
 1175|Como o dispositivo
 1176|As unidades das medidas nas propriedades, na régua, nas cotas e nas pré-visualizações. O G-code está sempre nas unidades do dispositivo.
+1177|Desvio da ponta
+1178|A que distância a ponta da lâmina está atrás do seu eixo: o fabricante da lâmina indica-o
+1179|Rodar nos cantos mais agudos do que
+1180|Cortar para além do início
+1181|Um contorno fechado é cortado esta distância para além do seu início, para que feche
+1182|Biblioteca de lâminas
+1183|Lâmina
+1184|Valores próprios
+1185|Biblioteca de lâminas…
+1186|Lâminas prontas
+1187|As minhas lâminas
+1188|Nenhuma ainda: copie uma lâmina para a alterar
+1189|Uma cópia entre as suas lâminas, para alterar
+1190|A minha lâmina
+1191|Uma lâmina pronta não pode ser alterada: copie-a para a alterar.
+1192|Notas
+1193|Lâmina de 30°
+1194|Lâmina de 45°
+1195|Lâmina de 60°
+1196|Lâmina de arrasto num suporte de máquina CNC
+1197|Película fina e papel, pormenores finos e letras pequenas.
+1198|Vinil, flex, papel e cartolina fina: a lâmina habitual de um plotter de corte.
+1199|Vinil espesso, cartão, borracha, espuma e moldes de jato de areia.
+1200|Um suporte na pinça do fuso, o fuso parado; defina a profundidade na camada.
+1201|Os plotters e plotters de corte entendem o HPGL de forma um pouco diferente: defina aqui o que este recebe. Os comandos terminam com ; e {speed} e {force} são preenchidos.
+1202|No início
+1203|No fim
+1204|Caneta ou lâmina em baixo
+1205|Caneta ou lâmina em cima
+1206|no máximo
+1207|Enviado quando a velocidade do desenho muda; vazio: nunca (o plotter mantém a sua).
+1208|Força
+1209|Quanto pressiona a caneta ou a lâmina, enviado uma vez no início; 0: nunca (o plotter mantém a sua).
+1210|Voltar aos comandos habituais

@@ -59,3 +59,51 @@ pub fn settings_rows(ui: &mut egui::Ui, version: GrblVersion, s: &mut PlotterSet
         _ => {}
     }
 }
+
+/// The page of the HPGL commands of a device (a plotter or a cutter that speaks HPGL): what it gets at the start and the end, for
+/// the pen (or the knife) down and up, its speed and its force.
+pub fn hpgl_page(ui: &mut egui::Ui, h: &mut base_core::plotter::HpglCommands) {
+    ui.label(RichText::new(tr("Plotters and cutters understand HPGL a little differently: set here what this one gets. Commands end with ; and {speed} and {force} are filled in.")).color(crate::theme::text_dim()));
+    ui.add_space(6.0);
+    egui::Grid::new("hpgl_commands").num_columns(2).spacing([12.0, 6.0]).show(ui, |ui| {
+        let field = |ui: &mut egui::Ui, text: &mut String, hint: &str| {
+            ui.add(egui::TextEdit::singleline(text).code_editor().desired_width(280.0).hint_text(hint));
+        };
+        ui.label(tr("At the start"));
+        field(ui, &mut h.start, "IN;SP1;PU;");
+        ui.end_row();
+        ui.label(tr("At the end"));
+        field(ui, &mut h.end, "PU;SP0;");
+        ui.end_row();
+        ui.label(tr("Pen or knife down"));
+        field(ui, &mut h.pen_down, "PD;");
+        ui.end_row();
+        ui.label(tr("Pen or knife up"));
+        field(ui, &mut h.pen_up, "PU;");
+        ui.end_row();
+        ui.label(tr("Speed"));
+        ui.horizontal(|ui| {
+            field(ui, &mut h.speed, "VS{speed};");
+            ui.label(tr("at most"));
+            ui.add(egui::DragValue::new(&mut h.max_speed).range(1..=1000).suffix(" cm/s"));
+        })
+        .response
+        .on_hover_text(tr("Sent when the speed of the drawing changes; empty: never (the plotter keeps its own)."));
+        ui.end_row();
+        ui.label(tr("Force"));
+        ui.horizontal(|ui| {
+            field(ui, &mut h.force, "FS{force};");
+            ui.add(egui::DragValue::new(&mut h.force_value).range(0..=10_000).suffix(" g"));
+        })
+        .response
+        .on_hover_text(tr("How hard the pen or the knife presses, sent once at the start; 0: never (the plotter keeps its own)."));
+        ui.end_row();
+    });
+    ui.add_space(6.0);
+    if let Err(e) = h.check() {
+        ui.label(RichText::new(e).color(WARN));
+    }
+    if ui.button(tr("Back to the usual commands")).clicked() {
+        *h = base_core::plotter::HpglCommands::default();
+    }
+}

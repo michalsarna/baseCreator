@@ -1175,3 +1175,37 @@
 1174|Pēdas (ft)
 1175|Kā ierīcei
 1176|Izmēru vienības īpašībās, lineālā, izmēros un priekšskatījumos. G-kods vienmēr ir ierīces vienībās.
+1177|Gala nobīde
+1178|Cik tālu asmens gals ir aiz tā ass: to norāda asmens ražotājs
+1179|Griezt stūros, kas asāki par
+1180|Griezt tālāk par sākumu
+1181|Slēgtu kontūru griež tik tālu aiz tās sākuma, lai tā noslēgtos
+1182|Nažu bibliotēka
+1183|Nazis
+1184|Savas vērtības
+1185|Nažu bibliotēka…
+1186|Gatavi naži
+1187|Mani naži
+1188|Vēl nav: nokopējiet nazi, lai to mainītu
+1189|Kopija starp saviem nažiem, mainīšanai
+1190|Mans nazis
+1191|Gatavu nazi nevar mainīt: nokopējiet to, lai mainītu.
+1192|Piezīmes
+1193|30° asmens
+1194|45° asmens
+1195|60° asmens
+1196|Velkamais nazis CNC iekārtas turētājā
+1197|Plāna plēve un papīrs, smalkas detaļas un mazi burti.
+1198|Vinils, flex, papīrs un plāns kartons: griezēja parastais asmens.
+1199|Biezs vinils, kartons, gumija, putas un smilšu strūklas trafareti.
+1200|Turētājs vārpstas cangā, vārpsta stāv; dziļumu iestatiet slānī.
+1201|Plotteri un griezēji HPGL saprot nedaudz atšķirīgi: šeit iestatiet, ko saņem šis. Komandas beidzas ar ; un {speed} un {force} tiek aizpildīti.
+1202|Sākumā
+1203|Beigās
+1204|Pildspalva vai nazis lejā
+1205|Pildspalva vai nazis augšā
+1206|ne vairāk kā
+1207|Sūta, kad mainās zīmēšanas ātrums; tukšs: nekad (plotteris patur savu).
+1208|Spiediens
+1209|Cik stipri spiež pildspalva vai nazis, sūta vienreiz sākumā; 0: nekad (plotteris patur savu).
+1210|Atpakaļ uz parastajām komandām

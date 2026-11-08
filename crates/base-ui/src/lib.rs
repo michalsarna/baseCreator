@@ -42,6 +42,7 @@ pub mod menu;
 pub mod navicube;
 pub mod playback;
 pub mod plotter_ui;
+pub mod knives_ui;
 pub mod plugins_ui;
 pub mod picture_out;
 pub mod print_ui;

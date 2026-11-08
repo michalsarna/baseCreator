@@ -1175,3 +1175,37 @@
 1174|Peus (ft)
 1175|Com el dispositiu
 1176|Les unitats de les mides a les propietats, el regle, les cotes i les previsualitzacions. El G-code sempre és en les unitats del dispositiu.
+1177|Desplaçament de la punta
+1178|A quina distància és la punta de la fulla darrere el seu eix: ho indica el fabricant de la fulla
+1179|Gira a les cantonades més agudes que
+1180|Talla més enllà de l'inici
+1181|Un contorn tancat es talla aquesta distància més enllà del seu inici, perquè es tanqui
+1182|Biblioteca de ganivetes
+1183|Ganivet
+1184|Valors propis
+1185|Biblioteca de ganivetes…
+1186|Ganivets predefinits
+1187|Els meus ganivets
+1188|Encara cap: copieu un ganivet per canviar-lo
+1189|Una còpia entre els vostres ganivets, per canviar-la
+1190|El meu ganivet
+1191|Un ganivet predefinit no es pot canviar: copieu-lo per canviar-lo.
+1192|Notes
+1193|Fulla de 30°
+1194|Fulla de 45°
+1195|Fulla de 60°
+1196|Ganivet d'arrossegament en un suport de màquina CNC
+1197|Pel·lícula fina i paper, detalls fins i lletres petites.
+1198|Vinil, flex, paper i cartolina fina: la fulla habitual d'un plòter de tall.
+1199|Vinil gruixut, cartolina, goma, escuma i plantilles de sorrejat.
+1200|Un suport a la pinça del cabçal, el cabçal aturat; definiu la profunditat a la capa.
+1201|Els plòters i els plòters de tall entenen l'HPGL una mica diferent: definiu aquí què rep aquest. Les ordres acaben amb ; i {speed} i {force} s'omplen.
+1202|A l'inici
+1203|Al final
+1204|Ploma o ganivet avall
+1205|Ploma o ganivet amunt
+1206|com a màxim
+1207|S'envia quan canvia la velocitat del dibuix; buit: mai (el plòter manté la seva).
+1208|Força
+1209|Amb quina força prem la ploma o el ganivet, s'envia una vegada a l'inici; 0: mai (el plòter manté la seva).
+1210|Torna a les ordres habituals

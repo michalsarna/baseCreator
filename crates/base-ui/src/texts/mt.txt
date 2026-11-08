@@ -1175,3 +1175,37 @@
 1174|Piedi (ft)
 1175|Bħall-apparat
 1176|L-unitajiet tad-daqsijiet fil-proprjetajiet, fir-riga, fid-dimensjonijiet u fil-previews. Il-G-code dejjem ikun fl-unitajiet tal-apparat.
+1177|Offset tal-ponta
+1178|Kemm il-ponta tax-xafra tinsab wara l-assi tagħha: jagħtih il-manifattur tax-xafra
+1179|Dawwar fil-kantunieri iktar ippuntati minn
+1180|Aqta' lil hinn mill-bidu
+1181|Kontorn magħluq jinqata' daqshekk lil hinn mill-bidu tiegħu, biex jagħlaq
+1182|Librerija tal-iskieken
+1183|Sikkina
+1184|Valuri proprji
+1185|Librerija tal-iskieken…
+1186|Skieken lesti
+1187|L-iskieken tiegħi
+1188|Għadu xejn: ikkopja sikkina biex tbiddilha
+1189|Kopja fost l-iskieken tiegħek, biex tbiddilha
+1190|Is-sikkina tiegħi
+1191|Sikkina lesta ma tistax tinbidel: ikkopjaha biex tbiddilha.
+1192|Noti
+1193|Xafra ta' 30°
+1194|Xafra ta' 45°
+1195|Xafra ta' 60°
+1196|Sikkina mkaxkra f'detentur ta' magna CNC
+1197|Film irqiq u karta, dettalji fini u ittri żgħar.
+1198|Vinil, flex, karta u kartun irqiq: ix-xafra tas-soltu ta' cutter.
+1199|Vinil oħxon, kartun, gomma, fowm u stensils għas-sandblasting.
+1200|Detentur fil-collet tal-ispindle, l-ispindle wieqaf; issettja l-fond fuq is-saff.
+1201|Il-plotters u l-cutters jifhmu l-HPGL ftit b'mod differenti: issettja hawn x'jieħu dan. Il-kmandi jispiċċaw b' ; u {speed} u {force} jimtlew.
+1202|Fil-bidu
+1203|Fl-aħħar
+1204|Pinna jew sikkina 'l isfel
+1205|Pinna jew sikkina 'l fuq
+1206|l-aktar
+1207|Jintbagħat meta tinbidel il-veloċità tat-tpinġija; vojt: qatt (il-plotter iżomm tiegħu).
+1208|Forza
+1209|Kemm tagħfas il-pinna jew is-sikkina, jintbagħat darba fil-bidu; 0: qatt (il-plotter iżomm tiegħu).
+1210|Lura għall-kmandi tas-soltu

@@ -1175,3 +1175,37 @@
 1174|Stopy (ft)
 1175|Ako zariadenie
 1176|Jednotky rozmerov vo vlastnostiach, pravítku, kótach a náhľadoch. G-kód je vždy v jednotkách zariadenia.
+1177|Posun hrotu
+1178|Ako ďaleko je hrot čepele za jej osou: udáva ho výrobca čepele
+1179|Otáčať v rohoch ostrejších ako
+1180|Rezať ďalej za začiatok
+1181|Uzavretý obrys sa reže tak ďaleko za svoj začiatok, aby sa uzavrel
+1182|Knižnica nožov
+1183|Nôž
+1184|Vlastné hodnoty
+1185|Knižnica nožov…
+1186|Hotové nože
+1187|Moje nože
+1188|Zatiaľ žiadne: skopírujte nôž a zmeňte ho
+1189|Kópia medzi vlastnými nožmi, na zmenu
+1190|Môj nôž
+1191|Hotový nôž nemožno zmeniť: skopírujte ho a zmeňte kópiu.
+1192|Poznámky
+1193|Čepeľ 30°
+1194|Čepeľ 45°
+1195|Čepeľ 60°
+1196|Vlečný nôž v držiaku CNC stroja
+1197|Tenká fólia a papier, jemné detaily a malé písmená.
+1198|Vinyl, flex, papier a tenký kartón: bežná čepeľ rezacieho plotra.
+1199|Hrubý vinyl, kartón, guma, pena a šablóny na pieskovanie.
+1200|Držiak v klieštine vretena, vreteno stojí; hĺbku nastavte vo vrstve.
+1201|Plotre a rezacie plotre rozumejú HPGL trochu inak: nastavte tu, čo dostáva tento. Príkazy končia ; a {speed} a {force} sa doplnia.
+1202|Na začiatku
+1203|Na konci
+1204|Pero alebo nôž dole
+1205|Pero alebo nôž hore
+1206|najviac
+1207|Odosiela sa pri zmene rýchlosti kreslenia; prázdne: nikdy (plotter si ponechá svoju).
+1208|Prítlak
+1209|Ako silno tlačí pero alebo nôž, odosiela sa raz na začiatku; 0: nikdy (plotter si ponechá svoj).
+1210|Späť na obvyklé príkazy

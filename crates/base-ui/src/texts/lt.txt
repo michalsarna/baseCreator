@@ -1175,3 +1175,37 @@
 1174|Pėdos (ft)
 1175|Kaip įrenginio
 1176|Dydžių vienetai savybėse, liniuotėje, matmenyse ir peržiūrose. G kodas visada yra įrenginio vienetais.
+1177|Smaigalio poslinkis
+1178|Kiek peilio smaigalys yra už jo ašies: nurodo peilio gamintojas
+1179|Sukti kampuose, aštresniuose nei
+1180|Pjauti už pradžios
+1181|Uždaras kontūras pjaunamas tiek už pradžios, kad užsidarytų
+1182|Peilių biblioteka
+1183|Peilis
+1184|Savos reikšmės
+1185|Peilių biblioteka…
+1186|Paruošti peiliai
+1187|Mano peiliai
+1188|Dar nėra: nukopijuokite peilį, kad jį pakeistumėte
+1189|Kopija tarp savų peilių, keisti
+1190|Mano peilis
+1191|Paruošto peilio keisti negalima: nukopijuokite jį, kad pakeistumėte.
+1192|Pastabos
+1193|30° peilis
+1194|45° peilis
+1195|60° peilis
+1196|Velkamasis peilis CNC staklės laikiklyje
+1197|Plona plėvelė ir popierius, smulkios detalės ir mažos raidės.
+1198|Vinilas, flex, popierius ir plonas kartonas: įprastas pjaustytuvo peilis.
+1199|Storas vinilas, kartonas, guma, putos ir smėliavimo trafaretai.
+1200|Laikiklis veleno įvorėje, velenas stovi; gylį nustatykite sluoksnyje.
+1201|Braižytuvai ir pjaustytuvai HPGL supranta šiek tiek skirtingai: čia nustatykite, ką gauna šis. Komandos baigiasi ; o {speed} ir {force} užpildomi.
+1202|Pradžioje
+1203|Pabaigoje
+1204|Rašiklis ar peilis žemyn
+1205|Rašiklis ar peilis aukštyn
+1206|daugiausia
+1207|Siunčiama, kai keičiasi braižymo greitis; tuščia: niekada (braižytuvas palieka savo).
+1208|Spaudimas
+1209|Kaip stipriai spaudžia rašiklis ar peilis, siunčiama kartą pradžioje; 0: niekada (braižytuvas palieka savo).
+1210|Grįžti prie įprastų komandų

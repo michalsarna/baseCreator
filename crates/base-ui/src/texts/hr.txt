@@ -1175,3 +1175,37 @@
 1174|Stope (ft)
 1175|Kao uređaj
 1176|Jedinice veličina u svojstvima, ravnalu, kotama i pregledima. G-kod je uvijek u jedinicama uređaja.
+1177|Pomak vrha
+1178|Koliko je vrh oštrice iza njezine osi: daje ga proizvođač oštrice
+1179|Okretanje na kutovima oštrijim od
+1180|Reži dalje od početka
+1181|Zatvoreni obris reže se toliko dalje od početka da se zatvori
+1182|Biblioteka noževa
+1183|Nož
+1184|Vlastite vrijednosti
+1185|Biblioteka noževa…
+1186|Gotovi noževi
+1187|Moji noževi
+1188|Još nema: kopirajte nož da ga promijenite
+1189|Kopija među vlastitim noževima, za izmjenu
+1190|Moj nož
+1191|Gotov nož ne može se mijenjati: kopirajte ga da ga promijenite.
+1192|Bilješke
+1193|Oštrica 30°
+1194|Oštrica 45°
+1195|Oštrica 60°
+1196|Vučeni nož u držaču CNC stroja
+1197|Tanka folija i papir, sitni detalji i mala slova.
+1198|Vinil, flex, papir i tanki karton: uobičajena oštrica rezača.
+1199|Debeli vinil, karton, guma, pjena i šablone za pjeskarenje.
+1200|Držač u steznoj čahuri vretena, vreteno miruje; dubinu postavite na sloju.
+1201|Ploteri i rezači razumiju HPGL malo drukčije: ovdje postavite što ovaj dobiva. Naredbe završavaju s ; a {speed} i {force} se popunjavaju.
+1202|Na početku
+1203|Na kraju
+1204|Olovka ili nož dolje
+1205|Olovka ili nož gore
+1206|najviše
+1207|Šalje se kad se promijeni brzina crtanja; prazno: nikad (ploter zadržava svoju).
+1208|Pritisak
+1209|Koliko jako pritišće olovka ili nož, šalje se jednom na početku; 0: nikad (ploter zadržava svoj).
+1210|Natrag na uobičajene naredbe

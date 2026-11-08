@@ -1175,3 +1175,37 @@
 1174|Fot (ft)
 1175|Som enheten
 1176|Enheterna för storlekar i egenskaperna, linjalen, måtten och förhandsvisningarna. G-koden är alltid i enhetens enheter.
+1177|Spetsens förskjutning
+1178|Hur långt bladets spets är bakom axeln: tillverkaren av bladet anger det
+1179|Vrid vid hörn skarpare än
+1180|Skär vidare förbi starten
+1181|En sluten kontur skärs så långt förbi sin start att den sluts
+1182|Knivbibliotek
+1183|Kniv
+1184|Egna värden
+1185|Knivbibliotek…
+1186|Färdiga knivar
+1187|Mina knivar
+1188|Inga ännu: kopiera en kniv för att ändra den
+1189|En kopia bland dina egna knivar, att ändra
+1190|Min kniv
+1191|En färdig kniv kan inte ändras: kopiera den för att ändra den.
+1192|Anteckningar
+1193|30° blad
+1194|45° blad
+1195|60° blad
+1196|Släpkniv i en hållare på en CNC-maskin
+1197|Tunn folie och papper, fina detaljer och små bokstäver.
+1198|Vinyl, flex, papper och tunn kartong: den vanliga kniven i en skärplotter.
+1199|Tjock vinyl, kartong, gummi, skum och blästringsschabloner.
+1200|En hållare i spindelns spännhylsa, spindeln stilla; ställ in djupet på lagret.
+1201|Plottrar och skärplottrar förstår HPGL lite olika: ställ här in vad denna får. Kommandon slutar med ; och {speed} och {force} fylls i.
+1202|I början
+1203|I slutet
+1204|Penna eller kniv ned
+1205|Penna eller kniv upp
+1206|högst
+1207|Skickas när ritningens hastighet ändras; tomt: aldrig (plottern behåller sin egen).
+1208|Tryck
+1209|Hur hårt pennan eller kniven trycker, skickas en gång i början; 0: aldrig (plottern behåller sitt eget).
+1210|Tillbaka till de vanliga kommandona

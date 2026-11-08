@@ -74,6 +74,66 @@ pub struct PlotterSettings {
     pub hpgl_units_per_mm: f64,
     #[serde(default)]
     pub flow: FlowControl,
+    /// The commands an HPGL plotter or cutter gets: each device can have its own.
+    #[serde(default)]
+    pub hpgl: HpglCommands,
+}
+
+/// The HPGL commands of one device. Commands are separated by `;` (or new lines); `{speed}` and `{force}` are put in the
+/// templates.
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[serde(default)]
+pub struct HpglCommands {
+    /// Sent once the link is open (a reset, the first pen, the pen up).
+    pub start: String,
+    /// Sent at the end of the program (`M2`, `M30`) after the pen is up.
+    pub end: String,
+    pub pen_down: String,
+    pub pen_up: String,
+    /// The speed, `{speed}` in centimetres a second; empty: the speed is never sent.
+    pub speed: String,
+    /// The fastest speed the device takes, cm/s.
+    pub max_speed: u32,
+    /// The force of the pen or the knife, `{force}` in grams; empty: never sent.
+    pub force: String,
+    /// Grams, 0: the force is not sent.
+    pub force_value: u32,
+}
+
+impl Default for HpglCommands {
+    fn default() -> Self {
+        HpglCommands {
+            start: "IN;SP1;PU;".into(),
+            end: "PU;".into(),
+            pen_down: "PD;".into(),
+            pen_up: "PU;".into(),
+            speed: "VS{speed};".into(),
+            max_speed: 38,
+            force: "FS{force};".into(),
+            force_value: 0,
+        }
+    }
+}
+
+impl HpglCommands {
+    /// The commands of a field, one by one, each ending with `;`.
+    pub fn split(text: &str) -> Vec<String> {
+        text.split([';', '\n']).map(str::trim).filter(|c| !c.is_empty()).map(|c| format!("{c};")).collect()
+    }
+
+    pub fn check(&self) -> Result<(), String> {
+        let all = [&self.start, &self.end, &self.pen_down, &self.pen_up, &self.speed, &self.force];
+        if all.iter().any(|t| t.len() > 500 || t.chars().any(|c| c.is_control() && c != '\n' && c != '\r')) {
+            return Err("an HPGL command is too long or holds control characters".into());
+        }
+        if Self::split(&self.pen_down).is_empty() || Self::split(&self.pen_up).is_empty() {
+            return Err("the HPGL commands for the pen up and down cannot be empty".into());
+        }
+        if !(1..=1000).contains(&self.max_speed) || self.force_value > 10_000 {
+            return Err("the HPGL speed or force is out of range".into());
+        }
+        Ok(())
+    }
 }
 
 fn d_steps() -> f64 {
@@ -94,7 +154,7 @@ fn yes() -> bool {
 
 impl Default for PlotterSettings {
     fn default() -> Self {
-        PlotterSettings { kinematics: Kinematics::AxiDraw, steps_per_mm: 80.0, pen_up_pct: 60.0, pen_down_pct: 30.0, reverse_x: false, reverse_y: true, hpgl_units_per_mm: 40.0, flow: FlowControl::Hardware }
+        PlotterSettings { kinematics: Kinematics::AxiDraw, steps_per_mm: 80.0, pen_up_pct: 60.0, pen_down_pct: 30.0, reverse_x: false, reverse_y: true, hpgl_units_per_mm: 40.0, flow: FlowControl::Hardware, hpgl: HpglCommands::default() }
     }
 }
 
@@ -107,7 +167,7 @@ impl PlotterSettings {
         if !ok(self.pen_up_pct, 0.0, 100.0) || !ok(self.pen_down_pct, 0.0, 100.0) {
             return Err("the pen heights of the plotter are out of range".into());
         }
-        Ok(())
+        self.hpgl.check()
     }
 }
 
@@ -223,7 +283,15 @@ impl Translator {
                 let s = &self.setup.settings;
                 vec!["EM,1,1".into(), format!("SC,4,{}", ebb_servo(s.pen_up_pct)), format!("SC,5,{}", ebb_servo(s.pen_down_pct)), "SP,1".into()]
             }
-            Language::Hpgl => vec!["IN;".into(), "SP1;".into(), "PU;".into()],
+            Language::Hpgl => {
+                self.speed = None;
+                let h = &self.setup.settings.hpgl;
+                let mut out = HpglCommands::split(&h.start);
+                if h.force_value > 0 {
+                    out.extend(HpglCommands::split(&h.force.replace("{force}", &h.force_value.to_string())));
+                }
+                out
+            }
         }
     }
 
@@ -233,7 +301,7 @@ impl Translator {
         self.pen_down = false;
         match self.setup.language {
             Language::Ebb => vec!["ES".into(), "SP,1".into(), "QS".into()],
-            Language::Hpgl => vec!["PU;".into()],
+            Language::Hpgl => HpglCommands::split(&self.setup.settings.hpgl.pen_up),
         }
     }
 
@@ -321,6 +389,11 @@ impl Translator {
             }
             return out;
         }
+        if self.setup.language == Language::Hpgl && (has(&ms, 2.0) || has(&ms, 30.0)) {
+            self.pen(false, &mut out);
+            out.extend(HpglCommands::split(&self.setup.settings.hpgl.end));
+            return out;
+        }
         if has(&gs, 10.0) || has(&gs, 28.0) || has(&gs, 53.0) && num('X').is_none() && num('Y').is_none() {
             return out;
         }
@@ -383,12 +456,13 @@ impl Translator {
             return;
         }
         self.pen_down = down;
-        out.push(match (self.setup.language, down) {
-            (Language::Ebb, true) => "SP,0".into(),
-            (Language::Ebb, false) => "SP,1".into(),
-            (Language::Hpgl, true) => "PD;".into(),
-            (Language::Hpgl, false) => "PU;".into(),
-        });
+        let h = &self.setup.settings.hpgl;
+        match (self.setup.language, down) {
+            (Language::Ebb, true) => out.push("SP,0".into()),
+            (Language::Ebb, false) => out.push("SP,1".into()),
+            (Language::Hpgl, true) => out.extend(HpglCommands::split(&h.pen_down)),
+            (Language::Hpgl, false) => out.extend(HpglCommands::split(&h.pen_up)),
+        }
     }
 
     /// Where the motors (or the pen of an HPGL plotter) have to be for a machine position.
@@ -430,12 +504,13 @@ impl Translator {
                 out.push(format!("SM,{ms},{},{}", d[0], d[1]));
             }
             Language::Hpgl => {
-                if self.pen_down {
+                let h = &self.setup.settings.hpgl;
+                if self.pen_down && !h.speed.trim().is_empty() {
                     // VS is centimetres a second.
-                    let vs = (feed / 600.0).round().clamp(1.0, 38.0) as u32;
+                    let vs = (feed / 600.0).round().clamp(1.0, h.max_speed.max(1) as f64) as u32;
                     if self.speed != Some(vs) {
                         self.speed = Some(vs);
-                        out.push(format!("VS{vs};"));
+                        out.extend(HpglCommands::split(&h.speed.replace("{speed}", &vs.to_string())));
                     }
                 }
                 out.push(format!("PA{},{};", t[0], t[1]));
@@ -613,6 +688,34 @@ mod tests {
         assert_eq!(t.translate("G0 Z3"), vec!["PU;"]);
         assert!(t.translate("G4 P0.2").is_empty());
         assert_eq!(t.stop(), vec!["PU;"]);
+    }
+
+    #[test]
+    fn hpgl_commands_of_the_device_are_sent_in_place_of_the_usual_ones() {
+        let hpgl = HpglCommands {
+            start: "IN;\nPA0,0".into(),
+            end: "SP0;".into(),
+            pen_down: "PD".into(),
+            pen_up: "PU".into(),
+            speed: "".into(),
+            max_speed: 20,
+            force: "FS{force};".into(),
+            force_value: 120,
+        };
+        let settings = PlotterSettings { hpgl, ..Default::default() };
+        assert!(settings.check().is_ok());
+        let mut t = Translator::new(Setup { language: Language::Hpgl, settings, pen: PenSense::Z { up: 3.0, down: 0.0 }, rapid: 6000.0 });
+        assert_eq!(t.start(), vec!["IN;", "PA0,0;", "FS120;"]);
+        assert_eq!(t.translate("G0 Z0"), vec!["PD;"]);
+        assert_eq!(t.translate("G1 X1 F60000"), vec!["PA40,0;"], "no speed when its template is empty");
+        assert_eq!(t.translate("M30"), vec!["PU;", "SP0;"]);
+        let bad = PlotterSettings { hpgl: HpglCommands { pen_down: " ; ".into(), ..Default::default() }, ..Default::default() };
+        assert!(bad.check().is_err());
+        let fast = HpglCommands { max_speed: 5, ..Default::default() };
+        let mut t = Translator::new(Setup { language: Language::Hpgl, settings: PlotterSettings { hpgl: fast, ..Default::default() }, pen: PenSense::Z { up: 3.0, down: 0.0 }, rapid: 6000.0 });
+        t.start();
+        t.translate("G0 Z0");
+        assert_eq!(t.translate("G1 X1 F60000"), vec!["VS5;", "PA40,0;"], "the speed is kept under the device's top speed");
     }
 
     #[test]
