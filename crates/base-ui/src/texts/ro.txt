@@ -1175,3 +1175,37 @@
 1174|Picioare (ft)
 1175|Ca dispozitivul
 1176|Unitățile dimensiunilor în proprietăți, riglă, cote și previzualizări. G-code este mereu în unitățile dispozitivului.
+1177|Decalajul vârfului
+1178|Cât de departe este vârful lamei în spatele axei: îl dă producătorul lamei
+1179|Rotește la colțurile mai ascuțite decât
+1180|Taie dincolo de început
+1181|Un contur închis este tăiat atât dincolo de început, ca să se închidă
+1182|Bibliotecă de cuțite
+1183|Cuțit
+1184|Valori proprii
+1185|Bibliotecă de cuțite…
+1186|Cuțite gata făcute
+1187|Cuțitele mele
+1188|Niciunul încă: copiați un cuțit pentru a-l modifica
+1189|O copie printre cuțitele proprii, de modificat
+1190|Cuțitul meu
+1191|Un cuțit gata făcut nu poate fi modificat: copiați-l pentru a-l modifica.
+1192|Note
+1193|Lamă de 30°
+1194|Lamă de 45°
+1195|Lamă de 60°
+1196|Cuțit tras într-un suport de mașină CNC
+1197|Folie subțire și hârtie, detalii fine și litere mici.
+1198|Vinil, flex, hârtie și carton subțire: lama obișnuită a unui plotter de tăiere.
+1199|Vinil gros, carton, cauciuc, spumă și șabloane de sablare.
+1200|Un suport în bucșa axului, axul oprit; setați adâncimea pe strat.
+1201|Plotterele și plotterele de tăiere înțeleg HPGL puțin diferit: setați aici ce primește acesta. Comenzile se termină cu ; iar {speed} și {force} sunt completate.
+1202|La început
+1203|La sfârșit
+1204|Stilou sau cuțit jos
+1205|Stilou sau cuțit sus
+1206|cel mult
+1207|Trimis când se schimbă viteza desenului; gol: niciodată (plotterul își păstrează viteza).
+1208|Forță
+1209|Cât de tare apasă stiloul sau cuțitul, trimis o dată la început; 0: niciodată (plotterul o păstrează pe a sa).
+1210|Înapoi la comenzile obișnuite

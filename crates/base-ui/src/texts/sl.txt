@@ -1175,3 +1175,37 @@
 1174|Čevlji (ft)
 1175|Kot naprava
 1176|Enote velikosti v lastnostih, ravnilu, kotah in predogledih. G-koda je vedno v enotah naprave.
+1177|Zamik konice
+1178|Kako daleč je konica rezila za njegovo osjo: navede jo proizvajalec rezila
+1179|Obrni na vogalih, ostrejših od
+1180|Reži naprej mimo začetka
+1181|Zaprt obris se reže toliko mimo začetek, da se zapre
+1182|Knjižnica nožev
+1183|Nož
+1184|Lastne vrednosti
+1185|Knjižnica nožev…
+1186|Pripravljeni noži
+1187|Moji noži
+1188|Še nobenega: kopirajte nož, da ga spremenite
+1189|Kopija med lastnimi noži, za spreminjanje
+1190|Moj nož
+1191|Pripravljenega noža ni mogoče spremeniti: kopirajte ga, da ga spremenite.
+1192|Opombe
+1193|Rezilo 30°
+1194|Rezilo 45°
+1195|Rezilo 60°
+1196|Vlečni nož v držalu CNC stroja
+1197|Tanka folija in papir, drobne podrobnosti in majhne črke.
+1198|Vinil, flex, papir in tanek karton: običajno rezilo rezalnika.
+1199|Debel vinil, karton, guma, pena in šablone za peskanje.
+1200|Držalo v vpenjalni čahuri vretena, vreteno miruje; globino nastavite na plasti.
+1201|Risalniki in rezalniki razumejo HPGL nekoliko različno: tu nastavite, kaj dobi ta. Ukazi se končajo s ; in {speed} ter {force} se izpolnita.
+1202|Na začetku
+1203|Na koncu
+1204|Pisalo ali nož dol
+1205|Pisalo ali nož gor
+1206|največ
+1207|Pošlje se, ko se hitrost risanja spremeni; prazno: nikoli (risalnik obdrži svojo).
+1208|Pritisk
+1209|Kako močno pritiska pisalo ali nož, pošlje se enkrat na začetku; 0: nikoli (risalnik obdrži svojega).
+1210|Nazaj na običajne ukaze

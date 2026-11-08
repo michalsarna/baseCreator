@@ -1175,3 +1175,37 @@
 1174|Jalad (ft)
 1175|Nagu seadmel
 1176|Suuruste ühikud omadustes, joonlaual, mõõtmetes ja eelvaadetes. G-kood on alati seadme ühikutes.
+1177|Otsa nihe
+1178|Kui kaugel on tera ots oma teljest: selle annab tera tootja
+1179|Pööra nurkades, mis on teravamad kui
+1180|Lõika algusest edasi
+1181|Suletud kontuur lõigatakse nii kaugele algusest edasi, et see sulguks
+1182|Nugade kogu
+1183|Nuga
+1184|Omad väärtused
+1185|Nugade kogu…
+1186|Valmis noad
+1187|Minu noad
+1188|Veel pole: kopeerige nuga, et seda muuta
+1189|Koopia teie oma nugade hulka muutmiseks
+1190|Minu nuga
+1191|Valmis nuga ei saa muuta: kopeerige see, et seda muuta.
+1192|Märkmed
+1193|30° tera
+1194|45° tera
+1195|60° tera
+1196|Lohisev nuga CNC-masina hoidikus
+1197|Õhuke kile ja paber, peened detailid ja väikesed tähed.
+1198|Vinüül, flex, paber ja õhuke kartong: lõikuri tavaline tera.
+1199|Paks vinüül, kartong, kumm, vaht ja liivapritsi šabloonid.
+1200|Hoidik spindli tangis, spindel seisab; määrake sügavus kihil.
+1201|Plotterid ja lõikurid mõistavad HPGL-i veidi erinevalt: määrake siin, mida see saab. Käsud lõpevad märgiga ; ning {speed} ja {force} täidetakse.
+1202|Alguses
+1203|Lõpus
+1204|Pliiats või nuga alla
+1205|Pliiats või nuga üles
+1206|kõige rohkem
+1207|Saadetakse, kui joonistuskiirus muutub; tühi: mitte kunagi (plotter jätab oma).
+1208|Surve
+1209|Kui tugevalt pliiats või nuga surub, saadetakse korra alguses; 0: mitte kunagi (plotter jätab oma).
+1210|Tagasi tavaliste käskude juurde

@@ -1175,3 +1175,37 @@
 1174|Láb (ft)
 1175|Mint az eszköz
 1176|A méretek egységei a tulajdonságokban, a vonalzón, a méretezésben és az előnézetekben. A G-kód mindig az eszköz egységeiben van.
+1177|A hegy eltolása
+1178|Milyen messze van a penge hegye a tengelye mögött: a penge gyártója adja meg
+1179|Fordítás az ennél élesebb sarkoknál
+1180|Vágás a kezdeten túl
+1181|A zárt körvonalat ennyivel a kezdete után is vágja, hogy bezáródjon
+1182|Késtár
+1183|Kés
+1184|Saját értékek
+1185|Késtár…
+1186|Kész kések
+1187|Saját késeim
+1188|Még nincs: másoljon egy kést a módosításhoz
+1189|Másolat a saját kései közé, módosításhoz
+1190|Saját kés
+1191|Kész kés nem módosítható: másolja le a módosításhoz.
+1192|Jegyzetek
+1193|30°-os penge
+1194|45°-os penge
+1195|60°-os penge
+1196|Vonszolt kés CNC-gép tartójában
+1197|Vékony fólia és papír, finom részletek és kis betűk.
+1198|Vinil, flex, papír és vékony karton: a vágóplotter szokásos pengéje.
+1199|Vastag vinil, karton, gumi, hab és homokfúvó sablonok.
+1200|Tartó az orsó befogójában, az orsó áll; a mélységet a rétegen állítsa be.
+1201|A plotterek és vágók kissé eltérően értik a HPGL-t: itt állítsa be, mit kap ez. A parancsok ;-vel végződnek, a {speed} és {force} kitöltődik.
+1202|Az elején
+1203|A végén
+1204|Toll vagy kés le
+1205|Toll vagy kés fel
+1206|legfeljebb
+1207|Akkor küldi, ha a rajzolási sebesség változik; üres: soha (a plotter megtartja a sajátját).
+1208|Erő
+1209|Milyen erősen nyom a toll vagy a kés, egyszer küldi az elején; 0: soha (a plotter megtartja a sajátját).
+1210|Vissza a szokásos parancsokhoz

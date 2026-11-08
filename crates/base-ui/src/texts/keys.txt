@@ -1175,3 +1175,37 @@
 1174	Feet (ft)
 1175	As the device
 1176	The units of the sizes in the properties, the ruler, the dimensions and the previews. The G-code is always in the units of the device.
+1177	Offset of the tip
+1178	How far the tip of the blade is behind its axis: the maker of the blade gives it
+1179	Turn round corners sharper than
+1180	Cut on past the start
+1181	A closed outline is cut on this far past its start, so it closes
+1182	Knife library
+1183	Knife
+1184	Own values
+1185	Knife library…
+1186	Ready-made knives
+1187	My knives
+1188	None yet: copy a knife to change it
+1189	A copy among your own knives, to change
+1190	My knife
+1191	A ready-made knife cannot be changed: copy it to change it.
+1192	Notes
+1193	30° blade
+1194	45° blade
+1195	60° blade
+1196	Drag knife in a holder of a CNC machine
+1197	Thin film and paper, fine detail and small letters.
+1198	Vinyl, flex, paper and thin card: the usual blade of a cutter.
+1199	Thick vinyl, card, rubber, foam and sandblast stencils.
+1200	A holder in the collet of the spindle, the spindle still; set the depth on the layer.
+1201	Plotters and cutters understand HPGL a little differently: set here what this one gets. Commands end with ; and {speed} and {force} are filled in.
+1202	At the start
+1203	At the end
+1204	Pen or knife down
+1205	Pen or knife up
+1206	at most
+1207	Sent when the speed of the drawing changes; empty: never (the plotter keeps its own).
+1208	Force
+1209	How hard the pen or the knife presses, sent once at the start; 0: never (the plotter keeps its own).
+1210	Back to the usual commands

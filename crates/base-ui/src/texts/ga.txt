@@ -1175,3 +1175,37 @@
 1174|Troithe (ft)
 1175|Mar an gléas
 1176|Aonaid na méideanna sna hairíonna, sa rialóir, sna toisí agus sna réamhamhairc. Bíonn an G-code i gcónaí in aonaid an ghléis.
+1177|Fritháireamh an bharr
+1178|Cé chomh fada is atá barr na lainne taobh thiar dá hais: tugann déantóir na lainne é
+1179|Cas ag coirnéil níos géire ná
+1180|Gearr thar an tús
+1181|Gearrtar imlíne dhúnta an fad seo thar a tús, ionas go ndúntar í
+1182|Leabharlann sceana
+1183|Scian
+1184|Luachanna féin
+1185|Leabharlann sceana…
+1186|Sceana réamhdhéanta
+1187|Mo sceana
+1188|Níl aon cheann fós: cóipeáil scian chun í a athrú
+1189|Cóip i measc do sceana féin, le hathrú
+1190|Mo scian
+1191|Ní féidir scian réamhdhéanta a athrú: cóipeáil í chun í a athrú.
+1192|Nótaí
+1193|Lann 30°
+1194|Lann 45°
+1195|Lann 60°
+1196|Scian tarraingthe i sealbhóir meaisín CNC
+1197|Scannán tanaí agus páipéar, mionsonraí agus litreacha beaga.
+1198|Vinil, flex, páipéar agus cárta tanaí: gnáthlann gearrthóra.
+1199|Vinil tiubh, cárta, rubar, cúr agus stionsail phléasctha gainimh.
+1200|Sealbhóir i gcoiléad na fearsaide, an fhearsaid stoptha; socraigh an doimhneacht ar an gciseal.
+1201|Tuigeann breacadóirí agus gearrthóirí HPGL beagán difriúil: socraigh anseo cad a fhaigheann an ceann seo. Críochnaíonn orduithe le ; agus líontar {speed} agus {force}.
+1202|Ag an tús
+1203|Ag an deireadh
+1204|Peann nó scian síos
+1205|Peann nó scian suas
+1206|ar a mhéad
+1207|Seoltar é nuair a athraíonn luas na líníochta; folamh: riamh (coinníonn an breacadóir a luas féin).
+1208|Fórsa
+1209|Cé chomh crua a bhrúnn an peann nó an scian, seolta uair amháin ag an tús; 0: riamh (coinníonn an breacadóir a fhórsa féin).
+1210|Ar ais chuig na gnáthorduithe

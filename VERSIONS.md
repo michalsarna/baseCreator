@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.82.0
+
+- **Knife library** (`knife_lib`, `base_ui::knives_ui`): ready-made drag knives (the 30°, 45° and 60° blades and a drag knife in a holder of a CNC machine) and your own ones, each with the offset of its tip, the corners it turns round, the overcut and notes. The window of the library copies a ready-made knife into one of your own, changes and deletes it; `library_row` puts a knife of the library on a device or a layer, `knife_rows` are its values. PenCreator and MillCreator keep the library with their settings and in the backup.
+- **HPGL commands of a device** (`plotter::HpglCommands`, `plotter_ui::hpgl_page`): what an HPGL plotter or cutter gets at the start and at the end of the program (`M2`, `M30`), for the pen or the knife down and up, the speed (`VS{speed};`, at most the top speed of the device; empty: never) and the force (`FS{force};`, sent once at the start; 0: never). An old device gets the usual commands.
+
 ## v1.81.0
 
 - **Drag knife** (`drag_knife`): `compensate` turns an outline into the path of the axis of a drag knife (the axis ahead of the tip by the offset; a swivel round every corner sharper than `swivel_deg`; the blade turned from the way it pointed after the last cut; a closed outline cut on past its start by `overcut`), `simulate` drags the tip behind a path (the previews and the tests), `nesting` / `inside_first` order the cuts holes first. PenCreator has it as a tool of the device, MillCreator as an operation of a layer.

@@ -1175,3 +1175,37 @@
 1174|Pieds (ft)
 1175|Comme l'appareil
 1176|Les unités des tailles dans les propriétés, la règle, les cotes et les aperçus. Le G-code est toujours dans les unités de l'appareil.
+1177|Décalage de la pointe
+1178|À quelle distance la pointe de la lame se trouve derrière son axe : le fabricant de la lame l'indique
+1179|Pivoter aux angles plus aigus que
+1180|Couper au-delà du départ
+1181|Un contour fermé est coupé de cette longueur au-delà de son départ, pour qu'il se ferme
+1182|Bibliothèque de lames
+1183|Lame
+1184|Valeurs personnelles
+1185|Bibliothèque de lames…
+1186|Lames prêtes
+1187|Mes lames
+1188|Aucune pour l'instant : copiez une lame pour la modifier
+1189|Une copie parmi vos lames, à modifier
+1190|Ma lame
+1191|Une lame prête ne peut pas être modifiée : copiez-la pour la modifier.
+1192|Notes
+1193|Lame à 30°
+1194|Lame à 45°
+1195|Lame à 60°
+1196|Lame traînante dans un support de machine CNC
+1197|Film fin et papier, détails fins et petites lettres.
+1198|Vinyle, flex, papier et carton fin : la lame habituelle d'un plotter de découpe.
+1199|Vinyle épais, carton, caoutchouc, mousse et pochoirs de sablage.
+1200|Un support dans la pince de la broche, broche arrêtée ; réglez la profondeur sur le calque.
+1201|Les traceurs et les plotters de découpe comprennent le HPGL un peu différemment : réglez ici ce que reçoit celui-ci. Les commandes finissent par ; et {speed} et {force} sont remplis.
+1202|Au début
+1203|À la fin
+1204|Stylo ou lame en bas
+1205|Stylo ou lame en haut
+1206|au plus
+1207|Envoyé quand la vitesse du tracé change ; vide : jamais (le traceur garde la sienne).
+1208|Force
+1209|La force d'appui du stylo ou de la lame, envoyée une fois au début ; 0 : jamais (le traceur garde la sienne).
+1210|Revenir aux commandes habituelles

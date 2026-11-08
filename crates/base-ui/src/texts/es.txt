@@ -1175,3 +1175,37 @@
 1174|Pies (ft)
 1175|Como el dispositivo
 1176|Las unidades de las medidas en las propiedades, la regla, las cotas y las vistas previas. El G-code siempre está en las unidades del dispositivo.
+1177|Desplazamiento de la punta
+1178|A qué distancia está la punta de la cuchilla detrás de su eje: lo indica el fabricante de la cuchilla
+1179|Girar en las esquinas más agudas que
+1180|Cortar más allá del inicio
+1181|Un contorno cerrado se corta esta distancia más allá de su inicio, para que se cierre
+1182|Biblioteca de cuchillas
+1183|Cuchilla
+1184|Valores propios
+1185|Biblioteca de cuchillas…
+1186|Cuchillas predefinidas
+1187|Mis cuchillas
+1188|Ninguna aún: copie una cuchilla para cambiarla
+1189|Una copia entre sus propias cuchillas, para cambiarla
+1190|Mi cuchilla
+1191|Una cuchilla predefinida no se puede cambiar: cópiela para cambiarla.
+1192|Notas
+1193|Cuchilla de 30°
+1194|Cuchilla de 45°
+1195|Cuchilla de 60°
+1196|Cuchilla de arrastre en un soporte de máquina CNC
+1197|Película fina y papel, detalles finos y letras pequeñas.
+1198|Vinilo, flex, papel y cartulina fina: la cuchilla habitual de un plóter de corte.
+1199|Vinilo grueso, cartulina, goma, espuma y plantillas de chorro de arena.
+1200|Un soporte en la pinza del husillo, el husillo parado; fije la profundidad en la capa.
+1201|Los plóteres y plóteres de corte entienden el HPGL de forma algo distinta: defina aquí lo que recibe este. Los comandos terminan en ; y {speed} y {force} se rellenan.
+1202|Al inicio
+1203|Al final
+1204|Bolígrafo o cuchilla abajo
+1205|Bolígrafo o cuchilla arriba
+1206|como máximo
+1207|Se envía cuando cambia la velocidad de dibujo; vacío: nunca (el plóter mantiene la suya).
+1208|Fuerza
+1209|Cuánto presiona el bolígrafo o la cuchilla, se envía una vez al inicio; 0: nunca (el plóter mantiene la suya).
+1210|Volver a los comandos habituales

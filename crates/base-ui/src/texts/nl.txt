@@ -1175,3 +1175,37 @@
 1174|Voet (ft)
 1175|Zoals het apparaat
 1176|De eenheden van de maten in de eigenschappen, de liniaal, de maataanduidingen en de voorbeelden. De G-code is altijd in de eenheden van het apparaat.
+1177|Verschuiving van de punt
+1178|Hoe ver de punt van het mes achter de as ligt: de maker van het mes geeft het op
+1179|Draaien bij hoeken scherper dan
+1180|Doorsnijden voorbij het begin
+1181|Een gesloten contour wordt zo ver voorbij het begin gesneden, zodat hij sluit
+1182|Messenbibliotheek
+1183|Mes
+1184|Eigen waarden
+1185|Messenbibliotheek…
+1186|Kant-en-klare messen
+1187|Mijn messen
+1188|Nog geen: kopieer een mes om het te wijzigen
+1189|Een kopie bij uw eigen messen, om te wijzigen
+1190|Mijn mes
+1191|Een kant-en-klaar mes kan niet worden gewijzigd: kopieer het om het te wijzigen.
+1192|Notities
+1193|Mes van 30°
+1194|Mes van 45°
+1195|Mes van 60°
+1196|Sleepmes in een houder van een CNC-machine
+1197|Dunne folie en papier, fijne details en kleine letters.
+1198|Vinyl, flex, papier en dun karton: het gewone mes van een snijplotter.
+1199|Dik vinyl, karton, rubber, schuim en zandstraalsjablonen.
+1200|Een houder in de spantang van de spindel, de spindel stil; stel de diepte in op de laag.
+1201|Plotters en snijplotters begrijpen HPGL net iets anders: stel hier in wat deze krijgt. Opdrachten eindigen op ; en {speed} en {force} worden ingevuld.
+1202|Bij de start
+1203|Aan het eind
+1204|Pen of mes omlaag
+1205|Pen of mes omhoog
+1206|hoogstens
+1207|Verzonden wanneer de tekensnelheid verandert; leeg: nooit (de plotter houdt zijn eigen).
+1208|Druk
+1209|Hoe hard de pen of het mes drukt, eenmaal aan het begin verzonden; 0: nooit (de plotter houdt zijn eigen).
+1210|Terug naar de gewone opdrachten
