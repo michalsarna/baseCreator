@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.81.0
+
+- **Drag knife** (`drag_knife`): `compensate` turns an outline into the path of the axis of a drag knife (the axis ahead of the tip by the offset; a swivel round every corner sharper than `swivel_deg`; the blade turned from the way it pointed after the last cut; a closed outline cut on past its start by `overcut`), `simulate` drags the tip behind a path (the previews and the tests), `nesting` / `inside_first` order the cuts holes first. PenCreator has it as a tool of the device, MillCreator as an operation of a layer.
+
 ## v1.80.0
 
 - **Units:** `Units` has centimetres, metres and feet too (`ALL`, five, for showing lengths; `DEVICE`, millimetres and inches, for a machine), with `is_metric`, `symbol`, `mm_per_unit`. `GridPrefs::units` (Settings → Program options → **Units**, `units_ui::display_units_row`; `None` = as the device) is what `EditorHost::units` gives in the programs; `EditorHost::machine_units` is the device's.

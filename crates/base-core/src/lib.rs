@@ -12,6 +12,7 @@ pub mod control;
 pub mod control_devices;
 pub mod design;
 pub mod diag;
+pub mod drag_knife;
 pub mod dxf;
 pub mod fillet;
 pub mod gcode_out;
