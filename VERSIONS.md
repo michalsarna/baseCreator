@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.82.1
+
+- The window of the knife library keeps its size: it grew a little on every frame, up to the height of the screen.
+
 ## v1.82.0
 
 - **Knife library** (`knife_lib`, `base_ui::knives_ui`): ready-made drag knives (the 30°, 45° and 60° blades and a drag knife in a holder of a CNC machine) and your own ones, each with the offset of its tip, the corners it turns round, the overcut and notes. The window of the library copies a ready-made knife into one of your own, changes and deletes it; `library_row` puts a knife of the library on a device or a layer, `knife_rows` are its values. PenCreator and MillCreator keep the library with their settings and in the backup.
