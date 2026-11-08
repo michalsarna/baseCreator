@@ -92,7 +92,7 @@ pub(super) fn column(ui: &mut egui::Ui, r: egui::Rect, add: impl FnOnce(&mut egu
 }
 
 /// The picture files that can be imported (what a dropped file is checked against too).
-pub const IMAGE_EXTENSIONS: &[&str] = &["png", "jpg", "jpeg", "bmp", "gif", "webp"];
+pub const IMAGE_EXTENSIONS: &[&str] = &["png", "jpg", "jpeg", "bmp", "gif", "webp", "tif", "tiff"];
 
 /// Is the file a picture that can be imported?
 pub fn is_image_file(p: &std::path::Path) -> bool {

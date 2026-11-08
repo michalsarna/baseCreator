@@ -29,7 +29,7 @@ pub fn plain_keys<H: EditorHost>(h: &mut H, ctx: &egui::Context, arrows: bool) {
             h.delete_selection();
         }
     }
-    // In the node tool the letters of the nodes come before the letters of the tools (I, L, S and R are also tools).
+    // In the node tool the letters of the nodes come before the letters of the tools (I, L, S, G and R are also tools).
     if h.ed().tool == Tool::Node {
         node_keys(h, &plain);
     }
@@ -63,7 +63,7 @@ pub fn plain_keys<H: EditorHost>(h: &mut H, ctx: &egui::Context, arrows: bool) {
     }
 }
 
-/// The keys of the node tool: D delete, I insert, L to line, S to curve, C corner, R round (with the radius of the bar), B break.
+/// The keys of the node tool: D delete, I insert, L to line, S to curve, C corner, G smooth, R round (with the radius of the bar), B break.
 fn node_keys<H: EditorHost>(h: &mut H, plain: &impl Fn(Key) -> bool) {
     if plain(Key::D) {
         h.delete_nodes();
@@ -82,6 +82,9 @@ fn node_keys<H: EditorHost>(h: &mut H, plain: &impl Fn(Key) -> bool) {
     }
     if plain(Key::C) {
         h.nodes_smooth(false);
+    }
+    if plain(Key::G) {
+        h.nodes_smooth(true);
     }
     if plain(Key::R) {
         let r = h.ed().fillet_radius;

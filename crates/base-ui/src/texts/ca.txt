@@ -1164,3 +1164,6 @@
 1163|Exporta un projecte de MillMage…
 1164|{} traçats i {} imatges importats de {}
 1165|Regle (M)
+1166|Cotes
+1167|Mostra les mides del treball com en un dibuix tècnic
+1168|Mostra les cotes del dibuix com en un dibuix tècnic

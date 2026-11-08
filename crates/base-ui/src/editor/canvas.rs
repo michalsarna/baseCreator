@@ -167,6 +167,12 @@ pub trait EditorCanvas: EditorHost {
             }
         }
         self.paint_over_shapes(&view);
+        if self.ed().show_dims {
+            let shapes = self.scene().shapes.iter().filter(|s| self.layer_visible(s.layer));
+            let f = crate::dims::Features::of(shapes, &|p| p);
+            let to = |p: Pt| self.w2s(o, p);
+            crate::dims::drawing(&painter, &to, &f, None, self.units(), &crate::dims::DimStyle::on(self.bed_fill()));
+        }
 
         // Padlock on locked objects.
         let locked: Vec<Pt> = self.scene().shapes.iter().filter(|s| s.locked && self.layer_visible(s.layer)).filter_map(|s| s.bounds()).map(|b| Pt::new(b.max.x, b.min.y)).collect();
@@ -272,7 +278,27 @@ pub trait EditorCanvas: EditorHost {
         }
         // Right click with any other tool is a double Escape: back to the select tool (a line being drawn with the pen is finished
         // first, so it is not lost). Only the select tool has the context menu.
-        if resp.secondary_clicked() && self.ed().tool != Tool::Select {
+        // In the node tool a right click on a node or a segment opens the menu of the node bar (the node or the segment is taken
+        // first); anywhere else it goes back to the select tool as with any tool.
+        if resp.secondary_clicked() && self.ed().tool == Tool::Node {
+            let mut on = false;
+            if let Some(m) = hpos {
+                let w = self.s2w(o, m);
+                if let Some(nr) = self.hit_node(o, m) {
+                    if !self.ed().node_sel.contains(&nr) {
+                        self.ed_mut().node_sel = vec![nr];
+                    }
+                    self.ed_mut().active_seg = None;
+                    on = true;
+                } else if let Some((seg, _)) = self.hit_segment(w) {
+                    self.ed_mut().active_seg = Some(seg);
+                    self.ed_mut().node_sel.clear();
+                    on = true;
+                }
+            }
+            self.ed_mut().node_menu = on;
+        }
+        if resp.secondary_clicked() && self.ed().tool != Tool::Select && !(self.ed().tool == Tool::Node && self.ed().node_menu) {
             if self.ed().tool == Tool::Pen && self.ed().pen_pts.len() >= 2 {
                 self.finish_pen(false);
             }
@@ -287,6 +313,15 @@ pub trait EditorCanvas: EditorHost {
         }
         if self.ed().tool == Tool::Select {
             self.canvas_context_menu(ui, &resp);
+        } else if self.ed().tool == Tool::Node && self.ed().node_menu {
+            let shown = resp.context_menu(|ui| {
+                if self.node_bar(ui) {
+                    ui.close();
+                }
+            });
+            if shown.is_none() && !resp.secondary_clicked() {
+                self.ed_mut().node_menu = false;
+            }
         }
         let background_busy = super::EditorBackground::background_interact(self, &resp, o, press);
         let overlay_busy = background_busy || self.pointer_claimed(&resp, o, press, hpos);
@@ -508,7 +543,7 @@ pub trait EditorCanvas: EditorHost {
                 if resp.drag_started_by(PointerButton::Primary) {
                     if let Some(m) = press {
                         let a = self.measure_point(o, m);
-                        self.ed_mut().measure = super::Measure { a: Some(a), b: None, segment: false, dragging: true };
+                        self.ed_mut().measure = super::Measure { a: Some(a), dragging: true, ..Default::default() };
                     }
                 } else if resp.drag_stopped_by(PointerButton::Primary) && self.ed().measure.dragging {
                     let b = hpos.map(|m| self.measure_point(o, m));
@@ -517,16 +552,16 @@ pub trait EditorCanvas: EditorHost {
                     ms.dragging = false;
                 } else if resp.clicked() {
                     if let Some(m) = hpos {
-                        let ms = self.ed().measure;
+                        let ms = self.ed().measure.clone();
                         if ms.a.is_some() && ms.b.is_none() && !ms.dragging {
                             // The second click ends the line.
                             let b = self.measure_point(o, m);
                             self.ed_mut().measure.b = Some(b);
-                        } else if let Some((a, b)) = self.straight_segment_at(o, m) {
-                            self.ed_mut().measure = super::Measure { a: Some(a), b: Some(b), segment: true, dragging: false };
+                        } else if let Some(found) = self.measure_pick(o, m) {
+                            self.ed_mut().measure = found;
                         } else {
                             let a = self.measure_point(o, m);
-                            self.ed_mut().measure = super::Measure { a: Some(a), b: None, segment: false, dragging: false };
+                            self.ed_mut().measure = super::Measure { a: Some(a), ..Default::default() };
                         }
                     }
                 }
@@ -673,7 +708,8 @@ pub trait EditorCanvas: EditorHost {
                         painter.rect_stroke(r, 0.0, Stroke::new(1.0, c), egui::StrokeKind::Middle);
                     }
                     Drag::Create { start } => {
-                        let end = self.snapped(w);
+                        // Shift keeps the proportions while drawing too: a circle, a square, an even star.
+                        let end = super::keep_square(self.ed().tool, *start, self.snapped(w), shift);
                         let st = Stroke::new(self.ed().grid_prefs.line_width, self.layer_color(self.ed().active_layer));
                         let (a, b) = (self.w2s(o, *start), self.w2s(o, end));
                         match self.ed().tool {
@@ -765,11 +801,7 @@ pub trait EditorCanvas: EditorHost {
                         }
                     }
                     Drag::Create { start } => {
-                        let mut end = self.snapped(w);
-                        if shift && matches!(self.ed().tool, Tool::Rect | Tool::Ellipse | Tool::Triangle | Tool::Star | Tool::Polygon | Tool::Heart | Tool::Spiral) {
-                            let s = (end.x - start.x).abs().max((end.y - start.y).abs());
-                            end = Pt::new(start.x + s * (end.x - start.x).signum(), start.y + s * (end.y - start.y).signum());
-                        }
+                        let end = super::keep_square(self.ed().tool, start, self.snapped(w), shift);
                         let r = Rect::from_pts([start, end]).unwrap();
                         if r.width().max(r.height()) > 0.2 {
                             self.checkpoint();
@@ -809,24 +841,84 @@ pub trait EditorCanvas: EditorHost {
         }
 
         // ---- the ruler ----
-        let live = if self.ed().tool == Tool::Measure { mouse.map(|m| self.measure_point(o, m)) } else { None };
-        if let Some((a, b)) = self.ed().measure.line(live) {
-            let (pa, pb) = (self.w2s(o, a), self.w2s(o, b));
-            let ink = theme::accent();
-            let halo = Stroke::new(4.0, Color32::from_black_alpha(90));
-            painter.line_segment([pa, pb], halo);
-            painter.line_segment([pa, pb], Stroke::new(if self.ed().measure.segment { 2.5 } else { 1.6 }, ink));
-            for p in [pa, pb] {
-                painter.circle_filled(p, 3.5, Color32::WHITE);
-                painter.circle_stroke(p, 3.5, Stroke::new(1.5, ink));
-            }
-            let text = super::measure_text(a, b, self.units());
-            let at = pa + (pb - pa) / 2.0 + egui::vec2(10.0, -10.0);
+        let snap = if self.ed().tool == Tool::Measure { mouse.map(|m| self.measure_snap(o, m)) } else { None };
+        let live = snap.map(|(p, _)| p);
+        let ink = theme::accent();
+        let units = self.units();
+        let f = |v: f64| crate::units_ui::fmt_len(units, v, 2);
+        let tag = |at: Pos2, text: String| {
             let galley = painter.layout_no_wrap(text, egui::FontId::proportional(13.0), Color32::WHITE);
             let r = egui::Rect::from_min_size(at - egui::vec2(0.0, galley.size().y), galley.size()).expand2(egui::vec2(6.0, 3.0));
             painter.rect_filled(r, 4.0, Color32::from_rgba_unmultiplied(0x20, 0x20, 0x28, 225));
             painter.rect_stroke(r, 4.0, Stroke::new(1.0, ink), egui::StrokeKind::Outside);
             painter.galley(r.min + egui::vec2(6.0, 3.0), galley, Color32::WHITE);
+        };
+        let halo = Stroke::new(4.0, Color32::from_black_alpha(90));
+        let dot = |p: Pos2| {
+            painter.circle_filled(p, 3.5, Color32::WHITE);
+            painter.circle_stroke(p, 3.5, Stroke::new(1.5, ink));
+        };
+        // A radius: dashed from the centre (a small cross) to the point, with its length.
+        let radius = |c: Pt, to: Pt, name: &str| {
+            let (pc, pt) = (self.w2s(o, c), self.w2s(o, to));
+            painter.extend(egui::Shape::dashed_line(&[pc, pt], Stroke::new(1.6, ink), 6.0, 3.0));
+            for d in [egui::vec2(5.0, 0.0), egui::vec2(0.0, 5.0)] {
+                painter.line_segment([pc - d, pc + d], Stroke::new(1.4, ink));
+            }
+            dot(pt);
+            tag(pc + (pt - pc) / 2.0 + egui::vec2(8.0, -6.0), format!("{name} {}", f(c.dist(to))));
+        };
+        if let Some((a, b)) = self.ed().measure.line(live) {
+            let (pa, pb) = (self.w2s(o, a), self.w2s(o, b));
+            painter.line_segment([pa, pb], halo);
+            painter.line_segment([pa, pb], Stroke::new(if self.ed().measure.segment { 2.5 } else { 1.6 }, ink));
+            dot(pa);
+            dot(pb);
+            tag(pa + (pb - pa) / 2.0 + egui::vec2(10.0, -10.0), super::measure_text(a, b, units));
+        }
+        match self.ed().measure.picked.clone() {
+            Some(super::Picked::Curve { pts, len, arc, at }) => {
+                let line: Vec<Pos2> = pts.iter().map(|q| self.w2s(o, *q)).collect();
+                painter.add(egui::Shape::line(line.clone(), halo));
+                painter.add(egui::Shape::line(line, Stroke::new(2.5, ink)));
+                let text = match arc {
+                    Some((_, r)) => format!("L {}   R {}", f(len), f(r)),
+                    None => format!("L {}", f(len)),
+                };
+                tag(self.w2s(o, at) + egui::vec2(12.0, 22.0), text);
+                if let Some((c, _)) = arc {
+                    radius(c, at, "R");
+                }
+            }
+            Some(super::Picked::Ellipse { c, ax, ay, at }) => {
+                let (rx, ry) = (ax.x.hypot(ax.y), ay.x.hypot(ay.y));
+                if (rx - ry).abs() < 1e-6 {
+                    radius(c, at, "R");
+                    tag(self.w2s(o, c) + egui::vec2(10.0, 26.0), format!("Ø {}", f(2.0 * rx)));
+                } else {
+                    radius(c, Pt::new(c.x + ax.x, c.y + ax.y), "Rx");
+                    radius(c, Pt::new(c.x + ay.x, c.y + ay.y), "Ry");
+                    radius(c, at, "r");
+                }
+            }
+            None => {}
+        }
+        // Where the ruler would take the point: a square on a node, a diamond in the middle of a segment, a circle on a centre.
+        if let Some((p, Some(kind))) = snap {
+            let ps = self.w2s(o, p);
+            let st = Stroke::new(1.6, Color32::from_rgb(0xff, 0x8c, 0x1a));
+            match kind {
+                super::ruler::SnapKind::Node => {
+                    painter.rect_stroke(egui::Rect::from_center_size(ps, egui::vec2(9.0, 9.0)), 0.0, st, egui::StrokeKind::Middle);
+                }
+                super::ruler::SnapKind::Middle => {
+                    let d = 6.0;
+                    painter.add(egui::Shape::closed_line(vec![ps + egui::vec2(0.0, -d), ps + egui::vec2(d, 0.0), ps + egui::vec2(0.0, d), ps + egui::vec2(-d, 0.0)], st));
+                }
+                super::ruler::SnapKind::Centre => {
+                    painter.circle_stroke(ps, 5.5, st);
+                }
+            }
         }
 
         self.rulers(&painter, rect);

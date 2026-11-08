@@ -1164,3 +1164,6 @@
 1163|Flytja út MillMage-verkefni…
 1164|Fluttir inn ferlar: {} og myndir: {} úr {}
 1165|Reglustika (M)
+1166|Mál
+1167|Sýnir mál verksins eins og á tæknilegri teikningu
+1168|Sýnir mál teikningarinnar eins og á tæknilegri teikningu

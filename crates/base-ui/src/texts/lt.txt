@@ -1164,3 +1164,6 @@
 1163|Eksportuoti „MillMage“ projektą…
 1164|Importuota kontūrų: {} ir paveikslų: {} iš {}
 1165|Liniuotė (M)
+1166|Matmenys
+1167|Rodo darbo matmenis kaip techniniame brėžinyje
+1168|Rodo brėžinio matmenis kaip techniniame brėžinyje

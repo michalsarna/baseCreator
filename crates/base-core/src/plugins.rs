@@ -26,7 +26,7 @@ const MAX_ZIP_FILE: u64 = 32_000_000;
 const MAX_ZIP_FILES: usize = 2000;
 
 /// File types the programs read themselves; an importer of a plugin cannot take them over.
-pub const RESERVED_EXTENSIONS: [&str; 14] = ["svg", "pdf", "ai", "cre", "lbrn", "lbrn2", "mage", "ugsd", "png", "jpg", "jpeg", "bmp", "gif", "webp"];
+pub const RESERVED_EXTENSIONS: [&str; 16] = ["svg", "pdf", "ai", "cre", "lbrn", "lbrn2", "mage", "ugsd", "png", "jpg", "jpeg", "bmp", "gif", "webp", "tif", "tiff"];
 
 /// The programs a plugin can name in `programs`.
 pub const PROGRAMS: [&str; 4] = ["lightcreator", "millcreator", "pencreator", "basecreator"];

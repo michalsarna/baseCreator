@@ -151,7 +151,7 @@ pub trait EditorBackground: EditorHost {
 
     /// Ask for a picture file and put it under the drawing.
     fn load_background_file(&mut self, ctx: &egui::Context) {
-        let Some(p) = rfd::FileDialog::new().add_filter("Images", &["png", "jpg", "jpeg", "bmp", "webp", "gif"]).pick_file() else { return };
+        let Some(p) = rfd::FileDialog::new().add_filter("Images", super::IMAGE_EXTENSIONS).pick_file() else { return };
         let name = p.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
         match read_picture(&p) {
             Ok(img) => {

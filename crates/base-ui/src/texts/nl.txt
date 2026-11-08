@@ -1164,3 +1164,6 @@
 1163|MillMage-project exporteren…
 1164|{} paden en {} afbeeldingen geïmporteerd uit {}
 1165|Liniaal (M)
+1166|Maten
+1167|Toont de maten van de taak zoals op een technische tekening
+1168|Toont de maten van de tekening zoals op een technische tekening

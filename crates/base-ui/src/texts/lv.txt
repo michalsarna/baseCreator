@@ -1164,3 +1164,6 @@
 1163|Eksportēt MillMage projektu…
 1164|Importēti ceļi: {} un attēli: {} no {}
 1165|Lineāls (M)
+1166|Izmēri
+1167|Rāda darba izmērus kā tehniskajā rasējumā
+1168|Rāda zīmējuma izmērus kā tehniskajā rasējumā

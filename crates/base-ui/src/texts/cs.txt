@@ -1164,3 +1164,6 @@
 1163|Exportovat projekt MillMage…
 1164|Importováno cest: {} a obrázků: {} ze souboru {}
 1165|Pravítko (M)
+1166|Kóty
+1167|Ukáže rozměry úlohy jako na technickém výkresu
+1168|Ukáže kóty kresby jako na technickém výkresu

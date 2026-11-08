@@ -8,7 +8,7 @@ license.workspace = true
 base64 = "0.23.1"
 roxmltree = "0.21.1"
 i_overlay = "9.0.1"
-image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp", "gif", "webp"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp", "gif", "webp", "tiff"] }
 lopdf = { version = "0.46", default-features = false }
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.151"

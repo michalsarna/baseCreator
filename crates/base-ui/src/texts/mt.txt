@@ -1164,3 +1164,6 @@
 1163|Esporta proġett ta' MillMage…
 1164|Passaġġi importati: {} u stampi: {} minn {}
 1165|Riga (M)
+1166|Dimensjonijiet
+1167|Juri l-qisien tax-xogħol bħal fuq tpinġija teknika
+1168|Juri l-qisien tat-tpinġija bħal fuq tpinġija teknika

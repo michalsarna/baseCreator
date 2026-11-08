@@ -42,6 +42,8 @@ pub enum Content {
     /// The analysis of a G-code file.
     Gcode,
     Camera,
+    /// A tab of the program's own (MillCreator's technical drawing is 0).
+    Extra(u8),
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]

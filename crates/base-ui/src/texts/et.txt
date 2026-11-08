@@ -1164,3 +1164,6 @@
 1163|Ekspordi MillMage'i projekt…
 1164|Imporditud teid: {} ja pilte: {} failist {}
 1165|Joonlaud (M)
+1166|Mõõtmed
+1167|Näitab töö mõõtmeid nagu tehnilisel joonisel
+1168|Näitab joonise mõõtmeid nagu tehnilisel joonisel
