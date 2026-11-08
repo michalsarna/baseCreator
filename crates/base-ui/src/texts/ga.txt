@@ -1167,3 +1167,11 @@
 1166|Toisí
 1167|Taispeánann sé toisí an jab mar a bheadh ar líníocht theicniúil
 1168|Taispeánann sé toisí na líníochta mar a bheadh ar líníocht theicniúil
+1169|Aonaid
+1170|Milliméadair (mm)
+1171|Orlaí (in)
+1172|Ceintiméadair (cm)
+1173|Méadair (m)
+1174|Troithe (ft)
+1175|Mar an gléas
+1176|Aonaid na méideanna sna hairíonna, sa rialóir, sna toisí agus sna réamhamhairc. Bíonn an G-code i gcónaí in aonaid an ghléis.

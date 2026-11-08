@@ -1167,3 +1167,11 @@
 1166|Mál
 1167|Sýnir mál verksins eins og á tæknilegri teikningu
 1168|Sýnir mál teikningarinnar eins og á tæknilegri teikningu
+1169|Einingar
+1170|Millimetrar (mm)
+1171|Tommur (in)
+1172|Sentímetrar (cm)
+1173|Metrar (m)
+1174|Fet (ft)
+1175|Eins og tækið
+1176|Einingar stærða í eiginleikum, reglustiku, málum og forskoðunum. G-kóðinn er alltaf í einingum tækisins.

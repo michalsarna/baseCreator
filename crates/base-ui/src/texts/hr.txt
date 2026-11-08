@@ -1167,3 +1167,11 @@
 1166|Kote
 1167|Prikazuje mjere posla kao na tehničkom crtežu
 1168|Prikazuje kote crteža kao na tehničkom crtežu
+1169|Jedinice
+1170|Milimetri (mm)
+1171|Inči (in)
+1172|Centimetri (cm)
+1173|Metri (m)
+1174|Stope (ft)
+1175|Kao uređaj
+1176|Jedinice veličina u svojstvima, ravnalu, kotama i pregledima. G-kod je uvijek u jedinicama uređaja.

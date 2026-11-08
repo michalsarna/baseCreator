@@ -1167,3 +1167,11 @@
 1166|Mål
 1167|Viser målene for jobben som på en teknisk tegning
 1168|Viser målene på tegningen som på en teknisk tegning
+1169|Enheter
+1170|Millimeter (mm)
+1171|Tommer (in)
+1172|Centimeter (cm)
+1173|Meter (m)
+1174|Fot (ft)
+1175|Som enheten
+1176|Enhetene for størrelser i egenskapene, linjalen, målene og forhåndsvisningene. G-koden er alltid i enhetens enheter.

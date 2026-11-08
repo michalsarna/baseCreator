@@ -1167,3 +1167,11 @@
 1166|Cotas
 1167|Mostra as medidas do trabalho como num desenho técnico
 1168|Mostra as cotas do desenho como num desenho técnico
+1169|Unidades
+1170|Milímetros (mm)
+1171|Polegadas (in)
+1172|Centímetros (cm)
+1173|Metros (m)
+1174|Pés (ft)
+1175|Como o dispositivo
+1176|As unidades das medidas nas propriedades, na régua, nas cotas e nas pré-visualizações. O G-code está sempre nas unidades do dispositivo.

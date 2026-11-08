@@ -1167,3 +1167,11 @@
 1166|Mått
 1167|Visar jobbets mått som på en teknisk ritning
 1168|Visar ritningens mått som på en teknisk ritning
+1169|Enheter
+1170|Millimeter (mm)
+1171|Tum (in)
+1172|Centimeter (cm)
+1173|Meter (m)
+1174|Fot (ft)
+1175|Som enheten
+1176|Enheterna för storlekar i egenskaperna, linjalen, måtten och förhandsvisningarna. G-koden är alltid i enhetens enheter.

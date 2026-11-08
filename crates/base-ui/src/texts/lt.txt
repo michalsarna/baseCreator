@@ -1167,3 +1167,11 @@
 1166|Matmenys
 1167|Rodo darbo matmenis kaip techniniame brėžinyje
 1168|Rodo brėžinio matmenis kaip techniniame brėžinyje
+1169|Vienetai
+1170|Milimetrai (mm)
+1171|Coliai (in)
+1172|Centimetrai (cm)
+1173|Metrai (m)
+1174|Pėdos (ft)
+1175|Kaip įrenginio
+1176|Dydžių vienetai savybėse, liniuotėje, matmenyse ir peržiūrose. G kodas visada yra įrenginio vienetais.

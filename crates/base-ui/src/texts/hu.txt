@@ -1167,3 +1167,11 @@
 1166|Méretek
 1167|A munka méreteit műszaki rajzhoz hasonlóan mutatja
 1168|A rajz méreteit műszaki rajzhoz hasonlóan mutatja
+1169|Mértékegységek
+1170|Milliméter (mm)
+1171|Hüvelyk (in)
+1172|Centiméter (cm)
+1173|Méter (m)
+1174|Láb (ft)
+1175|Mint az eszköz
+1176|A méretek egységei a tulajdonságokban, a vonalzón, a méretezésben és az előnézetekben. A G-kód mindig az eszköz egységeiben van.

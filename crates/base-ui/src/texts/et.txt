@@ -1167,3 +1167,11 @@
 1166|Mõõtmed
 1167|Näitab töö mõõtmeid nagu tehnilisel joonisel
 1168|Näitab joonise mõõtmeid nagu tehnilisel joonisel
+1169|Ühikud
+1170|Millimeetrid (mm)
+1171|Tollid (in)
+1172|Sentimeetrid (cm)
+1173|Meetrid (m)
+1174|Jalad (ft)
+1175|Nagu seadmel
+1176|Suuruste ühikud omadustes, joonlaual, mõõtmetes ja eelvaadetes. G-kood on alati seadme ühikutes.

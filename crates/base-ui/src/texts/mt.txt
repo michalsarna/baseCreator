@@ -1167,3 +1167,11 @@
 1166|Dimensjonijiet
 1167|Juri l-qisien tax-xogħol bħal fuq tpinġija teknika
 1168|Juri l-qisien tat-tpinġija bħal fuq tpinġija teknika
+1169|Unitajiet
+1170|Millimetri (mm)
+1171|Pulzieri (in)
+1172|Ċentimetri (cm)
+1173|Metri (m)
+1174|Piedi (ft)
+1175|Bħall-apparat
+1176|L-unitajiet tad-daqsijiet fil-proprjetajiet, fir-riga, fid-dimensjonijiet u fil-previews. Il-G-code dejjem ikun fl-unitajiet tal-apparat.

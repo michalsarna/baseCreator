@@ -52,6 +52,11 @@ pub trait EditorHost: Sized {
     fn clipboard_image(&self) -> Option<crate::clip_image::ClipImage> {
         crate::clip_image::read()
     }
+    /// The units the machine works in (its G-code is in them). The dimensions show them beside the units of the program when one is
+    /// metric and the other imperial.
+    fn machine_units(&self) -> base_core::units::Units {
+        self.units()
+    }
     /// The units rulers and fields show.
     fn units(&self) -> base_core::units::Units;
     /// Colour of the space around the work area, and of the work area itself.

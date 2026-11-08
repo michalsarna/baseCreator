@@ -134,11 +134,11 @@ pub fn keep_square(tool: Tool, start: Pt, end: Pt, shift: bool) -> Pt {
 
 /// The words of a measurement: the length, the differences in X and Y (as the coordinates of the work area count them) and the angle
 /// from the X axis as it is seen (counter-clockwise).
-pub fn measure_text(a: Pt, b: Pt, units: base_core::units::Units) -> String {
+pub fn measure_text(a: Pt, b: Pt, units: base_core::units::Units, machine: base_core::units::Units) -> String {
     let (dx, dy) = (b.x - a.x, b.y - a.y);
     let len = dx.hypot(dy);
     let angle = if len > 1e-9 { (-dy).atan2(dx).to_degrees() } else { 0.0 };
-    let f = |v: f64| crate::units_ui::fmt_len(units, v, 2);
+    let f = |v: f64| crate::units_ui::fmt_len_both(units, machine, v, 2);
     format!("{}   ΔX {}   ΔY {}   α {:.1}°", f(len), f(dx), f(dy), angle)
 }
 
@@ -196,6 +196,13 @@ pub fn faded_colour(c: egui::Color32, bed: egui::Color32) -> egui::Color32 {
     egui::Color32::from_rgb(mix(c.r(), bed.r()), mix(c.g(), bed.g()), mix(c.b(), bed.b()))
 }
 
+impl GridPrefs {
+    /// The units the program shows lengths in: the chosen ones, or those of the device.
+    pub fn display_units(&self, device: base_core::units::Units) -> base_core::units::Units {
+        self.units.unwrap_or(device)
+    }
+}
+
 pub fn nice_step(min_mm: f64) -> f64 {
     for m in [1.0, 2.0, 5.0] .iter().cycle().zip(0..).map(|(m, i)| m * 10f64.powi(i / 3 - 2)) {
         if m >= min_mm {
@@ -220,6 +227,10 @@ pub struct GridPrefs {
     /// Colour of the space around the work area; `None` takes the one of the colour scheme.
     #[serde(default)]
     pub workspace_color: Option<[u8; 4]>,
+    /// The units the program shows lengths in (the properties, the ruler, the dimensions, the previews); `None` takes those of the
+    /// device. The G-code is always in the units of the device.
+    #[serde(default)]
+    pub units: Option<base_core::units::Units>,
     /// Colour of the work area (the material, the paper) in the preview of a job; `None` takes the one of the drawing.
     #[serde(default)]
     pub preview_color: Option<[u8; 4]>,
@@ -270,7 +281,7 @@ impl GridPrefs {
 
 impl Default for GridPrefs {
     fn default() -> Self {
-        GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, preview_color: None, line_width: 1.0, layer_names: false, gcode_preview_after_save: false, variable_names: false, console: Default::default() }
+        GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, units: None, preview_color: None, line_width: 1.0, layer_names: false, gcode_preview_after_save: false, variable_names: false, console: Default::default() }
     }
 }
 

@@ -1167,3 +1167,11 @@
 1166|Cote
 1167|Arată dimensiunile lucrării ca pe un desen tehnic
 1168|Arată cotele desenului ca pe un desen tehnic
+1169|Unități
+1170|Milimetri (mm)
+1171|Inci (in)
+1172|Centimetri (cm)
+1173|Metri (m)
+1174|Picioare (ft)
+1175|Ca dispozitivul
+1176|Unitățile dimensiunilor în proprietăți, riglă, cote și previzualizări. G-code este mereu în unitățile dispozitivului.

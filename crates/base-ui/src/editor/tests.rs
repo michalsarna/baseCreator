@@ -917,7 +917,9 @@ fn the_ruler_takes_nodes_and_a_clicked_straight_segment_and_says_the_length() {
     assert!(matches!(round.picked, Some(super::Picked::Ellipse { .. })), "the circle by its radius");
     // The middle of the top edge is a point of the ruler too.
     assert_eq!(h.measure_point(o, h.w2s(o, Pt::new(25.5, 10.5))), Pt::new(25.0, 10.0));
-    let text = super::measure_text(Pt::new(0.0, 0.0), Pt::new(30.0, -40.0), base_core::units::Units::Mm);
+    let text = super::measure_text(Pt::new(0.0, 0.0), Pt::new(30.0, -40.0), base_core::units::Units::Mm, base_core::units::Units::Mm);
+    let both = super::measure_text(Pt::new(0.0, 0.0), Pt::new(25.4, 0.0), base_core::units::Units::Mm, base_core::units::Units::Inch);
+    assert!(both.starts_with("25.40 mm [1.000 in]"), "the units of the machine beside: {both}");
     assert!(text.starts_with("50") && text.contains("ΔX 30") && text.contains("ΔY -40") && text.contains("α 53.1°"), "{text}");
     // The tool is in the palette with its key, and Escape forgets the measurement.
     assert!(Tool::ALL.iter().any(|(t, l, k)| *t == Tool::Measure && *l == "Ruler (M)" && *k == egui::Key::M));
