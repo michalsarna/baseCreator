@@ -77,6 +77,9 @@ pub fn knives_window(ctx: &egui::Context, win: &mut KnivesWindow, lib: &mut Knif
         }
         let total = fill_size(ui).y;
         ui.horizontal_top(|ui| {
+            // The separator between the list and the values takes all the height it is given: given more than `total`,
+            // the window grows by it on every frame, up to the height of the screen.
+            ui.set_max_height(total);
             ui.vertical(|ui| {
                 ui.set_width(230.0);
                 let list_h = height_above(ui, "knife_left", total);
@@ -153,6 +156,22 @@ pub fn knives_window(ctx: &egui::Context, win: &mut KnivesWindow, lib: &mut Knif
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn the_window_keeps_its_height_over_many_frames() {
+        let ctx = egui::Context::default();
+        let mut win = KnivesWindow { open: true, ..Default::default() };
+        let mut lib = KnifeLibrary::default();
+        let input = || egui::RawInput { screen_rect: Some(egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1600.0, 1200.0))), ..Default::default() };
+        let mut heights: Vec<f32> = Vec::new();
+        for _ in 0..40 {
+            let mut out = ctx.run_ui(input(), |ui| knives_window(ui.ctx(), &mut win, &mut lib));
+            out.textures_delta.clear();
+            heights.push(ctx.memory(|m| m.area_rect(egui::Id::unique(Some("knife_library")))).unwrap().height());
+        }
+        assert!(heights[39] < 520.0, "the window grew: {heights:?}");
+        assert_eq!(heights[10], heights[39], "the window grew: {heights:?}");
+    }
 
     #[test]
     fn the_window_and_the_row_of_the_library_draw_without_changing_anything() {
