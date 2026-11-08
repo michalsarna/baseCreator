@@ -1166,3 +1166,4 @@
 1165|Règle (M)
 1166|Cotes
 1167|Affiche les dimensions du travail comme sur un dessin technique
+1168|Affiche les cotes du dessin comme sur un dessin technique

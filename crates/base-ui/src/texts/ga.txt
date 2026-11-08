@@ -1166,3 +1166,4 @@
 1165|Rialóir (M)
 1166|Toisí
 1167|Taispeánann sé toisí an jab mar a bheadh ar líníocht theicniúil
+1168|Taispeánann sé toisí na líníochta mar a bheadh ar líníocht theicniúil

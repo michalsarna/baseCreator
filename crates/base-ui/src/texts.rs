@@ -1173,6 +1173,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Ruler (M)", "Linijka (M)", "Lineal (M)", "Righello (M)", "Viivain (M)", "标尺 (M)", "रूलर (M)"],
     ["Dimensions", "Wymiary", "Bemaßung", "Quote", "Mitat", "尺寸", "माप"],
     ["Show the sizes of the job as on a technical drawing", "Pokazuje wymiary zadania jak na rysunku technicznym", "Zeigt die Maße des Auftrags wie auf einer technischen Zeichnung", "Mostra le misure del lavoro come in un disegno tecnico", "Näyttää työn mitat kuten teknisessä piirustuksessa", "像工程图一样显示作业的尺寸", "काम के माप तकनीकी चित्र की तरह दिखाएँ"],
+    ["Show the dimensions of the drawing, as on a technical drawing", "Pokazuje wymiary rysunku jak na rysunku technicznym", "Zeigt die Maße der Zeichnung wie auf einer technischen Zeichnung", "Mostra le quote del disegno come in un disegno tecnico", "Näyttää piirroksen mitat kuten teknisessä piirustuksessa", "像工程图一样显示图形的尺寸", "चित्र के माप तकनीकी चित्र की तरह दिखाएँ"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

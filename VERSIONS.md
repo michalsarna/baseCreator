@@ -8,7 +8,12 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 - **TIFF pictures** (`.tif`, `.tiff`) are read like the other pictures (import, background, drop); `tif` and `tiff` are reserved for plugins.
 - **`dims`**: dimensions as on a technical drawing (extension lines, arrows, the number along the line): `dim`, `plan` (the whole, the parts and the distance from the zero when it is in the picture), `box3d` / `box3d_labelled` (the edges of a block in 3D). The previews of the programs show them with their **Dimensions** button; MillCreator also draws its technical drawing and the block of its project setup with them.
 - **`widgets::toggle`**: an option as a button, light blue while it is on (the options of the bars of the previews).
-- 2 new texts in every language.
+- **Dimensions over the drawing** (`editor::dims_button`, next to the toolpaths in every program; `EditorState::show_dims`): `dims::Features` (every outline by itself, round ones as circles), `dims::drawing`, `dims::diameters` ("4 × Ø 6"), `dims::features3d` (on a plane seen in 3D).
+- **Ruler:** snaps to nodes, middles of segments and centres of circles and ellipses (marked); a click on a circle or an ellipse shows its radii, on a curve its length and, for an arc, the radius from its centre to the point (`editor::ruler`).
+- **Node edit:** a right click on a node or a segment opens the menu of the node bar; **Smooth (G)**; the radius after **Round (R)**.
+- **`picture_out`**: what egui draws as a picture without a window (a small rasteriser with the fonts of the program), saved as PNG, JPEG or a PDF page (MillCreator's technical drawing).
+- **`work_panes::Content::Extra`**: a tab of a program's own.
+- 3 new texts in every language.
 
 ## v1.78.0
 

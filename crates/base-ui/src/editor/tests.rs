@@ -911,14 +911,17 @@ fn the_ruler_takes_nodes_and_a_clicked_straight_segment_and_says_the_length() {
     assert_eq!(h.measure_point(o, h.w2s(o, Pt::new(11.0, 10.5))), Pt::new(10.0, 10.0));
     assert_eq!(h.measure_point(o, h.w2s(o, Pt::new(70.0, 70.0))), Pt::new(70.0, 70.0));
     // A click on the top edge gives that edge; on the round ellipse nothing straight.
-    let (a, b) = h.straight_segment_at(o, h.w2s(o, Pt::new(25.0, 10.5))).expect("the top edge");
-    assert!((a.dist(b) - 30.0).abs() < 1e-9);
-    assert!(h.straight_segment_at(o, h.w2s(o, Pt::new(110.0, 10.0))).is_none(), "the ellipse has no straight segment");
+    let edge = h.measure_pick(o, h.w2s(o, Pt::new(25.0, 10.5))).expect("the top edge");
+    assert!(edge.segment && (edge.a.unwrap().dist(edge.b.unwrap()) - 30.0).abs() < 1e-9);
+    let round = h.measure_pick(o, h.w2s(o, Pt::new(110.0, 10.0))).expect("the circle");
+    assert!(matches!(round.picked, Some(super::Picked::Ellipse { .. })), "the circle by its radius");
+    // The middle of the top edge is a point of the ruler too.
+    assert_eq!(h.measure_point(o, h.w2s(o, Pt::new(25.5, 10.5))), Pt::new(25.0, 10.0));
     let text = super::measure_text(Pt::new(0.0, 0.0), Pt::new(30.0, -40.0), base_core::units::Units::Mm);
-    assert!(text.starts_with("50") && text.contains("ΔX 30") && text.contains("ΔY -40") && text.contains("∠ 53.1°"), "{text}");
+    assert!(text.starts_with("50") && text.contains("ΔX 30") && text.contains("ΔY -40") && text.contains("α 53.1°"), "{text}");
     // The tool is in the palette with its key, and Escape forgets the measurement.
     assert!(Tool::ALL.iter().any(|(t, l, k)| *t == Tool::Measure && *l == "Ruler (M)" && *k == egui::Key::M));
-    h.ed.measure = super::Measure { a: Some(Pt::new(0.0, 0.0)), b: None, segment: false, dragging: false };
+    h.ed.measure = super::Measure { a: Some(Pt::new(0.0, 0.0)), ..Default::default() };
     assert_eq!(h.ed.measure.line(Some(Pt::new(3.0, 4.0))).map(|(a, b)| a.dist(b)), Some(5.0), "to the pointer while the end is not set");
 }
 
@@ -958,4 +961,38 @@ fn a_layer_that_is_not_made_is_faded_towards_the_work_area() {
     let c = super::faded_colour(egui::Color32::BLACK, egui::Color32::WHITE);
     assert!(c.r() > 150 && c.r() == c.g(), "{c:?}");
     assert_eq!(super::faded_colour(egui::Color32::WHITE, egui::Color32::WHITE), egui::Color32::WHITE);
+}
+
+#[test]
+fn a_right_click_on_a_node_opens_the_menu_of_the_node_bar_and_elsewhere_goes_back_to_selecting() {
+    use base_core::geom::Pt;
+    let mut h = Host::default();
+    let id = h.scene.add(0, Kind::Rect { w: 40.0, h: 30.0 }, Xf::translate(20.0, 20.0));
+    h.ed.sel = vec![id];
+    super::select_tool(&mut h.ed, Tool::Node);
+    let ctx = egui::Context::default();
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(800.0, 600.0));
+    let mut frame = |h: &mut Host, events: Vec<egui::Event>| {
+        let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), events, ..Default::default() }, |ui| {
+            egui::CentralPanel::no_frame().show(ui, |ui| h.canvas(ui));
+        });
+        out.textures_delta.clear();
+    };
+    frame(&mut h, vec![]);
+    frame(&mut h, vec![]);
+    let right = |at: egui::Pos2, down: bool| egui::Event::PointerButton { pos: at, button: egui::PointerButton::Secondary, pressed: down, modifiers: Default::default() };
+    // The first corner of the rectangle (a rectangle in the node tool is made a path of four corners).
+    let corner = h.w2s(h.ed.canvas_origin, Pt::new(20.0, 20.0));
+    frame(&mut h, vec![egui::Event::PointerMoved(corner)]);
+    frame(&mut h, vec![right(corner, true), right(corner, false)]);
+    frame(&mut h, vec![]);
+    assert_eq!(h.ed.tool, Tool::Node, "the menu, not the select tool");
+    assert!(h.ed.node_menu && h.ed.node_sel.len() == 1, "the node is taken and its menu is open");
+    // A right click away from the shape closes the menu; the next one goes back to the select tool.
+    let away = (corner + egui::vec2(260.0, 200.0)).min(egui::pos2(780.0, 580.0));
+    for _ in 0..2 {
+        frame(&mut h, vec![egui::Event::PointerMoved(away), right(away, true), right(away, false)]);
+        frame(&mut h, vec![]);
+    }
+    assert_eq!(h.ed.tool, Tool::Select);
 }

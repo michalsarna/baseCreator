@@ -1166,3 +1166,4 @@
 1165|Regla (M)
 1166|Cotas
 1167|Muestra las medidas del trabajo como en un dibujo técnico
+1168|Muestra las cotas del dibujo como en un dibujo técnico

@@ -13,9 +13,10 @@ mod props;
 mod background_ui;
 mod design_ui;
 mod shape_ops;
+pub mod ruler;
 pub mod text_ui;
 
-pub use bars::{arrange_bar, palette_button_size, tool_button, tool_palette};
+pub use bars::{arrange_bar, dims_button, palette_button_size, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
 pub use context_menu::context_menu;
@@ -94,14 +95,24 @@ impl Tool {
 }
 
 /// The measurement of the ruler: from `a` to `b` (while `b` is not set, to the pointer). `segment` says that it is the length of a
-/// straight segment that was clicked.
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+/// straight segment that was clicked; `picked` is a curve, a circle or an ellipse that was clicked.
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct Measure {
     pub a: Option<Pt>,
     pub b: Option<Pt>,
     pub segment: bool,
     /// The button is held since `a`: the end follows the pointer and is set where it is let go.
     pub dragging: bool,
+    pub picked: Option<Picked>,
+}
+
+/// A curve, a circle or an ellipse measured by the ruler.
+#[derive(Clone, Debug, PartialEq)]
+pub enum Picked {
+    /// A curved segment: its points, its length, the circle it lies on when it is an arc (centre, radius), and the point clicked.
+    Curve { pts: Vec<Pt>, len: f64, arc: Option<(Pt, f64)>, at: Pt },
+    /// A circle or an ellipse: its centre, its two semi-axes as vectors from the centre, and the point clicked on it.
+    Ellipse { c: Pt, ax: Pt, ay: Pt, at: Pt },
 }
 
 impl Measure {
@@ -118,7 +129,7 @@ pub fn measure_text(a: Pt, b: Pt, units: base_core::units::Units) -> String {
     let len = dx.hypot(dy);
     let angle = if len > 1e-9 { (-dy).atan2(dx).to_degrees() } else { 0.0 };
     let f = |v: f64| crate::units_ui::fmt_len(units, v, 2);
-    format!("{}   ΔX {}   ΔY {}   ∠ {:.1}°", f(len), f(dx), f(dy), angle)
+    format!("{}   ΔX {}   ΔY {}   α {:.1}°", f(len), f(dx), f(dy), angle)
 }
 
 #[derive(Clone, Debug)]
@@ -334,6 +345,10 @@ pub struct EditorState {
     pub esc_time: f64,
     /// What the ruler shows over the drawing.
     pub measure: Measure,
+    /// The dimensions of the drawing over it, as on a technical drawing (the button next to the toolpaths).
+    pub show_dims: bool,
+    /// The menu of the node bar is open by a right click on a node or a segment.
+    pub node_menu: bool,
     /// What was copied (shapes with their groups), ready to paste.
     pub clipboard: Vec<Shape>,
     /// The picture that was in the clipboard of the system when shapes were last copied: a paste takes the shapes while it is
@@ -445,6 +460,8 @@ impl EditorState {
             space_prev: None,
             esc_time: -10.0,
             measure: Measure::default(),
+            show_dims: false,
+            node_menu: false,
             clipboard: vec![],
             clipboard_image_at_copy: None,
             img_dlg: None,

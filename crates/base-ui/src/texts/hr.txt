@@ -1166,3 +1166,4 @@
 1165|Ravnalo (M)
 1166|Kote
 1167|Prikazuje mjere posla kao na tehničkom crtežu
+1168|Prikazuje kote crteža kao na tehničkom crtežu

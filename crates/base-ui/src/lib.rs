@@ -43,6 +43,7 @@ pub mod navicube;
 pub mod playback;
 pub mod plotter_ui;
 pub mod plugins_ui;
+pub mod picture_out;
 pub mod print_ui;
 pub mod ser2net_ui;
 pub mod seasonal;

@@ -1166,3 +1166,4 @@
 1165|Riglă (M)
 1166|Cote
 1167|Arată dimensiunile lucrării ca pe un desen tehnic
+1168|Arată cotele desenului ca pe un desen tehnic

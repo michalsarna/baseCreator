@@ -1166,3 +1166,4 @@
 1165|Vonalzó (M)
 1166|Méretek
 1167|A munka méreteit műszaki rajzhoz hasonlóan mutatja
+1168|A rajz méreteit műszaki rajzhoz hasonlóan mutatja

@@ -1166,3 +1166,4 @@
 1165	Ruler (M)
 1166	Dimensions
 1167	Show the sizes of the job as on a technical drawing
+1168	Show the dimensions of the drawing, as on a technical drawing

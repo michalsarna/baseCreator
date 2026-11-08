@@ -1166,3 +1166,4 @@
 1165|Ravnilo (M)
 1166|Kote
 1167|Prikaže mere posla kot na tehnični risbi
+1168|Prikaže kote risbe kot na tehnični risbi

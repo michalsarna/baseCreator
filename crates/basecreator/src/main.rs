@@ -708,6 +708,8 @@ impl App {
             }
             ui.separator();
             base_ui::editor::grid_toggles(self, ui);
+            ui.separator();
+            base_ui::editor::dims_button(ui, &mut self.ed);
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 base_ui::editor::selection_size(self, ui);
             });

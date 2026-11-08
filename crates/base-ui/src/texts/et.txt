@@ -1166,3 +1166,4 @@
 1165|Joonlaud (M)
 1166|Mõõtmed
 1167|Näitab töö mõõtmeid nagu tehnilisel joonisel
+1168|Näitab joonise mõõtmeid nagu tehnilisel joonisel

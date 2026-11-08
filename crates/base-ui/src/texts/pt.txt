@@ -1166,3 +1166,4 @@
 1165|Régua (M)
 1166|Cotas
 1167|Mostra as medidas do trabalho como num desenho técnico
+1168|Mostra as cotas do desenho como num desenho técnico

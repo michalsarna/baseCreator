@@ -228,45 +228,25 @@ pub trait EditorHost: Sized {
     }
 
     /// The shape under `p`: on an outline first, else the smallest closed shape that contains the point.
-/// A point for the ruler under the screen position `m`: a node of a shape near it (8 points), or else the point on the grid
-    /// when snapping is on, or the point itself.
-    fn measure_point(&self, o: Pos2, m: Pos2) -> Pt {
+/// A point for the ruler under the screen position `m`, with what it is: a node, the middle of a segment or the centre of a circle
+    /// near it (8 points), or else the point on the grid when snapping is on, or the point itself.
+    fn measure_snap(&self, o: Pos2, m: Pos2) -> (Pt, Option<super::ruler::SnapKind>) {
         let w = self.s2w(o, m);
         let tol = 8.0 / self.ed().view.zoom.max(1e-6) as f64;
-        let mut best: Option<(f64, Pt)> = None;
-        for s in self.scene().shapes.iter().filter(|s| self.layer_visible(s.layer)) {
-            for c in base_core::export::contours_of(s) {
-                for n in &c.nodes {
-                    let d = n.p.dist(w);
-                    if d <= tol && best.is_none_or(|(bd, _)| d < bd) {
-                        best = Some((d, n.p));
-                    }
-                }
-            }
+        match super::ruler::snap(self.scene().shapes.iter().filter(|s| self.layer_visible(s.layer)), w, tol) {
+            Some((p, k)) => (p, Some(k)),
+            None => (self.snapped(w), None),
         }
-        best.map_or_else(|| self.snapped(w), |(_, p)| p)
     }
 
-    /// The ends of the straight segment of a shape under the screen position `m` (within 6 points), the topmost shape first.
-    fn straight_segment_at(&self, o: Pos2, m: Pos2) -> Option<(Pt, Pt)> {
-        let w = self.s2w(o, m);
+    fn measure_point(&self, o: Pos2, m: Pos2) -> Pt {
+        self.measure_snap(o, m).0
+    }
+
+    /// What a click of the ruler at the screen position `m` measures on a shape (within 6 points), if anything.
+    fn measure_pick(&self, o: Pos2, m: Pos2) -> Option<super::Measure> {
         let tol = 6.0 / self.ed().view.zoom.max(1e-6) as f64;
-        for s in self.scene().shapes.iter().rev().filter(|s| self.layer_visible(s.layer)) {
-            for c in base_core::export::contours_of(s) {
-                let n = c.nodes.len();
-                let segs = if c.closed { n } else { n.saturating_sub(1) };
-                for i in 0..segs {
-                    let (a, b) = (c.nodes[i], c.nodes[(i + 1) % n]);
-                    if a.has_out() || b.has_in() {
-                        continue;
-                    }
-                    if base_core::geom::Polyline::new(vec![a.p, b.p], false).dist_to(w) <= tol {
-                        return Some((a.p, b.p));
-                    }
-                }
-            }
-        }
-        None
+        super::ruler::pick(self.scene(), &|s| self.layer_visible(s.layer), self.s2w(o, m), tol)
     }
 
     fn hit_shape(&self, p: Pt) -> Option<u64> {
@@ -688,37 +668,49 @@ pub trait EditorHost: Sized {
         }
     }
 
-    /// The buttons of the node-editing bar. A button with a key shows it after its name ("Break (B)"); the keys are `node_keys`.
-    fn node_bar(&mut self, ui: &mut egui::Ui) {
+    /// The buttons of the node-editing bar (also the menu of a right click on a node); true when one was used. A button with a key shows it after its name ("Break (B)"); the keys are `node_keys`.
+    fn node_bar(&mut self, ui: &mut egui::Ui) -> bool {
+        let mut ran = false;
         let has_nodes = !self.ed().node_sel.is_empty();
         let has_seg = has_nodes || self.ed().active_seg.is_some();
         let named = |text: &'static str, key: &str| format!("{} ({key})", tr(text));
         if ui.add_enabled(has_nodes, egui::Button::new(named("Corner", "C"))).on_hover_text(tr("Make the selected nodes corners")).clicked() {
+            ran = true;
             self.nodes_smooth(false);
         }
-        if ui.add_enabled(has_nodes, egui::Button::new(tr("Smooth"))).on_hover_text(tr("Make the selected nodes smooth")).clicked() {
+        if ui.add_enabled(has_nodes, egui::Button::new(named("Smooth", "G"))).on_hover_text(tr("Make the selected nodes smooth")).clicked() {
+            ran = true;
             self.nodes_smooth(true);
         }
         if ui.add_enabled(has_seg, egui::Button::new(named("To line", "L"))).on_hover_text(tr("Make the segment after each selected node straight")).clicked() {
+            ran = true;
             self.segments_set(false);
         }
         if ui.add_enabled(has_seg, egui::Button::new(named("To curve", "S"))).on_hover_text(tr("Make the segment after each selected node a curve")).clicked() {
+            ran = true;
             self.segments_set(true);
         }
         if ui.add_enabled(has_seg, egui::Button::new(named("Add node", "I"))).on_hover_text(tr("Insert a node (or double-click a segment)")).clicked() {
+            ran = true;
             let at = self.ed().active_seg.map(|s| (s, 0.5));
             self.nodes_insert(at);
         }
         if self.delete_button(ui, has_nodes, &named("Delete node", "D")).on_hover_text(tr("Delete node")).clicked() {
+            ran = true;
             self.delete_nodes();
         }
-        ui.add(egui::DragValue::new(&mut self.ed_mut().fillet_radius).range(0.05..=500.0).speed(0.1).suffix(" mm")).on_hover_text(tr("Radius for rounding"));
+        // The radius follows the button that uses it.
         if ui.add_enabled(has_nodes, egui::Button::new(named("Round", "R"))).on_hover_text(tr("Round the selected corners with this radius")).clicked() {
+            ran = true;
             let r = self.ed().fillet_radius;
             self.round_selected_nodes(r);
         }
+        ui.add(egui::DragValue::new(&mut self.ed_mut().fillet_radius).range(0.05..=500.0).speed(0.1).suffix(" mm")).on_hover_text(tr("Radius for rounding"));
         if ui.add_enabled(has_nodes, egui::Button::new(named("Break", "B"))).on_hover_text(tr("Break the path at the selected node: a closed one opens there, an open one is cut in two")).clicked() {
+            ran = true;
             self.nodes_break();
         }
+        ran
     }
+
 }

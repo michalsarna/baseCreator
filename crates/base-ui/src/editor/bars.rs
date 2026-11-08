@@ -23,6 +23,17 @@ pub fn tool_button<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, t: Tool, tip: &'
     ui.add_space(2.0);
 }
 
+/// The button of the bar over the work area that shows the dimensions of the drawing: green while they are shown, as the button of
+/// the toolpaths next to it.
+pub fn dims_button(ui: &mut egui::Ui, ed: &mut super::EditorState) {
+    let on = ed.show_dims;
+    let (fill, ink) = if on { (egui::Color32::from_rgb(0x2e, 0xa0, 0x4f), egui::Color32::WHITE) } else { (theme::panel_dark(), theme::text_dim()) };
+    let btn = egui::Button::image_and_text(icons::slot(Some("ruler"), ink), egui::RichText::new(tr("Dimensions")).color(ink)).fill(fill);
+    if ui.add(btn).on_hover_text(tr("Show the dimensions of the drawing, as on a technical drawing")).clicked() {
+        ed.show_dims = !ed.show_dims;
+    }
+}
+
 /// Make `t` the tool in use (the palette and the *Insert* menu both do it this way).
 pub fn select_tool(ed: &mut super::EditorState, t: Tool) {
     ed.tool = t;

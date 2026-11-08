@@ -86,6 +86,11 @@ pub fn dim(painter: &egui::Painter, a: Pos2, b: Pos2, side: Vec2, off: f32, labe
 /// origin `origin` (the zero of the work area) along its left and its bottom. `to_screen` turns millimetres into points of the
 /// picture; Y may point either way.
 pub fn plan(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[Rect], origin: Option<Pt>, units: Units, st: &DimStyle) {
+    plan_parts(painter, to_screen, parts, parts.len(), origin, units, st);
+}
+
+/// `plan`, where only the first `own` parts get dimensions of their own (the rest, such as circles, only count in the whole).
+fn plan_parts(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[Rect], own: usize, origin: Option<Pt>, units: Units, st: &DimStyle) {
     let Some(all) = parts.iter().copied().reduce(|a, b| Rect { min: Pt::new(a.min.x.min(b.min.x), a.min.y.min(b.min.y)), max: Pt::new(a.max.x.max(b.max.x), a.max.y.max(b.max.y)) }) else { return };
     let screen = |r: &Rect| {
         let (p, q) = (to_screen(r.min), to_screen(r.max));
@@ -95,12 +100,12 @@ pub fn plan(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[Re
     let up = Vec2::new(0.0, -1.0);
     let right = Vec2::new(1.0, 0.0);
     // The parts first (near the shapes), then the whole further out.
-    let few = parts.len() > 1 && parts.len() <= 12;
+    let few = parts.len() > 1 && own <= 12;
     let mut out_top = 16.0;
     let mut out_right = 16.0;
     if few {
         let same = |a: f64, b: f64| (a - b).abs() < 0.05;
-        for (r, s) in parts.iter().map(|r| (r, screen(r))) {
+        for (r, s) in parts.iter().take(own).map(|r| (r, screen(r))) {
             // A part as wide (or as high) as the whole already has its dimension there.
             let whole_w = same(r.min.x, all.min.x) && same(r.max.x, all.max.x);
             let whole_h = same(r.min.y, all.min.y) && same(r.max.y, all.max.y);
@@ -132,6 +137,142 @@ pub fn plan(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[Re
             dim(painter, Pos2::new(x, so.y), Pos2::new(x, to_screen(Pt::new(o.x, near_y)).y), Vec2::new(-1.0, 0.0), 18.0, &number(units, (near_y - o.y).abs()), st);
         }
     }
+}
+
+/// What a drawing is dimensioned by: the boxes of its shapes and its circles (centre and radius), in millimetres.
+#[derive(Clone, Debug, Default)]
+pub struct Features {
+    pub boxes: Vec<Rect>,
+    pub circles: Vec<(Pt, f64)>,
+}
+
+impl Features {
+    /// The features of shapes: a circle (an ellipse as wide as it is high, not slanted) by its centre and radius, every other shape
+    /// by its box. `map` turns a point of the scene into the coordinates of the picture (Y up for a machine, for example).
+    pub fn of<'a>(shapes: impl Iterator<Item = &'a base_core::scene::Shape>, map: &dyn Fn(Pt) -> Pt) -> Features {
+        let mut f = Features::default();
+        for s in shapes {
+            if let base_core::scene::Kind::Ellipse { w, h } = s.kind {
+                let (sx, sy) = (s.xf.a.hypot(s.xf.b), s.xf.c.hypot(s.xf.d));
+                let square = (s.xf.a * s.xf.c + s.xf.b * s.xf.d).abs() < 1e-9;
+                if square && (w * sx - h * sy).abs() < 1e-6 {
+                    f.circles.push((map(s.xf.apply(Pt::new(w / 2.0, h / 2.0))), w * sx / 2.0));
+                    continue;
+                }
+            }
+            if s.is_image() {
+                if let Some(b) = s.bounds() {
+                    f.boxes.push(mapped(&b, map));
+                }
+                continue;
+            }
+            // Every outline of the shape by itself: the outside and the holes in it, a round one as a circle.
+            for c in base_core::export::contours_of(s) {
+                let p = c.flatten(0.02);
+                if p.pts.len() < 2 {
+                    continue;
+                }
+                let pts: Vec<Pt> = p.pts.iter().map(|q| map(*q)).collect();
+                if let Some(circle) = p.closed.then(|| round(&pts)).flatten() {
+                    f.circles.push(circle);
+                } else if let Some(b) = base_core::geom::Polyline::new(pts, p.closed).bounds() {
+                    f.boxes.push(b);
+                }
+            }
+        }
+        f
+    }
+}
+
+fn mapped(b: &Rect, map: &dyn Fn(Pt) -> Pt) -> Rect {
+    let (p, q) = (map(b.min), map(b.max));
+    Rect { min: Pt::new(p.x.min(q.x), p.y.min(q.y)), max: Pt::new(p.x.max(q.x), p.y.max(q.y)) }
+}
+
+/// The circle of a closed outline that is round: centre and radius, when every point is within 0.5 % (and 0.02 mm) of the circle
+/// through three of its points spread round it.
+fn round(pts: &[Pt]) -> Option<(Pt, f64)> {
+    let n = pts.len();
+    if n < 8 {
+        return None;
+    }
+    let (a, b, c) = (pts[0], pts[n / 3], pts[2 * n / 3]);
+    let d = 2.0 * (a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y));
+    if d.abs() < 1e-9 {
+        return None;
+    }
+    let (a2, b2, c2) = (a.x * a.x + a.y * a.y, b.x * b.x + b.y * b.y, c.x * c.x + c.y * c.y);
+    let centre = Pt::new((a2 * (b.y - c.y) + b2 * (c.y - a.y) + c2 * (a.y - b.y)) / d, (a2 * (c.x - b.x) + b2 * (a.x - c.x) + c2 * (b.x - a.x)) / d);
+    let r = centre.dist(a);
+    let tol = (r * 0.005).max(0.02);
+    pts.iter().all(|p| (p.dist(centre) - r).abs() <= tol).then_some((centre, r))
+}
+
+/// The dimensions of the features lying on a plane seen in 3D (the top of a block at the height `z`): every box by its edge in X
+/// (in front) and its edge in Y (on the right), on the outer side, and the diameters of the circles. `project` turns a point
+/// (millimetres, Z up) into the picture.
+pub fn features3d(painter: &egui::Painter, project: &dyn Fn([f64; 3]) -> Pos2, f: &Features, z: f64, units: Units, st: &DimStyle) {
+    for b in f.boxes.iter().take(16) {
+        let c = project([(b.min.x + b.max.x) / 2.0, (b.min.y + b.max.y) / 2.0, z]);
+        for (p, q, size) in [([b.min.x, b.min.y, z], [b.max.x, b.min.y, z], b.max.x - b.min.x), ([b.max.x, b.min.y, z], [b.max.x, b.max.y, z], b.max.y - b.min.y)] {
+            let (pa, pb) = (project(p), project(q));
+            if (pb - pa).length() < 24.0 {
+                continue;
+            }
+            let along = (pb - pa).normalized();
+            let mut side = Vec2::new(-along.y, along.x);
+            if side.dot((pa + (pb - pa) / 2.0) - c) < 0.0 {
+                side = -side;
+            }
+            dim(painter, pa, pb, side, 12.0, &number(units, size), st);
+        }
+    }
+    let to = |p: Pt| project([p.x, p.y, z]);
+    diameters(painter, &to, &f.circles, units, st);
+}
+
+
+/// The diameters of circles with a leader: from the circle at 45° out to the number "Ø 12"; circles of the same size are named once,
+/// "4 × Ø 6", at the first of them.
+pub fn diameters(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, circles: &[(Pt, f64)], units: Units, st: &DimStyle) {
+    let mut done = vec![false; circles.len()];
+    let thin = Stroke::new(0.8, st.ink);
+    for i in 0..circles.len() {
+        if done[i] {
+            continue;
+        }
+        let (c, r) = circles[i];
+        let same: Vec<usize> = (i..circles.len()).filter(|j| !done[*j] && (circles[*j].1 - r).abs() < 0.025).collect();
+        for j in &same {
+            done[*j] = true;
+        }
+        let sc = to_screen(c);
+        let edge = to_screen(Pt::new(c.x + r, c.y));
+        let rs = (edge - sc).length();
+        if rs < 2.0 {
+            continue;
+        }
+        let dir = Vec2::new(1.0, -1.0).normalized();
+        let (near, far) = (sc - dir * rs, sc + dir * rs);
+        painter.line_segment([near, far], thin);
+        arrow(painter, near, -dir, st.ink);
+        arrow(painter, far, dir, st.ink);
+        let elbow = far + dir * 18.0;
+        let label = if same.len() > 1 { format!("{} × Ø {}", same.len(), number(units, 2.0 * r)) } else { format!("Ø {}", number(units, 2.0 * r)) };
+        let galley = painter.layout_no_wrap(label, egui::FontId::proportional(st.size), st.ink);
+        let shelf = elbow + Vec2::new(galley.size().x + 4.0, 0.0);
+        painter.line_segment([far, elbow], thin);
+        painter.line_segment([elbow, shelf], thin);
+        painter.galley(elbow + Vec2::new(2.0, -galley.size().y - 1.0), galley, st.ink);
+    }
+}
+
+/// The dimensions of a drawing: `plan` of the boxes and of the whole (the circles count in the whole), and the diameters of the circles.
+pub fn drawing(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, f: &Features, origin: Option<Pt>, units: Units, st: &DimStyle) {
+    let circle_boxes = f.circles.iter().map(|(c, r)| Rect { min: Pt::new(c.x - r, c.y - r), max: Pt::new(c.x + r, c.y + r) });
+    let all: Vec<Rect> = f.boxes.iter().copied().chain(circle_boxes).collect();
+    plan_parts(painter, to_screen, &all, f.boxes.len(), origin, units, st);
+    diameters(painter, to_screen, &f.circles, units, st);
 }
 
 /// Dimensions of a block seen in 3D: one edge along X, one along Y and one along Z, those that face the viewer most, each with its
@@ -191,5 +332,35 @@ mod tests {
         // Every dimension is two extension lines, a line, two arrows and its number.
         assert!(shapes >= 6 * 9, "the dimensions were drawn: {shapes} shapes");
         assert_eq!(DimStyle::on(Color32::BLACK).ink, Color32::from_rgb(0xe8, 0xe8, 0xf0));
+    }
+
+    #[test]
+    fn circles_are_named_by_their_diameter_and_the_same_ones_once() {
+        use base_core::geom::Xf;
+        use base_core::scene::{Kind, Scene};
+        let mut sc = Scene::default();
+        sc.add(0, Kind::Rect { w: 100.0, h: 50.0 }, Xf::IDENTITY);
+        for x in [10.0, 80.0] {
+            sc.add(0, Kind::Ellipse { w: 6.0, h: 6.0 }, Xf::translate(x, 10.0));
+        }
+        sc.add(0, Kind::Ellipse { w: 20.0, h: 10.0 }, Xf::translate(40.0, 20.0));
+        let f = Features::of(sc.shapes.iter(), &|p| p);
+        assert_eq!(f.circles.len(), 2, "the two round holes");
+        assert_eq!(f.boxes.len(), 2, "the plate and the ellipse by their boxes");
+        assert_eq!(f.circles[0], (Pt::new(13.0, 13.0), 3.0));
+        let ctx = egui::Context::default();
+        let mut texts = vec![];
+        let mut out = ctx.run_ui(Default::default(), |ui| {
+            let to = |p: Pt| Pos2::new(p.x as f32 * 4.0, p.y as f32 * 4.0);
+            drawing(ui.painter(), &to, &f, None, Units::Mm, &DimStyle::on(Color32::WHITE));
+        });
+        out.textures_delta.clear();
+        for s in &out.shapes {
+            if let egui::Shape::Text(t) = &s.shape {
+                texts.push(t.galley.text().to_string());
+            }
+        }
+        assert!(texts.iter().any(|t| t == "2 × Ø 6"), "{texts:?}");
+        assert!(texts.iter().any(|t| t == "100") && texts.iter().any(|t| t == "50"), "{texts:?}");
     }
 }
