@@ -171,7 +171,8 @@ pub trait EditorCanvas: EditorHost {
             let shapes = self.scene().shapes.iter().filter(|s| self.layer_visible(s.layer));
             let f = crate::dims::Features::of(shapes, &|p| p);
             let to = |p: Pt| self.w2s(o, p);
-            crate::dims::drawing(&painter, &to, &f, None, self.units(), &crate::dims::DimStyle::on(self.bed_fill()));
+            let st = crate::dims::DimStyle::on(self.bed_fill()).in_units(self.units(), self.machine_units());
+            crate::dims::drawing(&painter, &to, &f, None, &st);
         }
 
         // Padlock on locked objects.
@@ -845,7 +846,8 @@ pub trait EditorCanvas: EditorHost {
         let live = snap.map(|(p, _)| p);
         let ink = theme::accent();
         let units = self.units();
-        let f = |v: f64| crate::units_ui::fmt_len(units, v, 2);
+        let machine = self.machine_units();
+        let f = |v: f64| crate::units_ui::fmt_len_both(units, machine, v, 2);
         let tag = |at: Pos2, text: String| {
             let galley = painter.layout_no_wrap(text, egui::FontId::proportional(13.0), Color32::WHITE);
             let r = egui::Rect::from_min_size(at - egui::vec2(0.0, galley.size().y), galley.size()).expand2(egui::vec2(6.0, 3.0));
@@ -874,7 +876,7 @@ pub trait EditorCanvas: EditorHost {
             painter.line_segment([pa, pb], Stroke::new(if self.ed().measure.segment { 2.5 } else { 1.6 }, ink));
             dot(pa);
             dot(pb);
-            tag(pa + (pb - pa) / 2.0 + egui::vec2(10.0, -10.0), super::measure_text(a, b, units));
+            tag(pa + (pb - pa) / 2.0 + egui::vec2(10.0, -10.0), super::measure_text(a, b, units, machine));
         }
         match self.ed().measure.picked.clone() {
             Some(super::Picked::Curve { pts, len, arc, at }) => {

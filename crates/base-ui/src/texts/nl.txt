@@ -1167,3 +1167,11 @@
 1166|Maten
 1167|Toont de maten van de taak zoals op een technische tekening
 1168|Toont de maten van de tekening zoals op een technische tekening
+1169|Eenheden
+1170|Millimeter (mm)
+1171|Inch (in)
+1172|Centimeter (cm)
+1173|Meter (m)
+1174|Voet (ft)
+1175|Zoals het apparaat
+1176|De eenheden van de maten in de eigenschappen, de liniaal, de maataanduidingen en de voorbeelden. De G-code is altijd in de eenheden van het apparaat.

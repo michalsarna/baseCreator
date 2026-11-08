@@ -1167,3 +1167,11 @@
 1166|Kóty
 1167|Ukáže rozměry úlohy jako na technickém výkresu
 1168|Ukáže kóty kresby jako na technickém výkresu
+1169|Jednotky
+1170|Milimetry (mm)
+1171|Palce (in)
+1172|Centimetry (cm)
+1173|Metry (m)
+1174|Stopy (ft)
+1175|Jako zařízení
+1176|Jednotky rozměrů ve vlastnostech, pravítku, kótách a náhledech. G-kód je vždy v jednotkách zařízení.

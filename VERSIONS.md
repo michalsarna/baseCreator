@@ -3,6 +3,14 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.80.0
+
+- **Units:** `Units` has centimetres, metres and feet too (`ALL`, five, for showing lengths; `DEVICE`, millimetres and inches, for a machine), with `is_metric`, `symbol`, `mm_per_unit`. `GridPrefs::units` (Settings → Program options → **Units**, `units_ui::display_units_row`; `None` = as the device) is what `EditorHost::units` gives in the programs; `EditorHost::machine_units` is the device's.
+- **G-code in the units of the machine** (`gcode_units`): a program written in millimetres turned into one for a machine in inches: G21 → G20, lengths (X Y Z U V W I J K R Q) and feeds divided by 25.4; angles, S, P, T, N and comments kept; GRBL settings untouched, jogs converted.
+- **Both units** when the program and the machine are of different systems: `DimStyle::in_units` ("25.4 mm [1.000"]"), `units_ui::fmt_len_both` (the ruler).
+- `DimStyle::upright`: the numbers stand upright (ASME) instead of along their lines (ISO, JIS).
+- 8 new texts in every language.
+
 ## v1.79.0
 
 - **TIFF pictures** (`.tif`, `.tiff`) are read like the other pictures (import, background, drop); `tif` and `tiff` are reserved for plugins.

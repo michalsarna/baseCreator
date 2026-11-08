@@ -1167,3 +1167,11 @@
 1166|Izmēri
 1167|Rāda darba izmērus kā tehniskajā rasējumā
 1168|Rāda zīmējuma izmērus kā tehniskajā rasējumā
+1169|Vienības
+1170|Milimetri (mm)
+1171|Collas (in)
+1172|Centimetri (cm)
+1173|Metri (m)
+1174|Pēdas (ft)
+1175|Kā ierīcei
+1176|Izmēru vienības īpašībās, lineālā, izmēros un priekšskatījumos. G-kods vienmēr ir ierīces vienībās.

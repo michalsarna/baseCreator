@@ -1167,3 +1167,11 @@
 1166|Kote
 1167|Prikaže mere posla kot na tehnični risbi
 1168|Prikaže kote risbe kot na tehnični risbi
+1169|Enote
+1170|Milimetri (mm)
+1171|Palci (in)
+1172|Centimetri (cm)
+1173|Metri (m)
+1174|Čevlji (ft)
+1175|Kot naprava
+1176|Enote velikosti v lastnostih, ravnilu, kotah in predogledih. G-koda je vedno v enotah naprave.

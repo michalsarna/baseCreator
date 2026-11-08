@@ -1167,3 +1167,11 @@
 1166|Cotes
 1167|Affiche les dimensions du travail comme sur un dessin technique
 1168|Affiche les cotes du dessin comme sur un dessin technique
+1169|Unités
+1170|Millimètres (mm)
+1171|Pouces (in)
+1172|Centimètres (cm)
+1173|Mètres (m)
+1174|Pieds (ft)
+1175|Comme l'appareil
+1176|Les unités des tailles dans les propriétés, la règle, les cotes et les aperçus. Le G-code est toujours dans les unités de l'appareil.

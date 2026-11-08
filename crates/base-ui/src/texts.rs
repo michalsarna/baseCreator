@@ -1174,6 +1174,14 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Dimensions", "Wymiary", "Bemaßung", "Quote", "Mitat", "尺寸", "माप"],
     ["Show the sizes of the job as on a technical drawing", "Pokazuje wymiary zadania jak na rysunku technicznym", "Zeigt die Maße des Auftrags wie auf einer technischen Zeichnung", "Mostra le misure del lavoro come in un disegno tecnico", "Näyttää työn mitat kuten teknisessä piirustuksessa", "像工程图一样显示作业的尺寸", "काम के माप तकनीकी चित्र की तरह दिखाएँ"],
     ["Show the dimensions of the drawing, as on a technical drawing", "Pokazuje wymiary rysunku jak na rysunku technicznym", "Zeigt die Maße der Zeichnung wie auf einer technischen Zeichnung", "Mostra le quote del disegno come in un disegno tecnico", "Näyttää piirroksen mitat kuten teknisessä piirustuksessa", "像工程图一样显示图形的尺寸", "चित्र के माप तकनीकी चित्र की तरह दिखाएँ"],
+    ["Units", "Jednostki", "Einheiten", "Unità", "Yksiköt", "单位", "इकाइयाँ"],
+    ["Millimetres (mm)", "Milimetry (mm)", "Millimeter (mm)", "Millimetri (mm)", "Millimetrit (mm)", "毫米 (mm)", "मिलीमीटर (mm)"],
+    ["Inches (in)", "Cale (in)", "Zoll (in)", "Pollici (in)", "Tuumat (in)", "英寸 (in)", "इंच (in)"],
+    ["Centimetres (cm)", "Centymetry (cm)", "Zentimeter (cm)", "Centimetri (cm)", "Senttimetrit (cm)", "厘米 (cm)", "सेंटीमीटर (cm)"],
+    ["Metres (m)", "Metry (m)", "Meter (m)", "Metri (m)", "Metrit (m)", "米 (m)", "मीटर (m)"],
+    ["Feet (ft)", "Stopy (ft)", "Fuß (ft)", "Piedi (ft)", "Jalat (ft)", "英尺 (ft)", "फ़ुट (ft)"],
+    ["As the device", "Jak w urządzeniu", "Wie das Gerät", "Come il dispositivo", "Kuten laitteessa", "与设备相同", "डिवाइस के अनुसार"],
+    ["The units of the sizes in the properties, the ruler, the dimensions and the previews. The G-code is always in the units of the device.", "Jednostki rozmiarów we właściwościach, linijki, wymiarów i podglądów. G-code jest zawsze w jednostkach urządzenia.", "Die Einheiten der Größen in den Eigenschaften, im Lineal, in den Bemaßungen und in den Vorschauen. Der G-Code ist immer in den Einheiten des Geräts.", "Le unità delle misure nelle proprietà, nel righello, nelle quote e nelle anteprime. Il G-code è sempre nelle unità del dispositivo.", "Ominaisuuksien, viivaimen, mittojen ja esikatselujen yksiköt. G-koodi on aina laitteen yksiköissä.", "属性、标尺、尺寸和预览中尺寸的单位。G 代码始终使用设备的单位。", "गुणों, रूलर, मापों और पूर्वावलोकनों में आकारों की इकाइयाँ। G-code हमेशा डिवाइस की इकाइयों में होता है।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

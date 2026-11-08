@@ -1167,3 +1167,11 @@
 1166|Cotes
 1167|Mostra les mides del treball com en un dibuix tècnic
 1168|Mostra les cotes del dibuix com en un dibuix tècnic
+1169|Unitats
+1170|Mil·límetres (mm)
+1171|Polzades (in)
+1172|Centímetres (cm)
+1173|Metres (m)
+1174|Peus (ft)
+1175|Com el dispositiu
+1176|Les unitats de les mides a les propietats, el regle, les cotes i les previsualitzacions. El G-code sempre és en les unitats del dispositiu.

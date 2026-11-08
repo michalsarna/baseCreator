@@ -5,31 +5,69 @@ use base_core::geom::{Pt, Rect};
 use base_core::units::Units;
 use egui::{Color32, Pos2, Stroke, Vec2};
 
-/// How the dimensions look.
+/// How the dimensions look: the ink, the height of the numbers, the units they are in (with the units of the machine beside them
+/// when it counts in the other system: metric against imperial), and whether the numbers stand upright whatever the line (as an
+/// American drawing writes them) or lie along their line.
 #[derive(Clone, Copy, Debug)]
 pub struct DimStyle {
     pub ink: Color32,
     /// The height of the numbers, in points.
     pub size: f32,
+    pub units: Units,
+    /// The units of the machine, shown in brackets after the number when they are of the other system.
+    pub second: Option<Units>,
+    /// The numbers always read from the bottom of the page (ASME), not along their line (ISO).
+    pub upright: bool,
 }
 
 impl DimStyle {
-    /// Dark lines on a light background, light ones on a dark background.
+    /// Dark lines on a light background, light ones on a dark background; millimetres.
     pub fn on(background: Color32) -> DimStyle {
         let light = background.r() as u32 + background.g() as u32 + background.b() as u32 > 3 * 128;
-        DimStyle { ink: if light { Color32::from_rgb(0x20, 0x20, 0x28) } else { Color32::from_rgb(0xe8, 0xe8, 0xf0) }, size: 12.0 }
+        DimStyle { ink: if light { Color32::from_rgb(0x20, 0x20, 0x28) } else { Color32::from_rgb(0xe8, 0xe8, 0xf0) }, size: 12.0, units: Units::Mm, second: None, upright: false }
+    }
+
+    /// The same in the units of the program, with those of the machine beside them when the systems differ.
+    pub fn in_units(mut self, units: Units, machine: Units) -> DimStyle {
+        self.units = units;
+        self.second = (units.is_metric() != machine.is_metric()).then_some(machine);
+        self
+    }
+
+    /// The number of a length in millimetres, as this style writes it.
+    pub fn text(&self, mm: f64) -> String {
+        match self.second {
+            Some(u) => format!("{} [{}]", with_unit(self.units, mm), with_unit(u, mm)),
+            None => number(self.units, mm),
+        }
     }
 }
 
-/// The number of a dimension: millimetres with at most one decimal (as a drawing writes them), inches with three.
+/// The number of a dimension: millimetres with at most one decimal and no unit (as a drawing writes them), the other units with
+/// their sign.
 pub fn number(units: Units, mm: f64) -> String {
     match units {
-        Units::Mm => {
-            let s = format!("{:.1}", mm);
-            s.trim_end_matches('0').trim_end_matches('.').to_string()
-        }
-        Units::Inch => format!("{:.3}\"", units.from_mm(mm)),
+        Units::Mm => trimmed(mm, 1),
+        _ => with_unit(units, mm),
     }
+}
+
+/// The number with the sign of its unit: 12 mm, 1.2 cm, 0.012 m, 0.472", 0.039'.
+pub fn with_unit(units: Units, mm: f64) -> String {
+    let v = units.from_mm(mm);
+    match units {
+        Units::Mm => format!("{} mm", trimmed(v, 1)),
+        Units::Cm => format!("{} cm", trimmed(v, 2)),
+        Units::M => format!("{} m", trimmed(v, 3)),
+        Units::Inch => format!("{:.3}\"", v),
+        Units::Foot => format!("{:.3}'", v),
+    }
+}
+
+fn trimmed(v: f64, decimals: usize) -> String {
+    let s = format!("{:.*}", decimals, v);
+    let s = if s.contains('.') { s.trim_end_matches('0').trim_end_matches('.').to_string() } else { s };
+    if s == "-0" { "0".into() } else { s }
 }
 
 /// A filled arrowhead at `tip`, pointing along `dir` (a unit vector).
@@ -41,7 +79,7 @@ fn arrow(painter: &egui::Painter, tip: Pos2, dir: Vec2, ink: Color32) {
 
 /// The text `label` centred on `at`, turned along `dir` and kept upright.
 fn along(painter: &egui::Painter, at: Pos2, dir: Vec2, label: &str, st: &DimStyle) {
-    let mut angle = dir.y.atan2(dir.x);
+    let mut angle = if st.upright { 0.0 } else { dir.y.atan2(dir.x) };
     if angle > std::f32::consts::FRAC_PI_2 + 0.01 {
         angle -= std::f32::consts::PI;
     } else if angle < -std::f32::consts::FRAC_PI_2 + 0.01 {
@@ -78,19 +116,26 @@ pub fn dim(painter: &egui::Painter, a: Pos2, b: Pos2, side: Vec2, off: f32, labe
         arrow(painter, db, -dir, st.ink);
         painter.line_segment([da - dir * 12.0, db + dir * 12.0], thin);
     }
-    along(painter, da + (db - da) / 2.0 + side * (st.size * 0.75), dir, label, st);
+    // Along the line the number sits just outside it; upright (ASME) it stands clear of the line by half its width or height.
+    let gap = if st.upright {
+        let g = painter.layout_no_wrap(label.to_string(), egui::FontId::proportional(st.size), st.ink).size();
+        side.x.abs() * (g.x / 2.0 + 4.0) + side.y.abs() * (g.y / 2.0 + 2.0)
+    } else {
+        st.size * 0.75
+    };
+    along(painter, da + (db - da) / 2.0 + side * gap, dir, label, st);
 }
 
 /// Dimensions of shapes seen from above, in the style of a drawing: the width of the whole over it and its height on its right, the
 /// width and height of every part (when there are a few and they are big enough on the screen), and how far the whole is from the
 /// origin `origin` (the zero of the work area) along its left and its bottom. `to_screen` turns millimetres into points of the
 /// picture; Y may point either way.
-pub fn plan(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[Rect], origin: Option<Pt>, units: Units, st: &DimStyle) {
-    plan_parts(painter, to_screen, parts, parts.len(), origin, units, st);
+pub fn plan(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[Rect], origin: Option<Pt>, st: &DimStyle) {
+    plan_parts(painter, to_screen, parts, parts.len(), origin, st);
 }
 
 /// `plan`, where only the first `own` parts get dimensions of their own (the rest, such as circles, only count in the whole).
-fn plan_parts(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[Rect], own: usize, origin: Option<Pt>, units: Units, st: &DimStyle) {
+fn plan_parts(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[Rect], own: usize, origin: Option<Pt>, st: &DimStyle) {
     let Some(all) = parts.iter().copied().reduce(|a, b| Rect { min: Pt::new(a.min.x.min(b.min.x), a.min.y.min(b.min.y)), max: Pt::new(a.max.x.max(b.max.x), a.max.y.max(b.max.y)) }) else { return };
     let screen = |r: &Rect| {
         let (p, q) = (to_screen(r.min), to_screen(r.max));
@@ -110,18 +155,18 @@ fn plan_parts(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[
             let whole_w = same(r.min.x, all.min.x) && same(r.max.x, all.max.x);
             let whole_h = same(r.min.y, all.min.y) && same(r.max.y, all.max.y);
             if s.width() > 28.0 && !whole_w {
-                dim(painter, s.left_top(), s.right_top(), up, 10.0, &number(units, r.max.x - r.min.x), st);
+                dim(painter, s.left_top(), s.right_top(), up, 10.0, &st.text(r.max.x - r.min.x), st);
             }
             if s.height() > 28.0 && !whole_h {
-                dim(painter, s.right_top(), s.right_bottom(), right, 10.0, &number(units, r.max.y - r.min.y), st);
+                dim(painter, s.right_top(), s.right_bottom(), right, 10.0, &st.text(r.max.y - r.min.y), st);
             }
         }
         out_top = 34.0;
         out_right = 34.0;
     }
     let top_gap = s_all.top() - parts.iter().map(|r| screen(r).top()).fold(f32::MAX, f32::min);
-    dim(painter, s_all.left_top(), s_all.right_top(), up, out_top + top_gap, &number(units, all.max.x - all.min.x), st);
-    dim(painter, s_all.right_top(), s_all.right_bottom(), right, out_right, &number(units, all.max.y - all.min.y), st);
+    dim(painter, s_all.left_top(), s_all.right_top(), up, out_top + top_gap, &st.text(all.max.x - all.min.x), st);
+    dim(painter, s_all.right_top(), s_all.right_bottom(), right, out_right, &st.text(all.max.y - all.min.y), st);
     // Where the whole lies from the zero of the work area: along the bottom from the zero to the left edge, and along the left
     // from the zero to the nearer edge in Y.
     // Only when the zero is in the picture: from a zero far away the lines would run out of it.
@@ -129,12 +174,12 @@ fn plan_parts(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, parts: &[
         let so = to_screen(o);
         if (all.min.x - o.x).abs() > 0.05 {
             let y = s_all.bottom().max(so.y);
-            dim(painter, Pos2::new(so.x, y), Pos2::new(s_all.left(), y), Vec2::new(0.0, 1.0), 18.0, &number(units, (all.min.x - o.x).abs()), st);
+            dim(painter, Pos2::new(so.x, y), Pos2::new(s_all.left(), y), Vec2::new(0.0, 1.0), 18.0, &st.text((all.min.x - o.x).abs()), st);
         }
         let near_y = if (all.min.y - o.y).abs() < (all.max.y - o.y).abs() { all.min.y } else { all.max.y };
         if (near_y - o.y).abs() > 0.05 {
             let x = s_all.left().min(so.x);
-            dim(painter, Pos2::new(x, so.y), Pos2::new(x, to_screen(Pt::new(o.x, near_y)).y), Vec2::new(-1.0, 0.0), 18.0, &number(units, (near_y - o.y).abs()), st);
+            dim(painter, Pos2::new(x, so.y), Pos2::new(x, to_screen(Pt::new(o.x, near_y)).y), Vec2::new(-1.0, 0.0), 18.0, &st.text((near_y - o.y).abs()), st);
         }
     }
 }
@@ -211,7 +256,7 @@ fn round(pts: &[Pt]) -> Option<(Pt, f64)> {
 /// The dimensions of the features lying on a plane seen in 3D (the top of a block at the height `z`): every box by its edge in X
 /// (in front) and its edge in Y (on the right), on the outer side, and the diameters of the circles. `project` turns a point
 /// (millimetres, Z up) into the picture.
-pub fn features3d(painter: &egui::Painter, project: &dyn Fn([f64; 3]) -> Pos2, f: &Features, z: f64, units: Units, st: &DimStyle) {
+pub fn features3d(painter: &egui::Painter, project: &dyn Fn([f64; 3]) -> Pos2, f: &Features, z: f64, st: &DimStyle) {
     for b in f.boxes.iter().take(16) {
         let c = project([(b.min.x + b.max.x) / 2.0, (b.min.y + b.max.y) / 2.0, z]);
         for (p, q, size) in [([b.min.x, b.min.y, z], [b.max.x, b.min.y, z], b.max.x - b.min.x), ([b.max.x, b.min.y, z], [b.max.x, b.max.y, z], b.max.y - b.min.y)] {
@@ -224,17 +269,17 @@ pub fn features3d(painter: &egui::Painter, project: &dyn Fn([f64; 3]) -> Pos2, f
             if side.dot((pa + (pb - pa) / 2.0) - c) < 0.0 {
                 side = -side;
             }
-            dim(painter, pa, pb, side, 12.0, &number(units, size), st);
+            dim(painter, pa, pb, side, 12.0, &st.text(size), st);
         }
     }
     let to = |p: Pt| project([p.x, p.y, z]);
-    diameters(painter, &to, &f.circles, units, st);
+    diameters(painter, &to, &f.circles, st);
 }
 
 
 /// The diameters of circles with a leader: from the circle at 45° out to the number "Ø 12"; circles of the same size are named once,
 /// "4 × Ø 6", at the first of them.
-pub fn diameters(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, circles: &[(Pt, f64)], units: Units, st: &DimStyle) {
+pub fn diameters(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, circles: &[(Pt, f64)], st: &DimStyle) {
     let mut done = vec![false; circles.len()];
     let thin = Stroke::new(0.8, st.ink);
     for i in 0..circles.len() {
@@ -258,7 +303,7 @@ pub fn diameters(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, circle
         arrow(painter, near, -dir, st.ink);
         arrow(painter, far, dir, st.ink);
         let elbow = far + dir * 18.0;
-        let label = if same.len() > 1 { format!("{} × Ø {}", same.len(), number(units, 2.0 * r)) } else { format!("Ø {}", number(units, 2.0 * r)) };
+        let label = if same.len() > 1 { format!("{} × Ø {}", same.len(), st.text(2.0 * r)) } else { format!("Ø {}", st.text(2.0 * r)) };
         let galley = painter.layout_no_wrap(label, egui::FontId::proportional(st.size), st.ink);
         let shelf = elbow + Vec2::new(galley.size().x + 4.0, 0.0);
         painter.line_segment([far, elbow], thin);
@@ -268,17 +313,17 @@ pub fn diameters(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, circle
 }
 
 /// The dimensions of a drawing: `plan` of the boxes and of the whole (the circles count in the whole), and the diameters of the circles.
-pub fn drawing(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, f: &Features, origin: Option<Pt>, units: Units, st: &DimStyle) {
+pub fn drawing(painter: &egui::Painter, to_screen: &dyn Fn(Pt) -> Pos2, f: &Features, origin: Option<Pt>, st: &DimStyle) {
     let circle_boxes = f.circles.iter().map(|(c, r)| Rect { min: Pt::new(c.x - r, c.y - r), max: Pt::new(c.x + r, c.y + r) });
     let all: Vec<Rect> = f.boxes.iter().copied().chain(circle_boxes).collect();
-    plan_parts(painter, to_screen, &all, f.boxes.len(), origin, units, st);
-    diameters(painter, to_screen, &f.circles, units, st);
+    plan_parts(painter, to_screen, &all, f.boxes.len(), origin, st);
+    diameters(painter, to_screen, &f.circles, st);
 }
 
 /// Dimensions of a block seen in 3D: one edge along X, one along Y and one along Z, those that face the viewer most, each with its
 /// dimension on the outer side. `project` turns a point (millimetres, Z up) into the picture.
-pub fn box3d(painter: &egui::Painter, project: &dyn Fn([f64; 3]) -> Pos2, min: [f64; 3], max: [f64; 3], units: Units, st: &DimStyle) {
-    let labels = [0, 1, 2].map(|a| number(units, max[a] - min[a]));
+pub fn box3d(painter: &egui::Painter, project: &dyn Fn([f64; 3]) -> Pos2, min: [f64; 3], max: [f64; 3], st: &DimStyle) {
+    let labels = [0, 1, 2].map(|a| st.text(max[a] - min[a]));
     box3d_labelled(painter, project, min, max, &labels, st);
 }
 
@@ -317,15 +362,22 @@ mod tests {
         assert_eq!(number(Units::Mm, 120.0), "120");
         assert_eq!(number(Units::Mm, 12.25), "12.2");
         assert_eq!(number(Units::Inch, 25.4), "1.000\"");
+        assert_eq!(number(Units::Cm, 125.0), "12.5 cm");
+        assert_eq!(number(Units::M, 1250.0), "1.25 m");
+        assert_eq!(number(Units::Foot, 304.8), "1.000'");
+        // A machine in inches beside a program in millimetres: both, the machine's in brackets.
+        let both = DimStyle::on(Color32::WHITE).in_units(Units::Mm, Units::Inch);
+        assert_eq!(both.text(25.4), "25.4 mm [1.000\"]");
+        assert_eq!(DimStyle::on(Color32::WHITE).in_units(Units::Cm, Units::Mm).text(25.0), "2.5 cm", "the same system: one");
         let ctx = egui::Context::default();
         let mut out = ctx.run_ui(Default::default(), |ui| {
             let painter = ui.painter().clone();
             let st = DimStyle::on(Color32::WHITE);
             let to = |p: Pt| Pos2::new(50.0 + p.x as f32 * 2.0, 400.0 - p.y as f32 * 2.0);
             let parts = [Rect { min: Pt::new(10.0, 10.0), max: Pt::new(60.0, 40.0) }, Rect { min: Pt::new(80.0, 10.0), max: Pt::new(120.0, 90.0) }];
-            plan(&painter, &to, &parts, Some(Pt::new(0.0, 0.0)), Units::Mm, &st);
+            plan(&painter, &to, &parts, Some(Pt::new(0.0, 0.0)), &st);
             let iso = |p: [f64; 3]| Pos2::new(300.0 + (p[0] - p[1]) as f32 * 1.5, 300.0 + ((p[0] + p[1]) * 0.5 - p[2] * 1.2) as f32 * 1.5);
-            box3d(&painter, &iso, [0.0, 0.0, -10.0], [100.0, 60.0, 0.0], Units::Mm, &st);
+            box3d(&painter, &iso, [0.0, 0.0, -10.0], [100.0, 60.0, 0.0], &st);
         });
         out.textures_delta.clear();
         let shapes = out.shapes.len();
@@ -352,7 +404,7 @@ mod tests {
         let mut texts = vec![];
         let mut out = ctx.run_ui(Default::default(), |ui| {
             let to = |p: Pt| Pos2::new(p.x as f32 * 4.0, p.y as f32 * 4.0);
-            drawing(ui.painter(), &to, &f, None, Units::Mm, &DimStyle::on(Color32::WHITE));
+            drawing(ui.painter(), &to, &f, None, &DimStyle::on(Color32::WHITE));
         });
         out.textures_delta.clear();
         for s in &out.shapes {
