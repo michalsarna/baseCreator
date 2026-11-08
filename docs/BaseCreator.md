@@ -40,11 +40,11 @@ they were, and those programs keep `draw`. A project without `draw` gets the pag
 
 ## Import
 
-*File → Import* is the same list as in the other programs: image, SVG (with the pictures in it), Adobe Illustrator / PDF (also the old PostScript Illustrator files LightBurn writes), DXF (current and R12), LightBurn / MillMage project (`.lbrn2`, `.lbrn`, `.mage`), UGS design, and what plugins read. The shapes are added to the open drawing and can be undone. *File → Open…* makes a new tab of an SVG, a PDF or an Illustrator file.
+*File → Import* is the same list as in the other programs: image, SVG (with the pictures in it), Adobe Illustrator / PDF (also the old PostScript Illustrator files), DXF (current and R12), LightBurn / MillMage project (`.lbrn2`, `.lbrn`, `.mage`), UGS design, and what plugins read. The shapes are added to the open drawing and can be undone. *File → Open…* makes a new tab of an SVG, a PDF or an Illustrator file.
 
 ## Export
 
-*File → Export → Export SVG…*, *Export PLT / DXF…*, *Export DXF…* (the current kind, as LightBurn writes it), *Export DXF R12 (legacy)…*, *Export Adobe Illustrator…*, *Export LightBurn project…* (`.lbrn2`, or `.lbrn` when the file is named so) or *Export MillMage project…* writes all the shapes, also those on hidden layers; *Export selection as…* only the selected ones. SVG, LightBurn and MillMage files keep the pictures; DXF, PLT and Illustrator files have no room for them, so they are left out and the program says how many (trace them first).
+*File → Export → Export SVG…*, *Export PLT / DXF…*, *Export DXF…* (the current kind), *Export DXF R12 (legacy)…*, *Export Adobe Illustrator…*, *Export LightBurn project…* (`.lbrn2`, or `.lbrn` when the file is named so) or *Export MillMage project…* writes all the shapes, also those on hidden layers; *Export selection as…* only the selected ones. SVG, LightBurn and MillMage files keep the pictures; DXF, PLT and Illustrator files have no room for them, so they are left out and the program says how many (trace them first).
 
 ## Plugins
 
