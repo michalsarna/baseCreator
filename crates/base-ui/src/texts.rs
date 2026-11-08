@@ -1171,6 +1171,8 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Export MillMage project…", "Eksportuj projekt MillMage…", "MillMage-Projekt exportieren…", "Esporta progetto MillMage…", "Vie MillMage-projekti…", "导出 MillMage 项目…", "MillMage प्रोजेक्ट निर्यात करें…"],
     ["Imported {} paths and {} pictures from {}", "Zaimportowano {} ścieżek i {} obrazów z {}", "{} Pfade und {} Bilder importiert aus {}", "Importati {} tracciati e {} immagini da {}", "Tuotu {} polkua ja {} kuvaa kohteesta {}", "已导入 {} 条路径和 {} 张图片，来自 {}", "{} पाथ और {} चित्र आयात किए गए, स्रोत: {}"],
     ["Ruler (M)", "Linijka (M)", "Lineal (M)", "Righello (M)", "Viivain (M)", "标尺 (M)", "रूलर (M)"],
+    ["Dimensions", "Wymiary", "Bemaßung", "Quote", "Mitat", "尺寸", "माप"],
+    ["Show the sizes of the job as on a technical drawing", "Pokazuje wymiary zadania jak na rysunku technicznym", "Zeigt die Maße des Auftrags wie auf einer technischen Zeichnung", "Mostra le misure del lavoro come in un disegno tecnico", "Näyttää työn mitat kuten teknisessä piirustuksessa", "像工程图一样显示作业的尺寸", "काम के माप तकनीकी चित्र की तरह दिखाएँ"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

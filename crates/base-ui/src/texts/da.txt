@@ -1164,3 +1164,5 @@
 1163|Eksporter MillMage-projekt…
 1164|{} stier og {} billeder importeret fra {}
 1165|Lineal (M)
+1166|Mål
+1167|Viser jobbets mål som på en teknisk tegning

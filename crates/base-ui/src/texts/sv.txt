@@ -1164,3 +1164,5 @@
 1163|Exportera MillMage-projekt…
 1164|{} banor och {} bilder importerade från {}
 1165|Linjal (M)
+1166|Mått
+1167|Visar jobbets mått som på en teknisk ritning

@@ -1164,3 +1164,5 @@
 1163|Easpórtáil tionscadal MillMage…
 1164|Iompórtáladh {} cosán agus {} pictiúr ó {}
 1165|Rialóir (M)
+1166|Toisí
+1167|Taispeánann sé toisí an jab mar a bheadh ar líníocht theicniúil

@@ -1164,3 +1164,5 @@
 1163|Exportă proiect MillMage…
 1164|{} trasee și {} imagini importate din {}
 1165|Riglă (M)
+1166|Cote
+1167|Arată dimensiunile lucrării ca pe un desen tehnic

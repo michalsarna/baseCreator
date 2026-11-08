@@ -49,6 +49,25 @@ pub fn window_toggle(ui: &mut egui::Ui, text: &str, tip: &str, open: bool, enabl
     ui.add_enabled(enabled, btn).on_hover_text(tip).clicked()
 }
 
+/// An option shown as a button (in the bars of the previews): light blue while it is on, as the button of a window that is open;
+/// a click turns it on or off. True when it changed.
+pub fn toggle(ui: &mut egui::Ui, on: &mut bool, text: &str, tip: &str) -> bool {
+    let mut r = window_toggle_response(ui, text, *on);
+    if !tip.is_empty() {
+        r = r.on_hover_text(tip);
+    }
+    if r.clicked() {
+        *on = !*on;
+        return true;
+    }
+    false
+}
+
+fn window_toggle_response(ui: &mut egui::Ui, text: &str, on: bool) -> egui::Response {
+    let btn = if on { egui::Button::new(RichText::new(text).color(Color32::WHITE)).fill(Color32::from_rgb(0x3f, 0xa9, 0xf5)) } else { egui::Button::new(text) };
+    ui.add(btn)
+}
+
 /// An icon button that stays highlighted while `on`.
 pub fn toggle_icon(ui: &mut egui::Ui, icon: &str, tip: &str, on: bool) -> bool {
     let (rect, resp) = ui.allocate_exact_size(egui::vec2(28.0, 28.0), egui::Sense::click());
@@ -326,5 +345,28 @@ mod area_colour_tests {
         // A file of an earlier version has no preview colour.
         let old: crate::editor::GridPrefs = serde_json::from_str(r#"{"main_color":[1,1,1,255],"minor_on":false,"minor_mm":2.0,"minor_color":[1,1,1,255]}"#).unwrap();
         assert_eq!(old.preview_color, None);
+    }
+}
+
+#[cfg(test)]
+mod toggle_tests {
+    #[test]
+    fn a_toggle_turns_the_option_over_when_clicked() {
+        let ctx = egui::Context::default();
+        let mut on = false;
+        let mut frame = |events: Vec<egui::Event>, on: &mut bool| {
+            let mut changed = false;
+            let mut out = ctx.run_ui(egui::RawInput { events, ..Default::default() }, |ui| {
+                changed = super::toggle(ui, on, "Dimensions", "");
+            });
+            out.textures_delta.clear();
+            changed
+        };
+        frame(vec![], &mut on);
+        let at = ctx.viewport(|v| v.prev_pass.widgets.layers().flat_map(|(_, w)| w.iter().map(|w| w.rect)).next()).unwrap().center();
+        let press = |d: bool| egui::Event::PointerButton { pos: at, button: egui::PointerButton::Primary, pressed: d, modifiers: Default::default() };
+        frame(vec![egui::Event::PointerMoved(at)], &mut on);
+        assert!(frame(vec![press(true), press(false)], &mut on));
+        assert!(on);
     }
 }

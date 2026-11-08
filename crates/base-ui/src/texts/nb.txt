@@ -1164,3 +1164,5 @@
 1163|Eksporter MillMage-prosjekt…
 1164|{} baner og {} bilder importert fra {}
 1165|Linjal (M)
+1166|Mål
+1167|Viser målene for jobben som på en teknisk tegning

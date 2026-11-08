@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.79.0
+
+- **TIFF pictures** (`.tif`, `.tiff`) are read like the other pictures (import, background, drop); `tif` and `tiff` are reserved for plugins.
+- **`dims`**: dimensions as on a technical drawing (extension lines, arrows, the number along the line): `dim`, `plan` (the whole, the parts and the distance from the zero when it is in the picture), `box3d` / `box3d_labelled` (the edges of a block in 3D). The previews of the programs show them with their **Dimensions** button; MillCreator also draws its technical drawing and the block of its project setup with them.
+- **`widgets::toggle`**: an option as a button, light blue while it is on (the options of the bars of the previews).
+- 2 new texts in every language.
+
 ## v1.78.0
 
 - **Ruler (M):** a new tool (`Tool::Measure`, after the zoom tools): drag or click two points and a line over the drawing shows the length, ΔX, ΔY and the angle; a point near a node takes the node; a click on a straight segment measures it. `EditorState::measure`, `measure_text`. Esc, another tool or the next measurement takes it away.

@@ -54,3 +54,5 @@ The tabs are **Properties**, **Layers**, **Clipart** and **Description**. See [P
 * **Several objects selected:** besides the frame of the whole selection, every object has a thin dashed frame of its own.
 * **The node bar** shows the keys after the names: **Corner (C)**, **To line (L)**, **To curve (S)**, **Add node (I)**, **Delete node (D)**, **Round (R)**, **Break (B)**. **Open / close** is gone: **Break (B)** opens a path, and a path is closed by dropping one of its ends onto the other.
 * **A layer that is not made** (its output switched off) shows its objects faded towards the work area.
+
+* **Pictures:** TIFF (`.tif`, `.tiff`) is read too, as PNG, JPEG, BMP, GIF and WebP.

@@ -252,3 +252,20 @@ mod rgba_tests {
         assert!(ImageData::from_rgba(0, 0, &[], "p", 100.0).is_err());
     }
 }
+
+#[cfg(test)]
+mod tiff_tests {
+    use super::ImageData;
+
+    #[test]
+    fn a_tiff_picture_is_read() {
+        let mut px = image::GrayImage::new(4, 2);
+        px.put_pixel(0, 0, image::Luma([0]));
+        px.put_pixel(3, 1, image::Luma([255]));
+        let mut tiff = std::io::Cursor::new(Vec::new());
+        px.write_to(&mut tiff, image::ImageFormat::Tiff).unwrap();
+        let im = ImageData::from_bytes(tiff.get_ref(), "scan.tif", 40.0).unwrap();
+        assert_eq!((im.px_w, im.px_h, im.gray[0], im.gray[7]), (4, 2, 0, 255));
+        assert_eq!((im.w, im.h), (40.0, 20.0));
+    }
+}
