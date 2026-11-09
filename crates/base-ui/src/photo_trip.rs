@@ -176,7 +176,13 @@ impl Trips {
     /// Every frame: the pictures that are due ask for a stop, the picture is taken once the head stands aside.
     pub fn frame(&mut self, rec: &mut crate::camera_rec::Recorder, now: Instant, send: &mut dyn FnMut(Cmd)) {
         rec.parked = self.trip.is_some();
-        let Some(t) = &mut self.trip else { return };
+        let Some(t) = &mut self.trip else {
+            // Asked for while a job ran that has ended since (its last layer): taken where the head is.
+            if rec.take_trip_request() {
+                rec.trip_shot(now);
+            }
+            return;
+        };
         let every = rec.lapse_shots().is_some() && rec.settings.mode == crate::camera_rec::LapseMode::EveryLift;
         t.set_every_lift(every).into_iter().for_each(&mut *send);
         if rec.take_trip_request() {
