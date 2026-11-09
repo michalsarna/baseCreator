@@ -108,6 +108,21 @@ impl PhotoTrip {
         (self.go_on(back), true)
     }
 
+    /// A picture at every stop point, or only when one is due (a time-lapse in the "after every lift" mode runs, or not).
+    pub fn set_every_lift(&mut self, on: bool) -> Vec<Cmd> {
+        if self.setup.every_lift == on {
+            return vec![];
+        }
+        self.setup.every_lift = on;
+        match &mut self.phase {
+            Phase::Running { armed } if *armed != on => {
+                *armed = on;
+                vec![Cmd::PhotoArm(on)]
+            }
+            _ => vec![],
+        }
+    }
+
     fn go_on(&mut self, back: Vec<String>) -> Vec<Cmd> {
         let mut cmds: Vec<Cmd> = back.into_iter().map(Cmd::Line).collect();
         cmds.push(Cmd::PhotoContinue);
@@ -117,6 +132,61 @@ impl PhotoTrip {
         }
         self.phase = Phase::Running { armed };
         cmds
+    }
+}
+
+/// What a program keeps for the photos aside of the job it sends: the trip of the job, when the device moves aside for
+/// photos. `send` hands a command to the link (`Machine::photo_cmd`, or the link itself).
+#[derive(Clone, Debug, Default)]
+pub struct Trips {
+    pub trip: Option<PhotoTrip>,
+}
+
+impl Trips {
+    /// A job starts with these lines (all of them, as sent). `setup` is `None` for a job without photos aside (a check run).
+    pub fn start(&mut self, lines: &[String], setup: Option<TripSetup>, send: &mut dyn FnMut(Cmd)) {
+        self.trip = setup.filter(|s| s.park.enabled).map(|s| {
+            let (t, cmds) = PhotoTrip::start(lines, s);
+            cmds.into_iter().for_each(&mut *send);
+            t
+        });
+    }
+
+    /// The job ended or was stopped.
+    pub fn stop(&mut self) {
+        self.trip = None;
+    }
+
+    /// `Evt::PhotoStop` / `Notice::PhotoStop`.
+    pub fn stopped(&mut self, line: usize, send: &mut dyn FnMut(Cmd)) {
+        match &mut self.trip {
+            Some(t) => t.stopped(line).into_iter().for_each(send),
+            // No trip (the job was started again in between): just go on.
+            None => send(Cmd::PhotoContinue),
+        }
+    }
+
+    /// `Evt::PhotoReady` / `Notice::PhotoReady`.
+    pub fn ready(&mut self, now: Instant) {
+        if let Some(t) = &mut self.trip {
+            t.ready(now);
+        }
+    }
+
+    /// Every frame: the pictures that are due ask for a stop, the picture is taken once the head stands aside.
+    pub fn frame(&mut self, rec: &mut crate::camera_rec::Recorder, now: Instant, send: &mut dyn FnMut(Cmd)) {
+        rec.parked = self.trip.is_some();
+        let Some(t) = &mut self.trip else { return };
+        let every = rec.lapse_shots().is_some() && rec.settings.mode == crate::camera_rec::LapseMode::EveryLift;
+        t.set_every_lift(every).into_iter().for_each(&mut *send);
+        if rec.take_trip_request() {
+            t.request().into_iter().for_each(&mut *send);
+        }
+        let (cmds, shoot) = t.tick(now, rec.frame_at());
+        if shoot {
+            rec.trip_shot(now);
+        }
+        cmds.into_iter().for_each(send);
     }
 }
 
@@ -173,6 +243,25 @@ mod tests {
         t.stopped(12);
         t.ready(now);
         assert!(t.tick(now + Duration::from_secs(7), None).1);
+    }
+
+    #[test]
+    fn every_lift_follows_the_time_lapse_and_trips_start_only_when_moving_aside_is_on() {
+        let (mut t, _) = PhotoTrip::start(&prog(), setup(false, false));
+        assert_eq!(names(&t.set_every_lift(true)), ["arm true"]);
+        assert!(t.set_every_lift(true).is_empty());
+        assert_eq!(names(&t.set_every_lift(false)), ["arm false"]);
+        let mut trips = Trips::default();
+        let mut sent = vec![];
+        trips.start(&prog(), Some(TripSetup { park: ParkSettings::default(), ..setup(false, false) }), &mut |c| sent.push(c));
+        assert!(trips.trip.is_none() && sent.is_empty(), "moving aside is off");
+        trips.start(&prog(), Some(setup(false, false)), &mut |c| sent.push(c));
+        assert_eq!(names(&sent), ["stops 2", "arm false"]);
+        // A stop without a trip (a new job in between) just goes on.
+        trips.stop();
+        sent.clear();
+        trips.stopped(8, &mut |c| sent.push(c));
+        assert_eq!(names(&sent), ["continue"]);
     }
 
     #[test]

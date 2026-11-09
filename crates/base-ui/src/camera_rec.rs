@@ -962,6 +962,35 @@ mod tests {
     }
 
     #[test]
+    fn with_the_head_moved_aside_a_due_picture_is_asked_for_and_taken_when_the_head_stands_aside() {
+        let dir = temp("lapse-park");
+        let mut r = rec(&dir);
+        let t = Instant::now();
+        let (w, h, p) = picture(90);
+        r.feed(t, w, h, p);
+        assert_eq!(r.frame_at(), Some(t));
+        r.parked = true;
+        r.start_lapse(t);
+        assert_eq!(r.lapse_shots(), Some(0), "the first picture waits for the head too");
+        assert!(r.take_trip_request());
+        assert!(!r.take_trip_request(), "asked once");
+        r.trip_shot(t);
+        assert_eq!(r.lapse_shots(), Some(1));
+        r.tick(t + Duration::from_secs(3));
+        assert_eq!(r.lapse_shots(), Some(1), "due, but not taken in place");
+        assert!(r.take_trip_request());
+        r.settings.mode = LapseMode::PerLayer;
+        r.layer_done(t + Duration::from_secs(4));
+        assert!(r.take_trip_request() && r.lapse_shots() == Some(1));
+        // No time-lapse: nothing is asked for.
+        r.stop_lapse();
+        r.parked = true;
+        r.tick(t + Duration::from_secs(60));
+        assert!(!r.take_trip_request());
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    #[test]
     fn a_layer_is_done_when_the_lines_of_the_next_one_begin_and_the_last_when_the_job_ends() {
         let mut w = LayerWatch::default();
         assert_eq!(w.progress(100), 0, "no job");
