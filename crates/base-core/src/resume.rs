@@ -66,6 +66,11 @@ fn words(line: &str) -> Vec<(char, f64)> {
     out
 }
 
+/// The words of a line without comments, upper case: `(G, 1.0)`, `(X, -5.5)`.
+pub fn line_words(line: &str) -> Vec<(char, f64)> {
+    words(line)
+}
+
 /// Does the line stop the program for the person: M0, or a tool change (M6)?
 pub fn is_pause(line: &str) -> bool {
     words(line).iter().any(|&(l, v)| l == 'M' && (v == 0.0 || v == 6.0))
@@ -80,6 +85,15 @@ pub fn has_g_word(line: &str) -> bool {
 pub fn modal_at(lines: &[String], upto: usize) -> Modal {
     let mut m = Modal::default();
     for line in lines.iter().take(upto) {
+        m.step(line);
+    }
+    m
+}
+
+impl Modal {
+    /// The state after one more line.
+    pub fn step(&mut self, line: &str) {
+        let m = self;
         let w = words(line);
         let mut machine_coords = false;
         for &(l, v) in &w {
@@ -131,7 +145,70 @@ pub fn modal_at(lines: &[String], upto: usize) -> Modal {
             }
         }
     }
-    m
+}
+
+/// Can the program be taken up again at a line, with the state `m` of the lines before it and `next` the line itself?
+/// `safe_z` is in millimetres.
+pub fn can_resume(m: &Modal, next: &str, safe_z: f64) -> Result<(), &'static str> {
+    if !m.pos[0].is_finite() || !m.pos[1].is_finite() {
+        return Err("the program has not moved in X and Y before this line");
+    }
+    if m.used_machine_coordinates || m.used_g92 {
+        return Err("the lines before use G53 or G92, so the position cannot be worked out");
+    }
+    if (m.motion == 2 || m.motion == 3) && !has_g_word(next) {
+        return Err("the line continues an arc (G2/G3) without a G word");
+    }
+    let safe = if m.inches { safe_z / 25.4 } else { safe_z };
+    if m.pos[2].is_finite() && m.pos[2] < safe && m.feed <= 0.0 {
+        return Err("no feed rate was set before this line");
+    }
+    Ok(())
+}
+
+/// The lines that bring the machine back to the state `m` of a program before its line `next`: the units, the modes, the
+/// place (over it at the safe height first, then down at the feed), the spindle, the coolant. `spindle_off`: the spindle is
+/// stopped first and started again with `spin_up` seconds to come to speed; false leaves it as it is (it runs, or a servo
+/// pen stays where it is).
+pub fn preamble(m: &Modal, next: &str, safe_z: f64, spin_up: f64, spindle_off: bool) -> Result<Vec<String>, &'static str> {
+    can_resume(m, next, safe_z)?;
+    let safe = if m.inches { safe_z / 25.4 } else { safe_z };
+    let mut out: Vec<String> = vec![if m.inches { "G20" } else { "G21" }.into(), "G90".into(), format!("G{}", m.plane), format!("G{}", 53 + m.wcs)];
+    if spindle_off {
+        out.push("M5".into());
+    }
+    // A program that never moves Z (a pen plotter with a servo) gets no Z moves either.
+    let uses_z = m.pos[2].is_finite();
+    if uses_z {
+        out.push(format!("G0 Z{}", num(safe)));
+    }
+    out.push(format!("G0 X{} Y{}", num(m.pos[0]), num(m.pos[1])));
+    if let Some(dir) = m.spindle {
+        out.push(format!("S{} M{}", num(m.rpm), dir));
+        if spindle_off && spin_up > 0.0 {
+            out.push(format!("G4 P{}", num(spin_up)));
+        }
+    }
+    if m.mist {
+        out.push("M7".into());
+    }
+    if m.flood {
+        out.push("M8".into());
+    }
+    let z = m.pos[2];
+    if uses_z && z < safe {
+        out.push(format!("F{}", num(m.feed)));
+        out.push(format!("G1 Z{}", num(z)));
+    } else if m.feed > 0.0 {
+        out.push(format!("F{}", num(m.feed)));
+    }
+    if m.motion == 0 {
+        out.push("G0".into());
+    }
+    if m.relative {
+        out.push("G91".into());
+    }
+    Ok(out)
 }
 
 fn num(v: f64) -> String {
@@ -150,52 +227,8 @@ pub fn plan(lines: &[String], from: usize, safe_z: f64, spin_up: f64) -> Result<
         return Ok(lines.to_vec());
     }
     let m = modal_at(lines, from);
-    if !m.pos[0].is_finite() || !m.pos[1].is_finite() {
-        return Err("the program has not moved in X and Y before this line");
-    }
-    if m.used_machine_coordinates || m.used_g92 {
-        return Err("the lines before use G53 or G92, so the position cannot be worked out");
-    }
     let next = lines.get(from).map(String::as_str).unwrap_or("");
-    if (m.motion == 2 || m.motion == 3) && !has_g_word(next) {
-        return Err("the line continues an arc (G2/G3) without a G word");
-    }
-    let safe = if m.inches { safe_z / 25.4 } else { safe_z };
-    let mut out: Vec<String> = vec![if m.inches { "G20" } else { "G21" }.into(), "G90".into(), format!("G{}", m.plane), format!("G{}", 53 + m.wcs), "M5".into()];
-    // A program that never moves Z (a pen plotter with a servo) gets no Z moves either.
-    let uses_z = m.pos[2].is_finite();
-    if uses_z {
-        out.push(format!("G0 Z{}", num(safe)));
-    }
-    out.push(format!("G0 X{} Y{}", num(m.pos[0]), num(m.pos[1])));
-    if let Some(dir) = m.spindle {
-        out.push(format!("S{} M{}", num(m.rpm), dir));
-        if spin_up > 0.0 {
-            out.push(format!("G4 P{}", num(spin_up)));
-        }
-    }
-    if m.mist {
-        out.push("M7".into());
-    }
-    if m.flood {
-        out.push("M8".into());
-    }
-    let z = m.pos[2];
-    if uses_z && z < safe {
-        if m.feed <= 0.0 {
-            return Err("no feed rate was set before this line");
-        }
-        out.push(format!("F{}", num(m.feed)));
-        out.push(format!("G1 Z{}", num(z)));
-    } else if m.feed > 0.0 {
-        out.push(format!("F{}", num(m.feed)));
-    }
-    if m.motion == 0 {
-        out.push("G0".into());
-    }
-    if m.relative {
-        out.push("G91".into());
-    }
+    let mut out = preamble(&m, next, safe_z, spin_up, true)?;
     out.extend(lines[from..].iter().cloned());
     Ok(out)
 }

@@ -1311,3 +1311,21 @@
 1310|Novietot slānī
 1311|Izsekošana stilā…
 1312|Līniju atstarpe
+1313|Time-lapse: attēls katru reizi, kad instruments paceļas, ar galvu pārvietotu malā.
+1314|Pēc katras pacelšanas
+1315|Attēls katru reizi, kad instruments paceļas, ar galvu pārvietotu malā (ieslēdziet pārvietošanu cilnē Vadība). Darbs ilgst daudz ilgāk.
+1316|Time-lapse attēli malā
+1317|Pārvietot galvu malā katram attēlam
+1318|Darba laikā katrs attēls gaida, līdz darbs var apstāties: galva dodas uz šo vietu, kamera uzņem attēlu, galva atgriežas un darbs turpinās. Frēze un ploteris apstājas tikai ar paceltu instrumentu.
+1319|Vieta (mašīnas koordinātas)
+1320|Izmantot pašreizējo pozīciju
+1321|Gaidīt pirms attēla
+1322|Mašīna pārstāj trīcēt un kameras straume panāk. Ploterim, kas neko neatbild (HPGL), vajag arī laiku ceļam malā.
+1323|Atstāt vārpstu darbojamies
+1324|Nav jaunas vārpstas iedarbināšanas pēc katra attēla un nav pēdas, ko tā var atstāt uz sieniņas.
+1325|Dalīt garas līnijas
+1326|Garie taisnie griezumi tiek sūtīti kā vairākas īsākas rindas: darbs var apstāties ātrāk (attēlam, pauzei), un progress virzās vienmērīgāk. Ceļš paliek tas pats.
+1327|Daļās:
+1328|katra vismaz
+1329|Ceļš malā attēliem
+1330|Kur pildspalva dodas time-lapse attēlam pēc pacelšanas; tā atgriežas ar absolūtu kustību. Tukšs: vieta, kas iestatīta cilnē Vadība.

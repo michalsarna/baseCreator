@@ -1311,3 +1311,21 @@
 1310|Setja á lagið
 1311|Stílteikning…
 1312|Bil milli lína
+1313|Time-lapse: mynd í hvert sinn sem verkfærið lyftist, með hausinn færðan til hliðar.
+1314|Eftir hverja lyftingu
+1315|Mynd í hvert sinn sem verkfærið lyftist, með hausinn færðan til hliðar (kveiktu á því í flipanum Stjórnun). Verkið tekur mun lengri tíma.
+1316|Time-lapse myndir til hliðar
+1317|Færa hausinn til hliðar fyrir hverja mynd
+1318|Meðan á verki stendur bíður hver mynd þar til verkið getur stöðvast: hausinn fer á þennan stað, myndavélin tekur myndina, hausinn kemur aftur og verkið heldur áfram. Fræs og teiknari stöðvast aðeins með verkfærið uppi.
+1319|Staður (hnit vélarinnar)
+1320|Nota núverandi staðsetningu
+1321|Bíða fyrir myndina
+1322|Vélin hættir að titra og straumur myndavélarinnar nær sér. Teiknari sem svarar engu (HPGL) þarf líka tímann sem ferðin til hliðar tekur.
+1323|Láta snælduna ganga
+1324|Engin ný ræsing snældunnar eftir hverja mynd og ekkert far sem það getur skilið eftir á veggnum.
+1325|Skipta löngum línum
+1326|Langir beinir skurðir eru sendir sem nokkrar styttri línur: verkið getur stöðvast fyrr (fyrir mynd, hlé) og framvindan gengur jafnar. Leiðin helst sú sama.
+1327|Í
+1328|hluta, hver að minnsta kosti
+1329|Leið til hliðar fyrir myndir
+1330|Hvert penninn fer fyrir time-lapse mynd eftir að honum er lyft; hann kemur til baka með algildri hreyfingu. Tómt: staðurinn sem er stilltur í flipanum Stjórnun.

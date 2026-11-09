@@ -1311,3 +1311,21 @@
 1310|Cuir ar an gciseal
 1311|Rianadh i stíl…
 1312|Spás idir na línte
+1313|Time-lapse: pictiúr gach uair a ardaítear an uirlis, leis an gceann bogtha i leataobh.
+1314|Tar éis gach ardaithe
+1315|Pictiúr gach uair a ardaítear an uirlis, leis an gceann bogtha i leataobh (cuir an bogadh ar siúl ar an táb Rialú). Tógann an jab i bhfad níos faide.
+1316|Grianghraif time-lapse i leataobh
+1317|Bog an ceann i leataobh do gach grianghraf
+1318|Le linn jab fanann gach pictiúr go dtí gur féidir leis an jab stopadh: téann an ceann go dtí an áit seo, glacann an ceamara an pictiúr, filleann an ceann agus leanann an jab ar aghaidh. Ní stopann muileann ná breacadóir ach leis an uirlis in airde.
+1319|Áit (comhordanáidí an mheaisín)
+1320|Úsáid an suíomh reatha
+1321|Fan roimh an ngrianghraf
+1322|Stopann an meaisín ag crith agus tagann sruth an cheamara suas. Teastaíonn am an bhealaigh i leataobh freisin ó bhreacadóir nach bhfreagraíonn faic (HPGL).
+1323|Coinnigh an fhearsaid ag casadh
+1324|Gan tosú nua na fearsaide tar éis gach grianghraif, agus gan rian a d'fhéadfadh sé a fhágáil ar an mballa.
+1325|Roinn línte fada
+1326|Seoltar gearrthacha fada díreacha mar roinnt línte níos giorra: is féidir leis an jab stopadh níos luaithe (do ghrianghraf, sos), agus bogann an dul chun cinn níos cothroime. Fanann an cosán mar an gcéanna.
+1327|Ina
+1328|cuid, gach ceann ar a laghad
+1329|Bealach i leataobh do ghrianghraif
+1330|Cá dtéann an peann do ghrianghraf time-lapse, tar éis é a ardú; filleann sé le gluaiseacht iomlán. Folamh: an áit a socraíodh ar an táb Rialú.

@@ -1311,3 +1311,21 @@
 1310|Postavi na plast
 1311|Obris v slogu…
 1312|Razmik med črtami
+1313|Časovni zamik: slika ob vsakem dvigu orodja, z glavo umaknjeno vstran.
+1314|Po vsakem dvigu
+1315|Slika ob vsakem dvigu orodja, z glavo umaknjeno vstran (vklopite umik na zavihku Upravljanje). Delo traja veliko dlje.
+1316|Slike s časovnim zamikom ob strani
+1317|Umakni glavo vstran za vsako sliko
+1318|Med delom vsaka slika počaka, da se delo lahko ustavi: glava gre na to mesto, kamera posname sliko, glava se vrne in delo se nadaljuje. Rezkalnik in risalnik se ustavita le z dvignjenim orodjem.
+1319|Mesto (koordinate stroja)
+1320|Uporabi trenutni položaj
+1321|Počakaj pred sliko
+1322|Stroj se neha tresti in tok kamere ujame zaostanek. Risalnik, ki ne odgovarja (HPGL), potrebuje tudi čas poti vstran.
+1323|Pusti vreteno teči
+1324|Brez ponovnega zagona vretena po vsaki sliki in brez sledi, ki jo lahko pusti na steni.
+1325|Razdeli dolge črte
+1326|Dolgi ravni rezi se pošljejo kot več krajših vrstic: delo se lahko prej ustavi (za sliko, premor), napredek pa teče bolj enakomerno. Pot ostane enaka.
+1327|Na
+1328|delov, vsak vsaj
+1329|Pot vstran za slike
+1330|Kam gre pisalo za sliko s časovnim zamikom, ko je dvignjeno; vrne se z absolutnim premikom. Prazno: mesto, nastavljeno na zavihku Upravljanje.

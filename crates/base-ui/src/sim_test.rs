@@ -82,6 +82,9 @@ pub struct Seen {
     pub progress: (usize, usize),
     /// The pauses the job stopped at (`Evt::Barrier`): the line and its number.
     pub barriers: Vec<(String, usize)>,
+    /// The lines the job stopped before for photos (`Evt::PhotoStop`), and how many times the machine stood after a trip.
+    pub photo_stops: Vec<usize>,
+    pub photo_ready: usize,
     /// The last status reports and progress changes with the time they came, to see how the machine got where it is.
     pub trail: Vec<String>,
     started: Option<Instant>,
@@ -119,6 +122,8 @@ impl Session {
                 Evt::Traffic(l) if l.dir == Dir::Rx && !l.poll => self.seen.rx.push(l.text),
                 Evt::Traffic(l) if l.dir == Dir::Tx && !l.poll => self.seen.tx.push(l.text),
                 Evt::Barrier { text, line } => self.seen.barriers.push((text, line)),
+                Evt::PhotoStop { line } => self.seen.photo_stops.push(line),
+                Evt::PhotoReady => self.seen.photo_ready += 1,
                 Evt::Status { state, x, y, .. } => {
                     let t = self.seen.started.get_or_insert_with(Instant::now).elapsed().as_secs_f32();
                     if self.seen.trail.last().map(|l| !l.ends_with(&format!("{state} {x:.3},{y:.3}"))).unwrap_or(true) {
@@ -165,7 +170,7 @@ impl Session {
     #[allow(clippy::type_complexity)]
     fn news(&self) -> (usize, String, (i64, i64), (usize, usize), usize) {
         let v = &self.seen;
-        (v.rx.len(), v.state.clone(), ((v.pos.0 * 100.0) as i64, (v.pos.1 * 100.0) as i64), v.progress, v.barriers.len())
+        (v.rx.len(), v.state.clone(), ((v.pos.0 * 100.0) as i64, (v.pos.1 * 100.0) as i64), v.progress, v.barriers.len() + v.photo_stops.len() + v.photo_ready)
     }
 
     /// Everything that helps to tell a lost line from a lost reply when a wait fails: the state, the progress, how many
@@ -455,6 +460,51 @@ mod tests {
         s.wait("job finished", 20.0, |v| v.progress.0 == v.progress.1);
         s.wait_idle_at(10.0, 0.0, 20.0);
         assert!(s.errors().is_empty(), "{:?}", s.errors_described());
+    }
+
+    #[test]
+    #[ignore = "needs grbl-sim: tools/grbl-sim/build.sh"]
+    fn grbl_sim_a_mill_job_goes_aside_for_a_photo_at_every_lift_and_ends_where_it_should() {
+        use crate::photo_trip::{PhotoTrip, TripSetup};
+        use base_core::photo_park::{ParkSettings, StopKind};
+        let mut s = Session::connect();
+        s.wait_banner();
+        s.fast_machine(&[]);
+        let job: Vec<String> = "G21 G90 G54\nG0 Z5\nG0 X10 Y10\nS9000 M3\nF2000\nG1 Z-1\nG1 X30 Y10\nG0 Z5\nG0 X30 Y20\nG1 Z-1\nG1 X10 Y20\nG0 Z5\nG0 X40 Y40\nM5"
+            .lines()
+            .map(String::from)
+            .collect();
+        let setup = TripSetup { park: ParkSettings { enabled: true, x: 2.0, y: 3.0, settle: 0.2, keep_spindle: false }, kind: StopKind::Lift, safe_z: 5.0, spin_up: 0.0, spindle_off: true, hpgl_park: false, every_lift: true };
+        let (mut trip, cmds) = PhotoTrip::start(&job, setup);
+        let n = job.len();
+        s.link.send(Cmd::Job(job));
+        for c in cmds {
+            s.link.send(c);
+        }
+        // Two lifts: two trips to (2, 3), each with a picture, then the job goes on.
+        for k in 0..2 {
+            s.wait("a photo stop", 20.0, |v| v.photo_stops.len() > k);
+            for c in trip.stopped(s.seen.photo_stops[k]) {
+                s.link.send(c);
+            }
+            s.wait("the machine aside", 20.0, |v| v.photo_ready > k);
+            assert!((s.seen.pos.0 - 2.0).abs() < 0.01 && (s.seen.pos.1 - 3.0).abs() < 0.01, "aside at {:?}", s.seen.pos);
+            let now = Instant::now();
+            trip.ready(now);
+            std::thread::sleep(Duration::from_millis(250));
+            let later = Instant::now();
+            let (cmds, shoot) = trip.tick(later, Some(later));
+            assert!(shoot);
+            for c in cmds {
+                s.link.send(c);
+            }
+        }
+        s.wait("job finished", 30.0, |v| v.progress == (n, n));
+        s.wait_idle_at(40.0, 40.0, 20.0);
+        assert_eq!(s.seen.photo_stops, vec![8, 12]);
+        assert!(s.errors().is_empty(), "{:?}", s.errors_described());
+        // The cut after the first trip started where the job had stopped: back over (30, 10) before going on to (30, 20).
+        assert!(s.seen.tx.iter().any(|l| l == "G0 X30 Y10"), "{:?}", s.seen.tx);
     }
 
     #[test]

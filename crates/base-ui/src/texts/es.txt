@@ -1311,3 +1311,21 @@
 1310|Poner en la capa
 1311|Trazado con estilo…
 1312|Distancia entre líneas
+1313|Time-lapse: una foto cada vez que la herramienta sube, con el cabezal apartado.
+1314|Después de cada elevación
+1315|Una foto cada vez que la herramienta sube, con el cabezal apartado (active el apartado en la pestaña Control). El trabajo tarda mucho más.
+1316|Fotos de time-lapse apartadas
+1317|Apartar el cabezal para cada foto
+1318|Durante un trabajo cada foto espera a que el trabajo pueda detenerse: el cabezal va a este lugar, la cámara hace la foto, el cabezal vuelve y el trabajo sigue. Una fresadora y un plóter solo se detienen con la herramienta levantada.
+1319|Lugar (coordenadas de máquina)
+1320|Usar la posición actual
+1321|Esperar antes de la foto
+1322|La máquina deja de vibrar y la imagen de la cámara se pone al día. Un plóter que no responde nada (HPGL) necesita también el tiempo del camino a un lado.
+1323|Mantener el husillo girando
+1324|Sin volver a arrancar el husillo tras cada foto, ni la marca que eso puede dejar en la pared.
+1325|Dividir las líneas largas
+1326|Los cortes rectos largos se envían como varias líneas más cortas: el trabajo puede detenerse antes (para una foto, una pausa) y el progreso avanza de forma más uniforme. La trayectoria es la misma.
+1327|En
+1328|partes, cada una de al menos
+1329|Camino a un lado para las fotos
+1330|Adónde va la pluma para una foto del time-lapse, una vez levantada; vuelve con un movimiento absoluto. Vacío: el lugar fijado en la pestaña Control.

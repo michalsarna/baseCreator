@@ -501,6 +501,10 @@ pub struct Control {
     pub fw_copies: FwCopies,
     /// The tool length sensor.
     pub tls: Tls,
+    /// The photos of a time-lapse with the head moved aside.
+    pub park: crate::photo_park::ParkSettings,
+    /// Long straight cuts sent as several shorter lines.
+    pub split: crate::gcode_split::SplitSettings,
 }
 
 impl Control {
@@ -509,6 +513,8 @@ impl Control {
         self.probe.check().map_err(|e| e.to_string())?;
         self.tls.check().map_err(|e| e.to_string())?;
         self.fw_copies.check().map_err(|e| e.to_string())?;
+        self.park.check().map_err(|e| e.to_string())?;
+        self.split.check().map_err(|e| e.to_string())?;
         let steps_ok = |v: &Vec<f64>| !v.is_empty() && v.len() <= 8 && v.iter().all(|s| s.is_finite() && *s > 0.0 && *s <= 1000.0);
         if !steps_ok(&self.jog.xy_steps) || !steps_ok(&self.jog.z_steps) || !(1.0..=100_000.0).contains(&self.jog.xy_feed) || !(1.0..=100_000.0).contains(&self.jog.z_feed) {
             return Err("the jog steps or feeds are out of range".into());

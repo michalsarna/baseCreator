@@ -98,6 +98,9 @@ pub struct HpglCommands {
     pub force: String,
     /// Grams, 0: the force is not sent.
     pub force_value: u32,
+    /// The way aside for a photo of a time-lapse, after the pen is up (`PA0,8000;`); empty: the park position of the device.
+    /// The pen comes back with an absolute move.
+    pub park: String,
 }
 
 impl Default for HpglCommands {
@@ -111,6 +114,7 @@ impl Default for HpglCommands {
             max_speed: 38,
             force: "FS{force};".into(),
             force_value: 0,
+            park: String::new(),
         }
     }
 }
@@ -122,7 +126,7 @@ impl HpglCommands {
     }
 
     pub fn check(&self) -> Result<(), String> {
-        let all = [&self.start, &self.end, &self.pen_down, &self.pen_up, &self.speed, &self.force];
+        let all = [&self.start, &self.end, &self.pen_down, &self.pen_up, &self.speed, &self.force, &self.park];
         if all.iter().any(|t| t.len() > 500 || t.chars().any(|c| c.is_control() && c != '\n' && c != '\r')) {
             return Err("an HPGL command is too long or holds control characters".into());
         }
@@ -303,6 +307,20 @@ impl Translator {
             Language::Ebb => vec!["ES".into(), "SP,1".into(), "QS".into()],
             Language::Hpgl => HpglCommands::split(&self.setup.settings.hpgl.pen_up),
         }
+    }
+
+    /// HPGL: the pen up and the commands of the way aside for a photo (`HpglCommands::park`). The next move is sent as an
+    /// absolute `PA` whatever it is, and the speed again.
+    pub fn park(&mut self) -> Vec<String> {
+        let mut out = vec![];
+        if self.setup.language != Language::Hpgl {
+            return out;
+        }
+        self.pen(false, &mut out);
+        out.extend(HpglCommands::split(&self.setup.settings.hpgl.park));
+        self.sent = [i64::MIN / 4; 2];
+        self.speed = None;
+        out
     }
 
     /// The answer to `QS` (`1200,-340`): where the motors really are, after a stop cut a move short.
@@ -691,6 +709,23 @@ mod tests {
     }
 
     #[test]
+    fn hpgl_goes_aside_with_its_own_commands_and_comes_back_with_an_absolute_move() {
+        let hpgl = HpglCommands { park: "PA0,8000; NR".into(), ..Default::default() };
+        let mut t = Translator::new(Setup { language: Language::Hpgl, settings: PlotterSettings { hpgl, ..Default::default() }, pen: PenSense::Z { up: 3.0, down: 0.0 }, rapid: 6000.0 });
+        t.start();
+        t.translate("G0 X10 Y5");
+        t.translate("G0 Z0");
+        t.translate("G1 X20 F1200");
+        assert_eq!(t.park(), vec!["PU;", "PA0,8000;", "NR;"]);
+        // The same place as before the trip: the move is sent all the same, and the speed with the pen down again.
+        assert_eq!(t.translate("G0 X20 Y5"), vec!["PA800,200;"]);
+        assert_eq!(t.translate("G0 Z0"), vec!["PD;"]);
+        assert_eq!(t.translate("G1 X30"), vec!["VS2;", "PA1200,200;"]);
+        let mut ebb = Translator::new(Setup::new(Language::Ebb));
+        assert!(ebb.park().is_empty(), "an EBB goes aside with G-code");
+    }
+
+    #[test]
     fn hpgl_commands_of_the_device_are_sent_in_place_of_the_usual_ones() {
         let hpgl = HpglCommands {
             start: "IN;\nPA0,0".into(),
@@ -701,6 +736,7 @@ mod tests {
             max_speed: 20,
             force: "FS{force};".into(),
             force_value: 120,
+            park: String::new(),
         };
         let settings = PlotterSettings { hpgl, ..Default::default() };
         assert!(settings.check().is_ok());

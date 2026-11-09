@@ -40,6 +40,7 @@ pub mod machine_ctl;
 pub mod markdown_ui;
 pub mod menu;
 pub mod navicube;
+pub mod photo_trip;
 pub mod playback;
 pub mod plotter_ui;
 pub mod knives_ui;

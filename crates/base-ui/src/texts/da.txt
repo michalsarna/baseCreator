@@ -1311,3 +1311,21 @@
 1310|Læg på laget
 1311|Stilsporing…
 1312|Afstand mellem stregerne
+1313|Time-lapse: et billede hver gang værktøjet løftes, med hovedet kørt til side.
+1314|Efter hvert løft
+1315|Et billede hver gang værktøjet løftes, med hovedet kørt til side (slå det til på fanen Styring). Jobbet tager meget længere tid.
+1316|Time-lapse-billeder til side
+1317|Kør hovedet til side for hvert billede
+1318|Under et job venter hvert billede, til jobbet kan stoppe: hovedet kører til dette sted, kameraet tager billedet, hovedet kommer tilbage, og jobbet fortsætter. En fræser og en plotter stopper kun med værktøjet løftet.
+1319|Sted (maskinkoordinater)
+1320|Brug den aktuelle position
+1321|Vent før billedet
+1322|Maskinen holder op med at ryste, og kameraets stream indhenter. En plotter, der intet svarer (HPGL), skal også have tid til turen til side.
+1323|Lad spindlen køre
+1324|Ingen ny start af spindlen efter hvert billede og intet mærke, den kan efterlade på væggen.
+1325|Del lange linjer
+1326|Lange lige snit sendes som flere kortere linjer: jobbet kan stoppe før (til et billede, en pause), og fremskridtet går mere jævnt. Banen er den samme.
+1327|I
+1328|dele, hver mindst
+1329|Vej til side for billeder
+1330|Hvor pennen kører hen til et time-lapse-billede, efter den er løftet; den kommer tilbage med en absolut bevægelse. Tom: stedet sat på fanen Styring.

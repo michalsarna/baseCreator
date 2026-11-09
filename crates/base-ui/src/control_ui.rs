@@ -786,6 +786,63 @@ fn body(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, c: &ControlC
     say
 }
 
+/// The section of the photos taken with the head moved aside and of the long lines, under the panel. `mpos` is the machine
+/// position now (for "Use the current position"); `spindle`: the machine has a spindle that may keep running. Returns whether
+/// anything changed.
+pub fn park_and_split_ui(ui: &mut Ui, park: &mut base_core::photo_park::ParkSettings, split: &mut base_core::gcode_split::SplitSettings, mpos: Option<[f64; 3]>, spindle: bool) -> bool {
+    let mut changed = false;
+    section_break(ui);
+    heading(ui, &tr("Time-lapse photos aside"));
+    ui.add_space(2.0);
+    changed |= tip(
+        ui.checkbox(&mut park.enabled, tr("Move the head aside for each photo")),
+        &tr("During a job each picture of the time-lapse waits until the job can stop: the head goes to this place, the camera takes the picture, the head comes back and the job goes on. A mill and a plotter stop only when the tool is up."),
+    )
+    .changed();
+    ui.add_enabled_ui(park.enabled, |ui| {
+        ui.horizontal_wrapped(|ui| {
+            ui.label(tr("Place (machine coordinates)"));
+            ui.label(RichText::new("X").strong());
+            changed |= ui.add(egui::DragValue::new(&mut park.x).range(-100_000.0..=100_000.0).speed(1.0).suffix(" mm")).changed();
+            ui.label(RichText::new("Y").strong());
+            changed |= ui.add(egui::DragValue::new(&mut park.y).range(-100_000.0..=100_000.0).speed(1.0).suffix(" mm")).changed();
+            if ui.add_enabled(mpos.is_some(), egui::Button::new(tr("Use the current position"))).clicked() {
+                if let Some(p) = mpos {
+                    park.x = (p[0] * 1000.0).round() / 1000.0;
+                    park.y = (p[1] * 1000.0).round() / 1000.0;
+                    changed = true;
+                }
+            }
+        });
+        ui.horizontal_wrapped(|ui| {
+            ui.label(tr("Wait before the photo"));
+            changed |= tip(
+                ui.add(egui::DragValue::new(&mut park.settle).range(0.0..=base_core::photo_park::MAX_SETTLE).speed(0.1).suffix(" s")),
+                &tr("The machine stops shaking and the stream of the camera catches up. A plotter that answers nothing (HPGL) needs the time of the way aside too."),
+            )
+            .changed();
+        });
+        if spindle {
+            changed |= tip(ui.checkbox(&mut park.keep_spindle, tr("Keep the spindle running")), &tr("No new start of the spindle after each photo, and no mark it may leave on the wall.")).changed();
+        }
+    });
+    ui.add_space(4.0);
+    changed |= tip(
+        ui.checkbox(&mut split.enabled, tr("Split long lines")),
+        &tr("Long straight cuts are sent as several shorter lines: the job can stop sooner (for a photo, a pause), and the progress moves more evenly. The path stays the same."),
+    )
+    .changed();
+    ui.add_enabled_ui(split.enabled, |ui| {
+        ui.horizontal_wrapped(|ui| {
+            ui.label(tr("Into"));
+            changed |= ui.add(egui::DragValue::new(&mut split.parts).range(base_core::gcode_split::MIN_PARTS..=base_core::gcode_split::MAX_PARTS)).changed();
+            ui.label(tr("parts, each at least"));
+            changed |= ui.add(egui::DragValue::new(&mut split.min_part).range(0.1..=10_000.0).speed(0.1).suffix(" mm")).changed();
+        });
+    });
+    changed
+}
+
 fn fmt_num(v: f64) -> String {
     let s = format!("{v:.3}");
     s.trim_end_matches('0').trim_end_matches('.').to_string()
@@ -892,6 +949,20 @@ fn drive_hold(ui: &mut Ui, m: &mut dyn ControlTarget, st: &mut ControlUi, want: 
 mod tests {
     use super::*;
     use crate::machine_ctl::Machine;
+
+    #[test]
+    fn the_section_of_photos_aside_and_long_lines_draws_with_and_without_a_spindle() {
+        let ctx = egui::Context::default();
+        let mut park = base_core::photo_park::ParkSettings { enabled: true, ..Default::default() };
+        let mut split = base_core::gcode_split::SplitSettings { enabled: true, ..Default::default() };
+        for (mpos, spindle) in [(Some([1.0, 2.0, 0.0]), true), (None, false)] {
+            let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+                assert!(!park_and_split_ui(ui, &mut park, &mut split, mpos, spindle), "nothing changes by drawing");
+            });
+            out.textures_delta.clear();
+        }
+        assert!(park.check().is_ok() && split.check().is_ok());
+    }
 
     #[test]
     fn the_tab_draws_connected_or_not_and_the_texts_are_plain() {
