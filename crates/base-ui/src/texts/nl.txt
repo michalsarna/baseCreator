@@ -1209,3 +1209,105 @@
 1208|Druk
 1209|Hoe hard de pen of het mes drukt, eenmaal aan het begin verzonden; 0: nooit (de plotter houdt zijn eigen).
 1210|Terug naar de gewone opdrachten
+1211|Kronkel
+1212|Zaagtand
+1213|Veren
+1214|Golven
+1215|Rastercirkels
+1216|Ets
+1217|Vierkanten
+1218|Naalden
+1219|Truchet-tegels
+1220|Hoogtelijnen
+1221|Hilbertkromme
+1222|Stippelen
+1223|Eén lijn (TSP)
+1224|Driehoeken en cellen
+1225|Lijntekening
+1226|Stroomlijnen
+1227|Schets
+1228|Krabbel
+1229|Rijen lijnen die sneller en hoger golven waar het beeld donkerder is.
+1230|Rijen zigzaglijnen, dichter en hoger waar het beeld donkerder is.
+1231|Rijen lussen als een uitgerekte veer, groter waar het beeld donkerder is.
+1232|Eén spiraal vanuit het midden die in de schaduwen meer trilt.
+1233|Rijen opgetild door het donker van het beeld, als een landschap van opzij.
+1234|Een raster van cirkels, groter waar het beeld donkerder is.
+1235|Arcering in lagen: elke donkerdere toon voegt lijnen in een andere richting toe.
+1236|Een raster van vierkanten in elkaar, meer waar het donkerder is.
+1237|Korte streken op een raster, langer waar het donkerder is, gedraaid langs de vormen.
+1238|Tegels van kwartcirkels willekeurig gedraaid, meer bogen waar het donkerder is.
+1239|Lijnen van gelijke helderheid, zoals de hoogtelijnen van een kaart.
+1240|Eén vlakvullende kromme, met fijnere bochten waar het donkerder is.
+1241|Stippen verdeeld volgens de toon van het beeld: dicht in de schaduwen, verspreid in de lichten.
+1242|De stippen verbonden tot één lijn die zichzelf niet kruist.
+1243|Een net van driehoeken, of van de cellen eromheen, over stippen verdeeld volgens de toon.
+1244|Alleen de randen van het beeld, als lijnen.
+1245|Lange lijnen die langs de vormen stromen, dichter bij elkaar waar het donkerder is.
+1246|Veel korte rechte streken waar het beeld het donkerst is, zoals in een potloodschets.
+1247|Eén dwalende lijn van lussen die de donkere delen inkrabbelt.
+1248|Afstand tussen de windingen
+1249|Hoogte van de golven
+1250|Grootste cirkel
+1251|Afstand tussen de ringen
+1252|Toonniveaus
+1253|Meeste vierkanten in een cel
+1254|Trilling
+1255|Lengte van de streek
+1256|Tegelgrootte
+1257|Meeste bogen in een tegel
+1258|Afvlakking
+1259|Kleinste stap
+1260|Stipgrootte
+1261|Aantal stippen
+1262|Kleinste detail
+1263|Randgevoeligheid
+1264|Kortste lijn
+1265|Kleinste afstand
+1266|Grootste afstand
+1267|Grootte van de bochten
+1268|Aantal streken
+1269|Inkt van één streek
+1270|Lusgrootte
+1271|Lengte van de lijn
+1272|Inkt van één doorgang
+1273|Rijen van rand tot rand
+1274|Pen optillen boven wit
+1275|Zigzag
+1276|Verberg wat erachter ligt
+1277|Elke rij helemaal tekenen
+1278|Cirkels
+1279|Ringen
+1280|Spiralen
+1281|Rechte lijnen
+1282|Golvende lijnen
+1283|Langs de vormen
+1284|Onder de hoek
+1285|Willekeurig
+1286|Eén lijn
+1287|Stippen
+1288|Cirkels volgens de toon
+1289|Streepjes
+1290|Driehoeken
+1291|Cellen
+1292|Randen
+1293|Randen en de donkere vlakken
+1294|Stromingsveld
+1295|Losse streken
+1296|Streken in ketens
+1297|Golfhoogte
+1298|Golven per mm
+1299|Celgrootte
+1300|Natekenen in stijl
+1301|{} lijnen in de stijl {}
+1302|{} lijnen, {} m lijn
+1303|slechts een deel: te veel punten
+1304|veel punten: de tekening wordt traag
+1305|Soort
+1306|Willekeurig patroon
+1307|Ander
+1308|Zwartpunt
+1309|Witpunt
+1310|Op de laag plaatsen
+1311|Natekenen in stijl…
+1312|Afstand tussen de lijnen

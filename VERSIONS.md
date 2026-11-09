@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.83.0
+
+- **Style trace** (`style_trace`, `base_ui::editor::EditorStyleTrace`, **Arrange → Style trace…**, also in the right-click menu and in Properties): a picture drawn again as lines in one of 19 styles: squiggle, sawtooth, springs, spiral, waves (with hidden lines), halftone circles / rings / spirals, etching (hatching by tone levels), squares, needles, Truchet tiles, contour lines (marching squares), an adaptive Hilbert curve, weighted Voronoi stippling (dots, circles by tone, dashes, triangles), one line (stippling joined by nearest neighbour and 2-opt), Delaunay triangles or Voronoi cells, line art (Canny edges), evenly spaced flow lines (Jobard–Lefer, along the shapes or a flow field), sketch and scribble. Tone settings (black and white point, gamma, light for dark), a seed for the random styles, a live preview worked out in a thread of its own, the result put on the drawing as one path in the place of the picture. Dots are small closed circles, so every program draws, burns or mills them; the lines are ordered to keep the moves short.
+- `EditorHost::line_layer` / `make_line_layer` (the layer a style trace goes on and how it is made to draw lines), `layer_count`, `layer_name`.
+
 ## v1.82.1
 
 - The window of the knife library keeps its size: it grew a little on every frame, up to the height of the screen.

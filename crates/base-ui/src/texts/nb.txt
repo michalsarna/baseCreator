@@ -1209,3 +1209,105 @@
 1208|Trykk
 1209|Hvor hardt pennen eller kniven trykker, sendes én gang ved start; 0: aldri (plotteren beholder sitt eget).
 1210|Tilbake til de vanlige kommandoene
+1211|Bølgestrek
+1212|Sagtann
+1213|Fjærer
+1214|Bølger
+1215|Rastersirkler
+1216|Radering
+1217|Firkanter
+1218|Nåler
+1219|Truchet-fliser
+1220|Høydekurver
+1221|Hilbert-kurve
+1222|Punktering
+1223|Én strek (TSP)
+1224|Trekanter og celler
+1225|Strektegning
+1226|Strømlinjer
+1227|Skisse
+1228|Kruseduller
+1229|Rader av streker som bølger raskere og høyere der bildet er mørkere.
+1230|Rader av sikksakk, tettere og høyere der bildet er mørkere.
+1231|Rader av løkker som en strukket fjær, større der bildet er mørkere.
+1232|Én spiral fra midten som skjelver mer i skyggene.
+1233|Rader løftet av bildets mørke, som et landskap sett fra siden.
+1234|Et rutenett av sirkler, større der bildet er mørkere.
+1235|Skravering i lag: hver mørkere tone legger til streker i en annen retning.
+1236|Et rutenett av firkanter inni hverandre, flere der det er mørkere.
+1237|Korte streker på et rutenett, lengre der det er mørkere, vendt langs formene.
+1238|Fliser av kvartsirkler vendt tilfeldig, flere buer der det er mørkere.
+1239|Linjer med lik lysstyrke, som høydekurvene på et kart.
+1240|Én flatefyllende kurve med finere svinger der det er mørkere.
+1241|Prikker fordelt etter bildets tone: tett i skyggene, spredt i lyset.
+1242|Prikkene forbundet til én strek som ikke krysser seg selv.
+1243|Et nett av trekanter eller cellene rundt dem over prikker fordelt etter tonen.
+1244|Bare bildets kanter, som streker.
+1245|Lange streker som flyter langs formene, tettere der det er mørkere.
+1246|Mange korte rette streker lagt der bildet er mørkest, som i en blyantskisse.
+1247|Én vandrende strek av løkker som krusedullerer inn de mørke delene.
+1248|Avstand mellom viklingene
+1249|Bølgenes høyde
+1250|Største sirkel
+1251|Avstand mellom ringene
+1252|Tonenivåer
+1253|Flest firkanter i en celle
+1254|Skjelving
+1255|Strekens lengde
+1256|Flisstørrelse
+1257|Flest buer i en flis
+1258|Utjevning
+1259|Minste steg
+1260|Prikkstørrelse
+1261|Antall prikker
+1262|Minste detalj
+1263|Kantfølsomhet
+1264|Korteste strek
+1265|Minste avstand
+1266|Største avstand
+1267|Kurvenes størrelse
+1268|Antall streker
+1269|Blekk i én strek
+1270|Løkkestørrelse
+1271|Strekens lengde
+1272|Blekk i én runde
+1273|Rader fra kant til kant
+1274|Løft pennen over hvitt
+1275|Sikksakk
+1276|Skjul det som er bak
+1277|Tegn hver rad hel
+1278|Sirkler
+1279|Ringer
+1280|Spiraler
+1281|Rette streker
+1282|Bølgete streker
+1283|Langs formene
+1284|I vinkelen
+1285|Tilfeldig
+1286|Én strek
+1287|Prikker
+1288|Sirkler etter tonen
+1289|Streker
+1290|Trekanter
+1291|Celler
+1292|Kanter
+1293|Kanter og de mørke områdene
+1294|Strømningsfelt
+1295|Separate streker
+1296|Streker i kjeder
+1297|Bølgehøyde
+1298|Bølger per mm
+1299|Cellestørrelse
+1300|Stilsporing
+1301|{} streker i stilen {}
+1302|{} streker, {} m strek
+1303|bare en del: for mange punkter
+1304|mange punkter: tegningen blir treg
+1305|Slag
+1306|Tilfeldig mønster
+1307|Et annet
+1308|Svartpunkt
+1309|Hvitpunkt
+1310|Legg på laget
+1311|Stilsporing…
+1312|Avstand mellom strekene

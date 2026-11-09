@@ -72,6 +72,21 @@ pub trait EditorHost: Sized {
     fn bone_radius_default(&self) -> f64 {
         1.5
     }
+    /// The layer a style trace of a picture on `picture_layer` puts its lines on: one that draws (burns, mills) lines. By
+    /// default the first layer without shapes, other than the picture's; a program whose layers do other things gives its own.
+    fn line_layer(&self, picture_layer: usize) -> usize {
+        (0..self.layer_count()).find(|&l| l != picture_layer && !self.scene().shapes.iter().any(|s| s.layer == l)).unwrap_or(picture_layer)
+    }
+    /// Make the layer draw the lines put on it (a style trace is about to fill it). Nothing to do by default.
+    fn make_line_layer(&mut self, _layer: usize) {}
+    /// How many layers the program has.
+    fn layer_count(&self) -> usize {
+        base_core::layers::LAYER_COUNT
+    }
+    /// The name of a layer as the program shows it (in a list of layers to choose from).
+    fn layer_name(&self, layer: usize) -> String {
+        self.layer_title(layer)
+    }
     /// The name of a layer, for the files that are written (SVG groups, DXF layers).
     fn layer_title(&self, layer: usize) -> String {
         format!("Layer {}", layer + 1)

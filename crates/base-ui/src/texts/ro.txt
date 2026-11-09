@@ -1209,3 +1209,105 @@
 1208|Forță
 1209|Cât de tare apasă stiloul sau cuțitul, trimis o dată la început; 0: niciodată (plotterul o păstrează pe a sa).
 1210|Înapoi la comenzile obișnuite
+1211|Linie ondulată
+1212|Dinți de fierăstrău
+1213|Arcuri
+1214|Valuri
+1215|Cercuri de raster
+1216|Gravură în acvaforte
+1217|Pătrate
+1218|Ace
+1219|Plăci Truchet
+1220|Curbe de nivel
+1221|Curba Hilbert
+1222|Punctare
+1223|O singură linie (TSP)
+1224|Triunghiuri și celule
+1225|Desen liniar
+1226|Linii de curgere
+1227|Schiță
+1228|Mâzgălitură
+1229|Rânduri de linii care ondulează mai des și mai sus acolo unde imaginea e mai întunecată.
+1230|Rânduri de zigzaguri, mai dese și mai înalte unde imaginea e mai întunecată.
+1231|Rânduri de bucle ca un arc întins, mai mari unde imaginea e mai întunecată.
+1232|O spirală din mijloc care tremură mai mult în umbre.
+1233|Rânduri ridicate de întunericul imaginii, ca un peisaj văzut din lateral.
+1234|O grilă de cercuri, mai mari unde imaginea e mai întunecată.
+1235|Hașurare în straturi: fiecare ton mai închis adaugă linii în altă direcție.
+1236|O grilă de pătrate unul în altul, mai multe unde e mai întunecat.
+1237|Linii scurte pe o grilă, mai lungi unde e mai întunecat, întoarse de-a lungul formelor.
+1238|Plăci din sferturi de cerc întoarse la întâmplare, mai multe arce unde e mai întunecat.
+1239|Linii de luminozitate egală, ca liniile de nivel ale unei hărți.
+1240|O curbă care umple planul, cu întoarceri mai fine unde e mai întunecat.
+1241|Puncte răspândite după tonul imaginii: dese în umbre, rare în lumini.
+1242|Punctele unite într-o singură linie care nu se intersectează.
+1243|O rețea de triunghiuri sau de celule în jurul lor, peste puncte răspândite după ton.
+1244|Doar marginile imaginii, ca linii.
+1245|Linii lungi care curg de-a lungul formelor, mai apropiate unde e mai întunecat.
+1246|Multe linii scurte și drepte puse unde imaginea e cea mai întunecată, ca într-o schiță în creion.
+1247|O singură linie rătăcitoare de bucle care mâzgălește părțile întunecate.
+1248|Distanța dintre spire
+1249|Înălțimea valurilor
+1250|Cel mai mare cerc
+1251|Distanța dintre inele
+1252|Niveluri de ton
+1253|Cele mai multe pătrate într-o celulă
+1254|Tremur
+1255|Lungimea liniei
+1256|Mărimea plăcii
+1257|Cele mai multe arce într-o placă
+1258|Netezire
+1259|Cel mai mic pas
+1260|Mărimea punctului
+1261|Numărul de puncte
+1262|Cel mai mic detaliu
+1263|Sensibilitatea marginilor
+1264|Cea mai scurtă linie
+1265|Cea mai mică distanță
+1266|Cea mai mare distanță
+1267|Mărimea curbelor
+1268|Numărul de linii
+1269|Cerneala unei linii
+1270|Mărimea buclei
+1271|Lungimea liniei
+1272|Cerneala unei treceri
+1273|Rânduri de la margine la margine
+1274|Ridică stiloul deasupra albului
+1275|Zigzag
+1276|Ascunde ce e în spate
+1277|Desenează fiecare rând întreg
+1278|Cercuri
+1279|Inele
+1280|Spirale
+1281|Linii drepte
+1282|Linii ondulate
+1283|De-a lungul formelor
+1284|La unghi
+1285|La întâmplare
+1286|O linie
+1287|Puncte
+1288|Cercuri după ton
+1289|Liniuțe
+1290|Triunghiuri
+1291|Celule
+1292|Margini
+1293|Margini și zonele întunecate
+1294|Câmp de curgere
+1295|Linii separate
+1296|Linii în lanțuri
+1297|Înălțimea undei
+1298|Unde pe mm
+1299|Mărimea celulei
+1300|Trasare în stil
+1301|{} linii în stilul {}
+1302|{} linii, {} m de linie
+1303|doar o parte: prea multe puncte
+1304|multe puncte: desenul devine lent
+1305|Fel
+1306|Model aleatoriu
+1307|Altul
+1308|Punctul negru
+1309|Punctul alb
+1310|Pune pe stratul
+1311|Trasare în stil…
+1312|Distanța dintre linii

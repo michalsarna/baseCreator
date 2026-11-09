@@ -1209,3 +1209,105 @@
 1208|Pritisk
 1209|Kako močno pritiska pisalo ali nož, pošlje se enkrat na začetku; 0: nikoli (risalnik obdrži svojega).
 1210|Nazaj na običajne ukaze
+1211|Valovita črta
+1212|Žaga
+1213|Vzmeti
+1214|Valovi
+1215|Rastrski krogi
+1216|Jedkanica
+1217|Kvadrati
+1218|Iglice
+1219|Truchetove ploščice
+1220|Plastnice
+1221|Hilbertova krivulja
+1222|Pikčasto senčenje
+1223|Ena črta (TSP)
+1224|Trikotniki in celice
+1225|Črtna risba
+1226|Tokovnice
+1227|Skica
+1228|Čečkanje
+1229|Vrste črt, ki valovijo gosteje in višje tam, kjer je slika temnejša.
+1230|Vrste cikcakov, gostejših in višjih tam, kjer je slika temnejša.
+1231|Vrste zank kot raztegnjena vzmet, večjih tam, kjer je slika temnejša.
+1232|Ena spirala iz sredine, ki v senci bolj trepeta.
+1233|Vrste, ki jih dvigne temnost slike, kot pokrajina, gledana s strani.
+1234|Mreža krogov, večjih tam, kjer je slika temnejša.
+1235|Šrafiranje v plasteh: vsak temnejši ton doda črte v drugi smeri.
+1236|Mreža kvadratov drug v drugem, več jih je tam, kjer je temneje.
+1237|Kratke poteze na mreži, daljše tam, kjer je temneje, obrnjene vzdolž oblik.
+1238|Ploščice iz četrtin krogov, naključno obrnjene, več lokov tam, kjer je temneje.
+1239|Črte enake svetlosti, kot plastnice na zemljevidu.
+1240|Ena krivulja, ki zapolni ravnino, z drobnejšimi zavoji tam, kjer je temneje.
+1241|Pike, razporejene po tonu slike: gosto v senci, redko na svetlem.
+1242|Pike, povezane v eno črto, ki se ne seka.
+1243|Mreža trikotnikov ali celic okoli njih nad pikami, razporejenimi po tonu.
+1244|Samo robovi slike kot črte.
+1245|Dolge črte, ki tečejo vzdolž oblik, bližje skupaj tam, kjer je temneje.
+1246|Veliko kratkih ravnih potez tam, kjer je slika najtemnejša, kot v skici s svinčnikom.
+1247|Ena tavajoča črta zank, ki počečka temne dele.
+1248|Razmik med zavoji
+1249|Višina valov
+1250|Največji krog
+1251|Razmik med obroči
+1252|Ravni tona
+1253|Največ kvadratov v celici
+1254|Tresenje
+1255|Dolžina poteze
+1256|Velikost ploščice
+1257|Največ lokov v ploščici
+1258|Glajenje
+1259|Najmanjši korak
+1260|Velikost pike
+1261|Število pik
+1262|Najmanjša podrobnost
+1263|Občutljivost robov
+1264|Najkrajša črta
+1265|Najmanjši razmik
+1266|Največji razmik
+1267|Velikost zavojev
+1268|Število potez
+1269|Črnilo ene poteze
+1270|Velikost zanke
+1271|Dolžina črte
+1272|Črnilo enega prehoda
+1273|Vrste od roba do roba
+1274|Dvigni pisalo nad belino
+1275|Cikcak
+1276|Skrij, kar je zadaj
+1277|Nariši vsako vrsto v celoti
+1278|Krogi
+1279|Obroči
+1280|Spirale
+1281|Ravne črte
+1282|Valovite črte
+1283|Vzdolž oblik
+1284|Pod kotom
+1285|Naključno
+1286|Ena črta
+1287|Pike
+1288|Krogi po tonu
+1289|Črtice
+1290|Trikotniki
+1291|Celice
+1292|Robovi
+1293|Robovi in temna območja
+1294|Polje toka
+1295|Ločene poteze
+1296|Poteze v verigah
+1297|Višina vala
+1298|Valov na mm
+1299|Velikost celice
+1300|Obris v slogu
+1301|{} črt v slogu {}
+1302|{} črt, {} m črte
+1303|samo del: preveč točk
+1304|veliko točk: risba bo počasna
+1305|Vrsta
+1306|Naključni vzorec
+1307|Drug
+1308|Točka črne
+1309|Točka bele
+1310|Postavi na plast
+1311|Obris v slogu…
+1312|Razmik med črtami

@@ -1209,3 +1209,105 @@
 1208|Spaudimas
 1209|Kaip stipriai spaudžia rašiklis ar peilis, siunčiama kartą pradžioje; 0: niekada (braižytuvas palieka savo).
 1210|Grįžti prie įprastų komandų
+1211|Banguota linija
+1212|Pjūklas
+1213|Spyruoklės
+1214|Bangos
+1215|Rastro apskritimai
+1216|Ofortas
+1217|Kvadratai
+1218|Adatėlės
+1219|Truchet plytelės
+1220|Izolinijos
+1221|Hilberto kreivė
+1222|Taškavimas
+1223|Viena linija (TSP)
+1224|Trikampiai ir langeliai
+1225|Linijinis piešinys
+1226|Srauto linijos
+1227|Eskizas
+1228|Keverzonė
+1229|Linijų eilės, kurios banguoja tankiau ir aukščiau ten, kur vaizdas tamsesnis.
+1230|Zigzagų eilės, tankesnės ir aukštesnės ten, kur vaizdas tamsesnis.
+1231|Kilpų eilės kaip ištemptos spyruoklės, didesnės ten, kur vaizdas tamsesnis.
+1232|Viena spiralė nuo vidurio, kuri šešėliuose virpa labiau.
+1233|Eilės, pakeltos vaizdo tamsumo, lyg iš šono matomas kraštovaizdis.
+1234|Apskritimų tinklelis, didesnių ten, kur vaizdas tamsesnis.
+1235|Brūkšniavimas sluoksniais: kiekvienas tamsesnis tonas prideda linijų kita kryptimi.
+1236|Vienas kitame esančių kvadratų tinklelis, daugiau ten, kur tamsiau.
+1237|Trumpi brūkšniai tinklelyje, ilgesni ten, kur tamsiau, pasukti išilgai formų.
+1238|Ketvirtadalio apskritimų plytelės, pasuktos atsitiktinai, daugiau lankų ten, kur tamsiau.
+1239|Vienodo šviesumo linijos, lyg žemėlapio izolinijos.
+1240|Viena plokštumą užpildanti kreivė, su smulkesniais posūkiais ten, kur tamsiau.
+1241|Taškai, išdėstyti pagal vaizdo toną: tankiai šešėliuose, retai šviesiose vietose.
+1242|Taškai sujungti į vieną liniją, kuri savęs nekerta.
+1243|Trikampių arba langelių aplink juos tinklas ant taškų, išdėstytų pagal toną.
+1244|Tik vaizdo kraštai, kaip linijos.
+1245|Ilgos linijos, tekančios išilgai formų, arčiau viena kitos ten, kur tamsiau.
+1246|Daug trumpų tiesių brūkšnių ten, kur vaizdas tamsiausias, kaip pieštuko eskize.
+1247|Viena klajojanti kilpų linija, kuri užkeverzoja tamsias dalis.
+1248|Vijų tarpas
+1249|Bangų aukštis
+1250|Didžiausias apskritimas
+1251|Žiedų tarpas
+1252|Tono lygiai
+1253|Daugiausia kvadratų langelyje
+1254|Drebėjimas
+1255|Brūkšnio ilgis
+1256|Plytelės dydis
+1257|Daugiausia lankų plytelėje
+1258|Glotninimas
+1259|Mažiausias žingsnis
+1260|Taško dydis
+1261|Taškų skaičius
+1262|Mažiausia detalė
+1263|Kraštų jautrumas
+1264|Trumpiausia linija
+1265|Mažiausias tarpas
+1266|Didžiausias tarpas
+1267|Vingių dydis
+1268|Brūkšnių skaičius
+1269|Vieno brūkšnio rašalas
+1270|Kilpos dydis
+1271|Linijos ilgis
+1272|Vieno perėjimo rašalas
+1273|Eilės nuo krašto iki krašto
+1274|Kelti rašiklį virš balto
+1275|Zigzagas
+1276|Slėpti tai, kas už
+1277|Piešti kiekvieną eilę visą
+1278|Apskritimai
+1279|Žiedai
+1280|Spiralės
+1281|Tiesios linijos
+1282|Banguotos linijos
+1283|Išilgai formų
+1284|Kampu
+1285|Atsitiktinai
+1286|Viena linija
+1287|Taškai
+1288|Apskritimai pagal toną
+1289|Brūkšneliai
+1290|Trikampiai
+1291|Langeliai
+1292|Kraštai
+1293|Kraštai ir tamsios sritys
+1294|Srauto laukas
+1295|Atskiri brūkšniai
+1296|Brūkšniai grandinėmis
+1297|Bangos aukštis
+1298|Bangų per mm
+1299|Langelio dydis
+1300|Atsekimas stiliumi
+1301|{} linijų stiliumi {}
+1302|{} linijų, {} m linijos
+1303|tik dalis: per daug taškų
+1304|daug taškų: piešinys sulėtės
+1305|Rūšis
+1306|Atsitiktinis raštas
+1307|Kitas
+1308|Juodos taškas
+1309|Baltos taškas
+1310|Dėti į sluoksnį
+1311|Atsekimas stiliumi…
+1312|Linijų tarpas

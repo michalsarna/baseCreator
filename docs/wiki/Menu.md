@@ -46,6 +46,7 @@ Te same polecenia są w menu kształtu pod prawym przyciskiem; opisuje je strona
 * **Przytnij kształtem…**, **Usuń duplikaty**, **Rozdziel**, **Uprość…**
 * **Tekst seryjny…**, **Kod kreskowy / QR…**, **Rozmieść kształty (nesting)…**, **Pomiar…**
 * **Dostosuj obraz…**, **Wektoryzacja obrazu…**
+* **Obrysuj w stylu…**: zaznaczony obraz narysowany na nowo liniami w jednym z 19 stylów ([Obrysuj w stylu](Obrys-w-stylu)).
 
 ## Widok
 

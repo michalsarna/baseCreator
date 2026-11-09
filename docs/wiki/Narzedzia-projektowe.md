@@ -37,6 +37,8 @@ Wszystko to jest w menu **Rozmieść**:
 
 **Plik → Importuj → Importuj obraz…** albo upuszczenie obrazu na okno otwiera okno importu. **Dostosuj obraz…** zmienia obraz na stronie, a **Wektoryzacja obrazu…** zamienia jego ciemne lub jasne obszary w obrysy. Obrazy nie mają własnych obrysów, więc eksport pomija je, dopóki nie zostaną zwektoryzowane.
 
+**Rozmieść → Obrysuj w stylu…** rysuje obraz na nowo liniami w jednym z 19 stylów (wężyki, spirala, puentylizm, kreskowanie, linie przepływu, jedna ciągła linia…): zobacz [Obrysuj w stylu](Obrys-w-stylu).
+
 **Widok → Obraz w tle…** kładzie zdjęcie lub skan pod rysunkiem, aby rysować po nim.
 
 ## Galeria clipartów

@@ -1209,3 +1209,105 @@
 1208|Força
 1209|Quanto pressiona a caneta ou a lâmina, enviado uma vez no início; 0: nunca (o plotter mantém a sua).
 1210|Voltar aos comandos habituais
+1211|Linha ondulada
+1212|Dente de serra
+1213|Molas
+1214|Ondas
+1215|Círculos de meio-tom
+1216|Água-forte
+1217|Quadrados
+1218|Agulhas
+1219|Azulejos de Truchet
+1220|Curvas de nível
+1221|Curva de Hilbert
+1222|Pontilhado
+1223|Uma só linha (TSP)
+1224|Triângulos e células
+1225|Desenho de linhas
+1226|Linhas de fluxo
+1227|Esboço
+1228|Rabisco
+1229|Filas de linhas que ondulam mais depressa e mais alto onde a imagem é mais escura.
+1230|Filas de ziguezagues, mais juntos e mais altos onde a imagem é mais escura.
+1231|Filas de laços como uma mola esticada, maiores onde a imagem é mais escura.
+1232|Uma espiral a partir do centro que treme mais nas sombras.
+1233|Filas levantadas pelo escuro da imagem, como uma paisagem vista de lado.
+1234|Uma grelha de círculos, maiores onde a imagem é mais escura.
+1235|Tracejado em camadas: cada tom mais escuro acrescenta linhas noutra direção.
+1236|Uma grelha de quadrados uns dentro dos outros, mais onde é mais escuro.
+1237|Traços curtos numa grelha, mais longos onde é mais escuro, virados ao longo das formas.
+1238|Azulejos de quartos de círculo virados ao acaso, mais arcos onde é mais escuro.
+1239|Linhas de igual brilho, como as curvas de nível de um mapa.
+1240|Uma curva que preenche o plano, com voltas mais finas onde é mais escuro.
+1241|Pontos distribuídos pelo tom da imagem: juntos nas sombras, esparsos nas luzes.
+1242|Os pontos do pontilhado unidos numa linha que não se cruza.
+1243|Uma malha de triângulos, ou das células à volta, sobre pontos distribuídos pelo tom.
+1244|Só as arestas da imagem, como linhas.
+1245|Linhas longas que fluem ao longo das formas, mais juntas onde é mais escuro.
+1246|Muitos traços curtos e retos onde a imagem é mais escura, como num esboço a lápis.
+1247|Uma linha errante de laços que rabisca as partes escuras.
+1248|Distância entre voltas
+1249|Altura das ondas
+1250|Maior círculo
+1251|Distância entre anéis
+1252|Níveis de tom
+1253|Máximo de quadrados por célula
+1254|Tremor
+1255|Comprimento do traço
+1256|Tamanho do azulejo
+1257|Máximo de arcos por azulejo
+1258|Suavização
+1259|Passo mais pequeno
+1260|Tamanho do ponto
+1261|Número de pontos
+1262|Detalhe mais pequeno
+1263|Sensibilidade às arestas
+1264|Linha mais curta
+1265|Distância mínima
+1266|Distância máxima
+1267|Tamanho das curvas
+1268|Número de traços
+1269|Tinta de um traço
+1270|Tamanho dos laços
+1271|Comprimento da linha
+1272|Tinta de uma passagem
+1273|Filas de borda a borda
+1274|Levantar a caneta sobre o branco
+1275|Ziguezague
+1276|Ocultar o que está atrás
+1277|Desenhar cada fila inteira
+1278|Círculos
+1279|Anéis
+1280|Espirais
+1281|Linhas retas
+1282|Linhas onduladas
+1283|Ao longo das formas
+1284|No ângulo
+1285|Ao acaso
+1286|Uma linha
+1287|Pontos
+1288|Círculos pelo tom
+1289|Traços
+1290|Triângulos
+1291|Células
+1292|Arestas
+1293|Arestas e zonas escuras
+1294|Campo de fluxo
+1295|Traços separados
+1296|Traços em cadeia
+1297|Altura da onda
+1298|Ondas por mm
+1299|Tamanho da célula
+1300|Traçado com estilo
+1301|{} linhas no estilo {}
+1302|{} linhas, {} m de linha
+1303|só uma parte: demasiados pontos
+1304|muitos pontos: o desenho fica lento
+1305|Tipo
+1306|Padrão aleatório
+1307|Outro
+1308|Ponto preto
+1309|Ponto branco
+1310|Colocar na camada
+1311|Traçado com estilo…
+1312|Distância entre linhas

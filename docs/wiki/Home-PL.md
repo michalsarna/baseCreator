@@ -16,6 +16,7 @@ Otwartoźródłowy program do rysowania napisany w Ruście, bez żadnej części
 | Zrobić pierwszy rysunek, krok po kroku | [Szybki start](Szybki-start) |
 | Ustawić rozmiar strony, używać warstw | [Strona i warstwy](Strona-i-warstwy) |
 | Edytować kształty, wektoryzować obrazy, robić kopie | [Narzędzia projektowe](Narzedzia-projektowe) |
+| Narysować obraz liniami w stylu (puentylizm, wężyki, kreskowanie…) | [Obrysuj w stylu](Obrys-w-stylu) |
 | Czytać lub zapisywać inne formaty plików | [Import i eksport](Import-i-eksport) |
 | Ułożyć obszar roboczy: panele i karty | [Panele i karty](Panele-i-karty) |
 | Znaleźć polecenie w menu | [Menu](Menu) |

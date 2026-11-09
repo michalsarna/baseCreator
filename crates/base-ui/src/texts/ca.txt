@@ -1209,3 +1209,105 @@
 1208|Força
 1209|Amb quina força prem la ploma o el ganivet, s'envia una vegada a l'inici; 0: mai (el plòter manté la seva).
 1210|Torna a les ordres habituals
+1211|Ziga-zaga ondulada
+1212|Dent de serra
+1213|Molles
+1214|Ones
+1215|Cercles de mitja tinta
+1216|Aiguafort
+1217|Quadrats
+1218|Agulles
+1219|Rajoles de Truchet
+1220|Corbes de nivell
+1221|Corba de Hilbert
+1222|Puntejat
+1223|Una sola línia (TSP)
+1224|Triangles i cel·les
+1225|Dibuix de línia
+1226|Línies de flux
+1227|Esbós
+1228|Gargot
+1229|Files de línies que onegen més de pressa i més amunt on la imatge és més fosca.
+1230|Files de ziga-zagues, més juntes i més altes on la imatge és més fosca.
+1231|Files de bucles com una molla estirada, més grans on la imatge és més fosca.
+1232|Una espiral des del mig que tremola més a les ombres.
+1233|Files aixecades per la foscor de la imatge, com un paisatge vist de costat.
+1234|Una graella de cercles, més grans on la imatge és més fosca.
+1235|Ratllat per capes: cada to més fosc afegeix línies en una altra direcció.
+1236|Una graella de quadrats un dins l'altre, més on és més fosc.
+1237|Traços curts en una graella, més llargs on és més fosc, girats al llarg de les formes.
+1238|Rajoles de quarts de cercle girades a l'atzar, més arcs on és més fosc.
+1239|Línies de la mateixa claror, com les corbes de nivell d'un mapa.
+1240|Una corba que omple el pla, amb girs més fins on és més fosc.
+1241|Punts repartits segons el to de la imatge: junts a les ombres, escassos a les llums.
+1242|Els punts del puntejat units en una línia que no es creua.
+1243|Una malla de triangles, o de les cel·les al voltant, sobre punts repartits segons el to.
+1244|Només les vores de la imatge, com a línies.
+1245|Línies llargues que flueixen al llarg de les formes, més juntes on és més fosc.
+1246|Molts traços curts i rectes posats on la imatge és més fosca, com en un esbós a llapis.
+1247|Una línia errant de bucles que gargoteja les parts fosques.
+1248|Distància entre voltes
+1249|Alçada de les ones
+1250|Cercle més gran
+1251|Distància entre anells
+1252|Nivells de to
+1253|Màxim de quadrats per cel·la
+1254|Tremolor
+1255|Llargada del traç
+1256|Mida de la rajola
+1257|Màxim d'arcs per rajola
+1258|Suavitzat
+1259|Pas més petit
+1260|Mida del punt
+1261|Nombre de punts
+1262|Detall més petit
+1263|Sensibilitat a les vores
+1264|Línia més curta
+1265|Distància mínima
+1266|Distància màxima
+1267|Mida de les corbes
+1268|Nombre de traços
+1269|Tinta d'un traç
+1270|Mida dels bucles
+1271|Llargada de la línia
+1272|Tinta d'una passada
+1273|Files de vora a vora
+1274|Aixeca la ploma sobre el blanc
+1275|Ziga-zaga
+1276|Amaga el que queda darrere
+1277|Dibuixa cada fila sencera
+1278|Cercles
+1279|Anells
+1280|Espirals
+1281|Línies rectes
+1282|Línies ondulades
+1283|Al llarg de les formes
+1284|A l'angle
+1285|A l'atzar
+1286|Una línia
+1287|Punts
+1288|Cercles segons el to
+1289|Guions
+1290|Triangles
+1291|Cel·les
+1292|Vores
+1293|Vores i zones fosques
+1294|Camp de flux
+1295|Traços separats
+1296|Traços en cadena
+1297|Alçada de l'ona
+1298|Ones per mm
+1299|Mida de la cel·la
+1300|Traçat amb estil
+1301|{} línies amb l'estil {}
+1302|{} línies, {} m de línia
+1303|només una part: massa punts
+1304|molts punts: el dibuix es farà lent
+1305|Tipus
+1306|Patró aleatori
+1307|Un altre
+1308|Punt del negre
+1309|Punt del blanc
+1310|Posa a la capa
+1311|Traçat amb estil…
+1312|Distància entre línies

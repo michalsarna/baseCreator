@@ -37,6 +37,8 @@ All of these are in the **Arrange** menu:
 
 **File → Import → Import image…**, or dropping a picture on the window, opens the import dialog. **Adjust image…** changes a picture on the page, and **Trace image…** turns its dark or light areas into outlines. Pictures have no outlines of their own, so export leaves them out until they are traced.
 
+**Arrange → Style trace…** draws a picture again as lines in one of 19 styles (squiggles, a spiral, stippling, hatching, flow lines, one continuous line…): see [Style Trace](Style-Trace).
+
 **View → Background picture…** puts a photo or a scan under the drawing, to draw over. It is saved with the project.
 
 ## The clipart gallery

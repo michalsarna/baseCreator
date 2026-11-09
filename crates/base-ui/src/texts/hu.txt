@@ -1209,3 +1209,105 @@
 1208|Erő
 1209|Milyen erősen nyom a toll vagy a kés, egyszer küldi az elején; 0: soha (a plotter megtartja a sajátját).
 1210|Vissza a szokásos parancsokhoz
+1211|Hullámvonal
+1212|Fűrészfog
+1213|Rugók
+1214|Hullámok
+1215|Raszterkörök
+1216|Rézkarc
+1217|Négyzetek
+1218|Tűk
+1219|Truchet-csempék
+1220|Szintvonalak
+1221|Hilbert-görbe
+1222|Pontozás
+1223|Egyetlen vonal (TSP)
+1224|Háromszögek és cellák
+1225|Vonalrajz
+1226|Áramvonalak
+1227|Vázlat
+1228|Firkálás
+1229|Vonalsorok, amelyek sűrűbben és magasabban hullámzanak ott, ahol a kép sötétebb.
+1230|Cikcakksorok, sűrűbbek és magasabbak ott, ahol a kép sötétebb.
+1231|Hurokssorok, mint egy megnyújtott rugó, nagyobbak ott, ahol a kép sötétebb.
+1232|Egyetlen spirál középről, amely az árnyékokban jobban rezeg.
+1233|A kép sötétje által megemelt sorok, mint egy oldalról látott táj.
+1234|Körök rácsa, nagyobbak ott, ahol a kép sötétebb.
+1235|Rétegenkénti vonalkázás: minden sötétebb tónus más irányú vonalakat ad hozzá.
+1236|Egymásba ágyazott négyzetek rácsa, több ott, ahol sötétebb.
+1237|Rövid vonások rácson, hosszabbak ott, ahol sötétebb, a formák mentén elforgatva.
+1238|Véletlenszerűen elforgatott negyedkör-csempék, több ív ott, ahol sötétebb.
+1239|Azonos fényességű vonalak, mint egy térkép szintvonalai.
+1240|Egyetlen síkkitöltő görbe, finomabb kanyarokkal ott, ahol sötétebb.
+1241|A kép tónusa szerint elosztott pontok: sűrűn az árnyékokban, ritkán a fényekben.
+1242|A pontozás pontjai egyetlen, önmagát nem keresztező vonallá kötve.
+1243|Háromszögek vagy a körülöttük lévő cellák hálója a tónus szerint elosztott pontokon.
+1244|Csak a kép élei, vonalakként.
+1245|Hosszú vonalak, amelyek a formák mentén folynak, közelebb ott, ahol sötétebb.
+1246|Sok rövid egyenes vonás oda, ahol a kép a legsötétebb, mint egy ceruzavázlatban.
+1247|Egyetlen kóborló hurokvonal, amely befirkálja a sötét részeket.
+1248|A menetek távolsága
+1249|A hullámok magassága
+1250|Legnagyobb kör
+1251|A gyűrűk távolsága
+1252|Tónusszintek
+1253|Legtöbb négyzet egy cellában
+1254|Remegés
+1255|Vonás hossza
+1256|Csempe mérete
+1257|Legtöbb ív egy csempében
+1258|Simítás
+1259|Legkisebb lépés
+1260|Pontméret
+1261|Pontok száma
+1262|Legkisebb részlet
+1263|Élérzékenység
+1264|Legrövidebb vonal
+1265|Legkisebb távolság
+1266|Legnagyobb távolság
+1267|A kanyarok mérete
+1268|Vonások száma
+1269|Egy vonás tintája
+1270|Hurokméret
+1271|A vonal hossza
+1272|Egy menet tintája
+1273|Sorok szélétől széléig
+1274|Toll felemelése a fehér felett
+1275|Cikcakk
+1276|A mögöttes elrejtése
+1277|Minden sor teljes megrajzolása
+1278|Körök
+1279|Gyűrűk
+1280|Spirálok
+1281|Egyenes vonalak
+1282|Hullámos vonalak
+1283|A formák mentén
+1284|A szögben
+1285|Véletlenszerűen
+1286|Egy vonal
+1287|Pontok
+1288|Körök a tónus szerint
+1289|Vonalkák
+1290|Háromszögek
+1291|Cellák
+1292|Élek
+1293|Élek és a sötét területek
+1294|Áramlási mező
+1295|Különálló vonások
+1296|Láncba fűzött vonások
+1297|Hullámmagasság
+1298|Hullám/mm
+1299|Cellaméret
+1300|Stílusos átrajzolás
+1301|{} vonal {} stílusban
+1302|{} vonal, {} m vonal
+1303|csak egy rész: túl sok pont
+1304|sok pont: a rajz lelassul
+1305|Fajta
+1306|Véletlen minta
+1307|Másik
+1308|Fekete pont
+1309|Fehér pont
+1310|Rétegre helyezés
+1311|Stílusos átrajzolás…
+1312|A vonalak távolsága

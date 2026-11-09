@@ -373,6 +373,7 @@ pub trait EditorImages: EditorHost {
         self.import_dialog(ctx);
         self.drawing_choice_window(ctx);
         self.trace_dialog(ctx);
+        super::EditorStyleTrace::style_trace_window(self, ctx);
         super::EditorShapeOps::shape_op_windows(self, ctx);
         super::EditorDesign::design_windows(self, ctx);
         super::EditorBackground::background_window(self, ctx);

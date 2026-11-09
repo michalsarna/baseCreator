@@ -1209,3 +1209,105 @@
 1208|Forza
 1209|Kemm tagħfas il-pinna jew is-sikkina, jintbagħat darba fil-bidu; 0: qatt (il-plotter iżomm tiegħu).
 1210|Lura għall-kmandi tas-soltu
+1211|Linja mmewġa
+1212|Snien tas-serrieq
+1213|Molol
+1214|Mewġ
+1215|Ċrieki tar-raster
+1216|Inċiżjoni
+1217|Kwadri
+1218|Labar
+1219|Madum ta' Truchet
+1220|Linji tal-kontorn
+1221|Kurva ta' Hilbert
+1222|Tikkettjar
+1223|Linja waħda (TSP)
+1224|Trijangoli u ċelloli
+1225|Tpinġija bil-linji
+1226|Linji tal-fluss
+1227|Skeċċ
+1228|Xħit
+1229|Ringieli ta' linji li jimmewġu aktar malajr u ogħla fejn l-istampa hija iktar skura.
+1230|Ringieli ta' żigżag, eqreb u ogħla fejn l-istampa hija iktar skura.
+1231|Ringieli ta' ċrieki bħal molla mġebbda, akbar fejn l-istampa hija iktar skura.
+1232|Spirali waħda min-nofs li titriegħed aktar fid-dellijiet.
+1233|Ringieli mgħollija mid-dlam tal-istampa, bħal pajsaġġ minn ġenb.
+1234|Grilja ta' ċrieki, akbar fejn l-istampa hija iktar skura.
+1235|Tratteġġ f'saffi: kull ton iktar skur iżid linji f'direzzjoni oħra.
+1236|Grilja ta' kwadri wieħed ġewwa l-ieħor, aktar fejn hu iktar skur.
+1237|Linji qosra fuq grilja, itwal fejn hu iktar skur, imdawrin mal-forom.
+1238|Madum ta' kwarti ta' ċirku mdawrin b'mod każwali, aktar arki fejn hu iktar skur.
+1239|Linji ta' dawl ugwali, bħal-linji tal-kontorn ta' mappa.
+1240|Kurva waħda li timla l-ispazju, b'dawriet ifjen fejn hu iktar skur.
+1241|Tikek imqassma skont it-ton tal-istampa: qrib fid-dellijiet, imxerrdin fid-dawl.
+1242|It-tikek magħquda f'linja waħda li ma taqsamx lilha nnifisha.
+1243|Malja ta' trijangoli, jew taċ-ċelloli madwarhom, fuq tikek imqassma skont it-ton.
+1244|It-truf tal-istampa biss, bħala linji.
+1245|Linji twal li jiċċirkolaw mal-forom, eqreb fejn hu iktar skur.
+1246|Ħafna linji qosra u dritti fejn l-istampa hija l-iktar skura, bħal fi skeċċ bil-lapes.
+1247|Linja waħda tiġġerra ta' ċrieki li tħażżeż il-partijiet skuri.
+1248|Distanza bejn id-dawriet
+1249|Għoli tal-mewġ
+1250|L-akbar ċirku
+1251|Distanza bejn iċ-ċrieki
+1252|Livelli tat-ton
+1253|L-iktar kwadri f'ċellula
+1254|Tregħid
+1255|Tul tal-linja
+1256|Daqs tal-madum
+1257|L-iktar arki f'madum
+1258|Twittija
+1259|L-iżgħar pass
+1260|Daqs tat-tikka
+1261|Numru ta' tikek
+1262|L-iżgħar dettall
+1263|Sensittività tat-truf
+1264|L-iqsar linja
+1265|L-iżgħar distanza
+1266|L-akbar distanza
+1267|Daqs tal-kurvi
+1268|Numru ta' linji
+1269|Linka ta' linja waħda
+1270|Daqs taċ-ċirku
+1271|Tul tal-linja
+1272|Linka ta' passata waħda
+1273|Ringieli minn tarf għal tarf
+1274|Erfa' l-pinna fuq l-abjad
+1275|Żigżag
+1276|Aħbi dak li hemm wara
+1277|Pinġi kull ringiela sħiħa
+1278|Ċrieki
+1279|Ċrieki konċentriċi
+1280|Spirali
+1281|Linji dritti
+1282|Linji mmewġa
+1283|Mal-forom
+1284|Fl-angolu
+1285|B'mod każwali
+1286|Linja waħda
+1287|Tikek
+1288|Ċrieki skont it-ton
+1289|Linji qosra
+1290|Trijangoli
+1291|Ċelloli
+1292|Truf
+1293|Truf u ż-żoni skuri
+1294|Qasam tal-fluss
+1295|Linji separati
+1296|Linji f'katini
+1297|Għoli tal-mewġa
+1298|Mewġ għal kull mm
+1299|Daqs taċ-ċellula
+1300|Traċċar fi stil
+1301|{} linji fl-istil {}
+1302|{} linji, {} m ta' linja
+1303|parti biss: wisq punti
+1304|ħafna punti: it-tpinġija ssir bil-mod
+1305|Tip
+1306|Disinn każwali
+1307|Ieħor
+1308|Punt l-iswed
+1309|Punt l-abjad
+1310|Poġġi fuq is-saff
+1311|Traċċar fi stil…
+1312|Distanza bejn il-linji

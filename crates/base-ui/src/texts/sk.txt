@@ -1209,3 +1209,105 @@
 1208|Prítlak
 1209|Ako silno tlačí pero alebo nôž, odosiela sa raz na začiatku; 0: nikdy (plotter si ponechá svoj).
 1210|Späť na obvyklé príkazy
+1211|Vlnovka
+1212|Píla
+1213|Pružinky
+1214|Vlny
+1215|Rastrové kruhy
+1216|Lept
+1217|Štvorce
+1218|Ihličky
+1219|Truchetove dlaždice
+1220|Vrstevnice
+1221|Hilbertova krivka
+1222|Bodkovanie
+1223|Jedna čiara (TSP)
+1224|Trojuholníky a bunky
+1225|Perokresba
+1226|Prúdnice
+1227|Skica
+1228|Čmáranica
+1229|Rady čiar, ktoré sa vlnia hustejšie a vyššie tam, kde je obraz tmavší.
+1230|Rady cikcakov, hustejších a vyšších tam, kde je obraz tmavší.
+1231|Rady slučiek ako natiahnutá pružina, väčších tam, kde je obraz tmavší.
+1232|Jedna špirála od stredu, ktorá sa v tieňoch chveje viac.
+1233|Rady zdvihnuté tmavosťou obrazu, ako krajina videná z boku.
+1234|Mriežka kruhov, väčších tam, kde je obraz tmavší.
+1235|Šrafovanie vo vrstvách: každý tmavší tón pridá čiary v inom smere.
+1236|Mriežka štvorcov jeden v druhom, viac tam, kde je tmavšie.
+1237|Krátke ťahy v mriežke, dlhšie tam, kde je tmavšie, natočené pozdĺž tvarov.
+1238|Dlaždice zo štvrťkruhov natočené náhodne, viac oblúkov tam, kde je tmavšie.
+1239|Čiary rovnakého jasu, ako vrstevnice na mape.
+1240|Jedna krivka vypĺňajúca plochu, s jemnejšími zákrutami tam, kde je tmavšie.
+1241|Bodky rozložené podľa tónu obrazu: husto v tieňoch, riedko vo svetlách.
+1242|Bodky spojené do jednej čiary, ktorá sa nekríži.
+1243|Sieť trojuholníkov alebo buniek okolo nich nad bodkami rozloženými podľa tónu.
+1244|Len hrany obrazu ako čiary.
+1245|Dlhé čiary plynúce pozdĺž tvarov, bližšie pri sebe tam, kde je tmavšie.
+1246|Veľa krátkych rovných ťahov tam, kde je obraz najtmavší, ako v kresbe ceruzkou.
+1247|Jedna blúdiaca čiara slučiek, ktorá počmára tmavé miesta.
+1248|Rozstup závitov
+1249|Výška vĺn
+1250|Najväčší kruh
+1251|Rozstup prstencov
+1252|Úrovne tónu
+1253|Najviac štvorcov v bunke
+1254|Chvenie
+1255|Dĺžka ťahu
+1256|Veľkosť dlaždice
+1257|Najviac oblúkov v dlaždici
+1258|Vyhladenie
+1259|Najmenší krok
+1260|Veľkosť bodky
+1261|Počet bodiek
+1262|Najmenší detail
+1263|Citlivosť hrán
+1264|Najkratšia čiara
+1265|Najmenšia medzera
+1266|Najväčšia medzera
+1267|Veľkosť oblúkov
+1268|Počet ťahov
+1269|Atrament jedného ťahu
+1270|Veľkosť slučky
+1271|Dĺžka čiary
+1272|Atrament jedného prechodu
+1273|Rady od okraja k okraju
+1274|Dvíhať pero nad bielou
+1275|Cikcak
+1276|Skryť, čo je vzadu
+1277|Kresliť každý rad celý
+1278|Kruhy
+1279|Prstence
+1280|Špirály
+1281|Rovné čiary
+1282|Vlnité čiary
+1283|Pozdĺž tvarov
+1284|V uhle
+1285|Náhodne
+1286|Jedna čiara
+1287|Bodky
+1288|Kruhy podľa tónu
+1289|Čiarky
+1290|Trojuholníky
+1291|Bunky
+1292|Hrany
+1293|Hrany a tmavé plochy
+1294|Pole prúdenia
+1295|Oddelené ťahy
+1296|Ťahy v reťaziach
+1297|Výška vlny
+1298|Vĺn na mm
+1299|Veľkosť bunky
+1300|Obkresliť v štýle
+1301|{} čiar v štýle {}
+1302|{} čiar, {} m čiary
+1303|len časť: príliš veľa bodov
+1304|veľa bodov: kresba sa spomalí
+1305|Druh
+1306|Náhodný vzor
+1307|Iný
+1308|Bod čiernej
+1309|Bod bielej
+1310|Umiestniť na vrstvu
+1311|Obkresliť v štýle…
+1312|Rozstup čiar

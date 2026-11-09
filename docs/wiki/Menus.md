@@ -46,6 +46,7 @@ The same commands are in the right-click menu of a shape; they are explained on 
 * **Trim by shape…**, **Remove duplicates**, **Break apart**, **Simplify…**
 * **Serial text…**, **Barcode / QR code…**, **Nest shapes…**, **Measure…**
 * **Adjust image…**, **Trace image…**
+* **Style trace…**: the selected picture drawn again as lines in one of 19 styles ([Style Trace](Style-Trace)).
 
 ## View
 

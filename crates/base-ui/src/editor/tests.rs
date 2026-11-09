@@ -1008,3 +1008,78 @@ fn shift_draws_a_circle_with_the_ellipse_tool_and_a_square_with_the_rectangle() 
     assert_eq!(super::keep_square(Tool::Ellipse, start, Pt::new(40.0, 20.0), false), Pt::new(40.0, 20.0));
     assert_eq!(super::keep_square(Tool::Line, start, Pt::new(40.0, 20.0), true), Pt::new(40.0, 20.0), "a line is not squared");
 }
+
+/// The style trace window of a picture: it opens from the menu, the lines come from the thread, the window keeps its size,
+/// and Trace puts one path in the place of the picture on a layer without shapes.
+#[test]
+fn the_style_trace_window_makes_the_lines_and_puts_them_on_an_empty_layer() {
+    use crate::editor::EditorStyleTrace;
+    use crate::menu::StdAct;
+    let mut h = Host::default();
+    // A dark disc on white, 40 x 30 mm, put at (10, 20).
+    let gray = (0..60 * 45).map(|i| { let (x, y) = ((i % 60) as f64, (i / 60) as f64); if (x - 30.0).hypot(y - 22.0) < 15.0 { 20 } else { 255 } }).collect();
+    let im = base_core::image::ImageData { name: "disc.png".into(), px_w: 60, px_h: 45, gray, w: 40.0, h: 30.0, invert: false };
+    h.scene.add(2, Kind::Rect { w: 5.0, h: 5.0 }, Xf::IDENTITY);
+    let pic = h.scene.add(0, Kind::Image(im), Xf::translate(10.0, 20.0));
+    h.ed.sel = vec![pic];
+    assert!(StdAct::StyleTrace.enabled(&h));
+    StdAct::StyleTrace.run(&mut h);
+    let d = h.ed.style_dlg.as_ref().expect("the window opened");
+    assert_eq!(d.layer, 1, "the first layer with no shapes, not the picture's (0) nor the one with the rectangle (2)");
+    let ctx = egui::Context::default();
+    let mut heights = vec![];
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(1800.0, 1100.0));
+    for _ in 0..400 {
+        let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), ..Default::default() }, |ui| h.image_dialogs(&ui.ctx().clone()));
+        out.textures_delta.clear();
+        heights.push(ctx.memory(|m| m.area_rect(egui::Id::unique(Some("w_style_trace")))).map_or(0.0, |r| r.height()));
+        if h.ed.style_dlg.as_ref().is_some_and(|d| d.ready().is_some()) && heights.len() > 40 {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(5));
+    }
+    let n = heights.len();
+    assert!(heights[n - 1] > 300.0 && heights[n - 1] < 1000.0 && heights[n - 1] == heights[5], "the window grew: {heights:?}");
+    let d = h.ed.style_dlg.take().unwrap();
+    let out = d.ready().cloned().expect("the result came from the thread");
+    assert!(!out.lines.is_empty());
+    h.apply_style_trace(&d, &out);
+    let s = h.scene.shapes.last().unwrap();
+    assert_eq!((s.layer, s.xf), (1, Xf::translate(10.0, 20.0)));
+    assert!(matches!(&s.kind, Kind::Path(lines) if lines.len() == out.lines.len()));
+    assert_eq!(h.ed.sel, vec![s.id]);
+    assert_eq!(h.scene.shapes.len(), 3, "the picture is kept");
+}
+
+/// The style trace window in Polish, with the longest labels, keeps its size (runs in a process of its own: the language is
+/// the same for the whole program).
+#[test]
+#[ignore = "run by the_style_trace_window_keeps_its_size_in_a_longer_language in a process of its own"]
+fn style_trace_window_in_polish() {
+    use crate::editor::EditorStyleTrace;
+    if std::env::var_os("BASE_UI_ALONE").is_none() {
+        return;
+    }
+    crate::i18n::set_lang(crate::i18n::Lang::Pl);
+    let mut h = Host::default();
+    let im = base_core::image::ImageData { name: "a.png".into(), px_w: 40, px_h: 30, gray: vec![90; 1200], w: 40.0, h: 30.0, invert: false };
+    let pic = h.scene.add(0, Kind::Image(im), Xf::IDENTITY);
+    h.ed.sel = vec![pic];
+    h.open_style_trace();
+    // The style with the most settings and the longest names.
+    h.ed.style_dlg.as_mut().unwrap().params = base_core::style_trace::Style::FlowLines.defaults();
+    let ctx = egui::Context::default();
+    let w = window_widths(&ctx, 30, |ctx| h.image_dialogs(ctx));
+    assert!(w[3] > 500.0 && w[3] < 1300.0 && w.windows(2).skip(3).all(|p| p[0] == p[1]), "{w:?}");
+}
+
+#[test]
+fn the_style_trace_window_keeps_its_size_in_a_longer_language() {
+    let out = std::process::Command::new(std::env::current_exe().unwrap())
+        .args(["--exact", "editor::tests::style_trace_window_in_polish", "--ignored", "--nocapture"])
+        .env("BASE_UI_ALONE", "1")
+        .output()
+        .unwrap();
+    let text = String::from_utf8_lossy(&out.stdout).to_string() + String::from_utf8_lossy(&out.stderr).as_ref();
+    assert!(out.status.success() && text.contains("1 passed"), "{text}");
+}

@@ -1209,3 +1209,105 @@
 1208|Fuerza
 1209|Cuánto presiona el bolígrafo o la cuchilla, se envía una vez al inicio; 0: nunca (el plóter mantiene la suya).
 1210|Volver a los comandos habituales
+1211|Garabato ondulado
+1212|Diente de sierra
+1213|Muelles
+1214|Ondas
+1215|Círculos de semitono
+1216|Aguafuerte
+1217|Cuadrados
+1218|Agujas
+1219|Teselas de Truchet
+1220|Curvas de nivel
+1221|Curva de Hilbert
+1222|Punteado
+1223|Una sola línea (TSP)
+1224|Triángulos y celdas
+1225|Dibujo de líneas
+1226|Líneas de flujo
+1227|Boceto
+1228|Garabato
+1229|Filas de líneas que ondulan más rápido y más alto donde la imagen es más oscura.
+1230|Filas de zigzags, más juntos y más altos donde la imagen es más oscura.
+1231|Filas de bucles como un muelle estirado, más grandes donde la imagen es más oscura.
+1232|Una espiral desde el centro que tiembla más en las sombras.
+1233|Filas levantadas por la oscuridad de la imagen, como un paisaje visto de lado.
+1234|Una cuadrícula de círculos, más grandes donde la imagen es más oscura.
+1235|Rayado en capas: cada tono más oscuro añade líneas en otra dirección.
+1236|Una cuadrícula de cuadrados uno dentro de otro, más donde es más oscuro.
+1237|Trazos cortos en una cuadrícula, más largos donde es más oscuro, girados a lo largo de las formas.
+1238|Teselas de cuartos de círculo giradas al azar, más arcos donde es más oscuro.
+1239|Líneas de igual brillo, como las curvas de nivel de un mapa.
+1240|Una curva que llena el plano, con giros más finos donde es más oscuro.
+1241|Puntos repartidos según el tono de la imagen: juntos en las sombras, escasos en las luces.
+1242|Los puntos del punteado unidos en una línea que no se cruza.
+1243|Una malla de triángulos, o de las celdas a su alrededor, sobre puntos repartidos según el tono.
+1244|Solo los bordes de la imagen, como líneas.
+1245|Líneas largas que fluyen a lo largo de las formas, más juntas donde es más oscuro.
+1246|Muchos trazos cortos y rectos puestos donde la imagen es más oscura, como en un boceto a lápiz.
+1247|Una línea errante de bucles que garabatea las partes oscuras.
+1248|Distancia entre vueltas
+1249|Altura de las ondas
+1250|Círculo más grande
+1251|Distancia entre anillos
+1252|Niveles de tono
+1253|Máximo de cuadrados por celda
+1254|Temblor
+1255|Longitud del trazo
+1256|Tamaño de la tesela
+1257|Máximo de arcos por tesela
+1258|Suavizado
+1259|Paso más pequeño
+1260|Tamaño del punto
+1261|Número de puntos
+1262|Detalle más pequeño
+1263|Sensibilidad a los bordes
+1264|Línea más corta
+1265|Distancia mínima
+1266|Distancia máxima
+1267|Tamaño de las curvas
+1268|Número de trazos
+1269|Tinta de un trazo
+1270|Tamaño de los bucles
+1271|Longitud de la línea
+1272|Tinta de una pasada
+1273|Filas de borde a borde
+1274|Levantar la pluma sobre el blanco
+1275|Zigzag
+1276|Ocultar lo que queda detrás
+1277|Dibujar cada fila entera
+1278|Círculos
+1279|Anillos
+1280|Espirales
+1281|Líneas rectas
+1282|Líneas onduladas
+1283|A lo largo de las formas
+1284|Al ángulo
+1285|Al azar
+1286|Una línea
+1287|Puntos
+1288|Círculos según el tono
+1289|Guiones
+1290|Triángulos
+1291|Celdas
+1292|Bordes
+1293|Bordes y zonas oscuras
+1294|Campo de flujo
+1295|Trazos separados
+1296|Trazos en cadena
+1297|Altura de la onda
+1298|Ondas por mm
+1299|Tamaño de la celda
+1300|Trazado con estilo
+1301|{} líneas con el estilo {}
+1302|{} líneas, {} m de línea
+1303|solo una parte: demasiados puntos
+1304|muchos puntos: el dibujo irá lento
+1305|Tipo
+1306|Patrón aleatorio
+1307|Otro
+1308|Punto negro
+1309|Punto blanco
+1310|Poner en la capa
+1311|Trazado con estilo…
+1312|Distancia entre líneas

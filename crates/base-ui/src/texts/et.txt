@@ -1209,3 +1209,105 @@
 1208|Surve
 1209|Kui tugevalt pliiats või nuga surub, saadetakse korra alguses; 0: mitte kunagi (plotter jätab oma).
 1210|Tagasi tavaliste käskude juurde
+1211|Vingerdus
+1212|Saehammas
+1213|Vedrud
+1214|Lained
+1215|Rastriringid
+1216|Söövitus
+1217|Ruudud
+1218|Nõelad
+1219|Truchet' plaadid
+1220|Samakõrgusjooned
+1221|Hilberti kõver
+1222|Täpitamine
+1223|Üks joon (TSP)
+1224|Kolmnurgad ja rakud
+1225|Joonjoonistus
+1226|Voolujooned
+1227|Visand
+1228|Sodimine
+1229|Joonteread, mis lainetavad tihedamalt ja kõrgemalt seal, kus pilt on tumedam.
+1230|Siksakiread, tihedamad ja kõrgemad seal, kus pilt on tumedam.
+1231|Aasaread nagu venitatud vedru, suuremad seal, kus pilt on tumedam.
+1232|Üks spiraal keskelt, mis varjudes rohkem väriseb.
+1233|Read, mida pildi tumedus tõstab, nagu küljelt nähtud maastik.
+1234|Ringide võrk, suuremad seal, kus pilt on tumedam.
+1235|Viirutus kihtidena: iga tumedam toon lisab jooni teises suunas.
+1236|Üksteise sees olevate ruutude võrk, rohkem seal, kus on tumedam.
+1237|Lühikesed tõmbed võrgul, pikemad seal, kus on tumedam, pööratud mööda kujundeid.
+1238|Veerandringidest plaadid juhuslikult pööratud, rohkem kaari seal, kus on tumedam.
+1239|Võrdse heleduse jooned, nagu kaardi samakõrgusjooned.
+1240|Üks pinda täitev kõver, peenemate pööretega seal, kus on tumedam.
+1241|Täpid pildi tooni järgi: tihedalt varjudes, hõredalt valgustes.
+1242|Täpitamise täpid ühendatud üheks jooneks, mis ei lõiku iseendaga.
+1243|Kolmnurkade või nende ümber olevate rakkude võrk tooni järgi jaotatud täppidel.
+1244|Ainult pildi servad joontena.
+1245|Pikad jooned, mis voolavad mööda kujundeid, lähemal seal, kus on tumedam.
+1246|Palju lühikesi sirgeid tõmbeid sinna, kus pilt on kõige tumedam, nagu pliiatsivisandis.
+1247|Üks rändav aasajoon, mis sodib tumedad kohad täis.
+1248|Keerdude vahe
+1249|Lainete kõrgus
+1250|Suurim ring
+1251|Rõngaste vahe
+1252|Toonitasemed
+1253|Kõige rohkem ruute lahtris
+1254|Värin
+1255|Tõmbe pikkus
+1256|Plaadi suurus
+1257|Kõige rohkem kaari plaadis
+1258|Silumine
+1259|Väikseim samm
+1260|Täpi suurus
+1261|Täppide arv
+1262|Väikseim detail
+1263|Servade tundlikkus
+1264|Lühim joon
+1265|Väikseim vahe
+1266|Suurim vahe
+1267|Kurvide suurus
+1268|Tõmmete arv
+1269|Ühe tõmbe tint
+1270|Aasa suurus
+1271|Joone pikkus
+1272|Ühe läbimise tint
+1273|Read servast servani
+1274|Tõsta pliiats valge kohal üles
+1275|Siksak
+1276|Peida tagumine
+1277|Joonista iga rida tervikuna
+1278|Ringid
+1279|Rõngad
+1280|Spiraalid
+1281|Sirged jooned
+1282|Lainjad jooned
+1283|Mööda kujundeid
+1284|Nurga all
+1285|Juhuslikult
+1286|Üks joon
+1287|Täpid
+1288|Ringid tooni järgi
+1289|Kriipsud
+1290|Kolmnurgad
+1291|Rakud
+1292|Servad
+1293|Servad ja tumedad alad
+1294|Voolu väli
+1295|Eraldi tõmbed
+1296|Tõmbed ahelatena
+1297|Laine kõrgus
+1298|Laineid mm kohta
+1299|Lahtri suurus
+1300|Stiilis jäljendus
+1301|{} joont stiilis {}
+1302|{} joont, {} m joont
+1303|ainult osa: liiga palju punkte
+1304|palju punkte: joonis muutub aeglaseks
+1305|Liik
+1306|Juhuslik muster
+1307|Teine
+1308|Musta punkt
+1309|Valge punkt
+1310|Pane kihile
+1311|Stiilis jäljendus…
+1312|Joonte vahe
