@@ -9,6 +9,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 - **After every lift** (`LapseMode::EveryLift`): a picture each time the tool goes up, with the head moved aside, for the programs whose machines lift a tool.
 - **HPGL: the way aside for photos** (`HpglCommands::park`, the HPGL page of the device): the commands that take the pen aside after it is up; it comes back with an absolute move. Empty: the place of the Control tab.
 - **Split long lines** (`gcode_split`, the Control tab): long straight cuts are sent as 2 to 256 shorter lines, each at least a given length, so a job can stop sooner and its progress moves evenly. Rapid moves, arcs and unusual lines stay whole; inches and relative moves add up to the same path.
+- `Controller::stops_for_photos`: only a controller that says when it stands still (GRBL, Smoothieware) or a plotter the link drives itself (EBB, HPGL) stops for photos; Marlin does not.
 - `resume::preamble` and `can_resume` (the way back into a job at a line, used by Start from a line and by the photos), `Modal::step`.
 - 18 new texts in every language.
 
