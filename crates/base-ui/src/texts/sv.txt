@@ -1209,3 +1209,105 @@
 1208|Tryck
 1209|Hur hårt pennan eller kniven trycker, skickas en gång i början; 0: aldrig (plottern behåller sitt eget).
 1210|Tillbaka till de vanliga kommandona
+1211|Vågrörelse
+1212|Sågtand
+1213|Fjädrar
+1214|Vågor
+1215|Rastercirklar
+1216|Etsning
+1217|Kvadrater
+1218|Nålar
+1219|Truchet-plattor
+1220|Höjdkurvor
+1221|Hilbertkurva
+1222|Punktering
+1223|En linje (TSP)
+1224|Trianglar och celler
+1225|Linjeteckning
+1226|Flödeslinjer
+1227|Skiss
+1228|Klotter
+1229|Rader av linjer som böljar tätare och högre där bilden är mörkare.
+1230|Rader av sicksack, tätare och högre där bilden är mörkare.
+1231|Rader av öglor som en utdragen fjäder, större där bilden är mörkare.
+1232|En spiral från mitten som darrar mer i skuggorna.
+1233|Rader lyfta av bildens mörker, som ett landskap sett från sidan.
+1234|Ett rutnät av cirklar, större där bilden är mörkare.
+1235|Skraffering i lager: varje mörkare ton lägger till linjer i en annan riktning.
+1236|Ett rutnät av kvadrater i varandra, fler där det är mörkare.
+1237|Korta streck på ett rutnät, längre där det är mörkare, vridna längs formerna.
+1238|Plattor av kvartscirklar vridna slumpvis, fler bågar där det är mörkare.
+1239|Linjer med samma ljushet, som höjdkurvorna på en karta.
+1240|En ytfyllande kurva med finare svängar där det är mörkare.
+1241|Prickar fördelade efter bildens ton: tätt i skuggorna, glest i ljuset.
+1242|Prickarna förenade till en linje som inte korsar sig själv.
+1243|Ett nät av trianglar, eller cellerna runt dem, över prickar fördelade efter tonen.
+1244|Bara bildens kanter, som linjer.
+1245|Långa linjer som flyter längs formerna, tätare där det är mörkare.
+1246|Många korta raka streck där bilden är mörkast, som i en blyertsskiss.
+1247|En vandrande linje av öglor som klottrar in de mörka delarna.
+1248|Avstånd mellan varven
+1249|Vågornas höjd
+1250|Största cirkel
+1251|Avstånd mellan ringarna
+1252|Tonnivåer
+1253|Flest kvadrater i en cell
+1254|Darrning
+1255|Streckets längd
+1256|Plattans storlek
+1257|Flest bågar i en platta
+1258|Utjämning
+1259|Minsta steg
+1260|Punktstorlek
+1261|Antal prickar
+1262|Minsta detalj
+1263|Kantkänslighet
+1264|Kortaste linje
+1265|Minsta avstånd
+1266|Största avstånd
+1267|Kurvornas storlek
+1268|Antal streck
+1269|Bläck i ett streck
+1270|Öglans storlek
+1271|Linjens längd
+1272|Bläck i en omgång
+1273|Rader från kant till kant
+1274|Lyft pennan över vitt
+1275|Sicksack
+1276|Dölj det som är bakom
+1277|Rita varje rad hel
+1278|Cirklar
+1279|Ringar
+1280|Spiraler
+1281|Raka linjer
+1282|Vågiga linjer
+1283|Längs formerna
+1284|I vinkeln
+1285|Slumpvis
+1286|En linje
+1287|Prickar
+1288|Cirklar efter tonen
+1289|Streck
+1290|Trianglar
+1291|Celler
+1292|Kanter
+1293|Kanter och de mörka ytorna
+1294|Flödesfält
+1295|Separata streck
+1296|Streck i kedjor
+1297|Våghöjd
+1298|Vågor per mm
+1299|Cellstorlek
+1300|Stilspårning
+1301|{} linjer i stilen {}
+1302|{} linjer, {} m linje
+1303|bara en del: för många punkter
+1304|många punkter: ritningen blir långsam
+1305|Sort
+1306|Slumpmönster
+1307|Ett annat
+1308|Svartpunkt
+1309|Vitpunkt
+1310|Lägg på lagret
+1311|Stilspårning…
+1312|Avstånd mellan linjerna

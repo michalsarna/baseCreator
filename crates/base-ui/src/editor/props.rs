@@ -137,6 +137,11 @@ pub fn properties_sections<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) -> bool 
                 }
             }
         });
+        let label = "Style trace…";
+        let btn = egui::Button::image_and_text(icons::slot(Some(StdAct::StyleTrace.icon()), ink), tr(label)).truncate();
+        if ui.add_sized([bw * 2.0 + ui.spacing().item_spacing.x, 24.0], btn).on_hover_text(tr(label)).clicked() {
+            act = Some(StdAct::StyleTrace);
+        }
         if let Some(a) = act {
             a.run(h);
         }

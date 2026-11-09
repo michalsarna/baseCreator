@@ -48,6 +48,7 @@ pub mod ruida;
 pub mod scene;
 pub mod ser2net;
 pub mod snap;
+pub mod style_trace;
 pub mod svg;
 pub mod text;
 pub mod trace;

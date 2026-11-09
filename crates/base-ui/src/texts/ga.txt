@@ -1209,3 +1209,105 @@
 1208|Fórsa
 1209|Cé chomh crua a bhrúnn an peann nó an scian, seolta uair amháin ag an tús; 0: riamh (coinníonn an breacadóir a fhórsa féin).
 1210|Ar ais chuig na gnáthorduithe
+1211|Lúbach
+1212|Fiacail sábha
+1213|Spriongaí
+1214|Tonnta
+1215|Ciorcail leath-thoin
+1216|Eitseáil
+1217|Cearnóga
+1218|Snáthaidí
+1219|Tíleanna Truchet
+1220|Línte comhairde
+1221|Cuar Hilbert
+1222|Poncáil
+1223|Líne amháin (TSP)
+1224|Triantáin agus cealla
+1225|Líníocht
+1226|Línte sreafa
+1227|Sceitse
+1228|Scríobláil
+1229|Sraitheanna línte a dhéanann tonnta níos tapúla agus níos airde san áit a bhfuil an pictiúr níos dorcha.
+1230|Sraitheanna fiarlán, níos dlúithe agus níos airde san áit a bhfuil an pictiúr níos dorcha.
+1231|Sraitheanna lúb mar spriong sínte, níos mó san áit a bhfuil an pictiúr níos dorcha.
+1232|Bís amháin ón lár a chreathann níos mó sna scáthanna.
+1233|Sraitheanna ardaithe ag dorchadas an phictiúir, mar thírdhreach a fheictear ón taobh.
+1234|Greille ciorcal, níos mó san áit a bhfuil an pictiúr níos dorcha.
+1235|Haisteáil i sraitheanna: cuireann gach ton níos dorcha línte i dtreo eile.
+1236|Greille cearnóg ceann taobh istigh den cheann eile, níos mó acu san áit atá níos dorcha.
+1237|Strócanna gearra ar ghreille, níos faide san áit atá níos dorcha, casta feadh na gcruthanna.
+1238|Tíleanna de cheathrúna ciorcail casta go randamach, níos mó stuanna san áit atá níos dorcha.
+1239|Línte den ghile chéanna, mar línte comhairde léarscáile.
+1240|Cuar amháin a líonann an spás, le casadh níos míne san áit atá níos dorcha.
+1241|Poncanna scaipthe de réir ton an phictiúir: dlúth sna scáthanna, gann sna solais.
+1242|Poncanna na poncála ceangailte i líne amháin nach dtrasnaíonn í féin.
+1243|Mogalra triantán, nó de na cealla timpeall orthu, thar phoncanna scaipthe de réir an toin.
+1244|Imill an phictiúir amháin, mar línte.
+1245|Línte fada a shreabhann feadh na gcruthanna, níos gaire dá chéile san áit atá níos dorcha.
+1246|Go leor strócanna gearra díreacha san áit a bhfuil an pictiúr is dorcha, mar i sceitse peann luaidhe.
+1247|Líne fánach lúb a scríobálann na codanna dorcha isteach.
+1248|Spás idir na casadh
+1249|Airde na dtonnta
+1250|An ciorcal is mó
+1251|Spás idir na fáinní
+1252|Leibhéil toin
+1253|An líon is mó cearnóg i gcill
+1254|Crith
+1255|Fad an stróic
+1256|Méid na tíle
+1257|An líon is mó stuanna i dtíl
+1258|Smúdáil
+1259|An chéim is lú
+1260|Méid an phonc
+1261|Líon na bponcanna
+1262|An mionsonra is lú
+1263|Íogaireacht imill
+1264|An líne is giorra
+1265|An bhearna is lú
+1266|An bhearna is mó
+1267|Méid na gcuar
+1268|Líon na strócanna
+1269|Dúch stróic amháin
+1270|Méid na lúibe
+1271|Fad na líne
+1272|Dúch pas amháin
+1273|Sraitheanna ó imeall go himeall
+1274|Ardaigh an peann thar bhán
+1275|Fiarlán
+1276|Folaigh a bhfuil taobh thiar
+1277|Tarraing gach sraith ina hiomláine
+1278|Ciorcail
+1279|Fáinní
+1280|Bíseanna
+1281|Línte díreacha
+1282|Línte tonnacha
+1283|Feadh na gcruthanna
+1284|Ag an uillinn
+1285|Go randamach
+1286|Líne amháin
+1287|Poncanna
+1288|Ciorcail de réir an toin
+1289|Daiseanna
+1290|Triantáin
+1291|Cealla
+1292|Imill
+1293|Imill agus na limistéir dhorcha
+1294|Réimse sreafa
+1295|Strócanna ar leith
+1296|Strócanna i slabhraí
+1297|Airde na toinne
+1298|Tonnta in aghaidh an mm
+1299|Méid na cille
+1300|Rianadh i stíl
+1301|{} líne sa stíl {}
+1302|{} líne, {} m de líne
+1303|cuid amháin: an iomarca pointí
+1304|go leor pointí: éireoidh an líníocht mall
+1305|Cineál
+1306|Patrún randamach
+1307|Ceann eile
+1308|Pointe dubh
+1309|Pointe bán
+1310|Cuir ar an gciseal
+1311|Rianadh i stíl…
+1312|Spás idir na línte

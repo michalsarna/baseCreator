@@ -16,6 +16,7 @@ An open-source drawing program written in Rust, with nothing of a machine: no de
 | Make a first drawing, step by step | [Quick Start](Quick-Start) |
 | Set the size of the page, use layers | [Page and Layers](Page-and-Layers) |
 | Edit shapes, trace pictures, make copies | [Design Tools](Design-Tools) |
+| Draw a picture as lines in a style (stippling, squiggles, hatching…) | [Style Trace](Style-Trace) |
 | Read or write other file formats | [Import and Export](Import-and-Export) |
 | Arrange the work area: panes and tabs | [Panes and Tabs](Panes-and-Tabs) |
 | Find a command in the menus | [Menus](Menus) |

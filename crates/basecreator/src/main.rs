@@ -996,6 +996,12 @@ impl EditorHost for App {
     fn layer_color(&self, layer: usize) -> egui::Color32 {
         self.layers.get(layer).map_or(egui::Color32::from_rgb(0x20, 0x20, 0x30), |l| l.color32())
     }
+    fn layer_count(&self) -> usize {
+        self.layers.len()
+    }
+    fn layer_name(&self, layer: usize) -> String {
+        self.layers.get(layer).map_or_else(|| format!("Layer {}", layer + 1), |l| l.name.clone())
+    }
     fn export_stem(&self) -> String {
         self.file_stem()
     }

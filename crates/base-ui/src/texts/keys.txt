@@ -1209,3 +1209,105 @@
 1208	Force
 1209	How hard the pen or the knife presses, sent once at the start; 0: never (the plotter keeps its own).
 1210	Back to the usual commands
+1211	Squiggle
+1212	Sawtooth
+1213	Springs
+1214	Waves
+1215	Halftone circles
+1216	Etching
+1217	Squares
+1218	Needles
+1219	Truchet tiles
+1220	Contour lines
+1221	Hilbert curve
+1222	Stippling
+1223	One line (TSP)
+1224	Triangles and cells
+1225	Line art
+1226	Flow lines
+1227	Sketch
+1228	Scribble
+1229	Rows of lines that wave faster and higher where the picture is darker.
+1230	Rows of zigzags, closer and higher where the picture is darker.
+1231	Rows of loops like a stretched spring, bigger where the picture is darker.
+1232	One spiral from the middle that wobbles more in the shadows.
+1233	Rows lifted by the darkness of the picture, like a landscape seen from the side.
+1234	A grid of circles, bigger where the picture is darker.
+1235	Hatching in layers: every darker tone adds lines in another direction.
+1236	A grid of squares one inside the other, more of them where it is darker.
+1237	Short strokes on a grid, longer where it is darker, turned along the shapes.
+1238	Tiles of quarter circles turned at random, more arcs where it is darker.
+1239	Lines of equal brightness, like the contour lines of a map.
+1240	One space-filling curve, with finer turns where it is darker.
+1241	Dots spread by the tone of the picture: close in the shadows, sparse in the lights.
+1242	The dots of stippling joined into one line that does not cross itself.
+1243	A mesh of triangles, or of the cells round them, over dots spread by the tone.
+1244	Only the edges of the picture, as lines.
+1245	Long lines that flow along the shapes, closer together where it is darker.
+1246	Many short straight strokes laid where the picture is darkest, as in a pencil sketch.
+1247	One wandering line of loops that scribbles the dark parts in.
+1248	Spacing of the turns
+1249	Height of the waves
+1250	Largest circle
+1251	Spacing of the rings
+1252	Tone levels
+1253	Most squares in a cell
+1254	Shake
+1255	Stroke length
+1256	Tile size
+1257	Most arcs in a tile
+1258	Smoothing
+1259	Smallest step
+1260	Dot size
+1261	Number of dots
+1262	Smallest detail
+1263	Edge sensitivity
+1264	Shortest line
+1265	Smallest gap
+1266	Largest gap
+1267	Size of the curves
+1268	Number of strokes
+1269	Ink of one stroke
+1270	Loop size
+1271	Length of the line
+1272	Ink of one pass
+1273	Rows from edge to edge
+1274	Lift the pen over white
+1275	Zigzag
+1276	Hide what is behind
+1277	Draw every row whole
+1278	Circles
+1279	Rings
+1280	Spirals
+1281	Straight lines
+1282	Wavy lines
+1283	Along the shapes
+1284	At the angle
+1285	At random
+1286	One line
+1287	Dots
+1288	Circles by tone
+1289	Dashes
+1290	Triangles
+1291	Cells
+1292	Edges
+1293	Edges and the dark areas
+1294	Flow field
+1295	Separate strokes
+1296	Strokes in chains
+1297	Wave height
+1298	Waves per mm
+1299	Cell size
+1300	Style trace
+1301	{} lines in the style {}
+1302	{} lines, {} m of line
+1303	only a part: too many points
+1304	many points: the drawing gets slow
+1305	Kind
+1306	Random pattern
+1307	Another
+1308	Black point
+1309	White point
+1310	Put on the layer
+1311	Style trace…
+1312	Spacing of the lines

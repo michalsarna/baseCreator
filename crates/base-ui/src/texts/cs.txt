@@ -1209,3 +1209,105 @@
 1208|Přítlak
 1209|Jak silně tlačí pero nebo nůž, odesílá se jednou na začátku; 0: nikdy (plotr si ponechá svůj).
 1210|Zpět na obvyklé příkazy
+1211|Vlnovka
+1212|Pila
+1213|Pružinky
+1214|Vlny
+1215|Rastrové kruhy
+1216|Lept
+1217|Čtverce
+1218|Jehličky
+1219|Truchetovy dlaždice
+1220|Vrstevnice
+1221|Hilbertova křivka
+1222|Tečkování
+1223|Jedna čára (TSP)
+1224|Trojúhelníky a buňky
+1225|Perokresba
+1226|Proudnice
+1227|Skica
+1228|Čmáranice
+1229|Řady čar, které se vlní hustěji a výš tam, kde je obraz tmavší.
+1230|Řady klikatek, hustších a vyšších tam, kde je obraz tmavší.
+1231|Řady smyček jako natažená pružina, větších tam, kde je obraz tmavší.
+1232|Jedna spirála od středu, která se ve stínech chvěje víc.
+1233|Řady zvednuté tmavostí obrazu, jako krajina viděná z boku.
+1234|Mřížka kruhů, větších tam, kde je obraz tmavší.
+1235|Šrafování ve vrstvách: každý tmavší tón přidá čáry v jiném směru.
+1236|Mřížka čtverců jeden v druhém, víc jich je tam, kde je tmavší.
+1237|Krátké tahy v mřížce, delší tam, kde je tmavší, natočené podél tvarů.
+1238|Dlaždice ze čtvrtkruhů natočené náhodně, víc oblouků tam, kde je tmavší.
+1239|Čáry stejného jasu, jako vrstevnice na mapě.
+1240|Jedna křivka vyplňující plochu, s jemnějšími zatáčkami tam, kde je tmavší.
+1241|Tečky rozložené podle tónu obrazu: hustě ve stínech, řídce ve světlech.
+1242|Tečky tečkování spojené do jedné čáry, která se nekříží.
+1243|Síť trojúhelníků nebo buněk kolem nich nad tečkami rozloženými podle tónu.
+1244|Jen hrany obrazu jako čáry.
+1245|Dlouhé čáry plynoucí podél tvarů, blíž u sebe tam, kde je tmavší.
+1246|Mnoho krátkých rovných tahů tam, kde je obraz nejtmavší, jako v kresbě tužkou.
+1247|Jedna bloudící čára smyček, která počmárá tmavá místa.
+1248|Rozteč závitů
+1249|Výška vln
+1250|Největší kruh
+1251|Rozteč prstenců
+1252|Úrovně tónu
+1253|Nejvíc čtverců v buňce
+1254|Chvění
+1255|Délka tahu
+1256|Velikost dlaždice
+1257|Nejvíc oblouků v dlaždici
+1258|Vyhlazení
+1259|Nejmenší krok
+1260|Velikost tečky
+1261|Počet teček
+1262|Nejmenší detail
+1263|Citlivost hran
+1264|Nejkratší čára
+1265|Nejmenší mezera
+1266|Největší mezera
+1267|Velikost oblouků
+1268|Počet tahů
+1269|Inkoust jednoho tahu
+1270|Velikost smyček
+1271|Délka čáry
+1272|Inkoust jednoho průchodu
+1273|Řady od okraje k okraji
+1274|Zvedat pero nad bílou
+1275|Klikatka
+1276|Skrýt, co je vzadu
+1277|Kreslit každou řadu celou
+1278|Kruhy
+1279|Prstence
+1280|Spirály
+1281|Rovné čáry
+1282|Vlnité čáry
+1283|Podél tvarů
+1284|V úhlu
+1285|Náhodně
+1286|Jedna čára
+1287|Tečky
+1288|Kruhy podle tónu
+1289|Čárky
+1290|Trojúhelníky
+1291|Buňky
+1292|Hrany
+1293|Hrany a tmavé plochy
+1294|Pole proudění
+1295|Oddělené tahy
+1296|Tahy v řetězech
+1297|Výška vlny
+1298|Vln na mm
+1299|Velikost buňky
+1300|Obkreslit ve stylu
+1301|{} čar ve stylu {}
+1302|{} čar, {} m čáry
+1303|jen část: příliš mnoho bodů
+1304|mnoho bodů: kresba se zpomalí
+1305|Druh
+1306|Náhodný vzor
+1307|Jiný
+1308|Bod černé
+1309|Bod bílé
+1310|Umístit na vrstvu
+1311|Obkreslit ve stylu…
+1312|Rozteč čar

@@ -1209,3 +1209,105 @@
 1208|Pritisak
 1209|Koliko jako pritišće olovka ili nož, šalje se jednom na početku; 0: nikad (ploter zadržava svoj).
 1210|Natrag na uobičajene naredbe
+1211|Vijugava linija
+1212|Pila
+1213|Opruge
+1214|Valovi
+1215|Rasterski krugovi
+1216|Bakropis
+1217|Kvadrati
+1218|Iglice
+1219|Truchetove pločice
+1220|Izohipse
+1221|Hilbertova krivulja
+1222|Točkanje
+1223|Jedna linija (TSP)
+1224|Trokuti i ćelije
+1225|Linijski crtež
+1226|Strujnice
+1227|Skica
+1228|Škrabotine
+1229|Redovi linija koji valovaju gušće i više gdje je slika tamnija.
+1230|Redovi cik-cak linija, gušćih i viših gdje je slika tamnija.
+1231|Redovi petlji poput rastegnute opruge, većih gdje je slika tamnija.
+1232|Jedna spirala od sredine koja više titra u sjenama.
+1233|Redovi podignuti tamom slike, poput krajolika gledanog sa strane.
+1234|Mreža krugova, većih gdje je slika tamnija.
+1235|Šrafiranje u slojevima: svaki tamniji ton dodaje linije u drugom smjeru.
+1236|Mreža kvadrata jedan u drugome, više ih je gdje je tamnije.
+1237|Kratke crtice u mreži, dulje gdje je tamnije, okrenute duž oblika.
+1238|Pločice od četvrtina kruga okrenute nasumce, više lukova gdje je tamnije.
+1239|Linije jednake svjetline, poput izohipsi na karti.
+1240|Jedna krivulja koja ispunjava ravninu, sa sitnijim zavojima gdje je tamnije.
+1241|Točkice raspoređene po tonu slike: gusto u sjenama, rijetko u svjetlima.
+1242|Točkice spojene u jednu liniju koja se ne siječe.
+1243|Mreža trokuta ili ćelija oko njih, na točkicama raspoređenim po tonu.
+1244|Samo rubovi slike, kao linije.
+1245|Duge linije koje teku duž oblika, bliže jedna drugoj gdje je tamnije.
+1246|Mnogo kratkih ravnih poteza gdje je slika najtamnija, kao u skici olovkom.
+1247|Jedna lutajuća linija petlji koja išara tamne dijelove.
+1248|Razmak zavoja
+1249|Visina valova
+1250|Najveći krug
+1251|Razmak prstenova
+1252|Razine tona
+1253|Najviše kvadrata u ćeliji
+1254|Drhtanje
+1255|Duljina poteza
+1256|Veličina pločice
+1257|Najviše lukova u pločici
+1258|Zaglađivanje
+1259|Najmanji korak
+1260|Veličina točke
+1261|Broj točkica
+1262|Najmanji detalj
+1263|Osjetljivost rubova
+1264|Najkraća linija
+1265|Najmanji razmak
+1266|Najveći razmak
+1267|Veličina zavoja
+1268|Broj poteza
+1269|Tinta jednog poteza
+1270|Veličina petlje
+1271|Duljina linije
+1272|Tinta jednog prolaza
+1273|Redovi od ruba do ruba
+1274|Podigni olovku iznad bijelog
+1275|Cik-cak
+1276|Sakrij ono što je iza
+1277|Crtaj svaki red cijeli
+1278|Krugovi
+1279|Prstenovi
+1280|Spirale
+1281|Ravne linije
+1282|Valovite linije
+1283|Duž oblika
+1284|Pod kutom
+1285|Nasumce
+1286|Jedna linija
+1287|Točkice
+1288|Krugovi po tonu
+1289|Crtice
+1290|Trokuti
+1291|Ćelije
+1292|Rubovi
+1293|Rubovi i tamna područja
+1294|Polje strujanja
+1295|Zasebni potezi
+1296|Potezi u lancima
+1297|Visina vala
+1298|Valova po mm
+1299|Veličina ćelije
+1300|Precrtavanje u stilu
+1301|{} linija u stilu {}
+1302|{} linija, {} m linije
+1303|samo dio: previše točaka
+1304|mnogo točaka: crtež će se usporiti
+1305|Vrsta
+1306|Nasumični uzorak
+1307|Drugi
+1308|Točka crne
+1309|Točka bijele
+1310|Stavi na sloj
+1311|Precrtavanje u stilu…
+1312|Razmak linija

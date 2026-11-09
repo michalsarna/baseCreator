@@ -46,6 +46,12 @@ they were, and those programs keep `draw`. A project without `draw` gets the pag
 
 *File → Export → Export SVG…*, *Export PLT / DXF…*, *Export DXF…* (the current kind), *Export DXF R12 (legacy)…*, *Export Adobe Illustrator…*, *Export LightBurn project…* (`.lbrn2`, or `.lbrn` when the file is named so) or *Export MillMage project…* writes all the shapes, also those on hidden layers; *Export selection as…* only the selected ones. SVG, LightBurn and MillMage files keep the pictures; DXF, PLT and Illustrator files have no room for them, so they are left out and the program says how many (trace them first).
 
+## Style trace
+
+*Arrange → Style trace…* draws a selected picture again as lines in one of 19 styles (squiggles, a spiral, waves, halftone
+circles, hatching, stippling, one continuous line, triangles, line art, flow lines, a sketch, a scribble and more), with a live
+preview. The lines are one shape in the place of the picture, on the first empty layer; export them like any drawing.
+
 ## Plugins
 
 *Settings → Plugins…* is the same list as in the other programs, and the plugins folder is shared. Generators and importers work here. A plugin with
@@ -59,4 +65,5 @@ Program do rysowania bez żadnej części maszynowej. Zapisuje te same pliki `.c
 otwiera się tam, a to, co należy do tamtych programów, zostaje w pliku po zapisie tutaj. Podręcznik jest w [wiki](https://github.com/michalsarna/baseCreator/wiki). Wydania są na stronie
 [Releases](https://github.com/michalsarna/baseCreator/releases) i mają numery tagów tego repozytorium; program sam sprawdza przy starcie, czy jest nowsza
 wersja. Zamiast pola roboczego maszyny jest strona (*Plik → Ustawienia strony…*). Wtyczki generujące kształty i importery działają; wtyczek z
-postprocesorami G-code nie da się tu zainstalować.
+postprocesorami G-code nie da się tu zainstalować. *Rozmieść → Obrysuj w stylu…* rysuje zaznaczony obraz na nowo liniami w jednym z 19 stylów (wężyki,
+spirala, fale, koła rastra, kreskowanie, puentylizm, jedna ciągła linia, linie przepływu, szkic i inne), z podglądem na żywo.

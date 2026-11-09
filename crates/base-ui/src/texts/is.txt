@@ -1209,3 +1209,105 @@
 1208|Þrýstingur
 1209|Hversu fast penninn eða hnífurinn þrýstir, sent einu sinni í upphafi; 0: aldrei (teiknarinn heldur sínum).
 1210|Aftur í venjulegar skipanir
+1211|Bylgjulína
+1212|Sagartenn
+1213|Gormar
+1214|Öldur
+1215|Rastahringir
+1216|Æting
+1217|Ferningar
+1218|Nálar
+1219|Truchet-flísar
+1220|Hæðarlínur
+1221|Hilbert-ferill
+1222|Punktun
+1223|Ein lína (TSP)
+1224|Þríhyrningar og hólf
+1225|Línuteikning
+1226|Straumlínur
+1227|Skissa
+1228|Krot
+1229|Raðir lína sem bylgjast hraðar og hærra þar sem myndin er dekkri.
+1230|Raðir sikksakka, þéttari og hærri þar sem myndin er dekkri.
+1231|Raðir lykkja eins og teygður gormur, stærri þar sem myndin er dekkri.
+1232|Einn spírall frá miðju sem titrar meira í skuggunum.
+1233|Raðir lyftar af dökkva myndarinnar, eins og landslag séð frá hlið.
+1234|Net af hringjum, stærri þar sem myndin er dekkri.
+1235|Skygging í lögum: hver dekkri tónn bætir við línum í aðra átt.
+1236|Net af ferningum hver inni í annarri, fleiri þar sem dekkra er.
+1237|Stuttar strokur á neti, lengri þar sem dekkra er, snúnar eftir formunum.
+1238|Flísar úr fjórðungshringjum snúnar af handahófi, fleiri bogar þar sem dekkra er.
+1239|Línur jafnrar birtu, eins og hæðarlínur á korti.
+1240|Einn flatarfyllandi ferill, með fínni beygjum þar sem dekkra er.
+1241|Punktar dreifðir eftir tóni myndarinnar: þétt í skuggunum, gisið í birtunni.
+1242|Punktarnir tengdir í eina línu sem sker sig ekki.
+1243|Net af þríhyrningum eða hólfunum kringum þá, yfir punktum dreifðum eftir tóni.
+1244|Aðeins jaðrar myndarinnar, sem línur.
+1245|Langar línur sem streyma eftir formunum, þéttari þar sem dekkra er.
+1246|Margar stuttar beinar strokur þar sem myndin er dekkst, eins og í blýantsskissu.
+1247|Ein ráfandi lína af lykkjum sem krotar dökku hlutana inn.
+1248|Bil milli hringja
+1249|Hæð aldnanna
+1250|Stærsti hringur
+1251|Bil milli hringa
+1252|Tónþrep
+1253|Flestir ferningar í hólfi
+1254|Skjálfti
+1255|Lengd stroku
+1256|Stærð flísar
+1257|Flestir bogar í flís
+1258|Jöfnun
+1259|Minnsta skref
+1260|Stærð punkts
+1261|Fjöldi punkta
+1262|Minnsta smáatriði
+1263|Næmi jaðra
+1264|Stysta lína
+1265|Minnsta bil
+1266|Mesta bil
+1267|Stærð beygjanna
+1268|Fjöldi stroka
+1269|Blek einnar stroku
+1270|Stærð lykkju
+1271|Lengd línunnar
+1272|Blek einnar umferðar
+1273|Raðir frá jaðri til jaðars
+1274|Lyfta pennanum yfir hvítu
+1275|Sikksakk
+1276|Fela það sem er fyrir aftan
+1277|Teikna hverja röð heila
+1278|Hringir
+1279|Hringar
+1280|Spíralar
+1281|Beinar línur
+1282|Bylgjóttar línur
+1283|Eftir formunum
+1284|Í horninu
+1285|Af handahófi
+1286|Ein lína
+1287|Punktar
+1288|Hringir eftir tóni
+1289|Strik
+1290|Þríhyrningar
+1291|Hólf
+1292|Jaðrar
+1293|Jaðrar og dökku svæðin
+1294|Straumsvið
+1295|Aðskildar strokur
+1296|Strokur í keðjum
+1297|Ölduhæð
+1298|Öldur á mm
+1299|Stærð hólfs
+1300|Stílteikning
+1301|{} línur í stílnum {}
+1302|{} línur, {} m af línu
+1303|aðeins hluti: of margir punktar
+1304|margir punktar: teikningin verður hæg
+1305|Gerð
+1306|Handahófsmynstur
+1307|Annað
+1308|Svartpunktur
+1309|Hvítpunktur
+1310|Setja á lagið
+1311|Stílteikning…
+1312|Bil milli lína

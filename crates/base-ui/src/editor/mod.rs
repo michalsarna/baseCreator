@@ -8,6 +8,7 @@ mod context_menu;
 mod host;
 mod keys;
 mod image_ui;
+mod style_ui;
 mod prefs;
 mod props;
 mod background_ui;
@@ -26,6 +27,7 @@ pub use shape_ops::{EditorShapeOps, Exchange};
 pub use background_ui::{background_section, Background, EditorBackground};
 pub use design_ui::{CodeKind, DesignCmd, DesignState, EditorDesign};
 pub use image_ui::{is_image_file, EditorImages, ImgDlg, TraceDlg, IMAGE_EXTENSIONS};
+pub use style_ui::{EditorStyleTrace, StyleDlg};
 pub use view_only::{show_other_doc, Look};
 pub use bars::{control_name, grid_toggles, select_tool, selection_size, zoom_and_cursor};
 pub use prefs::view_options_window;
@@ -380,6 +382,8 @@ pub struct EditorState {
     /// A file with Illustrator layers that was read and waits for the answer how to put its paths on the layers.
     pub drawing_choice: Option<(std::path::PathBuf, Vec<base_core::svg::Outline>)>,
     pub trace_dlg: Option<TraceDlg>,
+    /// The style trace window of a picture.
+    pub style_dlg: Option<StyleDlg>,
 }
 
 /// What of the editor belongs to one open drawing (a tab): the selection, the layer new shapes go to and the view.
@@ -424,6 +428,7 @@ impl EditorState {
         self.img_dlg = None;
         self.drawing_choice = None;
         self.trace_dlg = None;
+        self.style_dlg = None;
         self.image_tex.clear();
     }
 }
@@ -488,6 +493,7 @@ impl EditorState {
             img_dlg: None,
             drawing_choice: None,
             trace_dlg: None,
+            style_dlg: None,
         }
     }
 }

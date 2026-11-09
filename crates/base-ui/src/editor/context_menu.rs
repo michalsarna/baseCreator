@@ -41,7 +41,7 @@ fn allowed<H: EditorHost>(h: &H, s: &Sel, act: StdAct) -> bool {
         StdAct::BoolUnion | StdAct::BoolIntersect | StdAct::BoolSubtract | StdAct::BoolXor => s.several,
         StdAct::OffsetShape => s.any,
         StdAct::Unlock => s.locked,
-        StdAct::AdjustImage | StdAct::TraceImage => s.image,
+        StdAct::AdjustImage | StdAct::TraceImage | StdAct::StyleTrace => s.image,
         _ => act.enabled(h),
     }
 }
@@ -152,6 +152,7 @@ pub fn context_menu<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, resp: &egui::Re
             ui.separator();
             item(ui, StdAct::AdjustImage, "Adjust image…");
             item(ui, StdAct::TraceImage, "Trace image…");
+            item(ui, StdAct::StyleTrace, "Style trace…");
         }
     });
     let _ = ui;

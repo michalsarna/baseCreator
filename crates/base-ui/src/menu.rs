@@ -178,6 +178,7 @@ pub enum StdAct {
     ImportImage,
     AdjustImage,
     TraceImage,
+    StyleTrace,
     BoolUnion,
     BoolIntersect,
     BoolSubtract,
@@ -272,6 +273,7 @@ impl StdAct {
             StdAct::ImportImage => crate::editor::EditorImages::import_image_dialog(h),
             StdAct::AdjustImage => crate::editor::EditorImages::open_adjust(h),
             StdAct::TraceImage => crate::editor::EditorImages::open_trace(h),
+            StdAct::StyleTrace => crate::editor::EditorStyleTrace::open_style_trace(h),
             StdAct::BoolUnion => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Union),
             StdAct::BoolIntersect => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Intersect),
             StdAct::BoolSubtract => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Difference),
@@ -334,7 +336,7 @@ impl StdAct {
             StdAct::Undo => h.can_undo(),
             StdAct::Redo => h.can_redo(),
             StdAct::CenterEachOther => h.ed().sel.len() >= 2,
-            StdAct::AdjustImage | StdAct::TraceImage => h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_))),
+            StdAct::AdjustImage | StdAct::TraceImage | StdAct::StyleTrace => h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_))),
             _ => true,
         }
     }
@@ -390,6 +392,7 @@ impl StdAct {
             StdAct::ImportImage => "image",
             StdAct::AdjustImage => "sliders-horizontal",
             StdAct::TraceImage => "portrait",
+            StdAct::StyleTrace => "palette",
             StdAct::BoolUnion => "squares-unite",
             StdAct::BoolIntersect => "squares-intersect",
             StdAct::BoolSubtract => "squares-subtract",
@@ -482,7 +485,7 @@ pub mod std_entries {
     }
     /// Adjust and trace a picture that is on the page.
     pub fn image_tools() -> Vec<Entry<StdAct>> {
-        vec![Item(StdAct::AdjustImage, "Adjust image…", None), Item(StdAct::TraceImage, "Trace image…", None)]
+        vec![Item(StdAct::AdjustImage, "Adjust image…", None), Item(StdAct::TraceImage, "Trace image…", None), Item(StdAct::StyleTrace, "Style trace…", None)]
     }
     /// The operations on whole shapes: boolean operations, offset, rounding the corners, conversion to curves.
     pub fn shape_ops() -> Vec<Entry<StdAct>> {

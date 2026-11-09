@@ -1209,3 +1209,105 @@
 1208|Tryk
 1209|Hvor hårdt pennen eller kniven trykker, sendes én gang ved start; 0: aldrig (plotteren beholder sit eget).
 1210|Tilbage til de almindelige kommandoer
+1211|Bølgestreg
+1212|Savtak
+1213|Fjedre
+1214|Bølger
+1215|Rastercirkler
+1216|Radering
+1217|Firkanter
+1218|Nåle
+1219|Truchet-fliser
+1220|Højdekurver
+1221|Hilbert-kurve
+1222|Punktering
+1223|Én streg (TSP)
+1224|Trekanter og celler
+1225|Stregtegning
+1226|Strømlinjer
+1227|Skitse
+1228|Kruseduller
+1229|Rækker af streger, der bølger hurtigere og højere, hvor billedet er mørkere.
+1230|Rækker af zigzag, tættere og højere, hvor billedet er mørkere.
+1231|Rækker af løkker som en udstrakt fjeder, større, hvor billedet er mørkere.
+1232|Én spiral fra midten, der vibrerer mere i skyggerne.
+1233|Rækker løftet af billedets mørke, som et landskab set fra siden.
+1234|Et gitter af cirkler, større, hvor billedet er mørkere.
+1235|Skravering i lag: hver mørkere tone tilføjer streger i en anden retning.
+1236|Et gitter af firkanter inden i hinanden, flere, hvor det er mørkere.
+1237|Korte streger på et gitter, længere, hvor det er mørkere, drejet langs formerne.
+1238|Fliser af kvartcirkler drejet tilfældigt, flere buer, hvor det er mørkere.
+1239|Linjer med samme lysstyrke, som højdekurverne på et kort.
+1240|Én fladeudfyldende kurve med finere sving, hvor det er mørkere.
+1241|Prikker fordelt efter billedets tone: tæt i skyggerne, spredt i lyset.
+1242|Punkteringens prikker forbundet til én streg, der ikke krydser sig selv.
+1243|Et net af trekanter eller cellerne om dem over prikker fordelt efter tonen.
+1244|Kun billedets kanter som streger.
+1245|Lange streger, der flyder langs formerne, tættere, hvor det er mørkere.
+1246|Mange korte lige streger lagt, hvor billedet er mørkest, som i en blyantsskitse.
+1247|Én vandrende streg af løkker, der kruseduller de mørke dele til.
+1248|Afstand mellem vindingerne
+1249|Bølgernes højde
+1250|Største cirkel
+1251|Afstand mellem ringene
+1252|Toneniveauer
+1253|Flest firkanter i en celle
+1254|Rystelse
+1255|Stregens længde
+1256|Flisestørrelse
+1257|Flest buer i en flise
+1258|Udglatning
+1259|Mindste trin
+1260|Prikstørrelse
+1261|Antal prikker
+1262|Mindste detalje
+1263|Kantfølsomhed
+1264|Korteste streg
+1265|Mindste afstand
+1266|Største afstand
+1267|Kurvernes størrelse
+1268|Antal streger
+1269|Blæk i én streg
+1270|Løkkestørrelse
+1271|Stregens længde
+1272|Blæk i én omgang
+1273|Rækker fra kant til kant
+1274|Løft pennen over hvidt
+1275|Zigzag
+1276|Skjul det bagved
+1277|Tegn hver række hel
+1278|Cirkler
+1279|Ringe
+1280|Spiraler
+1281|Lige streger
+1282|Bølgede streger
+1283|Langs formerne
+1284|I vinklen
+1285|Tilfældigt
+1286|Én streg
+1287|Prikker
+1288|Cirkler efter tonen
+1289|Streger
+1290|Trekanter
+1291|Celler
+1292|Kanter
+1293|Kanter og de mørke områder
+1294|Strømningsfelt
+1295|Separate streger
+1296|Streger i kæder
+1297|Bølgehøjde
+1298|Bølger pr. mm
+1299|Cellestørrelse
+1300|Stilsporing
+1301|{} streger i stilen {}
+1302|{} streger, {} m streg
+1303|kun en del: for mange punkter
+1304|mange punkter: tegningen bliver langsom
+1305|Slags
+1306|Tilfældigt mønster
+1307|Et andet
+1308|Sortpunkt
+1309|Hvidpunkt
+1310|Læg på laget
+1311|Stilsporing…
+1312|Afstand mellem stregerne

@@ -1209,3 +1209,105 @@
 1208|Spiediens
 1209|Cik stipri spiež pildspalva vai nazis, sūta vienreiz sākumā; 0: nekad (plotteris patur savu).
 1210|Atpakaļ uz parastajām komandām
+1211|Viļņota līnija
+1212|Zāģa zobi
+1213|Atsperes
+1214|Viļņi
+1215|Rastra apļi
+1216|Oforts
+1217|Kvadrāti
+1218|Adatiņas
+1219|Trušē flīzes
+1220|Horizontāles
+1221|Hilberta līkne
+1222|Punktēšana
+1223|Viena līnija (TSP)
+1224|Trijstūri un šūnas
+1225|Līniju zīmējums
+1226|Plūsmas līnijas
+1227|Skice
+1228|Skricelējums
+1229|Līniju rindas, kas viļņojas biežāk un augstāk, kur attēls ir tumšāks.
+1230|Zigzagu rindas, biežākas un augstākas, kur attēls ir tumšāks.
+1231|Cilpu rindas kā izstiepta atspere, lielākas, kur attēls ir tumšāks.
+1232|Viena spirāle no vidus, kas ēnās trīc vairāk.
+1233|Rindas, ko paceļ attēla tumšums, kā no sāniem redzama ainava.
+1234|Apļu režģis, lielāki, kur attēls ir tumšāks.
+1235|Svītrošana slāņos: katrs tumšāks tonis pievieno līnijas citā virzienā.
+1236|Vienam otrā ievietotu kvadrātu režģis, vairāk tur, kur tumšāks.
+1237|Īsi vilcieni režģī, garāki, kur tumšāks, pagriezti gar formām.
+1238|Ceturtdaļapļu flīzes, pagrieztas nejauši, vairāk loku, kur tumšāks.
+1239|Vienāda gaišuma līnijas, kā kartes horizontāles.
+1240|Viena plakni aizpildoša līkne, ar smalkākiem pagriezieniem, kur tumšāks.
+1241|Punkti, izvietoti pēc attēla toņa: blīvi ēnās, reti gaišajās vietās.
+1242|Punkti savienoti vienā līnijā, kas sevi nekrusto.
+1243|Trijstūru vai ap tiem esošo šūnu tīkls uz punktiem, izvietotiem pēc toņa.
+1244|Tikai attēla malas, kā līnijas.
+1245|Garas līnijas, kas plūst gar formām, tuvāk cita citai, kur tumšāks.
+1246|Daudz īsu taisnu vilcienu tur, kur attēls ir vistumšākais, kā zīmuļa skicē.
+1247|Viena klejojoša cilpu līnija, kas aizskricelē tumšās daļas.
+1248|Vijumu atstarpe
+1249|Viļņu augstums
+1250|Lielākais aplis
+1251|Gredzenu atstarpe
+1252|Toņu līmeņi
+1253|Visvairāk kvadrātu šūnā
+1254|Trīce
+1255|Vilciena garums
+1256|Flīzes izmērs
+1257|Visvairāk loku flīzē
+1258|Izlīdzināšana
+1259|Mazākais solis
+1260|Punkta izmērs
+1261|Punktu skaits
+1262|Mazākā detaļa
+1263|Malu jutīgums
+1264|Īsākā līnija
+1265|Mazākā atstarpe
+1266|Lielākā atstarpe
+1267|Līkumu izmērs
+1268|Vilcienu skaits
+1269|Viena vilciena tinte
+1270|Cilpas izmērs
+1271|Līnijas garums
+1272|Vienas reizes tinte
+1273|Rindas no malas līdz malai
+1274|Pacelt pildspalvu virs baltā
+1275|Zigzags
+1276|Paslēpt to, kas aiz muguras
+1277|Zīmēt katru rindu pilnībā
+1278|Apļi
+1279|Gredzeni
+1280|Spirāles
+1281|Taisnas līnijas
+1282|Viļņotas līnijas
+1283|Gar formām
+1284|Leņķī
+1285|Nejauši
+1286|Viena līnija
+1287|Punkti
+1288|Apļi pēc toņa
+1289|Svītriņas
+1290|Trijstūri
+1291|Šūnas
+1292|Malas
+1293|Malas un tumšie laukumi
+1294|Plūsmas lauks
+1295|Atsevišķi vilcieni
+1296|Vilcieni ķēdēs
+1297|Viļņa augstums
+1298|Viļņi uz mm
+1299|Šūnas izmērs
+1300|Izsekošana stilā
+1301|{} līnijas stilā {}
+1302|{} līnijas, {} m līnijas
+1303|tikai daļa: pārāk daudz punktu
+1304|daudz punktu: zīmējums kļūs lēns
+1305|Veids
+1306|Nejaušs raksts
+1307|Cits
+1308|Melnā punkts
+1309|Baltā punkts
+1310|Novietot slānī
+1311|Izsekošana stilā…
+1312|Līniju atstarpe

@@ -1209,3 +1209,105 @@
 1208|Force
 1209|La force d'appui du stylo ou de la lame, envoyée une fois au début ; 0 : jamais (le traceur garde la sienne).
 1210|Revenir aux commandes habituelles
+1211|Gribouillis ondulé
+1212|Dents de scie
+1213|Ressorts
+1214|Vagues
+1215|Cercles de trame
+1216|Eau-forte
+1217|Carrés
+1218|Aiguilles
+1219|Tuiles de Truchet
+1220|Courbes de niveau
+1221|Courbe de Hilbert
+1222|Pointillé
+1223|Une seule ligne (TSP)
+1224|Triangles et cellules
+1225|Dessin au trait
+1226|Lignes de flux
+1227|Croquis
+1228|Gribouillage
+1229|Des rangées de lignes qui ondulent plus vite et plus haut là où l'image est plus sombre.
+1230|Des rangées de zigzags, plus serrés et plus hauts là où l'image est plus sombre.
+1231|Des rangées de boucles comme un ressort étiré, plus grandes là où l'image est plus sombre.
+1232|Une spirale depuis le centre qui tremble davantage dans les ombres.
+1233|Des rangées soulevées par le sombre de l'image, comme un paysage vu de côté.
+1234|Une grille de cercles, plus grands là où l'image est plus sombre.
+1235|Hachures en couches : chaque ton plus sombre ajoute des lignes dans une autre direction.
+1236|Une grille de carrés emboîtés, plus nombreux là où c'est plus sombre.
+1237|De courts traits sur une grille, plus longs là où c'est plus sombre, tournés le long des formes.
+1238|Des tuiles de quarts de cercle tournées au hasard, plus d'arcs là où c'est plus sombre.
+1239|Des lignes de même luminosité, comme les courbes de niveau d'une carte.
+1240|Une seule courbe qui remplit le plan, aux tours plus fins là où c'est plus sombre.
+1241|Des points répartis selon le ton de l'image : serrés dans les ombres, épars dans les lumières.
+1242|Les points du pointillé reliés en une seule ligne qui ne se croise pas.
+1243|Un maillage de triangles, ou des cellules autour, sur des points répartis selon le ton.
+1244|Seulement les contours de l'image, en lignes.
+1245|De longues lignes qui coulent le long des formes, plus serrées là où c'est plus sombre.
+1246|De nombreux traits courts et droits posés là où l'image est la plus sombre, comme dans un croquis au crayon.
+1247|Une seule ligne errante de boucles qui gribouille les parties sombres.
+1248|Écart des spires
+1249|Hauteur des vagues
+1250|Plus grand cercle
+1251|Écart des anneaux
+1252|Niveaux de ton
+1253|Carrés au plus par cellule
+1254|Tremblement
+1255|Longueur du trait
+1256|Taille de la tuile
+1257|Arcs au plus par tuile
+1258|Lissage
+1259|Plus petit pas
+1260|Taille du point
+1261|Nombre de points
+1262|Plus petit détail
+1263|Sensibilité aux contours
+1264|Ligne la plus courte
+1265|Plus petit écart
+1266|Plus grand écart
+1267|Taille des courbes
+1268|Nombre de traits
+1269|Encre d'un trait
+1270|Taille des boucles
+1271|Longueur de la ligne
+1272|Encre d'un passage
+1273|Rangées d'un bord à l'autre
+1274|Lever le stylo sur le blanc
+1275|Zigzag
+1276|Masquer ce qui est derrière
+1277|Dessiner chaque rangée en entier
+1278|Cercles
+1279|Anneaux
+1280|Spirales
+1281|Lignes droites
+1282|Lignes ondulées
+1283|Le long des formes
+1284|À l'angle
+1285|Au hasard
+1286|Une ligne
+1287|Points
+1288|Cercles selon le ton
+1289|Tirets
+1290|Triangles
+1291|Cellules
+1292|Contours
+1293|Contours et zones sombres
+1294|Champ de flux
+1295|Traits séparés
+1296|Traits en chaînes
+1297|Hauteur de l'onde
+1298|Ondes par mm
+1299|Taille de la cellule
+1300|Tracé stylisé
+1301|{} lignes dans le style {}
+1302|{} lignes, {} m de ligne
+1303|seulement une partie : trop de points
+1304|beaucoup de points : le dessin ralentit
+1305|Sorte
+1306|Motif aléatoire
+1307|Un autre
+1308|Point noir
+1309|Point blanc
+1310|Placer sur le calque
+1311|Tracé stylisé…
+1312|Écart des lignes
