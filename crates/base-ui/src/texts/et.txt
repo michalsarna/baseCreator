@@ -1311,3 +1311,21 @@
 1310|Pane kihile
 1311|Stiilis jäljendus…
 1312|Joonte vahe
+1313|Time-lapse: pilt iga kord, kui tööriist tõuseb, pea kõrvale viidud.
+1314|Pärast iga tõstet
+1315|Pilt iga kord, kui tööriist tõuseb, pea kõrvale viidud (lülita kõrvale viimine sisse vahekaardil Juhtimine). Töö kestab palju kauem.
+1316|Time-lapse pildid kõrvalt
+1317|Vii pea iga pildi jaoks kõrvale
+1318|Töö ajal ootab iga pilt, kuni töö saab peatuda: pea läheb sellesse kohta, kaamera teeb pildi, pea tuleb tagasi ja töö jätkub. Frees ja plotter peatuvad ainult tõstetud tööriistaga.
+1319|Koht (masina koordinaadid)
+1320|Kasuta praegust asukohta
+1321|Oota enne pilti
+1322|Masin lõpetab värisemise ja kaamera voog jõuab järele. Plotter, mis ei vasta midagi (HPGL), vajab ka kõrvale liikumise aega.
+1323|Hoia spindel käimas
+1324|Spindlit ei käivitata pärast iga pilti uuesti ega jää seinale sellest jälge.
+1325|Jaga pikad jooned
+1326|Pikad sirged lõiked saadetakse mitme lühema reana: töö saab varem peatuda (pildi, pausi jaoks) ja edenemine liigub ühtlasemalt. Teekond jääb samaks.
+1327|Osadeks
+1328|igaüks vähemalt
+1329|Kõrvale liikumine piltide jaoks
+1330|Kuhu pliiats läheb time-lapse pildi jaoks pärast tõstmist; see tuleb tagasi absoluutse liikumisega. Tühi: vahekaardil Juhtimine määratud koht.

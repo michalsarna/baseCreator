@@ -1311,3 +1311,21 @@
 1310	Put on the layer
 1311	Style trace…
 1312	Spacing of the lines
+1313	Time-lapse: a picture is taken every time the tool goes up, with the head moved aside.
+1314	After every lift
+1315	A picture every time the tool goes up, with the head moved aside (switch on moving aside on the Control tab). The job takes much longer.
+1316	Time-lapse photos aside
+1317	Move the head aside for each photo
+1318	During a job each picture of the time-lapse waits until the job can stop: the head goes to this place, the camera takes the picture, the head comes back and the job goes on. A mill and a plotter stop only when the tool is up.
+1319	Place (machine coordinates)
+1320	Use the current position
+1321	Wait before the photo
+1322	The machine stops shaking and the stream of the camera catches up. A plotter that answers nothing (HPGL) needs the time of the way aside too.
+1323	Keep the spindle running
+1324	No new start of the spindle after each photo, and no mark it may leave on the wall.
+1325	Split long lines
+1326	Long straight cuts are sent as several shorter lines: the job can stop sooner (for a photo, a pause), and the progress moves more evenly. The path stays the same.
+1327	Into
+1328	parts, each at least
+1329	Way aside for photos
+1330	Where the pen goes for a photo of the time-lapse, after it is up; it comes back with an absolute move. Empty: the place set on the Control tab.

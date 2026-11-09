@@ -98,6 +98,10 @@ pub fn hpgl_page(ui: &mut egui::Ui, h: &mut base_core::plotter::HpglCommands) {
         .response
         .on_hover_text(tr("How hard the pen or the knife presses, sent once at the start; 0: never (the plotter keeps its own)."));
         ui.end_row();
+        ui.label(tr("Way aside for photos"));
+        ui.add(egui::TextEdit::singleline(&mut h.park).code_editor().desired_width(280.0).hint_text("PA0,8000;"))
+            .on_hover_text(tr("Where the pen goes for a photo of the time-lapse, after it is up; it comes back with an absolute move. Empty: the place set on the Control tab."));
+        ui.end_row();
     });
     ui.add_space(6.0);
     if let Err(e) = h.check() {

@@ -78,6 +78,10 @@ pub enum Notice {
     },
     /// The reference tool touched the tool length sensor: the work Z of its tip at that moment.
     TlsReference { wz: f64 },
+    /// The job stopped for a photo before its line `line` (`photo_trip`).
+    PhotoStop { line: usize },
+    /// What was sent after a photo stop is done and the machine stands still.
+    PhotoReady,
     /// A tool was measured and the work Z was set from the reference; `delta` is how much longer the tool is than the
     /// reference tool (negative: shorter).
     TlsTool { delta: f64 },
@@ -590,6 +594,8 @@ impl Machine {
                     notices.push(Notice::Barrier(b));
                 }
                 Evt::Stalled { secs, state } => notices.push(Notice::Stalled { secs, state }),
+                Evt::PhotoStop { line } => notices.push(Notice::PhotoStop { line }),
+                Evt::PhotoReady => notices.push(Notice::PhotoReady),
             }
         }
         if let Some(at) = self.reconnect_at {
@@ -751,6 +757,11 @@ impl Machine {
             after,
         });
         self.link.send(Cmd::Job(lines));
+    }
+
+    /// A command of the photo stops (`photo_trip`) for the link.
+    pub fn photo_cmd(&mut self, c: Cmd) {
+        self.link.send(c);
     }
 
     /// Continue a job that stopped at a pause.

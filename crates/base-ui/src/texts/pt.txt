@@ -1311,3 +1311,21 @@
 1310|Colocar na camada
 1311|Traçado com estilo…
 1312|Distância entre linhas
+1313|Time-lapse: uma foto sempre que a ferramenta sobe, com a cabeça afastada.
+1314|Depois de cada elevação
+1315|Uma foto sempre que a ferramenta sobe, com a cabeça afastada (ative o afastamento no separador Controlo). O trabalho demora muito mais.
+1316|Fotos de time-lapse afastadas
+1317|Afastar a cabeça para cada foto
+1318|Durante um trabalho cada foto espera até o trabalho poder parar: a cabeça vai a este ponto, a câmara tira a foto, a cabeça volta e o trabalho continua. Uma fresadora e um plotter só param com a ferramenta levantada.
+1319|Local (coordenadas da máquina)
+1320|Usar a posição atual
+1321|Esperar antes da foto
+1322|A máquina deixa de vibrar e a imagem da câmara atualiza-se. Um plotter que não responde nada (HPGL) precisa também do tempo do caminho para o lado.
+1323|Manter o spindle a rodar
+1324|Sem novo arranque do spindle após cada foto, nem a marca que pode deixar na parede.
+1325|Dividir linhas longas
+1326|Os cortes retos longos são enviados como várias linhas mais curtas: o trabalho pode parar mais cedo (para uma foto, uma pausa) e o progresso avança de forma mais regular. O percurso mantém-se.
+1327|Em
+1328|partes, cada uma com pelo menos
+1329|Caminho para o lado para fotos
+1330|Para onde vai a caneta para uma foto de time-lapse, depois de levantada; volta com um movimento absoluto. Vazio: o local definido no separador Controlo.

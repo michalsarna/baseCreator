@@ -1311,3 +1311,21 @@
 1310|Poġġi fuq is-saff
 1311|Traċċar fi stil…
 1312|Distanza bejn il-linji
+1313|Time-lapse: stampa kull darba li l-għodda titla', bir-ras imwarrba.
+1314|Wara kull tlugħ
+1315|Stampa kull darba li l-għodda titla', bir-ras imwarrba (ixgħel it-twarrib fit-tab Kontroll). Ix-xogħol jieħu ħafna aktar żmien.
+1316|Ritratti time-lapse fil-ġenb
+1317|Warrab ir-ras għal kull ritratt
+1318|Waqt xogħol kull ritratt jistenna sakemm ix-xogħol ikun jista' jieqaf: ir-ras tmur f'dan il-post, il-kamera tieħu r-ritratt, ir-ras terġa' lura u x-xogħol ikompli. Mitħna u plotter jieqfu biss bl-għodda merfugħa.
+1319|Post (koordinati tal-magna)
+1320|Uża l-pożizzjoni attwali
+1321|Stenna qabel ir-ritratt
+1322|Il-magna tieqaf titriegħed u l-istream tal-kamera jlaħħaq. Plotter li ma jwieġeb xejn (HPGL) jeħtieġ ukoll il-ħin tat-triq fil-ġenb.
+1323|Żomm l-ispindle għaddej
+1324|L-ebda bidu ġdid tal-ispindle wara kull ritratt, u l-ebda marka li jista' jħalli fuq il-ħajt.
+1325|Aqsam il-linji twal
+1326|Qtugħ dritt twil jintbagħat bħala diversi linji iqsar: ix-xogħol jista' jieqaf aktar kmieni (għal ritratt, pawża), u l-progress jimxi b'mod aktar uniformi. Il-mogħdija tibqa' l-istess.
+1327|F'
+1328|partijiet, kull waħda mill-inqas
+1329|Triq fil-ġenb għar-ritratti
+1330|Fejn tmur il-pinna għal ritratt time-lapse, wara li titla'; terġa' lura b'moviment assolut. Vojt: il-post issettjat fit-tab Kontroll.

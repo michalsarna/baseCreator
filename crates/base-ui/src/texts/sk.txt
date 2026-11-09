@@ -1311,3 +1311,21 @@
 1310|Umiestniť na vrstvu
 1311|Obkresliť v štýle…
 1312|Rozstup čiar
+1313|Časozber: snímka pri každom zdvihnutí nástroja, s hlavou odsunutou nabok.
+1314|Po každom zdvihnutí
+1315|Snímka pri každom zdvihnutí nástroja, s hlavou odsunutou nabok (zapnite odsúvanie na karte Ovládanie). Úloha trvá oveľa dlhšie.
+1316|Časozberné snímky nabok
+1317|Pre každú snímku odsunúť hlavu nabok
+1318|Počas úlohy každá snímka čaká, kým sa úloha môže zastaviť: hlava ide na toto miesto, kamera odfotí, hlava sa vráti a úloha pokračuje. Fréza a plotter sa zastavia len so zdvihnutým nástrojom.
+1319|Miesto (strojové súradnice)
+1320|Použiť aktuálnu polohu
+1321|Čakať pred snímkou
+1322|Stroj sa prestane chvieť a obraz kamery sa dorovná. Plotter, ktorý nič neodpovedá (HPGL), potrebuje aj čas cesty nabok.
+1323|Nechať vreteno bežať
+1324|Žiadny nový rozbeh vretena po každej snímke a žiadna stopa, ktorú môže zanechať na stene.
+1325|Deliť dlhé čiary
+1326|Dlhé rovné rezy sa posielajú ako niekoľko kratších riadkov: úloha sa môže zastaviť skôr (pre snímku, pauzu) a priebeh postupuje rovnomernejšie. Dráha zostáva rovnaká.
+1327|Na
+1328|častí, každá najmenej
+1329|Cesta nabok pre snímky
+1330|Kam pero ide pre časozbernú snímku po zdvihnutí; vracia sa absolútnym pohybom. Prázdne: miesto nastavené na karte Ovládanie.

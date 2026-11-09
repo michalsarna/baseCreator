@@ -89,6 +89,16 @@ pub enum Cmd {
     Continue,
     /// How to talk to a plotter that does not speak G-code; used by the next `Connect` to an EBB or HPGL controller.
     Plotter(base_core::plotter::Setup),
+    /// The lines of the job before which it may stop for a photo (`base_core::photo_park::stop_points`); sent after its `Job`.
+    PhotoStops(Vec<bool>),
+    /// Stop the job at its next stop point for a photo (`Evt::PhotoStop`); false: not any more.
+    PhotoArm(bool),
+    /// Say (`Evt::PhotoReady`) when everything sent before is done and the machine stands still.
+    PhotoWait,
+    /// An HPGL plotter lifts the pen and goes aside with the commands of its device (`HpglCommands::park`).
+    PlotterPark,
+    /// Go on with a job that stopped for a photo.
+    PhotoContinue,
 }
 
 /// Direction of a console line.
@@ -131,6 +141,10 @@ pub enum Evt {
     Barrier { text: String, line: usize },
     /// A job is running, the controller has not answered for `secs` and the machine is not moving.
     Stalled { secs: u64, state: String },
+    /// The job stopped for a photo before its line `line` (0-based), with the machine standing; it waits for `PhotoContinue`.
+    PhotoStop { line: usize },
+    /// What was sent before `PhotoWait` is done and the machine stands still.
+    PhotoReady,
 }
 
 pub struct LaserLink {
@@ -278,6 +292,29 @@ enum Kind {
     Poll,
     /// A command of a plotter's own (its start, its stop), sent as it is.
     Raw,
+    /// Not sent: the place of a `PhotoWait`.
+    Wait,
+}
+
+/// The stops of a job for photos.
+#[derive(Default)]
+struct PhotoHold {
+    /// Before which lines of the job it may stop.
+    stops: Vec<bool>,
+    /// It stops at the next one.
+    armed: bool,
+    /// It stopped and waits.
+    held: bool,
+    /// The lines of the job taken from the queue so far: the number of the next one.
+    sent: usize,
+    /// The line it last stopped before: it does not stop there again once it goes on.
+    last: Option<usize>,
+}
+
+impl PhotoHold {
+    fn stops_before_next(&self) -> bool {
+        self.armed && !self.held && self.last != Some(self.sent) && self.stops.get(self.sent) == Some(&true)
+    }
 }
 
 /// A plotter that does not speak G-code (EBB, HPGL): the lines of the queue are turned into its commands here, and its
@@ -352,7 +389,7 @@ impl Plot {
 
 /// Send to a plotter what it can take now; false when the port is gone.
 #[allow(clippy::too_many_arguments)]
-fn plot_send(pl: &mut Plot, p: &mut dyn Link, queue: &mut VecDeque<(String, Kind)>, held: &mut bool, barriers: bool, done: &mut usize, total: usize, emit: &dyn Fn(Evt)) -> bool {
+fn plot_send(pl: &mut Plot, p: &mut dyn Link, queue: &mut VecDeque<(String, Kind)>, held: &mut bool, photo: &mut PhotoHold, barriers: bool, done: &mut usize, total: usize, emit: &dyn Fn(Evt)) -> bool {
     let traffic = |text: String| Evt::Traffic(ConsoleLine { dir: Dir::Tx, text, poll: false });
     let finished = |kind: Kind, last: bool, done: &mut usize| {
         if kind == Kind::Job && last {
@@ -398,7 +435,35 @@ fn plot_send(pl: &mut Plot, p: &mut dyn Link, queue: &mut VecDeque<(String, Kind
         if pl.out.is_empty() {
             let Some((l, kind)) = queue.front() else { return true };
             let kind = *kind;
-            if *held && kind == Kind::Job {
+            let photo_stop = kind == Kind::Job && !*held && photo.stops_before_next();
+            if kind == Kind::Wait || photo_stop {
+                // Everything before has gone out and, on an EBB, its motors stand.
+                if pl.is_ebb() && pl.still != Some(true) {
+                    if pl.asked_at.is_none_or(|t| t.elapsed() >= Duration::from_millis(50)) {
+                        pl.asked_at = Some(Instant::now());
+                        pl.still = None;
+                        emit(Evt::Traffic(ConsoleLine { dir: Dir::Tx, text: "QM".into(), poll: true }));
+                        if p.write_all(b"QM\r").is_err() {
+                            return false;
+                        }
+                        pl.waiting.push_back((Kind::Poll, true));
+                    }
+                    return true;
+                }
+                pl.still = None;
+                pl.asked_at = None;
+                if kind == Kind::Wait {
+                    queue.pop_front();
+                    emit(Evt::PhotoReady);
+                    continue;
+                }
+                photo.armed = false;
+                photo.held = true;
+                photo.last = Some(photo.sent);
+                emit(Evt::PhotoStop { line: photo.sent });
+                return true;
+            }
+            if (*held || photo.held) && kind == Kind::Job {
                 return true;
             }
             if barriers && kind == Kind::Job && base_core::resume::is_pause(l) {
@@ -418,6 +483,7 @@ fn plot_send(pl: &mut Plot, p: &mut dyn Link, queue: &mut VecDeque<(String, Kind
                 pl.still = None;
                 pl.asked_at = None;
                 let (text, _) = queue.pop_front().unwrap();
+                photo.sent += 1;
                 emit(Evt::Log(text.clone()));
                 emit(Evt::Barrier { text, line: *done });
                 *done += 1;
@@ -426,6 +492,9 @@ fn plot_send(pl: &mut Plot, p: &mut dyn Link, queue: &mut VecDeque<(String, Kind
                 return true;
             }
             let (l, kind) = queue.pop_front().unwrap();
+            if kind == Kind::Job {
+                photo.sent += 1;
+            }
             let cmds = pl.tr.translate(&l);
             if cmds.is_empty() {
                 // Nothing for the plotter in this line (a comment, `$X`, `G21`…): it is done.
@@ -474,6 +543,11 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
     let mut machine_state = String::new();
     let mut barriers = false;
     let mut held = false;
+    let mut photo = PhotoHold::default();
+    // When the last line in flight was answered, and when the last status report came: the machine stands still only when
+    // a report after that says Idle.
+    let mut emptied_at = Instant::now();
+    let mut status_at = Instant::now();
     let mut plot_setup: Option<base_core::plotter::Setup> = None;
     let mut plot: Option<Plot> = None;
     loop {
@@ -519,11 +593,25 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     queue.clear();
                     pending.clear();
                     held = false;
+                    photo = PhotoHold::default();
                     emit(Evt::Connected(false));
                     emit(Evt::Log(crate::i18n::tr("Disconnected").into()));
                 }
                 Ok(Cmd::Barriers(b)) => barriers = b,
                 Ok(Cmd::Continue) => held = false,
+                Ok(Cmd::PhotoStops(s)) => photo.stops = s,
+                Ok(Cmd::PhotoArm(a)) => photo.armed = a,
+                Ok(Cmd::PhotoContinue) => photo.held = false,
+                Ok(Cmd::PhotoWait) => {
+                    let at = queue.iter().position(|(_, k)| *k == Kind::Job).unwrap_or(queue.len());
+                    queue.insert(at, (String::new(), Kind::Wait));
+                }
+                Ok(Cmd::PlotterPark) => {
+                    if let Some(pl) = plot.as_mut() {
+                        let cmds = pl.tr.park();
+                        pl.out.extend(cmds.into_iter().map(|c| (c, Kind::Raw, true)));
+                    }
+                }
                 Ok(Cmd::Line(l)) => {
                     // Immediate lines go ahead of job lines.
                     let at = queue.iter().position(|(_, k)| *k == Kind::Job).unwrap_or(queue.len());
@@ -532,6 +620,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                 Ok(Cmd::Job(lines)) => {
                     total = lines.len();
                     done = 0;
+                    photo = PhotoHold::default();
                     queue.extend(lines.into_iter().map(|l| (l, Kind::Job)));
                     emit(Evt::Progress { done, total });
                 }
@@ -554,6 +643,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     queue.clear();
                     pending.clear();
                     held = false;
+                    photo = PhotoHold::default();
                     total = 0;
                     if let Some(pl) = plot.as_mut().filter(|_| port.is_some()) {
                         pl.abort();
@@ -611,6 +701,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                 } else if let Some((state, x, y)) = base_core::machine::parse_status(&line) {
                     emit(traffic(Dir::Rx, line.clone(), true));
                     machine_state = state.clone();
+                    status_at = Instant::now();
                     emit(Evt::Status { state, x, y, z: base_core::machine::parse_status_z(&line).unwrap_or(f64::NAN) });
                     let report = if controller == Controller::GrblOld { base_core::grbl_status::parse_legacy(&line) } else { base_core::grbl_status::parse(&line) };
                     if let Some(r) = report {
@@ -622,6 +713,9 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     emit(traffic(Dir::Rx, line, false));
                 } else if line == "ok" || line.starts_with("error") {
                     let kind = pending.pop_front().map(|(_, k)| k);
+                    if pending.is_empty() {
+                        emptied_at = Instant::now();
+                    }
                     waiting_since = (!pending.is_empty()).then(Instant::now);
                     stall_reported = false;
                     emit(traffic(Dir::Rx, line.clone(), kind == Some(Kind::Poll)));
@@ -639,12 +733,12 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                 pending.clear();
             }
             if let Some(pl) = plot.as_mut() {
-                if !plot_send(pl, p.as_mut(), &mut queue, &mut held, barriers, &mut done, total, &emit) {
+                if !plot_send(pl, p.as_mut(), &mut queue, &mut held, &mut photo, barriers, &mut done, total, &emit) {
                     lost = true;
                 }
                 // The state and the position as the plotter would report them, when they changed.
                 // A job that waits at a pause leaves the plotter standing.
-                let queued = queue.iter().any(|(_, k)| !(held && *k == Kind::Job));
+                let queued = queue.iter().any(|(_, k)| *k != Kind::Wait && !((held || photo.held) && *k == Kind::Job));
                 let state = if pl.hold { "Hold" } else if pl.busy() || queued { "Run" } else { "Idle" };
                 let (w, m) = (pl.tr.work_position(), pl.tr.machine_position());
                 if pl.shown.as_ref() != Some(&(state.to_string(), w)) {
@@ -656,8 +750,28 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
             // Write while the controller's RX buffer has room.
             while let Some((l, front_kind)) = queue.front().filter(|_| restarting.is_none() && plot.is_none()) {
                 let front_kind = *front_kind;
+                let still = machine_state.split(':').next().unwrap_or("") == "Idle" && status_at > emptied_at && pending.is_empty();
+                if front_kind == Kind::Wait {
+                    if !still {
+                        break;
+                    }
+                    queue.pop_front();
+                    emit(Evt::PhotoReady);
+                    continue;
+                }
                 // A job that stopped at a pause sends nothing more of itself; immediate lines still go.
-                if held && front_kind == Kind::Job {
+                if (held || photo.held) && front_kind == Kind::Job {
+                    break;
+                }
+                if front_kind == Kind::Job && photo.stops_before_next() {
+                    // Everything before is done and a report after it says the machine stands still: stop here.
+                    if !still {
+                        break;
+                    }
+                    photo.armed = false;
+                    photo.held = true;
+                    photo.last = Some(photo.sent);
+                    emit(Evt::PhotoStop { line: photo.sent });
                     break;
                 }
                 if barriers && front_kind == Kind::Job && base_core::resume::is_pause(l) {
@@ -667,6 +781,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                         break;
                     }
                     let (text, _) = queue.pop_front().unwrap();
+                    photo.sent += 1;
                     emit(Evt::Log(text.clone()));
                     emit(Evt::Barrier { text, line: done });
                     done += 1;
@@ -684,6 +799,9 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
                     break;
                 }
                 let (l, kind) = queue.pop_front().unwrap();
+                if kind == Kind::Job {
+                    photo.sent += 1;
+                }
                 let l = base_core::gcode_out::ascii(&l);
                 emit(traffic(Dir::Tx, l.clone(), kind == Kind::Poll));
                 if p.write_all(format!("{l}\n").as_bytes()).is_err() {
@@ -734,6 +852,7 @@ fn worker(rx: Receiver<Cmd>, tx: Sender<Evt>, ctx: egui::Context, stall_after: D
             plot = None;
             queue.clear();
             pending.clear();
+            photo = PhotoHold::default();
             emit(Evt::Connected(false));
             emit(Evt::Log(crate::i18n::tr("Connection lost").into()));
         }
@@ -1030,6 +1149,99 @@ mod tests {
             }
             finished
         }), "the job goes on after Continue");
+    }
+
+    #[test]
+    fn an_armed_job_stops_for_a_photo_at_its_next_stop_point_waits_for_the_trip_and_goes_on() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        fake_grbl(listener, 5000);
+        let link = LaserLink::spawn(egui::Context::default());
+        link.send(Cmd::Connect { target: Target::Tcp { host: "127.0.0.1".into(), port }, controller: Controller::Grbl, streaming: base_core::machine::Streaming::Counting });
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Connected(true))));
+        let job: Vec<String> = (0..6).map(|i| format!("G1 X{i} F100")).collect();
+        link.send(Cmd::Job(job));
+        // It may stop before lines 2 and 4; armed, it stops at the first of them it has not passed.
+        link.send(Cmd::PhotoStops(vec![false, false, true, false, true, false]));
+        link.send(Cmd::PhotoArm(true));
+        let mut stop = None;
+        assert!(wait_for(&link, 3.0, |e| {
+            if let Evt::PhotoStop { line } = e {
+                stop = Some(*line);
+            }
+            stop.is_some()
+        }), "the job stops for the photo");
+        assert_eq!(stop, Some(2));
+        // The trip: lines go out while the job waits, and the link says when the machine stands still after them.
+        link.send(Cmd::Line("G53 G0 X0 Y0".into()));
+        link.send(Cmd::PhotoWait);
+        let (mut sent_trip, mut job_moved) = (false, false);
+        assert!(wait_for(&link, 3.0, |e| {
+            match e {
+                Evt::Traffic(l) if l.dir == Dir::Tx && l.text == "G53 G0 X0 Y0" => sent_trip = true,
+                Evt::Traffic(l) if l.dir == Dir::Tx && l.text == "G1 X2 F100" => job_moved = true,
+                _ => {}
+            }
+            matches!(e, Evt::PhotoReady)
+        }));
+        assert!(sent_trip && !job_moved, "the trip went out, the job waited");
+        // Armed again at once: not before the same line a second time, but at the next stop point.
+        link.send(Cmd::PhotoContinue);
+        link.send(Cmd::PhotoArm(true));
+        let mut next = None;
+        assert!(wait_for(&link, 3.0, |e| {
+            if let Evt::PhotoStop { line } = e {
+                next = Some(*line);
+            }
+            next.is_some()
+        }));
+        assert_eq!(next, Some(4));
+        // Not armed again: no more stops.
+        link.send(Cmd::PhotoContinue);
+        let mut again = false;
+        assert!(wait_for(&link, 3.0, |e| {
+            again |= matches!(e, Evt::PhotoStop { .. });
+            matches!(e, Evt::Progress { done: 6, total: 6 })
+        }));
+        assert!(!again);
+    }
+
+    #[test]
+    fn an_hpgl_plotter_stops_for_a_photo_goes_aside_with_its_own_commands_and_comes_back() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let port = listener.local_addr().unwrap().port();
+        let (tx, rx) = std::sync::mpsc::channel();
+        std::thread::spawn(move || {
+            let (mut s, _) = listener.accept().unwrap();
+            let _ = s.set_read_timeout(Some(Duration::from_millis(10)));
+            let (mut all, mut chunk, start) = (Vec::new(), [0u8; 256], Instant::now());
+            while start.elapsed() < Duration::from_secs(4) {
+                match s.read(&mut chunk) {
+                    Ok(0) => break,
+                    Ok(n) => all.extend_from_slice(&chunk[..n]),
+                    Err(_) => {}
+                }
+            }
+            let _ = tx.send(String::from_utf8_lossy(&all).to_string());
+        });
+        let link = LaserLink::spawn(egui::Context::default());
+        let mut setup = plot_setup(base_core::plotter::Language::Hpgl);
+        setup.settings.hpgl.park = "PA0,8000;".into();
+        link.send(Cmd::Plotter(setup));
+        link.send(Cmd::Connect { target: Target::Tcp { host: "127.0.0.1".into(), port }, controller: Controller::Hpgl, streaming: base_core::machine::Streaming::Counting });
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::Connected(true))));
+        link.send(Cmd::Job(vec!["G0 X10 Y5".into(), "G0 Z0".into(), "G1 X20 F1200".into(), "G0 Z3".into(), "G0 X30 Y5".into()]));
+        link.send(Cmd::PhotoStops(vec![false, false, false, false, true]));
+        link.send(Cmd::PhotoArm(true));
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::PhotoStop { line: 4 })));
+        link.send(Cmd::PlotterPark);
+        link.send(Cmd::PhotoWait);
+        assert!(wait_for(&link, 3.0, |e| matches!(e, Evt::PhotoReady)));
+        link.send(Cmd::Line("G0 X20 Y5".into()));
+        link.send(Cmd::PhotoContinue);
+        assert!(finishes(&link, 5, 3.0));
+        link.send(Cmd::Disconnect);
+        assert_eq!(rx.recv_timeout(Duration::from_secs(6)).unwrap(), "IN;SP1;PU;PA400,200;PD;VS2;PA800,200;PU;PA0,8000;PA800,200;PA1200,200;");
     }
 
     #[test]

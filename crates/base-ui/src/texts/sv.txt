@@ -1311,3 +1311,21 @@
 1310|Lägg på lagret
 1311|Stilspårning…
 1312|Avstånd mellan linjerna
+1313|Time-lapse: en bild varje gång verktyget lyfts, med huvudet flyttat åt sidan.
+1314|Efter varje lyft
+1315|En bild varje gång verktyget lyfts, med huvudet flyttat åt sidan (slå på det på fliken Styrning). Jobbet tar mycket längre tid.
+1316|Time-lapse-bilder åt sidan
+1317|Flytta huvudet åt sidan för varje bild
+1318|Under ett jobb väntar varje bild tills jobbet kan stanna: huvudet åker till den här platsen, kameran tar bilden, huvudet kommer tillbaka och jobbet fortsätter. En fräs och en plotter stannar bara med verktyget lyft.
+1319|Plats (maskinkoordinater)
+1320|Använd nuvarande position
+1321|Vänta före bilden
+1322|Maskinen slutar skaka och kamerans ström hinner ikapp. En plotter som inte svarar (HPGL) behöver också tiden för vägen åt sidan.
+1323|Låt spindeln gå
+1324|Ingen ny start av spindeln efter varje bild, och inget märke den kan lämna på väggen.
+1325|Dela långa linjer
+1326|Långa raka skär skickas som flera kortare rader: jobbet kan stanna tidigare (för en bild, en paus), och förloppet går jämnare. Banan är densamma.
+1327|I
+1328|delar, var och en minst
+1329|Väg åt sidan för bilder
+1330|Vart pennan åker för en time-lapse-bild efter att den lyfts; den kommer tillbaka med en absolut rörelse. Tomt: platsen som är satt på fliken Styrning.

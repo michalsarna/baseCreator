@@ -1311,3 +1311,21 @@
 1310|Stavi na sloj
 1311|Precrtavanje u stilu…
 1312|Razmak linija
+1313|Time-lapse: slika pri svakom podizanju alata, s glavom pomaknutom u stranu.
+1314|Nakon svakog podizanja
+1315|Slika pri svakom podizanju alata, s glavom pomaknutom u stranu (uključite pomicanje na kartici Upravljanje). Posao traje znatno dulje.
+1316|Time-lapse slike sa strane
+1317|Pomakni glavu u stranu za svaku sliku
+1318|Tijekom posla svaka slika čeka dok se posao može zaustaviti: glava ide na ovo mjesto, kamera snima, glava se vraća i posao se nastavlja. Glodalica i ploter zaustavljaju se samo s podignutim alatom.
+1319|Mjesto (koordinate stroja)
+1320|Upotrijebi trenutni položaj
+1321|Čekaj prije slike
+1322|Stroj prestaje drhtati i slika kamere sustiže. Ploter koji ništa ne odgovara (HPGL) treba i vrijeme puta u stranu.
+1323|Ostavi vreteno da radi
+1324|Bez ponovnog pokretanja vretena nakon svake slike i bez traga koji može ostaviti na stijenci.
+1325|Podijeli duge linije
+1326|Dugi ravni rezovi šalju se kao više kraćih redaka: posao se može ranije zaustaviti (za sliku, stanku), a napredak raste ravnomjernije. Putanja ostaje ista.
+1327|Na
+1328|dijelova, svaki najmanje
+1329|Put u stranu za slike
+1330|Kamo olovka ide za sliku, nakon što je podignuta; vraća se apsolutnim pomakom. Prazno: mjesto postavljeno na kartici Upravljanje.

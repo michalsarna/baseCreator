@@ -1311,3 +1311,21 @@
 1310|Placer sur le calque
 1311|Tracé stylisé…
 1312|Écart des lignes
+1313|Time-lapse : une photo à chaque levée de l'outil, la tête écartée.
+1314|Après chaque levée
+1315|Une photo à chaque levée de l'outil, la tête écartée (activez l'écartement dans l'onglet Contrôle). Le travail dure beaucoup plus longtemps.
+1316|Photos time-lapse à l'écart
+1317|Écarter la tête pour chaque photo
+1318|Pendant un travail, chaque photo attend que le travail puisse s'arrêter : la tête va à cet endroit, la caméra prend la photo, la tête revient et le travail continue. Une fraiseuse et un traceur ne s'arrêtent qu'outil levé.
+1319|Endroit (coordonnées machine)
+1320|Utiliser la position actuelle
+1321|Attente avant la photo
+1322|La machine cesse de vibrer et le flux de la caméra rattrape son retard. Un traceur qui ne répond rien (HPGL) a aussi besoin du temps du trajet à l'écart.
+1323|Garder la broche en marche
+1324|Pas de nouveau démarrage de la broche après chaque photo, ni de marque qu'il peut laisser sur la paroi.
+1325|Découper les longues lignes
+1326|Les longues coupes droites sont envoyées en plusieurs lignes plus courtes : le travail peut s'arrêter plus tôt (pour une photo, une pause) et la progression avance plus régulièrement. Le trajet reste le même.
+1327|En
+1328|parties, chacune d'au moins
+1329|Trajet à l'écart pour les photos
+1330|Où va le stylo pour une photo du time-lapse, une fois levé ; il revient par un mouvement absolu. Vide : l'endroit défini dans l'onglet Contrôle.

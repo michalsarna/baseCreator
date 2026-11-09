@@ -16,6 +16,8 @@ pub enum LapseMode {
     Interval,
     /// When a layer of the job being sent to the machine is done.
     PerLayer,
+    /// Every time the tool or the pen goes up (a mill, a plotter), with the head moved aside.
+    EveryLift,
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -295,6 +297,14 @@ pub struct Recorder {
     video: Option<Video>,
     lapse: Option<Lapse>,
     latest: Option<(u32, u32, Vec<u8>)>,
+    /// When the latest picture came.
+    latest_at: Option<Instant>,
+    /// The pictures of the time-lapse are taken with the head moved aside (`photo_trip`): a picture that is due is asked for
+    /// (`take_trip_request`) instead of taken.
+    pub parked: bool,
+    trip_wanted: bool,
+    /// The machine lifts its tool (a mill, a plotter): the "every lift" mode is offered.
+    pub lift_mode: bool,
     /// The project file the pictures belong to: its folder holds the folder of the pictures, its name starts the names of the files.
     project: Option<PathBuf>,
     /// The folder chosen for a folder of a project, kept for the rest of the run.
@@ -311,7 +321,7 @@ impl Default for Recorder {
 
 impl Recorder {
     pub fn new(settings: RecSettings) -> Recorder {
-        Recorder { settings, message: String::new(), video: None, lapse: None, latest: None, project: None, chosen: None, source: None }
+        Recorder { settings, message: String::new(), video: None, lapse: None, latest: None, latest_at: None, parked: false, trip_wanted: false, lift_mode: false, project: None, chosen: None, source: None }
     }
 
     /// Does the camera have to be kept running (a video or a time-lapse is being made)?
@@ -424,6 +434,7 @@ impl Recorder {
             }
         }
         self.latest = Some((w, h, rgb));
+        self.latest_at = Some(now);
         self.tick(now);
     }
 
@@ -441,9 +452,27 @@ impl Recorder {
             (Some(l), LapseMode::Interval) => now.duration_since(l.last) >= Duration::from_secs_f64(self.settings.interval),
             _ => false,
         };
-        if due {
+        if due && self.parked {
+            self.trip_wanted = true;
+        } else if due {
             self.lapse_shot(now, "frame");
         }
+    }
+
+    /// When the latest picture came from the camera.
+    pub fn frame_at(&self) -> Option<Instant> {
+        self.latest_at
+    }
+
+    /// A picture of the time-lapse is due and waits for the head to go aside; asked once.
+    pub fn take_trip_request(&mut self) -> bool {
+        std::mem::take(&mut self.trip_wanted) && self.lapse.is_some()
+    }
+
+    /// The head is aside: the picture of the time-lapse.
+    pub fn trip_shot(&mut self, now: Instant) {
+        self.trip_wanted = false;
+        self.lapse_shot(now, "frame");
     }
 
     fn save_latest(&mut self, path: &Path) -> Result<(), String> {
@@ -582,10 +611,11 @@ impl Recorder {
             Ok(dir) => {
                 self.lapse = Some(Lapse { dir, shots: 0, last: now });
                 // The first picture at once in the interval mode.
-                if self.settings.mode == LapseMode::Interval {
-                    self.lapse_shot(now, "frame");
-                } else {
-                    self.message = tr("Time-lapse: a picture is taken when a layer is done.").to_string();
+                match self.settings.mode {
+                    LapseMode::Interval if self.parked => self.trip_wanted = true,
+                    LapseMode::Interval => self.lapse_shot(now, "frame"),
+                    LapseMode::PerLayer => self.message = tr("Time-lapse: a picture is taken when a layer is done.").to_string(),
+                    LapseMode::EveryLift => self.message = tr("Time-lapse: a picture is taken every time the tool goes up, with the head moved aside.").to_string(),
                 }
             }
             Err(e) => self.fail(e),
@@ -623,7 +653,11 @@ impl Recorder {
     /// A layer of the job that is being sent to the machine is done: a picture, in the "after each layer" mode.
     pub fn layer_done(&mut self, now: Instant) {
         if self.lapse.is_some() && self.settings.mode == LapseMode::PerLayer {
-            self.lapse_shot(now, "layer");
+            if self.parked {
+                self.trip_wanted = true;
+            } else {
+                self.lapse_shot(now, "layer");
+            }
         }
     }
 
@@ -671,6 +705,12 @@ impl Recorder {
                 changed |= ui.add(egui::DragValue::new(&mut self.settings.interval).range(0.2..=86_400.0).speed(0.5).suffix(" s")).changed();
             });
             changed |= ui.selectable_value(&mut self.settings.mode, LapseMode::PerLayer, tr("After each layer")).on_hover_text(tr("Needs a job sent to the machine from the program (Start)")).changed();
+            if self.lift_mode || self.settings.mode == LapseMode::EveryLift {
+                changed |= ui
+                    .selectable_value(&mut self.settings.mode, LapseMode::EveryLift, tr("After every lift"))
+                    .on_hover_text(tr("A picture every time the tool goes up, with the head moved aside (switch on moving aside on the Control tab). The job takes much longer."))
+                    .changed();
+            }
             match self.lapse_shots() {
                 Some(n) => {
                     if ui.button(tr("Stop time-lapse")).clicked() {
@@ -918,6 +958,35 @@ mod tests {
         r.layer_done(t + Duration::from_secs(102));
         assert_eq!(r.lapse_shots(), Some(2));
         assert!(dir.join("timelapse-0002").join("layer-00002.jpg").exists());
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    #[test]
+    fn with_the_head_moved_aside_a_due_picture_is_asked_for_and_taken_when_the_head_stands_aside() {
+        let dir = temp("lapse-park");
+        let mut r = rec(&dir);
+        let t = Instant::now();
+        let (w, h, p) = picture(90);
+        r.feed(t, w, h, p);
+        assert_eq!(r.frame_at(), Some(t));
+        r.parked = true;
+        r.start_lapse(t);
+        assert_eq!(r.lapse_shots(), Some(0), "the first picture waits for the head too");
+        assert!(r.take_trip_request());
+        assert!(!r.take_trip_request(), "asked once");
+        r.trip_shot(t);
+        assert_eq!(r.lapse_shots(), Some(1));
+        r.tick(t + Duration::from_secs(3));
+        assert_eq!(r.lapse_shots(), Some(1), "due, but not taken in place");
+        assert!(r.take_trip_request());
+        r.settings.mode = LapseMode::PerLayer;
+        r.layer_done(t + Duration::from_secs(4));
+        assert!(r.take_trip_request() && r.lapse_shots() == Some(1));
+        // No time-lapse: nothing is asked for.
+        r.stop_lapse();
+        r.parked = true;
+        r.tick(t + Duration::from_secs(60));
+        assert!(!r.take_trip_request());
         std::fs::remove_dir_all(dir).ok();
     }
 

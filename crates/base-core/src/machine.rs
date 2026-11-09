@@ -326,6 +326,12 @@ pub enum Action {
 }
 
 impl Controller {
+    /// Can a job stop for a photo with the head moved aside (`photo_park`)? It needs a controller that says when it stands
+    /// still (GRBL, Smoothieware), or a plotter the link drives itself.
+    pub fn stops_for_photos(self) -> bool {
+        matches!(self, Controller::Grbl | Controller::GrblOld | Controller::Smoothieware | Controller::Ebb | Controller::Hpgl)
+    }
+
     pub fn status_poll(self) -> StatusPoll {
         match self {
             Controller::Grbl | Controller::GrblOld | Controller::Smoothieware => StatusPoll::Byte(b'?'),

@@ -1311,3 +1311,21 @@
 1310|Rétegre helyezés
 1311|Stílusos átrajzolás…
 1312|A vonalak távolsága
+1313|Időzített felvétel: kép a szerszám minden felemelésekor, félreállított fejjel.
+1314|Minden emelés után
+1315|Kép a szerszám minden felemelésekor, félreállított fejjel (a félreállást a Vezérlés lapon kapcsold be). A munka sokkal tovább tart.
+1316|Időzített képek félreállva
+1317|A fej félreállítása minden képhez
+1318|Munka közben minden kép megvárja, amíg a munka megállhat: a fej erre a helyre megy, a kamera fényképez, a fej visszajön és a munka folytatódik. A maró és a plotter csak felemelt szerszámmal áll meg.
+1319|Hely (gépkoordináták)
+1320|A jelenlegi helyzet használata
+1321|Várakozás a kép előtt
+1322|A gép abbahagyja a rezgést, és a kamera képe utoléri. Egy semmit sem válaszoló plotternek (HPGL) a félreállás ideje is kell.
+1323|Az orsó maradjon bekapcsolva
+1324|Nincs újraindítás minden kép után, és nincs nyom, amelyet ez a falon hagyhat.
+1325|Hosszú vonalak felosztása
+1326|A hosszú egyenes vágások több rövidebb sorként mennek ki: a munka hamarabb megállhat (képhez, szünethez), és a haladás egyenletesebb. A pálya ugyanaz marad.
+1327|Részek:
+1328|darab, mindegyik legalább
+1329|Félreállás képekhez
+1330|Hová megy a toll az időzített képhez, miután felemelkedett; abszolút mozgással tér vissza. Üres: a Vezérlés lapon beállított hely.

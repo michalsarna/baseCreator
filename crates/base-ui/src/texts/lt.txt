@@ -1311,3 +1311,21 @@
 1310|Dėti į sluoksnį
 1311|Atsekimas stiliumi…
 1312|Linijų tarpas
+1313|Time-lapse: nuotrauka kaskart pakėlus įrankį, galvutę patraukus į šoną.
+1314|Po kiekvieno pakėlimo
+1315|Nuotrauka kaskart pakėlus įrankį, galvutę patraukus į šoną (įjunkite patraukimą skirtuke Valdymas). Darbas trunka daug ilgiau.
+1316|Time-lapse nuotraukos šone
+1317|Patraukti galvutę į šoną kiekvienai nuotraukai
+1318|Darbo metu kiekviena nuotrauka laukia, kol darbas gali sustoti: galvutė nuvažiuoja į šią vietą, kamera fotografuoja, galvutė grįžta ir darbas tęsiasi. Freza ir braižytuvas sustoja tik pakėlus įrankį.
+1319|Vieta (staklių koordinatės)
+1320|Naudoti dabartinę padėtį
+1321|Laukti prieš nuotrauką
+1322|Staklės nustoja drebėti, o kameros srautas pasiveja. Braižytuvui, kuris nieko neatsako (HPGL), reikia ir kelio į šoną laiko.
+1323|Palikti suklį veikti
+1324|Jokio naujo suklio paleidimo po kiekvienos nuotraukos ir jokios žymės, kurią jis gali palikti ant sienelės.
+1325|Dalyti ilgas linijas
+1326|Ilgi tiesūs pjūviai siunčiami keliomis trumpesnėmis eilutėmis: darbas gali sustoti anksčiau (nuotraukai, pauzei), o eiga juda tolygiau. Kelias lieka tas pats.
+1327|Į
+1328|dalis, kiekviena bent
+1329|Kelias į šoną nuotraukoms
+1330|Kur rašiklis nuvažiuoja time-lapse nuotraukai, kai pakeltas; grįžta absoliučiu judesiu. Tuščia: vieta, nustatyta skirtuke Valdymas.
