@@ -1313,7 +1313,7 @@
 1312	Spacing of the lines
 1313	Time-lapse: a picture is taken every time the tool goes up, with the head moved aside.
 1314	After every lift
-1315	A picture every time the tool goes up, with the head moved aside (switch on moving aside on the Control tab). The job takes much longer.
+1315	A picture every time the tool goes up, with the head moved aside (switch on moving aside on the Recording tab). The job takes much longer.
 1316	Time-lapse photos aside
 1317	Move the head aside for each photo
 1318	During a job each picture of the time-lapse waits until the job can stop: the head goes to this place, the camera takes the picture, the head comes back and the job goes on. A mill and a plotter stop only when the tool is up.
@@ -1328,4 +1328,6 @@
 1327	Into
 1328	parts, each at least
 1329	Way aside for photos
-1330	Where the pen goes for a photo of the time-lapse, after it is up; it comes back with an absolute move. Empty: the place set on the Control tab.
+1330	Where the pen goes for a photo of the time-lapse, after it is up; it comes back with an absolute move. Empty: the place set on the Recording tab.
+1331	Recording
+1332	This camera is switched off in the device settings.

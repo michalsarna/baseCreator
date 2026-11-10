@@ -1313,7 +1313,7 @@
 1312|A vonalak távolsága
 1313|Időzített felvétel: kép a szerszám minden felemelésekor, félreállított fejjel.
 1314|Minden emelés után
-1315|Kép a szerszám minden felemelésekor, félreállított fejjel (a félreállást a Vezérlés lapon kapcsold be). A munka sokkal tovább tart.
+1315|Kép a szerszám minden felemelésekor, félreállított fejjel (a félreállást a Felvétel lapon kapcsold be). A munka sokkal tovább tart.
 1316|Időzített képek félreállva
 1317|A fej félreállítása minden képhez
 1318|Munka közben minden kép megvárja, amíg a munka megállhat: a fej erre a helyre megy, a kamera fényképez, a fej visszajön és a munka folytatódik. A maró és a plotter csak felemelt szerszámmal áll meg.
@@ -1328,4 +1328,6 @@
 1327|Részek:
 1328|darab, mindegyik legalább
 1329|Félreállás képekhez
-1330|Hová megy a toll az időzített képhez, miután felemelkedett; abszolút mozgással tér vissza. Üres: a Vezérlés lapon beállított hely.
+1330|Hová megy a toll az időzített képhez, miután felemelkedett; abszolút mozgással tér vissza. Üres: a Felvétel lapon beállított hely.
+1331|Felvétel
+1332|Ez a kamera ki van kapcsolva az eszköz beállításaiban.

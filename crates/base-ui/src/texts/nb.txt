@@ -1313,7 +1313,7 @@
 1312|Avstand mellom strekene
 1313|Time-lapse: et bilde hver gang verktøyet løftes, med hodet kjørt til side.
 1314|Etter hvert løft
-1315|Et bilde hver gang verktøyet løftes, med hodet kjørt til side (slå det på i fanen Styring). Jobben tar mye lengre tid.
+1315|Et bilde hver gang verktøyet løftes, med hodet kjørt til side (slå det på i fanen Opptak). Jobben tar mye lengre tid.
 1316|Time-lapse-bilder til side
 1317|Kjør hodet til side for hvert bilde
 1318|Under en jobb venter hvert bilde til jobben kan stoppe: hodet kjører til dette stedet, kameraet tar bildet, hodet kommer tilbake og jobben fortsetter. En fres og en plotter stopper bare med verktøyet løftet.
@@ -1328,4 +1328,6 @@
 1327|I
 1328|deler, hver minst
 1329|Vei til side for bilder
-1330|Hvor pennen kjører for et time-lapse-bilde etter at den er løftet; den kommer tilbake med en absolutt bevegelse. Tom: stedet satt i fanen Styring.
+1330|Hvor pennen kjører for et time-lapse-bilde etter at den er løftet; den kommer tilbake med en absolutt bevegelse. Tom: stedet satt i fanen Opptak.
+1331|Opptak
+1332|Dette kameraet er slått av i enhetsinnstillingene.

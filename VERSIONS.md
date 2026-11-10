@@ -3,6 +3,14 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.85.0
+
+- **The Recording tab** (`recording_ui::tab`): a panel for each camera of the device, named after it, with everything it records (a photo, a video, the time-lapse, the video format, the way of the time-lapse, the folder) and the way its view opens; under them the time-lapse photos with the head moved aside and the long lines sent in parts (they were at the bottom of the Control tab). The camera view keeps only the buttons: a photo, a video, the time-lapse started and stopped.
+- **Each camera records on its own** (`camera_rec::Rigs`): one recorder per camera, with its own settings kept with the camera (`CameraSource::rec`; the settings last used are the start of a camera without its own). The camera the view shows gets its pictures from the view; another camera that records reads its own stream. With more than one camera the names of the files have the camera in them (`box-Side_camera-photo-0001.jpg`), and all cameras use the same folder of the run.
+- The time-lapse photos aside with several cameras (`Trips::frame_all`): a picture due on any camera stops the job; at the place, every camera whose time-lapse runs takes a new picture.
+- `RecSettings`, `LapseMode`, `VideoFormat` are in `base_core::camimg` (still reachable from `camera_rec`); `camera_rec::load_settings` / `store_settings` instead of `RecSettings::load` / `store`; `Recorder::controls` returns whether the settings changed, `Recorder::quick` is the row of buttons.
+- 2 new texts in every language; two hints now name the Recording tab.
+
 ## v1.84.0
 
 - **Time-lapse photos aside** (`photo_park`, `photo_trip`, the Control tab): during a job each picture of the time-lapse waits until the job can stop, the head goes to a place of the machine (machine coordinates, with "Use the current position"), the machine stands still for a moment (the wait before the photo), the camera takes a picture that came after that, and the head comes back to where the job stopped (the units, the modes, the spindle with its time to come to speed, down to the depth at the feed) and the job goes on. A laser stops at any line (the beam off for the trip); a mill and a plotter only before the first rapid move after a lift, so a picture due on time or after a layer waits for the next lift. A mill may keep its spindle running. The link stops a job for a photo (`Cmd::PhotoStops`, `PhotoArm`, `PhotoWait`, `PhotoContinue`, `Evt::PhotoStop`, `PhotoReady`) only once the controller has done everything and reported standing still, and never twice before the same line.

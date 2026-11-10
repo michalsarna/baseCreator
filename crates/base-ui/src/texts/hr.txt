@@ -1313,7 +1313,7 @@
 1312|Razmak linija
 1313|Time-lapse: slika pri svakom podizanju alata, s glavom pomaknutom u stranu.
 1314|Nakon svakog podizanja
-1315|Slika pri svakom podizanju alata, s glavom pomaknutom u stranu (uključite pomicanje na kartici Upravljanje). Posao traje znatno dulje.
+1315|Slika pri svakom podizanju alata, s glavom pomaknutom u stranu (uključite pomicanje na kartici Snimanje). Posao traje znatno dulje.
 1316|Time-lapse slike sa strane
 1317|Pomakni glavu u stranu za svaku sliku
 1318|Tijekom posla svaka slika čeka dok se posao može zaustaviti: glava ide na ovo mjesto, kamera snima, glava se vraća i posao se nastavlja. Glodalica i ploter zaustavljaju se samo s podignutim alatom.
@@ -1328,4 +1328,6 @@
 1327|Na
 1328|dijelova, svaki najmanje
 1329|Put u stranu za slike
-1330|Kamo olovka ide za sliku, nakon što je podignuta; vraća se apsolutnim pomakom. Prazno: mjesto postavljeno na kartici Upravljanje.
+1330|Kamo olovka ide za sliku, nakon što je podignuta; vraća se apsolutnim pomakom. Prazno: mjesto postavljeno na kartici Snimanje.
+1331|Snimanje
+1332|Ova kamera je isključena u postavkama uređaja.

@@ -1313,7 +1313,7 @@
 1312|Rozteč čar
 1313|Časosběr: snímek při každém zvednutí nástroje, s hlavou odjetou stranou.
 1314|Po každém zvednutí
-1315|Snímek při každém zvednutí nástroje, s hlavou odjetou stranou (zapněte odjíždění na kartě Ovládání). Úloha trvá mnohem déle.
+1315|Snímek při každém zvednutí nástroje, s hlavou odjetou stranou (zapněte odjíždění na kartě Záznam). Úloha trvá mnohem déle.
 1316|Časosběrné snímky stranou
 1317|Pro každý snímek odjet hlavou stranou
 1318|Během úlohy každý snímek čeká, až se úloha může zastavit: hlava odjede na toto místo, kamera vyfotí, hlava se vrátí a úloha pokračuje. Frézka a plotr se zastaví jen se zvednutým nástrojem.
@@ -1328,4 +1328,6 @@
 1327|Na
 1328|částí, každá nejméně
 1329|Cesta stranou pro snímky
-1330|Kam pero jede pro časosběrný snímek po zvednutí; vrací se absolutním pohybem. Prázdné: místo nastavené na kartě Ovládání.
+1330|Kam pero jede pro časosběrný snímek po zvednutí; vrací se absolutním pohybem. Prázdné: místo nastavené na kartě Záznam.
+1331|Záznam
+1332|Tato kamera je vypnutá v nastavení zařízení.

@@ -1313,7 +1313,7 @@
 1312|Linijų tarpas
 1313|Time-lapse: nuotrauka kaskart pakėlus įrankį, galvutę patraukus į šoną.
 1314|Po kiekvieno pakėlimo
-1315|Nuotrauka kaskart pakėlus įrankį, galvutę patraukus į šoną (įjunkite patraukimą skirtuke Valdymas). Darbas trunka daug ilgiau.
+1315|Nuotrauka kaskart pakėlus įrankį, galvutę patraukus į šoną (įjunkite patraukimą skirtuke Įrašymas). Darbas trunka daug ilgiau.
 1316|Time-lapse nuotraukos šone
 1317|Patraukti galvutę į šoną kiekvienai nuotraukai
 1318|Darbo metu kiekviena nuotrauka laukia, kol darbas gali sustoti: galvutė nuvažiuoja į šią vietą, kamera fotografuoja, galvutė grįžta ir darbas tęsiasi. Freza ir braižytuvas sustoja tik pakėlus įrankį.
@@ -1328,4 +1328,6 @@
 1327|Į
 1328|dalis, kiekviena bent
 1329|Kelias į šoną nuotraukoms
-1330|Kur rašiklis nuvažiuoja time-lapse nuotraukai, kai pakeltas; grįžta absoliučiu judesiu. Tuščia: vieta, nustatyta skirtuke Valdymas.
+1330|Kur rašiklis nuvažiuoja time-lapse nuotraukai, kai pakeltas; grįžta absoliučiu judesiu. Tuščia: vieta, nustatyta skirtuke Įrašymas.
+1331|Įrašymas
+1332|Ši kamera išjungta įrenginio nustatymuose.

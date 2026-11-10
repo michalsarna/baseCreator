@@ -1313,7 +1313,7 @@
 1312|Rozstup čiar
 1313|Časozber: snímka pri každom zdvihnutí nástroja, s hlavou odsunutou nabok.
 1314|Po každom zdvihnutí
-1315|Snímka pri každom zdvihnutí nástroja, s hlavou odsunutou nabok (zapnite odsúvanie na karte Ovládanie). Úloha trvá oveľa dlhšie.
+1315|Snímka pri každom zdvihnutí nástroja, s hlavou odsunutou nabok (zapnite odsúvanie na karte Záznam). Úloha trvá oveľa dlhšie.
 1316|Časozberné snímky nabok
 1317|Pre každú snímku odsunúť hlavu nabok
 1318|Počas úlohy každá snímka čaká, kým sa úloha môže zastaviť: hlava ide na toto miesto, kamera odfotí, hlava sa vráti a úloha pokračuje. Fréza a plotter sa zastavia len so zdvihnutým nástrojom.
@@ -1328,4 +1328,6 @@
 1327|Na
 1328|častí, každá najmenej
 1329|Cesta nabok pre snímky
-1330|Kam pero ide pre časozbernú snímku po zdvihnutí; vracia sa absolútnym pohybom. Prázdne: miesto nastavené na karte Ovládanie.
+1330|Kam pero ide pre časozbernú snímku po zdvihnutí; vracia sa absolútnym pohybom. Prázdne: miesto nastavené na karte Záznam.
+1331|Záznam
+1332|Táto kamera je vypnutá v nastaveniach zariadenia.

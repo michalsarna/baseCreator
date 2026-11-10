@@ -1313,7 +1313,7 @@
 1312|Distanța dintre linii
 1313|Time-lapse: o fotografie la fiecare ridicare a sculei, cu capul mutat deoparte.
 1314|După fiecare ridicare
-1315|O fotografie la fiecare ridicare a sculei, cu capul mutat deoparte (porniți mutarea în fila Control). Lucrarea durează mult mai mult.
+1315|O fotografie la fiecare ridicare a sculei, cu capul mutat deoparte (porniți mutarea în fila Înregistrare). Lucrarea durează mult mai mult.
 1316|Fotografii time-lapse deoparte
 1317|Mută capul deoparte pentru fiecare fotografie
 1318|În timpul unei lucrări fiecare fotografie așteaptă până când lucrarea se poate opri: capul merge în acest loc, camera face fotografia, capul revine și lucrarea continuă. O freză și un plotter se opresc doar cu scula ridicată.
@@ -1328,4 +1328,6 @@
 1327|În
 1328|părți, fiecare de cel puțin
 1329|Drum deoparte pentru fotografii
-1330|Unde merge creionul pentru o fotografie time-lapse, după ce e ridicat; revine cu o mișcare absolută. Gol: locul setat în fila Control.
+1330|Unde merge creionul pentru o fotografie time-lapse, după ce e ridicat; revine cu o mișcare absolută. Gol: locul setat în fila Înregistrare.
+1331|Înregistrare
+1332|Această cameră este oprită în setările dispozitivului.

@@ -3,77 +3,26 @@
 use crate::i18n::{tr, trf};
 use crate::theme;
 use egui::{RichText, Ui};
-use serde::{Deserialize, Serialize};
 use std::io::{Seek, SeekFrom, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Duration, Instant};
 
-/// When a time-lapse takes a picture.
-#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
-pub enum LapseMode {
-    /// Every `interval` seconds.
-    #[default]
-    Interval,
-    /// When a layer of the job being sent to the machine is done.
-    PerLayer,
-    /// Every time the tool or the pen goes up (a mill, a plotter), with the head moved aside.
-    EveryLift,
-}
-
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct RecSettings {
-    /// Where the pictures and videos go; `None` is the folder `camera` next to the project (`camera00`, `camera01`… when it is there already),
-    /// or the folder `camera` of the shared data folder when the project has no file yet.
-    #[serde(default)]
-    pub dir: Option<PathBuf>,
-    /// Seconds between the pictures of a time-lapse.
-    #[serde(default = "five")]
-    pub interval: f64,
-    #[serde(default)]
-    pub mode: LapseMode,
-    /// The file of a video.
-    #[serde(default)]
-    pub format: VideoFormat,
-}
-
-/// The file a video is written as.
-#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
-pub enum VideoFormat {
-    /// The way that needs the least from the computer: the stream of an IP camera is copied into an MP4 file as it comes (nothing is
-    /// decoded or encoded again); a camera that gives one picture after another is written as an AVI of Motion-JPEG pictures.
-    #[default]
-    Auto,
-    /// An MP4 file: a copy of the stream. Only a stream (rtsp, udp, rtp, rtmp) can be copied; another camera is written as AVI.
-    Mp4,
-    /// An AVI file of Motion-JPEG pictures, whatever the camera is.
-    Avi,
-}
-
-fn five() -> f64 {
-    5.0
-}
-
-impl Default for RecSettings {
-    fn default() -> RecSettings {
-        RecSettings { dir: None, interval: 5.0, mode: LapseMode::Interval, format: VideoFormat::Auto }
-    }
-}
+pub use base_core::camimg::{LapseMode, RecSettings, VideoFormat};
 
 fn settings_file() -> Option<PathBuf> {
     base_core::paths::base_dir().map(|d| d.join("camera_recording.json"))
 }
 
-impl RecSettings {
-    pub fn load() -> RecSettings {
-        let mut s: RecSettings = settings_file().and_then(|f| std::fs::read_to_string(f).ok()).and_then(|t| serde_json::from_str(&t).ok()).unwrap_or_default();
-        s.interval = if s.interval.is_finite() { s.interval.clamp(0.2, 86_400.0) } else { 5.0 };
-        s
-    }
+/// The recording settings last used, the start of a camera that has none of its own yet.
+pub fn load_settings() -> RecSettings {
+    let s: RecSettings = settings_file().and_then(|f| std::fs::read_to_string(f).ok()).and_then(|t| serde_json::from_str(&t).ok()).unwrap_or_default();
+    s.clamped()
+}
 
-    pub fn store(&self) {
-        if let (Some(f), Ok(t)) = (settings_file(), serde_json::to_string_pretty(self)) {
-            let _ = std::fs::write(f, t);
-        }
+/// Keep the settings as the last used.
+pub fn store_settings(s: &RecSettings) {
+    if let (Some(f), Ok(t)) = (settings_file(), serde_json::to_string_pretty(s)) {
+        let _ = std::fs::write(f, t);
     }
 }
 
@@ -283,6 +232,9 @@ pub struct StreamSource {
     pub opts: crate::ffmpeg::StreamOptions,
 }
 
+/// The folder of the run of a project, shared by the recorders of all the cameras of a device.
+pub type Shared = std::sync::Arc<std::sync::Mutex<Option<(PathBuf, PathBuf)>>>;
+
 struct Lapse {
     dir: PathBuf,
     shots: u32,
@@ -307,21 +259,23 @@ pub struct Recorder {
     pub lift_mode: bool,
     /// The project file the pictures belong to: its folder holds the folder of the pictures, its name starts the names of the files.
     project: Option<PathBuf>,
-    /// The folder chosen for a folder of a project, kept for the rest of the run.
-    chosen: Option<(PathBuf, PathBuf)>,
+    /// The folder chosen for a folder of a project, kept for the rest of the run; shared by the recorders of all the cameras.
+    chosen: Shared,
+    /// The camera in the names of the files (`box-Top_camera-photo-0001.jpg`) when a device has more than one; empty: none.
+    pub cam_tag: String,
     /// The stream of the camera, when it is one that can be copied (an address that ffmpeg reads).
     source: Option<StreamSource>,
 }
 
 impl Default for Recorder {
     fn default() -> Recorder {
-        Recorder::new(RecSettings::load())
+        Recorder::new(load_settings())
     }
 }
 
 impl Recorder {
     pub fn new(settings: RecSettings) -> Recorder {
-        Recorder { settings, message: String::new(), video: None, lapse: None, latest: None, latest_at: None, parked: false, trip_wanted: false, lift_mode: false, project: None, chosen: None, source: None }
+        Recorder { settings, message: String::new(), video: None, lapse: None, latest: None, latest_at: None, parked: false, trip_wanted: false, lift_mode: false, project: None, chosen: Shared::default(), cam_tag: String::new(), source: None }
     }
 
     /// Does the camera have to be kept running (a video or a time-lapse is being made)?
@@ -369,10 +323,23 @@ impl Recorder {
         s.chars().map(|c| if c.is_alphanumeric() || matches!(c, '-' | '_' | '.' | ' ') { c } else { '_' }).collect::<String>().trim().to_string()
     }
 
-    /// `{project}-{kind}`, or just `kind` when there is no project file.
+    /// `{project}-{camera}-{kind}`: the project part when there is a project file, the camera part when it has a tag.
     fn prefix(&self, kind: &str) -> String {
-        let s = self.stem();
-        if s.is_empty() { kind.to_string() } else { format!("{s}-{kind}") }
+        let tag: String = self.cam_tag.chars().map(|c| if c.is_alphanumeric() || matches!(c, '-' | '_') { c } else { '_' }).collect();
+        [self.stem(), tag, kind.to_string()].into_iter().filter(|p| !p.is_empty()).collect::<Vec<_>>().join("-")
+    }
+
+    /// Use the same folder of this run as the other recorders of `chosen`.
+    pub fn share_folder(&mut self, chosen: &Shared) {
+        self.chosen = chosen.clone();
+    }
+
+    /// The camera went away: what it records is finished (the video file is closed).
+    pub fn finish(&mut self) {
+        if self.video.is_some() {
+            self.stop_video(Instant::now());
+        }
+        self.stop_lapse();
     }
 
     /// The folder `camera` next to the project file: the first of `camera`, `camera00`, `camera01`… that is not there yet.
@@ -390,7 +357,7 @@ impl Recorder {
             return Some(d.clone());
         }
         let base = self.project.as_ref().and_then(|p| p.parent())?;
-        match &self.chosen {
+        match &*self.chosen.lock().unwrap() {
             Some((b, d)) if b == base => Some(d.clone()),
             _ => Some(Self::free_camera_folder(base)),
         }
@@ -401,11 +368,12 @@ impl Recorder {
         let dir = if let Some(d) = self.settings.dir.clone() {
             d
         } else if let Some(base) = self.project.as_ref().and_then(|p| p.parent()).filter(|b| !b.as_os_str().is_empty()).map(Path::to_path_buf) {
-            match &self.chosen {
+            let mut chosen = self.chosen.lock().unwrap();
+            match &*chosen {
                 Some((b, d)) if *b == base => d.clone(),
                 _ => {
                     let d = Self::free_camera_folder(&base);
-                    self.chosen = Some((base, d.clone()));
+                    *chosen = Some((base, d.clone()));
                     d
                 }
             }
@@ -661,11 +629,10 @@ impl Recorder {
         }
     }
 
-    /// The buttons: photo, video, time-lapse and the folder.
-    pub fn controls(&mut self, ui: &mut Ui) {
+    /// The buttons of the camera view: a photo, a video, the time-lapse started and stopped. The settings are on the Recording tab.
+    pub fn quick(&mut self, ui: &mut Ui) {
         let now = Instant::now();
         let has = self.latest.is_some();
-        let mut changed = false;
         ui.horizontal_wrapped(|ui| {
             if ui.add_enabled(has, egui::Button::new(tr("Take a photo"))).clicked() {
                 self.photo();
@@ -687,7 +654,30 @@ impl Recorder {
                     }
                 }
             }
+            match self.lapse_shots() {
+                Some(n) => {
+                    if ui.button(tr("Stop time-lapse")).clicked() {
+                        self.stop_lapse();
+                    }
+                    ui.label(RichText::new(trf("{} pictures", &[&n])).color(theme::text_dim()));
+                }
+                None => {
+                    if ui.add_enabled(has, egui::Button::new(tr("Start time-lapse"))).clicked() {
+                        self.start_lapse(now);
+                    }
+                }
+            }
         });
+        if !self.message.is_empty() {
+            ui.label(RichText::new(&self.message).small().color(theme::text_dim()));
+        }
+    }
+
+    /// Everything: the buttons, the video format, the way of the time-lapse and the folder. Returns whether the settings changed
+    /// (the program keeps them with the camera then; they are also the start of a camera that has none yet).
+    pub fn controls(&mut self, ui: &mut Ui) -> bool {
+        let mut changed = false;
+        self.quick(ui);
         ui.horizontal_wrapped(|ui| {
             ui.label(tr("Video format"));
             let hint = tr("Automatic is the way that needs the least from the computer: the stream of an IP camera is copied into an MP4 file as it comes, nothing is decoded or encoded again. A camera that gives one picture after another is written as AVI.");
@@ -708,21 +698,8 @@ impl Recorder {
             if self.lift_mode || self.settings.mode == LapseMode::EveryLift {
                 changed |= ui
                     .selectable_value(&mut self.settings.mode, LapseMode::EveryLift, tr("After every lift"))
-                    .on_hover_text(tr("A picture every time the tool goes up, with the head moved aside (switch on moving aside on the Control tab). The job takes much longer."))
+                    .on_hover_text(tr("A picture every time the tool goes up, with the head moved aside (switch on moving aside on the Recording tab). The job takes much longer."))
                     .changed();
-            }
-            match self.lapse_shots() {
-                Some(n) => {
-                    if ui.button(tr("Stop time-lapse")).clicked() {
-                        self.stop_lapse();
-                    }
-                    ui.label(RichText::new(trf("{} pictures", &[&n])).color(theme::text_dim()));
-                }
-                None => {
-                    if ui.add_enabled(has, egui::Button::new(tr("Start time-lapse"))).clicked() {
-                        self.start_lapse(now);
-                    }
-                }
             }
         });
         ui.horizontal_wrapped(|ui| {
@@ -736,12 +713,129 @@ impl Recorder {
                 }
             }
         });
-        if !self.message.is_empty() {
-            ui.label(RichText::new(&self.message).small().color(theme::text_dim()));
-        }
         if changed {
-            self.settings.store();
+            store_settings(&self.settings);
         }
+        changed
+    }
+}
+
+// ---------------------------------------------------------------- the cameras of a device
+
+/// The recorder of one camera, and the feed it reads itself when the camera is not the one the view shows.
+pub struct Rig {
+    pub rec: Recorder,
+    feed: Option<crate::camera_feed::CamFeed>,
+    /// When this camera stopped being the one of the view: its own feed waits a moment, the view's may still hold the camera.
+    left_view: Option<Instant>,
+}
+
+/// How long a camera that left the view waits before a recording opens it on its own.
+const HANDOVER: Duration = Duration::from_secs(1);
+
+/// The recorders of all the cameras of a device: each camera takes its own photos, videos and time-lapse, with its own settings.
+/// The camera the view shows gets its pictures from the view (`feed`); one that is not shown and records reads its own.
+#[derive(Default)]
+pub struct Rigs {
+    pub rigs: Vec<Rig>,
+    chosen: Shared,
+    /// The machine lifts a tool (a mill, a plotter): "after every lift" is offered.
+    pub lift_mode: bool,
+    view: Option<usize>,
+}
+
+impl Rigs {
+    /// One recorder for each camera, in the order of the cameras. A new camera starts with its own settings or the ones last used;
+    /// the recorder of a camera that went away, or was switched off, finishes what it records.
+    pub fn sync(&mut self, cams: &[base_core::camimg::CameraSource], project: Option<&Path>) {
+        while self.rigs.len() > cams.len() {
+            if let Some(mut r) = self.rigs.pop() {
+                r.rec.finish();
+            }
+        }
+        while self.rigs.len() < cams.len() {
+            let c = &cams[self.rigs.len()];
+            let mut rec = Recorder::new(c.rec.clone().map(RecSettings::clamped).unwrap_or_else(load_settings));
+            rec.share_folder(&self.chosen);
+            self.rigs.push(Rig { rec, feed: None, left_view: None });
+        }
+        let many = cams.len() > 1;
+        for (r, c) in self.rigs.iter_mut().zip(cams) {
+            r.rec.lift_mode = self.lift_mode;
+            r.rec.cam_tag = if many { c.name.clone() } else { String::new() };
+            r.rec.set_project(project);
+            r.rec.set_source(Some(c));
+            // The settings kept with the camera (another device, a camera changed elsewhere), unless it is recording now.
+            if let Some(s) = &c.rec {
+                if !r.rec.active() && r.rec.settings != *s {
+                    r.rec.settings = s.clone().clamped();
+                }
+            }
+            if !c.enabled && r.rec.active() {
+                r.rec.finish();
+            }
+        }
+    }
+
+    /// The recorder of camera `i`.
+    pub fn rec(&mut self, i: usize) -> Option<&mut Recorder> {
+        self.rigs.get_mut(i).map(|r| &mut r.rec)
+    }
+
+    /// The recorder of camera `i`, to look at.
+    pub fn get(&self, i: usize) -> Option<&Recorder> {
+        self.rigs.get(i).map(|r| &r.rec)
+    }
+
+    /// Does camera `i` record (a video or a time-lapse), so its pictures must keep coming?
+    pub fn active(&self, i: usize) -> bool {
+        self.rigs.get(i).is_some_and(|r| r.rec.active())
+    }
+
+    /// A picture of camera `i` from the view.
+    pub fn feed(&mut self, i: usize, now: Instant, w: u32, h: u32, rgb: Vec<u8>) {
+        if let Some(r) = self.rigs.get_mut(i) {
+            r.rec.feed(now, w, h, rgb);
+        }
+    }
+
+    /// Every frame: `view` is the camera the view shows (or none). The time-lapses that are due take their pictures; a camera that
+    /// records and is not shown reads its own feed.
+    pub fn pump(&mut self, ctx: &egui::Context, cams: &[base_core::camimg::CameraSource], view: Option<usize>, now: Instant) {
+        if self.view != view {
+            if let Some(r) = self.view.and_then(|i| self.rigs.get_mut(i)) {
+                r.left_view = Some(now);
+            }
+            self.view = view;
+        }
+        for (i, (r, c)) in self.rigs.iter_mut().zip(cams).enumerate() {
+            let own = Some(i) != view && c.enabled && r.rec.active() && r.left_view.is_none_or(|t| now.duration_since(t) >= HANDOVER);
+            if !own {
+                r.feed = None;
+                r.rec.tick(now);
+                continue;
+            }
+            if !r.feed.as_ref().is_some_and(|f| f.is_for(c)) {
+                r.feed = Some(crate::camera_feed::CamFeed::start(ctx, c));
+            }
+            let f = r.feed.as_mut().expect("just made");
+            if f.pump(ctx, c) {
+                if let Some((w, h, rgb)) = f.last.clone() {
+                    r.rec.feed(now, w as u32, h as u32, rgb);
+                }
+            }
+            r.rec.tick(now);
+        }
+    }
+
+    /// Is any camera reading its own feed (the program asks for frames to keep coming)?
+    pub fn reading(&self) -> bool {
+        self.rigs.iter().any(|r| r.feed.is_some())
+    }
+
+    /// The recorders of all the cameras.
+    pub fn recorders(&mut self) -> Vec<&mut Recorder> {
+        self.rigs.iter_mut().map(|r| &mut r.rec).collect()
     }
 }
 
@@ -958,6 +1052,44 @@ mod tests {
         r.layer_done(t + Duration::from_secs(102));
         assert_eq!(r.lapse_shots(), Some(2));
         assert!(dir.join("timelapse-0002").join("layer-00002.jpg").exists());
+        std::fs::remove_dir_all(dir).ok();
+    }
+
+    #[test]
+    fn every_camera_has_its_own_recorder_settings_and_names_and_they_share_one_folder() {
+        use base_core::camimg::CameraSource;
+        let dir = temp("rigs");
+        let project = dir.join("box.lc");
+        let mut cams = vec![CameraSource::url("Top camera", "http://127.0.0.1:1/a", 0)];
+        cams[0].rec = Some(RecSettings { interval: 9.0, ..Default::default() });
+        let mut rigs = Rigs::default();
+        rigs.lift_mode = true;
+        rigs.sync(&cams, Some(&project));
+        assert_eq!(rigs.rigs.len(), 1);
+        assert_eq!(rigs.rec(0).unwrap().settings.interval, 9.0, "the camera's own settings");
+        assert!(rigs.rec(0).unwrap().lift_mode);
+        let t = Instant::now();
+        let (w, h, p) = picture(90);
+        rigs.feed(0, t, w, h, p.clone());
+        // One camera: the names as before.
+        let one = rigs.rec(0).unwrap().photo().unwrap();
+        assert_eq!(one.file_name().unwrap(), "box-photo-0001.jpg");
+        // Two cameras: the names have the camera, and both go into the same folder of the run.
+        cams.push(CameraSource::url("Side cam", "http://127.0.0.1:1/b", 0));
+        rigs.sync(&cams, Some(&project));
+        rigs.feed(1, t, w, h, p);
+        let side = rigs.rec(1).unwrap().photo().unwrap();
+        assert_eq!(side.file_name().unwrap(), "box-Side_cam-photo-0001.jpg");
+        assert_eq!(side.parent(), one.parent(), "one folder for the cameras");
+        // The settings changed with the camera reach its recorder; a camera that goes away finishes its time-lapse.
+        cams[1].rec = Some(RecSettings { mode: LapseMode::PerLayer, ..Default::default() });
+        rigs.sync(&cams, Some(&project));
+        assert_eq!(rigs.rec(1).unwrap().settings.mode, LapseMode::PerLayer);
+        rigs.rec(1).unwrap().start_lapse(t);
+        assert!(rigs.active(1));
+        cams.pop();
+        rigs.sync(&cams, Some(&project));
+        assert_eq!(rigs.rigs.len(), 1);
         std::fs::remove_dir_all(dir).ok();
     }
 

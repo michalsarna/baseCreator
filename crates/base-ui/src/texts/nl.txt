@@ -1313,7 +1313,7 @@
 1312|Afstand tussen de lijnen
 1313|Time-lapse: een foto telkens als het gereedschap omhooggaat, met de kop opzij.
 1314|Na elke keer optillen
-1315|Een foto telkens als het gereedschap omhooggaat, met de kop opzij (zet het opzij rijden aan op het tabblad Besturing). De taak duurt veel langer.
+1315|Een foto telkens als het gereedschap omhooggaat, met de kop opzij (zet het opzij rijden aan op het tabblad Opname). De taak duurt veel langer.
 1316|Time-lapsefoto's opzij
 1317|De kop opzij rijden voor elke foto
 1318|Tijdens een taak wacht elke foto tot de taak kan stoppen: de kop gaat naar deze plek, de camera maakt de foto, de kop komt terug en de taak gaat verder. Een frees en een plotter stoppen alleen met het gereedschap omhoog.
@@ -1328,4 +1328,6 @@
 1327|In
 1328|delen, elk minstens
 1329|Weg opzij voor foto's
-1330|Waar de pen heen gaat voor een time-lapsefoto, nadat hij omhoog is; hij komt terug met een absolute beweging. Leeg: de plek op het tabblad Besturing.
+1330|Waar de pen heen gaat voor een time-lapsefoto, nadat hij omhoog is; hij komt terug met een absolute beweging. Leeg: de plek op het tabblad Opname.
+1331|Opname
+1332|Deze camera staat uit in de apparaatinstellingen.
