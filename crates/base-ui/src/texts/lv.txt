@@ -1313,7 +1313,7 @@
 1312|Līniju atstarpe
 1313|Time-lapse: attēls katru reizi, kad instruments paceļas, ar galvu pārvietotu malā.
 1314|Pēc katras pacelšanas
-1315|Attēls katru reizi, kad instruments paceļas, ar galvu pārvietotu malā (ieslēdziet pārvietošanu cilnē Vadība). Darbs ilgst daudz ilgāk.
+1315|Attēls katru reizi, kad instruments paceļas, ar galvu pārvietotu malā (ieslēdziet pārvietošanu cilnē Ierakstīšana). Darbs ilgst daudz ilgāk.
 1316|Time-lapse attēli malā
 1317|Pārvietot galvu malā katram attēlam
 1318|Darba laikā katrs attēls gaida, līdz darbs var apstāties: galva dodas uz šo vietu, kamera uzņem attēlu, galva atgriežas un darbs turpinās. Frēze un ploteris apstājas tikai ar paceltu instrumentu.
@@ -1328,4 +1328,6 @@
 1327|Daļās:
 1328|katra vismaz
 1329|Ceļš malā attēliem
-1330|Kur pildspalva dodas time-lapse attēlam pēc pacelšanas; tā atgriežas ar absolūtu kustību. Tukšs: vieta, kas iestatīta cilnē Vadība.
+1330|Kur pildspalva dodas time-lapse attēlam pēc pacelšanas; tā atgriežas ar absolūtu kustību. Tukšs: vieta, kas iestatīta cilnē Ierakstīšana.
+1331|Ierakstīšana
+1332|Šī kamera ir izslēgta ierīces iestatījumos.

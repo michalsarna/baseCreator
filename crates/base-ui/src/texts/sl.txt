@@ -1313,7 +1313,7 @@
 1312|Razmik med črtami
 1313|Časovni zamik: slika ob vsakem dvigu orodja, z glavo umaknjeno vstran.
 1314|Po vsakem dvigu
-1315|Slika ob vsakem dvigu orodja, z glavo umaknjeno vstran (vklopite umik na zavihku Upravljanje). Delo traja veliko dlje.
+1315|Slika ob vsakem dvigu orodja, z glavo umaknjeno vstran (vklopite umik na zavihku Snemanje). Delo traja veliko dlje.
 1316|Slike s časovnim zamikom ob strani
 1317|Umakni glavo vstran za vsako sliko
 1318|Med delom vsaka slika počaka, da se delo lahko ustavi: glava gre na to mesto, kamera posname sliko, glava se vrne in delo se nadaljuje. Rezkalnik in risalnik se ustavita le z dvignjenim orodjem.
@@ -1328,4 +1328,6 @@
 1327|Na
 1328|delov, vsak vsaj
 1329|Pot vstran za slike
-1330|Kam gre pisalo za sliko s časovnim zamikom, ko je dvignjeno; vrne se z absolutnim premikom. Prazno: mesto, nastavljeno na zavihku Upravljanje.
+1330|Kam gre pisalo za sliko s časovnim zamikom, ko je dvignjeno; vrne se z absolutnim premikom. Prazno: mesto, nastavljeno na zavihku Snemanje.
+1331|Snemanje
+1332|Ta kamera je izklopljena v nastavitvah naprave.

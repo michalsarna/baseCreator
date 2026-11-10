@@ -1313,7 +1313,7 @@
 1312|Distanza bejn il-linji
 1313|Time-lapse: stampa kull darba li l-għodda titla', bir-ras imwarrba.
 1314|Wara kull tlugħ
-1315|Stampa kull darba li l-għodda titla', bir-ras imwarrba (ixgħel it-twarrib fit-tab Kontroll). Ix-xogħol jieħu ħafna aktar żmien.
+1315|Stampa kull darba li l-għodda titla', bir-ras imwarrba (ixgħel it-twarrib fit-tab Reġistrazzjoni). Ix-xogħol jieħu ħafna aktar żmien.
 1316|Ritratti time-lapse fil-ġenb
 1317|Warrab ir-ras għal kull ritratt
 1318|Waqt xogħol kull ritratt jistenna sakemm ix-xogħol ikun jista' jieqaf: ir-ras tmur f'dan il-post, il-kamera tieħu r-ritratt, ir-ras terġa' lura u x-xogħol ikompli. Mitħna u plotter jieqfu biss bl-għodda merfugħa.
@@ -1328,4 +1328,6 @@
 1327|F'
 1328|partijiet, kull waħda mill-inqas
 1329|Triq fil-ġenb għar-ritratti
-1330|Fejn tmur il-pinna għal ritratt time-lapse, wara li titla'; terġa' lura b'moviment assolut. Vojt: il-post issettjat fit-tab Kontroll.
+1330|Fejn tmur il-pinna għal ritratt time-lapse, wara li titla'; terġa' lura b'moviment assolut. Vojt: il-post issettjat fit-tab Reġistrazzjoni.
+1331|Reġistrazzjoni
+1332|Din il-kamera hija mitfija fis-settings tal-apparat.

@@ -1313,7 +1313,7 @@
 1312|Bil milli lína
 1313|Time-lapse: mynd í hvert sinn sem verkfærið lyftist, með hausinn færðan til hliðar.
 1314|Eftir hverja lyftingu
-1315|Mynd í hvert sinn sem verkfærið lyftist, með hausinn færðan til hliðar (kveiktu á því í flipanum Stjórnun). Verkið tekur mun lengri tíma.
+1315|Mynd í hvert sinn sem verkfærið lyftist, með hausinn færðan til hliðar (kveiktu á því í flipanum Upptaka). Verkið tekur mun lengri tíma.
 1316|Time-lapse myndir til hliðar
 1317|Færa hausinn til hliðar fyrir hverja mynd
 1318|Meðan á verki stendur bíður hver mynd þar til verkið getur stöðvast: hausinn fer á þennan stað, myndavélin tekur myndina, hausinn kemur aftur og verkið heldur áfram. Fræs og teiknari stöðvast aðeins með verkfærið uppi.
@@ -1328,4 +1328,6 @@
 1327|Í
 1328|hluta, hver að minnsta kosti
 1329|Leið til hliðar fyrir myndir
-1330|Hvert penninn fer fyrir time-lapse mynd eftir að honum er lyft; hann kemur til baka með algildri hreyfingu. Tómt: staðurinn sem er stilltur í flipanum Stjórnun.
+1330|Hvert penninn fer fyrir time-lapse mynd eftir að honum er lyft; hann kemur til baka með algildri hreyfingu. Tómt: staðurinn sem er stilltur í flipanum Upptaka.
+1331|Upptaka
+1332|Slökkt er á þessari myndavél í stillingum tækisins.

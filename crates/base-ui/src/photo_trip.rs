@@ -173,24 +173,43 @@ impl Trips {
         }
     }
 
-    /// Every frame: the pictures that are due ask for a stop, the picture is taken once the head stands aside.
+    /// Every frame, for one camera: see `frame_all`.
     pub fn frame(&mut self, rec: &mut crate::camera_rec::Recorder, now: Instant, send: &mut dyn FnMut(Cmd)) {
-        rec.parked = self.trip.is_some();
+        self.frame_all(vec![rec], now, send);
+    }
+
+    /// Every frame, for the recorders of all the cameras: a picture due on any of them stops the job at its next stop point; once the
+    /// head stands aside, every camera whose time-lapse runs takes its picture (after a picture of each that came after the wait).
+    pub fn frame_all(&mut self, mut recs: Vec<&mut crate::camera_rec::Recorder>, now: Instant, send: &mut dyn FnMut(Cmd)) {
+        for r in recs.iter_mut() {
+            r.parked = self.trip.is_some();
+        }
         let Some(t) = &mut self.trip else {
             // Asked for while a job ran that has ended since (its last layer): taken where the head is.
-            if rec.take_trip_request() {
-                rec.trip_shot(now);
+            for r in recs.iter_mut() {
+                if r.take_trip_request() {
+                    r.trip_shot(now);
+                }
             }
             return;
         };
-        let every = rec.lapse_shots().is_some() && rec.settings.mode == crate::camera_rec::LapseMode::EveryLift;
+        let every = recs.iter().any(|r| r.lapse_shots().is_some() && r.settings.mode == crate::camera_rec::LapseMode::EveryLift);
         t.set_every_lift(every).into_iter().for_each(&mut *send);
-        if rec.take_trip_request() {
+        let mut wanted = false;
+        for r in recs.iter_mut() {
+            wanted |= r.take_trip_request();
+        }
+        if wanted {
             t.request().into_iter().for_each(&mut *send);
         }
-        let (cmds, shoot) = t.tick(now, rec.frame_at());
+        // The oldest of the newest pictures of the cameras that take one; none of them: nothing to wait for.
+        let lapsing: Vec<Option<Instant>> = recs.iter().filter(|r| r.lapsing()).map(|r| r.frame_at()).collect();
+        let frame_at = if lapsing.is_empty() { Some(now) } else if lapsing.iter().any(Option::is_none) { None } else { lapsing.into_iter().flatten().min() };
+        let (cmds, shoot) = t.tick(now, frame_at);
         if shoot {
-            rec.trip_shot(now);
+            for r in recs.iter_mut().filter(|r| r.lapsing()) {
+                r.trip_shot(now);
+            }
         }
         cmds.into_iter().for_each(send);
     }
@@ -268,6 +287,43 @@ mod tests {
         sent.clear();
         trips.stopped(8, &mut |c| sent.push(c));
         assert_eq!(names(&sent), ["continue"]);
+    }
+
+    #[test]
+    fn with_two_cameras_a_picture_due_on_one_parks_the_head_and_both_take_a_new_picture() {
+        use crate::camera_rec::{LapseMode, RecSettings, Recorder};
+        let dir = std::env::temp_dir().join(format!("trip-two-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        let t0 = Instant::now();
+        let mk = |sub: &str| {
+            let mut r = Recorder::new(RecSettings { dir: Some(dir.join(sub)), interval: 1000.0, mode: LapseMode::PerLayer, format: Default::default() });
+            r.feed(t0, 4, 2, vec![50; 24]);
+            r.parked = true;
+            r.start_lapse(t0);
+            r
+        };
+        let (mut a, mut b) = (mk("a"), mk("b"));
+        let mut trips = Trips::default();
+        let mut sent = vec![];
+        trips.start(&prog(), Some(setup(false, false)), &mut |c| sent.push(c));
+        a.layer_done(t0);
+        sent.clear();
+        trips.frame_all(vec![&mut a, &mut b], t0, &mut |c| sent.push(c));
+        assert_eq!(names(&sent), ["arm true"], "one camera asks, the job stops");
+        trips.stopped(8, &mut |c| sent.push(c));
+        let ready = t0 + Duration::from_millis(10);
+        trips.ready(ready);
+        // Camera a has a new picture, b not yet: wait.
+        let later = ready + Duration::from_millis(1100);
+        a.feed(later, 4, 2, vec![60; 24]);
+        sent.clear();
+        trips.frame_all(vec![&mut a, &mut b], later, &mut |c| sent.push(c));
+        assert!(sent.is_empty() && a.lapse_shots() == Some(0));
+        b.feed(later, 4, 2, vec![70; 24]);
+        trips.frame_all(vec![&mut a, &mut b], later, &mut |c| sent.push(c));
+        assert_eq!((a.lapse_shots(), b.lapse_shots()), (Some(1), Some(1)), "both cameras");
+        assert_eq!(names(&sent).last().unwrap(), "continue");
+        std::fs::remove_dir_all(dir).ok();
     }
 
     #[test]

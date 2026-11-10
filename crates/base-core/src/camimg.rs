@@ -117,11 +117,14 @@ pub struct CameraSource {
     /// A stream (RTSP, UDP, RTP, RTMP) read without buffering: the newest picture sooner, a picture that can stutter. Off by default.
     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
     pub low_latency: bool,
+    /// How this camera records (photos, video, time-lapse); `None` until changed: the settings last used.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub rec: Option<RecSettings>,
 }
 
 impl CameraSource {
     pub fn url(name: &str, url: &str, rotation: u8) -> CameraSource {
-        CameraSource { name: name.into(), enabled: true, kind: CameraKind::Url(url.into()), rotation: rotation % 4, image: ImageSettings::default(), lens: Lens::default(), reference: vec![], view_mode: None, rtsp_udp: false, low_latency: false }
+        CameraSource { name: name.into(), enabled: true, kind: CameraKind::Url(url.into()), rotation: rotation % 4, image: ImageSettings::default(), lens: Lens::default(), reference: vec![], view_mode: None, rtsp_udp: false, low_latency: false, rec: None }
     }
 
     /// Is the address a usable http / https URL (or a local camera chosen)? A camera that is not valid cannot be
@@ -394,3 +397,68 @@ impl CameraView {
         self.mode <= 3 && self.zoom.is_finite() && (1.0..=8.0).contains(&self.zoom) && pair(&self.float_pos, -20_000.0, 20_000.0) && pair(&self.win_pos, -20_000.0, 20_000.0) && pair(&self.float_size, 100.0, 20_000.0) && pair(&self.win_size, 100.0, 20_000.0)
     }
 }
+
+// ---------------------------------------------------------------- recording
+
+/// How a camera records: the folder, the time-lapse and the file of a video. Kept with each camera (`CameraSource::rec`).
+/// When a time-lapse takes a picture.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub enum LapseMode {
+    /// Every `interval` seconds.
+    #[default]
+    Interval,
+    /// When a layer of the job being sent to the machine is done.
+    PerLayer,
+    /// Every time the tool or the pen goes up (a mill, a plotter), with the head moved aside.
+    EveryLift,
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[serde(default)]
+pub struct RecSettings {
+    /// Where the pictures and videos go; `None` is the folder `camera` next to the project (`camera00`, `camera01`… when it is there already),
+    /// or the folder `camera` of the shared data folder when the project has no file yet.
+    #[serde(default)]
+    pub dir: Option<std::path::PathBuf>,
+    /// Seconds between the pictures of a time-lapse.
+    #[serde(default = "five")]
+    pub interval: f64,
+    #[serde(default)]
+    pub mode: LapseMode,
+    /// The file of a video.
+    #[serde(default)]
+    pub format: VideoFormat,
+}
+
+/// The file a video is written as.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub enum VideoFormat {
+    /// The way that needs the least from the computer: the stream of an IP camera is copied into an MP4 file as it comes (nothing is
+    /// decoded or encoded again); a camera that gives one picture after another is written as an AVI of Motion-JPEG pictures.
+    #[default]
+    Auto,
+    /// An MP4 file: a copy of the stream. Only a stream (rtsp, udp, rtp, rtmp) can be copied; another camera is written as AVI.
+    Mp4,
+    /// An AVI file of Motion-JPEG pictures, whatever the camera is.
+    Avi,
+}
+
+fn five() -> f64 {
+    5.0
+}
+
+impl Default for RecSettings {
+    fn default() -> RecSettings {
+        RecSettings { dir: None, interval: 5.0, mode: LapseMode::Interval, format: VideoFormat::Auto }
+    }
+}
+
+impl RecSettings {
+    /// The numbers within their limits (a file may hold anything).
+    pub fn clamped(mut self) -> RecSettings {
+        self.interval = if self.interval.is_finite() { self.interval.clamp(0.2, 86_400.0) } else { 5.0 };
+        self
+    }
+}
+
+

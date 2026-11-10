@@ -1313,7 +1313,7 @@
 1312|Joonte vahe
 1313|Time-lapse: pilt iga kord, kui tööriist tõuseb, pea kõrvale viidud.
 1314|Pärast iga tõstet
-1315|Pilt iga kord, kui tööriist tõuseb, pea kõrvale viidud (lülita kõrvale viimine sisse vahekaardil Juhtimine). Töö kestab palju kauem.
+1315|Pilt iga kord, kui tööriist tõuseb, pea kõrvale viidud (lülita kõrvale viimine sisse vahekaardil Salvestamine). Töö kestab palju kauem.
 1316|Time-lapse pildid kõrvalt
 1317|Vii pea iga pildi jaoks kõrvale
 1318|Töö ajal ootab iga pilt, kuni töö saab peatuda: pea läheb sellesse kohta, kaamera teeb pildi, pea tuleb tagasi ja töö jätkub. Frees ja plotter peatuvad ainult tõstetud tööriistaga.
@@ -1328,4 +1328,6 @@
 1327|Osadeks
 1328|igaüks vähemalt
 1329|Kõrvale liikumine piltide jaoks
-1330|Kuhu pliiats läheb time-lapse pildi jaoks pärast tõstmist; see tuleb tagasi absoluutse liikumisega. Tühi: vahekaardil Juhtimine määratud koht.
+1330|Kuhu pliiats läheb time-lapse pildi jaoks pärast tõstmist; see tuleb tagasi absoluutse liikumisega. Tühi: vahekaardil Salvestamine määratud koht.
+1331|Salvestamine
+1332|See kaamera on seadme seadetes välja lülitatud.

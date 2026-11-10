@@ -1313,7 +1313,7 @@
 1312|Distància entre línies
 1313|Time-lapse: una foto cada vegada que l'eina puja, amb el capçal apartat.
 1314|Després de cada elevació
-1315|Una foto cada vegada que l'eina puja, amb el capçal apartat (activeu l'apartament a la pestanya Control). La feina dura molt més.
+1315|Una foto cada vegada que l'eina puja, amb el capçal apartat (activeu l'apartament a la pestanya Enregistrament). La feina dura molt més.
 1316|Fotos de time-lapse apartades
 1317|Aparta el capçal per a cada foto
 1318|Durant una feina cada foto del time-lapse espera que la feina es pugui aturar: el capçal va a aquest lloc, la càmera fa la foto, el capçal torna i la feina continua. Una fresadora i un traçador només s'aturen amb l'eina aixecada.
@@ -1328,4 +1328,6 @@
 1327|En
 1328|parts, cadascuna com a mínim
 1329|Camí a un costat per a les fotos
-1330|On va la ploma per a una foto del time-lapse, un cop aixecada; torna amb un moviment absolut. Buit: el lloc definit a la pestanya Control.
+1330|On va la ploma per a una foto del time-lapse, un cop aixecada; torna amb un moviment absolut. Buit: el lloc definit a la pestanya Enregistrament.
+1331|Enregistrament
+1332|Aquesta càmera està desactivada a la configuració del dispositiu.

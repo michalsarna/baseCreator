@@ -1313,7 +1313,7 @@
 1312|Distancia entre líneas
 1313|Time-lapse: una foto cada vez que la herramienta sube, con el cabezal apartado.
 1314|Después de cada elevación
-1315|Una foto cada vez que la herramienta sube, con el cabezal apartado (active el apartado en la pestaña Control). El trabajo tarda mucho más.
+1315|Una foto cada vez que la herramienta sube, con el cabezal apartado (active el apartado en la pestaña Grabación). El trabajo tarda mucho más.
 1316|Fotos de time-lapse apartadas
 1317|Apartar el cabezal para cada foto
 1318|Durante un trabajo cada foto espera a que el trabajo pueda detenerse: el cabezal va a este lugar, la cámara hace la foto, el cabezal vuelve y el trabajo sigue. Una fresadora y un plóter solo se detienen con la herramienta levantada.
@@ -1328,4 +1328,6 @@
 1327|En
 1328|partes, cada una de al menos
 1329|Camino a un lado para las fotos
-1330|Adónde va la pluma para una foto del time-lapse, una vez levantada; vuelve con un movimiento absoluto. Vacío: el lugar fijado en la pestaña Control.
+1330|Adónde va la pluma para una foto del time-lapse, una vez levantada; vuelve con un movimiento absoluto. Vacío: el lugar fijado en la pestaña Grabación.
+1331|Grabación
+1332|Esta cámara está desactivada en los ajustes del dispositivo.

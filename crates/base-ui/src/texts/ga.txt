@@ -1313,7 +1313,7 @@
 1312|Spás idir na línte
 1313|Time-lapse: pictiúr gach uair a ardaítear an uirlis, leis an gceann bogtha i leataobh.
 1314|Tar éis gach ardaithe
-1315|Pictiúr gach uair a ardaítear an uirlis, leis an gceann bogtha i leataobh (cuir an bogadh ar siúl ar an táb Rialú). Tógann an jab i bhfad níos faide.
+1315|Pictiúr gach uair a ardaítear an uirlis, leis an gceann bogtha i leataobh (cuir an bogadh ar siúl ar an táb Taifeadadh). Tógann an jab i bhfad níos faide.
 1316|Grianghraif time-lapse i leataobh
 1317|Bog an ceann i leataobh do gach grianghraf
 1318|Le linn jab fanann gach pictiúr go dtí gur féidir leis an jab stopadh: téann an ceann go dtí an áit seo, glacann an ceamara an pictiúr, filleann an ceann agus leanann an jab ar aghaidh. Ní stopann muileann ná breacadóir ach leis an uirlis in airde.
@@ -1328,4 +1328,6 @@
 1327|Ina
 1328|cuid, gach ceann ar a laghad
 1329|Bealach i leataobh do ghrianghraif
-1330|Cá dtéann an peann do ghrianghraf time-lapse, tar éis é a ardú; filleann sé le gluaiseacht iomlán. Folamh: an áit a socraíodh ar an táb Rialú.
+1330|Cá dtéann an peann do ghrianghraf time-lapse, tar éis é a ardú; filleann sé le gluaiseacht iomlán. Folamh: an áit a socraíodh ar an táb Taifeadadh.
+1331|Taifeadadh
+1332|Tá an ceamara seo múchta i socruithe an ghléis.
