@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.92.1
+
+- **rfd 0.18** (the file dialogs; Dependabot PenCreator #185): nothing changes for the person using the program.
+
 ## v1.92.0
 
 - **Arrange → Add as no-go zone** (`StdAct::AddAsZones`, `MenuParts::zones`) in the programs that keep zones, besides the right-click menu.
