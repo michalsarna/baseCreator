@@ -1334,3 +1334,14 @@
 1333|Luasghéarú X, Y, Z
 1334|Diall ag coirnéil
 1335|0 = anaithnid. Leis na luasghéaruithe, áirítear in am an jab luasghéarú agus moilliú an mheaisín agus na coirnéil níos moille, mar a dhéanann GRBL ($120 – $122, $11).
+1336|Stua
+1337|Isteach
+1338|Amach
+1339|Fad an bhealaigh isteach
+1340|Ga an bhealaigh isteach
+1341|Uillinn an bhealaigh isteach
+1342|Forluí
+1343|Tagann an uirlis ar an líne ó thaobh an dramhaíola agus fágann sí í ar an mbealach céanna, ionas nach mbíonn marc an tosaigh ar an bpáirt. Laghdaítear nó fágtar ar lár bealach nach n-oireann.
+1344|Fad bealaigh dhírigh, ga stua.
+1345|Tagann 90° díreach ar an líne, uillinn bheag beagnach feadh na líne.
+1346|Cé chomh fada a théann an gearradh thar a thús, ionas go gcastar an tús agus an deireadh go glan.

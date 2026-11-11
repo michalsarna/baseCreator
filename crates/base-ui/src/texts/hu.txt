@@ -1334,3 +1334,14 @@
 1333|X, Y, Z gyorsulása
 1334|Sarokeltérés
 1335|0 = nem ismert. A gyorsulásokkal a munka ideje számol a gép gyorsításával, lassításával és a lassabb sarkokkal, ahogy a GRBL ($120 – $122, $11).
+1336|Ív
+1337|Ráfutás
+1338|Lefutás
+1339|Ráfutás hossza
+1340|Ráfutás sugara
+1341|Ráfutás szöge
+1342|Átfedés
+1343|A szerszám a hulladék felől fut rá a vonalra és ugyanígy hagyja el, így a kezdés nyoma nem marad a darabon. A nem férő ráfutás kisebb lesz vagy kimarad.
+1344|Egyenes ráfutás hossza, ív sugara.
+1345|90° merőlegesen fut a vonalra, kis szög majdnem mentén.
+1346|Mennyivel megy tovább a vágás a kezdetén túl, hogy a kezdet és a vég tisztán találkozzon.

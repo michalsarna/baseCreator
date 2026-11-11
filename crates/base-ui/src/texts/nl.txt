@@ -1334,3 +1334,14 @@
 1333|Versnelling van X, Y, Z
 1334|Hoekafwijking
 1335|0 = onbekend. Met de versnellingen telt de tijd van een taak het optrekken en afremmen van de machine en de tragere hoeken mee, zoals GRBL dat doet ($120 – $122, $11).
+1336|Boog
+1337|Inloop
+1338|Uitloop
+1339|Lengte van de inloop
+1340|Straal van de inloop
+1341|Hoek van de inloop
+1342|Overlap
+1343|Het gereedschap komt vanaf de afvalkant op de lijn en verlaat die op dezelfde manier, zodat het spoor van de start niet op het onderdeel staat. Een inloop die niet past, wordt kleiner gemaakt of weggelaten.
+1344|De lengte van een rechte inloop, de straal van een boog.
+1345|90° komt recht op de lijn, een kleine hoek bijna erlangs.
+1346|Hoe ver de snede doorgaat voorbij het begin, zodat begin en eind netjes samenkomen.

@@ -1334,3 +1334,14 @@
 1333|X, Y, Z pagreitis
 1334|Nuokrypis kampuose
 1335|0 = nežinoma. Su pagreičiais darbo laikas įskaičiuoja mašinos įsibėgėjimą, stabdymą ir lėtesnius kampus, kaip daro GRBL ($120 – $122, $11).
+1336|Lankas
+1337|Įėjimas
+1338|Išėjimas
+1339|Įėjimo ilgis
+1340|Įėjimo spindulys
+1341|Įėjimo kampas
+1342|Persidengimas
+1343|Įrankis ateina ant linijos iš atliekų pusės ir taip pat nuo jos nueina, todėl pradžios žymė nelieka ant detalės. Netelpantis įėjimas sumažinamas arba praleidžiamas.
+1344|Tiesaus įėjimo ilgis, lanko spindulys.
+1345|90° ateina tiesiai į liniją, mažas kampas beveik išilgai jos.
+1346|Kiek pjūvis tęsiasi už savo pradžios, kad pradžia ir pabaiga švariai susitiktų.

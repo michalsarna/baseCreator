@@ -1334,3 +1334,14 @@
 1333|Accelerația X, Y, Z
 1334|Abaterea la colțuri
 1335|0 = necunoscut. Cu accelerațiile, timpul lucrării ține cont de accelerarea și frânarea mașinii și de colțurile mai lente, cum face GRBL ($120 – $122, $11).
+1336|Arc
+1337|Intrare
+1338|Ieșire
+1339|Lungimea intrării
+1340|Raza intrării
+1341|Unghiul intrării
+1342|Suprapunere
+1343|Unealta vine pe linie din partea deșeului și o părăsește la fel, astfel încât urma începutului nu rămâne pe piesă. O intrare care nu încape este micșorată sau omisă.
+1344|Lungimea unei intrări drepte, raza unui arc.
+1345|90° vine drept pe linie, un unghi mic aproape de-a lungul ei.
+1346|Cât de departe continuă tăietura după începutul ei, ca începutul și sfârșitul să se întâlnească curat.

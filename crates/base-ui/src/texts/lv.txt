@@ -1334,3 +1334,14 @@
 1333|X, Y, Z paātrinājums
 1334|Novirze stūros
 1335|0 = nav zināms. Ar paātrinājumiem darba laiks ņem vērā mašīnas paātrināšanos, bremzēšanu un lēnākos stūrus, kā to dara GRBL ($120 – $122, $11).
+1336|Loks
+1337|Ieeja
+1338|Izeja
+1339|Ieejas garums
+1340|Ieejas rādiuss
+1341|Ieejas leņķis
+1342|Pārklājums
+1343|Instruments uz līnijas nonāk no atgriezumu puses un tāpat to atstāj, tāpēc sākuma pēda nepaliek uz detaļas. Ieeja, kas neietilpst, tiek samazināta vai izlaista.
+1344|Taisnas ieejas garums, loka rādiuss.
+1345|90° nāk taisni pret līniju, mazs leņķis gandrīz gar to.
+1346|Cik tālu griezums turpinās aiz sava sākuma, lai sākums un beigas tīri satiktos.

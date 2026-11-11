@@ -1334,3 +1334,14 @@
 1333|Acceleration af X, Y, Z
 1334|Hjørneafvigelse
 1335|0 = ukendt. Med accelerationerne tæller jobbets tid maskinens acceleration og opbremsning og de langsommere hjørner, som GRBL gør ($120 – $122, $11).
+1336|Bue
+1337|Indløb
+1338|Udløb
+1339|Indløbets længde
+1340|Indløbets radius
+1341|Indløbets vinkel
+1342|Overlap
+1343|Værktøjet kommer ind på linjen fra affaldssiden og forlader den på samme måde, så mærket fra starten ikke er på emnet. Et indløb, der ikke passer, gøres mindre eller udelades.
+1344|Længden af et lige indløb, radius af en bue.
+1345|90° kommer lige ind på linjen, en lille vinkel næsten langs den.
+1346|Hvor langt snittet fortsætter forbi sin start, så start og slut mødes rent.

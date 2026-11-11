@@ -1334,3 +1334,14 @@
 1333|Pospešek X, Y, Z
 1334|Odstopanje v vogalih
 1335|0 = neznano. S pospeški čas posla upošteva pospeševanje in zaviranje stroja ter počasnejše vogale, kot to počne GRBL ($120 – $122, $11).
+1336|Lok
+1337|Vstop
+1338|Izstop
+1339|Dolžina vstopa
+1340|Polmer vstopa
+1341|Kot vstopa
+1342|Prekrivanje
+1343|Orodje pride na črto s strani odpadka in jo zapusti enako, zato sled začetka ne ostane na delu. Vstop, ki ne gre, se zmanjša ali izpusti.
+1344|Dolžina ravnega vstopa, polmer loka.
+1345|90° pride naravnost na črto, majhen kot skoraj vzdolž nje.
+1346|Kako daleč gre rez prek svojega začetka, da se začetek in konec čisto stakneta.

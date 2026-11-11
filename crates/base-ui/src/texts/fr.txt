@@ -1334,3 +1334,14 @@
 1333|Accélération de X, Y, Z
 1334|Déviation aux angles
 1335|0 = inconnu. Avec les accélérations, la durée du travail tient compte des accélérations et freinages de la machine et des angles plus lents, comme le fait GRBL ($120 – $122, $11).
+1336|Arc
+1337|Entrée
+1338|Sortie
+1339|Longueur de l'entrée
+1340|Rayon de l'entrée
+1341|Angle de l'entrée
+1342|Chevauchement
+1343|L'outil arrive sur la ligne du côté des chutes et la quitte de même, pour que la marque du départ ne soit pas sur la pièce. Une entrée qui ne tient pas est réduite ou omise.
+1344|La longueur d'une entrée droite, le rayon d'un arc.
+1345|90° arrive droit sur la ligne, un petit angle presque le long.
+1346|Jusqu'où la coupe continue après son départ, pour que le début et la fin se rejoignent proprement.

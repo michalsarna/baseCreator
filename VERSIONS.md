@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.87.0
+
+- **Leads** (`lead`): a closed cut comes onto its line from the waste side and leaves it the same way, so the mark of the start is not on the part. A lead is a **Line** at an angle or an **Arc** that touches the line; an **Overlap** goes on past the start before the lead out. `lead::plan` gives the points; a lead that would cross the line or reach into another ring is made half or a quarter as big, or left out (`Leads::shrunk`, `dropped`). `lead::good_start` starts a ring that begins at a corner in the middle of its longest piece. `lead::ring_with_overlap`, `lead::walk`.
+- `lead_ui::rows`: the rows of a layer's settings for the leads (used by MillCreator for its profiles and LightCreator for its line layers).
+- 11 new texts in every language.
+
 ## v1.86.0
 
 - **The time of a job with the acceleration of the machine** (`motion`): every move speeds up and slows down at the acceleration of the axes it uses (a slow Z makes plunges longer), a corner is taken at the speed the junction deviation allows, the speeds are planned back from where the machine must stop and forward from where it can get to, and only the next 15 moves are known at once (as GRBL plans them), so a long chain of tiny fast moves is held back. Without the accelerations the time is the length at the feed, as before. A zigzag of short moves takes in grbl-sim about what is planned (16.7 s against 13.9 s planned; length / feed would say 4.3 s).
