@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.92.0
+
+- **Arrange → Add as no-go zone** (`StdAct::AddAsZones`, `MenuParts::zones`) in the programs that keep zones, besides the right-click menu.
+- **Right-click menu:** *Shape operations* also has Auto-join paths…, Close path with tolerance… and Dogbone / T-bone corners…; a new submenu *Arrays and nesting* has Grid array…, Circular array…, Copy along path… and Nest shapes….
+- 1 new text in every language.
+
 ## v1.91.0
 
 - **Layer in the Properties tab** (`editor::layer_section`, `set_layer`): the colour and the list of the layers, as in LightCreator; a choice moves the selected unlocked shapes and makes the layer the active one.

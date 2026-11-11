@@ -189,6 +189,8 @@ pub enum StdAct {
     AutoJoin,
     ClosePath,
     DogboneCorners,
+    /// The selected shapes become no-go zones of the device (only in a program that keeps zones).
+    AddAsZones,
     ExportSelectionSvg,
     ExportSelectionDxf,
     /// The whole drawing in a format of another program (`File > Export`).
@@ -282,6 +284,7 @@ impl StdAct {
             StdAct::RoundCorners => h.ed_mut().show_round = true,
             StdAct::ToCurves => crate::editor::EditorShapeOps::to_curves(h),
             StdAct::AutoJoin | StdAct::ClosePath => h.ed_mut().show_join = true,
+            StdAct::AddAsZones => crate::editor::add_as_zones(h),
             StdAct::DogboneCorners => {
                 let r = h.bone_radius_default();
                 h.ed_mut().bone_radius = r;
@@ -336,6 +339,7 @@ impl StdAct {
             StdAct::Undo => h.can_undo(),
             StdAct::Redo => h.can_redo(),
             StdAct::CenterEachOther => h.ed().sel.len() >= 2,
+            StdAct::AddAsZones => h.can_add_zones() && h.ed().sel.iter().any(|id| h.scene().shape(*id).is_some_and(|s| !s.locked)),
             StdAct::AdjustImage | StdAct::TraceImage | StdAct::StyleTrace => h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_))),
             _ => true,
         }
@@ -402,6 +406,7 @@ impl StdAct {
             StdAct::ToCurves => "spline",
             StdAct::AutoJoin | StdAct::ClosePath => "route",
             StdAct::DogboneCorners => "square-round-corner",
+            StdAct::AddAsZones => "ban",
             StdAct::ExportSelectionSvg | StdAct::ExportSelectionDxf | StdAct::ExportAs(_) => "file-output",
             StdAct::GridArray => "grid-3x3",
             StdAct::CircleArray => "rotate-cw",
@@ -651,6 +656,8 @@ pub struct MenuParts<A> {
     pub help_first: Vec<Entry<A>>,
     /// Help, after the backup (e.g. *Export diagnostics…*).
     pub help_extra: Vec<Entry<A>>,
+    /// The program keeps no-go zones for its device: Arrange has *Add as no-go zone*.
+    pub zones: bool,
 }
 
 /// The menus of a program: the same layout and the same standard entries in every program, with the program's own entries in their
@@ -695,6 +702,7 @@ pub fn standard_menus<A: Copy + From<StdAct>>(p: MenuParts<A>) -> Menus<A> {
         std(std_entries::design_tools()),
         vec![Sep],
         std(std_entries::image_tools()),
+        if p.zones { vec![Sep, Item(A::from(StdAct::AddAsZones), "Add as no-go zone", None)] } else { vec![] },
     ]
     .concat();
     let mut view = [std(std_entries::grid()), std(std_entries::zoom()), vec![Sep], std(std_entries::split_view())].concat();
@@ -913,6 +921,7 @@ mod tests {
             settings_extra: vec![],
             help_first: vec![],
             help_extra: vec![],
+            zones: false,
         }
     }
 

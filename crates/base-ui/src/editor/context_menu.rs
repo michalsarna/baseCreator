@@ -40,6 +40,7 @@ fn allowed<H: EditorHost>(h: &H, s: &Sel, act: StdAct) -> bool {
         StdAct::Lock | StdAct::RoundCorners | StdAct::ToCurves => s.unlocked,
         StdAct::BoolUnion | StdAct::BoolIntersect | StdAct::BoolSubtract | StdAct::BoolXor => s.several,
         StdAct::OffsetShape => s.any,
+        StdAct::AutoJoin | StdAct::ClosePath | StdAct::DogboneCorners | StdAct::GridArray | StdAct::CircleArray | StdAct::CopyAlongPath | StdAct::NestShapes => s.any,
         StdAct::Unlock => s.locked,
         StdAct::AdjustImage | StdAct::TraceImage | StdAct::StyleTrace => s.image,
         _ => act.enabled(h),
@@ -102,6 +103,22 @@ fn shape_op_entries() -> Vec<Option<(StdAct, &'static str)>> {
         Some((OffsetShape, "Offset shape…")),
         Some((RoundCorners, "Round corners…")),
         Some((ToCurves, "Convert to curves")),
+        None,
+        Some((AutoJoin, "Auto-join paths…")),
+        Some((ClosePath, "Close path with tolerance…")),
+        Some((DogboneCorners, "Dogbone / T-bone corners…")),
+    ]
+}
+
+/// The submenu "Arrays and nesting".
+fn array_entries() -> Vec<Option<(StdAct, &'static str)>> {
+    use StdAct::*;
+    vec![
+        Some((GridArray, "Grid array…")),
+        Some((CircleArray, "Circular array…")),
+        Some((CopyAlongPath, "Copy along path…")),
+        None,
+        Some((NestShapes, "Nest shapes…")),
     ]
 }
 
@@ -141,6 +158,16 @@ pub fn context_menu<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, resp: &egui::Re
         });
         ui.menu_button((icons::slot(Some("squares-unite"), theme::text()), tr("Shape operations")), |ui| {
             for e in shape_op_entries() {
+                match e {
+                    Some((act, label)) => item(ui, act, label),
+                    None => {
+                        ui.separator();
+                    }
+                }
+            }
+        });
+        ui.menu_button((icons::slot(Some("grid-3x3"), theme::text()), tr("Arrays and nesting")), |ui| {
+            for e in array_entries() {
                 match e {
                     Some((act, label)) => item(ui, act, label),
                     None => {
@@ -201,7 +228,7 @@ mod tests {
         let have: std::collections::HashSet<&str> = icons::all_names().into_iter().collect();
         assert!(have.contains("shapes"), "icon of the Arrange submenu");
         let mut seen: Vec<StdAct> = vec![];
-        for (act, label) in entries().into_iter().chain(arrange_entries()).chain(shape_op_entries()).flatten() {
+        for (act, label) in entries().into_iter().chain(arrange_entries()).chain(shape_op_entries()).chain(array_entries()).flatten() {
             assert!(have.contains(act.icon()), "icon of {act:?}");
             assert!(!seen.contains(&act), "{act:?} twice");
             assert!(!label.is_empty());

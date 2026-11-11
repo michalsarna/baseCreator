@@ -1390,3 +1390,4 @@
 1389|Stäng programmet
 1390|Tillbaka till startskärmen
 1391|Lager
+1392|Mönster och placering

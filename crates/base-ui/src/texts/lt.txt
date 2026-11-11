@@ -1390,3 +1390,4 @@
 1389|Uždaryti programą
 1390|Atgal į pradžios ekraną
 1391|Sluoksnis
+1392|Masyvai ir išdėstymas

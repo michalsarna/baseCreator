@@ -1390,3 +1390,4 @@
 1389|Lukk programmet
 1390|Tilbake til startskjermen
 1391|Lag
+1392|Mønstre og plassering

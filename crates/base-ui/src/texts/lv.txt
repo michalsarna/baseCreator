@@ -1390,3 +1390,4 @@
 1389|Aizvērt programmu
 1390|Atpakaļ uz sākuma ekrānu
 1391|Slānis
+1392|Masīvi un izvietošana

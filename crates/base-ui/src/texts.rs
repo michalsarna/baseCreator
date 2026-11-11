@@ -1397,6 +1397,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Close the program", "Zamknij program", "Programm schließen", "Chiudi il programma", "Sulje ohjelma", "关闭程序", "प्रोग्राम बंद करें"],
     ["Back to the start screen", "Wróć do ekranu startowego", "Zurück zum Startbildschirm", "Torna alla schermata iniziale", "Takaisin aloitusnäyttöön", "返回开始屏幕", "शुरुआती स्क्रीन पर वापस जाएँ"],
     ["Layer", "Warstwa", "Ebene", "Livello", "Taso", "图层", "लेयर"],
+    ["Arrays and nesting", "Szyki i rozmieszczanie", "Anordnungen und Verschachteln", "Serie e disposizione", "Toistot ja sijoittelu", "阵列与排版", "ऐरे और नेस्टिंग"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

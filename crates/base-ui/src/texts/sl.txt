@@ -1390,3 +1390,4 @@
 1389|Zapri program
 1390|Nazaj na začetni zaslon
 1391|Sloj
+1392|Polja in razporeditev

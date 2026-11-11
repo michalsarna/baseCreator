@@ -1390,3 +1390,4 @@
 1389|Zavřít program
 1390|Zpět na úvodní obrazovku
 1391|Vrstva
+1392|Pole a rozmístění

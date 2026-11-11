@@ -1390,3 +1390,4 @@
 1389|Fechar o programa
 1390|Voltar ao ecrã inicial
 1391|Camada
+1392|Matrizes e encaixe

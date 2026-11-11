@@ -1390,3 +1390,4 @@
 1389|Agħlaq il-programm
 1390|Lura għall-iskrin tal-bidu
 1391|Saff
+1392|Arrays u tqassim

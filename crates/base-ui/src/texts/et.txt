@@ -1390,3 +1390,4 @@
 1389|Sulge programm
 1390|Tagasi avakuvale
 1391|Kiht
+1392|Massiivid ja paigutus

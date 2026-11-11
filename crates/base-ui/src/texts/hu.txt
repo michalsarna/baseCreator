@@ -1390,3 +1390,4 @@
 1389|Program bezárása
 1390|Vissza a kezdőképernyőre
 1391|Réteg
+1392|Tömbök és elhelyezés

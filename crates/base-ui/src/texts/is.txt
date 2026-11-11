@@ -1390,3 +1390,4 @@
 1389|Loka forritinu
 1390|Aftur á upphafsskjáinn
 1391|Lag
+1392|Raðir og röðun

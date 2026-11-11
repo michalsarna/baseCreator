@@ -1390,3 +1390,4 @@
 1389|Zatvori program
 1390|Natrag na početni zaslon
 1391|Sloj
+1392|Nizovi i raspoređivanje

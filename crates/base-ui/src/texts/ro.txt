@@ -1390,3 +1390,4 @@
 1389|Închide programul
 1390|Înapoi la ecranul de start
 1391|Strat
+1392|Rețele și așezare
