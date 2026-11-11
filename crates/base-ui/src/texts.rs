@@ -1397,6 +1397,12 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Close the program", "Zamknij program", "Programm schließen", "Chiudi il programma", "Sulje ohjelma", "关闭程序", "प्रोग्राम बंद करें"],
     ["Back to the start screen", "Wróć do ekranu startowego", "Zurück zum Startbildschirm", "Torna alla schermata iniziale", "Takaisin aloitusnäyttöön", "返回开始屏幕", "शुरुआती स्क्रीन पर वापस जाएँ"],
     ["Layer", "Warstwa", "Ebene", "Livello", "Taso", "图层", "लेयर"],
+    ["Arrays and nesting", "Szyki i rozmieszczanie", "Anordnungen und Verschachteln", "Serie e disposizione", "Toistot ja sijoittelu", "阵列与排版", "ऐरे और नेस्टिंग"],
+    ["Preview G-code", "Podgląd G-code", "G-Code-Vorschau", "Anteprima G-code", "G-koodin esikatselu", "预览 G-code", "G-code पूर्वावलोकन"],
+    ["Show no-go zones", "Pokaż strefy zakazane", "Sperrzonen anzeigen", "Mostra le zone vietate", "Näytä kielletyt alueet", "显示禁区", "निषिद्ध क्षेत्र दिखाएँ"],
+    ["No-go zones…", "Strefy zakazane…", "Sperrzonen…", "Zone vietate…", "Kielletyt alueet…", "禁区…", "निषिद्ध क्षेत्र…"],
+    ["Layer presets…", "Presety warstw…", "Ebenen-Vorlagen…", "Preset dei livelli…", "Tasojen esiasetukset…", "图层预设…", "लेयर प्रीसेट…"],
+    ["Saved positions…", "Zapisane pozycje…", "Gespeicherte Positionen…", "Posizioni salvate…", "Tallennetut sijainnit…", "已保存的位置…", "सहेजी गई स्थितियाँ…"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

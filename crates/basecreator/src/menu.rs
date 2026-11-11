@@ -105,6 +105,7 @@ pub fn menus() -> Menus<Act> {
         settings_extra: vec![],
         help_first: vec![Item(Act::QuickGuide, "Quick guide", key("F1", "F1"))],
         help_extra: vec![],
+        zones: false,
     });
     all.into_iter().filter(|(_, entries)| !entries.is_empty()).map(|(title, entries)| (title, without_gcode(entries))).collect()
 }

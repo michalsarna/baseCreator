@@ -1390,3 +1390,9 @@
 1389|Uždaryti programą
 1390|Atgal į pradžios ekraną
 1391|Sluoksnis
+1392|Masyvai ir išdėstymas
+1393|G kodo peržiūra
+1394|Rodyti uždraustas zonas
+1395|Uždraustos zonos…
+1396|Sluoksnių šablonai…
+1397|Įrašytos padėtys…

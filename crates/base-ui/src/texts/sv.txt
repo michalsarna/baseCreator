@@ -1390,3 +1390,9 @@
 1389|Stäng programmet
 1390|Tillbaka till startskärmen
 1391|Lager
+1392|Mönster och placering
+1393|Förhandsgranska G-kod
+1394|Visa förbudszoner
+1395|Förbudszoner…
+1396|Lagerförinställningar…
+1397|Sparade positioner…

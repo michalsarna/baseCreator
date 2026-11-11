@@ -1390,3 +1390,9 @@
 1389|Programma sluiten
 1390|Terug naar het startscherm
 1391|Laag
+1392|Reeksen en nesten
+1393|G-code bekijken
+1394|Verboden zones tonen
+1395|Verboden zones…
+1396|Laagvoorinstellingen…
+1397|Opgeslagen posities…

@@ -1390,3 +1390,9 @@
 1389|Sulge programm
 1390|Tagasi avakuvale
 1391|Kiht
+1392|Massiivid ja paigutus
+1393|G-koodi eelvaade
+1394|Näita keelutsoone
+1395|Keelutsoonid…
+1396|Kihtide eelseadistused…
+1397|Salvestatud asukohad…

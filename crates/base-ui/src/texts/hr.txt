@@ -1390,3 +1390,9 @@
 1389|Zatvori program
 1390|Natrag na početni zaslon
 1391|Sloj
+1392|Nizovi i raspoređivanje
+1393|Pregled G-koda
+1394|Prikaži zabranjene zone
+1395|Zabranjene zone…
+1396|Predlošci slojeva…
+1397|Spremljeni položaji…

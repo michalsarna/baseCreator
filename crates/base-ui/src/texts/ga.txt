@@ -1390,3 +1390,9 @@
 1389|Dún an clár
 1390|Ar ais chuig an scáileán tosaigh
 1391|Ciseal
+1392|Eagair agus neadú
+1393|Réamhamharc G-code
+1394|Taispeáin criosanna toirmiscthe
+1395|Criosanna toirmiscthe…
+1396|Réamhshocruithe sraitheanna…
+1397|Suímh shábháilte…

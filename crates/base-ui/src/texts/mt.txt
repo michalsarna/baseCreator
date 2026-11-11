@@ -1390,3 +1390,9 @@
 1389|Agħlaq il-programm
 1390|Lura għall-iskrin tal-bidu
 1391|Saff
+1392|Arrays u tqassim
+1393|Previżjoni tal-G-code
+1394|Uri ż-żoni pprojbiti
+1395|Żoni pprojbiti…
+1396|Presets tas-saffi…
+1397|Pożizzjonijiet issejvjati…

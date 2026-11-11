@@ -1390,3 +1390,9 @@
 1389|Zapri program
 1390|Nazaj na začetni zaslon
 1391|Sloj
+1392|Polja in razporeditev
+1393|Predogled G-kode
+1394|Pokaži prepovedana območja
+1395|Prepovedana območja…
+1396|Prednastavitve plasti…
+1397|Shranjeni položaji…

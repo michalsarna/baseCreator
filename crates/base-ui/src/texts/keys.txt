@@ -1390,3 +1390,9 @@
 1389	Close the program
 1390	Back to the start screen
 1391	Layer
+1392	Arrays and nesting
+1393	Preview G-code
+1394	Show no-go zones
+1395	No-go zones…
+1396	Layer presets…
+1397	Saved positions…

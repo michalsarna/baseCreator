@@ -1390,3 +1390,9 @@
 1389|Închide programul
 1390|Înapoi la ecranul de start
 1391|Strat
+1392|Rețele și așezare
+1393|Previzualizare G-code
+1394|Arată zonele interzise
+1395|Zone interzise…
+1396|Presetări de straturi…
+1397|Poziții salvate…

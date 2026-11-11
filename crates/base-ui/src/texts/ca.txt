@@ -1390,3 +1390,9 @@
 1389|Tanca el programa
 1390|Torna a la pantalla d'inici
 1391|Capa
+1392|Matrius i encaix
+1393|Previsualitza el G-code
+1394|Mostra les zones prohibides
+1395|Zones prohibides…
+1396|Predefinits de capes…
+1397|Posicions desades…

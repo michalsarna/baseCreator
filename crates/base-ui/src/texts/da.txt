@@ -1390,3 +1390,9 @@
 1389|Luk programmet
 1390|Tilbage til startskærmen
 1391|Lag
+1392|Mønstre og placering
+1393|Vis G-kode
+1394|Vis forbudszoner
+1395|Forbudszoner…
+1396|Lagforudindstillinger…
+1397|Gemte positioner…
