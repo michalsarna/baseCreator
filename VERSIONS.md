@@ -7,7 +7,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 
 - **Arrange → Add as no-go zone** (`StdAct::AddAsZones`, `MenuParts::zones`) in the programs that keep zones, besides the right-click menu.
 - **Right-click menu:** *Shape operations* also has Auto-join paths…, Close path with tolerance… and Dogbone / T-bone corners…; a new submenu *Arrays and nesting* has Grid array…, Circular array…, Copy along path… and Nest shapes….
-- 1 new text in every language.
+- 6 new texts in every language (also for the menus of the programs: No-go zones…, Layer presets…, Preview G-code, Show no-go zones, Saved positions…).
 
 ## v1.91.0
 
@@ -117,7 +117,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 - **Node bar:** the keys are in the names ("Break (B)"); **Open / close** is gone (Break opens, dropping an end on the other closes).
 - **A drag whose release was missed** (the button let go outside the window or over another window, or the focus lost while it was held) no longer goes on with the object, slider or colour following the pointer: `window::release_stuck_drag` (through `window_edges`, every frame) ends it, and the editor ends its own drag when the work area is no longer dragged.
 - `editor::faded_colour`: the shapes of a layer that is not made, faded towards the work area.
-- 1 new text in every language (the ruler).
+- 6 new texts in every language (also for the menus of the programs: No-go zones…, Layer presets…, Preview G-code, Show no-go zones, Saved positions…).(the ruler).
 
 ## v1.77.0
 
@@ -133,7 +133,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 ## v1.76.0
 
 - **Auto levels work on a real photo:** they stretched the range from the darkest to the lightest pixel, and nearly every photo has a pixel of pure black and one of pure white, so nothing changed. Now the outer 0.5 % of the pixels on each side are left out (`image::auto_range`). The checkbox moved from Tone to **Levels**: while it is on, the two sliders of the range are locked and show the range found in the picture, and the range chosen by hand is not used.
-- 1 new text in every language.
+- 6 new texts in every language (also for the menus of the programs: No-go zones…, Layer presets…, Preview G-code, Show no-go zones, Saved positions…).
 
 ## v1.75.0
 
