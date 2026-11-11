@@ -1365,3 +1365,21 @@
 1364|Kas neietilpst, nonāk uz jaunām loksnēm
 1365|Katra jauna loksne ir zīmējums savā cilnē, ar tiem pašiem slāņiem un materiālu: saglabājiet to un grieziet pēc šīs.
 1366|{} detaļas izkārtotas šeit, pārējās uz {} jaunām loksnēm jaunās cilnēs
+1367|Pievienot kā aizliegto zonu
+1368|Mašīna nekad neiebrauks atlasīto formu vietā: katra kļūst par ierīces aizliegto zonu (aplis, ja tā ir apaļa, citādi taisnstūris ap to) un tiek noņemta no zīmējuma.
+1369|Aizliegtā zona
+1370|Ierīcei pievienotas aizliegtās zonas: {}
+1371|Zonas pieder ierīcei un tiek saglabātas kopā ar to, katrā projektā.
+1372|Pievienots rotācijas piederums
+1373|Patrona
+1374|Veltņi
+1375|Priekšmeta diametrs
+1376|Veltņa diametrs
+1377|Mikrosoļu uz apgriezienu
+1378|Motora mikrosoļi vienam pilnam tā dzenātā (patronas vai viena veltņa) apgriezienam.
+1379|Apkārtmērs
+1380|Priekšmeta apkārtmērs: dizains nedrīkst būt augstāks.
+1381|GRBL 1.1 ir trīs asis: A ass nav pieejama, tiek izmantota Y.
+1382|Kontrolierim vajag {} soļus uz mm Y asī ($101).
+1383|Ar rotācijas piederumu Y ass griež sagatavi: zīmējums nedrīkst būt augstāks par sagataves apkārtmēru. Modelis ir vienkāršs (patrona griežas par sagataves diametru, veltņi pārvieto virsmu kā savējo); īsta iekārta jāpārbauda.
+1384|Rotācijas

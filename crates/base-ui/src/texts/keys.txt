@@ -1365,3 +1365,21 @@
 1364	What does not fit goes on new sheets
 1365	Every new sheet is a drawing in a tab of its own, with the same layers and material: save it and cut it after this one.
 1366	{} parts nested here, the rest on {} new sheet(s) in new tabs
+1367	Add as no-go zone
+1368	The machine will never enter the place of the selected shapes: each one becomes a no-go zone of the device (a circle when it is round, otherwise the rectangle round it) and is removed from the drawing.
+1369	No-go zone
+1370	{} no-go zones added to the device
+1371	The zones belong to the device and are kept with it, in every project.
+1372	A rotary attachment is connected
+1373	Chuck
+1374	Rollers
+1375	Workpiece diameter
+1376	Roller diameter
+1377	Microsteps per turn
+1378	Microsteps of the motor for one full turn of what it drives (the chuck, or one roller).
+1379	Circumference
+1380	The way round the workpiece: the design may not be higher.
+1381	GRBL 1.1 has three axes: the A axis is not available, Y is used.
+1382	The controller needs {} steps per mm on the Y axis ($101).
+1383	With a rotary attachment the Y axis turns the work: the drawing may not be higher than the way round the workpiece. The model is simple (a chuck turns by the workpiece diameter, rollers move the surface like their own); a real machine needs testing.
+1384	Rotary

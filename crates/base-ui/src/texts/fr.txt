@@ -1365,3 +1365,21 @@
 1364|Ce qui ne tient pas va sur de nouvelles plaques
 1365|Chaque nouvelle plaque est un dessin dans un onglet à part, avec les mêmes calques et le même matériau : enregistrez-la et découpez-la après celle-ci.
 1366|{} pièces placées ici, le reste sur {} nouvelle(s) plaque(s) dans de nouveaux onglets
+1367|Ajouter comme zone interdite
+1368|La machine n'entrera jamais à la place des formes sélectionnées : chacune devient une zone interdite de l'appareil (un cercle si elle est ronde, sinon le rectangle qui l'entoure) et est retirée du dessin.
+1369|Zone interdite
+1370|{} zones interdites ajoutées à l'appareil
+1371|Les zones appartiennent à l'appareil et sont gardées avec lui, dans chaque projet.
+1372|Un accessoire rotatif est connecté
+1373|Mandrin
+1374|Rouleaux
+1375|Diamètre de la pièce
+1376|Diamètre du rouleau
+1377|Micropas par tour
+1378|Micropas du moteur pour un tour complet de ce qu'il entraîne (le mandrin ou un rouleau).
+1379|Circonférence
+1380|La circonférence de la pièce : le dessin ne peut pas être plus haut.
+1381|GRBL 1.1 a trois axes : l'axe A n'est pas disponible, Y est utilisé.
+1382|Le contrôleur a besoin de {} pas par mm sur l'axe Y ($101).
+1383|Avec un plateau rotatif, l'axe Y fait tourner la pièce : le dessin ne peut pas être plus haut que le tour de la pièce. Le modèle est simple (un mandrin tourne du diamètre de la pièce, des rouleaux déplacent la surface comme la leur) ; une vraie machine doit être testée.
+1384|Rotatif

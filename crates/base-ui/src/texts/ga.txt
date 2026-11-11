@@ -1365,3 +1365,21 @@
 1364|Téann a bhfuil nach n-oireann ar bhileoga nua
 1365|Is líníocht i gcluaisín dá cuid féin gach bileog nua, leis na sraitheanna agus an t-ábhar céanna: sábháil í agus gearr í i ndiaidh na bileoige seo.
 1366|{} páirt neadaithe anseo, an chuid eile ar {} bileog nua i gcluaisíní nua
+1367|Cuir leis mar chrios toirmiscthe
+1368|Ní rachaidh an meaisín riamh isteach in áit na gcruthanna roghnaithe: déantar crios toirmiscthe den ghléas de gach ceann (ciorcal má tá sé cruinn, nó an dronuilleog timpeall air) agus baintear den líníocht é.
+1369|Crios toirmiscthe
+1370|Criosanna toirmiscthe curtha leis an ngléas: {}
+1371|Is leis an ngléas na criosanna agus coinnítear leis iad, i ngach tionscadal.
+1372|Tá ceangaltán rothlach ceangailte
+1373|Chuck
+1374|Rollóirí
+1375|Trastomhas an phíosa
+1376|Trastomhas an rollóra
+1377|Micreaghlais in aghaidh an chasta
+1378|Micreaghlais an mhótair do chasadh iomlán an ruda a thiomáineann sé (an chuck nó rollóir amháin).
+1379|Imlíne
+1380|Imlíne an phíosa: ní féidir leis an dearadh a bheith níos airde.
+1381|Tá trí ais ag GRBL 1.1: níl an ais A ar fáil, úsáidtear Y.
+1382|Teastaíonn {} céim in aghaidh an mm ón rialaitheoir ar an ais Y ($101).
+1383|Le gaireas rothlach casann an ais Y an píosa oibre: ní fhéadfaidh an líníocht a bheith níos airde ná imfhálú an phíosa oibre. Tá an tsamhail simplí (casann cuc de réir trastomhas an phíosa, bogann rollóirí an dromchla mar a gcuid féin); ní mór meaisín fíor a thástáil.
+1384|Rothlach

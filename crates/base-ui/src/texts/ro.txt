@@ -1365,3 +1365,21 @@
 1364|Ce nu încape merge pe foi noi
 1365|Fiecare foaie nouă este un desen într-o filă proprie, cu aceleași straturi și material: salvați-l și tăiați-l după acesta.
 1366|{} piese așezate aici, restul pe {} foi noi în file noi
+1367|Adaugă ca zonă interzisă
+1368|Mașina nu va intra niciodată în locul formelor selectate: fiecare devine o zonă interzisă a dispozitivului (un cerc când este rotundă, altfel dreptunghiul din jurul ei) și este scoasă din desen.
+1369|Zonă interzisă
+1370|Zone interzise adăugate la dispozitiv: {}
+1371|Zonele aparțin dispozitivului și sunt păstrate cu el, în fiecare proiect.
+1372|Este conectat un accesoriu rotativ
+1373|Mandrină
+1374|Role
+1375|Diametrul piesei
+1376|Diametrul rolei
+1377|Micropași pe rotație
+1378|Micropașii motorului pentru o rotație completă a ceea ce antrenează (mandrina sau o rolă).
+1379|Circumferință
+1380|Circumferința piesei: desenul nu poate fi mai înalt.
+1381|GRBL 1.1 are trei axe: axa A nu este disponibilă, se folosește Y.
+1382|Controlerul are nevoie de {} pași pe mm pe axa Y ($101).
+1383|Cu un accesoriu rotativ axa Y rotește piesa: desenul nu poate fi mai înalt decât circumferința piesei. Modelul este simplu (un mandrin se rotește cu diametrul piesei, rolele mișcă suprafața ca pe a lor); o mașină reală trebuie testată.
+1384|Rotativ

@@ -78,6 +78,15 @@ pub fn page(ui: &mut egui::Ui, units: Units, zones: &mut Vec<Zone>, has_z: bool,
 }
 
 /// The zones on the work area: red where they are on, grey where off, with their names. `to` takes a point of the design to the
+/// The side panel of the zones, shown while the device has any: the same rows as the page of the device settings, with a word that
+/// they belong to the device. True when something changed (the program then saves the device).
+pub fn panel(ui: &mut egui::Ui, units: Units, zones: &mut Vec<Zone>, has_z: bool, heights: &str) -> bool {
+    ui.label(RichText::new(tr(PAGE)).strong());
+    ui.label(RichText::new(tr("The zones belong to the device and are kept with it, in every project.")).color(theme::text_dim()));
+    ui.add_space(4.0);
+    egui::ScrollArea::vertical().id_salt("zones_panel").auto_shrink([false, false]).show(ui, |ui| page(ui, units, zones, has_z, heights)).inner
+}
+
 /// screen and `zoom` is the pixels of a millimetre.
 pub fn paint(painter: &egui::Painter, to: &dyn Fn(Pt) -> egui::Pos2, zoom: f32, zones: &[Zone]) {
     for z in zones {

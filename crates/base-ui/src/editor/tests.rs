@@ -21,13 +21,15 @@ struct Host {
     clip_img: Option<crate::clip_image::ClipImage>,
     /// The sheets a nesting opened, when the test lets it open any.
     sheets: Option<Vec<Vec<base_core::scene::Shape>>>,
+    /// The no-go zones the editor gave, when the test lets it make any.
+    zones: Option<Vec<base_core::zones::Zone>>,
 }
 
 impl Default for Host {
     fn default() -> Host {
         // Never touch the real user library in tests.
         let dir = std::env::temp_dir().join(format!("base-ui-clip-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
-        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0, clip_img: None, sheets: None }
+        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0, clip_img: None, sheets: None, zones: None }
     }
 }
 
@@ -100,6 +102,12 @@ impl EditorHost for Host {
         let n = sheets.len();
         self.sheets.get_or_insert_default().extend(sheets);
         n
+    }
+    fn can_add_zones(&self) -> bool {
+        self.zones.is_some()
+    }
+    fn add_zones(&mut self, zones: Vec<base_core::zones::Zone>) {
+        self.zones.get_or_insert_default().extend(zones);
     }
     fn said(&self) -> &str {
         &self.status
@@ -1133,4 +1141,28 @@ fn the_style_trace_window_keeps_its_size_in_a_longer_language() {
         .unwrap();
     let text = String::from_utf8_lossy(&out.stdout).to_string() + String::from_utf8_lossy(&out.stderr).as_ref();
     assert!(out.status.success() && text.contains("1 passed"), "{text}");
+}
+
+#[test]
+fn selected_shapes_become_no_go_zones_and_leave_the_drawing() {
+    use base_core::zones::ZoneShape;
+    let mut h = Host { zones: Some(vec![]), ..Host::default() };
+    let sq = h.scene.add(0, Kind::Rect { w: 20.0, h: 10.0 }, Xf::translate(5.0, 5.0));
+    let round = h.scene.add(0, Kind::Ellipse { w: 16.0, h: 16.0 }, Xf::translate(60.0, 40.0));
+    let kept = h.scene.add(0, Kind::Rect { w: 5.0, h: 5.0 }, Xf::translate(90.0, 5.0));
+    let locked = h.scene.add(0, Kind::Rect { w: 5.0, h: 5.0 }, Xf::translate(90.0, 50.0));
+    h.scene.shapes.iter_mut().find(|s| s.id == locked).unwrap().locked = true;
+    h.ed.sel = vec![sq, round, locked];
+    super::context_menu::add_as_zones(&mut h);
+    let zones = h.zones.clone().unwrap();
+    assert_eq!(zones.len(), 2, "the locked shape is not taken");
+    let b = zones[0].shape.bounds();
+    assert!((b.min.x - 5.0).abs() < 1e-6 && (b.max.x - 25.0).abs() < 1e-6 && (b.max.y - b.min.y - 10.0).abs() < 1e-6, "{zones:?}");
+    assert!(matches!(zones[1].shape, ZoneShape::Circle { r, .. } if (r - 8.0).abs() < 0.1), "{zones:?}");
+    assert!(zones.iter().all(|z| z.enabled && z.check().is_ok()));
+    let left: Vec<u64> = h.scene.shapes.iter().map(|s| s.id).collect();
+    assert_eq!(left, vec![kept, locked], "the shapes made into zones are gone, the others stay");
+    assert!(!h.undo.is_empty(), "it can be undone");
+    // Without zones in the program nothing is offered.
+    assert!(!Host::default().can_add_zones());
 }

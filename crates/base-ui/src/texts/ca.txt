@@ -1365,3 +1365,21 @@
 1364|El que no hi cap va a fulls nous
 1365|Cada full nou és un dibuix en una pestanya pròpia, amb les mateixes capes i material: desa'l i talla'l després d'aquest.
 1366|{} peces encaixades aquí, la resta en {} fulls nous en pestanyes noves
+1367|Afegeix com a zona prohibida
+1368|La màquina no entrarà mai al lloc de les formes seleccionades: cadascuna esdevé una zona prohibida del dispositiu (un cercle si és rodona, si no el rectangle que l'envolta) i s'elimina del dibuix.
+1369|Zona prohibida
+1370|{} zones prohibides afegides al dispositiu
+1371|Les zones pertanyen al dispositiu i es desen amb ell, en cada projecte.
+1372|Hi ha un accessori rotatiu connectat
+1373|Mandril
+1374|Corrons
+1375|Diàmetre de la peça
+1376|Diàmetre del corró
+1377|Microtrams per volta
+1378|Microtrams del motor per a una volta completa del que mou (el mandril o un corró).
+1379|Circumferència
+1380|La circumferència de la peça: el disseny no pot ser més alt.
+1381|GRBL 1.1 té tres eixos: l'eix A no està disponible, s'usa Y.
+1382|El controlador necessita {} passos per mm a l'eix Y ($101).
+1383|Amb un accessori rotatiu l'eix Y fa girar la peça: el dibuix no pot ser més alt que el perímetre de la peça. El model és simple (un plat gira el diàmetre de la peça, els corrons mouen la superfície com la seva); una màquina real necessita proves.
+1384|Rotatiu

@@ -1365,3 +1365,21 @@
 1364|Kar ne gre, gre na nove plošče
 1365|Vsaka nova plošča je risba v svojem zavihku, z istimi plastmi in materialom: shranite jo in jo izrežite za to.
 1366|{} delov zloženih tu, ostalo na {} novih ploščah v novih zavihkih
+1367|Dodaj kot prepovedano območje
+1368|Stroj nikoli ne bo zapeljal na mesto izbranih oblik: vsaka postane prepovedano območje naprave (krog, če je okrogla, sicer pravokotnik okoli nje) in se odstrani z risbe.
+1369|Prepovedano območje
+1370|Napravi dodana prepovedana območja: {}
+1371|Območja pripadajo napravi in se shranijo z njo, v vsakem projektu.
+1372|Priključen je vrtljiv nastavek
+1373|Vpenjalo
+1374|Valji
+1375|Premer obdelovanca
+1376|Premer valja
+1377|Mikrokorakov na obrat
+1378|Mikrokoraki motorja za en poln obrat tistega, kar poganja (vpenjala ali enega valja).
+1379|Obod
+1380|Obod obdelovanca: načrt ne sme biti višji.
+1381|GRBL 1.1 ima tri osi: os A ni na voljo, uporabi se Y.
+1382|Krmilnik potrebuje {} korakov na mm na osi Y ($101).
+1383|Z rotacijskim nastavkom Y-os vrti obdelovanec: risba ne sme biti višja od oboda obdelovanca. Model je preprost (vpenjalo se zavrti za premer obdelovanca, valji premikajo površino kot svojo); pravi stroj je treba preizkusiti.
+1384|Vrtljiv

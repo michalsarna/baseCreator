@@ -1365,3 +1365,21 @@
 1364|Det, der ikke passer, kommer på nye plader
 1365|Hver ny plade er en tegning i sin egen fane med de samme lag og samme materiale: gem den og skær den efter denne.
 1366|{} dele placeret her, resten på {} nye plade(r) i nye faner
+1367|Tilføj som forbudszone
+1368|Maskinen kører aldrig ind på stedet for de valgte figurer: hver bliver en forbudszone for enheden (en cirkel, når den er rund, ellers rektanglet omkring den) og fjernes fra tegningen.
+1369|Forbudszone
+1370|{} forbudszoner tilføjet til enheden
+1371|Zonerne hører til enheden og gemmes med den, i hvert projekt.
+1372|En rotationstilbehør er tilsluttet
+1373|Spændepatron
+1374|Ruller
+1375|Emnets diameter
+1376|Rullediameter
+1377|Mikrotrin pr. omdrejning
+1378|Motorens mikrotrin for en hel omdrejning af det, den driver (patronen eller én rulle).
+1379|Omkreds
+1380|Emnets omkreds: designet må ikke være højere.
+1381|GRBL 1.1 har tre akser: A-aksen er ikke tilgængelig, Y bruges.
+1382|Styringen skal bruge {} trin pr. mm på Y-aksen ($101).
+1383|Med et rotationstilbehør drejer Y-aksen emnet: tegningen må ikke være højere end emnets omkreds. Modellen er enkel (en patron drejer emnets diameter, ruller flytter overfladen som deres egen); en rigtig maskine skal testes.
+1384|Rotation
