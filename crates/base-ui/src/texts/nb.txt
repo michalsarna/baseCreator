@@ -1345,3 +1345,13 @@
 1344|Lengden på et rett innløp, radien på en bue.
 1345|90° kommer rett mot linjen, en liten vinkel nesten langs den.
 1346|Hvor langt snittet fortsetter forbi starten, så start og slutt møtes rent.
+1347|Deler av arbeidsområdet verktøyet aldri må gå inn i (en klemme, en fikstur). Bevegelser gjennom luften går rundt sonene av seg selv; et kutt som berører en aktiv sone, meldes før jobben.
+1348|Sonenavn
+1349|Rektangel
+1350|Sirkel
+1351|Slett denne sonen
+1352|Bare på disse høydene (Z)
+1353|Som en eske eller sylinder på bordet: bevegelser over eller under området er frie.
+1354|Legg til en sone
+1355|Sone {}
+1356|Forbudssoner

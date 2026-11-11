@@ -1345,3 +1345,13 @@
 1344|Længden af et lige indløb, radius af en bue.
 1345|90° kommer lige ind på linjen, en lille vinkel næsten langs den.
 1346|Hvor langt snittet fortsætter forbi sin start, så start og slut mødes rent.
+1347|Dele af arbejdsområdet, som værktøjet aldrig må komme ind i (en klemme, en fikstur). Bevægelser gennem luften går selv uden om zonerne; et snit, der rører en aktiv zone, meldes før jobbet.
+1348|Zonenavn
+1349|Rektangel
+1350|Cirkel
+1351|Slet denne zone
+1352|Kun i disse højder (Z)
+1353|Som en kasse eller en cylinder på bordet: bevægelser over eller under området er frie.
+1354|Tilføj en zone
+1355|Zone {}
+1356|Forbudszoner

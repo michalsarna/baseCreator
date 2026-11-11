@@ -1345,3 +1345,13 @@
 1344|De lengte van een rechte inloop, de straal van een boog.
 1345|90° komt recht op de lijn, een kleine hoek bijna erlangs.
 1346|Hoe ver de snede doorgaat voorbij het begin, zodat begin en eind netjes samenkomen.
+1347|Delen van het werkgebied waar het gereedschap nooit in mag (een klem, een mal). Bewegingen door de lucht gaan vanzelf om de zones heen; een snede die een actieve zone raakt, wordt vóór de taak gemeld.
+1348|Zonenaam
+1349|Rechthoek
+1350|Cirkel
+1351|Deze zone verwijderen
+1352|Alleen op deze hoogten (Z)
+1353|Als een doos of cilinder op de tafel: bewegingen boven of onder het bereik zijn vrij.
+1354|Zone toevoegen
+1355|Zone {}
+1356|Verboden zones

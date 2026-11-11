@@ -1345,3 +1345,13 @@
 1344|Fad bealaigh dhírigh, ga stua.
 1345|Tagann 90° díreach ar an líne, uillinn bheag beagnach feadh na líne.
 1346|Cé chomh fada a théann an gearradh thar a thús, ionas go gcastar an tús agus an deireadh go glan.
+1347|Codanna den limistéar oibre nach gcaithfidh an uirlis dul isteach iontu riamh (clampa, daingneán). Téann gluaiseachtaí tríd an aer timpeall na gcriosanna as a stuaim féin; tuairiscítear gearradh a bhaineann le crios cumasaithe roimh an jab.
+1348|Ainm an chriosa
+1349|Dronuilleog
+1350|Ciorcal
+1351|Scrios an crios seo
+1352|Ag na hairde seo amháin (Z)
+1353|Cosúil le bosca nó sorcóir ina sheasamh ar an mbord: tá gluaiseachtaí os cionn nó faoi bhun an raoin saor.
+1354|Cuir crios leis
+1355|Crios {}
+1356|Criosanna toirmiscthe

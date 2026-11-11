@@ -1345,3 +1345,13 @@
 1344|Längden på ett rakt inlöp, radien på en båge.
 1345|90° kommer rakt mot linjen, en liten vinkel nästan längs den.
 1346|Hur långt snittet fortsätter förbi sin start, så att start och slut möts rent.
+1347|Delar av arbetsytan som verktyget aldrig får gå in i (en klämma, en fixtur). Rörelser genom luften går själva runt zonerna; ett snitt som rör en aktiv zon rapporteras före jobbet.
+1348|Zonnamn
+1349|Rektangel
+1350|Cirkel
+1351|Ta bort den här zonen
+1352|Bara på dessa höjder (Z)
+1353|Som en låda eller en cylinder på bordet: rörelser ovanför eller under intervallet är fria.
+1354|Lägg till en zon
+1355|Zon {}
+1356|Förbudszoner

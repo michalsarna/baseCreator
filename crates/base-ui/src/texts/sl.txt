@@ -1345,3 +1345,13 @@
 1344|Dolžina ravnega vstopa, polmer loka.
 1345|90° pride naravnost na črto, majhen kot skoraj vzdolž nje.
 1346|Kako daleč gre rez prek svojega začetka, da se začetek in konec čisto stakneta.
+1347|Deli delovnega območja, v katere orodje nikoli ne sme (primež, priprava). Gibi po zraku sami obidejo cone; rez, ki se dotakne vključene cone, je javljen pred poslom.
+1348|Ime območja
+1349|Pravokotnik
+1350|Krog
+1351|Izbriši to območje
+1352|Samo na teh višinah (Z)
+1353|Kot škatla ali valj na mizi: premiki nad ali pod razponom so prosti.
+1354|Dodaj območje
+1355|Območje {}
+1356|Prepovedana območja

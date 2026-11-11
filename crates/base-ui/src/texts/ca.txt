@@ -1345,3 +1345,13 @@
 1344|La longitud d'una entrada recta, el radi d'un arc.
 1345|90° arriba recte a la línia, un angle petit gairebé al llarg.
 1346|Fins on continua el tall després del seu inici, perquè l'inici i el final es trobin nets.
+1347|Parts de l'àrea de treball on l'eina no ha d'entrar mai (una brida, un utillatge). Els moviments per l'aire envolten les zones sols; un tall que toca una zona activa s'indica abans de la feina.
+1348|Nom de la zona
+1349|Rectangle
+1350|Cercle
+1351|Elimina aquesta zona
+1352|Només a aquestes altures (Z)
+1353|Com una caixa o un cilindre sobre la taula: els moviments per sobre o per sota de l'interval són lliures.
+1354|Afegeix una zona
+1355|Zona {}
+1356|Zones prohibides

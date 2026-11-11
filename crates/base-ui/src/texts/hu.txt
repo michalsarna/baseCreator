@@ -1345,3 +1345,13 @@
 1344|Egyenes ráfutás hossza, ív sugara.
 1345|90° merőlegesen fut a vonalra, kis szög majdnem mentén.
 1346|Mennyivel megy tovább a vágás a kezdetén túl, hogy a kezdet és a vég tisztán találkozzon.
+1347|A munkaterület részei, ahová a szerszám soha nem mehet be (szorító, készülék). A levegőben tett mozgások maguktól megkerülik a zónákat; a bekapcsolt zónát érintő vágást a munka előtt jelzi.
+1348|Zóna neve
+1349|Téglalap
+1350|Kör
+1351|Zóna törlése
+1352|Csak ezeken a magasságokon (Z)
+1353|Mint az asztalon álló doboz vagy henger: a tartomány feletti vagy alatti mozgások szabadok.
+1354|Zóna hozzáadása
+1355|{}. zóna
+1356|Tiltott zónák

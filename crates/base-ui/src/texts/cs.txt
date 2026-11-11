@@ -1345,3 +1345,13 @@
 1344|Délka přímého najetí, poloměr oblouku.
 1345|90° najíždí kolmo na čáru, malý úhel téměř podél ní.
 1346|Jak daleko řez pokračuje za svůj začátek, aby se začátek a konec čistě potkaly.
+1347|Části pracovní plochy, do kterých nástroj nesmí nikdy vjet (upínka, přípravek). Pohyby vzduchem zóny samy objedou; řez, který se dotkne zapnuté zóny, se ohlásí před úlohou.
+1348|Název zóny
+1349|Obdélník
+1350|Kruh
+1351|Smazat tuto zónu
+1352|Jen v těchto výškách (Z)
+1353|Jako krabice nebo válec stojící na stole: pohyby nad rozsahem nebo pod ním jsou volné.
+1354|Přidat zónu
+1355|Zóna {}
+1356|Zakázané zóny

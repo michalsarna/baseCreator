@@ -1345,3 +1345,13 @@
 1344|Lengd beinnar innkomu, radíus boga.
 1345|90° kemur beint á línuna, lítið horn næstum meðfram henni.
 1346|Hve langt skurðurinn heldur áfram fram hjá upphafinu, svo upphaf og endir mætist hreint.
+1347|Hlutar vinnusvæðisins sem verkfærið má aldrei fara inn í (klemma, festing). Hreyfingar í lofti fara sjálfkrafa fram hjá svæðunum; skurður sem snertir virkt svæði er tilkynntur fyrir verkið.
+1348|Heiti svæðis
+1349|Rétthyrningur
+1350|Hringur
+1351|Eyða þessu svæði
+1352|Aðeins í þessum hæðum (Z)
+1353|Eins og kassi eða sívalningur á borðinu: hreyfingar yfir eða undir bilinu eru frjálsar.
+1354|Bæta við svæði
+1355|Svæði {}
+1356|Bannsvæði

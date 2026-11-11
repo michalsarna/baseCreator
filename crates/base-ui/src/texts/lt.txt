@@ -1345,3 +1345,13 @@
 1344|Tiesaus įėjimo ilgis, lanko spindulys.
 1345|90° ateina tiesiai į liniją, mažas kampas beveik išilgai jos.
 1346|Kiek pjūvis tęsiasi už savo pradžios, kad pradžia ir pabaiga švariai susitiktų.
+1347|Darbo srities dalys, į kurias įrankis niekada neturi įeiti (spaustukas, įtvaras). Judesiai ore zonas apeina patys; pjūvis, liečiantis įjungtą zoną, pranešamas prieš darbą.
+1348|Zonos pavadinimas
+1349|Stačiakampis
+1350|Apskritimas
+1351|Ištrinti šią zoną
+1352|Tik šiuose aukščiuose (Z)
+1353|Kaip dėžė ar cilindras ant stalo: judesiai virš ar žemiau intervalo laisvi.
+1354|Pridėti zoną
+1355|Zona {}
+1356|Uždraustos zonos
