@@ -1355,3 +1355,13 @@
 1354|Añadir una zona
 1355|Zona {}
 1356|Zonas prohibidas
+1357|Según los contornos reales
+1358|Las formas se colocan según sus contornos reales: una pequeña puede ir en el agujero de una grande, una L en la esquina de otra. Un grupo es una pieza.
+1359|Giro
+1360|Medias vueltas
+1361|Cuartos de vuelta
+1362|Octavos de vuelta
+1363|{} piezas colocadas, {} no cabían y se quedaron donde estaban
+1364|Lo que no cabe va a nuevas planchas
+1365|Cada plancha nueva es un dibujo en una pestaña propia, con las mismas capas y material: guárdala y córtala después de esta.
+1366|{} piezas colocadas aquí, el resto en {} plancha(s) nueva(s) en pestañas nuevas

@@ -1355,3 +1355,13 @@
 1354|Dodaj zonu
 1355|Zona {}
 1356|Zabranjene zone
+1357|Prema stvarnim obrisima
+1358|Oblici se slažu prema stvarnim obrisima: mali može ući u rupu velikog, L u kut drugog. Grupa je jedan dio.
+1359|Okretanje
+1360|Pola okreta
+1361|Četvrt okreta
+1362|Osmina okreta
+1363|{} dijelova složeno, {} nije stalo i ostalo je na mjestu
+1364|Što ne stane, ide na nove ploče
+1365|Svaka nova ploča je crtež u vlastitoj kartici, s istim slojevima i materijalom: spremite je i izrežite nakon ove.
+1366|{} dijelova složeno ovdje, ostatak na {} novih ploča u novim karticama

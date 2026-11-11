@@ -1355,3 +1355,13 @@
 1354|Afegeix una zona
 1355|Zona {}
 1356|Zones prohibides
+1357|Segons els contorns reals
+1358|Les formes s'encaixen segons els seus contorns reals: una de petita pot anar al forat d'una de gran, una L al racó d'una altra. Un grup és una peça.
+1359|Gir
+1360|Mitges voltes
+1361|Quarts de volta
+1362|Vuitens de volta
+1363|{} peces encaixades, {} no hi cabien i s'han quedat on eren
+1364|El que no hi cap va a fulls nous
+1365|Cada full nou és un dibuix en una pestanya pròpia, amb les mateixes capes i material: desa'l i talla'l després d'aquest.
+1366|{} peces encaixades aquí, la resta en {} fulls nous en pestanyes noves

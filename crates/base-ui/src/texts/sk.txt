@@ -1355,3 +1355,13 @@
 1354|Pridať zónu
 1355|Zóna {}
 1356|Zakázané zóny
+1357|Podľa skutočných obrysov
+1358|Tvary sa skladajú podľa skutočných obrysov: malý môže ísť do otvoru veľkého, L do rohu iného. Skupina je jeden diel.
+1359|Otáčanie
+1360|Polotočky
+1361|Štvrťotáčky
+1362|Osminy otáčky
+1363|{} dielov rozmiestnených, {} sa nezmestilo a zostalo na mieste
+1364|Čo sa nezmestí, ide na nové dosky
+1365|Každá nová doska je výkres vo vlastnej karte, s rovnakými vrstvami a materiálom: uložte ju a vyrežte po tejto.
+1366|{} dielov rozmiestnených tu, zvyšok na {} nových doskách v nových kartách

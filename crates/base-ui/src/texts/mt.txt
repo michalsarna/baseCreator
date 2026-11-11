@@ -1355,3 +1355,13 @@
 1354|Żid żona
 1355|Żona {}
 1356|Żoni pprojbiti
+1357|Skont il-konturi veri
+1358|Il-forom jitqiegħdu skont il-konturi veri tagħhom: waħda żgħira tista' tidħol fit-toqba ta' waħda kbira, L fil-kantuniera ta' oħra. Grupp huwa biċċa waħda.
+1359|Dawran
+1360|Nofs dawra
+1361|Kwart ta' dawra
+1362|Tmienja ta' dawra
+1363|{} biċċiet imqiegħda, {} ma daħlux u baqgħu fejn kienu
+1364|Dak li ma jidħolx imur fuq folji ġodda
+1365|Kull folja ġdida hija tpinġija f'tab tagħha, bl-istess saffi u materjal: issejvjaha u aqtagħha wara din.
+1366|{} biċċiet imqiegħda hawn, il-bqija fuq {} folja/i ġdida f'tabs ġodda

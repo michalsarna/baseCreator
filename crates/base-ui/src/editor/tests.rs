@@ -19,13 +19,15 @@ struct Host {
     frames: u64,
     /// The picture in the clipboard of the system, as the tests set it (never the real one).
     clip_img: Option<crate::clip_image::ClipImage>,
+    /// The sheets a nesting opened, when the test lets it open any.
+    sheets: Option<Vec<Vec<base_core::scene::Shape>>>,
 }
 
 impl Default for Host {
     fn default() -> Host {
         // Never touch the real user library in tests.
         let dir = std::env::temp_dir().join(format!("base-ui-clip-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
-        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0, clip_img: None }
+        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0, clip_img: None, sheets: None }
     }
 }
 
@@ -90,6 +92,14 @@ impl EditorHost for Host {
     fn open_online_clipart_search(&mut self, _ctx: &egui::Context) {}
     fn say(&mut self, msg: String) {
         self.status = msg;
+    }
+    fn can_add_sheets(&self) -> bool {
+        self.sheets.is_some()
+    }
+    fn add_sheets(&mut self, sheets: Vec<Vec<base_core::scene::Shape>>) -> usize {
+        let n = sheets.len();
+        self.sheets.get_or_insert_default().extend(sheets);
+        n
     }
     fn said(&self) -> &str {
         &self.status
@@ -411,6 +421,47 @@ fn duplicates_go_shapes_break_apart_and_simplify_and_a_nest_fits_the_area() {
     assert!(b.min.x.abs() < 1e-9 && b.min.y.abs() < 1e-9 && b.max.x <= 70.0 + 1e-9 && b.max.y <= 30.0 + 1e-9, "{b:?} {}", h.status);
     EditorDesign::nest_selected(&mut h, (30.0, 30.0), 2.0, false);
     assert!(h.status.contains("do not fit"), "{}", h.status);
+}
+
+#[test]
+fn a_nest_by_the_real_outlines_keeps_groups_together_and_leaves_what_does_not_fit() {
+    let mut h = Host::default();
+    let ids: Vec<u64> = (0..4).map(|i| h.scene.add(0, Kind::Ellipse { w: 20.0, h: 20.0 }, Xf::translate(200.0 + 50.0 * i as f64, 150.0))).collect();
+    // The last two are one part.
+    let g = Some(99);
+    for id in &ids[2..] {
+        h.scene.shape_mut(*id).unwrap().group = g;
+    }
+    h.ed.sel = ids.clone();
+    let gap = |h: &Host| h.scene.shape(ids[3]).unwrap().xf.e - h.scene.shape(ids[2]).unwrap().xf.e;
+    let before = gap(&h);
+    EditorDesign::nest_true_shape(&mut h, (100.0, 100.0), 2.0, 4, true);
+    let b = h.scene.bounds_of(&ids).unwrap();
+    assert!(b.min.x >= -1e-6 && b.min.y >= -1e-6 && b.max.x <= 100.0 + 1e-6 && b.max.y <= 100.0 + 1e-6, "{b:?} {}", h.status);
+    assert!(h.status.contains("3 shapes nested"), "{}", h.status);
+    // The group moved as one (a quarter turn may swap the axis of the distance).
+    let (a, c) = (h.scene.shape(ids[2]).unwrap().bounds().unwrap().center(), h.scene.shape(ids[3]).unwrap().bounds().unwrap().center());
+    assert!((a.dist(c) - before).abs() < 1e-6);
+    // A tiny area: some stay where they are.
+    let mut h2 = Host::default();
+    let ids: Vec<u64> = (0..3).map(|i| h2.scene.add(0, Kind::Rect { w: 20.0, h: 20.0 }, Xf::translate(100.0 * i as f64, 50.0))).collect();
+    h2.ed.sel = ids;
+    EditorDesign::nest_true_shape(&mut h2, (50.0, 25.0), 2.0, 1, true);
+    assert!(h2.status.contains("did not fit"), "{}", h2.status);
+    assert_eq!(h2.scene.shapes.len(), 3, "without sheets nothing is taken away");
+    // With sheets: what does not fit goes on new ones, nothing is lost and every sheet holds what fits.
+    let mut h3 = Host { sheets: Some(vec![]), ..Host::default() };
+    let ids: Vec<u64> = (0..5).map(|i| h3.scene.add(0, Kind::Rect { w: 20.0, h: 20.0 }, Xf::translate(100.0 * i as f64, 50.0))).collect();
+    h3.ed.sel = ids;
+    EditorDesign::nest_true_shape(&mut h3, (50.0, 25.0), 2.0, 1, true);
+    let sheets = h3.sheets.clone().unwrap();
+    let on_sheets: usize = sheets.iter().map(|s| s.len()).sum();
+    assert!(!sheets.is_empty() && on_sheets + h3.scene.shapes.len() == 5, "{} {sheets:?}", h3.status);
+    assert!(h3.status.contains("new sheet"), "{}", h3.status);
+    for s in sheets.iter().flatten() {
+        let b = s.bounds().unwrap();
+        assert!(b.min.x >= -1e-6 && b.max.x <= 50.0 + 1e-6 && b.max.y <= 25.0 + 1e-6, "{b:?}");
+    }
 }
 
 #[test]

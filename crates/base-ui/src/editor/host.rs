@@ -41,6 +41,16 @@ pub trait EditorHost: Sized {
     }
     /// Show a message in the status line.
     fn say(&mut self, msg: String);
+    /// Can the program open new sheets (drawings in tabs of their own, with the same layers and material) for what a nesting
+    /// does not fit on this one?
+    fn can_add_sheets(&self) -> bool {
+        false
+    }
+    /// Open a new sheet for every list of shapes (already in their places), and show this drawing again. The number opened.
+    fn add_sheets(&mut self, sheets: Vec<Vec<base_core::scene::Shape>>) -> usize {
+        let _ = sheets;
+        0
+    }
     /// The message now shown in the status line.
     fn said(&self) -> &str;
 

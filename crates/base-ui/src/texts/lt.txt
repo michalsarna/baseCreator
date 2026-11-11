@@ -1355,3 +1355,13 @@
 1354|Pridėti zoną
 1355|Zona {}
 1356|Uždraustos zonos
+1357|Pagal tikrus kontūrus
+1358|Formos dedamos pagal tikrus kontūrus: maža gali patekti į didelės skylę, L į kitos kampą. Grupė yra viena detalė.
+1359|Sukimas
+1360|Pusė apsisukimo
+1361|Ketvirtis apsisukimo
+1362|Aštuntadalis apsisukimo
+1363|{} detalės sudėtos, {} netilpo ir liko vietoje
+1364|Kas netelpa, eina į naujus lakštus
+1365|Kiekvienas naujas lakštas yra brėžinys atskiroje kortelėje, su tais pačiais sluoksniais ir medžiaga: įrašykite jį ir pjaukite po šio.
+1366|{} detalės sudėtos čia, likusios ant {} naujų lakštų naujose kortelėse

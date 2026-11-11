@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.89.0
+
+- **Nesting by the real outlines** (`nest::nest`, Arrange → Nest shapes…, **By the real outlines**, on by default): the parts are packed by their true shapes on a grid of the sheet, the biggest first, at the first place from the top left where they fit, turned in the steps asked for (**Turning**: none, half turns, quarter turns, eighth turns). A small part can go into the hole of a big one, an L into the corner of another; a group is one part. What does not fit stays where it was and is said. The packing by boxes is still there (switch the option off).
+- **More sheets:** with **What does not fit goes on new sheets** (for the programs that have tabs) what is left is nested on new sheets, each one a drawing in a new tab with the same layers and material (`EditorHost::can_add_sheets`, `add_sheets`); nothing is lost.
+- 10 new texts in every language.
+
 ## v1.88.0
 
 - **No-go zones in every program** (`zones`, moved here from LightCreator): rectangles and circles of the work area a tool must never enter, each with a name, a switch and the heights it stands between (`Zone::at_heights`). **`zones::route`** finds the shortest way round the zones (grown by a margin) for a move through the air: a graph of the corners of the zones; `None` when the move starts or ends in a zone or the zones wall it in. `segment_hits_with` checks with a margin (the radius of a bit), `ZoneShape::polygon`, `check_all`.

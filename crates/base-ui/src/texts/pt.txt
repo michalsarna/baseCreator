@@ -1355,3 +1355,13 @@
 1354|Adicionar uma zona
 1355|Zona {}
 1356|Zonas proibidas
+1357|Pelos contornos reais
+1358|As formas são arrumadas pelos contornos reais: uma pequena pode ir para o furo de uma grande, um L para o canto de outro. Um grupo é uma peça.
+1359|Rotação
+1360|Meias voltas
+1361|Quartos de volta
+1362|Oitavos de volta
+1363|{} peças arrumadas, {} não cabiam e ficaram onde estavam
+1364|O que não cabe vai para novas chapas
+1365|Cada chapa nova é um desenho num separador próprio, com as mesmas camadas e material: guarde-a e corte-a depois desta.
+1366|{} peças arrumadas aqui, o resto em {} chapa(s) nova(s) em novos separadores

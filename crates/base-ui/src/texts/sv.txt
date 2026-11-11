@@ -1355,3 +1355,13 @@
 1354|Lägg till en zon
 1355|Zon {}
 1356|Förbudszoner
+1357|Efter de verkliga konturerna
+1358|Formerna packas efter sina verkliga konturer: en liten kan hamna i hålet i en stor, ett L i hörnet på ett annat. En grupp är en del.
+1359|Vridning
+1360|Halva varv
+1361|Kvartsvarv
+1362|Åttondelsvarv
+1363|{} delar placerade, {} fick inte plats och blev kvar
+1364|Det som inte får plats hamnar på nya skivor
+1365|Varje ny skiva är en ritning i en egen flik, med samma lager och material: spara den och skär den efter den här.
+1366|{} delar placerade här, resten på {} nya skiva/skivor i nya flikar
