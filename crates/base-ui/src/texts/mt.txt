@@ -1345,3 +1345,13 @@
 1344|It-tul ta' dħul dritt, ir-raġġ ta' ark.
 1345|90° jidħol dritt fuq il-linja, angolu żgħir kważi tulha.
 1346|Kemm il-qatgħa tibqa' għaddejja wara l-bidu tagħha, biex il-bidu u t-tmiem jiltaqgħu sew.
+1347|Partijiet taż-żona tax-xogħol fejn l-għodda qatt m'għandha tidħol (morsa, apparat). Il-movimenti fl-arja jduru mal-żoni waħedhom; qatgħa li tmiss żona attiva tiġi rrappurtata qabel ix-xogħol.
+1348|Isem iż-żona
+1349|Rettangolu
+1350|Ċirku
+1351|Ħassar din iż-żona
+1352|Biss f'dawn l-għoli (Z)
+1353|Bħal kaxxa jew ċilindru fuq il-mejda: il-movimenti 'l fuq jew 'l isfel mill-medda huma ħielsa.
+1354|Żid żona
+1355|Żona {}
+1356|Żoni pprojbiti

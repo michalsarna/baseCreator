@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.88.0
+
+- **No-go zones in every program** (`zones`, moved here from LightCreator): rectangles and circles of the work area a tool must never enter, each with a name, a switch and the heights it stands between (`Zone::at_heights`). **`zones::route`** finds the shortest way round the zones (grown by a margin) for a move through the air: a graph of the corners of the zones; `None` when the move starts or ends in a zone or the zones wall it in. `segment_hits_with` checks with a margin (the radius of a bit), `ZoneShape::polygon`, `check_all`.
+- `zones_ui::page` (the page of the device settings, the same in all programs) and `zones_ui::paint` (the red areas on the work area).
+- 10 new texts in every language (9 of them from LightCreator).
+
 ## v1.87.0
 
 - **Leads** (`lead`): a closed cut comes onto its line from the waste side and leaves it the same way, so the mark of the start is not on the part. A lead is a **Line** at an angle or an **Arc** that touches the line; an **Overlap** goes on past the start before the lead out. `lead::plan` gives the points; a lead that would cross the line or reach into another ring is made half or a quarter as big, or left out (`Leads::shrunk`, `dropped`). `lead::good_start` starts a ring that begins at a corner in the middle of its longest piece. `lead::ring_with_overlap`, `lead::walk`.

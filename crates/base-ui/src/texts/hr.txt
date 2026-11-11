@@ -1345,3 +1345,13 @@
 1344|Duljina ravnog ulaza, polumjer luka.
 1345|90° dolazi okomito na liniju, mali kut gotovo uz nju.
 1346|Koliko rez ide iza svog početka, da se početak i kraj čisto spoje.
+1347|Dijelovi radnog područja u koje alat nikad ne smije ući (stezaljka, naprava). Kretnje kroz zrak same obilaze zone; rez koji dodiruje uključenu zonu prijavljuje se prije posla.
+1348|Naziv zone
+1349|Pravokutnik
+1350|Krug
+1351|Izbriši ovu zonu
+1352|Samo na ovim visinama (Z)
+1353|Kao kutija ili valjak na stolu: pomaci iznad ili ispod raspona slobodni su.
+1354|Dodaj zonu
+1355|Zona {}
+1356|Zabranjene zone

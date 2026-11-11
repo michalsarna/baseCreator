@@ -1345,3 +1345,13 @@
 1344|La longitud de una entrada recta, el radio de un arco.
 1345|90° llega recto a la línea, un ángulo pequeño casi a lo largo.
 1346|Hasta dónde sigue el corte pasado su inicio, para que el inicio y el final se unan limpiamente.
+1347|Partes del área de trabajo donde la herramienta nunca debe entrar (una brida, un utillaje). Los movimientos por el aire rodean las zonas solos; un corte que toca una zona activa se indica antes del trabajo.
+1348|Nombre de la zona
+1349|Rectángulo
+1350|Círculo
+1351|Eliminar esta zona
+1352|Solo a estas alturas (Z)
+1353|Como una caja o un cilindro sobre la mesa: los movimientos por encima o por debajo del rango son libres.
+1354|Añadir una zona
+1355|Zona {}
+1356|Zonas prohibidas

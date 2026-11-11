@@ -1345,3 +1345,13 @@
 1344|Lungimea unei intrări drepte, raza unui arc.
 1345|90° vine drept pe linie, un unghi mic aproape de-a lungul ei.
 1346|Cât de departe continuă tăietura după începutul ei, ca începutul și sfârșitul să se întâlnească curat.
+1347|Părți ale zonei de lucru în care unealta nu trebuie să intre niciodată (o clemă, un dispozitiv). Mișcările prin aer ocolesc singure zonele; o tăietură care atinge o zonă activă este semnalată înainte de lucrare.
+1348|Numele zonei
+1349|Dreptunghi
+1350|Cerc
+1351|Șterge această zonă
+1352|Doar la aceste înălțimi (Z)
+1353|Ca o cutie sau un cilindru pe masă: mișcările deasupra sau sub interval sunt libere.
+1354|Adaugă o zonă
+1355|Zona {}
+1356|Zone interzise

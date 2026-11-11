@@ -1345,3 +1345,13 @@
 1344	The length of a straight lead, the radius of an arc.
 1345	90° comes straight at the line, a small angle almost along it.
 1346	How far the cut goes on past its start, so that the start and the end meet cleanly.
+1347	Parts of the work area the tool must never enter (a clamp, a fixture). Moves through the air go round the zones by themselves; a cut that touches an enabled zone is reported before the job.
+1348	Zone name
+1349	Rectangle
+1350	Circle
+1351	Delete this zone
+1352	Only at these heights (Z)
+1353	Like a box or a cylinder standing on the table: moves above or below the range are free.
+1354	Add a zone
+1355	Zone {}
+1356	No-go zones

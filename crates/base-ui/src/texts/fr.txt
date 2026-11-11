@@ -1345,3 +1345,13 @@
 1344|La longueur d'une entrée droite, le rayon d'un arc.
 1345|90° arrive droit sur la ligne, un petit angle presque le long.
 1346|Jusqu'où la coupe continue après son départ, pour que le début et la fin se rejoignent proprement.
+1347|Parties de la zone de travail où l'outil ne doit jamais entrer (une bride, un montage). Les déplacements en l'air contournent les zones d'eux-mêmes ; une coupe qui touche une zone active est signalée avant le travail.
+1348|Nom de la zone
+1349|Rectangle
+1350|Cercle
+1351|Supprimer cette zone
+1352|Seulement à ces hauteurs (Z)
+1353|Comme une boîte ou un cylindre posé sur la table : les déplacements au-dessus ou au-dessous de la plage sont libres.
+1354|Ajouter une zone
+1355|Zone {}
+1356|Zones interdites

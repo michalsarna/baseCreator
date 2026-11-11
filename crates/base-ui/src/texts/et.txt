@@ -1345,3 +1345,13 @@
 1344|Sirge sisenemise pikkus, kaare raadius.
 1345|90° tuleb otse joonele, väike nurk peaaegu piki seda.
 1346|Kui kaugele lõige oma algusest edasi läheb, et algus ja lõpp puhtalt kokku saaksid.
+1347|Tööala osad, kuhu tööriist ei tohi kunagi minna (klamber, rakis). Liikumised õhus lähevad tsoonidest ise mööda; lõige, mis puudutab lubatud tsooni, teatatakse enne tööd.
+1348|Tsooni nimi
+1349|Ristkülik
+1350|Ring
+1351|Kustuta see tsoon
+1352|Ainult nendel kõrgustel (Z)
+1353|Nagu laual seisev kast või silinder: liikumised vahemikust kõrgemal või madalamal on vabad.
+1354|Lisa tsoon
+1355|Tsoon {}
+1356|Keelutsoonid

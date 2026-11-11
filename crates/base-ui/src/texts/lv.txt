@@ -1345,3 +1345,13 @@
 1344|Taisnas ieejas garums, loka rādiuss.
 1345|90° nāk taisni pret līniju, mazs leņķis gandrīz gar to.
 1346|Cik tālu griezums turpinās aiz sava sākuma, lai sākums un beigas tīri satiktos.
+1347|Darba laukuma daļas, kurās instruments nekad nedrīkst iekļūt (skava, stiprinājums). Kustības pa gaisu zonas apiet pašas; griezums, kas skar ieslēgtu zonu, tiek paziņots pirms darba.
+1348|Zonas nosaukums
+1349|Taisnstūris
+1350|Aplis
+1351|Dzēst šo zonu
+1352|Tikai šajos augstumos (Z)
+1353|Kā kaste vai cilindrs uz galda: kustības virs vai zem diapazona ir brīvas.
+1354|Pievienot zonu
+1355|Zona {}
+1356|Aizliegtās zonas

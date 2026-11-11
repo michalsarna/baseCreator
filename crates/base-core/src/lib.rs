@@ -57,6 +57,7 @@ pub mod svg;
 pub mod text;
 pub mod trace;
 pub mod ugsd;
+pub mod zones;
 pub mod units;
 
 pub use bezier::*;
