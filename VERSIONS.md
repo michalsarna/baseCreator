@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.89.1
+
+- **Quick guide** (F1): two new lines, in English and Polish: nesting by the real outlines and onto new sheets, and the no-go zones and the accelerations of the machine (the time of a job).
+
 ## v1.89.0
 
 - **Nesting by the real outlines** (`nest::nest`, Arrange → Nest shapes…, **By the real outlines**, on by default): the parts are packed by their true shapes on a grid of the sheet, the biggest first, at the first place from the top left where they fit, turned in the steps asked for (**Turning**: none, half turns, quarter turns, eighth turns). A small part can go into the hole of a big one, an L into the corner of another; a group is one part. What does not fit stays where it was and is said. The packing by boxes is still there (switch the option off).
