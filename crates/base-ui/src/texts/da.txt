@@ -1383,3 +1383,10 @@
 1382|Styringen skal bruge {} trin pr. mm på Y-aksen ($101).
 1383|Med et rotationstilbehør drejer Y-aksen emnet: tegningen må ikke være højere end emnets omkreds. Modellen er enkel (en patron drejer emnets diameter, ruller flytter overfladen som deres egen); en rigtig maskine skal testes.
 1384|Rotation
+1385|Kinesisk nytår (Mørk)
+1386|Kinesisk nytår (Lys)
+1387|Luk programmet?
+1388|Den sidste tegning er lukket.
+1389|Luk programmet
+1390|Tilbage til startskærmen
+1391|Lag

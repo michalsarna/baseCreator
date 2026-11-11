@@ -1383,3 +1383,10 @@
 1382	The controller needs {} steps per mm on the Y axis ($101).
 1383	With a rotary attachment the Y axis turns the work: the drawing may not be higher than the way round the workpiece. The model is simple (a chuck turns by the workpiece diameter, rollers move the surface like their own); a real machine needs testing.
 1384	Rotary
+1385	Chinese New Year (Dark)
+1386	Chinese New Year (Light)
+1387	Close the program?
+1388	The last drawing is closed.
+1389	Close the program
+1390	Back to the start screen
+1391	Layer

@@ -1383,3 +1383,10 @@
 1382|Il-kontrollur jeħtieġ {} passi għal kull mm fuq l-assi Y ($101).
 1383|B'aċċessorju rotanti l-assi Y idawwar il-biċċa: id-disinn ma jistax ikun itwal mill-perimetru tal-biċċa. Il-mudell huwa sempliċi (chuck jdur bid-dijametru tal-biċċa, ir-rollers iċaqilqu l-wiċċ bħal tagħhom); magna vera teħtieġ ittestjar.
 1384|Rotatorju
+1385|Is-Sena l-Ġdida Ċiniża (Skur)
+1386|Is-Sena l-Ġdida Ċiniża (Ċar)
+1387|Tagħlaq il-programm?
+1388|L-aħħar disinn huwa magħluq.
+1389|Agħlaq il-programm
+1390|Lura għall-iskrin tal-bidu
+1391|Saff

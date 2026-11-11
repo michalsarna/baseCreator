@@ -1383,3 +1383,10 @@
 1382|Upravljaču treba {} koraka po mm na osi Y ($101).
 1383|S rotacijskim nastavkom os Y okreće obradak: crtež ne smije biti viši od opsega obratka. Model je jednostavan (stezna glava se okreće za promjer obratka, valjci pomiču površinu kao svoju); pravi stroj treba isprobati.
 1384|Rotacijski
+1385|Kineska Nova godina (Tamna)
+1386|Kineska Nova godina (Svijetla)
+1387|Zatvoriti program?
+1388|Posljednji crtež je zatvoren.
+1389|Zatvori program
+1390|Natrag na početni zaslon
+1391|Sloj

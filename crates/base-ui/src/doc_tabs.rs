@@ -244,6 +244,35 @@ pub fn ask_save(ctx: &egui::Context, title: &str, green: Color32) -> Option<Answ
     choice
 }
 
+/// The question after the last drawing was closed (its work saved or given up by now): close the program too? `Some(true)`
+/// closes it, `Some(false)` goes back to the start screen (also Escape), `None` while nothing was chosen.
+pub fn ask_quit(ctx: &egui::Context, green: Color32) -> Option<bool> {
+    let mut choice = None;
+    egui::Window::new("quit_dialog").title_bar(false).collapsible(false).resizable(false).anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]).show(ctx, |ui| {
+        ui.set_min_width(420.0);
+        ui.add_space(6.0);
+        ui.label(RichText::new(tr("Close the program?")).size(18.0).strong());
+        ui.add_space(4.0);
+        ui.label(RichText::new(tr("The last drawing is closed.")).size(14.0).color(theme::text_dim()));
+        ui.add_space(14.0);
+        ui.horizontal(|ui| {
+            let size = egui::vec2((ui.available_width() - ui.spacing().item_spacing.x) / 2.0, 38.0);
+            let quit = egui::Button::new(RichText::new(tr("Close the program")).size(15.0).color(Color32::WHITE).strong()).fill(green);
+            if ui.add_sized(size, quit).clicked() {
+                choice = Some(true);
+            }
+            if ui.add_sized(size, egui::Button::new(RichText::new(tr("Back to the start screen")).size(15.0))).clicked() {
+                choice = Some(false);
+            }
+        });
+        ui.add_space(4.0);
+    });
+    if ctx.input(|i| i.key_pressed(egui::Key::Escape)) {
+        choice = Some(false);
+    }
+    choice
+}
+
 /// The message for a new tab that would be the eleventh.
 pub fn limit_message() -> String {
     trf("At most {} tabs can be open.", &[&MAX_TABS])

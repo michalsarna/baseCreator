@@ -33,6 +33,8 @@ pub enum Scheme {
     HalloweenLight,
     EasterDark,
     EasterLight,
+    ChineseNewYearDark,
+    ChineseNewYearLight,
     Superman,
     Batman,
     JokerDark,
@@ -43,12 +45,13 @@ impl Scheme {
     pub const ALL: [Scheme; 18] = [Scheme::Dark, Scheme::LightDark, Scheme::MediumLight, Scheme::Light, Scheme::BlueDark, Scheme::BlueLight, Scheme::GreenDark, Scheme::GreenLight, Scheme::PurpleDark, Scheme::PurpleLight, Scheme::BrownDark, Scheme::BrownLight, Scheme::OrangeDark, Scheme::OrangeLight, Scheme::Superman, Scheme::Batman, Scheme::JokerDark, Scheme::JokerLight];
 
     /// The schemes of the holidays: two for each, offered only around that holiday.
-    pub const FESTIVE: [Scheme; 8] = [Scheme::ChristmasDark, Scheme::ChristmasLight, Scheme::NewYearDark, Scheme::NewYearLight, Scheme::HalloweenDark, Scheme::HalloweenLight, Scheme::EasterDark, Scheme::EasterLight];
+    pub const FESTIVE: [Scheme; 10] = [Scheme::ChristmasDark, Scheme::ChristmasLight, Scheme::NewYearDark, Scheme::NewYearLight, Scheme::HalloweenDark, Scheme::HalloweenLight, Scheme::EasterDark, Scheme::EasterLight, Scheme::ChineseNewYearDark, Scheme::ChineseNewYearLight];
     /// All of them; the position is the index of the palette.
-    const EVERY: [Scheme; 26] = [
+    const EVERY: [Scheme; 28] = [
         Scheme::Dark, Scheme::LightDark, Scheme::MediumLight, Scheme::Light, Scheme::BlueDark, Scheme::BlueLight, Scheme::GreenDark, Scheme::GreenLight, Scheme::PurpleDark, Scheme::PurpleLight, Scheme::BrownDark, Scheme::BrownLight, Scheme::OrangeDark, Scheme::OrangeLight,
         Scheme::ChristmasDark, Scheme::ChristmasLight, Scheme::NewYearDark, Scheme::NewYearLight, Scheme::HalloweenDark, Scheme::HalloweenLight, Scheme::EasterDark, Scheme::EasterLight,
         Scheme::Superman, Scheme::Batman, Scheme::JokerDark, Scheme::JokerLight,
+        Scheme::ChineseNewYearDark, Scheme::ChineseNewYearLight,
     ];
 
     /// The holiday of a festive scheme.
@@ -58,6 +61,7 @@ impl Scheme {
             Scheme::NewYearDark | Scheme::NewYearLight => Some(Holiday::NewYearsEve),
             Scheme::HalloweenDark | Scheme::HalloweenLight => Some(Holiday::Halloween),
             Scheme::EasterDark | Scheme::EasterLight => Some(Holiday::Easter),
+            Scheme::ChineseNewYearDark | Scheme::ChineseNewYearLight => Some(Holiday::ChineseNewYear),
             _ => None,
         }
     }
@@ -125,6 +129,8 @@ impl Scheme {
             Scheme::HalloweenLight => "Halloween (Light)",
             Scheme::EasterDark => "Easter (Dark)",
             Scheme::EasterLight => "Easter (Light)",
+            Scheme::ChineseNewYearDark => "Chinese New Year (Dark)",
+            Scheme::ChineseNewYearLight => "Chinese New Year (Light)",
         }
     }
     pub fn id(self) -> &'static str {
@@ -155,6 +161,8 @@ impl Scheme {
             Scheme::HalloweenLight => "halloween-light",
             Scheme::EasterDark => "easter-dark",
             Scheme::EasterLight => "easter-light",
+            Scheme::ChineseNewYearDark => "chinese-new-year-dark",
+            Scheme::ChineseNewYearLight => "chinese-new-year-light",
         }
     }
     /// The scheme with this id, unless it is a festive one whose holiday is not near.
@@ -165,7 +173,7 @@ impl Scheme {
         Scheme::EVERY.into_iter().find(|x| x.id() == s)
     }
     pub fn is_dark(self) -> bool {
-        matches!(self, Scheme::Superman | Scheme::Batman | Scheme::JokerDark | Scheme::Dark | Scheme::LightDark | Scheme::OrangeDark | Scheme::BrownDark | Scheme::PurpleDark | Scheme::GreenDark | Scheme::BlueDark | Scheme::ChristmasDark | Scheme::NewYearDark | Scheme::HalloweenDark | Scheme::EasterDark)
+        matches!(self, Scheme::Superman | Scheme::Batman | Scheme::JokerDark | Scheme::Dark | Scheme::LightDark | Scheme::OrangeDark | Scheme::BrownDark | Scheme::PurpleDark | Scheme::GreenDark | Scheme::BlueDark | Scheme::ChristmasDark | Scheme::NewYearDark | Scheme::HalloweenDark | Scheme::EasterDark | Scheme::ChineseNewYearDark)
     }
     fn index(self) -> u8 {
         Scheme::EVERY.iter().position(|x| *x == self).unwrap_or(3) as u8
@@ -199,6 +207,8 @@ impl Scheme {
             Scheme::HalloweenLight => HALLOWEEN_LIGHT,
             Scheme::EasterDark => EASTER_DARK,
             Scheme::EasterLight => EASTER_LIGHT,
+            Scheme::ChineseNewYearDark => CNY_DARK,
+            Scheme::ChineseNewYearLight => CNY_LIGHT,
         }
     }
 }
@@ -450,6 +460,35 @@ const EASTER_LIGHT: Palette = Palette {
     widget_hover_weak: rgb(0xd7, 0xe9, 0xda),
     input: Color32::WHITE,
 };
+/// The Chinese New Year: lacquer red and gold in the dark one, red on rice paper in the light one.
+const CNY_DARK: Palette = Palette {
+    accent: rgb(0xd9, 0xa2, 0x1b),
+    panel: rgb(0x3a, 0x16, 0x18),
+    panel_dark: rgb(0x2e, 0x10, 0x12),
+    border: rgb(0x5c, 0x26, 0x28),
+    workspace: rgb(0x22, 0x0b, 0x0d),
+    text: rgb(0xf7, 0xec, 0xdc),
+    text_dim: rgb(0xc7, 0xa8, 0x96),
+    widget: rgb(0x4a, 0x1e, 0x20),
+    widget_weak: rgb(0x42, 0x1a, 0x1c),
+    widget_hover: rgb(0x5e, 0x28, 0x2a),
+    widget_hover_weak: rgb(0x55, 0x23, 0x25),
+    input: rgb(0x26, 0x0d, 0x0f),
+};
+const CNY_LIGHT: Palette = Palette {
+    accent: rgb(0xe0, 0x3a, 0x2f),
+    panel: rgb(0xfb, 0xf0, 0xdc),
+    panel_dark: rgb(0xf3, 0xe2, 0xc6),
+    border: rgb(0xe0, 0xc3, 0x9a),
+    workspace: rgb(0xec, 0xd6, 0xb4),
+    text: rgb(0x2e, 0x12, 0x0e),
+    text_dim: rgb(0x7a, 0x4a, 0x3a),
+    widget: rgb(0xf2, 0xe1, 0xc4),
+    widget_weak: rgb(0xf6, 0xe8, 0xd0),
+    widget_hover: rgb(0xea, 0xd2, 0xae),
+    widget_hover_weak: rgb(0xee, 0xd9, 0xb9),
+    input: Color32::WHITE,
+};
 
 /// A colour for the tinted schemes: the colour that tints the greys and the accent used with it.
 #[derive(Clone, Copy)]
@@ -638,6 +677,8 @@ mod tests {
         assert_eq!(on((2026, 12, 30)), vec![Scheme::NewYearDark, Scheme::NewYearLight]);
         assert_eq!(on((2026, 10, 28)), vec![Scheme::HalloweenDark, Scheme::HalloweenLight]);
         assert_eq!(on((2026, 4, 4)), vec![Scheme::EasterDark, Scheme::EasterLight]);
+        assert_eq!(on((2026, 2, 18)), vec![Scheme::ChineseNewYearDark, Scheme::ChineseNewYearLight]);
+        assert_eq!(Scheme::from_saved_on(Some("chinese-new-year-dark"), None, (2026, 7, 1)), Scheme::LightDark);
         assert_eq!(Scheme::available_on((2026, 12, 24)).len(), Scheme::ALL.len() + 2);
     }
 

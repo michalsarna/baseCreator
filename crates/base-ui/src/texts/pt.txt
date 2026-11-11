@@ -1383,3 +1383,10 @@
 1382|O controlador precisa de {} passos por mm no eixo Y ($101).
 1383|Com um acessório rotativo o eixo Y faz rodar a peça: o desenho não pode ser mais alto do que o perímetro da peça. O modelo é simples (uma bucha roda o diâmetro da peça, os rolos movem a superfície como a sua); uma máquina real precisa de testes.
 1384|Rotativo
+1385|Ano Novo Chinês (Escuro)
+1386|Ano Novo Chinês (Claro)
+1387|Fechar o programa?
+1388|O último desenho está fechado.
+1389|Fechar o programa
+1390|Voltar ao ecrã inicial
+1391|Camada

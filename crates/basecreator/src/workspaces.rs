@@ -199,10 +199,15 @@ impl App {
         base_core::autosave::clear_slot(&crate::data_paths().base, APP, self.slot);
         let n = self.tabs_state.parked.len();
         if n <= 1 {
-            // The last tab: what is in it is saved or given up by now. The drawing is cleared (so the exit saves nothing)
-            // and the program closes.
+            // The last tab: what is in it is saved or given up by now. The drawing is cleared (so the exit saves nothing).
+            // While the program is closing anyway it goes on; otherwise the person is asked whether to close the program or
+            // to go back to the start screen.
             self.new_design();
-            self.close_program = true;
+            if self.quitting {
+                self.close_program = true;
+            } else {
+                self.ask_quit = true;
+            }
             return;
         }
         let at = self.tabs_state.active;
@@ -252,6 +257,19 @@ impl App {
     /// The questions about unsaved work: when the program is closed, tab by tab (`doc_tabs::quit_tick`), and when one tab is
     /// closed by its cross.
     pub fn close_dialogs(&mut self, ctx: &egui::Context) {
+        if self.ask_quit {
+            match doc_tabs::ask_quit(ctx, crate::SAVE_GREEN) {
+                Some(true) => {
+                    self.ask_quit = false;
+                    self.close_program = true;
+                }
+                Some(false) => {
+                    self.ask_quit = false;
+                    self.screen = Screen::Start;
+                }
+                None => {}
+            }
+        }
         if self.close_program {
             self.close_program = false;
             self.allow_close = true;

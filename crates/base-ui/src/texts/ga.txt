@@ -1383,3 +1383,10 @@
 1382|Teastaíonn {} céim in aghaidh an mm ón rialaitheoir ar an ais Y ($101).
 1383|Le gaireas rothlach casann an ais Y an píosa oibre: ní fhéadfaidh an líníocht a bheith níos airde ná imfhálú an phíosa oibre. Tá an tsamhail simplí (casann cuc de réir trastomhas an phíosa, bogann rollóirí an dromchla mar a gcuid féin); ní mór meaisín fíor a thástáil.
 1384|Rothlach
+1385|Athbhliain na Síne (Dorcha)
+1386|Athbhliain na Síne (Éadrom)
+1387|An clár a dhúnadh?
+1388|Tá an líníocht dheireanach dúnta.
+1389|Dún an clár
+1390|Ar ais chuig an scáileán tosaigh
+1391|Ciseal

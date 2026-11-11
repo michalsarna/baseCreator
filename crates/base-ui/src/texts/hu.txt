@@ -1383,3 +1383,10 @@
 1382|A vezérlőnek {} lépés/mm kell az Y tengelyen ($101).
 1383|Forgatóval az Y tengely forgatja a munkadarabot: a rajz nem lehet magasabb a munkadarab kerületénél. A modell egyszerű (a tokmány a munkadarab átmérőjével fordul, a görgők úgy mozgatják a felületet, mint a sajátjukat); valódi gépet ki kell próbálni.
 1384|Forgató
+1385|Kínai újév (Sötét)
+1386|Kínai újév (Világos)
+1387|Bezárja a programot?
+1388|Az utolsó rajz bezárult.
+1389|Program bezárása
+1390|Vissza a kezdőképernyőre
+1391|Réteg

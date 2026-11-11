@@ -60,7 +60,7 @@ The same commands are in the right-click menu of a shape; they are explained on 
 | **Program options…** | **Look for a newer version when the program starts** (on by default). |
 | **Plugins…** | See [Plugins](Plugins). |
 | **Language** | 30 languages. |
-| **Colour scheme** | 18 colour schemes, and two festive ones around Christmas, the New Year, Halloween and Easter. |
+| **Colour scheme** | 18 colour schemes, and two festive ones around Christmas, the New Year, Halloween, Easter and the Chinese New Year. |
 
 ## Help
 

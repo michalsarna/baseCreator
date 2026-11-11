@@ -1383,3 +1383,10 @@
 1382|El controlador necessita {} passos per mm a l'eix Y ($101).
 1383|Amb un accessori rotatiu l'eix Y fa girar la peça: el dibuix no pot ser més alt que el perímetre de la peça. El model és simple (un plat gira el diàmetre de la peça, els corrons mouen la superfície com la seva); una màquina real necessita proves.
 1384|Rotatiu
+1385|Any Nou xinès (Fosc)
+1386|Any Nou xinès (Clar)
+1387|Tancar el programa?
+1388|L'últim dibuix s'ha tancat.
+1389|Tanca el programa
+1390|Torna a la pantalla d'inici
+1391|Capa

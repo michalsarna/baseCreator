@@ -1383,3 +1383,10 @@
 1382|Valdikliui reikia {} žingsnių mm Y ašyje ($101).
 1383|Su sukimo priedu Y ašis sukioja ruošinį: brėžinys negali būti aukštesnis už ruošinio apimtį. Modelis paprastas (griebtuvas sukasi ruošinio skersmeniu, ritinėliai juda paviršių kaip savo); tikras stakles reikia išbandyti.
 1384|Sukimosi
+1385|Kinų Naujieji metai (Tamsi)
+1386|Kinų Naujieji metai (Šviesi)
+1387|Uždaryti programą?
+1388|Paskutinis brėžinys uždarytas.
+1389|Uždaryti programą
+1390|Atgal į pradžios ekraną
+1391|Sluoksnis

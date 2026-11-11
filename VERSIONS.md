@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.91.0
+
+- **Layer in the Properties tab** (`editor::layer_section`, `set_layer`): the colour and the list of the layers, as in LightCreator; a choice moves the selected unlocked shapes and makes the layer the active one.
+- **Closing the last drawing** asks whether to close the program (`doc_tabs::ask_quit`): **Close the program** or **Back to the start screen** (also Escape).
+- **Chinese New Year:** a festive icon and two festive colour schemes (dark, light) from five days before to its seventh day (`seasonal::chinese_new_year`, a table of the dates 2020 – 2060).
+- 7 texts in every language.
+
 ## v1.90.0
 
 - **Add as no-go zone** in the right-click menu of the work area (for the programs that keep zones, `EditorHost::can_add_zones` / `add_zones`): every unlocked selected shape becomes a no-go zone of the device, a circle when it is round and otherwise the rectangle round it (`zones::shape_around`), and leaves the drawing (undo brings it back).

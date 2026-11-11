@@ -1383,3 +1383,10 @@
 1382|Stýringin þarf {} skref á mm á Y-ásnum ($101).
 1383|Með snúningsbúnaði snýr Y-ásinn vinnustykkinu: teikningin má ekki vera hærri en ummál vinnustykkisins. Líkanið er einfalt (patróna snýst um þvermál vinnustykkisins, rúllur hreyfa yfirborðið eins og sitt eigið); raunverulega vél þarf að prófa.
 1384|Snúningur
+1385|Kínverskt nýár (Dökkt)
+1386|Kínverskt nýár (Ljóst)
+1387|Loka forritinu?
+1388|Síðustu teikningunni hefur verið lokað.
+1389|Loka forritinu
+1390|Aftur á upphafsskjáinn
+1391|Lag
