@@ -1331,3 +1331,6 @@
 1330|Vart pennan åker för en time-lapse-bild efter att den lyfts; den kommer tillbaka med en absolut rörelse. Tomt: platsen som är satt på fliken Inspelning.
 1331|Inspelning
 1332|Den här kameran är avstängd i enhetens inställningar.
+1333|Acceleration för X, Y, Z
+1334|Hörnavvikelse
+1335|0 = okänt. Med accelerationerna räknar jobbets tid med maskinens acceleration och inbromsning och de långsammare hörnen, som GRBL gör ($120 – $122, $11).

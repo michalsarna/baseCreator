@@ -1331,3 +1331,6 @@
 1330|Adónde va la pluma para una foto del time-lapse, una vez levantada; vuelve con un movimiento absoluto. Vacío: el lugar fijado en la pestaña Grabación.
 1331|Grabación
 1332|Esta cámara está desactivada en los ajustes del dispositivo.
+1333|Aceleración de X, Y, Z
+1334|Desviación en las esquinas
+1335|0 = desconocido. Con las aceleraciones, el tiempo del trabajo cuenta la aceleración y el frenado de la máquina y las esquinas más lentas, como hace GRBL ($120 – $122, $11).

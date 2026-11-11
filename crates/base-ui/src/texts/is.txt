@@ -1331,3 +1331,6 @@
 1330|Hvert penninn fer fyrir time-lapse mynd eftir að honum er lyft; hann kemur til baka með algildri hreyfingu. Tómt: staðurinn sem er stilltur í flipanum Upptaka.
 1331|Upptaka
 1332|Slökkt er á þessari myndavél í stillingum tækisins.
+1333|Hröðun X, Y, Z
+1334|Horna frávik
+1335|0 = óþekkt. Með hröðuninni telur tími verksins með hröðun og hemlun vélarinnar og hægari horn, eins og GRBL gerir ($120 – $122, $11).

@@ -1331,3 +1331,6 @@
 1330|Hvor pennen kjører for et time-lapse-bilde etter at den er løftet; den kommer tilbake med en absolutt bevegelse. Tom: stedet satt i fanen Opptak.
 1331|Opptak
 1332|Dette kameraet er slått av i enhetsinnstillingene.
+1333|Akselerasjon for X, Y, Z
+1334|Hjørneavvik
+1335|0 = ukjent. Med akselerasjonene regner jobbens tid med maskinens akselerasjon og nedbremsing og de langsommere hjørnene, slik GRBL gjør ($120 – $122, $11).

@@ -1331,3 +1331,6 @@
 1330|Kur rašiklis nuvažiuoja time-lapse nuotraukai, kai pakeltas; grįžta absoliučiu judesiu. Tuščia: vieta, nustatyta skirtuke Įrašymas.
 1331|Įrašymas
 1332|Ši kamera išjungta įrenginio nustatymuose.
+1333|X, Y, Z pagreitis
+1334|Nuokrypis kampuose
+1335|0 = nežinoma. Su pagreičiais darbo laikas įskaičiuoja mašinos įsibėgėjimą, stabdymą ir lėtesnius kampus, kaip daro GRBL ($120 – $122, $11).

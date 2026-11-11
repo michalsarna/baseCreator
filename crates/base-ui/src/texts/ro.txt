@@ -1331,3 +1331,6 @@
 1330|Unde merge creionul pentru o fotografie time-lapse, după ce e ridicat; revine cu o mișcare absolută. Gol: locul setat în fila Înregistrare.
 1331|Înregistrare
 1332|Această cameră este oprită în setările dispozitivului.
+1333|Accelerația X, Y, Z
+1334|Abaterea la colțuri
+1335|0 = necunoscut. Cu accelerațiile, timpul lucrării ține cont de accelerarea și frânarea mașinii și de colțurile mai lente, cum face GRBL ($120 – $122, $11).

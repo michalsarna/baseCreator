@@ -1331,3 +1331,6 @@
 1330|Kamo olovka ide za sliku, nakon što je podignuta; vraća se apsolutnim pomakom. Prazno: mjesto postavljeno na kartici Snimanje.
 1331|Snimanje
 1332|Ova kamera je isključena u postavkama uređaja.
+1333|Ubrzanje X, Y, Z
+1334|Odstupanje u kutovima
+1335|0 = nepoznato. S ubrzanjima vrijeme posla uključuje ubrzavanje i usporavanje stroja i sporije kutove, kao što radi GRBL ($120 – $122, $11).

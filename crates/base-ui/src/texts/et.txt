@@ -1331,3 +1331,6 @@
 1330|Kuhu pliiats läheb time-lapse pildi jaoks pärast tõstmist; see tuleb tagasi absoluutse liikumisega. Tühi: vahekaardil Salvestamine määratud koht.
 1331|Salvestamine
 1332|See kaamera on seadme seadetes välja lülitatud.
+1333|X, Y, Z kiirendus
+1334|Nurga hälve
+1335|0 = teadmata. Kiirendustega arvestab töö aeg masina kiirendamist ja pidurdamist ning aeglasemaid nurki, nagu GRBL ($120 – $122, $11).

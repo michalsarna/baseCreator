@@ -1331,3 +1331,6 @@
 1330|Fejn tmur il-pinna għal ritratt time-lapse, wara li titla'; terġa' lura b'moviment assolut. Vojt: il-post issettjat fit-tab Reġistrazzjoni.
 1331|Reġistrazzjoni
 1332|Din il-kamera hija mitfija fis-settings tal-apparat.
+1333|Aċċelerazzjoni ta' X, Y, Z
+1334|Devjazzjoni fil-kantunieri
+1335|0 = mhux magħruf. Bl-aċċelerazzjonijiet il-ħin tax-xogħol jgħodd l-aċċelerazzjoni u t-tnaqqis tal-magna u l-kantunieri aktar bil-mod, kif jagħmel GRBL ($120 – $122, $11).

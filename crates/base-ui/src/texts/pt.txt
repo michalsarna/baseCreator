@@ -1331,3 +1331,6 @@
 1330|Para onde vai a caneta para uma foto de time-lapse, depois de levantada; volta com um movimento absoluto. Vazio: o local definido no separador Gravação.
 1331|Gravação
 1332|Esta câmara está desligada nas definições do dispositivo.
+1333|Aceleração de X, Y, Z
+1334|Desvio nas esquinas
+1335|0 = desconhecido. Com as acelerações, o tempo do trabalho conta a aceleração e a travagem da máquina e as esquinas mais lentas, como faz o GRBL ($120 – $122, $11).

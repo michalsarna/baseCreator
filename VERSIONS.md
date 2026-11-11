@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.86.0
+
+- **The time of a job with the acceleration of the machine** (`motion`): every move speeds up and slows down at the acceleration of the axes it uses (a slow Z makes plunges longer), a corner is taken at the speed the junction deviation allows, the speeds are planned back from where the machine must stop and forward from where it can get to, and only the next 15 moves are known at once (as GRBL plans them), so a long chain of tiny fast moves is held back. Without the accelerations the time is the length at the feed, as before. A zigzag of short moves takes in grbl-sim about what is planned (16.7 s against 13.9 s planned; length / feed would say 4.3 s).
+- **The G-code viewer** times a file for the machine of the program (`gcode_view::parse_with`, `gcode_view_ui::set_machine`): its accelerations and its speed of rapid moves.
+- **Read the machine** also shows the accelerations of X, Y, Z (`$120` – `$122`) and the junction deviation (`$11`) (`Suggestion::accel`, `junction`; `Motion::take`), and `device_pages::motion_rows` sets them on a device page.
+- 3 new texts in every language.
+
 ## v1.85.0
 
 - **The Recording tab** (`recording_ui::tab`): a panel for each camera of the device, named after it, with everything it records (a photo, a video, the time-lapse, the video format, the way of the time-lapse, the folder) and the way its view opens; under them the time-lapse photos with the head moved aside and the long lines sent in parts (they were at the bottom of the Control tab). The camera view keeps only the buttons: a photo, a video, the time-lapse started and stopped.

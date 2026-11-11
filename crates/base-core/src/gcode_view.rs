@@ -25,7 +25,8 @@ pub struct Toolpath {
     pub is_3d: bool,
     pub cut_len: f64,
     pub rapid_len: f64,
-    /// Rough time in seconds: the cuts at their feed rate, the rapids at 3000 mm/min.
+    /// The time in seconds: the cuts at their feed rate, the rapids at the speed of the device (3000 mm/min when not
+    /// known), with the speeding up and slowing down of the machine when its accelerations are known.
     pub est_seconds: f64,
     pub max_s: f64,
     /// Words that were not understood (counted, not listed).
@@ -88,6 +89,12 @@ fn words(line: &str) -> Vec<(char, f64)> {
 }
 
 pub fn parse(text: &str) -> Toolpath {
+    parse_with(text, &crate::motion::Motion::default(), 3000.0)
+}
+
+/// Read a file for a machine whose accelerations (`motion`) and speed of rapid moves (`rapid`, mm/min) are known.
+pub fn parse_with(text: &str, motion: &crate::motion::Motion, rapid: f64) -> Toolpath {
+    let rapid = if rapid > 0.0 { rapid } else { 3000.0 };
     let mut st = State { pos: [0.0; 3], abs: true, inch: false, motion: 0, plane: 17, spindle: false, s: 0.0, feed: 1000.0 };
     let mut tp = Toolpath::default();
     // The moves are first kept with what the spindle was doing; whether a G1 is a cut is decided at the end.
@@ -236,6 +243,8 @@ pub fn parse(text: &str) -> Toolpath {
     let mut min = [f32::MAX; 3];
     let mut max = [f32::MIN; 3];
     let (mut z_lo, mut z_hi) = (f32::MAX, f32::MIN);
+    let mut blocks: Vec<crate::motion::Block> = Vec::with_capacity(raw.len());
+    let mut was_on = raw.first().map(|r| r.on);
     for r in &raw {
         let mut seg = r.seg;
         // Where the file drives the spindle or the laser, a cut is a line move with it on; otherwise every line move is a cut.
@@ -244,11 +253,14 @@ pub fn parse(text: &str) -> Toolpath {
         let len = (0..3).map(|d| ((seg.b[d] - seg.a[d]) as f64).powi(2)).sum::<f64>().sqrt();
         if seg.cut {
             tp.cut_len += len;
-            tp.est_seconds += len / (r.feed.max(1.0) / 60.0);
         } else {
             tp.rapid_len += len;
-            tp.est_seconds += len / (3000.0 / 60.0);
         }
+        // GRBL comes to rest where the spindle is switched on or off.
+        let stop = was_on != Some(r.on);
+        was_on = Some(r.on);
+        let feed = if r.motion == 0 { rapid } else { r.feed.max(1.0) };
+        blocks.push(crate::motion::Block { to: [seg.b[0] as f64, seg.b[1] as f64, seg.b[2] as f64], feed, stop });
         for p in [seg.a, seg.b] {
             for d in 0..3 {
                 min[d] = min[d].min(p[d]);
@@ -258,6 +270,10 @@ pub fn parse(text: &str) -> Toolpath {
             z_hi = z_hi.max(p[2]);
         }
         tp.segs.push(seg);
+    }
+    if let Some(first) = raw.first() {
+        let a = first.seg.a;
+        tp.est_seconds = crate::motion::seconds([a[0] as f64, a[1] as f64, a[2] as f64], &blocks, motion);
     }
     if tp.segs.is_empty() {
         min = [0.0; 3];
@@ -274,6 +290,17 @@ pub fn parse(text: &str) -> Toolpath {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn the_time_counts_the_acceleration_of_the_machine_when_it_is_known() {
+        let text = "G21 G90\nG1 X10 F600\n";
+        assert!((parse(text).est_seconds - 1.0).abs() < 1e-6);
+        let m = crate::motion::Motion::flat(10.0);
+        assert!((parse_with(text, &m, 3000.0).est_seconds - 2.0).abs() < 0.01);
+        // Rapids go at the speed of the device.
+        let t = parse_with("G21 G90\nG0 X100\n", &crate::motion::Motion::default(), 6000.0);
+        assert!((t.est_seconds - 1.0).abs() < 1e-6);
+    }
 
     #[test]
     fn a_square_of_a_laser_is_flat_and_the_travel_is_not_a_cut() {
