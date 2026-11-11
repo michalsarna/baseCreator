@@ -1355,3 +1355,10 @@
 1354|Lisa tsoon
 1355|Tsoon {}
 1356|Keelutsoonid
+1357|Tegelike kontuuride järgi
+1358|Kujundid paigutatakse tegelike kontuuride järgi: väike võib minna suure auku, L teise nurka. Rühm on üks detail.
+1359|Pööramine
+1360|Pool pööret
+1361|Veerand pööret
+1362|Kaheksandik pööret
+1363|{} detaili paigutatud, {} ei mahtunud ja jäi paigale

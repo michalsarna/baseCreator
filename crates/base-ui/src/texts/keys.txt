@@ -1355,3 +1355,10 @@
 1354	Add a zone
 1355	Zone {}
 1356	No-go zones
+1357	By the real outlines
+1358	The shapes are packed by their real outlines: a small one can go into the hole of a big one, an L into the corner of another. A group is one part.
+1359	Turning
+1360	Half turns
+1361	Quarter turns
+1362	Eighth turns
+1363	{} parts nested, {} did not fit and stayed where they were

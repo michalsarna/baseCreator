@@ -1355,3 +1355,10 @@
 1354|Adaugă o zonă
 1355|Zona {}
 1356|Zone interzise
+1357|După contururile reale
+1358|Formele sunt așezate după contururile reale: una mică poate intra în gaura uneia mari, un L în colțul altuia. Un grup este o piesă.
+1359|Rotire
+1360|Jumătăți de tură
+1361|Sferturi de tură
+1362|Optimi de tură
+1363|{} piese așezate, {} nu au încăput și au rămas pe loc

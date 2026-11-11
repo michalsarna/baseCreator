@@ -59,11 +59,14 @@ pub struct DesignState {
     pub gap: f64,
     pub allow_turn: bool,
     pub area: (f64, f64),
+    /// Nest by the real outlines (else by the boxes), and in how many steps of a full turn a part may be turned.
+    pub true_shape: bool,
+    pub turns: u32,
 }
 
 impl Default for DesignState {
     fn default() -> DesignState {
-        DesignState { open: None, cols: 3, rows: 3, dx: 20.0, dy: 20.0, count: 6, total: 360.0, turn: true, spacing: 10.0, start: 0.0, keep_inside: true, tol: 0.05, tpl: String::new(), first: 1, step: 1, digits: 3, csv: vec![], code: CodeKind::Qr, data: "https://".into(), size: 30.0, height: 12.0, gap: 2.0, allow_turn: true, area: (300.0, 200.0) }
+        DesignState { open: None, cols: 3, rows: 3, dx: 20.0, dy: 20.0, count: 6, total: 360.0, turn: true, spacing: 10.0, start: 0.0, keep_inside: true, tol: 0.05, tpl: String::new(), first: 1, step: 1, digits: 3, csv: vec![], code: CodeKind::Qr, data: "https://".into(), size: 30.0, height: 12.0, gap: 2.0, allow_turn: true, area: (300.0, 200.0), true_shape: true, turns: 4 }
     }
 }
 
@@ -416,6 +419,47 @@ pub trait EditorDesign: EditorHost {
         self.say(trf("{} shapes nested", &[&boxes.len()]));
     }
 
+    /// Nest the selected parts by their real outlines on the area from the corner of the page; a group is one part. What does not fit
+    /// stays where it was.
+    fn nest_true_shape(&mut self, area: (f64, f64), gap: f64, turns: u32) {
+        let ids: Vec<u64> = self.design_ids();
+        // The parts: the shapes of one group together, every other shape alone.
+        let mut parts: Vec<(Option<u64>, Vec<u64>)> = vec![];
+        for id in ids {
+            let Some(s) = self.scene().shape(id) else { continue };
+            match s.group.and_then(|g| parts.iter().position(|(k, _)| *k == Some(g))) {
+                Some(i) => parts[i].1.push(id),
+                None => parts.push((s.group, vec![id])),
+            }
+        }
+        let outlines: Vec<Vec<base_core::geom::Polyline>> = parts.iter().map(|(_, ids)| ids.iter().filter_map(|id| self.scene().shape(*id)).flat_map(|s| s.polys()).collect()).collect();
+        if outlines.iter().all(|o| o.iter().all(|p| !p.closed)) {
+            self.say(tr("Select something first.").to_string());
+            return;
+        }
+        let sheet = base_core::geom::Rect { min: Pt::new(0.0, 0.0), max: Pt::new(area.0, area.1) };
+        let places = base_core::nest::nest(&outlines, sheet, gap, turns);
+        let placed = places.iter().filter(|p| p.is_some()).count();
+        if placed == 0 {
+            self.say(tr("The shapes do not fit in the area.").to_string());
+            return;
+        }
+        self.checkpoint();
+        for ((_, ids), xf) in parts.iter().zip(&places) {
+            let Some(xf) = xf else { continue };
+            for id in ids {
+                if let Some(s) = self.scene_mut().shape_mut(*id) {
+                    s.xf = s.xf.then(*xf);
+                }
+            }
+        }
+        if placed < parts.len() {
+            self.say(trf("{} parts nested, {} did not fit and stayed where they were", &[&placed, &(parts.len() - placed)]));
+        } else {
+            self.say(trf("{} shapes nested", &[&placed]));
+        }
+    }
+
     fn design_windows(&mut self, ctx: &egui::Context) {
         let Some(cmd) = self.ed().design.open else { return };
         let units = self.units();
@@ -563,7 +607,25 @@ pub trait EditorDesign: EditorHost {
                         drag_len(ui, units, &mut st.gap, 0.1, Some((0.0, 1000.0)));
                         ui.end_row();
                         ui.label("");
-                        ui.checkbox(&mut st.allow_turn, tr("Allow turning"));
+                        ui.checkbox(&mut st.true_shape, tr("By the real outlines")).on_hover_text(tr("The shapes are packed by their real outlines: a small one can go into the hole of a big one, an L into the corner of another. A group is one part."));
+                        ui.end_row();
+                        if st.true_shape {
+                            ui.label(tr("Turning"));
+                            let label = |n: u32| match n {
+                                1 => tr("None"),
+                                2 => tr("Half turns"),
+                                4 => tr("Quarter turns"),
+                                _ => tr("Eighth turns"),
+                            };
+                            egui::ComboBox::from_id_salt("nest_turns").selected_text(label(st.turns)).show_ui(ui, |ui| {
+                                for n in [1, 2, 4, 8] {
+                                    ui.selectable_value(&mut st.turns, n, label(n));
+                                }
+                            });
+                        } else {
+                            ui.label("");
+                            ui.checkbox(&mut st.allow_turn, tr("Allow turning"));
+                        }
                         ui.end_row();
                     }
                     DesignCmd::Measure => {}
@@ -573,7 +635,7 @@ pub trait EditorDesign: EditorHost {
                 DesignCmd::AlongPath | DesignCmd::TextPath | DesignCmd::Trim => {
                     ui.label(RichText::new(tr("Select the shapes first and the path (or the trimming shape) last.")).color(theme::text_dim()));
                 }
-                DesignCmd::Nest => {
+                DesignCmd::Nest if !st.true_shape => {
                     ui.label(RichText::new(tr("The shapes are packed by their boxes in rows from the corner of the page.")).color(theme::text_dim()));
                 }
                 _ => {}
@@ -600,6 +662,7 @@ pub trait EditorDesign: EditorHost {
                     self.serial_text(&tpl, &texts, st.cols, st.dx, st.dy);
                 }
                 DesignCmd::Code => self.make_code(st.code, &st.data, st.size, st.height),
+                DesignCmd::Nest if st.true_shape => self.nest_true_shape(st.area, st.gap, st.turns),
                 DesignCmd::Nest => self.nest_selected(st.area, st.gap, st.allow_turn),
                 DesignCmd::Measure => {}
             }

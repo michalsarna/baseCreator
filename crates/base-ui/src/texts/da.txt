@@ -1355,3 +1355,10 @@
 1354|Tilføj en zone
 1355|Zone {}
 1356|Forbudszoner
+1357|Efter de virkelige omrids
+1358|Formerne pakkes efter deres virkelige omrids: en lille kan gå ind i hullet på en stor, et L ind i hjørnet af et andet. En gruppe er én del.
+1359|Drejning
+1360|Halve omgange
+1361|Kvarte omgange
+1362|Ottendedele omgang
+1363|{} dele placeret, {} passede ikke og blev, hvor de var

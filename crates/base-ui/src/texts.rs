@@ -1362,6 +1362,13 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Add a zone", "Dodaj strefę", "Zone hinzufügen", "Aggiungi una zona", "Lisää alue", "添加区域", "क्षेत्र जोड़ें"],
     ["Zone {}", "Strefa {}", "Zone {}", "Zona {}", "Alue {}", "区域 {}", "क्षेत्र {}"],
     ["No-go zones", "Strefy zakazane", "Sperrzonen", "Zone vietate", "Kielletyt alueet", "禁区", "निषिद्ध क्षेत्र"],
+    ["By the real outlines", "Według prawdziwych obrysów", "Nach den echten Umrissen", "Secondo i contorni reali", "Todellisten ääriviivojen mukaan", "按实际轮廓", "असली रूपरेखा के अनुसार"],
+    ["The shapes are packed by their real outlines: a small one can go into the hole of a big one, an L into the corner of another. A group is one part.", "Kształty są układane według prawdziwych obrysów: mały może trafić do otworu dużego, L w narożnik innego. Grupa to jedna część.", "Die Formen werden nach ihren echten Umrissen gepackt: eine kleine kann in das Loch einer großen, ein L in die Ecke eines anderen. Eine Gruppe ist ein Teil.", "Le forme sono disposte secondo i loro contorni reali: una piccola può entrare nel foro di una grande, una L nell'angolo di un'altra. Un gruppo è un pezzo solo.", "Muodot pakataan todellisten ääriviivojensa mukaan: pieni voi mennä ison reikään, L toisen kulmaan. Ryhmä on yksi osa.", "按实际轮廓排列形状：小的可以放进大的孔里，L 形可以嵌入另一个的角落。一个组算一个零件。", "आकारों को उनकी असली रूपरेखा से जमाया जाता है: छोटा बड़े के छेद में जा सकता है, L दूसरे के कोने में। एक समूह एक भाग है।"],
+    ["Turning", "Obracanie", "Drehen", "Rotazione", "Kääntäminen", "旋转", "घुमाना"],
+    ["Half turns", "O pół obrotu", "Halbe Drehungen", "Mezzi giri", "Puolikierrokset", "半圈", "आधा चक्कर"],
+    ["Quarter turns", "O ćwierć obrotu", "Vierteldrehungen", "Quarti di giro", "Neljännekset", "四分之一圈", "चौथाई चक्कर"],
+    ["Eighth turns", "O ósmą część obrotu", "Achteldrehungen", "Ottavi di giro", "Kahdeksasosat", "八分之一圈", "आठवाँ चक्कर"],
+    ["{} parts nested, {} did not fit and stayed where they were", "Ułożono części: {}, nie zmieściło się: {} (zostały na miejscu)", "{} Teile verschachtelt, {} passten nicht und blieben, wo sie waren", "{} pezzi disposti, {} non ci stavano e sono rimasti dov'erano", "{} osaa sijoitettu, {} ei mahtunut ja jäi paikalleen", "已排列 {} 个零件，{} 个放不下，留在原处", "{} भाग जमाए गए, {} नहीं समाए और जहाँ थे वहीं रहे"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

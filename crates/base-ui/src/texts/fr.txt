@@ -1355,3 +1355,10 @@
 1354|Ajouter une zone
 1355|Zone {}
 1356|Zones interdites
+1357|Selon les contours réels
+1358|Les formes sont placées selon leurs contours réels : une petite peut aller dans le trou d'une grande, un L dans le coin d'un autre. Un groupe est une seule pièce.
+1359|Rotation
+1360|Demi-tours
+1361|Quarts de tour
+1362|Huitièmes de tour
+1363|{} pièces placées, {} ne tenaient pas et sont restées en place

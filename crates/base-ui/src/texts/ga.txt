@@ -1355,3 +1355,10 @@
 1354|Cuir crios leis
 1355|Crios {}
 1356|Criosanna toirmiscthe
+1357|De réir na n-imlínte fíora
+1358|Pacáiltear na cruthanna de réir a n-imlínte fíora: is féidir le ceann beag dul i bpoll cinn mhóir, L i gcúinne cinn eile. Is páirt amháin é grúpa.
+1359|Casadh
+1360|Leathchasadh
+1361|Ceathrú casadh
+1362|Ochtú casadh
+1363|{} páirt neadaithe, níor oir {} agus d'fhan siad mar a bhí

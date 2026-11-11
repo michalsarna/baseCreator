@@ -30,6 +30,7 @@ pub mod image;
 pub mod join;
 pub mod machine;
 pub mod mesh;
+pub mod nest;
 pub mod motion;
 pub mod layers;
 pub mod lead;

@@ -414,6 +414,33 @@ fn duplicates_go_shapes_break_apart_and_simplify_and_a_nest_fits_the_area() {
 }
 
 #[test]
+fn a_nest_by_the_real_outlines_keeps_groups_together_and_leaves_what_does_not_fit() {
+    let mut h = Host::default();
+    let ids: Vec<u64> = (0..4).map(|i| h.scene.add(0, Kind::Ellipse { w: 20.0, h: 20.0 }, Xf::translate(200.0 + 50.0 * i as f64, 150.0))).collect();
+    // The last two are one part.
+    let g = Some(99);
+    for id in &ids[2..] {
+        h.scene.shape_mut(*id).unwrap().group = g;
+    }
+    h.ed.sel = ids.clone();
+    let gap = |h: &Host| h.scene.shape(ids[3]).unwrap().xf.e - h.scene.shape(ids[2]).unwrap().xf.e;
+    let before = gap(&h);
+    EditorDesign::nest_true_shape(&mut h, (100.0, 100.0), 2.0, 4);
+    let b = h.scene.bounds_of(&ids).unwrap();
+    assert!(b.min.x >= -1e-6 && b.min.y >= -1e-6 && b.max.x <= 100.0 + 1e-6 && b.max.y <= 100.0 + 1e-6, "{b:?} {}", h.status);
+    assert!(h.status.contains("3 shapes nested"), "{}", h.status);
+    // The group moved as one (a quarter turn may swap the axis of the distance).
+    let (a, c) = (h.scene.shape(ids[2]).unwrap().bounds().unwrap().center(), h.scene.shape(ids[3]).unwrap().bounds().unwrap().center());
+    assert!((a.dist(c) - before).abs() < 1e-6);
+    // A tiny area: some stay where they are.
+    let mut h2 = Host::default();
+    let ids: Vec<u64> = (0..3).map(|i| h2.scene.add(0, Kind::Rect { w: 20.0, h: 20.0 }, Xf::translate(100.0 * i as f64, 50.0))).collect();
+    h2.ed.sel = ids;
+    EditorDesign::nest_true_shape(&mut h2, (50.0, 25.0), 2.0, 1);
+    assert!(h2.status.contains("did not fit"), "{}", h2.status);
+}
+
+#[test]
 fn serial_text_counts_up_and_a_code_is_put_on_the_page() {
     let mut h = Host::default();
     let t = h.scene.add(0, Kind::Text(base_core::text::TextData { text: "SN-{n}".into(), ..Default::default() }), Xf::translate(10.0, 10.0));

@@ -1355,3 +1355,10 @@
 1354|Zóna hozzáadása
 1355|{}. zóna
 1356|Tiltott zónák
+1357|A valódi körvonalak szerint
+1358|Az alakzatokat valódi körvonaluk szerint rakja le: egy kicsi bekerülhet egy nagy lyukába, egy L egy másik sarkába. Egy csoport egy darab.
+1359|Forgatás
+1360|Félfordulatok
+1361|Negyedfordulatok
+1362|Nyolcadfordulatok
+1363|{} darab elhelyezve, {} nem fért el és a helyén maradt

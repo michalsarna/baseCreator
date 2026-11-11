@@ -1355,3 +1355,10 @@
 1354|Pievienot zonu
 1355|Zona {}
 1356|Aizliegtās zonas
+1357|Pēc īstajām kontūrām
+1358|Formas tiek izkārtotas pēc īstajām kontūrām: maza var nonākt lielas caurumā, L citas stūrī. Grupa ir viena detaļa.
+1359|Pagriešana
+1360|Pusapgriezieni
+1361|Ceturtdaļapgriezieni
+1362|Astotdaļapgriezieni
+1363|{} detaļas izkārtotas, {} neietilpa un palika vietā

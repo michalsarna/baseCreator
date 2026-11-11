@@ -1355,3 +1355,10 @@
 1354|Zone toevoegen
 1355|Zone {}
 1356|Verboden zones
+1357|Volgens de echte omtrekken
+1358|De vormen worden gepakt volgens hun echte omtrek: een kleine kan in het gat van een grote, een L in de hoek van een andere. Een groep is één deel.
+1359|Draaien
+1360|Halve slagen
+1361|Kwartslagen
+1362|Achtste slagen
+1363|{} delen genest, {} pasten niet en bleven waar ze waren

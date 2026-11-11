@@ -1355,3 +1355,10 @@
 1354|Dodaj območje
 1355|Območje {}
 1356|Prepovedana območja
+1357|Po dejanskih obrisih
+1358|Oblike so zložene po dejanskih obrisih: majhna lahko gre v luknjo velike, L v kot druge. Skupina je en del.
+1359|Vrtenje
+1360|Polovični obrati
+1361|Četrtinski obrati
+1362|Osminski obrati
+1363|{} delov zloženih, {} jih ni šlo in so ostali na mestu

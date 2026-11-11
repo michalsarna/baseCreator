@@ -1355,3 +1355,10 @@
 1354|Bæta við svæði
 1355|Svæði {}
 1356|Bannsvæði
+1357|Eftir raunverulegum útlínum
+1358|Formunum er raðað eftir raunverulegum útlínum: lítil getur farið í gat stórrar, L í horn annarrar. Hópur er einn hlutur.
+1359|Snúningur
+1360|Hálfir snúningar
+1361|Fjórðungssnúningar
+1362|Áttundarsnúningar
+1363|{} hlutum raðað, {} komust ekki fyrir og voru kyrrir

@@ -1355,3 +1355,10 @@
 1354|Legg til en sone
 1355|Sone {}
 1356|Forbudssoner
+1357|Etter de virkelige omrissene
+1358|Formene pakkes etter de virkelige omrissene: en liten kan gå inn i hullet til en stor, en L inn i hjørnet til en annen. En gruppe er én del.
+1359|Dreiing
+1360|Halve omdreininger
+1361|Kvarte omdreininger
+1362|Åttendedels omdreininger
+1363|{} deler plassert, {} fikk ikke plass og ble der de var
