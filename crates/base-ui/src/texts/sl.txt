@@ -1362,3 +1362,6 @@
 1361|Četrtinski obrati
 1362|Osminski obrati
 1363|{} delov zloženih, {} jih ni šlo in so ostali na mestu
+1364|Kar ne gre, gre na nove plošče
+1365|Vsaka nova plošča je risba v svojem zavihku, z istimi plastmi in materialom: shranite jo in jo izrežite za to.
+1366|{} delov zloženih tu, ostalo na {} novih ploščah v novih zavihkih

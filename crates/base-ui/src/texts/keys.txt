@@ -1362,3 +1362,6 @@
 1361	Quarter turns
 1362	Eighth turns
 1363	{} parts nested, {} did not fit and stayed where they were
+1364	What does not fit goes on new sheets
+1365	Every new sheet is a drawing in a tab of its own, with the same layers and material: save it and cut it after this one.
+1366	{} parts nested here, the rest on {} new sheet(s) in new tabs

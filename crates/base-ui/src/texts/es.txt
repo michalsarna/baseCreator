@@ -1362,3 +1362,6 @@
 1361|Cuartos de vuelta
 1362|Octavos de vuelta
 1363|{} piezas colocadas, {} no cabían y se quedaron donde estaban
+1364|Lo que no cabe va a nuevas planchas
+1365|Cada plancha nueva es un dibujo en una pestaña propia, con las mismas capas y material: guárdala y córtala después de esta.
+1366|{} piezas colocadas aquí, el resto en {} plancha(s) nueva(s) en pestañas nuevas

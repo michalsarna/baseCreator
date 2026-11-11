@@ -1362,3 +1362,6 @@
 1361|Četvrt okreta
 1362|Osmina okreta
 1363|{} dijelova složeno, {} nije stalo i ostalo je na mjestu
+1364|Što ne stane, ide na nove ploče
+1365|Svaka nova ploča je crtež u vlastitoj kartici, s istim slojevima i materijalom: spremite je i izrežite nakon ove.
+1366|{} dijelova složeno ovdje, ostatak na {} novih ploča u novim karticama

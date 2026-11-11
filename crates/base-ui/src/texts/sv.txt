@@ -1362,3 +1362,6 @@
 1361|Kvartsvarv
 1362|Åttondelsvarv
 1363|{} delar placerade, {} fick inte plats och blev kvar
+1364|Det som inte får plats hamnar på nya skivor
+1365|Varje ny skiva är en ritning i en egen flik, med samma lager och material: spara den och skär den efter den här.
+1366|{} delar placerade här, resten på {} nya skiva/skivor i nya flikar

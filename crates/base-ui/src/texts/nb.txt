@@ -1362,3 +1362,6 @@
 1361|Kvarte omdreininger
 1362|Åttendedels omdreininger
 1363|{} deler plassert, {} fikk ikke plass og ble der de var
+1364|Det som ikke får plass, kommer på nye plater
+1365|Hver ny plate er en tegning i en egen fane, med de samme lagene og materialet: lagre den og skjær den etter denne.
+1366|{} deler plassert her, resten på {} nye plate(r) i nye faner

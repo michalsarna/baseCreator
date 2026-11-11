@@ -1362,3 +1362,6 @@
 1361|Štvrťotáčky
 1362|Osminy otáčky
 1363|{} dielov rozmiestnených, {} sa nezmestilo a zostalo na mieste
+1364|Čo sa nezmestí, ide na nové dosky
+1365|Každá nová doska je výkres vo vlastnej karte, s rovnakými vrstvami a materiálom: uložte ju a vyrežte po tejto.
+1366|{} dielov rozmiestnených tu, zvyšok na {} nových doskách v nových kartách

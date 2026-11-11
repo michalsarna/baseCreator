@@ -1362,3 +1362,6 @@
 1361|Čtvrtotáčky
 1362|Osminy otáčky
 1363|{} dílů rozmístěno, {} se nevešlo a zůstalo na místě
+1364|Co se nevejde, jde na nové desky
+1365|Každá nová deska je výkres ve vlastní kartě, se stejnými vrstvami a materiálem: uložte ji a vyřízněte po této.
+1366|{} dílů rozmístěno zde, zbytek na {} nových deskách v nových kartách

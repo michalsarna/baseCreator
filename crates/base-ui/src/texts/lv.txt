@@ -1362,3 +1362,6 @@
 1361|Ceturtdaļapgriezieni
 1362|Astotdaļapgriezieni
 1363|{} detaļas izkārtotas, {} neietilpa un palika vietā
+1364|Kas neietilpst, nonāk uz jaunām loksnēm
+1365|Katra jauna loksne ir zīmējums savā cilnē, ar tiem pašiem slāņiem un materiālu: saglabājiet to un grieziet pēc šīs.
+1366|{} detaļas izkārtotas šeit, pārējās uz {} jaunām loksnēm jaunās cilnēs

@@ -1362,3 +1362,6 @@
 1361|Kvarte omgange
 1362|Ottendedele omgang
 1363|{} dele placeret, {} passede ikke og blev, hvor de var
+1364|Det, der ikke passer, kommer på nye plader
+1365|Hver ny plade er en tegning i sin egen fane med de samme lag og samme materiale: gem den og skær den efter denne.
+1366|{} dele placeret her, resten på {} nye plade(r) i nye faner

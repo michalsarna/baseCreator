@@ -6,7 +6,8 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 ## v1.89.0
 
 - **Nesting by the real outlines** (`nest::nest`, Arrange → Nest shapes…, **By the real outlines**, on by default): the parts are packed by their true shapes on a grid of the sheet, the biggest first, at the first place from the top left where they fit, turned in the steps asked for (**Turning**: none, half turns, quarter turns, eighth turns). A small part can go into the hole of a big one, an L into the corner of another; a group is one part. What does not fit stays where it was and is said. The packing by boxes is still there (switch the option off).
-- 7 new texts in every language.
+- **More sheets:** with **What does not fit goes on new sheets** (for the programs that have tabs) what is left is nested on new sheets, each one a drawing in a new tab with the same layers and material (`EditorHost::can_add_sheets`, `add_sheets`); nothing is lost.
+- 10 new texts in every language.
 
 ## v1.88.0
 

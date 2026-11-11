@@ -1362,3 +1362,6 @@
 1361|Ceathrú casadh
 1362|Ochtú casadh
 1363|{} páirt neadaithe, níor oir {} agus d'fhan siad mar a bhí
+1364|Téann a bhfuil nach n-oireann ar bhileoga nua
+1365|Is líníocht i gcluaisín dá cuid féin gach bileog nua, leis na sraitheanna agus an t-ábhar céanna: sábháil í agus gearr í i ndiaidh na bileoige seo.
+1366|{} páirt neadaithe anseo, an chuid eile ar {} bileog nua i gcluaisíní nua

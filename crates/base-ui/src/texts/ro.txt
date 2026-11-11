@@ -1362,3 +1362,6 @@
 1361|Sferturi de tură
 1362|Optimi de tură
 1363|{} piese așezate, {} nu au încăput și au rămas pe loc
+1364|Ce nu încape merge pe foi noi
+1365|Fiecare foaie nouă este un desen într-o filă proprie, cu aceleași straturi și material: salvați-l și tăiați-l după acesta.
+1366|{} piese așezate aici, restul pe {} foi noi în file noi

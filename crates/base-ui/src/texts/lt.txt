@@ -1362,3 +1362,6 @@
 1361|Ketvirtis apsisukimo
 1362|Aštuntadalis apsisukimo
 1363|{} detalės sudėtos, {} netilpo ir liko vietoje
+1364|Kas netelpa, eina į naujus lakštus
+1365|Kiekvienas naujas lakštas yra brėžinys atskiroje kortelėje, su tais pačiais sluoksniais ir medžiaga: įrašykite jį ir pjaukite po šio.
+1366|{} detalės sudėtos čia, likusios ant {} naujų lakštų naujose kortelėse

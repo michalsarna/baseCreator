@@ -1362,3 +1362,6 @@
 1361|Quarts de tour
 1362|Huitièmes de tour
 1363|{} pièces placées, {} ne tenaient pas et sont restées en place
+1364|Ce qui ne tient pas va sur de nouvelles plaques
+1365|Chaque nouvelle plaque est un dessin dans un onglet à part, avec les mêmes calques et le même matériau : enregistrez-la et découpez-la après celle-ci.
+1366|{} pièces placées ici, le reste sur {} nouvelle(s) plaque(s) dans de nouveaux onglets

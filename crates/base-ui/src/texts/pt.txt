@@ -1362,3 +1362,6 @@
 1361|Quartos de volta
 1362|Oitavos de volta
 1363|{} peças arrumadas, {} não cabiam e ficaram onde estavam
+1364|O que não cabe vai para novas chapas
+1365|Cada chapa nova é um desenho num separador próprio, com as mesmas camadas e material: guarde-a e corte-a depois desta.
+1366|{} peças arrumadas aqui, o resto em {} chapa(s) nova(s) em novos separadores

@@ -1362,3 +1362,6 @@
 1361|Fjórðungssnúningar
 1362|Áttundarsnúningar
 1363|{} hlutum raðað, {} komust ekki fyrir og voru kyrrir
+1364|Það sem kemst ekki fyrir fer á nýjar plötur
+1365|Hver ný plata er teikning í eigin flipa, með sömu lögum og efni: vistaðu hana og skerðu á eftir þessari.
+1366|{} hlutum raðað hér, restin á {} nýjar plötur í nýjum flipum

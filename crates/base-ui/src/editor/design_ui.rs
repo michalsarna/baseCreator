@@ -62,11 +62,13 @@ pub struct DesignState {
     /// Nest by the real outlines (else by the boxes), and in how many steps of a full turn a part may be turned.
     pub true_shape: bool,
     pub turns: u32,
+    /// What does not fit goes on new sheets (when the program has them).
+    pub more_sheets: bool,
 }
 
 impl Default for DesignState {
     fn default() -> DesignState {
-        DesignState { open: None, cols: 3, rows: 3, dx: 20.0, dy: 20.0, count: 6, total: 360.0, turn: true, spacing: 10.0, start: 0.0, keep_inside: true, tol: 0.05, tpl: String::new(), first: 1, step: 1, digits: 3, csv: vec![], code: CodeKind::Qr, data: "https://".into(), size: 30.0, height: 12.0, gap: 2.0, allow_turn: true, area: (300.0, 200.0), true_shape: true, turns: 4 }
+        DesignState { open: None, cols: 3, rows: 3, dx: 20.0, dy: 20.0, count: 6, total: 360.0, turn: true, spacing: 10.0, start: 0.0, keep_inside: true, tol: 0.05, tpl: String::new(), first: 1, step: 1, digits: 3, csv: vec![], code: CodeKind::Qr, data: "https://".into(), size: 30.0, height: 12.0, gap: 2.0, allow_turn: true, area: (300.0, 200.0), true_shape: true, turns: 4, more_sheets: true }
     }
 }
 
@@ -421,7 +423,8 @@ pub trait EditorDesign: EditorHost {
 
     /// Nest the selected parts by their real outlines on the area from the corner of the page; a group is one part. What does not fit
     /// stays where it was.
-    fn nest_true_shape(&mut self, area: (f64, f64), gap: f64, turns: u32) {
+    fn nest_true_shape(&mut self, area: (f64, f64), gap: f64, turns: u32, more_sheets: bool) {
+        let more_sheets = more_sheets && self.can_add_sheets();
         let ids: Vec<u64> = self.design_ids();
         // The parts: the shapes of one group together, every other shape alone.
         let mut parts: Vec<(Option<u64>, Vec<u64>)> = vec![];
@@ -453,8 +456,38 @@ pub trait EditorDesign: EditorHost {
                 }
             }
         }
-        if placed < parts.len() {
-            self.say(trf("{} parts nested, {} did not fit and stayed where they were", &[&placed, &(parts.len() - placed)]));
+        // What is left goes on new sheets, as long as each one takes something.
+        let mut left: Vec<usize> = (0..parts.len()).filter(|&i| places[i].is_none()).collect();
+        let mut sheets: Vec<Vec<Shape>> = vec![];
+        if more_sheets {
+            while !left.is_empty() && sheets.len() < 20 {
+                let next = base_core::nest::nest(&left.iter().map(|&i| outlines[i].clone()).collect::<Vec<_>>(), sheet, gap, turns);
+                if next.iter().all(Option::is_none) {
+                    break;
+                }
+                let mut shapes = vec![];
+                let mut still = vec![];
+                for (k, &i) in left.iter().enumerate() {
+                    match next[k] {
+                        Some(xf) => shapes.extend(parts[i].1.iter().filter_map(|id| self.scene().shape(*id).cloned()).map(|mut s| {
+                            s.xf = s.xf.then(xf);
+                            s
+                        })),
+                        None => still.push(i),
+                    }
+                }
+                sheets.push(shapes);
+                left = still;
+            }
+            let gone: Vec<u64> = sheets.iter().flatten().map(|s| s.id).collect();
+            self.scene_mut().shapes.retain(|s| !gone.contains(&s.id));
+            self.ed_mut().sel.retain(|id| !gone.contains(id));
+        }
+        let opened = if sheets.is_empty() { 0 } else { self.add_sheets(sheets) };
+        if opened > 0 {
+            self.say(trf("{} parts nested here, the rest on {} new sheet(s) in new tabs", &[&placed, &opened]));
+        } else if !left.is_empty() {
+            self.say(trf("{} parts nested, {} did not fit and stayed where they were", &[&placed, &left.len()]));
         } else {
             self.say(trf("{} shapes nested", &[&placed]));
         }
@@ -463,6 +496,7 @@ pub trait EditorDesign: EditorHost {
     fn design_windows(&mut self, ctx: &egui::Context) {
         let Some(cmd) = self.ed().design.open else { return };
         let units = self.units();
+        let can_sheets = self.can_add_sheets();
         let mut st = self.ed().design.clone();
         let mut open = true;
         let mut go = false;
@@ -622,6 +656,11 @@ pub trait EditorDesign: EditorHost {
                                     ui.selectable_value(&mut st.turns, n, label(n));
                                 }
                             });
+                            if can_sheets {
+                                ui.end_row();
+                                ui.label("");
+                                ui.checkbox(&mut st.more_sheets, tr("What does not fit goes on new sheets")).on_hover_text(tr("Every new sheet is a drawing in a tab of its own, with the same layers and material: save it and cut it after this one."));
+                            }
                         } else {
                             ui.label("");
                             ui.checkbox(&mut st.allow_turn, tr("Allow turning"));
@@ -662,7 +701,7 @@ pub trait EditorDesign: EditorHost {
                     self.serial_text(&tpl, &texts, st.cols, st.dx, st.dy);
                 }
                 DesignCmd::Code => self.make_code(st.code, &st.data, st.size, st.height),
-                DesignCmd::Nest if st.true_shape => self.nest_true_shape(st.area, st.gap, st.turns),
+                DesignCmd::Nest if st.true_shape => self.nest_true_shape(st.area, st.gap, st.turns, st.more_sheets && self.can_add_sheets()),
                 DesignCmd::Nest => self.nest_selected(st.area, st.gap, st.allow_turn),
                 DesignCmd::Measure => {}
             }

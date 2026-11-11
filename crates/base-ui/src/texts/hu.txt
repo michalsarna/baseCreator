@@ -1362,3 +1362,6 @@
 1361|Negyedfordulatok
 1362|Nyolcadfordulatok
 1363|{} darab elhelyezve, {} nem fért el és a helyén maradt
+1364|Ami nem fér el, új lapokra kerül
+1365|Minden új lap egy rajz a saját lapján, ugyanazokkal a rétegekkel és anyaggal: mentse el, és vágja ki ez után.
+1366|{} darab elhelyezve itt, a többi {} új lapon, új lapfüleken
