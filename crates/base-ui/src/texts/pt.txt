@@ -1365,3 +1365,21 @@
 1364|O que não cabe vai para novas chapas
 1365|Cada chapa nova é um desenho num separador próprio, com as mesmas camadas e material: guarde-a e corte-a depois desta.
 1366|{} peças arrumadas aqui, o resto em {} chapa(s) nova(s) em novos separadores
+1367|Adicionar como zona proibida
+1368|A máquina nunca entrará no lugar das formas selecionadas: cada uma torna-se uma zona proibida do dispositivo (um círculo quando é redonda, caso contrário o retângulo à sua volta) e é retirada do desenho.
+1369|Zona proibida
+1370|{} zonas proibidas adicionadas ao dispositivo
+1371|As zonas pertencem ao dispositivo e são guardadas com ele, em cada projeto.
+1372|Está ligado um acessório rotativo
+1373|Mandril
+1374|Rolos
+1375|Diâmetro da peça
+1376|Diâmetro do rolo
+1377|Micropassos por volta
+1378|Micropassos do motor para uma volta completa do que ele move (o mandril ou um rolo).
+1379|Perímetro
+1380|O perímetro da peça: o desenho não pode ser mais alto.
+1381|O GRBL 1.1 tem três eixos: o eixo A não está disponível, usa-se Y.
+1382|O controlador precisa de {} passos por mm no eixo Y ($101).
+1383|Com um acessório rotativo o eixo Y faz rodar a peça: o desenho não pode ser mais alto do que o perímetro da peça. O modelo é simples (uma bucha roda o diâmetro da peça, os rolos movem a superfície como a sua); uma máquina real precisa de testes.
+1384|Rotativo

@@ -1365,3 +1365,21 @@
 1364|Što ne stane, ide na nove ploče
 1365|Svaka nova ploča je crtež u vlastitoj kartici, s istim slojevima i materijalom: spremite je i izrežite nakon ove.
 1366|{} dijelova složeno ovdje, ostatak na {} novih ploča u novim karticama
+1367|Dodaj kao zabranjenu zonu
+1368|Stroj nikada neće ući na mjesto odabranih oblika: svaki postaje zabranjena zona uređaja (krug kad je okrugao, inače pravokutnik oko njega) i uklanja se s crteža.
+1369|Zabranjena zona
+1370|Uređaju dodane zabranjene zone: {}
+1371|Zone pripadaju uređaju i spremaju se s njim, u svakom projektu.
+1372|Spojen je rotacijski dodatak
+1373|Stezna glava
+1374|Valjci
+1375|Promjer obratka
+1376|Promjer valjka
+1377|Mikrokoraka po okretu
+1378|Mikrokoraci motora za jedan puni okret onoga što pokreće (stezne glave ili jednog valjka).
+1379|Opseg
+1380|Opseg obratka: dizajn ne smije biti viši.
+1381|GRBL 1.1 ima tri osi: os A nije dostupna, koristi se Y.
+1382|Upravljaču treba {} koraka po mm na osi Y ($101).
+1383|S rotacijskim nastavkom os Y okreće obradak: crtež ne smije biti viši od opsega obratka. Model je jednostavan (stezna glava se okreće za promjer obratka, valjci pomiču površinu kao svoju); pravi stroj treba isprobati.
+1384|Rotacijski

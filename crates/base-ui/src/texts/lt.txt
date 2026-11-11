@@ -1365,3 +1365,21 @@
 1364|Kas netelpa, eina į naujus lakštus
 1365|Kiekvienas naujas lakštas yra brėžinys atskiroje kortelėje, su tais pačiais sluoksniais ir medžiaga: įrašykite jį ir pjaukite po šio.
 1366|{} detalės sudėtos čia, likusios ant {} naujų lakštų naujose kortelėse
+1367|Pridėti kaip uždraustą zoną
+1368|Mašina niekada neįvažiuos į pasirinktų figūrų vietą: kiekviena tampa įrenginio uždrausta zona (apskritimas, jei ji apvali, kitaip ją gaubiantis stačiakampis) ir pašalinama iš brėžinio.
+1369|Uždrausta zona
+1370|Į įrenginį pridėta uždraustų zonų: {}
+1371|Zonos priklauso įrenginiui ir saugomos kartu su juo, kiekviename projekte.
+1372|Prijungtas sukimo priedas
+1373|Griebtuvas
+1374|Ritinėliai
+1375|Ruošinio skersmuo
+1376|Ritinėlio skersmuo
+1377|Mikrožingsnių per apsisukimą
+1378|Variklio mikrožingsniai vienam pilnam to, ką jis suka, apsisukimui (griebtuvo ar vieno ritinėlio).
+1379|Apimtis
+1380|Ruošinio apimtis: dizainas negali būti aukštesnis.
+1381|GRBL 1.1 turi tris ašis: A ašis nepasiekiama, naudojama Y.
+1382|Valdikliui reikia {} žingsnių mm Y ašyje ($101).
+1383|Su sukimo priedu Y ašis sukioja ruošinį: brėžinys negali būti aukštesnis už ruošinio apimtį. Modelis paprastas (griebtuvas sukasi ruošinio skersmeniu, ritinėliai juda paviršių kaip savo); tikras stakles reikia išbandyti.
+1384|Sukimosi

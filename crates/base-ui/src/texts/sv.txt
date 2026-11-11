@@ -1365,3 +1365,21 @@
 1364|Det som inte får plats hamnar på nya skivor
 1365|Varje ny skiva är en ritning i en egen flik, med samma lager och material: spara den och skär den efter den här.
 1366|{} delar placerade här, resten på {} nya skiva/skivor i nya flikar
+1367|Lägg till som förbudszon
+1368|Maskinen kör aldrig in där de markerade formerna är: var och en blir en förbudszon för enheten (en cirkel när den är rund, annars rektangeln runt den) och tas bort från ritningen.
+1369|Förbudszon
+1370|{} förbudszoner tillagda i enheten
+1371|Zonerna hör till enheten och sparas med den, i varje projekt.
+1372|Ett rotationstillbehör är anslutet
+1373|Chuck
+1374|Rullar
+1375|Arbetsstyckets diameter
+1376|Rulldiameter
+1377|Mikrosteg per varv
+1378|Motorns mikrosteg för ett helt varv av det den driver (chucken eller en rulle).
+1379|Omkrets
+1380|Arbetsstyckets omkrets: designen får inte vara högre.
+1381|GRBL 1.1 har tre axlar: A-axeln är inte tillgänglig, Y används.
+1382|Styrenheten behöver {} steg per mm på Y-axeln ($101).
+1383|Med ett rotationstillbehör vrider Y-axeln arbetsstycket: ritningen får inte vara högre än arbetsstyckets omkrets. Modellen är enkel (en chuck vrids arbetsstyckets diameter, rullar rör ytan som sin egen); en riktig maskin måste testas.
+1384|Rotation

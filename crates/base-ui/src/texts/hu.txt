@@ -1365,3 +1365,21 @@
 1364|Ami nem fér el, új lapokra kerül
 1365|Minden új lap egy rajz a saját lapján, ugyanazokkal a rétegekkel és anyaggal: mentse el, és vágja ki ez után.
 1366|{} darab elhelyezve itt, a többi {} új lapon, új lapfüleken
+1367|Hozzáadás tiltott zónaként
+1368|A gép soha nem megy a kijelölt alakzatok helyére: mindegyik az eszköz tiltott zónája lesz (kör, ha kerek, különben a köré írt téglalap), és eltűnik a rajzról.
+1369|Tiltott zóna
+1370|Az eszközhöz hozzáadott tiltott zónák: {}
+1371|A zónák az eszközhöz tartoznak, és vele együtt mentődnek, minden projektben.
+1372|Forgatóegység csatlakoztatva
+1373|Tokmány
+1374|Görgők
+1375|Munkadarab átmérője
+1376|Görgő átmérője
+1377|Mikrolépés fordulatonként
+1378|A motor mikrolépései annak egy teljes fordulatához, amit hajt (a tokmány vagy egy görgő).
+1379|Kerület
+1380|A munkadarab kerülete: a terv nem lehet magasabb.
+1381|A GRBL 1.1-nek három tengelye van: az A tengely nem elérhető, az Y-t használja.
+1382|A vezérlőnek {} lépés/mm kell az Y tengelyen ($101).
+1383|Forgatóval az Y tengely forgatja a munkadarabot: a rajz nem lehet magasabb a munkadarab kerületénél. A modell egyszerű (a tokmány a munkadarab átmérőjével fordul, a görgők úgy mozgatják a felületet, mint a sajátjukat); valódi gépet ki kell próbálni.
+1384|Forgató

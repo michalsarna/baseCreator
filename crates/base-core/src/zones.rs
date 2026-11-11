@@ -1,7 +1,7 @@
 //! No-go zones of a machine: parts of the work area the tool must never enter (a clamp, a fixture, a mirror), as rectangles and
 //! circles in the coordinates of the design. A zone may stand only between two heights (a box on the table): what moves above or
 //! below it is free. The programs route their moves through the air around the zones ([`route`]) and report a cut that touches one.
-use crate::geom::{Pt, Rect};
+use crate::geom::{Polyline, Pt, Rect};
 use serde::{Deserialize, Serialize};
 
 /// The shape of a no-go zone, in design millimetres.
@@ -266,6 +266,20 @@ pub fn route(zones: &[ZoneShape], a: Pt, b: Pt, margin: f64) -> Option<Vec<Pt>> 
     Some(way)
 }
 
+/// The zone that covers a shape drawn on the work area (its outlines in design millimetres): a circle when the shape is one round
+/// outline (every point within 2 % of the radius), otherwise the rectangle round it. `None` for a shape without size.
+pub fn shape_around(polys: &[Polyline]) -> Option<ZoneShape> {
+    let b = polys.iter().filter_map(|p| p.bounds()).reduce(Rect::union)?;
+    let (w, h) = (b.max.x - b.min.x, b.max.y - b.min.y);
+    if !(w > 0.01 && h > 0.01) {
+        return None;
+    }
+    let c = b.center();
+    let r = (w + h) / 4.0;
+    let round = polys.len() == 1 && polys[0].closed && polys[0].pts.len() >= 8 && (w - h).abs() <= 0.02 * r && polys[0].pts.iter().all(|p| (p.dist(c) - r).abs() <= 0.02 * r + 0.01);
+    Some(if round { ZoneShape::Circle { x: c.x, y: c.y, r } } else { ZoneShape::Rect { x: b.min.x, y: b.min.y, w, h } })
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -335,5 +349,23 @@ mod tests {
         assert!(check_all(&[z.clone()]).is_ok());
         assert!(Zone { shape: ZoneShape::Circle { x: f64::NAN, y: 0.0, r: 1.0 }, ..z }.check().is_err());
         assert!(ZoneShape::Circle { x: 50.0, y: 50.0, r: 10.0 }.polygon(0.0).iter().all(|p| p.dist(Pt::new(50.0, 50.0)) >= 10.0));
+    }
+    #[test]
+    fn a_round_shape_becomes_a_circle_and_any_other_the_box_round_it() {
+        let circle = Polyline::new((0..48).map(|i| {
+            let a = i as f64 / 48.0 * std::f64::consts::TAU;
+            Pt::new(30.0 + 5.0 * a.cos(), 40.0 + 5.0 * a.sin())
+        }).collect(), true);
+        match shape_around(&[circle.clone()]) {
+            Some(ZoneShape::Circle { x, y, r }) => assert!((x - 30.0).abs() < 1e-6 && (y - 40.0).abs() < 1e-6 && (r - 5.0).abs() < 0.05),
+            other => panic!("{other:?}"),
+        }
+        let tri = Polyline::new(vec![Pt::new(0.0, 0.0), Pt::new(10.0, 0.0), Pt::new(5.0, 8.0)], true);
+        assert_eq!(shape_around(&[tri]), Some(ZoneShape::Rect { x: 0.0, y: 0.0, w: 10.0, h: 8.0 }));
+        // Two outlines (a ring) are one box; a line without width is nothing.
+        let mut inner = circle.clone();
+        inner.pts.iter_mut().for_each(|p| *p = Pt::new(30.0 + (p.x - 30.0) / 2.0, 40.0 + (p.y - 40.0) / 2.0));
+        assert!(matches!(shape_around(&[circle, inner]), Some(ZoneShape::Rect { .. })));
+        assert_eq!(shape_around(&[Polyline::new(vec![Pt::new(0.0, 0.0), Pt::new(10.0, 0.0)], false)]), None);
     }
 }

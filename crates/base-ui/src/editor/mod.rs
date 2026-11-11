@@ -20,7 +20,7 @@ pub mod text_ui;
 pub use bars::{arrange_bar, dims_button, palette_button_size, tool_button, tool_palette};
 pub use canvas::{CanvasView, EditorCanvas};
 pub use commands::EditorCommands;
-pub use context_menu::context_menu;
+pub use context_menu::{add_as_zones, context_menu};
 pub use host::EditorHost;
 pub use keys::{hold_space, plain_keys};
 pub use shape_ops::{EditorShapeOps, Exchange};

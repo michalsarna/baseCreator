@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.90.0
+
+- **Add as no-go zone** in the right-click menu of the work area (for the programs that keep zones, `EditorHost::can_add_zones` / `add_zones`): every unlocked selected shape becomes a no-go zone of the device, a circle when it is round and otherwise the rectangle round it (`zones::shape_around`), and leaves the drawing (undo brings it back).
+- **No-go zones panel** (`zones_ui::panel`) for a tab of the side panel shown while the device has zones.
+- **Rotary for three-axis GRBL machines** (`rotary_ui`): the page of the device settings and the lines of the way round on the work area, now shared by MillCreator and PenCreator.
+- 18 texts in every language (5 new, 13 moved from MillCreator); a new icon (`ban`).
+
 ## v1.89.1
 
 - **Quick guide** (F1): two new lines, in English and Polish: nesting by the real outlines and onto new sheets, and the no-go zones and the accelerations of the machine (the time of a job).

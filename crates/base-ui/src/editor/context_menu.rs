@@ -108,6 +108,7 @@ fn shape_op_entries() -> Vec<Option<(StdAct, &'static str)>> {
 /// Draw the menu on a right click and run the command that was chosen.
 pub fn context_menu<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, resp: &egui::Response) {
     let mut chosen: Option<StdAct> = None;
+    let mut to_zone = false;
     resp.context_menu(|ui| {
         let sel = selection(h);
         let mut item = |ui: &mut egui::Ui, act: StdAct, label: &'static str| {
@@ -154,11 +155,41 @@ pub fn context_menu<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, resp: &egui::Re
             item(ui, StdAct::TraceImage, "Trace image…");
             item(ui, StdAct::StyleTrace, "Style trace…");
         }
+        if h.can_add_zones() {
+            ui.separator();
+            let btn = egui::Button::image_and_text(icons::slot(Some(ZONE_ICON), theme::text()), tr("Add as no-go zone"));
+            if ui.add_enabled(sel.unlocked, btn).on_hover_text(tr("The machine will never enter the place of the selected shapes: each one becomes a no-go zone of the device (a circle when it is round, otherwise the rectangle round it) and is removed from the drawing.")).clicked() {
+                to_zone = true;
+                ui.close();
+            }
+        }
     });
     let _ = ui;
     if let Some(act) = chosen {
         act.run(h);
     }
+    if to_zone {
+        add_as_zones(h);
+    }
+}
+
+/// The icon of the entry "Add as no-go zone".
+const ZONE_ICON: &str = "ban";
+
+/// Every unlocked selected shape becomes a no-go zone of the device and leaves the drawing (undo brings the shapes back; the zones
+/// stay with the device until they are deleted on their panel).
+pub fn add_as_zones<H: EditorHost>(h: &mut H) {
+    let ids: Vec<u64> = h.ed().sel.iter().copied().filter(|id| h.scene().shape(*id).is_some_and(|s| !s.locked)).collect();
+    let made: Vec<base_core::zones::ZoneShape> = ids.iter().filter_map(|id| h.scene().shape(*id)).filter_map(|s| base_core::zones::shape_around(&s.polys())).collect();
+    if made.is_empty() {
+        return;
+    }
+    let n = made.len();
+    let zones = made.into_iter().enumerate().map(|(i, shape)| base_core::zones::Zone { name: if n == 1 { tr("No-go zone").to_string() } else { format!("{} {}", tr("No-go zone"), i + 1) }, enabled: true, shape, z_range: None }).collect();
+    h.add_zones(zones);
+    h.ed_mut().sel = ids;
+    super::EditorCommands::delete_selection(h);
+    h.say(crate::i18n::trf("{} no-go zones added to the device", &[&n.to_string()]));
 }
 
 #[cfg(test)]

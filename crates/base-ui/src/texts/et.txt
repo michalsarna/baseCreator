@@ -1365,3 +1365,21 @@
 1364|Mis ei mahu, läheb uutele plaatidele
 1365|Iga uus plaat on joonis oma vahekaardil, samade kihtide ja materjaliga: salvesta see ja lõika pärast seda.
 1366|{} detaili paigutatud siia, ülejäänud {} uuel plaadil uutel vahekaartidel
+1367|Lisa keelutsoonina
+1368|Masin ei sisene kunagi valitud kujundite kohale: igaühest saab seadme keelutsoon (ring, kui see on ümar, muidu seda ümbritsev ristkülik) ja see eemaldatakse jooniselt.
+1369|Keelutsoon
+1370|Seadmele lisati keelutsoone: {}
+1371|Tsoonid kuuluvad seadmele ja salvestatakse koos sellega, igas projektis.
+1372|Pöörlemisseade on ühendatud
+1373|Padrun
+1374|Rullid
+1375|Eseme läbimõõt
+1376|Rulli läbimõõt
+1377|Mikrosammu pöörde kohta
+1378|Mootori mikrosammud ühe täispöörde kohta sellest, mida see ajab (padrun või üks rull).
+1379|Ümbermõõt
+1380|Eseme ümbermõõt: kujundus ei tohi olla kõrgem.
+1381|GRBL 1.1-l on kolm telge: A-telg pole saadaval, kasutatakse Y-d.
+1382|Kontroller vajab Y-teljel {} sammu mm kohta ($101).
+1383|Pöördlisaga pöörab Y-telg detaili: joonis ei tohi olla kõrgem kui detaili ümbermõõt. Mudel on lihtne (padrun pöörleb detaili läbimõõdu võrra, rullid liigutavad pinda nagu oma pinda); päris masinat tuleb testida.
+1384|Pöörlev

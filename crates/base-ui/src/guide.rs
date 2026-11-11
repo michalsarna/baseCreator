@@ -105,6 +105,7 @@ const EN: Shared = Shared {
             "Machine > Start from line… starts a job in the middle, and Machine > Check the program runs it in the check mode of GRBL: nothing moves and the lines GRBL does not take are reported.",
             "Machine > Diagnostics and statistics… shows the inputs, the jobs, the alarms and the maintenance reminders; Help > Export diagnostics (zip)… makes one file to attach to a bug report.",
             "The No-go zones page of Machine > Device settings… keeps parts of the work area the tool must never enter, such as a clamp: moves through the air go round them, and a cut that touches one is reported before the job. With the Acceleration of X, Y, Z and the Junction deviation of the machine filled in, the time of a job counts the speeding up, the slowing down and the slower corners, as the controller does.",
+            "A right click on shapes offers Add as no-go zone: each one becomes a zone of the device (a circle when it is round, otherwise the rectangle round it) and leaves the drawing. While the device has zones, the No-go zones tab of the side panel lists them.",
         ],
     },
     keys: Section {
@@ -171,6 +172,7 @@ const PL: Shared = Shared {
             "Maszyna > Start od wiersza… zaczyna zadanie od środka, a Maszyna > Sprawdź program przepuszcza je przez tryb sprawdzania GRBL: nic się nie rusza, a wiersze, których GRBL nie przyjmuje, są zgłaszane.",
             "Maszyna > Diagnostyka i statystyki… pokazują wejścia, zadania, alarmy i przypomnienia o przeglądach; Pomoc > Eksportuj diagnostykę (zip)… tworzy jeden plik do dołączenia do zgłoszenia błędu.",
             "Strona Strefy zakazane w Maszyna > Ustawienia urządzenia… przechowuje części obszaru roboczego, w które narzędzie nie może wjechać, np. docisk: ruchy w powietrzu je omijają, a cięcie, które którejś dotyka, jest zgłaszane przed zadaniem. Gdy Przyspieszenie X, Y, Z i Odchyłka w narożnikach maszyny są wpisane, czas zadania uwzględnia rozpędzanie, hamowanie i wolniejsze narożniki, tak jak sterownik.",
+            "Prawy przycisk na kształtach daje Dodaj jako strefę zakazaną: każdy staje się strefą urządzenia (okręgiem, gdy jest okrągły, w przeciwnym razie prostokątem wokół niego) i znika z rysunku. Gdy urządzenie ma strefy, pokazuje je karta Strefy zakazane w panelu bocznym.",
         ],
     },
     keys: Section {

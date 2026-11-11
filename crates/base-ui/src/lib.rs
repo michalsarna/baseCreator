@@ -44,6 +44,7 @@ pub mod navicube;
 pub mod photo_trip;
 pub mod playback;
 pub mod recording_ui;
+pub mod rotary_ui;
 pub mod plotter_ui;
 pub mod knives_ui;
 pub mod plugins_ui;

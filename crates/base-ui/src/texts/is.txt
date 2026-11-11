@@ -1365,3 +1365,21 @@
 1364|Það sem kemst ekki fyrir fer á nýjar plötur
 1365|Hver ný plata er teikning í eigin flipa, með sömu lögum og efni: vistaðu hana og skerðu á eftir þessari.
 1366|{} hlutum raðað hér, restin á {} nýjar plötur í nýjum flipum
+1367|Bæta við sem bannsvæði
+1368|Vélin fer aldrei inn á stað valinna forma: hvert þeirra verður bannsvæði tækisins (hringur ef það er kringlótt, annars rétthyrningurinn utan um það) og er fjarlægt af teikningunni.
+1369|Bannsvæði
+1370|Bannsvæðum bætt við tækið: {}
+1371|Svæðin tilheyra tækinu og eru geymd með því, í hverju verkefni.
+1372|Snúningstæki er tengt
+1373|Patróna
+1374|Rúllur
+1375|Þvermál hlutar
+1376|Þvermál rúllu
+1377|Örskref á snúning
+1378|Örskref mótorsins fyrir heilan snúning þess sem hann knýr (patrónuna eða eina rúllu).
+1379|Ummál
+1380|Ummál hlutarins: hönnunin má ekki vera hærri.
+1381|GRBL 1.1 hefur þrjá ása: A-ás er ekki tiltækur, Y er notað.
+1382|Stýringin þarf {} skref á mm á Y-ásnum ($101).
+1383|Með snúningsbúnaði snýr Y-ásinn vinnustykkinu: teikningin má ekki vera hærri en ummál vinnustykkisins. Líkanið er einfalt (patróna snýst um þvermál vinnustykkisins, rúllur hreyfa yfirborðið eins og sitt eigið); raunverulega vél þarf að prófa.
+1384|Snúningur

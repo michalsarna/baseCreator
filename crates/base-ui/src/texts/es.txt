@@ -1365,3 +1365,21 @@
 1364|Lo que no cabe va a nuevas planchas
 1365|Cada plancha nueva es un dibujo en una pestaña propia, con las mismas capas y material: guárdala y córtala después de esta.
 1366|{} piezas colocadas aquí, el resto en {} plancha(s) nueva(s) en pestañas nuevas
+1367|Añadir como zona prohibida
+1368|La máquina nunca entrará en el lugar de las formas seleccionadas: cada una se convierte en una zona prohibida del dispositivo (un círculo si es redonda, si no el rectángulo que la rodea) y se quita del dibujo.
+1369|Zona prohibida
+1370|{} zonas prohibidas añadidas al dispositivo
+1371|Las zonas pertenecen al dispositivo y se guardan con él, en cada proyecto.
+1372|Hay un accesorio rotativo conectado
+1373|Mandril
+1374|Rodillos
+1375|Diámetro de la pieza
+1376|Diámetro del rodillo
+1377|Micropasos por vuelta
+1378|Micropasos del motor para una vuelta completa de lo que mueve (el mandril o un rodillo).
+1379|Circunferencia
+1380|La circunferencia de la pieza: el diseño no puede ser más alto.
+1381|GRBL 1.1 tiene tres ejes: el eje A no está disponible, se usa Y.
+1382|El controlador necesita {} pasos por mm en el eje Y ($101).
+1383|Con un accesorio rotativo el eje Y gira la pieza: el dibujo no puede ser más alto que el contorno de la pieza. El modelo es simple (un plato gira el diámetro de la pieza, los rodillos mueven la superficie como la suya); una máquina real necesita pruebas.
+1384|Rotativo

@@ -51,6 +51,14 @@ pub trait EditorHost: Sized {
         let _ = sheets;
         0
     }
+    /// Does the program keep no-go zones for its device (the right-click entry "Add as no-go zone")?
+    fn can_add_zones(&self) -> bool {
+        false
+    }
+    /// Add these zones to the device and keep them (the shapes they were made of are deleted by the editor).
+    fn add_zones(&mut self, zones: Vec<base_core::zones::Zone>) {
+        let _ = zones;
+    }
     /// The message now shown in the status line.
     fn said(&self) -> &str;
 

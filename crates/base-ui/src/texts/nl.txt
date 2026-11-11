@@ -1365,3 +1365,21 @@
 1364|Wat niet past, gaat op nieuwe platen
 1365|Elke nieuwe plaat is een tekening in een eigen tabblad, met dezelfde lagen en hetzelfde materiaal: sla haar op en snijd haar na deze.
 1366|{} delen hier genest, de rest op {} nieuwe plaat/platen in nieuwe tabbladen
+1367|Toevoegen als verboden zone
+1368|De machine komt nooit op de plaats van de geselecteerde vormen: elke vorm wordt een verboden zone van het apparaat (een cirkel als hij rond is, anders de rechthoek eromheen) en verdwijnt uit de tekening.
+1369|Verboden zone
+1370|{} verboden zones aan het apparaat toegevoegd
+1371|De zones horen bij het apparaat en worden ermee bewaard, in elk project.
+1372|Er is een rotatieopzetstuk aangesloten
+1373|Klauwplaat
+1374|Rollen
+1375|Werkstukdiameter
+1376|Rolldiameter
+1377|Microstappen per omwenteling
+1378|Microstappen van de motor voor één volledige omwenteling van wat hij aandrijft (de klauwplaat of één rol).
+1379|Omtrek
+1380|De omtrek van het werkstuk: het ontwerp mag niet hoger zijn.
+1381|GRBL 1.1 heeft drie assen: de A-as is niet beschikbaar, Y wordt gebruikt.
+1382|De besturing heeft {} stappen per mm op de Y-as nodig ($101).
+1383|Met een rotatieopzet draait de Y-as het werkstuk: de tekening mag niet hoger zijn dan de omtrek van het werkstuk. Het model is eenvoudig (een klauwplaat draait over de diameter van het werkstuk, rollen verplaatsen het oppervlak als hun eigen); een echte machine moet worden getest.
+1384|Rotatie

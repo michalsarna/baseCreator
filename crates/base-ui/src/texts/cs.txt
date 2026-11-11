@@ -1365,3 +1365,21 @@
 1364|Co se nevejde, jde na nové desky
 1365|Každá nová deska je výkres ve vlastní kartě, se stejnými vrstvami a materiálem: uložte ji a vyřízněte po této.
 1366|{} dílů rozmístěno zde, zbytek na {} nových deskách v nových kartách
+1367|Přidat jako zakázanou zónu
+1368|Stroj nikdy nevjede na místo vybraných tvarů: každý se stane zakázanou zónou zařízení (kruh, když je kulatý, jinak obdélník kolem něj) a zmizí z výkresu.
+1369|Zakázaná zóna
+1370|Do zařízení přidány zakázané zóny: {}
+1371|Zóny patří zařízení a ukládají se s ním, v každém projektu.
+1372|Je připojen rotační nástavec
+1373|Sklíčidlo
+1374|Válečky
+1375|Průměr obrobku
+1376|Průměr válečku
+1377|Mikrokroků na otáčku
+1378|Mikrokroky motoru na jednu celou otáčku toho, co pohání (sklíčidla nebo jednoho válečku).
+1379|Obvod
+1380|Obvod obrobku: návrh nesmí být vyšší.
+1381|GRBL 1.1 má tři osy: osa A není k dispozici, použije se Y.
+1382|Řídicí jednotka potřebuje {} kroků na mm na ose Y ($101).
+1383|S rotačním příslušenstvím otáčí obrobkem osa Y: kresba nesmí být vyšší než obvod obrobku. Model je jednoduchý (sklíčidlo se otočí o průměr obrobku, válečky posouvají povrch jako svůj vlastní); skutečný stroj je třeba vyzkoušet.
+1384|Rotační
