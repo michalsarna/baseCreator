@@ -1331,3 +1331,6 @@
 1330|Où va le stylo pour une photo du time-lapse, une fois levé ; il revient par un mouvement absolu. Vide : l'endroit défini dans l'onglet Enregistrement.
 1331|Enregistrement
 1332|Cette caméra est désactivée dans les réglages de l'appareil.
+1333|Accélération de X, Y, Z
+1334|Déviation aux angles
+1335|0 = inconnu. Avec les accélérations, la durée du travail tient compte des accélérations et freinages de la machine et des angles plus lents, comme le fait GRBL ($120 – $122, $11).

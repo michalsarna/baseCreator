@@ -1331,3 +1331,6 @@
 1330	Where the pen goes for a photo of the time-lapse, after it is up; it comes back with an absolute move. Empty: the place set on the Recording tab.
 1331	Recording
 1332	This camera is switched off in the device settings.
+1333	Acceleration of X, Y, Z
+1334	Junction deviation
+1335	0 = not known. With the accelerations the time of a job counts the speeding up and slowing down of the machine and its slower corners, as GRBL does ($120 – $122, $11).

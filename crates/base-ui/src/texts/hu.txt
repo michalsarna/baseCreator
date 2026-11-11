@@ -1331,3 +1331,6 @@
 1330|Hová megy a toll az időzített képhez, miután felemelkedett; abszolút mozgással tér vissza. Üres: a Felvétel lapon beállított hely.
 1331|Felvétel
 1332|Ez a kamera ki van kapcsolva az eszköz beállításaiban.
+1333|X, Y, Z gyorsulása
+1334|Sarokeltérés
+1335|0 = nem ismert. A gyorsulásokkal a munka ideje számol a gép gyorsításával, lassításával és a lassabb sarkokkal, ahogy a GRBL ($120 – $122, $11).

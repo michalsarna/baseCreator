@@ -30,6 +30,7 @@ pub mod image;
 pub mod join;
 pub mod machine;
 pub mod mesh;
+pub mod motion;
 pub mod layers;
 pub mod lightburn;
 pub mod ops;

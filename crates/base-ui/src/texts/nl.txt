@@ -1331,3 +1331,6 @@
 1330|Waar de pen heen gaat voor een time-lapsefoto, nadat hij omhoog is; hij komt terug met een absolute beweging. Leeg: de plek op het tabblad Opname.
 1331|Opname
 1332|Deze camera staat uit in de apparaatinstellingen.
+1333|Versnelling van X, Y, Z
+1334|Hoekafwijking
+1335|0 = onbekend. Met de versnellingen telt de tijd van een taak het optrekken en afremmen van de machine en de tragere hoeken mee, zoals GRBL dat doet ($120 – $122, $11).

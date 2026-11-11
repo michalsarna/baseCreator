@@ -112,6 +112,10 @@ pub struct Suggestion {
     pub laser_mode: bool,
     /// Does the controller report positions in inches (`$13`)?
     pub inches: bool,
+    /// The acceleration of X, Y and Z (`$120` – `$122`), mm/s².
+    pub accel: Option<[f64; 3]>,
+    /// The junction deviation (`$11`), mm.
+    pub junction: Option<f64>,
 }
 
 impl Suggestion {
@@ -132,7 +136,12 @@ pub fn suggest(values: &BTreeMap<u32, String>) -> Suggestion {
         (Some(x), Some(y)) if x > 0.0 && y > 0.0 => Some(x.min(y)),
         _ => None,
     };
-    Suggestion { area, spindle, rapid, z_rate: num(112).filter(|v| *v > 0.0), homing: flag(22), soft_limits: flag(20), laser_mode: flag(32), inches: flag(13) }
+    let accel = match (num(120), num(121), num(122)) {
+        (Some(x), Some(y), z) if x > 0.0 && y > 0.0 => Some([x, y, z.filter(|v| *v > 0.0).unwrap_or(0.0)]),
+        _ => None,
+    };
+    let junction = num(11).filter(|v| *v > 0.0);
+    Suggestion { area, spindle, rapid, z_rate: num(112).filter(|v| *v > 0.0), homing: flag(22), soft_limits: flag(20), laser_mode: flag(32), inches: flag(13), accel, junction }
 }
 
 #[cfg(test)]
@@ -178,6 +187,13 @@ mod tests {
         assert_eq!(s.rapid, Some(2500.0));
         assert_eq!(s.z_rate, Some(500.0));
         assert!(s.homing && !s.soft_limits && !s.laser_mode && !s.inches);
+        assert_eq!((s.accel, s.junction), (None, None));
         assert!(suggest(&BTreeMap::new()).is_empty());
+        let v: BTreeMap<u32, String> = [(11, "0.020"), (120, "800.000"), (121, "600.000"), (122, "50.000")].into_iter().map(|(k, v)| (k, v.to_string())).collect();
+        let s = suggest(&v);
+        assert_eq!((s.accel, s.junction), (Some([800.0, 600.0, 50.0]), Some(0.02)));
+        let mut m = crate::motion::Motion::default();
+        m.take(&s);
+        assert!(m.known() && m.junction == 0.02);
     }
 }

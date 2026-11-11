@@ -1331,3 +1331,6 @@
 1330|Kur pildspalva dodas time-lapse attēlam pēc pacelšanas; tā atgriežas ar absolūtu kustību. Tukšs: vieta, kas iestatīta cilnē Ierakstīšana.
 1331|Ierakstīšana
 1332|Šī kamera ir izslēgta ierīces iestatījumos.
+1333|X, Y, Z paātrinājums
+1334|Novirze stūros
+1335|0 = nav zināms. Ar paātrinājumiem darba laiks ņem vērā mašīnas paātrināšanos, bremzēšanu un lēnākos stūrus, kā to dara GRBL ($120 – $122, $11).

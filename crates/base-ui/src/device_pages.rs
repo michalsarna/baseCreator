@@ -315,6 +315,16 @@ pub fn suggestion_ui(ui: &mut Ui, m: &mut Machine, s: &Suggestion) -> bool {
                 ui.label(format!("{r} mm/min"));
                 ui.end_row();
             }
+            if let Some(a) = s.accel {
+                ui.label(tr("Acceleration of X, Y, Z"));
+                ui.label(format!("{} / {} / {} mm/s²", a[0], a[1], a[2]));
+                ui.end_row();
+            }
+            if let Some(j) = s.junction {
+                ui.label(tr("Junction deviation"));
+                ui.label(format!("{j} mm"));
+                ui.end_row();
+            }
             ui.label(tr("Homing"));
             ui.label(if s.homing { tr("on") } else { tr("off") });
             ui.end_row();
@@ -329,6 +339,25 @@ pub fn suggestion_ui(ui: &mut Ui, m: &mut Machine, s: &Suggestion) -> bool {
         apply = true;
     }
     apply
+}
+
+/// The rows of a grid (two columns) that set how the machine speeds up and slows down: the acceleration of X, Y and Z and
+/// the junction deviation. True when something changed.
+pub fn motion_rows(ui: &mut Ui, m: &mut base_core::motion::Motion) -> bool {
+    let hint = tr("0 = not known. With the accelerations the time of a job counts the speeding up and slowing down of the machine and its slower corners, as GRBL does ($120 – $122, $11).");
+    let mut changed = false;
+    ui.label(tr("Acceleration of X, Y, Z")).on_hover_text(hint);
+    ui.horizontal(|ui| {
+        for (i, axis) in ["X", "Y", "Z"].iter().enumerate() {
+            ui.label(*axis);
+            changed |= ui.add(egui::DragValue::new(&mut m.accel[i]).range(0.0..=100_000.0).speed(5.0).suffix(" mm/s²")).on_hover_text(hint).changed();
+        }
+    });
+    ui.end_row();
+    ui.label(tr("Junction deviation")).on_hover_text(hint);
+    changed |= ui.add(egui::DragValue::new(&mut m.junction).range(0.0..=10.0).speed(0.001).max_decimals(3).suffix(" mm")).on_hover_text(hint).changed();
+    ui.end_row();
+    changed
 }
 
 #[cfg(test)]
@@ -354,8 +383,11 @@ mod tests {
             area: Some([300.0, 180.0, 45.0]),
             spindle: Some((0.0, 24000.0)),
             rapid: Some(3000.0),
+            accel: Some([500.0, 500.0, 50.0]),
+            junction: Some(0.01),
             ..Default::default()
         };
+        let mut motion = base_core::motion::Motion::default();
         let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
             egui::CentralPanel::default().show(ui, |ui| {
                 jog_page(ui, &mut c);
@@ -363,6 +395,7 @@ mod tests {
                 macros_page(ui, &mut c);
                 maintenance_page(ui, &mut c);
                 suggestion_ui(ui, &mut m, &s);
+                egui::Grid::new("motion").show(ui, |ui| motion_rows(ui, &mut motion));
             });
         });
         out.textures_delta.clear();

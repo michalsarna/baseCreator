@@ -1331,3 +1331,6 @@
 1330|Kam pero ide pre časozbernú snímku po zdvihnutí; vracia sa absolútnym pohybom. Prázdne: miesto nastavené na karte Záznam.
 1331|Záznam
 1332|Táto kamera je vypnutá v nastaveniach zariadenia.
+1333|Zrýchlenie X, Y, Z
+1334|Odchýlka v rohoch
+1335|0 = neznáme. So zrýchleniami čas úlohy počíta s rozbiehaním a brzdením stroja a pomalšími rohmi, ako to robí GRBL ($120 – $122, $11).

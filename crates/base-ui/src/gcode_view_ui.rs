@@ -18,6 +18,16 @@ pub fn is_gcode(p: &Path) -> bool {
     p.extension().is_some_and(|e| EXTENSIONS.iter().any(|x| e.eq_ignore_ascii_case(x)))
 }
 
+/// The machine the files are timed for (its accelerations and the speed of its rapid moves), set by the program for its device.
+static MACHINE: std::sync::Mutex<(base_core::motion::Motion, f64)> = std::sync::Mutex::new((base_core::motion::Motion { accel: [0.0; 3], junction: 0.0 }, 3000.0));
+
+/// Time the files that are opened from now on for this machine: its accelerations and its speed of rapid moves (mm/min).
+pub fn set_machine(motion: base_core::motion::Motion, rapid: f64) {
+    if let Ok(mut m) = MACHINE.lock() {
+        *m = (motion, rapid);
+    }
+}
+
 /// Segments drawn at most; a bigger file is thinned out (every n-th) so that moving the view stays smooth.
 const DRAW_LIMIT: usize = 300_000;
 
@@ -64,7 +74,8 @@ impl GcodeViewer {
 
     /// The viewer of a program that is in memory (a preview before it is saved); `name` stands for the file.
     pub fn from_text(name: PathBuf, text: &str) -> Result<GcodeViewer, String> {
-        let tp = gcode_view::parse(text);
+        let (motion, rapid) = MACHINE.lock().map(|m| *m).unwrap_or((base_core::motion::Motion::default(), 3000.0));
+        let tp = gcode_view::parse_with(text, &motion, rapid);
         if tp.segs.is_empty() {
             return Err("no moves".into());
         }

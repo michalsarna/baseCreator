@@ -1331,3 +1331,6 @@
 1330|Kam gre pisalo za sliko s časovnim zamikom, ko je dvignjeno; vrne se z absolutnim premikom. Prazno: mesto, nastavljeno na zavihku Snemanje.
 1331|Snemanje
 1332|Ta kamera je izklopljena v nastavitvah naprave.
+1333|Pospešek X, Y, Z
+1334|Odstopanje v vogalih
+1335|0 = neznano. S pospeški čas posla upošteva pospeševanje in zaviranje stroja ter počasnejše vogale, kot to počne GRBL ($120 – $122, $11).

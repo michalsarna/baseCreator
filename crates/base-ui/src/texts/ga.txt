@@ -1331,3 +1331,6 @@
 1330|Cá dtéann an peann do ghrianghraf time-lapse, tar éis é a ardú; filleann sé le gluaiseacht iomlán. Folamh: an áit a socraíodh ar an táb Taifeadadh.
 1331|Taifeadadh
 1332|Tá an ceamara seo múchta i socruithe an ghléis.
+1333|Luasghéarú X, Y, Z
+1334|Diall ag coirnéil
+1335|0 = anaithnid. Leis na luasghéaruithe, áirítear in am an jab luasghéarú agus moilliú an mheaisín agus na coirnéil níos moille, mar a dhéanann GRBL ($120 – $122, $11).

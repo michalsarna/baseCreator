@@ -307,6 +307,38 @@ mod tests {
 
     #[test]
     #[ignore = "needs grbl-sim: tools/grbl-sim/build.sh"]
+    fn grbl_sim_takes_about_as_long_as_the_planned_time() {
+        // A zigzag of short moves with sharp corners: the planned time (acceleration, corners, lookahead) is near what the
+        // simulator takes, the plain length / feed is far below it.
+        let mut s = Session::connect();
+        s.wait_banner();
+        let setup = ["$110=30000", "$111=30000", "$112=30000", "$120=200", "$121=200", "$122=200", "$11=0.010"];
+        let before = s.ok_count();
+        for l in &setup {
+            s.link.send(Cmd::Line((*l).into()));
+        }
+        s.wait("settings accepted", 5.0, |v| v.rx.iter().filter(|l| *l == "ok").count() >= before + setup.len());
+        let mut job: Vec<String> = ["G21", "G90", "G1 F3000"].iter().map(|l| l.to_string()).collect();
+        let mut blocks = vec![];
+        for i in 1..=60 {
+            let (x, y) = (i as f64 * 2.0, if i % 2 == 1 { 3.0 } else { 0.0 });
+            job.push(format!("G1 X{x:.3} Y{y:.3}"));
+            blocks.push(base_core::motion::Block::new([x, y, 0.0], 3000.0));
+        }
+        let m = base_core::motion::Motion { accel: [200.0; 3], junction: 0.01 };
+        let planned = base_core::motion::seconds([0.0; 3], &blocks, &m);
+        let plain = base_core::motion::seconds([0.0; 3], &blocks, &base_core::motion::Motion::default());
+        let t = Instant::now();
+        s.run_job(job, 60.0);
+        s.wait_idle_at(120.0, 0.0, 60.0);
+        let secs = t.elapsed().as_secs_f64();
+        eprintln!("grbl-sim: {secs:.2} s, planned {planned:.2} s, length / feed {plain:.2} s");
+        assert!(planned > 2.0 * plain, "the corners must count");
+        assert!(secs > 0.75 * planned && secs < 2.0 * planned, "simulated {secs:.2} s vs planned {planned:.2} s");
+    }
+
+    #[test]
+    #[ignore = "needs grbl-sim: tools/grbl-sim/build.sh"]
     fn grbl_sim_long_job_keeps_character_counting_in_sync() {
         // Hundreds of short lines: the 120-byte RX window is full all the time. A wrong byte count would overflow GRBL's
         // 128-byte buffer (lost or garbled lines -> errors) or stall the stream.

@@ -1331,3 +1331,6 @@
 1330|On va la ploma per a una foto del time-lapse, un cop aixecada; torna amb un moviment absolut. Buit: el lloc definit a la pestanya Enregistrament.
 1331|Enregistrament
 1332|Aquesta càmera està desactivada a la configuració del dispositiu.
+1333|Acceleració de X, Y, Z
+1334|Desviació a les cantonades
+1335|0 = desconegut. Amb les acceleracions, el temps de la feina compta l'acceleració i la frenada de la màquina i les cantonades més lentes, com fa GRBL ($120 – $122, $11).
