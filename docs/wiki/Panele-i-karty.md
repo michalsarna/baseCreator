@@ -48,3 +48,4 @@ Panel po prawej jest oddzielny od pozostałych. Jego karty to **Właściwości**
 ## Zapamiętywane
 
 Panele, ich karty, kierunek, rozmiary, kolejność kart prawego panelu i to, czy jest ukryty, wracają po ponownym uruchomieniu programu.
+* Zamknięcie ostatniego otwartego rysunku (po pytaniu o zapis, gdy ma niezapisane zmiany) pyta **Zamknąć program?**: **Zamknij program** zamyka go, **Wróć do ekranu startowego** (albo Escape) pokazuje ekran startowy.

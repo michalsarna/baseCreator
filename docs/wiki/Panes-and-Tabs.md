@@ -48,3 +48,4 @@ The panel at the right is separate from the panes. Its tabs are **Properties**, 
 ## Remembered
 
 The panes, the tabs in them, the direction, the sizes, the order of the right panel's tabs and whether it is hidden come back when you start the program again.
+* Closing the last open drawing (after the question about saving it, when it has unsaved work) asks **Close the program?**: **Close the program** closes it, **Back to the start screen** (or Escape) shows the start screen.
