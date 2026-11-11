@@ -1334,3 +1334,14 @@
 1333|Acceleració de X, Y, Z
 1334|Desviació a les cantonades
 1335|0 = desconegut. Amb les acceleracions, el temps de la feina compta l'acceleració i la frenada de la màquina i les cantonades més lentes, com fa GRBL ($120 – $122, $11).
+1336|Arc
+1337|Entrada
+1338|Sortida
+1339|Longitud de l'entrada
+1340|Radi de l'entrada
+1341|Angle de l'entrada
+1342|Solapament
+1343|L'eina entra a la línia pel costat del rebuig i en surt igual, així la marca de l'inici no queda a la peça. Una entrada que no hi cap es fa més petita o s'omet.
+1344|La longitud d'una entrada recta, el radi d'un arc.
+1345|90° arriba recte a la línia, un angle petit gairebé al llarg.
+1346|Fins on continua el tall després del seu inici, perquè l'inici i el final es trobin nets.

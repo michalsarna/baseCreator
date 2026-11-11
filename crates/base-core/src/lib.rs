@@ -32,6 +32,7 @@ pub mod machine;
 pub mod mesh;
 pub mod motion;
 pub mod layers;
+pub mod lead;
 pub mod lightburn;
 pub mod ops;
 pub mod overlay_data;

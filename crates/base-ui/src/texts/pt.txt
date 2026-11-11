@@ -1334,3 +1334,14 @@
 1333|Aceleração de X, Y, Z
 1334|Desvio nas esquinas
 1335|0 = desconhecido. Com as acelerações, o tempo do trabalho conta a aceleração e a travagem da máquina e as esquinas mais lentas, como faz o GRBL ($120 – $122, $11).
+1336|Arco
+1337|Entrada
+1338|Saída
+1339|Comprimento da entrada
+1340|Raio da entrada
+1341|Ângulo da entrada
+1342|Sobreposição
+1343|A ferramenta entra na linha pelo lado do desperdício e sai da mesma forma, para que a marca do início não fique na peça. Uma entrada que não cabe é reduzida ou omitida.
+1344|O comprimento de uma entrada reta, o raio de um arco.
+1345|90° chega direto à linha, um ângulo pequeno quase ao longo dela.
+1346|Até onde o corte continua depois do início, para que o início e o fim se encontrem de forma limpa.

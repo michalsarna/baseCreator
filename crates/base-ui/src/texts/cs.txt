@@ -1334,3 +1334,14 @@
 1333|Zrychlení X, Y, Z
 1334|Odchylka v rozích
 1335|0 = neznámé. Se zrychleními čas úlohy počítá s rozjížděním a brzděním stroje a pomalejšími rohy, jako to dělá GRBL ($120 – $122, $11).
+1336|Oblouk
+1337|Najetí
+1338|Výjezd
+1339|Délka najetí
+1340|Poloměr najetí
+1341|Úhel najetí
+1342|Přesah
+1343|Nástroj najíždí na čáru ze strany odpadu a stejně z ní odjíždí, takže stopa začátku nezůstane na dílu. Najetí, které se nevejde, se zmenší nebo vynechá.
+1344|Délka přímého najetí, poloměr oblouku.
+1345|90° najíždí kolmo na čáru, malý úhel téměř podél ní.
+1346|Jak daleko řez pokračuje za svůj začátek, aby se začátek a konec čistě potkaly.

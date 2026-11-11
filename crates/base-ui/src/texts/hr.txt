@@ -1334,3 +1334,14 @@
 1333|Ubrzanje X, Y, Z
 1334|Odstupanje u kutovima
 1335|0 = nepoznato. S ubrzanjima vrijeme posla uključuje ubrzavanje i usporavanje stroja i sporije kutove, kao što radi GRBL ($120 – $122, $11).
+1336|Luk
+1337|Ulaz
+1338|Izlaz
+1339|Duljina ulaza
+1340|Polumjer ulaza
+1341|Kut ulaza
+1342|Preklapanje
+1343|Alat dolazi na liniju sa strane otpada i napušta je na isti način, pa trag početka ne ostaje na dijelu. Ulaz koji ne stane smanjuje se ili izostavlja.
+1344|Duljina ravnog ulaza, polumjer luka.
+1345|90° dolazi okomito na liniju, mali kut gotovo uz nju.
+1346|Koliko rez ide iza svog početka, da se početak i kraj čisto spoje.

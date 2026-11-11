@@ -1334,3 +1334,14 @@
 1333	Acceleration of X, Y, Z
 1334	Junction deviation
 1335	0 = not known. With the accelerations the time of a job counts the speeding up and slowing down of the machine and its slower corners, as GRBL does ($120 – $122, $11).
+1336	Arc
+1337	Lead in
+1338	Lead out
+1339	Lead length
+1340	Lead radius
+1341	Lead angle
+1342	Overlap
+1343	The tool comes onto the line from the waste side and leaves it the same way, so the mark where it starts is not on the part. A lead that does not fit is made smaller or left out.
+1344	The length of a straight lead, the radius of an arc.
+1345	90° comes straight at the line, a small angle almost along it.
+1346	How far the cut goes on past its start, so that the start and the end meet cleanly.

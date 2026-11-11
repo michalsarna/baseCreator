@@ -1334,3 +1334,14 @@
 1333|X, Y, Z kiirendus
 1334|Nurga hälve
 1335|0 = teadmata. Kiirendustega arvestab töö aeg masina kiirendamist ja pidurdamist ning aeglasemaid nurki, nagu GRBL ($120 – $122, $11).
+1336|Kaar
+1337|Sisenemine
+1338|Väljumine
+1339|Sisenemise pikkus
+1340|Sisenemise raadius
+1341|Sisenemise nurk
+1342|Ülekate
+1343|Tööriist tuleb joonele jäätmete poolelt ja lahkub samamoodi, nii et alguse jälg ei jää detailile. Sisenemine, mis ei mahu, tehakse väiksemaks või jäetakse ära.
+1344|Sirge sisenemise pikkus, kaare raadius.
+1345|90° tuleb otse joonele, väike nurk peaaegu piki seda.
+1346|Kui kaugele lõige oma algusest edasi läheb, et algus ja lõpp puhtalt kokku saaksid.

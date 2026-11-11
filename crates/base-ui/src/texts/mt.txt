@@ -1334,3 +1334,14 @@
 1333|Aċċelerazzjoni ta' X, Y, Z
 1334|Devjazzjoni fil-kantunieri
 1335|0 = mhux magħruf. Bl-aċċelerazzjonijiet il-ħin tax-xogħol jgħodd l-aċċelerazzjoni u t-tnaqqis tal-magna u l-kantunieri aktar bil-mod, kif jagħmel GRBL ($120 – $122, $11).
+1336|Ark
+1337|Dħul
+1338|Ħruġ
+1339|Tul tad-dħul
+1340|Raġġ tad-dħul
+1341|Angolu tad-dħul
+1342|Sovrapożizzjoni
+1343|L-għodda tidħol fuq il-linja min-naħa tal-iskart u titlaqha bl-istess mod, biex il-marka tal-bidu ma tibqax fuq il-biċċa. Dħul li ma jidħolx jiċċekken jew jitħalla barra.
+1344|It-tul ta' dħul dritt, ir-raġġ ta' ark.
+1345|90° jidħol dritt fuq il-linja, angolu żgħir kważi tulha.
+1346|Kemm il-qatgħa tibqa' għaddejja wara l-bidu tagħha, biex il-bidu u t-tmiem jiltaqgħu sew.

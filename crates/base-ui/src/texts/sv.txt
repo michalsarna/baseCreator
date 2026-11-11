@@ -1334,3 +1334,14 @@
 1333|Acceleration för X, Y, Z
 1334|Hörnavvikelse
 1335|0 = okänt. Med accelerationerna räknar jobbets tid med maskinens acceleration och inbromsning och de långsammare hörnen, som GRBL gör ($120 – $122, $11).
+1336|Båge
+1337|Inlöp
+1338|Utlöp
+1339|Inlöpets längd
+1340|Inlöpets radie
+1341|Inlöpets vinkel
+1342|Överlapp
+1343|Verktyget kommer in på linjen från spillsidan och lämnar den på samma sätt, så att märket från starten inte hamnar på detaljen. Ett inlöp som inte får plats görs mindre eller utelämnas.
+1344|Längden på ett rakt inlöp, radien på en båge.
+1345|90° kommer rakt mot linjen, en liten vinkel nästan längs den.
+1346|Hur långt snittet fortsätter förbi sin start, så att start och slut möts rent.

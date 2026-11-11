@@ -1334,3 +1334,14 @@
 1333|Zrýchlenie X, Y, Z
 1334|Odchýlka v rohoch
 1335|0 = neznáme. So zrýchleniami čas úlohy počíta s rozbiehaním a brzdením stroja a pomalšími rohmi, ako to robí GRBL ($120 – $122, $11).
+1336|Oblúk
+1337|Nábeh
+1338|Výbeh
+1339|Dĺžka nábehu
+1340|Polomer nábehu
+1341|Uhol nábehu
+1342|Presah
+1343|Nástroj nabieha na čiaru zo strany odpadu a rovnako z nej odchádza, takže stopa začiatku nezostane na diele. Nábeh, ktorý sa nezmestí, sa zmenší alebo vynechá.
+1344|Dĺžka priameho nábehu, polomer oblúka.
+1345|90° nabieha kolmo na čiaru, malý uhol takmer pozdĺž nej.
+1346|Ako ďaleko rez pokračuje za svoj začiatok, aby sa začiatok a koniec čisto stretli.

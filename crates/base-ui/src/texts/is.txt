@@ -1334,3 +1334,14 @@
 1333|Hröðun X, Y, Z
 1334|Horna frávik
 1335|0 = óþekkt. Með hröðuninni telur tími verksins með hröðun og hemlun vélarinnar og hægari horn, eins og GRBL gerir ($120 – $122, $11).
+1336|Bogi
+1337|Innkoma
+1338|Útkoma
+1339|Lengd innkomu
+1340|Radíus innkomu
+1341|Horn innkomu
+1342|Skörun
+1343|Verkfærið kemur inn á línuna frá úrgangshliðinni og fer eins af henni, svo far upphafsins er ekki á hlutnum. Innkoma sem kemst ekki fyrir er minnkuð eða sleppt.
+1344|Lengd beinnar innkomu, radíus boga.
+1345|90° kemur beint á línuna, lítið horn næstum meðfram henni.
+1346|Hve langt skurðurinn heldur áfram fram hjá upphafinu, svo upphaf og endir mætist hreint.
