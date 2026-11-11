@@ -1383,3 +1383,10 @@
 1382|Le contrôleur a besoin de {} pas par mm sur l'axe Y ($101).
 1383|Avec un plateau rotatif, l'axe Y fait tourner la pièce : le dessin ne peut pas être plus haut que le tour de la pièce. Le modèle est simple (un mandrin tourne du diamètre de la pièce, des rouleaux déplacent la surface comme la leur) ; une vraie machine doit être testée.
 1384|Rotatif
+1385|Nouvel An chinois (Sombre)
+1386|Nouvel An chinois (Clair)
+1387|Fermer le programme ?
+1388|Le dernier dessin est fermé.
+1389|Fermer le programme
+1390|Retour à l'écran de démarrage
+1391|Calque

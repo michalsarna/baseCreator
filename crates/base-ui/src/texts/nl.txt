@@ -1383,3 +1383,10 @@
 1382|De besturing heeft {} stappen per mm op de Y-as nodig ($101).
 1383|Met een rotatieopzet draait de Y-as het werkstuk: de tekening mag niet hoger zijn dan de omtrek van het werkstuk. Het model is eenvoudig (een klauwplaat draait over de diameter van het werkstuk, rollen verplaatsen het oppervlak als hun eigen); een echte machine moet worden getest.
 1384|Rotatie
+1385|Chinees Nieuwjaar (Donker)
+1386|Chinees Nieuwjaar (Licht)
+1387|Programma sluiten?
+1388|De laatste tekening is gesloten.
+1389|Programma sluiten
+1390|Terug naar het startscherm
+1391|Laag

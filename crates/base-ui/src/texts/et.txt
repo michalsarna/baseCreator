@@ -1383,3 +1383,10 @@
 1382|Kontroller vajab Y-teljel {} sammu mm kohta ($101).
 1383|Pöördlisaga pöörab Y-telg detaili: joonis ei tohi olla kõrgem kui detaili ümbermõõt. Mudel on lihtne (padrun pöörleb detaili läbimõõdu võrra, rullid liigutavad pinda nagu oma pinda); päris masinat tuleb testida.
 1384|Pöörlev
+1385|Hiina uusaasta (Tume)
+1386|Hiina uusaasta (Hele)
+1387|Kas sulgeda programm?
+1388|Viimane joonis on suletud.
+1389|Sulge programm
+1390|Tagasi avakuvale
+1391|Kiht

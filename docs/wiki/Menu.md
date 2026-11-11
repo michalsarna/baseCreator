@@ -60,7 +60,7 @@ Te same polecenia są w menu kształtu pod prawym przyciskiem; opisuje je strona
 | **Opcje programu…** | **Szukaj nowszej wersji przy uruchamianiu programu** (domyślnie włączone). |
 | **Wtyczki…** | Zobacz [Wtyczki](Wtyczki). |
 | **Język** | 30 języków. |
-| **Schemat kolorów** | 18 schematów kolorów oraz dwa świąteczne w okolicach Bożego Narodzenia, Nowego Roku, Halloween i Wielkanocy. |
+| **Schemat kolorów** | 18 schematów kolorów oraz dwa świąteczne w okolicach Bożego Narodzenia, Nowego Roku, Halloween, Wielkanocy i Chińskiego Nowego Roku. |
 
 ## Pomoc
 

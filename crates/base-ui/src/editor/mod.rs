@@ -31,7 +31,7 @@ pub use style_ui::{EditorStyleTrace, StyleDlg};
 pub use view_only::{show_other_doc, Look};
 pub use bars::{control_name, grid_toggles, select_tool, selection_size, zoom_and_cursor};
 pub use prefs::view_options_window;
-pub use props::properties_sections;
+pub use props::{layer_section, properties_sections, set_layer};
 
 use base_core::bezier::Node;
 use base_core::geom::{Pt, Rect, Xf};

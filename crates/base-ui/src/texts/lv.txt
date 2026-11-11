@@ -1383,3 +1383,10 @@
 1382|Kontrolierim vajag {} soļus uz mm Y asī ($101).
 1383|Ar rotācijas piederumu Y ass griež sagatavi: zīmējums nedrīkst būt augstāks par sagataves apkārtmēru. Modelis ir vienkāršs (patrona griežas par sagataves diametru, veltņi pārvieto virsmu kā savējo); īsta iekārta jāpārbauda.
 1384|Rotācijas
+1385|Ķīniešu Jaunais gads (Tumša)
+1386|Ķīniešu Jaunais gads (Gaiša)
+1387|Aizvērt programmu?
+1388|Pēdējais zīmējums ir aizvērts.
+1389|Aizvērt programmu
+1390|Atpakaļ uz sākuma ekrānu
+1391|Slānis

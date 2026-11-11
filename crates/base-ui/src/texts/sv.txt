@@ -1383,3 +1383,10 @@
 1382|Styrenheten behöver {} steg per mm på Y-axeln ($101).
 1383|Med ett rotationstillbehör vrider Y-axeln arbetsstycket: ritningen får inte vara högre än arbetsstyckets omkrets. Modellen är enkel (en chuck vrids arbetsstyckets diameter, rullar rör ytan som sin egen); en riktig maskin måste testas.
 1384|Rotation
+1385|Kinesiskt nyår (Mörkt)
+1386|Kinesiskt nyår (Ljust)
+1387|Stänga programmet?
+1388|Den sista ritningen är stängd.
+1389|Stäng programmet
+1390|Tillbaka till startskärmen
+1391|Lager

@@ -1166,3 +1166,17 @@ fn selected_shapes_become_no_go_zones_and_leave_the_drawing() {
     // Without zones in the program nothing is offered.
     assert!(!Host::default().can_add_zones());
 }
+
+#[test]
+fn the_layer_of_the_properties_moves_the_unlocked_selection_and_becomes_the_active_one() {
+    let mut h = Host::default();
+    let a = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::IDENTITY);
+    let b = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(20.0, 0.0));
+    h.scene.shape_mut(b).unwrap().locked = true;
+    h.ed.sel = vec![a, b];
+    super::set_layer(&mut h, 7);
+    assert_eq!(h.scene.shape(a).unwrap().layer, 7);
+    assert_eq!(h.scene.shape(b).unwrap().layer, 0, "a locked shape stays");
+    assert_eq!(h.ed.active_layer, 7);
+    assert!(!h.undo.is_empty(), "it can be undone");
+}

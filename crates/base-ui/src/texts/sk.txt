@@ -1383,3 +1383,10 @@
 1382|Riadiaca jednotka potrebuje {} krokov na mm na osi Y ($101).
 1383|S rotačným príslušenstvom otáča obrobkom os Y: kresba nesmie byť vyššia ako obvod obrobku. Model je jednoduchý (skľučovadlo sa otočí o priemer obrobku, valčeky posúvajú povrch ako svoj vlastný); skutočný stroj je potrebné vyskúšať.
 1384|Rotačný
+1385|Čínsky Nový rok (Tmavá)
+1386|Čínsky Nový rok (Svetlá)
+1387|Zavrieť program?
+1388|Posledný výkres je zatvorený.
+1389|Zavrieť program
+1390|Späť na úvodnú obrazovku
+1391|Vrstva

@@ -1383,3 +1383,10 @@
 1382|Kontrolleren trenger {} trinn per mm på Y-aksen ($101).
 1383|Med et rotasjonstilbehør dreier Y-aksen arbeidsstykket: tegningen kan ikke være høyere enn omkretsen av arbeidsstykket. Modellen er enkel (en chuck dreier arbeidsstykkets diameter, ruller flytter overflaten som sin egen); en ekte maskin må testes.
 1384|Rotasjon
+1385|Kinesisk nyttår (Mørk)
+1386|Kinesisk nyttår (Lys)
+1387|Lukke programmet?
+1388|Den siste tegningen er lukket.
+1389|Lukk programmet
+1390|Tilbake til startskjermen
+1391|Lag

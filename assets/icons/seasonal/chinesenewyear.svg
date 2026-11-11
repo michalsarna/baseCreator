@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="bg" cx="512" cy="330" r="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5620f"/>
+      <stop offset="0.45" stop-color="#f5620f"/>
+      <stop offset="1" stop-color="#cf530d"/>
+    </radialGradient>
+    <clipPath id="clip"><rect width="1024" height="1024" rx="225"/></clipPath><radialGradient id="l1" cx="-25" cy="110" r="140" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff5b45"/><stop offset="0.6" stop-color="#e0262d"/><stop offset="1" stop-color="#b8141b"/></radialGradient><radialGradient id="l2" cx="-25" cy="110" r="140" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff5b45"/><stop offset="0.6" stop-color="#e0262d"/><stop offset="1" stop-color="#b8141b"/></radialGradient>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+    <rect y="735" width="1024" height="289" fill="#241808"/>
+    <rect y="735" width="1024" height="1" fill="#7f4317"/>
+    <rect y="736" width="1024" height="3" fill="#5a3a1a"/>
+    <path d="M120 40 Q512 150 904 40" fill="none" stroke="#7a2a10" stroke-width="10"/>
+    <g transform="translate(345 82) scale(1.55)">
+  <rect x="-4" y="0" width="8" height="44" fill="#f6c445"/>
+  <rect x="-48" y="38" width="96" height="24" rx="7" fill="#f6c445" stroke="#b8860b" stroke-width="3"/>
+  <ellipse cx="0" cy="142" rx="108" ry="88" fill="url(#l1)" stroke="#8f0f15" stroke-width="6"/>
+  <ellipse cx="0" cy="142" rx="66" ry="88" fill="none" stroke="#a8141b" stroke-width="5"/>
+  <ellipse cx="0" cy="142" rx="24" ry="88" fill="none" stroke="#a8141b" stroke-width="5"/>
+  <circle cx="0" cy="142" r="40" fill="#f6c445" stroke="#b8860b" stroke-width="3"/>
+  <text x="0" y="160" text-anchor="middle" font-family="Heiti SC, Hiragino Sans GB, sans-serif" font-weight="bold" font-size="52" fill="#b3121a">福</text>
+  <rect x="-40" y="222" width="80" height="22" rx="7" fill="#f6c445" stroke="#b8860b" stroke-width="3"/>
+  <circle cx="0" cy="256" r="10" fill="#f6c445"/>
+  <path d="M-16 264 L16 264 L24 338 L-24 338 Z" fill="#e0262d"/>
+  <path d="M-12 264 L-20 338 M-4 264 L-7 338 M4 264 L7 338 M12 264 L20 338" stroke="#f6c445" stroke-width="4"/>
+  <rect x="-18" y="268" width="36" height="10" rx="4" fill="#f6c445"/>
+</g>
+    <g transform="translate(700 92) scale(1.3)">
+  <rect x="-4" y="0" width="8" height="44" fill="#f6c445"/>
+  <rect x="-48" y="38" width="96" height="24" rx="7" fill="#f6c445" stroke="#b8860b" stroke-width="3"/>
+  <ellipse cx="0" cy="142" rx="108" ry="88" fill="url(#l2)" stroke="#8f0f15" stroke-width="6"/>
+  <ellipse cx="0" cy="142" rx="66" ry="88" fill="none" stroke="#a8141b" stroke-width="5"/>
+  <ellipse cx="0" cy="142" rx="24" ry="88" fill="none" stroke="#a8141b" stroke-width="5"/>
+  <circle cx="0" cy="142" r="40" fill="#f6c445" stroke="#b8860b" stroke-width="3"/>
+  <text x="0" y="160" text-anchor="middle" font-family="Heiti SC, Hiragino Sans GB, sans-serif" font-weight="bold" font-size="52" fill="#b3121a">福</text>
+  <rect x="-40" y="222" width="80" height="22" rx="7" fill="#f6c445" stroke="#b8860b" stroke-width="3"/>
+  <circle cx="0" cy="256" r="10" fill="#f6c445"/>
+  <path d="M-16 264 L16 264 L24 338 L-24 338 Z" fill="#e0262d"/>
+  <path d="M-12 264 L-20 338 M-4 264 L-7 338 M4 264 L7 338 M12 264 L20 338" stroke="#f6c445" stroke-width="4"/>
+  <rect x="-18" y="268" width="36" height="10" rx="4" fill="#f6c445"/>
+</g>
+    <path d="M512 254 Q512 300 558 300 Q512 300 512 346 Q512 300 466 300 Q512 300 512 254 Z" fill="#ffe066"/><path d="M860 300 Q860 330 890 330 Q860 330 860 360 Q860 330 830 330 Q860 330 860 300 Z" fill="#fff"/><path d="M165 326 Q165 360 199 360 Q165 360 165 394 Q165 360 131 360 Q165 360 165 326 Z" fill="#ffe066"/><path d="M900 536 Q900 560 924 560 Q900 560 900 584 Q900 560 876 560 Q900 560 900 536 Z" fill="#ffe066"/><path d="M130 578 Q130 600 152 600 Q130 600 130 622 Q130 600 108 600 Q130 600 130 578 Z" fill="#fff"/>
+  </g>
+</svg>

@@ -1383,3 +1383,10 @@
 1382|El controlador necesita {} pasos por mm en el eje Y ($101).
 1383|Con un accesorio rotativo el eje Y gira la pieza: el dibujo no puede ser más alto que el contorno de la pieza. El modelo es simple (un plato gira el diámetro de la pieza, los rodillos mueven la superficie como la suya); una máquina real necesita pruebas.
 1384|Rotativo
+1385|Año Nuevo chino (Oscuro)
+1386|Año Nuevo chino (Claro)
+1387|¿Cerrar el programa?
+1388|El último dibujo está cerrado.
+1389|Cerrar el programa
+1390|Volver a la pantalla de inicio
+1391|Capa

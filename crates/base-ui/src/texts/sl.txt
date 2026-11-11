@@ -1383,3 +1383,10 @@
 1382|Krmilnik potrebuje {} korakov na mm na osi Y ($101).
 1383|Z rotacijskim nastavkom Y-os vrti obdelovanec: risba ne sme biti višja od oboda obdelovanca. Model je preprost (vpenjalo se zavrti za premer obdelovanca, valji premikajo površino kot svojo); pravi stroj je treba preizkusiti.
 1384|Vrtljiv
+1385|Kitajsko novo leto (Temna)
+1386|Kitajsko novo leto (Svetla)
+1387|Zapreti program?
+1388|Zadnja risba je zaprta.
+1389|Zapri program
+1390|Nazaj na začetni zaslon
+1391|Sloj

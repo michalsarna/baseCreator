@@ -1383,3 +1383,10 @@
 1382|Controlerul are nevoie de {} pași pe mm pe axa Y ($101).
 1383|Cu un accesoriu rotativ axa Y rotește piesa: desenul nu poate fi mai înalt decât circumferința piesei. Modelul este simplu (un mandrin se rotește cu diametrul piesei, rolele mișcă suprafața ca pe a lor); o mașină reală trebuie testată.
 1384|Rotativ
+1385|Anul Nou Chinezesc (Întunecat)
+1386|Anul Nou Chinezesc (Luminos)
+1387|Închideți programul?
+1388|Ultimul desen este închis.
+1389|Închide programul
+1390|Înapoi la ecranul de start
+1391|Strat

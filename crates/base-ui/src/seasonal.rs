@@ -10,6 +10,8 @@ pub enum Holiday {
     NewYearsEve,
     Halloween,
     Easter,
+    /// The Spring Festival: the first day of the first month of the Chinese calendar (from a table, [`chinese_new_year`]).
+    ChineseNewYear,
 }
 
 /// The festive variants of a program.
@@ -18,9 +20,12 @@ pub struct Variants {
     pub new_years_eve: Icon,
     pub halloween: Icon,
     pub easter: Icon,
+    pub chinese_new_year: Icon,
 }
 
 const DAYS_BEFORE: i64 = 5;
+/// The Spring Festival lasts: its first day and the six after it.
+const CNY_DAYS_AFTER: i64 = 6;
 
 /// Days since 1970-01-01 of a civil date (proleptic Gregorian).
 fn days_from_civil(y: i64, m: i64, d: i64) -> i64 {
@@ -45,6 +50,18 @@ fn easter(y: i64) -> (i64, i64) {
     (month, (h + l - 7 * m + 33 * month + 19) % 32)
 }
 
+/// The first day of the Chinese New Year in `y` (month, day), from the Chinese calendar; `None` outside the years of the table.
+pub fn chinese_new_year(y: i64) -> Option<(i64, i64)> {
+    const TABLE: [(i64, i64); 41] = [
+        (1, 25), (2, 12), (2, 1), (1, 22), (2, 10), (1, 29), (2, 17), (2, 6), (1, 26), (2, 13), // 2020 – 2029
+        (2, 3), (1, 23), (2, 11), (1, 31), (2, 19), (2, 8), (1, 28), (2, 15), (2, 4), (1, 24), // 2030 – 2039
+        (2, 12), (2, 1), (1, 22), (2, 10), (1, 30), (2, 17), (2, 6), (1, 26), (2, 14), (2, 2), // 2040 – 2049
+        (1, 23), (2, 11), (2, 1), (2, 19), (2, 8), (1, 28), (2, 15), (2, 4), (1, 24), (2, 12), // 2050 – 2059
+        (2, 2), // 2060
+    ];
+    usize::try_from(y - 2020).ok().and_then(|i| TABLE.get(i)).copied()
+}
+
 /// The holiday the date belongs to, if any. Halloween ends on its day (31 October); Christmas on 26 December, the New Year
 /// on 1 January and Easter on its Monday: the day after each is an ordinary day again. Near two holidays (26 December), the
 /// closer one wins.
@@ -59,7 +76,9 @@ pub fn holiday_on(year: i32, month: u32, day: u32) -> Option<Holiday> {
             (days_from_civil(y, 10, 31), 0, Holiday::Halloween),
             (days_from_civil(y, em, ed), 1, Holiday::Easter),
         ];
-        for (date, days_after, holiday) in dates {
+        // The Chinese New Year: the first week of the Spring Festival (the days off in China) after its eve.
+        let cny = chinese_new_year(y).map(|(m, d)| (days_from_civil(y, m, d), CNY_DAYS_AFTER, Holiday::ChineseNewYear));
+        for (date, days_after, holiday) in dates.into_iter().chain(cny) {
             let left = date - today; // days until the holiday, negative once it is over
             if (-days_after..=DAYS_BEFORE).contains(&left) && best.is_none_or(|(d, _)| left.abs() < d) {
                 best = Some((left.abs(), holiday));
@@ -103,6 +122,7 @@ pub fn icon_for(date: (i32, u32, u32), variants: &Variants, normal: Icon) -> Ico
         Some(Holiday::NewYearsEve) => variants.new_years_eve,
         Some(Holiday::Halloween) => variants.halloween,
         Some(Holiday::Easter) => variants.easter,
+        Some(Holiday::ChineseNewYear) => variants.chinese_new_year,
         None => normal,
     }
 }
@@ -150,6 +170,24 @@ mod tests {
     }
 
     #[test]
+    fn the_chinese_new_year_follows_its_table_from_five_days_before_to_its_seventh_day() {
+        use Holiday::*;
+        assert_eq!(chinese_new_year(2026), Some((2, 17)));
+        assert_eq!(chinese_new_year(2027), Some((2, 6)));
+        assert_eq!(chinese_new_year(2019), None);
+        assert_eq!(holiday_on(2026, 2, 11), None);
+        assert_eq!(holiday_on(2026, 2, 12), Some(ChineseNewYear));
+        assert_eq!(holiday_on(2026, 2, 17), Some(ChineseNewYear));
+        assert_eq!(holiday_on(2026, 2, 23), Some(ChineseNewYear));
+        assert_eq!(holiday_on(2026, 2, 24), None);
+        // Late January: it never meets the New Year of 1 January.
+        assert_eq!(holiday_on(2028, 1, 21), Some(ChineseNewYear));
+        assert_eq!(holiday_on(2028, 1, 1), Some(NewYearsEve));
+        // Every day of the table is in January or February.
+        assert!((2020..=2060).all(|y| chinese_new_year(y).is_some_and(|(m, d)| (m == 1 && d >= 21) || (m == 2 && d <= 20))));
+    }
+
+    #[test]
     fn the_calendar_arithmetic_round_trips() {
         assert_eq!(civil_from_days(days_from_civil(2026, 10, 25)), (2026, 10, 25));
         assert_eq!(civil_from_days(days_from_civil(2024, 2, 29)), (2024, 2, 29));
@@ -160,9 +198,10 @@ mod tests {
 
     #[test]
     fn the_variant_follows_the_date() {
-        let (n, c, ny, h, e): (Icon, Icon, Icon, Icon, Icon) =
-            ((b"n", b"n"), (b"c", b"c"), (b"y", b"y"), (b"h", b"h"), (b"e", b"e"));
-        let v = Variants { christmas: c, new_years_eve: ny, halloween: h, easter: e };
+        let (n, c, ny, h, e, z): (Icon, Icon, Icon, Icon, Icon, Icon) =
+            ((b"n", b"n"), (b"c", b"c"), (b"y", b"y"), (b"h", b"h"), (b"e", b"e"), (b"z", b"z"));
+        let v = Variants { christmas: c, new_years_eve: ny, halloween: h, easter: e, chinese_new_year: z };
+        assert_eq!(icon_for((2026, 2, 18), &v, n), z);
         assert_eq!(icon_for((2026, 7, 1), &v, n), n);
         assert_eq!(icon_for((2026, 12, 24), &v, n), c);
         assert_eq!(icon_for((2026, 10, 30), &v, n), h);

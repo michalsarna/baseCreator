@@ -151,6 +151,47 @@ pub fn properties_sections<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) -> bool 
     true
 }
 
+
+/// The section "Layer" of the Properties tab, the same as in LightCreator: the colour of the layer of the first selected shape and
+/// a list of all layers; a choice puts the selected unlocked shapes on it and makes it the layer new shapes go to.
+pub fn layer_section<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) {
+    let Some(&first_id) = h.ed().sel.first() else { return };
+    let first = h.scene().shape(first_id).map_or(h.ed().active_layer, |s| s.layer).min(h.layer_count().saturating_sub(1));
+    let mut layer = first;
+    section_title(ui, "layers", &tr("Layer"));
+    ui.horizontal_wrapped(|ui| {
+        let (r, _) = ui.allocate_exact_size(egui::vec2(16.0, 16.0), egui::Sense::hover());
+        ui.painter().rect_filled(r, 3.0, h.layer_color(layer));
+        ui.painter().rect_stroke(r, 3.0, egui::Stroke::new(1.0, theme::border()), egui::StrokeKind::Inside);
+        ui.label(tr("Layer"));
+        egui::ComboBox::from_id_salt("sel_layer").selected_text(h.layer_name(layer)).show_ui(ui, |ui| {
+            for i in 0..h.layer_count() {
+                ui.selectable_value(&mut layer, i, h.layer_name(i));
+            }
+        });
+    });
+    if layer != first {
+        set_layer(h, layer);
+    }
+}
+
+/// Put the selected unlocked shapes on `layer`, and make it the layer new shapes go to.
+pub fn set_layer<H: EditorHost>(h: &mut H, layer: usize) {
+    h.ed_mut().active_layer = layer;
+    if h.ed().sel.is_empty() {
+        return;
+    }
+    h.checkpoint();
+    for id in h.ed().sel.clone() {
+        if let Some(s) = h.scene_mut().shape_mut(id) {
+            if !s.locked {
+                s.layer = layer;
+            }
+        }
+    }
+    h.touch();
+}
+
 /// The negative of the selected picture: every program works from the light parts instead of the dark ones.
 fn negative_checkbox<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) {
     let Some(&id) = h.ed().sel.first() else { return };
