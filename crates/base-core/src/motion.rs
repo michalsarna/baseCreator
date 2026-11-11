@@ -84,6 +84,8 @@ impl Block {
 }
 
 struct Plan {
+    /// The block this is.
+    at: usize,
     len: f64,
     u: [f64; 3],
     /// The speed asked for (mm/s), squared.
@@ -96,23 +98,34 @@ struct Plan {
 
 /// The seconds the moves take from `start`, at rest at the start and the end.
 pub fn seconds(start: [f64; 3], blocks: &[Block], m: &Motion) -> f64 {
+    durations(start, blocks, m).iter().sum()
+}
+
+/// The seconds of every move (as many as `blocks`), planned with GRBL's lookahead.
+pub fn durations(start: [f64; 3], blocks: &[Block], m: &Motion) -> Vec<f64> {
+    durations_with(start, blocks, m, LOOKAHEAD)
+}
+
+/// The seconds of every move for a controller that plans `lookahead` moves ahead (at least 2).
+pub fn durations_with(start: [f64; 3], blocks: &[Block], m: &Motion, lookahead: usize) -> Vec<f64> {
+    let lookahead = lookahead.max(2);
+    let mut out = vec![0.0; blocks.len()];
     if !m.known() {
         let mut at = start;
-        let mut t = 0.0;
-        for b in blocks {
+        for (b, t) in blocks.iter().zip(out.iter_mut()) {
             let len = dist(at, b.to);
             if b.feed > 0.0 {
-                t += len / (b.feed / 60.0);
+                *t = len / (b.feed / 60.0);
             }
             at = b.to;
         }
-        return t;
+        return out;
     }
     let jd = m.junction_mm();
     let mut ps: Vec<Plan> = Vec::with_capacity(blocks.len());
     let mut at = start;
     let mut stop = true;
-    for b in blocks {
+    for (i, b) in blocks.iter().enumerate() {
         let len = dist(at, b.to);
         stop |= b.stop || !(b.feed > 0.0);
         if len < 1e-9 || !(b.feed > 0.0) {
@@ -137,23 +150,23 @@ pub fn seconds(start: [f64; 3], blocks: &[Block], m: &Motion) -> f64 {
             }
             _ => 0.0,
         };
-        ps.push(Plan { len, u, v2: v * v, a, entry2 });
+        ps.push(Plan { at: i, len, u, v2: v * v, a, entry2 });
         at = b.to;
         stop = false;
     }
     let n = ps.len();
     if n == 0 {
-        return 0.0;
+        return out;
     }
     // Only the next moves are known: every move must be able to stop by the end of the ones planned with it.
-    let mut window: f64 = ps.iter().take(LOOKAHEAD - 1).map(|p| p.len).sum();
+    let mut window: f64 = ps.iter().take(lookahead - 1).map(|p| p.len).sum();
     for k in 0..n {
         let reach = 2.0 * ps[k].a * window;
         if reach < ps[k].entry2 {
             ps[k].entry2 = reach;
         }
         window -= ps[k].len;
-        if let Some(p) = ps.get(k + LOOKAHEAD - 1) {
+        if let Some(p) = ps.get(k + lookahead - 1) {
             window += p.len;
         }
     }
@@ -170,14 +183,13 @@ pub fn seconds(start: [f64; 3], blocks: &[Block], m: &Motion) -> f64 {
             ps[k].entry2 = reach;
         }
     }
-    let mut t = 0.0;
     for k in 0..n {
         let p = &ps[k];
         let v0 = p.entry2.sqrt();
         let v1 = ps.get(k + 1).map_or(0.0, |q| q.entry2).sqrt();
-        t += move_time(p.len, v0, v1, p.v2.sqrt(), p.a);
+        out[p.at] = move_time(p.len, v0, v1, p.v2.sqrt(), p.a);
     }
-    t
+    out
 }
 
 /// The seconds of one move of `len` mm that starts at `v0`, ends at `v1`, may go up to `vmax` (mm/s) and speeds up and slows
@@ -280,6 +292,19 @@ mod tests {
         let many: Vec<Block> = (1..=1000).map(|i| line([i as f64 * 0.1, 0.0, 0.0], 6000.0)).collect();
         let t = seconds([0.0; 3], &many, &m);
         assert!(t > 2.4 && t < 3.0, "{t}");
+        // A controller that plans far ahead runs them at the feed.
+        let far: f64 = durations_with([0.0; 3], &many, &m, 100_000).iter().sum();
+        assert!(far < 1.3, "{far}");
+    }
+
+    #[test]
+    fn every_move_has_its_own_time() {
+        let m = Motion::flat(100.0);
+        let b = [line([10.0, 0.0, 0.0], 600.0), line([10.0, 0.0, 0.0], 600.0), Block { to: [20.0, 0.0, 0.0], feed: 0.0, stop: false }, line([30.0, 0.0, 0.0], 600.0)];
+        let d = durations([0.0; 3], &b, &m);
+        assert_eq!(d.len(), 4);
+        assert!(d[0] > 0.0 && d[1] == 0.0 && d[2] == 0.0 && d[3] > 0.0, "{d:?}");
+        assert!((d.iter().sum::<f64>() - seconds([0.0; 3], &b, &m)).abs() < 1e-12);
     }
 
     #[test]
