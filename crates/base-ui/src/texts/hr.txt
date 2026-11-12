@@ -1445,3 +1445,6 @@
 1444|Materijal leži u gornjem lijevom kutu radnog područja. Kod dvostranog posla stavite ga na isto mjesto za obje strane (oznake za poravnanje pokazuju gdje).
 1445|Izradak leži na rotacijskoj osi; Y crteža ide oko njega, a crtež je njegova razvijena površina.
 1446|Strana B ima oblike: projekt ostaje dvostran. Najprije ih izbrišite da postane jednostran.
+1447|Veličina papira
+1448|Prilagođeno
+1449|Veličine koje stanu u radno područje stroja: ↕ uspravno, ↔ položeno.

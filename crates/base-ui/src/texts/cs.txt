@@ -1445,3 +1445,6 @@
 1444|Materiál leží vlevo nahoře na pracovní ploše. U oboustranné zakázky ho pro obě strany položte na stejné místo (vyrovnávací značky ukazují kam).
 1445|Obrobek leží na otočné ose; Y výkresu jde kolem něj a výkres je jeho rozvinutý povrch.
 1446|Strana B má tvary: projekt zůstává oboustranný. Nejprve je smažte, aby byl jednostranný.
+1447|Velikost papíru
+1448|Vlastní
+1449|Velikosti, které se vejdou do pracovní plochy stroje: ↕ na výšku, ↔ na šířku.

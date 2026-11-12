@@ -1445,3 +1445,6 @@
 1444|Materialul stă în colțul din stânga sus al zonei de lucru. La o lucrare pe două fețe puneți-l în același loc pentru ambele fețe (reperele arată unde).
 1445|Piesa stă pe axa rotativă; Y al desenului merge în jurul ei, iar desenul este suprafața ei desfășurată.
 1446|Fața B are forme: proiectul rămâne pe două fețe. Ștergeți-le întâi ca să devină pe o singură față.
+1447|Dimensiunea hârtiei
+1448|Personalizat
+1449|Dimensiunile care încap în zona de lucru a mașinii: ↕ vertical, ↔ orizontal.

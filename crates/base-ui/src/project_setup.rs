@@ -31,11 +31,13 @@ pub struct Setup {
     pub two_sided: bool,
     pub flip: FlipAxis,
     pub marks: bool,
+    /// The largest piece the machine takes (its work area), for the list of paper sizes.
+    pub max: (f64, f64),
 }
 
 impl Default for Setup {
     fn default() -> Setup {
-        Setup { open: false, w: 200.0, h: 150.0, t: 10.0, zero: ZeroPoint::FrontLeft, z_bottom: false, work_area: false, round: false, diameter: 50.0, length: 150.0, two_sided: false, flip: FlipAxis::SideToSide, marks: true }
+        Setup { open: false, w: 200.0, h: 150.0, t: 10.0, zero: ZeroPoint::FrontLeft, z_bottom: false, work_area: false, round: false, diameter: 50.0, length: 150.0, two_sided: false, flip: FlipAxis::SideToSide, marks: true, max: (f64::INFINITY, f64::INFINITY) }
     }
 }
 
@@ -54,6 +56,38 @@ pub struct Kind {
     pub cylinder_note: &'static str,
     /// The colour of the material in the pictures.
     pub colour: [u8; 3],
+    /// The piece is a sheet of paper: a list of paper sizes (those that fit the machine), and no thickness.
+    pub paper: bool,
+}
+
+/// The usual sizes of paper (portrait, mm).
+pub const PAPER: [(&str, f64, f64); 11] = [
+    ("A6", 105.0, 148.0),
+    ("A5", 148.0, 210.0),
+    ("A4", 210.0, 297.0),
+    ("A3", 297.0, 420.0),
+    ("A2", 420.0, 594.0),
+    ("A1", 594.0, 841.0),
+    ("B5", 176.0, 250.0),
+    ("B4", 250.0, 353.0),
+    ("Letter", 215.9, 279.4),
+    ("Legal", 215.9, 355.6),
+    ("Tabloid", 279.4, 431.8),
+];
+
+/// The paper sizes that fit a machine of `max`, each as (name, width, height): upright when it fits so, otherwise lying.
+pub fn papers_that_fit(max: (f64, f64)) -> Vec<(String, f64, f64)> {
+    let fits = |w: f64, h: f64| w <= max.0 + 1e-6 && h <= max.1 + 1e-6;
+    let mut out = vec![];
+    for (name, w, h) in PAPER {
+        if fits(w, h) {
+            out.push((format!("{name} ↕"), w, h));
+        }
+        if fits(h, w) {
+            out.push((format!("{name} ↔"), h, w));
+        }
+    }
+    out
 }
 
 /// What was pressed.
@@ -105,7 +139,7 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
             });
             ui.label(RichText::new(tr(kind.cylinder_note)).color(theme::text_dim()));
         } else {
-            block_picture(ui, st, kind.colour, units, kind.zero);
+            block_picture(ui, &Setup { t: if kind.paper { 0.2 } else { st.t }, ..st.clone() }, kind.colour, units, kind.zero);
             ui.add_space(4.0);
             egui::Grid::new("setup_grid").num_columns(2).spacing([12.0, 6.0]).show(ui, |ui| {
                 ui.label(tr("Material width"));
@@ -114,9 +148,24 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
                 ui.label(tr("Material height"));
                 drag_len(ui, units, &mut st.h, 1.0, Some((1.0, 20_000.0)));
                 ui.end_row();
-                ui.label(tr("Thickness"));
-                drag_len(ui, units, &mut st.t, 0.5, Some((0.1, MAX_THICKNESS)));
-                ui.end_row();
+                if kind.paper {
+                    ui.label(tr("Paper size"));
+                    let list = papers_that_fit(st.max);
+                    let now = list.iter().find(|(_, w, h)| (w - st.w).abs() < 0.05 && (h - st.h).abs() < 0.05).map_or_else(|| tr("Custom").to_string(), |(n, _, _)| n.clone());
+                    egui::ComboBox::from_id_salt("setup_paper").selected_text(now).show_ui(ui, |ui| {
+                        for (name, w, h) in &list {
+                            if ui.selectable_label((w - st.w).abs() < 0.05 && (h - st.h).abs() < 0.05, format!("{name}  {} × {}", crate::units_ui::fmt_len(units, *w, 1), crate::units_ui::fmt_len(units, *h, 1))).clicked() {
+                                st.w = *w;
+                                st.h = *h;
+                            }
+                        }
+                    }).response.on_hover_text(tr("The sizes that fit the work area of the machine: ↕ upright, ↔ lying."));
+                    ui.end_row();
+                } else {
+                    ui.label(tr("Thickness"));
+                    drag_len(ui, units, &mut st.t, 0.5, Some((0.1, MAX_THICKNESS)));
+                    ui.end_row();
+                }
                 if kind.zero {
                     zero_row(ui, st, "setup_zero");
                     ui.label("");
@@ -334,4 +383,19 @@ pub fn cylinder_picture(ui: &mut egui::Ui, st: &Setup, colour: [u8; 3], units: U
     }
     p.circle_filled(zero, 4.5, Color32::from_rgb(0xe0, 0x30, 0x30));
     p.circle_stroke(zero, 4.5, Stroke::new(1.2, Color32::WHITE));
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn only_the_paper_that_fits_the_machine_is_offered() {
+        // A plotter of 300 × 220: A4 lying fits, A4 upright does not, A3 does not.
+        let list = papers_that_fit((300.0, 220.0));
+        let names: Vec<&str> = list.iter().map(|(n, _, _)| n.as_str()).collect();
+        assert!(names.contains(&"A4 ↔") && !names.contains(&"A4 ↕") && !names.iter().any(|n| n.starts_with("A3")), "{names:?}");
+        assert!(list.iter().all(|(_, w, h)| *w <= 300.0 && *h <= 220.0));
+        assert!(papers_that_fit((1000.0, 1000.0)).len() == 2 * PAPER.len());
+    }
 }

@@ -1445,3 +1445,6 @@
 1444|Materialet ligger øverst til venstre på arbeidsområdet. Ved en tosidig jobb legges det på samme sted for begge sider (justeringsmerkene viser hvor).
 1445|Emnet ligger på dreieaksen; tegningens Y går rundt det, og tegningen er dets utbrettede overflate.
 1446|Side B har figurer: prosjektet forblir tosidig. Slett dem først for å gjøre det ensidig.
+1447|Papirstørrelse
+1448|Egendefinert
+1449|Størrelsene som passer i maskinens arbeidsområde: ↕ stående, ↔ liggende.

@@ -1445,3 +1445,6 @@
 1444|Materjal on tööala vasakus ülanurgas. Kahepoolses töös aseta see mõlema poole jaoks samasse kohta (joondusmärgid näitavad kuhu).
 1445|Toorik on pöördteljel; joonise Y käib ümber selle ja joonis on selle lahtirullitud pind.
 1446|Poolel B on kujundeid: projekt jääb kahepoolseks. Kustuta need enne, et teha see ühepoolseks.
+1447|Paberi suurus
+1448|Kohandatud
+1449|Suurused, mis mahuvad masina tööalale: ↕ püsti, ↔ pikali.

@@ -1445,3 +1445,6 @@
 1444|Medžiaga yra darbo srities viršutiniame kairiajame kampe. Dvipusiame darbe abiem pusėms dėkite ją į tą pačią vietą (lygiavimo žymės rodo kur).
 1445|Ruošinys yra ant sukimo ašies; brėžinio Y eina aplink jį, o brėžinys yra jo išskleistas paviršius.
 1446|B pusėje yra figūrų: projektas lieka dvipusis. Pirmiausia jas ištrinkite, kad jis taptų vienpusis.
+1447|Popieriaus dydis
+1448|Pasirinktinis
+1449|Dydžiai, telpantys mašinos darbo srityje: ↕ stačiai, ↔ gulsčiai.

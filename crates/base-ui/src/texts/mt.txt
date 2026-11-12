@@ -1445,3 +1445,6 @@
 1444|Il-materjal jinsab fuq ix-xellug taż-żona tax-xogħol. F'xogħol fuq żewġ naħat poġġih fl-istess post għaż-żewġ naħat (il-marki tal-allinjament juru fejn).
 1445|Il-biċċa tinsab fuq il-fus li jdur; il-Y tad-disinn idur madwarha u d-disinn huwa l-wiċċ tagħha miftuħ.
 1446|In-naħa B għandha forom: il-proġett jibqa' fuq żewġ naħat. Ħassarhom l-ewwel biex isir fuq naħa waħda.
+1447|Daqs tal-karta
+1448|Personalizzat
+1449|Id-daqsijiet li joqogħdu fiż-żona tax-xogħol tal-magna: ↕ wieqfa, ↔ mimduda.

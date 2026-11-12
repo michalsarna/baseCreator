@@ -1445,3 +1445,6 @@
 1444|Materialet ligger øverst til venstre på arbejdsområdet. Ved en dobbeltsidet opgave lægges det samme sted for begge sider (justeringsmærkerne viser hvor).
 1445|Emnet ligger på drejeaksen; tegningens Y går rundt om det, og tegningen er dets udfoldede overflade.
 1446|Side B har figurer: projektet forbliver dobbeltsidet. Slet dem først for at gøre det enkeltsidet.
+1447|Papirstørrelse
+1448|Brugerdefineret
+1449|Størrelserne, der passer til maskinens arbejdsområde: ↕ stående, ↔ liggende.

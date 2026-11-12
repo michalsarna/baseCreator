@@ -1445,3 +1445,6 @@
 1444|O material fica no canto superior esquerdo da área de trabalho. Num trabalho de dois lados coloque-o no mesmo sítio para ambos os lados (as marcas de alinhamento mostram onde).
 1445|A peça está no eixo rotativo; o Y do desenho dá-lhe a volta e o desenho é a sua superfície desenrolada.
 1446|O lado B tem formas: o projeto continua de dois lados. Apague-as primeiro para o tornar de um só lado.
+1447|Tamanho do papel
+1448|Personalizado
+1449|Os tamanhos que cabem na área de trabalho da máquina: ↕ vertical, ↔ horizontal.

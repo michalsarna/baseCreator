@@ -1445,3 +1445,6 @@
 1444|Az anyag a munkaterület bal felső sarkában van. Kétoldalas munkánál mindkét oldalhoz ugyanoda tegye (az illesztőjelek mutatják, hová).
 1445|A munkadarab a forgótengelyen van; a rajz Y-ja körbefut rajta, a rajz a kiterített felülete.
 1446|A B oldalon alakzatok vannak: a projekt kétoldalas marad. Előbb törölje őket, hogy egyoldalas legyen.
+1447|Papírméret
+1448|Egyéni
+1449|A gép munkaterületébe férő méretek: ↕ álló, ↔ fekvő.

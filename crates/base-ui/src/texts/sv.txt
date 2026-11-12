@@ -1445,3 +1445,6 @@
 1444|Materialet ligger uppe till vänster på arbetsytan. Vid ett dubbelsidigt jobb läggs det på samma plats för båda sidor (justeringsmärkena visar var).
 1445|Arbetsstycket ligger på rotationsaxeln; ritningens Y går runt det och ritningen är dess utvikta yta.
 1446|Sida B har former: projektet förblir dubbelsidigt. Ta bort dem först för att göra det enkelsidigt.
+1447|Pappersstorlek
+1448|Anpassad
+1449|Storlekarna som får plats på maskinens arbetsyta: ↕ stående, ↔ liggande.

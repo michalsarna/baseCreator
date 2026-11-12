@@ -1445,3 +1445,6 @@
 1444|Materiāls atrodas darba lauka augšējā kreisajā stūrī. Divpusējā darbā novietojiet to vienā vietā abām pusēm (izlīdzināšanas atzīmes rāda kur).
 1445|Sagatave atrodas uz rotācijas ass; zīmējuma Y iet apkārt tai, un zīmējums ir tās izritinātā virsma.
 1446|B pusē ir formas: projekts paliek divpusējs. Vispirms izdzēsiet tās, lai tas kļūtu vienpusējs.
+1447|Papīra izmērs
+1448|Pielāgots
+1449|Izmēri, kas ietilpst mašīnas darba laukā: ↕ stāvus, ↔ guļus.

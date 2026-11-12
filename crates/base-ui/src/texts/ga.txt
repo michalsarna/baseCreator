@@ -1445,3 +1445,6 @@
 1444|Tá an t-ábhar ag barr clé an limistéir oibre. I jab dhá thaobh leag é san áit chéanna don dá thaobh (taispeánann na marcanna ailínithe cén áit).
 1445|Tá an píosa ar an ais rothlach; téann Y na líníochta timpeall air agus is é an líníocht a dhromchla leata amach.
 1446|Tá cruthanna ar thaobh B: fanann an tionscadal dhá thaobh. Scrios iad ar dtús chun é a dhéanamh aon taobh.
+1447|Méid an pháipéir
+1448|Saincheaptha
+1449|Na méideanna a oireann do limistéar oibre an mheaisín: ↕ ina seasamh, ↔ ina luí.

@@ -1445,3 +1445,6 @@
 1444|Het materiaal ligt linksboven in het werkgebied. Leg het bij een dubbelzijdige taak voor beide kanten op dezelfde plek (de uitlijnmarkeringen tonen waar).
 1445|Het werkstuk ligt op de draaias; de Y van de tekening gaat eromheen en de tekening is zijn uitgerolde oppervlak.
 1446|Kant B heeft vormen: het project blijft dubbelzijdig. Verwijder ze eerst om het enkelzijdig te maken.
+1447|Papierformaat
+1448|Aangepast
+1449|De formaten die in het werkgebied van de machine passen: ↕ staand, ↔ liggend.

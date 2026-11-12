@@ -1445,3 +1445,6 @@
 1444|El material és a la part superior esquerra de l'àrea de treball. En un treball a dues cares poseu-lo al mateix lloc per a les dues cares (les marques d'alineació mostren on).
 1445|La peça és a l'eix rotatiu; la Y del dibuix li fa la volta i el dibuix és la seva superfície desplegada.
 1446|La cara B té formes: el projecte continua sent a dues cares. Esborreu-les primer per fer-lo d'una sola cara.
+1447|Mida del paper
+1448|Personalitzat
+1449|Les mides que caben a l'àrea de treball de la màquina: ↕ vertical, ↔ horitzontal.
