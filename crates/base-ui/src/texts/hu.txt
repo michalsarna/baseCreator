@@ -1410,3 +1410,38 @@
 1409|Webszerver: hiba
 1410|Weboldal a projekttel és API más programoknak. Minden kéréshez kell a hozzáférési kifejezés; nincs titkosítás.
 1411|A hálózaton bárki, aki ismeri a hozzáférési kifejezést, láthatja a projektet. A kifejezés titkosítás nélkül megy: csak megbízható hálózaton használja.
+1412|Projektbeállítás…
+1413|Az anyag alakja
+1414|Tömb
+1415|Henger (forgótengely)
+1416|Kerek munkadarab, amelyet az eszköz forgótengelye forgat. Az alkalmazás ezzel az átmérővel bekapcsolja a forgótengelyt.
+1417|Munkadarab hossza
+1418|A program nullpontja
+1419|Elöl balra
+1420|Elöl jobbra
+1421|Hátul balra
+1422|Hátul jobbra
+1423|Anyag szélessége
+1424|Anyag magassága (Y)
+1425|Vastagság
+1426|A Z az anyag aljától számít
+1427|A munkaterület az anyag
+1428|Kihagyás
+1429|Oldalra (bal és jobb helyet cserél)
+1430|Hosszában (hátul és elöl helyet cserél)
+1431|Az anyag az oldal bal felső sarkában van. A program a G54 koordinátarendszerre készül, amelynek nullája az Ön által választott helyen van: ezt a nullát állítsa be a gépen ott. A Z az anyag tetejétől vagy aljától számít.
+1432|A henger X mentén fekszik a forgótengelyen; a rajz Y-ja körbefut rajta, a rajz a kiterített felülete. A Z a felülettől számít, a legmélyebb vágás a sugár. A nullpont a felületen van; ugyanezt állítsd be a gépen.
+1433|Kétoldalas munka
+1434|Az A és a B oldal két munkaterület: az anyagot az egyik oldalon megmunkálják, megfordítják, majd a másikon is. Mindkét oldal szellemként mutatja a másik oldal megfordított alakzatait.
+1435|Megfordítva a
+1436|Illesztőjelek
+1437|a vízszintes tengely (a hátsó és az első oldal helyet cserél)
+1438|a függőleges tengely (a bal és a jobb oldal helyet cserél)
+1439|A oldal
+1440|B oldal
+1441|A másik oldal szellemei
+1442|A másik oldal alakzatai az anyaghoz hasonlóan megfordítva, halványan ez alá rajzolva: nem jelölhetők ki és nem mozgathatók.
+1443|Négy sarokjel közvetlenül az anyagon kívül, az A oldal előtt az alatta lévő lapra égetve: a B oldalhoz tegye vissza közéjük a megfordított anyagot.
+1444|Az anyag a munkaterület bal felső sarkában van. Kétoldalas munkánál mindkét oldalhoz ugyanoda tegye (az illesztőjelek mutatják, hová).
+1445|A munkadarab a forgótengelyen van; a rajz Y-ja körbefut rajta, a rajz a kiterített felülete.
+1446|A B oldalon alakzatok vannak: a projekt kétoldalas marad. Előbb törölje őket, hogy egyoldalas legyen.

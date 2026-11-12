@@ -1410,3 +1410,38 @@
 1409	Web server: error
 1410	A web page with the project, and an API for other programs. Every request needs the access phrase; there is no encryption.
 1411	Anyone on the network who knows the access phrase can see the project. The phrase is sent without encryption: use only on a network you trust.
+1412	Project setup…
+1413	Shape of the material
+1414	Block
+1415	Cylinder (rotary)
+1416	A round workpiece turned by the rotary attachment of the device. Applying switches the rotary attachment on with this diameter.
+1417	Workpiece length
+1418	Zero of the program
+1419	Front left
+1420	Front right
+1421	Back left
+1422	Back right
+1423	Material width
+1424	Material height
+1425	Thickness
+1426	Z counts from the bottom of the material
+1427	Work area is the material
+1428	Skip
+1429	Side to side (left and right change places)
+1430	End to end (back and front change places)
+1431	The material lies at the top left of the page. The program is written for the work coordinate system G54 with its zero at the place you choose: set that zero on the machine there. Z counts from the top of the material, or from its bottom.
+1432	The cylinder lies along X on the rotary attachment; Y of the drawing goes round it and the drawing is unrolled from its surface. Z counts from the top of the surface, and the deepest cut is the radius. The zero is on the surface; set the same one on the machine.
+1433	Two-sided job
+1434	Side A and side B are two work areas: the material is cut on one side, turned over and cut on the other. Each side shows the shapes of the other one turned over, as ghosts.
+1435	Turned over round
+1436	Alignment marks
+1437	the horizontal axis (back and front change places)
+1438	the vertical axis (left and right change places)
+1439	Side A
+1440	Side B
+1441	Ghosts of the other side
+1442	The shapes of the other side, turned over as the material is, drawn faint under this side: they cannot be picked or moved.
+1443	Four corner marks just outside the material, burned on the sheet under it before side A: put the turned-over material back into them for side B.
+1444	The material lies at the top left of the work area. For a two-sided job lay it in the same place for both sides (the alignment marks show where).
+1445	The workpiece lies on the rotary attachment; Y of the drawing goes round it and the drawing is unrolled from its surface.
+1446	Side B has shapes: the project stays two-sided. Delete them first to make it one-sided.

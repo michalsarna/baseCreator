@@ -50,6 +50,7 @@ pub mod knives_ui;
 pub mod plugins_ui;
 pub mod picture_out;
 pub mod print_ui;
+pub mod project_setup;
 pub mod ser2net_ui;
 pub mod seasonal;
 #[cfg(target_os = "macos")]
@@ -64,6 +65,7 @@ pub mod texts;
 pub mod theme;
 pub mod tls_ui;
 pub mod tools_ui;
+pub mod two_sided;
 pub mod web_api;
 pub mod units_ui;
 pub mod window;

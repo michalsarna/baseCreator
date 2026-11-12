@@ -1410,3 +1410,38 @@
 1409|Tīmekļa serveris: kļūda
 1410|Tīmekļa lapa ar projektu un API citām programmām. Katram pieprasījumam vajag piekļuves frāzi; šifrēšanas nav.
 1411|Ikviens tīklā, kas zina piekļuves frāzi, var redzēt projektu. Frāze tiek sūtīta nešifrēta: lietojiet tikai uzticamā tīklā.
+1412|Projekta iestatīšana…
+1413|Materiāla forma
+1414|Bloks
+1415|Cilindrs (rotācijas ass)
+1416|Apaļa sagatave, ko griež ierīces rotācijas ass. Lietot ieslēdz rotācijas asi ar šo diametru.
+1417|Sagataves garums
+1418|Programmas nulle
+1419|Priekšā pa kreisi
+1420|Priekšā pa labi
+1421|Aizmugurē pa kreisi
+1422|Aizmugurē pa labi
+1423|Materiāla platums
+1424|Materiāla augstums (Y)
+1425|Biezums
+1426|Z skaita no materiāla apakšas
+1427|Darba laukums ir materiāls
+1428|Izlaist
+1429|Uz sāniem (kreisā un labā mainās vietām)
+1430|Garenvirzienā (aizmugure un priekša mainās vietām)
+1431|Materiāls atrodas lapas augšējā kreisajā stūrī. Programma ir rakstīta koordinātu sistēmai G54 ar nulli jūsu izvēlētajā vietā: iestatiet šo nulli uz iekārtas tur. Z skaita no materiāla augšas vai apakšas.
+1432|Cilindrs guļ gar X uz rotācijas ass; zīmējuma Y iet apkārt tam, un zīmējums ir tā izritinātā virsma. Z skaita no virsmas, un dziļākais griezums ir rādiuss. Nulle ir uz virsmas; iestatiet to pašu mašīnā.
+1433|Divpusējs darbs
+1434|A puse un B puse ir divi darba lauki: materiālu apstrādā no vienas puses, apgriež un apstrādā no otras. Katra puse rāda otras puses formas apgrieztas kā spokus.
+1435|Apgriež ap
+1436|Izlīdzināšanas atzīmes
+1437|horizontālā ass (aizmugure un priekša samainās vietām)
+1438|vertikālā ass (kreisā un labā puse samainās vietām)
+1439|A puse
+1440|B puse
+1441|Otras puses spoki
+1442|Otras puses formas, apgrieztas kā materiāls, bāli zīmētas zem šīs puses: tās nevar atlasīt vai pārvietot.
+1443|Četras stūru atzīmes tieši ārpus materiāla, iededzinātas uz pamatnes pirms A puses: B pusei ielieciet tajās apgriezto materiālu.
+1444|Materiāls atrodas darba lauka augšējā kreisajā stūrī. Divpusējā darbā novietojiet to vienā vietā abām pusēm (izlīdzināšanas atzīmes rāda kur).
+1445|Sagatave atrodas uz rotācijas ass; zīmējuma Y iet apkārt tai, un zīmējums ir tās izritinātā virsma.
+1446|B pusē ir formas: projekts paliek divpusējs. Vispirms izdzēsiet tās, lai tas kļūtu vienpusējs.

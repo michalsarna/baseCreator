@@ -1410,3 +1410,38 @@
 1409|Webserver: feil
 1410|En nettside med prosjektet og et API for andre programmer. Hver forespørsel trenger tilgangsfrasen; det er ingen kryptering.
 1411|Alle på nettverket som kjenner tilgangsfrasen, kan se prosjektet. Frasen sendes ukryptert: bruk bare på et nettverk du stoler på.
+1412|Prosjektoppsett…
+1413|Materialets form
+1414|Blokk
+1415|Sylinder (dreieakse)
+1416|Et rundt emne som dreies av enhetens dreieakse. Bruk slår på dreieaksen med denne diameteren.
+1417|Emnets lengde
+1418|Programmets nullpunkt
+1419|Foran til venstre
+1420|Foran til høyre
+1421|Bak til venstre
+1422|Bak til høyre
+1423|Materialbredde
+1424|Materialhøyde (Y)
+1425|Tykkelse
+1426|Z telles fra bunnen av materialet
+1427|Arbeidsområdet er materialet
+1428|Hopp over
+1429|Sideveis (venstre og høyre bytter plass)
+1430|På langs (bak og foran bytter plass)
+1431|Materialet ligger øverst til venstre på siden. Programmet er skrevet for koordinatsystemet G54 med nullpunktet der du velger: sett det nullpunktet på maskinen der. Z telles fra toppen av materialet eller fra bunnen.
+1432|Sylinderen ligger langs X på dreieaksen; tegningens Y går rundt den, og tegningen er dens utbrettede overflate. Z telles fra overflaten, og det dypeste kuttet er radien. Nullpunktet er på overflaten; sett det samme på maskinen.
+1433|Tosidig jobb
+1434|Side A og side B er to arbeidsområder: materialet bearbeides på den ene siden, snus og bearbeides på den andre. Hver side viser den andres figurer snudd, som spøkelser.
+1435|Snus rundt
+1436|Justeringsmerker
+1437|den vannrette aksen (bak og foran bytter plass)
+1438|den loddrette aksen (venstre og høyre bytter plass)
+1439|Side A
+1440|Side B
+1441|Spøkelser fra den andre siden
+1442|Den andre sidens figurer, snudd som materialet, tegnet svakt under denne siden: de kan ikke velges eller flyttes.
+1443|Fire hjørnemerker like utenfor materialet, brent på underlaget før side A: legg det snudde materialet tilbake i dem for side B.
+1444|Materialet ligger øverst til venstre på arbeidsområdet. Ved en tosidig jobb legges det på samme sted for begge sider (justeringsmerkene viser hvor).
+1445|Emnet ligger på dreieaksen; tegningens Y går rundt det, og tegningen er dets utbrettede overflate.
+1446|Side B har figurer: prosjektet forblir tosidig. Slett dem først for å gjøre det ensidig.

@@ -1410,3 +1410,38 @@
 1409|Veebiserver: viga
 1410|Veebileht projektiga ja API teistele programmidele. Iga päring vajab pääsufraasi; krüpteerimist pole.
 1411|Igaüks võrgus, kes teab pääsufraasi, näeb projekti. Fraas saadetakse krüpteerimata: kasuta ainult usaldusväärses võrgus.
+1412|Projekti seadistus…
+1413|Materjali kuju
+1414|Plokk
+1415|Silinder (pöördtelg)
+1416|Ümar toorik, mida seadme pöördtelg pöörab. Rakenda lülitab pöördtelje sisse selle läbimõõduga.
+1417|Tooriku pikkus
+1418|Programmi nullpunkt
+1419|Ees vasakul
+1420|Ees paremal
+1421|Taga vasakul
+1422|Taga paremal
+1423|Materjali laius
+1424|Materjali kõrgus (Y)
+1425|Paksus
+1426|Z loetakse materjali alumisest küljest
+1427|Tööala on materjal
+1428|Jäta vahele
+1429|Külgsuunas (vasak ja parem vahetuvad)
+1430|Pikisuunas (taga ja ees vahetuvad)
+1431|Materjal asub lehe vasakus ülanurgas. Programm on kirjutatud koordinaatsüsteemile G54, mille null on valitud kohas: määra see null masinal sinna. Z loetakse materjali ülaosast või alt.
+1432|Silinder asub pöördteljel X-i suunas; joonise Y käib ümber selle ja joonis on selle lahtirullitud pind. Z loetakse pinnast ja sügavaim lõige on raadius. Null on pinnal; sea sama ka masinal.
+1433|Kahepoolne töö
+1434|Pool A ja pool B on kaks tööala: materjali töödeldakse ühelt poolt, pööratakse ümber ja töödeldakse teiselt. Kumbki pool näitab teise poole kujundeid ümberpööratuna, kummitustena.
+1435|Pööratakse ümber
+1436|Joondusmärgid
+1437|horisontaaltelg (taga ja ees vahetavad kohad)
+1438|vertikaaltelg (vasak ja parem vahetavad kohad)
+1439|Pool A
+1440|Pool B
+1441|Teise poole kummitused
+1442|Teise poole kujundid, pööratud nagu materjal, joonistatud tuhmilt selle poole alla: neid ei saa valida ega liigutada.
+1443|Neli nurgamärki kohe materjali kõrval, põletatud alusele enne poolt A: poole B jaoks pane ümberpööratud materjal neisse tagasi.
+1444|Materjal on tööala vasakus ülanurgas. Kahepoolses töös aseta see mõlema poole jaoks samasse kohta (joondusmärgid näitavad kuhu).
+1445|Toorik on pöördteljel; joonise Y käib ümber selle ja joonis on selle lahtirullitud pind.
+1446|Poolel B on kujundeid: projekt jääb kahepoolseks. Kustuta need enne, et teha see ühepoolseks.

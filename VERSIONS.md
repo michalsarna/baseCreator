@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.94.0
+
+- **Project setup for every program that works on a piece of material** (`project_setup`, the window of MillCreator moved here): a block or a cylinder on the rotary, with its picture, and a new **Two-sided job**: the axis the material is turned over round (H or V, a dashed line on the picture) and **Alignment marks**.
+- **Two-sided jobs** (`base_core::setup`: `FlipAxis`, `ZeroPoint`, `turn`, the project section `two_sided` with side B; `two_sided`: the **Side A / Side B** switch, **Ghosts of the other side** and the ghosts drawn turned over).
+- 35 texts in every language (21 moved from MillCreator).
+
 ## v1.93.0
 
 - **Web server and API for every program** (`web_api`, moved from LightCreator): **Settings → Program options…** switches on a page with the project and an API (`/api/status`, `/api/project.svg`, …), behind an access phrase (at first the name of the program). Programs with a machine also show it, its cameras and STOP / Home / jog; BaseCreator shows the project. The default ports go up from LightCreator's: 8765 LightCreator, 8766 MillCreator, 8767 PenCreator, 8768 BaseCreator, so that all of them can run on one computer.

@@ -1410,3 +1410,38 @@
 1409|Spletni strežnik: napaka
 1410|Spletna stran s projektom in API za druge programe. Vsaka zahteva potrebuje dostopno frazo; šifriranja ni.
 1411|Vsak v omrežju, ki pozna dostopno frazo, lahko vidi projekt. Fraza se pošlje nešifrirana: uporabljajte le v zaupanja vrednem omrežju.
+1412|Nastavitev projekta…
+1413|Oblika materiala
+1414|Blok
+1415|Valj (vrtljiva os)
+1416|Okrogel obdelovanec, ki ga vrti vrtljiva os naprave. Uporabi vklopi vrtljivo os s tem premerom.
+1417|Dolžina obdelovanca
+1418|Ničla programa
+1419|Spredaj levo
+1420|Spredaj desno
+1421|Zadaj levo
+1422|Zadaj desno
+1423|Širina materiala
+1424|Višina materiala (Y)
+1425|Debelina
+1426|Z se šteje od dna materiala
+1427|Delovno območje je material
+1428|Preskoči
+1429|Bočno (levo in desno zamenjata mesti)
+1430|Vzdolžno (zadaj in spredaj zamenjata mesti)
+1431|Material leži v zgornjem levem kotu strani. Program je napisan za koordinatni sistem G54 z ničlo na izbranem mestu: nastavite to ničlo na stroju tam. Z se šteje od vrha materiala ali od dna.
+1432|Valj leži vzdolž X na vrtljivi osi; Y risbe teče okoli njega, risba pa je njegova razvita površina. Z se šteje od površine, najgloblji rez je polmer. Ničla je na površini; nastavite isto na stroju.
+1433|Dvostransko opravilo
+1434|Stran A in stran B sta dve delovni območji: material se obdela na eni strani, obrne in obdela na drugi. Vsaka stran prikaže oblike druge obrnjene, kot duhove.
+1435|Obrne se okoli
+1436|Oznake za poravnavo
+1437|vodoravna os (zadaj in spredaj zamenjata mesti)
+1438|navpična os (levo in desno zamenjata mesti)
+1439|Stran A
+1440|Stran B
+1441|Duhovi druge strani
+1442|Oblike druge strani, obrnjene kot material, bledo narisane pod to stranjo: ni jih mogoče izbrati ali premakniti.
+1443|Štiri kotne oznake tik zunaj materiala, vžgane na podlago pred stranjo A: za stran B vanje vrnite obrnjen material.
+1444|Material leži zgoraj levo na delovnem območju. Pri dvostranskem opravilu ga za obe strani položite na isto mesto (oznake za poravnavo kažejo kam).
+1445|Obdelovanec leži na vrtljivi osi; Y risbe teče okoli njega, risba pa je njegova razvita površina.
+1446|Stran B ima oblike: projekt ostane dvostranski. Najprej jih izbrišite, da postane enostranski.

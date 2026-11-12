@@ -1410,3 +1410,38 @@
 1409|Web poslužitelj: greška
 1410|Web stranica s projektom i API za druge programe. Svaki zahtjev treba pristupnu frazu; nema šifriranja.
 1411|Svatko u mreži tko zna pristupnu frazu može vidjeti projekt. Fraza se šalje bez šifriranja: koristite samo u pouzdanoj mreži.
+1412|Postavke projekta…
+1413|Oblik materijala
+1414|Blok
+1415|Valjak (rotacijska os)
+1416|Okrugli izradak koji okreće rotacijska os uređaja. Primjena uključuje rotacijsku os s ovim promjerom.
+1417|Duljina izratka
+1418|Nula programa
+1419|Naprijed lijevo
+1420|Naprijed desno
+1421|Straga lijevo
+1422|Straga desno
+1423|Širina materijala
+1424|Visina materijala (Y)
+1425|Debljina
+1426|Z se broji od dna materijala
+1427|Radno područje je materijal
+1428|Preskoči
+1429|Bočno (lijevo i desno mijenjaju mjesta)
+1430|Uzdužno (straga i sprijeda mijenjaju mjesta)
+1431|Materijal je u gornjem lijevom kutu stranice. Program je pisan za koordinatni sustav G54 s nulom na odabranom mjestu: postavite tu nulu na stroju tamo. Z se broji od vrha materijala ili od njegova dna.
+1432|Valjak leži duž X na rotacijskoj osi; Y crteža ide oko njega, a crtež je njegova razvijena površina. Z se broji od površine, a najdublji rez je polumjer. Nula je na površini; postavite istu na stroju.
+1433|Dvostrani posao
+1434|Strana A i strana B su dva radna područja: materijal se obrađuje s jedne strane, okreće i obrađuje s druge. Svaka strana prikazuje oblike druge okrenute, kao duhove.
+1435|Okreće se oko
+1436|Oznake za poravnanje
+1437|vodoravna os (stražnja i prednja strana mijenjaju mjesta)
+1438|okomita os (lijeva i desna strana mijenjaju mjesta)
+1439|Strana A
+1440|Strana B
+1441|Duhovi druge strane
+1442|Oblici druge strane, okrenuti kao materijal, blijedo nacrtani ispod ove strane: ne mogu se odabrati ni pomaknuti.
+1443|Četiri kutne oznake odmah izvan materijala, izgorene na podlozi prije strane A: za stranu B vratite okrenuti materijal u njih.
+1444|Materijal leži u gornjem lijevom kutu radnog područja. Kod dvostranog posla stavite ga na isto mjesto za obje strane (oznake za poravnanje pokazuju gdje).
+1445|Izradak leži na rotacijskoj osi; Y crteža ide oko njega, a crtež je njegova razvijena površina.
+1446|Strana B ima oblike: projekt ostaje dvostran. Najprije ih izbrišite da postane jednostran.

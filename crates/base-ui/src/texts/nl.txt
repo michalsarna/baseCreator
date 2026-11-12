@@ -1410,3 +1410,38 @@
 1409|Webserver: fout
 1410|Een webpagina met het project en een API voor andere programma's. Elk verzoek heeft de toegangszin nodig; er is geen versleuteling.
 1411|Iedereen op het netwerk die de toegangszin kent, kan het project zien. De zin wordt onversleuteld verstuurd: alleen gebruiken op een vertrouwd netwerk.
+1412|Projectinstelling…
+1413|Vorm van het materiaal
+1414|Blok
+1415|Cilinder (draaias)
+1416|Een rond werkstuk dat door de draaias van het apparaat wordt gedraaid. Toepassen zet de draaias aan met deze diameter.
+1417|Lengte van het werkstuk
+1418|Nulpunt van het programma
+1419|Voor links
+1420|Voor rechts
+1421|Achter links
+1422|Achter rechts
+1423|Materiaalbreedte
+1424|Materiaalhoogte (Y)
+1425|Dikte
+1426|Z telt vanaf de onderkant van het materiaal
+1427|Het werkgebied is het materiaal
+1428|Overslaan
+1429|Zijwaarts (links en rechts wisselen)
+1430|In de lengte (achter en voor wisselen)
+1431|Het materiaal ligt linksboven op de pagina. Het programma is geschreven voor coördinatensysteem G54 met de nul op de plek die je kiest: stel die nul daar op de machine in. Z telt vanaf de bovenkant van het materiaal of vanaf de onderkant.
+1432|De cilinder ligt langs X op de draaias; de Y van de tekening gaat eromheen en de tekening is zijn uitgerolde oppervlak. Z telt vanaf het oppervlak en de diepste snede is de straal. Het nulpunt ligt op het oppervlak; stel hetzelfde in op de machine.
+1433|Dubbelzijdige taak
+1434|Kant A en kant B zijn twee werkgebieden: het materiaal wordt aan de ene kant bewerkt, omgedraaid en aan de andere kant bewerkt. Elke kant toont de vormen van de andere omgedraaid, als geesten.
+1435|Omgedraaid om
+1436|Uitlijnmarkeringen
+1437|de horizontale as (achter en voor wisselen van plaats)
+1438|de verticale as (links en rechts wisselen van plaats)
+1439|Kant A
+1440|Kant B
+1441|Geesten van de andere kant
+1442|De vormen van de andere kant, omgedraaid zoals het materiaal, vaag onder deze kant getekend: ze kunnen niet worden geselecteerd of verplaatst.
+1443|Vier hoekmarkeringen net buiten het materiaal, vóór kant A op de onderplaat gebrand: leg het omgedraaide materiaal er voor kant B weer in.
+1444|Het materiaal ligt linksboven in het werkgebied. Leg het bij een dubbelzijdige taak voor beide kanten op dezelfde plek (de uitlijnmarkeringen tonen waar).
+1445|Het werkstuk ligt op de draaias; de Y van de tekening gaat eromheen en de tekening is zijn uitgerolde oppervlak.
+1446|Kant B heeft vormen: het project blijft dubbelzijdig. Verwijder ze eerst om het enkelzijdig te maken.

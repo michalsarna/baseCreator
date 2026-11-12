@@ -1410,3 +1410,38 @@
 1409|Webserver: fejl
 1410|En webside med projektet og et API til andre programmer. Hver forespørgsel kræver adgangssætningen; der er ingen kryptering.
 1411|Alle på netværket, der kender adgangssætningen, kan se projektet. Sætningen sendes ukrypteret: brug kun på et netværk, du stoler på.
+1412|Projektopsætning…
+1413|Materialets form
+1414|Blok
+1415|Cylinder (drejeakse)
+1416|Et rundt emne, som drejes af enhedens drejeakse. Anvend slår drejeaksen til med denne diameter.
+1417|Emnets længde
+1418|Programmets nulpunkt
+1419|Foran til venstre
+1420|Foran til højre
+1421|Bagved til venstre
+1422|Bagved til højre
+1423|Materialebredde
+1424|Materialehøjde (Y)
+1425|Tykkelse
+1426|Z tælles fra bunden af materialet
+1427|Arbejdsområdet er materialet
+1428|Spring over
+1429|Til siden (venstre og højre bytter plads)
+1430|På langs (bag og for bytter plads)
+1431|Materialet ligger øverst til venstre på siden. Programmet er skrevet til koordinatsystemet G54 med nulpunktet det sted, du vælger: sæt det nulpunkt på maskinen dér. Z tælles fra materialets top eller bund.
+1432|Cylinderen ligger langs X på drejeaksen; tegningens Y går rundt om den, og tegningen er dens udfoldede overflade. Z tælles fra overfladen, og det dybeste snit er radius. Nulpunktet er på overfladen; sæt det samme på maskinen.
+1433|Dobbeltsidet opgave
+1434|Side A og side B er to arbejdsområder: materialet bearbejdes på den ene side, vendes og bearbejdes på den anden. Hver side viser den andens figurer vendt, som spøgelser.
+1435|Vendes om
+1436|Justeringsmærker
+1437|den vandrette akse (bag og for bytter plads)
+1438|den lodrette akse (venstre og højre bytter plads)
+1439|Side A
+1440|Side B
+1441|Spøgelser fra den anden side
+1442|Den anden sides figurer, vendt som materialet, tegnet svagt under denne side: de kan ikke vælges eller flyttes.
+1443|Fire hjørnemærker lige uden for materialet, brændt på underlaget før side A: læg det vendte materiale tilbage i dem til side B.
+1444|Materialet ligger øverst til venstre på arbejdsområdet. Ved en dobbeltsidet opgave lægges det samme sted for begge sider (justeringsmærkerne viser hvor).
+1445|Emnet ligger på drejeaksen; tegningens Y går rundt om det, og tegningen er dets udfoldede overflade.
+1446|Side B har figurer: projektet forbliver dobbeltsidet. Slet dem først for at gøre det enkeltsidet.

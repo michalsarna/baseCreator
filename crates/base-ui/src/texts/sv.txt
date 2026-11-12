@@ -1410,3 +1410,38 @@
 1409|Webbserver: fel
 1410|En webbsida med projektet och ett API för andra program. Varje begäran behöver åtkomstfrasen; det finns ingen kryptering.
 1411|Alla på nätverket som känner till åtkomstfrasen kan se projektet. Frasen skickas okrypterad: använd bara på ett nätverk du litar på.
+1412|Projektinställning…
+1413|Materialets form
+1414|Block
+1415|Cylinder (rotationsaxel)
+1416|Ett runt arbetsstycke som vrids av enhetens rotationsaxel. Verkställ slår på rotationsaxeln med denna diameter.
+1417|Arbetsstyckets längd
+1418|Programmets nollpunkt
+1419|Fram vänster
+1420|Fram höger
+1421|Bak vänster
+1422|Bak höger
+1423|Materialbredd
+1424|Materialhöjd (Y)
+1425|Tjocklek
+1426|Z räknas från materialets undersida
+1427|Arbetsområdet är materialet
+1428|Hoppa över
+1429|I sidled (vänster och höger byter plats)
+1430|På längden (bak och fram byter plats)
+1431|Materialet ligger uppe till vänster på sidan. Programmet är skrivet för koordinatsystemet G54 med nollan på den plats du väljer: ställ in den nollan på maskinen där. Z räknas från materialets ovansida eller från botten.
+1432|Cylindern ligger längs X på rotationsaxeln; ritningens Y går runt den och ritningen är dess utvikta yta. Z räknas från ytan och det djupaste snittet är radien. Nollpunkten ligger på ytan; ställ in samma på maskinen.
+1433|Dubbelsidigt jobb
+1434|Sida A och sida B är två arbetsytor: materialet bearbetas på ena sidan, vänds och bearbetas på den andra. Varje sida visar den andras former vända, som spöken.
+1435|Vänds runt
+1436|Justeringsmärken
+1437|den vågräta axeln (bak och fram byter plats)
+1438|den lodräta axeln (vänster och höger byter plats)
+1439|Sida A
+1440|Sida B
+1441|Spöken från andra sidan
+1442|Den andra sidans former, vända som materialet, ritade svagt under denna sida: de kan inte väljas eller flyttas.
+1443|Fyra hörnmärken strax utanför materialet, brända på underlaget före sida A: lägg tillbaka det vända materialet i dem för sida B.
+1444|Materialet ligger uppe till vänster på arbetsytan. Vid ett dubbelsidigt jobb läggs det på samma plats för båda sidor (justeringsmärkena visar var).
+1445|Arbetsstycket ligger på rotationsaxeln; ritningens Y går runt det och ritningen är dess utvikta yta.
+1446|Sida B har former: projektet förblir dubbelsidigt. Ta bort dem först för att göra det enkelsidigt.
