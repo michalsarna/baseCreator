@@ -1445,3 +1445,11 @@
 1444|El material está arriba a la izquierda del área de trabajo. En un trabajo a dos caras ponlo en el mismo sitio para ambas caras (las marcas de alineación muestran dónde).
 1445|La pieza está en el eje rotativo; la Y del dibujo le da la vuelta y el dibujo es su superficie desenrollada.
 1446|La cara B tiene formas: el proyecto sigue siendo a dos caras. Bórralas primero para hacerlo de una cara.
+1447|Tamaño del papel
+1448|Personalizado
+1449|Los tamaños que caben en el área de trabajo de la máquina: ↕ vertical, ↔ horizontal.
+1450|El eje rotativo del dispositivo está desactivado.
+1451|Proyecto configurado: un cilindro de Ø {} mm y {} mm de largo en el eje rotativo (activado), cero en {}
+1452|Proyecto configurado: material {} x {} x {} mm, cero: {}
+1453|Hoja
+1454|El material está en la esquina del cero de la máquina. En un trabajo a dos caras ponlo en el mismo sitio para ambas caras (las marcas de alineación muestran dónde).

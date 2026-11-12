@@ -1445,3 +1445,11 @@
 1444|El material és a la part superior esquerra de l'àrea de treball. En un treball a dues cares poseu-lo al mateix lloc per a les dues cares (les marques d'alineació mostren on).
 1445|La peça és a l'eix rotatiu; la Y del dibuix li fa la volta i el dibuix és la seva superfície desplegada.
 1446|La cara B té formes: el projecte continua sent a dues cares. Esborreu-les primer per fer-lo d'una sola cara.
+1447|Mida del paper
+1448|Personalitzat
+1449|Les mides que caben a l'àrea de treball de la màquina: ↕ vertical, ↔ horitzontal.
+1450|L'eix rotatiu del dispositiu està desactivat.
+1451|Projecte configurat: un cilindre de Ø {} mm i {} mm de llarg a l'eix rotatiu (activat), zero a {}
+1452|Projecte configurat: material {} x {} x {} mm, zero: {}
+1453|Full
+1454|El material és a la cantonada del zero de la màquina. En un treball a dues cares poseu-lo al mateix lloc per a les dues cares (les marques d'alineació mostren on).

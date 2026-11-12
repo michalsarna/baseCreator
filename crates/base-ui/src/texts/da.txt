@@ -1445,3 +1445,11 @@
 1444|Materialet ligger øverst til venstre på arbejdsområdet. Ved en dobbeltsidet opgave lægges det samme sted for begge sider (justeringsmærkerne viser hvor).
 1445|Emnet ligger på drejeaksen; tegningens Y går rundt om det, og tegningen er dets udfoldede overflade.
 1446|Side B har figurer: projektet forbliver dobbeltsidet. Slet dem først for at gøre det enkeltsidet.
+1447|Papirstørrelse
+1448|Brugerdefineret
+1449|Størrelserne, der passer til maskinens arbejdsområde: ↕ stående, ↔ liggende.
+1450|Enhedens drejeakse er slået fra.
+1451|Projekt sat op: en cylinder Ø {} mm og {} mm lang på drejeaksen (slået til), nulpunkt {}
+1452|Projekt sat op: materiale {} x {} x {} mm, nulpunkt: {}
+1453|Ark
+1454|Materialet ligger i hjørnet ved maskinens nulpunkt. Ved en dobbeltsidet opgave lægges det samme sted for begge sider (justeringsmærkerne viser hvor).

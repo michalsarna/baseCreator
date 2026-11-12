@@ -1445,3 +1445,11 @@
 1444|Materiál leží vlevo nahoře na pracovní ploše. U oboustranné zakázky ho pro obě strany položte na stejné místo (vyrovnávací značky ukazují kam).
 1445|Obrobek leží na otočné ose; Y výkresu jde kolem něj a výkres je jeho rozvinutý povrch.
 1446|Strana B má tvary: projekt zůstává oboustranný. Nejprve je smažte, aby byl jednostranný.
+1447|Velikost papíru
+1448|Vlastní
+1449|Velikosti, které se vejdou do pracovní plochy stroje: ↕ na výšku, ↔ na šířku.
+1450|Otočná osa zařízení je vypnutá.
+1451|Projekt nastaven: válec Ø {} mm dlouhý {} mm na otočné ose (zapnuté), nula: {}
+1452|Projekt nastaven: materiál {} x {} x {} mm, nula: {}
+1453|List
+1454|Materiál leží v rohu nuly stroje. U oboustranné zakázky ho pro obě strany položte na stejné místo (vyrovnávací značky ukazují kam).

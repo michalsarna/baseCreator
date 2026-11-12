@@ -1445,3 +1445,11 @@
 1444|Material leži zgoraj levo na delovnem območju. Pri dvostranskem opravilu ga za obe strani položite na isto mesto (oznake za poravnavo kažejo kam).
 1445|Obdelovanec leži na vrtljivi osi; Y risbe teče okoli njega, risba pa je njegova razvita površina.
 1446|Stran B ima oblike: projekt ostane dvostranski. Najprej jih izbrišite, da postane enostranski.
+1447|Velikost papirja
+1448|Po meri
+1449|Velikosti, ki se prilegajo delovnemu območju stroja: ↕ pokončno, ↔ ležeče.
+1450|Vrtljiva os naprave je izklopljena.
+1451|Projekt nastavljen: valj Ø {} mm, dolg {} mm, na vrtljivi osi (vklopljeni), ničla: {}
+1452|Projekt nastavljen: material {} x {} x {} mm, ničla: {}
+1453|List
+1454|Material leži v kotu ničle stroja. Pri dvostranskem opravilu ga za obe strani položite na isto mesto (oznake za poravnavo kažejo kam).

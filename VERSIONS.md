@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.95.0
+
+- **Project setup for paper** (`project_setup::Kind::paper`, `PAPER`, `papers_that_fit`): a list of paper sizes (A6 … A1, B5, B4, Letter, Legal, Tabloid), only those that fit the work area of the machine, upright or lying; no thickness for a sheet.
+- 8 texts in every language (3 moved from MillCreator: the messages of the project setup). A sheet is called a sheet and has no "Work area is the material".
+
 ## v1.94.0
 
 - **Project setup for every program that works on a piece of material** (`project_setup`, the window of MillCreator moved here): a block or a cylinder on the rotary, with its picture, and a new **Two-sided job**: the axis the material is turned over round (H or V, a dashed line on the picture) and **Alignment marks**.

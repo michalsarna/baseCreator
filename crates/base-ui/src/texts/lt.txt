@@ -1445,3 +1445,11 @@
 1444|Medžiaga yra darbo srities viršutiniame kairiajame kampe. Dvipusiame darbe abiem pusėms dėkite ją į tą pačią vietą (lygiavimo žymės rodo kur).
 1445|Ruošinys yra ant sukimo ašies; brėžinio Y eina aplink jį, o brėžinys yra jo išskleistas paviršius.
 1446|B pusėje yra figūrų: projektas lieka dvipusis. Pirmiausia jas ištrinkite, kad jis taptų vienpusis.
+1447|Popieriaus dydis
+1448|Pasirinktinis
+1449|Dydžiai, telpantys mašinos darbo srityje: ↕ stačiai, ↔ gulsčiai.
+1450|Įrenginio sukimo ašis išjungta.
+1451|Projektas nustatytas: cilindras Ø {} mm, {} mm ilgio, ant sukimo ašies (įjungta), nulis: {}
+1452|Projektas nustatytas: medžiaga {} x {} x {} mm, nulis: {}
+1453|Lapas
+1454|Medžiaga yra mašinos nulio kampe. Dvipusiame darbe abiem pusėms dėkite ją į tą pačią vietą (lygiavimo žymės rodo kur).

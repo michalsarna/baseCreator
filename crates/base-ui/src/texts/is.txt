@@ -1445,3 +1445,11 @@
 1444|Efnið liggur efst til vinstri á vinnusvæðinu. Í tvíhliða verki skaltu leggja það á sama stað fyrir báðar hliðar (stillimerkin sýna hvar).
 1445|Vinnustykkið liggur á snúningsásnum; Y teikningarinnar fer hringinn í kringum það og teikningin er útflatt yfirborð þess.
 1446|Hlið B hefur form: verkefnið helst tvíhliða. Eyddu þeim fyrst til að gera það einhliða.
+1447|Pappírsstærð
+1448|Sérsniðið
+1449|Stærðirnar sem passa á vinnusvæði vélarinnar: ↕ upprétt, ↔ liggjandi.
+1450|Slökkt er á snúningsás tækisins.
+1451|Verkefni stillt: sívalningur Ø {} mm og {} mm langur á snúningsásnum (kveikt), núll: {}
+1452|Verkefni stillt: efni {} x {} x {} mm, núll: {}
+1453|Örk
+1454|Efnið liggur í horni núllpunkts vélarinnar. Í tvíhliða verki skaltu leggja það á sama stað fyrir báðar hliðar (stillimerkin sýna hvar).

@@ -1445,3 +1445,11 @@
 1444|Het materiaal ligt linksboven in het werkgebied. Leg het bij een dubbelzijdige taak voor beide kanten op dezelfde plek (de uitlijnmarkeringen tonen waar).
 1445|Het werkstuk ligt op de draaias; de Y van de tekening gaat eromheen en de tekening is zijn uitgerolde oppervlak.
 1446|Kant B heeft vormen: het project blijft dubbelzijdig. Verwijder ze eerst om het enkelzijdig te maken.
+1447|Papierformaat
+1448|Aangepast
+1449|De formaten die in het werkgebied van de machine passen: ↕ staand, ↔ liggend.
+1450|De draaias van het apparaat staat uit.
+1451|Project ingesteld: een cilinder Ø {} mm en {} mm lang op de draaias (aan), nulpunkt {}
+1452|Project ingesteld: materiaal {} x {} x {} mm, nulpunt: {}
+1453|Vel
+1454|Het materiaal ligt in de hoek van het nulpunt van de machine. Leg het bij een dubbelzijdige taak voor beide kanten op dezelfde plek (de uitlijnmarkeringen tonen waar).

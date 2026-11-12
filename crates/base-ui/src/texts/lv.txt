@@ -1445,3 +1445,11 @@
 1444|Materiāls atrodas darba lauka augšējā kreisajā stūrī. Divpusējā darbā novietojiet to vienā vietā abām pusēm (izlīdzināšanas atzīmes rāda kur).
 1445|Sagatave atrodas uz rotācijas ass; zīmējuma Y iet apkārt tai, un zīmējums ir tās izritinātā virsma.
 1446|B pusē ir formas: projekts paliek divpusējs. Vispirms izdzēsiet tās, lai tas kļūtu vienpusējs.
+1447|Papīra izmērs
+1448|Pielāgots
+1449|Izmēri, kas ietilpst mašīnas darba laukā: ↕ stāvus, ↔ guļus.
+1450|Ierīces rotācijas ass ir izslēgta.
+1451|Projekts iestatīts: cilindrs Ø {} mm, {} mm garš, uz rotācijas ass (ieslēgta), nulle: {}
+1452|Projekts iestatīts: materiāls {} x {} x {} mm, nulle: {}
+1453|Lapa
+1454|Materiāls atrodas mašīnas nulles stūrī. Divpusējā darbā novietojiet to vienā vietā abām pusēm (izlīdzināšanas atzīmes rāda kur).

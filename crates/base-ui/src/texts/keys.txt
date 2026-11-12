@@ -1445,3 +1445,11 @@
 1444	The material lies at the top left of the work area. For a two-sided job lay it in the same place for both sides (the alignment marks show where).
 1445	The workpiece lies on the rotary attachment; Y of the drawing goes round it and the drawing is unrolled from its surface.
 1446	Side B has shapes: the project stays two-sided. Delete them first to make it one-sided.
+1447	Paper size
+1448	Custom
+1449	The sizes that fit the work area of the machine: ↕ upright, ↔ lying.
+1450	The rotary attachment of the device is off.
+1451	Project set up: a cylinder of Ø {} mm and {} mm long on the rotary attachment (switched on), zero at {}
+1452	Project set up: material {} x {} x {} mm, zero at {}
+1453	Sheet
+1454	The material lies in the corner of the zero of the machine. For a two-sided job lay it in the same place for both sides (the alignment marks show where).
