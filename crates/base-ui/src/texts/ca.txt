@@ -1410,3 +1410,38 @@
 1409|Servidor web: error
 1410|Una pàgina web amb el projecte i una API per a altres programes. Cada petició necessita la frase d'accés; no hi ha xifratge.
 1411|Qualsevol a la xarxa que conegui la frase d'accés pot veure el projecte. La frase s'envia sense xifrar: feu-ho servir només en una xarxa de confiança.
+1412|Configuració del projecte…
+1413|Forma del material
+1414|Bloc
+1415|Cilindre (eix rotatiu)
+1416|Una peça rodona que fa girar l'eix rotatiu del dispositiu. Aplicar activa l'eix rotatiu amb aquest diàmetre.
+1417|Longitud de la peça
+1418|Zero del programa
+1419|Davant a l'esquerra
+1420|Davant a la dreta
+1421|Darrere a l'esquerra
+1422|Darrere a la dreta
+1423|Amplada del material
+1424|Alçada del material (Y)
+1425|Gruix
+1426|Z compta des del fons del material
+1427|L'àrea de treball és el material
+1428|Omet
+1429|De costat (esquerra i dreta s'intercanvien)
+1430|De punta a punta (darrere i davant s'intercanvien)
+1431|El material és a dalt a l'esquerra de la pàgina. El programa està escrit per al sistema de coordenades G54 amb el zero al lloc que triïs: fixa aquest zero a la màquina allà. Z compta des de dalt del material o des del fons.
+1432|El cilindre jeu al llarg de X a l'eix rotatiu; la Y del dibuix li fa la volta i el dibuix és la seva superfície desplegada. La Z compta des de la superfície i el tall més profund és el radi. El zero és a la superfície; posa el mateix a la màquina.
+1433|Treball a dues cares
+1434|La cara A i la cara B són dues àrees de treball: el material es treballa per una cara, es gira i es treballa per l'altra. Cada cara mostra les formes de l'altra girades, com a fantasmes.
+1435|Es gira al voltant de
+1436|Marques d'alineació
+1437|l'eix horitzontal (darrere i davant s'intercanvien)
+1438|l'eix vertical (esquerra i dreta s'intercanvien)
+1439|Cara A
+1440|Cara B
+1441|Fantasmes de l'altra cara
+1442|Les formes de l'altra cara, girades com el material, dibuixades tènues sota aquesta cara: no es poden seleccionar ni moure.
+1443|Quatre marques de cantonada just fora del material, cremades al full de sota abans de la cara A: per a la cara B torneu-hi a posar el material girat.
+1444|El material és a la part superior esquerra de l'àrea de treball. En un treball a dues cares poseu-lo al mateix lloc per a les dues cares (les marques d'alineació mostren on).
+1445|La peça és a l'eix rotatiu; la Y del dibuix li fa la volta i el dibuix és la seva superfície desplegada.
+1446|La cara B té formes: el projecte continua sent a dues cares. Esborreu-les primer per fer-lo d'una sola cara.

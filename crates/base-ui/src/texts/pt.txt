@@ -1410,3 +1410,38 @@
 1409|Servidor web: erro
 1410|Uma página web com o projeto e uma API para outros programas. Cada pedido precisa da frase de acesso; não há encriptação.
 1411|Qualquer pessoa na rede que conheça a frase de acesso pode ver o projeto. A frase é enviada sem encriptação: use apenas numa rede de confiança.
+1412|Configuração do projeto…
+1413|Forma do material
+1414|Bloco
+1415|Cilindro (eixo rotativo)
+1416|Uma peça redonda rodada pelo eixo rotativo do dispositivo. Aplicar liga o eixo rotativo com este diâmetro.
+1417|Comprimento da peça
+1418|Zero do programa
+1419|À frente à esquerda
+1420|À frente à direita
+1421|Atrás à esquerda
+1422|Atrás à direita
+1423|Largura do material
+1424|Altura do material (Y)
+1425|Espessura
+1426|Z conta a partir da base do material
+1427|A área de trabalho é o material
+1428|Ignorar
+1429|De lado (esquerda e direita trocam)
+1430|Ao comprido (trás e frente trocam)
+1431|O material fica no canto superior esquerdo da página. O programa é escrito para o sistema de coordenadas G54 com o zero no local escolhido: defina esse zero na máquina nesse local. Z conta a partir do topo do material ou da base.
+1432|O cilindro está deitado ao longo de X no eixo rotativo; o Y do desenho dá-lhe a volta e o desenho é a sua superfície desenrolada. Z conta a partir da superfície e o corte mais fundo é o raio. O zero está na superfície; defina o mesmo na máquina.
+1433|Trabalho de dois lados
+1434|O lado A e o lado B são duas áreas de trabalho: o material é trabalhado de um lado, virado e trabalhado do outro. Cada lado mostra as formas do outro viradas, como fantasmas.
+1435|Virado em torno de
+1436|Marcas de alinhamento
+1437|o eixo horizontal (trás e frente trocam de lugar)
+1438|o eixo vertical (esquerda e direita trocam de lugar)
+1439|Lado A
+1440|Lado B
+1441|Fantasmas do outro lado
+1442|As formas do outro lado, viradas como o material, desenhadas esbatidas sob este lado: não podem ser selecionadas nem movidas.
+1443|Quatro marcas de canto mesmo fora do material, gravadas na base por baixo antes do lado A: para o lado B volte a colocar nelas o material virado.
+1444|O material fica no canto superior esquerdo da área de trabalho. Num trabalho de dois lados coloque-o no mesmo sítio para ambos os lados (as marcas de alinhamento mostram onde).
+1445|A peça está no eixo rotativo; o Y do desenho dá-lhe a volta e o desenho é a sua superfície desenrolada.
+1446|O lado B tem formas: o projeto continua de dois lados. Apague-as primeiro para o tornar de um só lado.

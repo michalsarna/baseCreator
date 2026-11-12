@@ -1410,3 +1410,38 @@
 1409|Servidor web: error
 1410|Una página web con el proyecto y una API para otros programas. Cada petición necesita la frase de acceso; no hay cifrado.
 1411|Cualquiera en la red que conozca la frase de acceso puede ver el proyecto. La frase se envía sin cifrar: úsalo solo en una red de confianza.
+1412|Configuración del proyecto…
+1413|Forma del material
+1414|Bloque
+1415|Cilindro (eje rotativo)
+1416|Una pieza redonda que gira el eje rotativo del dispositivo. Aplicar activa el eje rotativo con este diámetro.
+1417|Longitud de la pieza
+1418|Cero del programa
+1419|Delante izquierda
+1420|Delante derecha
+1421|Atrás izquierda
+1422|Atrás derecha
+1423|Ancho del material
+1424|Alto del material (Y)
+1425|Grosor
+1426|Z cuenta desde el fondo del material
+1427|El área de trabajo es el material
+1428|Omitir
+1429|De lado (izquierda y derecha se intercambian)
+1430|A lo largo (detrás y delante se intercambian)
+1431|El material está arriba a la izquierda de la página. El programa se escribe para el sistema de coordenadas G54 con el cero en el lugar que elijas: fija ese cero en la máquina allí. Z cuenta desde la parte superior del material o desde el fondo.
+1432|El cilindro está tumbado a lo largo de X en el eje rotativo; la Y del dibujo le da la vuelta y el dibujo es su superficie desenrollada. Z cuenta desde la superficie y el corte más profundo es el radio. El cero está en la superficie; pon el mismo en la máquina.
+1433|Trabajo a dos caras
+1434|La cara A y la cara B son dos áreas de trabajo: el material se trabaja por una cara, se da la vuelta y se trabaja por la otra. Cada cara muestra las formas de la otra volteadas, como fantasmas.
+1435|Se gira alrededor de
+1436|Marcas de alineación
+1437|el eje horizontal (detrás y delante se intercambian)
+1438|el eje vertical (izquierda y derecha se intercambian)
+1439|Cara A
+1440|Cara B
+1441|Fantasmas de la otra cara
+1442|Las formas de la otra cara, volteadas como el material, dibujadas tenues bajo esta cara: no se pueden seleccionar ni mover.
+1443|Cuatro marcas de esquina justo fuera del material, grabadas en la base de debajo antes de la cara A: para la cara B vuelve a poner en ellas el material volteado.
+1444|El material está arriba a la izquierda del área de trabajo. En un trabajo a dos caras ponlo en el mismo sitio para ambas caras (las marcas de alineación muestran dónde).
+1445|La pieza está en el eje rotativo; la Y del dibujo le da la vuelta y el dibujo es su superficie desenrollada.
+1446|La cara B tiene formas: el proyecto sigue siendo a dos caras. Bórralas primero para hacerlo de una cara.

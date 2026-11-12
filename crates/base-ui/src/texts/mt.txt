@@ -1410,3 +1410,38 @@
 1409|Server tal-web: żball
 1410|Paġna tal-web bil-proġett u API għal programmi oħra. Kull talba teħtieġ il-frażi tal-aċċess; m'hemmx kriptaġġ.
 1411|Kulħadd fuq in-netwerk li jaf il-frażi tal-aċċess jista' jara l-proġett. Il-frażi tintbagħat mingħajr kriptaġġ: uża biss fuq netwerk fdat.
+1412|Issettjar tal-proġett…
+1413|Forma tal-materjal
+1414|Blokk
+1415|Ċilindru (fus li jdur)
+1416|Biċċa tonda li ddawwarha l-fus li jdur tal-apparat. Applika jixgħel il-fus li jdur b'dan id-dijametru.
+1417|Tul tal-biċċa
+1418|Żero tal-programm
+1419|Quddiem fuq ix-xellug
+1420|Quddiem fuq il-lemin
+1421|Wara fuq ix-xellug
+1422|Wara fuq il-lemin
+1423|Wisa' tal-materjal
+1424|Għoli tal-materjal (Y)
+1425|Ħxuna
+1426|Z jingħadd mill-qiegħ tal-materjal
+1427|Iż-żona tax-xogħol hija l-materjal
+1428|Aqbeż
+1429|Minn naħa għal oħra (ix-xellug u l-lemin jinbidlu)
+1430|Minn tarf għal tarf (wara u quddiem jinbidlu)
+1431|Il-materjal jinsab fil-ġenb ta' fuq tax-xellug tal-paġna. Il-programm huwa miktub għas-sistema tal-koordinati G54 b'żero fil-post li tagħżel: issettja dak iż-żero fuq il-magna hemm. Z jingħadd minn fuq il-materjal jew mill-qiegħ.
+1432|Iċ-ċilindru jinsab tul X fuq il-fus li jdur; il-Y tad-disinn idur madwaru u d-disinn huwa l-wiċċ tiegħu miftuħ. Z jingħadd mill-wiċċ u l-qtugħ l-aktar fond huwa r-raġġ. Iż-żero huwa fuq il-wiċċ; issettja l-istess fuq il-magna.
+1433|Xogħol fuq żewġ naħat
+1434|In-naħa A u n-naħa B huma żewġ żoni tax-xogħol: il-materjal jinħadem fuq naħa, jinqaleb u jinħadem fuq l-oħra. Kull naħa turi l-forom tal-oħra maqluba, bħala ħawlijiet.
+1435|Jinqaleb madwar
+1436|Marki tal-allinjament
+1437|l-assi orizzontali (wara u quddiem jinbidlu)
+1438|l-assi vertikali (ix-xellug u l-lemin jinbidlu)
+1439|Naħa A
+1440|Naħa B
+1441|Ħawlijiet tan-naħa l-oħra
+1442|Il-forom tan-naħa l-oħra, maqluba bħall-materjal, imfassla ħafif taħt din in-naħa: ma jistgħux jintgħażlu jew jiċċaqilqu.
+1443|Erba' marki tal-kantunieri eżatt barra mill-materjal, maħruqa fuq il-folja taħtu qabel in-naħa A: għan-naħa B poġġi l-materjal maqlub lura fihom.
+1444|Il-materjal jinsab fuq ix-xellug taż-żona tax-xogħol. F'xogħol fuq żewġ naħat poġġih fl-istess post għaż-żewġ naħat (il-marki tal-allinjament juru fejn).
+1445|Il-biċċa tinsab fuq il-fus li jdur; il-Y tad-disinn idur madwarha u d-disinn huwa l-wiċċ tagħha miftuħ.
+1446|In-naħa B għandha forom: il-proġett jibqa' fuq żewġ naħat. Ħassarhom l-ewwel biex isir fuq naħa waħda.

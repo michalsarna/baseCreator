@@ -1410,3 +1410,38 @@
 1409|Freastalaí gréasáin: earráid
 1410|Leathanach gréasáin leis an tionscadal agus API do chláir eile. Teastaíonn an frása rochtana ó gach iarratas; níl criptiú ann.
 1411|Is féidir le duine ar bith ar an líonra a bhfuil an frása rochtana aige an tionscadal a fheiceáil. Seoltar an frása gan chriptiú: úsáid ar líonra iontaofa amháin.
+1412|Socrú tionscadail…
+1413|Cruth an ábhair
+1414|Bloc
+1415|Sorcóir (ais rothlach)
+1416|Píosa cruinn a chasann ais rothlach an ghléis. Cuireann Cuir i bhfeidhm an ais rothlach ar siúl leis an trastomhas seo.
+1417|Fad an phíosa
+1418|Nialas an chláir
+1419|Tosaigh ar chlé
+1420|Tosaigh ar dheis
+1421|Cúl ar chlé
+1422|Cúl ar dheis
+1423|Leithead an ábhair
+1424|Airde an ábhair (Y)
+1425|Tiús
+1426|Comhaireofar Z ó bun an ábhair
+1427|Is é an limistéar oibre an t-ábhar
+1428|Scipeáil
+1429|Taobh le taobh (malartaíonn clé agus deas)
+1430|Ó cheann go ceann (malartaíonn cúl agus tosach)
+1431|Tá an t-ábhar ag barr clé an leathanaigh. Scríobhtar an clár don chóras comhordanáidí G54 agus a nialas san áit a roghnaíonn tú: socraigh an nialas sin ar an meaisín ansin. Comhaireofar Z ó bharr an ábhair nó óna bhun.
+1432|Luíonn an sorcóir feadh X ar an ais rothlach; téann Y na líníochta timpeall air agus is é an líníocht a dhromchla leata amach. Comhairtear Z ó bharr an dromchla, agus is é an ga an gearradh is doimhne. Tá an náid ar an dromchla; socraigh an ceann céanna ar an meaisín.
+1433|Jab dhá thaobh
+1434|Is dhá limistéar oibre iad taobh A agus taobh B: oibrítear an t-ábhar ar thaobh amháin, iompaítear é agus oibrítear ar an taobh eile é. Taispeánann gach taobh cruthanna an taoibh eile iompaithe, mar thaibhsí.
+1435|Iompaithe timpeall
+1436|Marcanna ailínithe
+1437|an ais chothrománach (malartaíonn cúl agus tosach áiteanna)
+1438|an ais ingearach (malartaíonn clé agus deas áiteanna)
+1439|Taobh A
+1440|Taobh B
+1441|Taibhsí an taoibh eile
+1442|Cruthanna an taoibh eile, iompaithe mar atá an t-ábhar, tarraingthe go lag faoin taobh seo: ní féidir iad a roghnú ná a bhogadh.
+1443|Ceithre mharc coirnéil díreach taobh amuigh den ábhar, dóite ar an mbileog faoi roimh thaobh A: cuir an t-ábhar iompaithe ar ais iontu do thaobh B.
+1444|Tá an t-ábhar ag barr clé an limistéir oibre. I jab dhá thaobh leag é san áit chéanna don dá thaobh (taispeánann na marcanna ailínithe cén áit).
+1445|Tá an píosa ar an ais rothlach; téann Y na líníochta timpeall air agus is é an líníocht a dhromchla leata amach.
+1446|Tá cruthanna ar thaobh B: fanann an tionscadal dhá thaobh. Scrios iad ar dtús chun é a dhéanamh aon taobh.

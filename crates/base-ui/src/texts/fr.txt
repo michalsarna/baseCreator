@@ -1410,3 +1410,38 @@
 1409|Serveur web : erreur
 1410|Une page web avec le projet et une API pour d'autres programmes. Chaque requête demande la phrase d'accès ; il n'y a pas de chiffrement.
 1411|Toute personne du réseau qui connaît la phrase d'accès peut voir le projet. La phrase est envoyée sans chiffrement : à n'utiliser que sur un réseau de confiance.
+1412|Réglage du projet…
+1413|Forme du matériau
+1414|Bloc
+1415|Cylindre (axe rotatif)
+1416|Une pièce ronde tournée par l'axe rotatif de l'appareil. Appliquer active l'axe rotatif avec ce diamètre.
+1417|Longueur de la pièce
+1418|Zéro du programme
+1419|Avant gauche
+1420|Avant droit
+1421|Arrière gauche
+1422|Arrière droit
+1423|Largeur du matériau
+1424|Hauteur du matériau (Y)
+1425|Épaisseur
+1426|Z compte depuis le dessous du matériau
+1427|La zone de travail est le matériau
+1428|Ignorer
+1429|Latéralement (gauche et droite s'échangent)
+1430|Dans la longueur (arrière et avant s'échangent)
+1431|Le matériau est en haut à gauche de la page. Le programme est écrit pour le système de coordonnées G54 avec son zéro à l'endroit choisi : réglez ce zéro sur la machine à cet endroit. Z compte depuis le dessus du matériau ou depuis le dessous.
+1432|Le cylindre est couché le long de X sur l'axe rotatif ; le Y du dessin en fait le tour et le dessin est sa surface déroulée. Z compte depuis la surface et la coupe la plus profonde est le rayon. Le zéro est sur la surface ; réglez le même sur la machine.
+1433|Travail recto verso
+1434|La face A et la face B sont deux zones de travail : le matériau est usiné sur une face, retourné et usiné sur l'autre. Chaque face montre les formes de l'autre retournées, en fantômes.
+1435|Retourné autour de
+1436|Repères d'alignement
+1437|l'axe horizontal (l'arrière et l'avant s'échangent)
+1438|l'axe vertical (la gauche et la droite s'échangent)
+1439|Face A
+1440|Face B
+1441|Fantômes de l'autre face
+1442|Les formes de l'autre face, retournées comme le matériau, dessinées pâles sous cette face : on ne peut ni les sélectionner ni les déplacer.
+1443|Quatre repères de coin juste hors du matériau, gravés sur la plaque dessous avant la face A : pour la face B, remettez-y le matériau retourné.
+1444|Le matériau est en haut à gauche de la zone de travail. Pour un travail recto verso, posez-le au même endroit pour les deux faces (les repères d'alignement le montrent).
+1445|La pièce est sur l'axe rotatif ; le Y du dessin en fait le tour et le dessin est sa surface déroulée.
+1446|La face B a des formes : le projet reste recto verso. Supprimez-les d'abord pour le rendre simple face.

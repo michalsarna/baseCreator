@@ -1410,3 +1410,38 @@
 1409|Vefþjónn: villa
 1410|Vefsíða með verkefninu og API fyrir önnur forrit. Hver beiðni þarf aðgangsorðasambandið; engin dulkóðun er.
 1411|Hver sem er á netinu og þekkir aðgangsorðasambandið getur séð verkefnið. Það er sent ódulkóðað: notaðu aðeins á neti sem þú treystir.
+1412|Uppsetning verkefnis…
+1413|Lögun efnisins
+1414|Kubbur
+1415|Sívalningur (snúningsás)
+1416|Kringlótt vinnustykki sem snúningsás tækisins snýr. Nota kveikir á snúningsásnum með þessu þvermáli.
+1417|Lengd vinnustykkis
+1418|Núllpunktur forritsins
+1419|Fremst til vinstri
+1420|Fremst til hægri
+1421|Aftan til vinstri
+1422|Aftan til hægri
+1423|Breidd efnis
+1424|Hæð efnis (Y)
+1425|Þykkt
+1426|Z telst frá botni efnisins
+1427|Vinnusvæðið er efnið
+1428|Sleppa
+1429|Til hliðar (vinstri og hægri skipta um stað)
+1430|Enda á milli (aftur og fram skipta um stað)
+1431|Efnið er efst til vinstri á síðunni. Forritið er skrifað fyrir hnitakerfið G54 með núll á staðnum sem þú velur: stilltu það núll á vélinni þar. Z telst frá efri hlið efnisins eða frá botni þess.
+1432|Sívalningurinn liggur eftir X á snúningsásnum; Y teikningarinnar fer hringinn í kringum hann og teikningin er útflatt yfirborð hans. Z er talið frá yfirborðinu og dýpsti skurður er geislinn. Núllpunkturinn er á yfirborðinu; stilltu þann sama á vélinni.
+1433|Tvíhliða verk
+1434|Hlið A og hlið B eru tvö vinnusvæði: efnið er unnið á annarri hliðinni, snúið við og unnið á hinni. Hvor hlið sýnir form hinnar hliðarinnar snúin, sem drauga.
+1435|Snúið um
+1436|Stillimerki
+1437|lárétti ásinn (aftur og fram skipta um stað)
+1438|lóðrétti ásinn (vinstri og hægri skipta um stað)
+1439|Hlið A
+1440|Hlið B
+1441|Draugar hinnar hliðarinnar
+1442|Form hinnar hliðarinnar, snúin eins og efnið, teiknuð dauf undir þessa hlið: ekki er hægt að velja þau eða færa.
+1443|Fjögur hornmerki rétt utan við efnið, brennd á plötuna undir því á undan hlið A: settu snúna efnið aftur í þau fyrir hlið B.
+1444|Efnið liggur efst til vinstri á vinnusvæðinu. Í tvíhliða verki skaltu leggja það á sama stað fyrir báðar hliðar (stillimerkin sýna hvar).
+1445|Vinnustykkið liggur á snúningsásnum; Y teikningarinnar fer hringinn í kringum það og teikningin er útflatt yfirborð þess.
+1446|Hlið B hefur form: verkefnið helst tvíhliða. Eyddu þeim fyrst til að gera það einhliða.

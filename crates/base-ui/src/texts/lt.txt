@@ -1410,3 +1410,38 @@
 1409|Žiniatinklio serveris: klaida
 1410|Tinklalapis su projektu ir API kitoms programoms. Kiekvienai užklausai reikia prieigos frazės; šifravimo nėra.
 1411|Bet kas tinkle, žinantis prieigos frazę, gali matyti projektą. Frazė siunčiama nešifruota: naudokite tik patikimame tinkle.
+1412|Projekto nustatymas…
+1413|Medžiagos forma
+1414|Blokas
+1415|Cilindras (sukimo ašis)
+1416|Apvalus ruošinys, kurį suka įrenginio sukimo ašis. Taikyti įjungia sukimo ašį su šiuo skersmeniu.
+1417|Ruošinio ilgis
+1418|Programos nulis
+1419|Priekyje kairėje
+1420|Priekyje dešinėje
+1421|Gale kairėje
+1422|Gale dešinėje
+1423|Medžiagos plotis
+1424|Medžiagos aukštis (Y)
+1425|Storis
+1426|Z skaičiuojamas nuo medžiagos apačios
+1427|Darbo sritis yra medžiaga
+1428|Praleisti
+1429|Į šonus (kairė ir dešinė susikeičia)
+1430|Išilgai (galas ir priekis susikeičia)
+1431|Medžiaga yra viršutiniame kairiajame puslapio kampe. Programa parašyta koordinačių sistemai G54 su nuliu jūsų pasirinktoje vietoje: nustatykite tą nulį staklėse ten. Z skaičiuojamas nuo medžiagos viršaus arba apačios.
+1432|Cilindras guli išilgai X ant sukimo ašies; brėžinio Y eina aplink jį, o brėžinys yra jo išskleistas paviršius. Z skaičiuojama nuo paviršiaus, giliausias pjūvis yra spindulys. Nulis yra ant paviršiaus; nustatykite tą patį mašinoje.
+1433|Dvipusis darbas
+1434|A ir B pusės yra dvi darbo sritys: medžiaga apdirbama iš vienos pusės, apverčiama ir apdirbama iš kitos. Kiekviena pusė rodo kitos pusės figūras apverstas, kaip vaiduoklius.
+1435|Apverčiama apie
+1436|Lygiavimo žymės
+1437|horizontalioji ašis (galas ir priekis susikeičia vietomis)
+1438|vertikalioji ašis (kairė ir dešinė susikeičia vietomis)
+1439|A pusė
+1440|B pusė
+1441|Kitos pusės vaiduokliai
+1442|Kitos pusės figūros, apverstos kaip medžiaga, blankiai nupieštos po šia puse: jų negalima pažymėti ar perkelti.
+1443|Keturios kampų žymės tik už medžiagos ribų, išdegintos ant pagrindo prieš A pusę: B pusei įdėkite į jas apverstą medžiagą.
+1444|Medžiaga yra darbo srities viršutiniame kairiajame kampe. Dvipusiame darbe abiem pusėms dėkite ją į tą pačią vietą (lygiavimo žymės rodo kur).
+1445|Ruošinys yra ant sukimo ašies; brėžinio Y eina aplink jį, o brėžinys yra jo išskleistas paviršius.
+1446|B pusėje yra figūrų: projektas lieka dvipusis. Pirmiausia jas ištrinkite, kad jis taptų vienpusis.

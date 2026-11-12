@@ -52,6 +52,7 @@ pub mod resume;
 pub mod ruida;
 pub mod scene;
 pub mod ser2net;
+pub mod setup;
 pub mod snap;
 pub mod style_trace;
 pub mod svg;

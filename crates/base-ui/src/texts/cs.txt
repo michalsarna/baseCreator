@@ -1410,3 +1410,38 @@
 1409|Webový server: chyba
 1410|Webová stránka s projektem a API pro jiné programy. Každý požadavek potřebuje přístupovou frázi; není zde šifrování.
 1411|Kdokoli v síti, kdo zná přístupovou frázi, může vidět projekt. Fráze se posílá bez šifrování: používejte jen v důvěryhodné síti.
+1412|Nastavení projektu…
+1413|Tvar materiálu
+1414|Blok
+1415|Válec (otočná osa)
+1416|Kulatý obrobek otáčený otočnou osou zařízení. Použití zapne otočnou osu s tímto průměrem.
+1417|Délka obrobku
+1418|Nula programu
+1419|Vpředu vlevo
+1420|Vpředu vpravo
+1421|Vzadu vlevo
+1422|Vzadu vpravo
+1423|Šířka materiálu
+1424|Výška materiálu (Y)
+1425|Tloušťka
+1426|Z se počítá od spodku materiálu
+1427|Pracovní oblast je materiál
+1428|Přeskočit
+1429|Do stran (levá a pravá se prohodí)
+1430|Podélně (zadní a přední se prohodí)
+1431|Materiál leží v levém horním rohu stránky. Program je psán pro souřadnicový systém G54 s nulou na zvoleném místě: nastavte tuto nulu na stroji tam. Z se počítá od horní strany materiálu nebo od spodku.
+1432|Válec leží podél X na otočné ose; Y výkresu jde kolem něj a výkres je jeho rozvinutý povrch. Z se počítá od povrchu a nejhlubší řez je poloměr. Nula je na povrchu; nastavte stejnou na stroji.
+1433|Oboustranná zakázka
+1434|Strana A a strana B jsou dvě pracovní plochy: materiál se obrobí z jedné strany, otočí a obrobí z druhé. Každá strana ukazuje tvary té druhé otočené jako duchy.
+1435|Otáčí se kolem
+1436|Vyrovnávací značky
+1437|vodorovná osa (zadní a přední strana se vymění)
+1438|svislá osa (levá a pravá strana se vymění)
+1439|Strana A
+1440|Strana B
+1441|Duchové druhé strany
+1442|Tvary druhé strany, otočené jako materiál, nakreslené slabě pod touto stranou: nelze je vybrat ani posunout.
+1443|Čtyři rohové značky těsně vně materiálu, vypálené na podložku před stranou A: pro stranu B do nich vraťte otočený materiál.
+1444|Materiál leží vlevo nahoře na pracovní ploše. U oboustranné zakázky ho pro obě strany položte na stejné místo (vyrovnávací značky ukazují kam).
+1445|Obrobek leží na otočné ose; Y výkresu jde kolem něj a výkres je jeho rozvinutý povrch.
+1446|Strana B má tvary: projekt zůstává oboustranný. Nejprve je smažte, aby byl jednostranný.

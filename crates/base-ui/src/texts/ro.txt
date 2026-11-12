@@ -1410,3 +1410,38 @@
 1409|Server web: eroare
 1410|O pagină web cu proiectul și un API pentru alte programe. Fiecare cerere are nevoie de fraza de acces; nu există criptare.
 1411|Oricine din rețea care cunoaște fraza de acces poate vedea proiectul. Fraza se trimite necriptată: folosiți doar într-o rețea de încredere.
+1412|Configurare proiect…
+1413|Forma materialului
+1414|Bloc
+1415|Cilindru (axă rotativă)
+1416|O piesă rotundă rotită de axa rotativă a dispozitivului. Aplicarea pornește axa rotativă cu acest diametru.
+1417|Lungimea piesei
+1418|Zeroul programului
+1419|În față stânga
+1420|În față dreapta
+1421|În spate stânga
+1422|În spate dreapta
+1423|Lățimea materialului
+1424|Înălțimea materialului (Y)
+1425|Grosime
+1426|Z se numără de la baza materialului
+1427|Zona de lucru este materialul
+1428|Omite
+1429|Lateral (stânga și dreapta își schimbă locul)
+1430|În lungime (spatele și fața își schimbă locul)
+1431|Materialul este în stânga sus a paginii. Programul este scris pentru sistemul de coordonate G54 cu zero în locul ales: setați acel zero pe mașină acolo. Z se numără de la partea de sus a materialului sau de la bază.
+1432|Cilindrul stă de-a lungul lui X pe axa rotativă; Y al desenului merge în jurul lui, iar desenul este suprafața lui desfășurată. Z se numără de la suprafață, iar cea mai adâncă tăietură este raza. Zero este pe suprafață; setați același pe mașină.
+1433|Lucrare pe două fețe
+1434|Fața A și fața B sunt două zone de lucru: materialul se prelucrează pe o față, se întoarce și se prelucrează pe cealaltă. Fiecare față arată formele celeilalte întoarse, ca fantome.
+1435|Întors în jurul
+1436|Repere de aliniere
+1437|axa orizontală (spatele și fața își schimbă locul)
+1438|axa verticală (stânga și dreapta își schimbă locul)
+1439|Fața A
+1440|Fața B
+1441|Fantomele celeilalte fețe
+1442|Formele celeilalte fețe, întoarse ca materialul, desenate palid sub această față: nu pot fi selectate sau mutate.
+1443|Patru repere de colț chiar în afara materialului, arse pe placa de dedesubt înainte de fața A: pentru fața B puneți materialul întors înapoi în ele.
+1444|Materialul stă în colțul din stânga sus al zonei de lucru. La o lucrare pe două fețe puneți-l în același loc pentru ambele fețe (reperele arată unde).
+1445|Piesa stă pe axa rotativă; Y al desenului merge în jurul ei, iar desenul este suprafața ei desfășurată.
+1446|Fața B are forme: proiectul rămâne pe două fețe. Ștergeți-le întâi ca să devină pe o singură față.
