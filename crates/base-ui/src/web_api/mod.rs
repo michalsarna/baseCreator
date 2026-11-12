@@ -154,6 +154,15 @@ impl WebApi {
         }
     }
 
+    /// Hand a picture of the camera view to the server (only while it runs), for `/api/camera.jpg`.
+    pub fn publish_image(&self, img: &egui::ColorImage) {
+        if self.server.is_none() {
+            return;
+        }
+        let rgb: Vec<u8> = img.pixels.iter().flat_map(|c| [c.r(), c.g(), c.b()]).collect();
+        self.publish_frame(img.size[0] as u32, img.size[1] as u32, &rgb);
+    }
+
     /// The port the server listens on, while it runs.
     pub fn port_now(&self) -> Option<u16> {
         self.server.as_ref().map(|s| s.addr.port())
@@ -235,6 +244,45 @@ pub fn cameras_json(cameras: &[CameraSource], active: usize) -> Value {
             "rotated": match &c.kind { CameraKind::Url(u) if c.enabled && c.is_valid() && !u.trim().is_empty() => 0, _ => (c.rotation % 4) as u32 * 90 },
         })).collect::<Vec<_>>(),
     })
+}
+
+/// The device part of the status of a program that drives a GRBL machine (`machine_ctl::Machine`): its name and controller, the
+/// connection, the state and the work position, and the job (lines sent of all).
+pub fn machine_status(m: &crate::machine_ctl::Machine, device: &str, controller: &str, estimate_s: f64, elapsed_s: f64) -> (Value, Value) {
+    let (done, total) = m.progress;
+    let pos = |v: f64| if v.is_finite() { v } else { 0.0 };
+    (
+        json!({ "name": device, "controller": controller, "connected": m.connected, "state": m.state, "x": pos(m.pos[0]), "y": pos(m.pos[1]), "z": pos(m.pos[2]) }),
+        json!({ "running": m.job_running(), "done": done, "total": total, "elapsed_s": elapsed_s, "estimate_s": estimate_s }),
+    )
+}
+
+/// Carry out Home, Cancel jog and a jog step on a GRBL machine, with the rules of their buttons (a connection, no job running).
+/// STOP and the choice of a camera are left to the program; returns false for them.
+pub fn machine_command(m: &mut crate::machine_ctl::Machine, c: &Command, step: f64, feed: f64) -> bool {
+    match c {
+        Command::Home => {
+            if m.connected && !m.job_running() {
+                m.home();
+            }
+            true
+        }
+        Command::CancelJog => {
+            if m.connected {
+                m.cancel_jog();
+            }
+            true
+        }
+        Command::Jog(d) => {
+            if m.connected && !m.job_running() && step > 0.0 && feed > 0.0 {
+                // The arrows are those of the screen: up is +Y of the machine.
+                let (dx, dy) = d.delta();
+                m.jog(dx * step, -dy * step, 0.0, feed);
+            }
+            true
+        }
+        Command::Stop | Command::SelectCamera(_) => false,
+    }
 }
 
 /// The drawing as an SVG for the page: the shapes on the work area in the colours of their layers.
