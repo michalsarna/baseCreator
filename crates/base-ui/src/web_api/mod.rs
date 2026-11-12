@@ -375,4 +375,16 @@ mod tests {
         assert_eq!((c["cameras"][1]["rotation"].as_u64(), c["cameras"][1]["rotated"].as_u64()), (Some(270), Some(270)), "the program turns its own picture");
         assert_eq!(c["cameras"][0]["url"], "http://a/x");
     }
+
+    #[test]
+    fn the_machine_commands_need_a_connection_and_leave_stop_to_the_program() {
+        let mut m = crate::machine_ctl::Machine::new(&egui::Context::default());
+        assert!(!m.connected);
+        for c in [Command::Home, Command::CancelJog, Command::Jog(Jog::Up)] {
+            assert!(machine_command(&mut m, &c, 1.0, 1000.0), "{c:?} is the machine's");
+        }
+        assert!(!machine_command(&mut m, &Command::Stop, 1.0, 1000.0) && !machine_command(&mut m, &Command::SelectCamera(0), 1.0, 1000.0));
+        let (dev, job) = machine_status(&m, "Mill", "Grbl11", 60.0, 0.0);
+        assert_eq!((dev["connected"].as_bool(), dev["x"].as_f64(), job["estimate_s"].as_f64()), (Some(false), Some(0.0), Some(60.0)), "an unknown position is 0");
+    }
 }
