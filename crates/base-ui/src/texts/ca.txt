@@ -1451,3 +1451,5 @@
 1450|L'eix rotatiu del dispositiu està desactivat.
 1451|Projecte configurat: un cilindre de Ø {} mm i {} mm de llarg a l'eix rotatiu (activat), zero a {}
 1452|Projecte configurat: material {} x {} x {} mm, zero: {}
+1453|Full
+1454|El material és a la cantonada del zero de la màquina. En un treball a dues cares poseu-lo al mateix lloc per a les dues cares (les marques d'alineació mostren on).

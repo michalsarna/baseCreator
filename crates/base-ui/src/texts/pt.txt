@@ -1451,3 +1451,5 @@
 1450|O eixo rotativo do dispositivo está desligado.
 1451|Projeto configurado: um cilindro de Ø {} mm e {} mm de comprimento no eixo rotativo (ligado), zero em {}
 1452|Projeto configurado: material {} x {} x {} mm, zero: {}
+1453|Folha
+1454|O material fica no canto do zero da máquina. Num trabalho de dois lados coloque-o no mesmo sítio para ambos os lados (as marcas de alinhamento mostram onde).

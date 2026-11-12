@@ -1451,3 +1451,5 @@
 1450|Otočná osa zařízení je vypnutá.
 1451|Projekt nastaven: válec Ø {} mm dlouhý {} mm na otočné ose (zapnuté), nula: {}
 1452|Projekt nastaven: materiál {} x {} x {} mm, nula: {}
+1453|List
+1454|Materiál leží v rohu nuly stroje. U oboustranné zakázky ho pro obě strany položte na stejné místo (vyrovnávací značky ukazují kam).

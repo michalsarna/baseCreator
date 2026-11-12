@@ -1451,3 +1451,5 @@
 1450|De draaias van het apparaat staat uit.
 1451|Project ingesteld: een cilinder Ø {} mm en {} mm lang op de draaias (aan), nulpunkt {}
 1452|Project ingesteld: materiaal {} x {} x {} mm, nulpunt: {}
+1453|Vel
+1454|Het materiaal ligt in de hoek van het nulpunt van de machine. Leg het bij een dubbelzijdige taak voor beide kanten op dezelfde plek (de uitlijnmarkeringen tonen waar).

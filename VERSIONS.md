@@ -6,7 +6,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 ## v1.95.0
 
 - **Project setup for paper** (`project_setup::Kind::paper`, `PAPER`, `papers_that_fit`): a list of paper sizes (A6 … A1, B5, B4, Letter, Legal, Tabloid), only those that fit the work area of the machine, upright or lying; no thickness for a sheet.
-- 6 texts in every language (3 moved from MillCreator: the messages of the project setup).
+- 8 texts in every language (3 moved from MillCreator: the messages of the project setup). A sheet is called a sheet and has no "Work area is the material".
 
 ## v1.94.0
 

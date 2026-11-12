@@ -1451,3 +1451,5 @@
 1450|Enhedens drejeakse er slået fra.
 1451|Projekt sat op: en cylinder Ø {} mm og {} mm lang på drejeaksen (slået til), nulpunkt {}
 1452|Projekt sat op: materiale {} x {} x {} mm, nulpunkt: {}
+1453|Ark
+1454|Materialet ligger i hjørnet ved maskinens nulpunkt. Ved en dobbeltsidet opgave lægges det samme sted for begge sider (justeringsmærkerne viser hvor).

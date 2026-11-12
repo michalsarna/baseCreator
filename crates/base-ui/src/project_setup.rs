@@ -110,7 +110,7 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
         if kind.cylinder {
             ui.horizontal(|ui| {
                 ui.label(tr("Shape of the material"));
-                ui.selectable_value(&mut st.round, false, tr("Block"));
+                ui.selectable_value(&mut st.round, false, tr(if kind.paper { "Sheet" } else { "Block" }));
                 ui.selectable_value(&mut st.round, true, tr("Cylinder (rotary)")).on_hover_text(tr("A round workpiece turned by the rotary attachment of the device. Applying switches the rotary attachment on with this diameter."));
             });
             ui.add_space(4.0);
@@ -172,9 +172,11 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
                     ui.checkbox(&mut st.z_bottom, tr("Z counts from the bottom of the material"));
                     ui.end_row();
                 }
-                ui.label("");
-                ui.checkbox(&mut st.work_area, tr("Work area is the material"));
-                ui.end_row();
+                if !kind.paper {
+                    ui.label("");
+                    ui.checkbox(&mut st.work_area, tr("Work area is the material"));
+                    ui.end_row();
+                }
                 ui.label("");
                 ui.checkbox(&mut st.two_sided, tr("Two-sided job")).on_hover_text(tr("Side A and side B are two work areas: the material is cut on one side, turned over and cut on the other. Each side shows the shapes of the other one turned over, as ghosts."));
                 ui.end_row();

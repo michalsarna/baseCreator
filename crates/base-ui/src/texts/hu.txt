@@ -1451,3 +1451,5 @@
 1450|Az eszköz forgótengelye ki van kapcsolva.
 1451|Projekt beállítva: Ø {} mm-es, {} mm hosszú henger a forgótengelyen (bekapcsolva), nullpont: {}
 1452|Projekt beállítva: anyag {} x {} x {} mm, nulla: {}
+1453|Lap
+1454|Az anyag a gép nullpontjának sarkában van. Kétoldalas munkánál mindkét oldalhoz ugyanoda tegye (az illesztőjelek mutatják, hová).

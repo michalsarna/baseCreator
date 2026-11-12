@@ -1451,3 +1451,5 @@
 1450|Enhetens dreieakse er slått av.
 1451|Prosjekt satt opp: en sylinder Ø {} mm og {} mm lang på dreieaksen (slått på), nullpunkt {}
 1452|Prosjekt satt opp: materiale {} x {} x {} mm, null: {}
+1453|Ark
+1454|Materialet ligger i hjørnet ved maskinens nullpunkt. Ved en tosidig jobb legges det på samme sted for begge sider (justeringsmerkene viser hvor).

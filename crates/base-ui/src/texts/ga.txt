@@ -1451,3 +1451,5 @@
 1450|Tá ais rothlach an ghléis múchta.
 1451|Tionscadal socraithe: sorcóir Ø {} mm agus {} mm ar fad ar an ais rothlach (ar siúl), náid ag {}
 1452|Socraíodh an tionscadal: ábhar {} x {} x {} mm, nialas: {}
+1453|Bileog
+1454|Tá an t-ábhar i gcúinne náid an mheaisín. I jab dhá thaobh leag é san áit chéanna don dá thaobh (taispeánann na marcanna ailínithe cén áit).

@@ -1451,3 +1451,5 @@
 1450|Enhetens rotationsaxel är avslagen.
 1451|Projektet inställt: en cylinder Ø {} mm och {} mm lång på rotationsaxeln (påslagen), nollpunkt {}
 1452|Projekt inställt: material {} x {} x {} mm, noll: {}
+1453|Ark
+1454|Materialet ligger i hörnet vid maskinens nollpunkt. Vid ett dubbelsidigt jobb läggs det på samma plats för båda sidor (justeringsmärkena visar var).

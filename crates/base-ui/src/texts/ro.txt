@@ -1451,3 +1451,5 @@
 1450|Axa rotativă a dispozitivului este oprită.
 1451|Proiect configurat: un cilindru de Ø {} mm și {} mm lungime pe axa rotativă (pornită), zero la {}
 1452|Proiect configurat: material {} x {} x {} mm, zero: {}
+1453|Foaie
+1454|Materialul stă în colțul zeroului mașinii. La o lucrare pe două fețe puneți-l în același loc pentru ambele fețe (reperele arată unde).

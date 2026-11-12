@@ -1451,3 +1451,5 @@
 1450|L'axe rotatif de l'appareil est désactivé.
 1451|Projet configuré : un cylindre de Ø {} mm et {} mm de long sur l'axe rotatif (activé), zéro en {}
 1452|Projet réglé : matériau {} x {} x {} mm, zéro : {}
+1453|Feuille
+1454|Le matériau est dans le coin du zéro de la machine. Pour un travail recto verso, posez-le au même endroit pour les deux faces (les repères d'alignement le montrent).

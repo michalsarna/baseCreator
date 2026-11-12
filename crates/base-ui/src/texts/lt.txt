@@ -1451,3 +1451,5 @@
 1450|Įrenginio sukimo ašis išjungta.
 1451|Projektas nustatytas: cilindras Ø {} mm, {} mm ilgio, ant sukimo ašies (įjungta), nulis: {}
 1452|Projektas nustatytas: medžiaga {} x {} x {} mm, nulis: {}
+1453|Lapas
+1454|Medžiaga yra mašinos nulio kampe. Dvipusiame darbe abiem pusėms dėkite ją į tą pačią vietą (lygiavimo žymės rodo kur).

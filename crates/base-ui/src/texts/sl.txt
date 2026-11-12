@@ -1451,3 +1451,5 @@
 1450|Vrtljiva os naprave je izklopljena.
 1451|Projekt nastavljen: valj Ø {} mm, dolg {} mm, na vrtljivi osi (vklopljeni), ničla: {}
 1452|Projekt nastavljen: material {} x {} x {} mm, ničla: {}
+1453|List
+1454|Material leži v kotu ničle stroja. Pri dvostranskem opravilu ga za obe strani položite na isto mesto (oznake za poravnavo kažejo kam).

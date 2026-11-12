@@ -1451,3 +1451,5 @@
 1450|El eje rotativo del dispositivo está desactivado.
 1451|Proyecto configurado: un cilindro de Ø {} mm y {} mm de largo en el eje rotativo (activado), cero en {}
 1452|Proyecto configurado: material {} x {} x {} mm, cero: {}
+1453|Hoja
+1454|El material está en la esquina del cero de la máquina. En un trabajo a dos caras ponlo en el mismo sitio para ambas caras (las marcas de alineación muestran dónde).
