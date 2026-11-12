@@ -1396,3 +1396,17 @@
 1395	No-go zones…
 1396	Layer presets…
 1397	Saved positions…
+1398	Web server and API
+1399	A web page with the state of the machine, the project and the camera, and an API for other programs. Every request needs the access phrase; there is no encryption.
+1400	Switch on the web server and the API
+1401	Reachable from other computers on the network
+1402	Access phrase
+1403	Use this access phrase from now on
+1404	The access phrase cannot be empty or have control characters.
+1405	Anyone on the network who knows the access phrase can see the machine and stop or move it. The phrase is sent without encryption: use only on a network you trust.
+1406	Listening on {}
+1407	The server could not start: {}
+1408	Web server: on, port {}
+1409	Web server: error
+1410	A web page with the project, and an API for other programs. Every request needs the access phrase; there is no encryption.
+1411	Anyone on the network who knows the access phrase can see the project. The phrase is sent without encryption: use only on a network you trust.

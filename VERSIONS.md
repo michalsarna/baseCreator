@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.93.0
+
+- **Web server and API for every program** (`web_api`, moved from LightCreator): **Settings → Program options…** switches on a page with the project and an API (`/api/status`, `/api/project.svg`, …), behind an access phrase (at first the name of the program). Programs with a machine also show it, its cameras and STOP / Home / jog; BaseCreator shows the project. The default ports go up from LightCreator's: 8765 LightCreator, 8766 MillCreator, 8767 PenCreator, 8768 BaseCreator, so that all of them can run on one computer.
+- 14 texts in every language (12 moved from LightCreator).
+
 ## v1.92.1
 
 - **rfd 0.18** (the file dialogs; Dependabot PenCreator #185): nothing changes for the person using the program.

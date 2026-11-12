@@ -1396,3 +1396,17 @@
 1395|Prepovedana območja…
 1396|Prednastavitve plasti…
 1397|Shranjeni položaji…
+1398|Spletni strežnik in API
+1399|Spletna stran s stanjem stroja, projektom in kamero ter API za druge programe. Vsaka zahteva potrebuje dostopno frazo; šifriranja ni.
+1400|Vklopi spletni strežnik in API
+1401|Dosegljivo z drugih računalnikov v omrežju
+1402|Dostopna fraza
+1403|Odslej uporabljaj to dostopno frazo
+1404|Dostopna fraza ne sme biti prazna ali vsebovati kontrolnih znakov.
+1405|Vsak v omrežju, ki pozna dostopno frazo, lahko vidi stroj ter ga ustavi ali premakne. Fraza se pošilja nešifrirana: uporabljajte le v omrežju, ki mu zaupate.
+1406|Posluša na {}
+1407|Strežnika ni bilo mogoče zagnati: {}
+1408|Spletni strežnik: vklopljen, vrata {}
+1409|Spletni strežnik: napaka
+1410|Spletna stran s projektom in API za druge programe. Vsaka zahteva potrebuje dostopno frazo; šifriranja ni.
+1411|Vsak v omrežju, ki pozna dostopno frazo, lahko vidi projekt. Fraza se pošlje nešifrirana: uporabljajte le v zaupanja vrednem omrežju.

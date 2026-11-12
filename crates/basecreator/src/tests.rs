@@ -477,3 +477,20 @@ fn the_same_things_have_the_same_polish_names() {
 fn the_fonts_draw_every_symbol_of_the_program() {
     base_ui::tool_check::check_symbols(&std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src"));
 }
+
+#[test]
+fn the_web_server_shows_the_project_and_its_settings_are_kept() {
+    let mut a = app();
+    assert!(!a.web.on && a.web.port == base_ui::web_api::PORT_BASECREATOR, "off, on its own port");
+    assert!(a.settings_pairs().iter().any(|(k, _)| *k == "api_port"));
+    a.web.on = true;
+    a.web.port = 0;
+    a.scene.add(0, base_core::scene::Kind::Rect { w: 10.0, h: 10.0 }, base_core::geom::Xf::IDENTITY);
+    let ctx = egui::Context::default();
+    a.web_tick(&ctx);
+    let shared = a.web.server.as_ref().expect("started").shared.clone();
+    let st = shared.status.lock().unwrap().clone();
+    assert_eq!((st["app"].as_str(), st["machine"].as_bool()), (Some("BaseCreator"), Some(false)));
+    assert!(shared.svg.lock().unwrap().1.contains("<svg"));
+    assert_eq!(*shared.access.lock().unwrap(), "BaseCreator");
+}

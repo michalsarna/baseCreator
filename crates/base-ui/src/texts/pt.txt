@@ -1396,3 +1396,17 @@
 1395|Zonas proibidas…
 1396|Predefinições de camadas…
 1397|Posições guardadas…
+1398|Servidor web e API
+1399|Uma página web com o estado da máquina, o projeto e a câmara, e uma API para outros programas. Cada pedido precisa da frase de acesso; não há cifragem.
+1400|Ligar o servidor web e a API
+1401|Acessível a partir de outros computadores da rede
+1402|Frase de acesso
+1403|Usar esta frase de acesso a partir de agora
+1404|A frase de acesso não pode estar vazia nem ter caracteres de controlo.
+1405|Qualquer pessoa na rede que conheça a frase de acesso pode ver a máquina e pará-la ou movê-la. A frase é enviada sem cifragem: use apenas numa rede de confiança.
+1406|A escutar em {}
+1407|Não foi possível iniciar o servidor: {}
+1408|Servidor web: ligado, porta {}
+1409|Servidor web: erro
+1410|Uma página web com o projeto e uma API para outros programas. Cada pedido precisa da frase de acesso; não há encriptação.
+1411|Qualquer pessoa na rede que conheça a frase de acesso pode ver o projeto. A frase é enviada sem encriptação: use apenas numa rede de confiança.

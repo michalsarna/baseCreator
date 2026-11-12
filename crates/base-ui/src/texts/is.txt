@@ -1396,3 +1396,17 @@
 1395|Bannsvæði…
 1396|Forstillingar laga…
 1397|Vistaðar stöður…
+1398|Vefþjónn og API
+1399|Vefsíða með stöðu vélarinnar, verkefninu og myndavélinni, og API fyrir önnur forrit. Hver beiðni þarf aðgangssetninguna; engin dulritun er til staðar.
+1400|Kveikja á vefþjóni og API
+1401|Aðgengilegt úr öðrum tölvum á netinu
+1402|Aðgangssetning
+1403|Nota þessa aðgangssetningu héðan í frá
+1404|Aðgangssetningin má ekki vera tóm eða innihalda stjórnstafi.
+1405|Hver sem er á netinu sem þekkir aðgangssetninguna getur séð vélina og stöðvað hana eða fært. Setningin er send ódulrituð: notaðu aðeins á neti sem þú treystir.
+1406|Hlustar á {}
+1407|Ekki tókst að ræsa netþjóninn: {}
+1408|Vefþjónn: á, gátt {}
+1409|Vefþjónn: villa
+1410|Vefsíða með verkefninu og API fyrir önnur forrit. Hver beiðni þarf aðgangsorðasambandið; engin dulkóðun er.
+1411|Hver sem er á netinu og þekkir aðgangsorðasambandið getur séð verkefnið. Það er sent ódulkóðað: notaðu aðeins á neti sem þú treystir.

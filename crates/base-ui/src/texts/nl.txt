@@ -1396,3 +1396,17 @@
 1395|Verboden zones…
 1396|Laagvoorinstellingen…
 1397|Opgeslagen posities…
+1398|Webserver en API
+1399|Een webpagina met de toestand van de machine, het project en de camera, en een API voor andere programma's. Elk verzoek heeft de toegangszin nodig; er is geen versleuteling.
+1400|Webserver en API inschakelen
+1401|Bereikbaar vanaf andere computers in het netwerk
+1402|Toegangszin
+1403|Gebruik deze toegangszin vanaf nu
+1404|De toegangszin mag niet leeg zijn of stuurtekens bevatten.
+1405|Iedereen op het netwerk die de toegangszin kent, kan de machine zien en stoppen of verplaatsen. De zin wordt onversleuteld verstuurd: gebruik alleen op een netwerk dat je vertrouwt.
+1406|Luistert op {}
+1407|De server kon niet starten: {}
+1408|Webserver: aan, poort {}
+1409|Webserver: fout
+1410|Een webpagina met het project en een API voor andere programma's. Elk verzoek heeft de toegangszin nodig; er is geen versleuteling.
+1411|Iedereen op het netwerk die de toegangszin kent, kan het project zien. De zin wordt onversleuteld verstuurd: alleen gebruiken op een vertrouwd netwerk.

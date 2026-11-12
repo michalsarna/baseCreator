@@ -202,6 +202,8 @@ struct App {
     quitting: bool,
     /// The last tab was closed: the program closes too.
     close_program: bool,
+    /// The web server with the page of the project (Program options).
+    web: base_ui::web_api::WebApi,
     /// The last tab was closed: asking whether to close the program or to go back to the start screen.
     ask_quit: bool,
     allow_close: bool,
@@ -306,6 +308,7 @@ impl App {
             slot: 0,
             quitting: false,
             close_program: false,
+            web: base_ui::web_api::WebApi::from_saved("BaseCreator", base_ui::web_api::PORT_BASECREATOR, &|k| saved(k)),
             ask_quit: false,
             allow_close: false,
             parked_saved_at: std::time::Instant::now(),
@@ -345,6 +348,18 @@ impl App {
             ("side_collapsed", flag(self.tabs.collapsed)),
             ("recent_files", self.recent.iter().map(|p| p.to_string_lossy().into_owned()).collect::<Vec<_>>().join("\n")),
         ]
+        .into_iter()
+        .chain(self.web.settings_pairs())
+        .collect()
+    }
+
+    /// The web server: started or stopped as the options say, and the page of the project kept up to date.
+    fn web_tick(&mut self, ctx: &egui::Context) {
+        let (_, shared) = self.web.tick(ctx);
+        let Some(shared) = shared else { return };
+        let name = self.path.as_ref().and_then(|p| p.file_name()).map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+        let status = base_ui::web_api::drawing_status("BaseCreator", VERSION, self.scheme.id(), &name, self.rev, &self.description);
+        base_ui::web_api::WebApi::publish(&shared, status, serde_json::json!({ "cameras": [] }), self.rev, &|| base_ui::web_api::drawing_svg(self));
     }
 
     fn add_recent(&mut self, p: &std::path::Path) {
@@ -726,6 +741,10 @@ impl App {
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 base_ui::editor::zoom_and_cursor(self, ui);
                 ui.separator();
+                if let Some((word, colour)) = self.web.status_word() {
+                    ui.label(RichText::new(word).color(colour));
+                    ui.separator();
+                }
                 let page = format!("{} × {}", base_ui::units_ui::fmt_len(self.units, self.page.w, 0), base_ui::units_ui::fmt_len(self.units, self.page.h, 0));
                 if ui.add(egui::Button::new(RichText::new(page).color(theme::text_dim())).frame(false)).on_hover_text(tr("Page setup…")).clicked() {
                     self.show_page = true;
@@ -876,6 +895,7 @@ impl App {
     fn draw(&mut self, ui: &mut egui::Ui) {
         let ctx = ui.ctx().clone();
         self.autosave_tick(&ctx, false);
+        self.web_tick(&ctx);
         #[cfg(target_os = "macos")]
         self.native_menu_frame(&ctx);
         self.title_bar(ui);

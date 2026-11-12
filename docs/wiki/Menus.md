@@ -57,7 +57,7 @@ The same commands are in the right-click menu of a shape; they are explained on 
 | Entry | What it does |
 |---|---|
 | **View options…** | The grid, the colours of the work area, the thickness of the lines, **Show layer names**. |
-| **Program options…** | **Look for a newer version when the program starts** (on by default). |
+| **Program options…** | **Look for a newer version when the program starts** (on by default), and the **web server and API**: a page with the project (an SVG that follows the drawing) and an API at `http://localhost:8768` (off by default; the port, other computers of the network, and the access phrase, at first `BaseCreator`, asked by the browser with any user name). The other programs have the same server on the ports 8765 (LightCreator), 8766 (MillCreator) and 8767 (PenCreator). |
 | **Plugins…** | See [Plugins](Plugins). |
 | **Language** | 30 languages. |
 | **Colour scheme** | 18 colour schemes, and two festive ones around Christmas, the New Year, Halloween, Easter and the Chinese New Year. |

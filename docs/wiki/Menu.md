@@ -57,7 +57,7 @@ Te same polecenia są w menu kształtu pod prawym przyciskiem; opisuje je strona
 | Pozycja | Co robi |
 |---|---|
 | **Opcje widoku…** | Siatka, kolory obszaru roboczego, grubość linii, **Pokaż nazwy warstw**. |
-| **Opcje programu…** | **Szukaj nowszej wersji przy uruchamianiu programu** (domyślnie włączone). |
+| **Opcje programu…** | **Szukaj nowszej wersji przy uruchamianiu programu** (domyślnie włączone) oraz **serwer WWW i API**: strona z projektem (SVG nadążający za rysunkiem) i API pod `http://localhost:8768` (domyślnie wyłączone; port, dostęp z innych komputerów sieci i fraza dostępu, na początku `BaseCreator`, o którą przeglądarka pyta z dowolną nazwą użytkownika). Pozostałe programy mają ten sam serwer na portach 8765 (LightCreator), 8766 (MillCreator) i 8767 (PenCreator). |
 | **Wtyczki…** | Zobacz [Wtyczki](Wtyczki). |
 | **Język** | 30 języków. |
 | **Schemat kolorów** | 18 schematów kolorów oraz dwa świąteczne w okolicach Bożego Narodzenia, Nowego Roku, Halloween, Wielkanocy i Chińskiego Nowego Roku. |

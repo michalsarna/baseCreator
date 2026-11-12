@@ -1396,3 +1396,17 @@
 1395|Keelutsoonid…
 1396|Kihtide eelseadistused…
 1397|Salvestatud asukohad…
+1398|Veebiserver ja API
+1399|Veebileht masina oleku, projekti ja kaameraga ning API teistele programmidele. Iga päring vajab juurdepääsufraasi; krüpteerimist ei ole.
+1400|Lülita sisse veebiserver ja API
+1401|Ligipääsetav teistest võrgu arvutitest
+1402|Juurdepääsufraas
+1403|Kasuta nüüdsest seda juurdepääsufraasi
+1404|Juurdepääsufraas ei tohi olla tühi ega sisaldada juhtmärke.
+1405|Igaüks võrgus, kes juurdepääsufraasi teab, näeb masinat ning võib selle peatada või liigutada. Fraas saadetakse krüpteerimata: kasuta ainult usaldusväärses võrgus.
+1406|Kuulab aadressil {}
+1407|Serverit ei õnnestunud käivitada: {}
+1408|Veebiserver: sees, port {}
+1409|Veebiserver: viga
+1410|Veebileht projektiga ja API teistele programmidele. Iga päring vajab pääsufraasi; krüpteerimist pole.
+1411|Igaüks võrgus, kes teab pääsufraasi, näeb projekti. Fraas saadetakse krüpteerimata: kasuta ainult usaldusväärses võrgus.

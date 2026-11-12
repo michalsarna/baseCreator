@@ -1396,3 +1396,17 @@
 1395|Żoni pprojbiti…
 1396|Presets tas-saffi…
 1397|Pożizzjonijiet issejvjati…
+1398|Server tal-web u API
+1399|Paġna tal-web bl-istat tal-magna, il-proġett u l-kamera, u API għal programmi oħra. Kull talba teħtieġ il-frażi ta' aċċess; m'hemm l-ebda ċifrar.
+1400|Ixgħel is-server tal-web u l-API
+1401|Aċċessibbli minn kompjuters oħra fin-netwerk
+1402|Frażi ta' aċċess
+1403|Uża din il-frażi ta' aċċess minn issa
+1404|Il-frażi ta' aċċess ma tistax tkun vojta jew ikollha karattri ta' kontroll.
+1405|Kull persuna fin-netwerk li tkun taf il-frażi ta' aċċess tista' tara l-magna u twaqqafha jew tċaqlaqha. Il-frażi tintbagħat mingħajr ċifrar: uża biss f'netwerk li tafda.
+1406|Qed jisma' fuq {}
+1407|Is-server ma setax jibda: {}
+1408|Server tal-web: mixgħul, port {}
+1409|Server tal-web: żball
+1410|Paġna tal-web bil-proġett u API għal programmi oħra. Kull talba teħtieġ il-frażi tal-aċċess; m'hemmx kriptaġġ.
+1411|Kulħadd fuq in-netwerk li jaf il-frażi tal-aċċess jista' jara l-proġett. Il-frażi tintbagħat mingħajr kriptaġġ: uża biss fuq netwerk fdat.

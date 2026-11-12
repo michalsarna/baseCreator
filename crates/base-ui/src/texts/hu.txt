@@ -1396,3 +1396,17 @@
 1395|Tiltott zónák…
 1396|Rétegsablonok…
 1397|Mentett pozíciók…
+1398|Webszerver és API
+1399|Weboldal a gép állapotával, a projekttel és a kamerával, valamint API más programoknak. Minden kérés hozzáférési mondatot igényel; nincs titkosítás.
+1400|Webszerver és API bekapcsolása
+1401|Elérhető a hálózat más számítógépeiről
+1402|Hozzáférési mondat
+1403|Ezt a hozzáférési mondatot használja mostantól
+1404|A hozzáférési mondat nem lehet üres, és nem tartalmazhat vezérlőkaraktert.
+1405|A hálózaton bárki, aki ismeri a hozzáférési mondatot, láthatja a gépet, leállíthatja vagy mozgathatja. A mondat titkosítás nélkül megy át: csak megbízható hálózaton használd.
+1406|Figyel ezen: {}
+1407|A szervert nem sikerült elindítani: {}
+1408|Webszerver: be, port {}
+1409|Webszerver: hiba
+1410|Weboldal a projekttel és API más programoknak. Minden kéréshez kell a hozzáférési kifejezés; nincs titkosítás.
+1411|A hálózaton bárki, aki ismeri a hozzáférési kifejezést, láthatja a projektet. A kifejezés titkosítás nélkül megy: csak megbízható hálózaton használja.

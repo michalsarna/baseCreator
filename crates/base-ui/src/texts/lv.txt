@@ -1396,3 +1396,17 @@
 1395|Aizliegtās zonas…
 1396|Slāņu sagataves…
 1397|Saglabātās pozīcijas…
+1398|Tīmekļa serveris un API
+1399|Tīmekļa lapa ar iekārtas stāvokli, projektu un kameru, kā arī API citām programmām. Katram pieprasījumam vajadzīga piekļuves frāze; šifrēšanas nav.
+1400|Ieslēgt tīmekļa serveri un API
+1401|Pieejams no citiem tīkla datoriem
+1402|Piekļuves frāze
+1403|Turpmāk izmantot šo piekļuves frāzi
+1404|Piekļuves frāze nedrīkst būt tukša vai saturēt vadības rakstzīmes.
+1405|Ikviens tīklā, kas zina piekļuves frāzi, var redzēt iekārtu un to apturēt vai pārvietot. Frāze tiek sūtīta nešifrēta: izmantojiet tikai uzticamā tīklā.
+1406|Klausās uz {}
+1407|Serveri neizdevās palaist: {}
+1408|Tīmekļa serveris: ieslēgts, ports {}
+1409|Tīmekļa serveris: kļūda
+1410|Tīmekļa lapa ar projektu un API citām programmām. Katram pieprasījumam vajag piekļuves frāzi; šifrēšanas nav.
+1411|Ikviens tīklā, kas zina piekļuves frāzi, var redzēt projektu. Frāze tiek sūtīta nešifrēta: lietojiet tikai uzticamā tīklā.

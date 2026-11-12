@@ -62,6 +62,7 @@ impl App {
         if let Some(v) = get("check_updates") {
             self.check_updates = v == "1";
         }
+        self.web.restore(&|k| get(k).map(String::from));
         self.tabs.restore(get("tab_order").unwrap_or(""), get("side_collapsed").is_some_and(|v| v == "1"));
         if let Some(r) = get("recent_files") {
             self.recent = r.lines().map(PathBuf::from).take(crate::MAX_RECENT).collect();
