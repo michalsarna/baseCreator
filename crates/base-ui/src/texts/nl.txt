@@ -1448,3 +1448,6 @@
 1447|Papierformaat
 1448|Aangepast
 1449|De formaten die in het werkgebied van de machine passen: ↕ staand, ↔ liggend.
+1450|De draaias van het apparaat staat uit.
+1451|Project ingesteld: een cilinder Ø {} mm en {} mm lang op de draaias (aan), nulpunkt {}
+1452|Project ingesteld: materiaal {} x {} x {} mm, nulpunt: {}

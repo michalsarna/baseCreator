@@ -1448,3 +1448,6 @@
 1447|Daqs tal-karta
 1448|Personalizzat
 1449|Id-daqsijiet li joqogħdu fiż-żona tax-xogħol tal-magna: ↕ wieqfa, ↔ mimduda.
+1450|Il-fus li jdur tal-apparat huwa mitfi.
+1451|Proġett issettjat: ċilindru ta' Ø {} mm u {} mm twil fuq il-fus li jdur (mixgħul), żero f'{}
+1452|Il-proġett issettjat: materjal {} x {} x {} mm, żero: {}

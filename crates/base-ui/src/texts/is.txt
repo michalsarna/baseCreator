@@ -1448,3 +1448,6 @@
 1447|Pappírsstærð
 1448|Sérsniðið
 1449|Stærðirnar sem passa á vinnusvæði vélarinnar: ↕ upprétt, ↔ liggjandi.
+1450|Slökkt er á snúningsás tækisins.
+1451|Verkefni stillt: sívalningur Ø {} mm og {} mm langur á snúningsásnum (kveikt), núll: {}
+1452|Verkefni stillt: efni {} x {} x {} mm, núll: {}

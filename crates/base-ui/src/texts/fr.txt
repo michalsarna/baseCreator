@@ -1448,3 +1448,6 @@
 1447|Format du papier
 1448|Personnalisé
 1449|Les formats qui tiennent dans la zone de travail de la machine : ↕ portrait, ↔ paysage.
+1450|L'axe rotatif de l'appareil est désactivé.
+1451|Projet configuré : un cylindre de Ø {} mm et {} mm de long sur l'axe rotatif (activé), zéro en {}
+1452|Projet réglé : matériau {} x {} x {} mm, zéro : {}

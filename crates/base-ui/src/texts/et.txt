@@ -1448,3 +1448,6 @@
 1447|Paberi suurus
 1448|Kohandatud
 1449|Suurused, mis mahuvad masina tööalale: ↕ püsti, ↔ pikali.
+1450|Seadme pöördtelg on väljas.
+1451|Projekt seadistatud: silinder Ø {} mm, pikkus {} mm, pöördteljel (sees), null: {}
+1452|Projekt seadistatud: materjal {} x {} x {} mm, null: {}

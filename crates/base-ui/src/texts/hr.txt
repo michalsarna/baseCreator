@@ -1448,3 +1448,6 @@
 1447|Veličina papira
 1448|Prilagođeno
 1449|Veličine koje stanu u radno područje stroja: ↕ uspravno, ↔ položeno.
+1450|Rotacijska os uređaja je isključena.
+1451|Projekt postavljen: valjak Ø {} mm duljine {} mm na rotacijskoj osi (uključenoj), nula: {}
+1452|Projekt postavljen: materijal {} x {} x {} mm, nula: {}

@@ -1448,3 +1448,6 @@
 1447|Mida del paper
 1448|Personalitzat
 1449|Les mides que caben a l'àrea de treball de la màquina: ↕ vertical, ↔ horitzontal.
+1450|L'eix rotatiu del dispositiu està desactivat.
+1451|Projecte configurat: un cilindre de Ø {} mm i {} mm de llarg a l'eix rotatiu (activat), zero a {}
+1452|Projecte configurat: material {} x {} x {} mm, zero: {}

@@ -1448,3 +1448,6 @@
 1447|Velikost papirja
 1448|Po meri
 1449|Velikosti, ki se prilegajo delovnemu območju stroja: ↕ pokončno, ↔ ležeče.
+1450|Vrtljiva os naprave je izklopljena.
+1451|Projekt nastavljen: valj Ø {} mm, dolg {} mm, na vrtljivi osi (vklopljeni), ničla: {}
+1452|Projekt nastavljen: material {} x {} x {} mm, ničla: {}

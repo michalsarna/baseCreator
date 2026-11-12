@@ -1448,3 +1448,6 @@
 1447|Dimensiunea hârtiei
 1448|Personalizat
 1449|Dimensiunile care încap în zona de lucru a mașinii: ↕ vertical, ↔ orizontal.
+1450|Axa rotativă a dispozitivului este oprită.
+1451|Proiect configurat: un cilindru de Ø {} mm și {} mm lungime pe axa rotativă (pornită), zero la {}
+1452|Proiect configurat: material {} x {} x {} mm, zero: {}

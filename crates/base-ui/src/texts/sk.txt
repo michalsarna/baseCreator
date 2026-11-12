@@ -1448,3 +1448,6 @@
 1447|Veľkosť papiera
 1448|Vlastné
 1449|Veľkosti, ktoré sa zmestia do pracovnej plochy stroja: ↕ na výšku, ↔ na šírku.
+1450|Otočná os zariadenia je vypnutá.
+1451|Projekt nastavený: valec Ø {} mm dlhý {} mm na otočnej osi (zapnutej), nula: {}
+1452|Projekt nastavený: materiál {} x {} x {} mm, nula: {}

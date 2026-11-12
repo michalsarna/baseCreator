@@ -1448,3 +1448,6 @@
 1447|Papirstørrelse
 1448|Egendefinert
 1449|Størrelsene som passer i maskinens arbeidsområde: ↕ stående, ↔ liggende.
+1450|Enhetens dreieakse er slått av.
+1451|Prosjekt satt opp: en sylinder Ø {} mm og {} mm lang på dreieaksen (slått på), nullpunkt {}
+1452|Prosjekt satt opp: materiale {} x {} x {} mm, null: {}

@@ -1448,3 +1448,6 @@
 1447|Papírméret
 1448|Egyéni
 1449|A gép munkaterületébe férő méretek: ↕ álló, ↔ fekvő.
+1450|Az eszköz forgótengelye ki van kapcsolva.
+1451|Projekt beállítva: Ø {} mm-es, {} mm hosszú henger a forgótengelyen (bekapcsolva), nullpont: {}
+1452|Projekt beállítva: anyag {} x {} x {} mm, nulla: {}

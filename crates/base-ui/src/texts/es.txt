@@ -1448,3 +1448,6 @@
 1447|Tamaño del papel
 1448|Personalizado
 1449|Los tamaños que caben en el área de trabajo de la máquina: ↕ vertical, ↔ horizontal.
+1450|El eje rotativo del dispositivo está desactivado.
+1451|Proyecto configurado: un cilindro de Ø {} mm y {} mm de largo en el eje rotativo (activado), cero en {}
+1452|Proyecto configurado: material {} x {} x {} mm, cero: {}

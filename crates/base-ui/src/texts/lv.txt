@@ -1448,3 +1448,6 @@
 1447|Papīra izmērs
 1448|Pielāgots
 1449|Izmēri, kas ietilpst mašīnas darba laukā: ↕ stāvus, ↔ guļus.
+1450|Ierīces rotācijas ass ir izslēgta.
+1451|Projekts iestatīts: cilindrs Ø {} mm, {} mm garš, uz rotācijas ass (ieslēgta), nulle: {}
+1452|Projekts iestatīts: materiāls {} x {} x {} mm, nulle: {}

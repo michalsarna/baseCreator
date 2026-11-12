@@ -1448,3 +1448,6 @@
 1447|Pappersstorlek
 1448|Anpassad
 1449|Storlekarna som får plats på maskinens arbetsyta: ↕ stående, ↔ liggande.
+1450|Enhetens rotationsaxel är avslagen.
+1451|Projektet inställt: en cylinder Ø {} mm och {} mm lång på rotationsaxeln (påslagen), nollpunkt {}
+1452|Projekt inställt: material {} x {} x {} mm, noll: {}

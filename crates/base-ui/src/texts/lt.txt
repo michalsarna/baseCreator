@@ -1448,3 +1448,6 @@
 1447|Popieriaus dydis
 1448|Pasirinktinis
 1449|Dydžiai, telpantys mašinos darbo srityje: ↕ stačiai, ↔ gulsčiai.
+1450|Įrenginio sukimo ašis išjungta.
+1451|Projektas nustatytas: cilindras Ø {} mm, {} mm ilgio, ant sukimo ašies (įjungta), nulis: {}
+1452|Projektas nustatytas: medžiaga {} x {} x {} mm, nulis: {}

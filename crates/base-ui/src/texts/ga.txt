@@ -1448,3 +1448,6 @@
 1447|Méid an pháipéir
 1448|Saincheaptha
 1449|Na méideanna a oireann do limistéar oibre an mheaisín: ↕ ina seasamh, ↔ ina luí.
+1450|Tá ais rothlach an ghléis múchta.
+1451|Tionscadal socraithe: sorcóir Ø {} mm agus {} mm ar fad ar an ais rothlach (ar siúl), náid ag {}
+1452|Socraíodh an tionscadal: ábhar {} x {} x {} mm, nialas: {}
