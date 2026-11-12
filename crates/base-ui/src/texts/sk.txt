@@ -1396,3 +1396,17 @@
 1395|Zakázané zóny…
 1396|Predvoľby vrstiev…
 1397|Uložené pozície…
+1398|Webový server a API
+1399|Webová stránka so stavom stroja, projektom a kamerou a API pre iné programy. Každá požiadavka vyžaduje prístupovú frázu; šifrovanie nie je.
+1400|Zapnúť webový server a API
+1401|Dostupný z iných počítačov v sieti
+1402|Prístupová fráza
+1403|Používať túto prístupovú frázu odteraz
+1404|Prístupová fráza nesmie byť prázdna ani obsahovať riadiace znaky.
+1405|Ktokoľvek v sieti, kto pozná prístupovú frázu, môže stroj vidieť a zastaviť alebo posunúť. Fráza sa posiela bez šifrovania: používajte len v sieti, ktorej veríte.
+1406|Počúva na {}
+1407|Server sa nepodarilo spustiť: {}
+1408|Webový server: zapnutý, port {}
+1409|Webový server: chyba
+1410|Webová stránka s projektom a API pre iné programy. Každá požiadavka potrebuje prístupovú frázu; nie je tu šifrovanie.
+1411|Ktokoľvek v sieti, kto pozná prístupovú frázu, môže vidieť projekt. Fráza sa posiela bez šifrovania: používajte len v dôveryhodnej sieti.

@@ -1396,3 +1396,17 @@
 1395|Criosanna toirmiscthe…
 1396|Réamhshocruithe sraitheanna…
 1397|Suímh shábháilte…
+1398|Freastalaí gréasáin agus API
+1399|Leathanach gréasáin le staid an mheaisín, an tionscadal agus an ceamara, agus API do chláir eile. Teastaíonn an abairt rochtana ó gach iarratas; níl criptiú ann.
+1400|Cuir an freastalaí gréasáin agus an API ar siúl
+1401|Inrochtana ó ríomhairí eile ar an líonra
+1402|Abairt rochtana
+1403|Úsáid an abairt rochtana seo as seo amach
+1404|Ní féidir an abairt rochtana a bheith folamh ná carachtair rialaithe a bheith inti.
+1405|Is féidir le duine ar bith ar an líonra a bhfuil an abairt rochtana ar eolas aige an meaisín a fheiceáil agus é a stopadh nó a bhogadh. Seoltar an abairt gan chriptiú: ná húsáid ach ar líonra a bhfuil muinín agat as.
+1406|Ag éisteacht ar {}
+1407|Níorbh fhéidir an freastalaí a thosú: {}
+1408|Freastalaí gréasáin: ar siúl, port {}
+1409|Freastalaí gréasáin: earráid
+1410|Leathanach gréasáin leis an tionscadal agus API do chláir eile. Teastaíonn an frása rochtana ó gach iarratas; níl criptiú ann.
+1411|Is féidir le duine ar bith ar an líonra a bhfuil an frása rochtana aige an tionscadal a fheiceáil. Seoltar an frása gan chriptiú: úsáid ar líonra iontaofa amháin.

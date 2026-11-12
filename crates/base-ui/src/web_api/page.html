@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}</title>
+<style>
+:root{--panel:#2a2d33;--panel-dark:#1f2125;--border:#3d4350;--workspace:#16171a;--text:#e6e6e6;--dim:#9a9aa6;--widget:#3d4350;--hover:#4d5568;--input:#1a1b1e;--accent:#e8573f;--ok:#2ea04f;--stop:#c03030}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:var(--workspace);color:var(--text)}
+header{padding:8px 14px;background:var(--panel);border-bottom:1px solid var(--border);display:flex;gap:6px 16px;align-items:center;flex-wrap:wrap}
+header b{font-size:16px}
+header .sp{flex:1}
+#state{font-weight:bold;color:var(--accent)}
+#time{font-variant-numeric:tabular-nums}
+.bar{background:var(--widget);border-radius:4px;height:8px;overflow:hidden;min-width:120px;flex:0 1 160px}
+.bar i{display:block;height:100%;background:var(--ok);width:0}
+select{font-size:14px;padding:5px 6px;background:var(--input);color:var(--text);border:1px solid var(--border);border-radius:5px}
+main{display:grid;gap:14px;padding:14px;grid-template-columns:2fr 1fr;grid-template-areas:"cam ctl" "cam prev";grid-template-rows:auto 1fr;align-items:start}
+@media (max-width:800px){main{grid-template-columns:1fr;grid-template-areas:"cam" "prev" "ctl";grid-template-rows:auto;padding:10px;gap:10px}}
+section{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:10px;min-width:0}
+#cam{grid-area:cam}#ctl{grid-area:ctl}#prev{grid-area:prev}
+h2{margin:0 0 8px;font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:8px;justify-content:space-between}
+.view{background:var(--panel-dark);border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:200px}
+#camview{aspect-ratio:4/3;width:100%}
+#camview{position:relative}
+#camview img{width:100%;height:100%;object-fit:contain;display:block;flex:none}
+.nocam{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--dim);padding:20px;text-align:center}
+.nocam svg{width:min(40%,180px);height:auto;stroke:var(--dim)}
+button{font-size:15px;padding:9px 12px;border:0;border-radius:6px;background:var(--widget);color:var(--text);cursor:pointer;touch-action:manipulation}
+button:hover{background:var(--hover)}
+button.stop{background:var(--stop);color:#fff;font-weight:bold}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row button{flex:1 1 auto}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:240px;margin:10px auto 4px}
+.pad button{padding:12px 0;font-size:18px}
+.warn{color:var(--dim);font-size:12px;margin-top:8px}
+#pvbox{position:relative;touch-action:manipulation;cursor:zoom-in;background:#fff;border-radius:4px;overflow:hidden}
+#pvbox img{width:100%;display:block;user-select:none;-webkit-user-drag:none}
+#pvtools{display:none}
+#prev.full{position:fixed;inset:0;z-index:10;border-radius:0;border:0;display:flex;flex-direction:column;background:var(--workspace);padding:8px}
+#prev.full h2{display:none}
+#prev.full #pvtools{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;align-items:center}
+#prev.full #pvbox{flex:1;cursor:grab;touch-action:none;border-radius:0}
+#prev.full #pvin{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform-origin:0 0}
+#prev.full #pvbox img{width:auto;height:auto;max-width:100%;max-height:100%}
+#pvtools button{padding:8px 12px;min-width:42px}
+#pvtools .sp{flex:1}
+body.nomach main{grid-template-areas:"prev" !important;grid-template-columns:1fr !important}
+</style></head><body>
+<header><b>{{APP}}</b><span id="dev"></span><span id="state"></span><span id="pos"></span><span id="time"></span><span class="bar"><i id="bar"></i></span><span class="sp"></span>
+<label>Theme <select id="theme"></select></label></header>
+<main>
+<section id="cam"><h2><span>Camera</span><span class="row" style="flex:0 0 auto;gap:6px"><select id="rotsel" title="Rotate the picture" hidden></select><select id="camsel" hidden></select></span></h2><div class="view" id="camview"></div></section>
+<section id="ctl"><h2>Control</h2>
+<div class="row"><button class="stop" onclick="cmd('stop')">STOP</button><button onclick="cmd('home')">Home</button><button onclick="cmd('cancel-jog')">Cancel jog</button></div>
+<div class="pad" id="pad"></div>
+<div class="warn">Protected by the access phrase; the connection is not encrypted.</div></section>
+<section id="prev"><h2><span>Project</span><button id="fsbtn" title="Full screen (or double-click the picture)" style="padding:3px 9px;font-size:13px">⛶</button></h2>
+<div id="pvtools"><button onclick="zoom(1.25)" title="Zoom in">＋</button><button onclick="zoom(0.8)" title="Zoom out">－</button><button onclick="pan(-80,0)" title="Left">←</button><button onclick="pan(0,-80)" title="Up">↑</button><button onclick="pan(0,80)" title="Down">↓</button><button onclick="pan(80,0)" title="Right">→</button><button onclick="resetView()" title="Reset the view">Reset</button><span class="sp"></span><button onclick="closeFull()" title="Close (Esc)">✕</button></div>
+<div id="pvbox"><div id="pvin"><img id="proj" alt="project"></div></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+// ---- themes: the ones of the program; the default is the one it uses ----
+let themes=[],appTheme='';
+function applyTheme(){
+ const want=localStorage.getItem('{{APP}}-theme')||'';
+ const t=themes.find(x=>x.id===(want||appTheme));if(!t)return;
+ const r=document.documentElement.style;
+ for(const [k,v] of Object.entries({'--panel':t.panel,'--panel-dark':t.panel_dark,'--border':t.border,'--workspace':t.workspace,'--text':t.text,'--dim':t.text_dim,'--widget':t.widget,'--hover':t.widget_hover,'--input':t.input,'--accent':t.accent}))r.setProperty(k,v);
+ r.colorScheme=t.dark?'dark':'light';
+}
+function fillThemes(){
+ const s=$('theme');s.innerHTML='';
+ const a=document.createElement('option');a.value='';a.textContent='As in the program';s.appendChild(a);
+ themes.forEach(t=>{const o=document.createElement('option');o.value=t.id;o.textContent=t.label;s.appendChild(o);});
+ s.value=localStorage.getItem('{{APP}}-theme')||'';
+ s.onchange=()=>{localStorage.setItem('{{APP}}-theme',s.value);applyTheme();};
+}
+// ---- control ----
+const dirs=[["up-left","↖"],["up","↑"],["up-right","↗"],["left","←"],["","■"],["right","→"],["down-left","↙"],["down","↓"],["down-right","↘"]];
+for(const [d,t] of dirs){const b=document.createElement('button');b.textContent=t;b.onclick=d?()=>fetch('/api/jog?dir='+d,{method:'POST'}):()=>cmd('cancel-jog');$('pad').appendChild(b);}
+function cmd(c){fetch('/api/'+c,{method:'POST'});}
+const f=s=>{s=Math.max(0,Math.floor(s||0));const p=n=>String(n).padStart(2,'0');return p(Math.floor(s/3600))+':'+p(Math.floor(s/60)%60)+':'+p(s%60)};
+// ---- the project picture: double-click for full screen, with zoom, move and reset ----
+let V={z:1,x:0,y:0};
+function applyView(){$('pvin').style.transform='translate('+V.x+'px,'+V.y+'px) scale('+V.z+')';}
+function resetView(){V={z:1,x:0,y:0};applyView();}
+function zoom(k,cx,cy){const b=$('pvbox').getBoundingClientRect();cx=cx===undefined?b.width/2:cx;cy=cy===undefined?b.height/2:cy;
+ const z=Math.min(40,Math.max(0.2,V.z*k));k=z/V.z;V.x=cx-(cx-V.x)*k;V.y=cy-(cy-V.y)*k;V.z=z;applyView();}
+function pan(dx,dy){V.x+=dx;V.y+=dy;applyView();}
+const isFull=()=>$('prev').classList.contains('full');
+function openFull(){$('prev').classList.add('full');resetView();}
+function closeFull(){$('prev').classList.remove('full');$('pvin').style.transform='';}
+$('pvbox').addEventListener('dblclick',()=>isFull()?resetView():openFull());
+$('fsbtn').onclick=()=>isFull()?closeFull():openFull();
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&isFull())closeFull();});
+$('pvbox').addEventListener('wheel',e=>{if(!isFull())return;e.preventDefault();const b=$('pvbox').getBoundingClientRect();zoom(e.deltaY<0?1.15:1/1.15,e.clientX-b.left,e.clientY-b.top);},{passive:false});
+const ptr=new Map();let lastD=0;
+$('pvbox').addEventListener('pointerdown',e=>{if(!isFull())return;ptr.set(e.pointerId,[e.clientX,e.clientY]);$('pvbox').setPointerCapture(e.pointerId);lastD=0;});
+$('pvbox').addEventListener('pointermove',e=>{if(!isFull()||!ptr.has(e.pointerId))return;
+ const o=ptr.get(e.pointerId);ptr.set(e.pointerId,[e.clientX,e.clientY]);
+ if(ptr.size===1){pan(e.clientX-o[0],e.clientY-o[1]);}
+ else if(ptr.size===2){const [a,b]=[...ptr.values()];const d=Math.hypot(a[0]-b[0],a[1]-b[1]);const r=$('pvbox').getBoundingClientRect();if(lastD)zoom(d/lastD,(a[0]+b[0])/2-r.left,(a[1]+b[1])/2-r.top);lastD=d;}});
+const up=e=>{ptr.delete(e.pointerId);lastD=0;};
+$('pvbox').addEventListener('pointerup',up);$('pvbox').addEventListener('pointercancel',up);
+// ---- the camera: turned like in the program (its setting is the default), or as you choose ----
+let curCam=null;
+const norm=d=>((d%360)+360)%360;
+function rotKey(){return 'lc-rot-'+(curCam?curCam.index:0);}
+function wantRot(){const s=localStorage.getItem(rotKey());return s===null||s===''?norm(curCam?curCam.rotation:0):norm(parseInt(s,10)||0);}
+function layoutCam(){
+ const v=$('camview'),i=v.querySelector('img');if(!i||!curCam)return;
+ const turn=norm(wantRot()-(curCam.url?0:curCam.rotated||0)),odd=turn%180!==0;
+ const cw=v.clientWidth,ch=v.clientHeight;
+ i.style.width=(odd?ch:cw)+'px';i.style.height=(odd?cw:ch)+'px';i.style.transform='rotate('+turn+'deg)';
+}
+function fillRot(){
+ const s=$('rotsel');s.hidden=!curCam;if(!curCam)return;s.innerHTML='';
+ const mk=(v,t)=>{const o=document.createElement('option');o.value=v;o.textContent=t;s.appendChild(o);};
+ mk('','As in the program ('+norm(curCam.rotation)+'°)');[0,90,180,270].forEach(d=>mk(String(d),d+'°'));
+ s.value=localStorage.getItem(rotKey())||'';
+ s.onchange=()=>{if(s.value==='')localStorage.removeItem(rotKey());else localStorage.setItem(rotKey(),s.value);layoutCam();};
+}
+window.addEventListener('resize',layoutCam);
+// ---- the camera ----
+const NOCAM='<div class="nocam"><svg viewBox="0 0 64 64" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18h10l4-6h20l4 6h10a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V20a2 2 0 0 1 2-2z"/><circle cx="32" cy="34" r="9"/><path d="M6 6l52 52" stroke="#e8573f"/></svg><div>No camera</div></div>';
+let rev=-1,camsig='';
+async function tick(){
+ try{
+  const st=await (await fetch('/api/status')).json();
+  $('dev').textContent=(st.device&&st.device.name)||'';
+  $('state').textContent=st.device?(st.device.connected?st.device.state:'not connected'):'';
+  $('pos').textContent=st.device&&st.device.connected?('X '+st.device.x.toFixed(2)+'  Y '+st.device.y.toFixed(2)):'';
+  $('time').textContent=st.job?(f(st.job.elapsed_s)+' / '+f(st.job.estimate_s)):'';
+  $('bar').style.width=st.job&&st.job.total?Math.round(100*st.job.done/st.job.total)+'%':'0';
+  const mach=st.machine!==false;$('cam').hidden=!mach;$('ctl').hidden=!mach;document.body.classList.toggle('nomach',!mach);
+  if(st.theme&&st.theme!==appTheme){appTheme=st.theme;applyTheme();}
+  if(st.project&&st.project.revision!==rev){rev=st.project.revision;$('proj').src='/api/project.svg?r='+rev;}
+  if(!mach)return;
+  const cams=await (await fetch('/api/cameras')).json();
+  const sig=JSON.stringify(cams);
+  if(sig!==camsig){camsig=sig;
+   const list=cams.cameras||[];const sel=$('camsel');sel.innerHTML='';
+   list.forEach(c=>{const o=document.createElement('option');o.value=c.index;o.textContent=c.name+(c.enabled?'':' (off)');if(c.active)o.selected=true;sel.appendChild(o);});
+   sel.hidden=list.length===0;sel.onchange=()=>fetch('/api/camera/select?index='+sel.value,{method:'POST'});
+   const v=$('camview');const a=list.find(c=>c.active&&c.enabled);v.innerHTML='';curCam=a||null;fillRot();
+   if(a&&a.url){const i=document.createElement('img');i.src=a.url;v.appendChild(i);layoutCam();}
+   else if(a){const i=document.createElement('img');i.id='snap';i.onload=()=>setTimeout(snap,400);i.onerror=()=>setTimeout(snap,2000);v.appendChild(i);layoutCam();snap();}
+   else v.innerHTML=NOCAM;
+  }
+ }catch(e){$('state').textContent='no connection to the program';}
+}
+function snap(){const i=$('snap');if(i)i.src='/api/camera.jpg?t='+Date.now();}
+(async()=>{try{themes=await (await fetch('/api/themes')).json();}catch(e){}fillThemes();applyTheme();tick();setInterval(tick,1000);})();
+</script></body></html>

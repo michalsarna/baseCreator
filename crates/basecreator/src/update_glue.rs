@@ -13,10 +13,12 @@ impl App {
     /// Settings → Program options…: what the program does by itself.
     pub(crate) fn program_options_window(&mut self, ctx: &egui::Context) {
         let mut open = self.show_program_options;
-        popup(ctx, "program_options", &tr("Program options"), [380.0, 140.0], &mut open, |ui| {
+        popup(ctx, "program_options", &tr("Program options"), [460.0, 320.0], &mut open, |ui| {
             egui::Grid::new("program_options_grid").num_columns(2).spacing([12.0, 8.0]).show(ui, |ui| {
                 ui.label(tr("Updates"));
                 ui.checkbox(&mut self.check_updates, tr("Look for a newer version when the program starts"));
+                ui.end_row();
+                self.web.options_ui(ui, false);
                 ui.end_row();
             });
         });

@@ -1396,3 +1396,17 @@
 1395|Zabranjene zone…
 1396|Predlošci slojeva…
 1397|Spremljeni položaji…
+1398|Web-poslužitelj i API
+1399|Web stranica sa stanjem stroja, projektom i kamerom te API za druge programe. Svaki zahtjev traži pristupnu frazu; nema šifriranja.
+1400|Uključi web-poslužitelj i API
+1401|Dostupno s drugih računala na mreži
+1402|Pristupna fraza
+1403|Koristi ovu pristupnu frazu od sada
+1404|Pristupna fraza ne smije biti prazna niti sadržavati kontrolne znakove.
+1405|Svatko na mreži tko zna pristupnu frazu može vidjeti stroj te ga zaustaviti ili pomaknuti. Fraza se šalje bez šifriranja: koristite samo na mreži kojoj vjerujete.
+1406|Sluša na {}
+1407|Poslužitelj se nije mogao pokrenuti: {}
+1408|Web poslužitelj: uključen, port {}
+1409|Web poslužitelj: greška
+1410|Web stranica s projektom i API za druge programe. Svaki zahtjev treba pristupnu frazu; nema šifriranja.
+1411|Svatko u mreži tko zna pristupnu frazu može vidjeti projekt. Fraza se šalje bez šifriranja: koristite samo u pouzdanoj mreži.

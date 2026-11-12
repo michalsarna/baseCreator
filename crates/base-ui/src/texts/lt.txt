@@ -1396,3 +1396,17 @@
 1395|Uždraustos zonos…
 1396|Sluoksnių šablonai…
 1397|Įrašytos padėtys…
+1398|Žiniatinklio serveris ir API
+1399|Tinklalapis su aparato būsena, projektu ir kamera bei API kitoms programoms. Kiekvienai užklausai reikia prieigos frazės; šifravimo nėra.
+1400|Įjungti žiniatinklio serverį ir API
+1401|Pasiekiamas iš kitų tinklo kompiuterių
+1402|Prieigos frazė
+1403|Nuo dabar naudoti šią prieigos frazę
+1404|Prieigos frazė negali būti tuščia ar turėti valdymo simbolių.
+1405|Bet kas tinkle, kas žino prieigos frazę, gali matyti aparatą ir jį sustabdyti ar judinti. Frazė siunčiama nešifruota: naudokite tik patikimame tinkle.
+1406|Klausosi {}
+1407|Nepavyko paleisti serverio: {}
+1408|Žiniatinklio serveris: įjungtas, prievadas {}
+1409|Žiniatinklio serveris: klaida
+1410|Tinklalapis su projektu ir API kitoms programoms. Kiekvienai užklausai reikia prieigos frazės; šifravimo nėra.
+1411|Bet kas tinkle, žinantis prieigos frazę, gali matyti projektą. Frazė siunčiama nešifruota: naudokite tik patikimame tinkle.

@@ -1396,3 +1396,17 @@
 1395|Zones prohibides…
 1396|Predefinits de capes…
 1397|Posicions desades…
+1398|Servidor web i API
+1399|Una pàgina web amb l'estat de la màquina, el projecte i la càmera, i una API per a altres programes. Cada petició necessita la frase d'accés; no hi ha xifratge.
+1400|Activa el servidor web i l'API
+1401|Accessible des d'altres ordinadors de la xarxa
+1402|Frase d'accés
+1403|Utilitza aquesta frase d'accés a partir d'ara
+1404|La frase d'accés no pot estar buida ni tenir caràcters de control.
+1405|Qualsevol persona de la xarxa que conegui la frase d'accés pot veure la màquina i aturar-la o moure-la. La frase s'envia sense xifrar: useu-la només en una xarxa de confiança.
+1406|Escoltant a {}
+1407|No s'ha pogut iniciar el servidor: {}
+1408|Servidor web: actiu, port {}
+1409|Servidor web: error
+1410|Una pàgina web amb el projecte i una API per a altres programes. Cada petició necessita la frase d'accés; no hi ha xifratge.
+1411|Qualsevol a la xarxa que conegui la frase d'accés pot veure el projecte. La frase s'envia sense xifrar: feu-ho servir només en una xarxa de confiança.

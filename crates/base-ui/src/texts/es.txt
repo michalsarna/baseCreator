@@ -1396,3 +1396,17 @@
 1395|Zonas prohibidas…
 1396|Ajustes predefinidos de capas…
 1397|Posiciones guardadas…
+1398|Servidor web y API
+1399|Una página web con el estado de la máquina, el proyecto y la cámara, y una API para otros programas. Cada petición necesita la frase de acceso; no hay cifrado.
+1400|Activar el servidor web y la API
+1401|Accesible desde otros ordenadores de la red
+1402|Frase de acceso
+1403|Usar esta frase de acceso a partir de ahora
+1404|La frase de acceso no puede estar vacía ni tener caracteres de control.
+1405|Cualquiera en la red que conozca la frase de acceso puede ver la máquina y detenerla o moverla. La frase se envía sin cifrar: úsala solo en una red de confianza.
+1406|Escuchando en {}
+1407|No se pudo iniciar el servidor: {}
+1408|Servidor web: activo, puerto {}
+1409|Servidor web: error
+1410|Una página web con el proyecto y una API para otros programas. Cada petición necesita la frase de acceso; no hay cifrado.
+1411|Cualquiera en la red que conozca la frase de acceso puede ver el proyecto. La frase se envía sin cifrar: úsalo solo en una red de confianza.

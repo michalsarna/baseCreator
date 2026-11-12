@@ -64,6 +64,7 @@ pub mod texts;
 pub mod theme;
 pub mod tls_ui;
 pub mod tools_ui;
+pub mod web_api;
 pub mod units_ui;
 pub mod window;
 pub mod widgets;

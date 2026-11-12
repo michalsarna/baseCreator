@@ -1396,3 +1396,17 @@
 1395|Förbudszoner…
 1396|Lagerförinställningar…
 1397|Sparade positioner…
+1398|Webbserver och API
+1399|En webbsida med maskinens tillstånd, projektet och kameran samt ett API för andra program. Varje förfrågan kräver åtkomstfrasen; det finns ingen kryptering.
+1400|Slå på webbservern och API:et
+1401|Nåbar från andra datorer i nätverket
+1402|Åtkomstfras
+1403|Använd den här åtkomstfrasen från och med nu
+1404|Åtkomstfrasen får inte vara tom eller ha styrtecken.
+1405|Alla i nätverket som känner till åtkomstfrasen kan se maskinen och stoppa eller flytta den. Frasen skickas okrypterad: använd bara i ett nätverk du litar på.
+1406|Lyssnar på {}
+1407|Servern kunde inte startas: {}
+1408|Webbserver: på, port {}
+1409|Webbserver: fel
+1410|En webbsida med projektet och ett API för andra program. Varje begäran behöver åtkomstfrasen; det finns ingen kryptering.
+1411|Alla på nätverket som känner till åtkomstfrasen kan se projektet. Frasen skickas okrypterad: använd bara på ett nätverk du litar på.

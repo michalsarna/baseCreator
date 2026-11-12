@@ -1396,3 +1396,17 @@
 1395|Zone interzise…
 1396|Presetări de straturi…
 1397|Poziții salvate…
+1398|Server web și API
+1399|O pagină web cu starea mașinii, proiectul și camera, și un API pentru alte programe. Fiecare cerere necesită fraza de acces; nu există criptare.
+1400|Pornește serverul web și API-ul
+1401|Accesibil de pe alte calculatoare din rețea
+1402|Frază de acces
+1403|Folosește această frază de acces de acum
+1404|Fraza de acces nu poate fi goală și nu poate avea caractere de control.
+1405|Oricine din rețea care cunoaște fraza de acces poate vedea mașina și o poate opri sau muta. Fraza este trimisă necriptat: folosiți doar într-o rețea de încredere.
+1406|Ascultă pe {}
+1407|Serverul nu a putut porni: {}
+1408|Server web: pornit, port {}
+1409|Server web: eroare
+1410|O pagină web cu proiectul și un API pentru alte programe. Fiecare cerere are nevoie de fraza de acces; nu există criptare.
+1411|Oricine din rețea care cunoaște fraza de acces poate vedea proiectul. Fraza se trimite necriptată: folosiți doar într-o rețea de încredere.

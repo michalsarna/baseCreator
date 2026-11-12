@@ -1396,3 +1396,17 @@
 1395|Forbudszoner…
 1396|Lagforudindstillinger…
 1397|Gemte positioner…
+1398|Webserver og API
+1399|En webside med maskinens tilstand, projektet og kameraet samt en API til andre programmer. Hver forespørgsel kræver adgangssætningen; der er ingen kryptering.
+1400|Slå webserveren og API'en til
+1401|Tilgængelig fra andre computere på netværket
+1402|Adgangssætning
+1403|Brug denne adgangssætning fra nu af
+1404|Adgangssætningen må ikke være tom eller have styretegn.
+1405|Enhver på netværket, der kender adgangssætningen, kan se maskinen og stoppe eller flytte den. Sætningen sendes uden kryptering: brug kun på et netværk, du stoler på.
+1406|Lytter på {}
+1407|Serveren kunne ikke starte: {}
+1408|Webserver: tændt, port {}
+1409|Webserver: fejl
+1410|En webside med projektet og et API til andre programmer. Hver forespørgsel kræver adgangssætningen; der er ingen kryptering.
+1411|Alle på netværket, der kender adgangssætningen, kan se projektet. Sætningen sendes ukrypteret: brug kun på et netværk, du stoler på.
