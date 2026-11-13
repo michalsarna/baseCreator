@@ -1461,3 +1461,43 @@
 1460|Il-forom tan-naħa l-oħra, maqluba kif inhu l-materjal, imfassla ċari taħt din in-naħa. Ikklikkja waħda biex tallinja jew teħel magħha; qatt ma titmexxa.
 1461|G-code ta' xogħol fuq żewġ naħat
 1462|Ix-xogħol għandu żewġ naħat. Kif għandu jintwera l-G-code?
+1463|Naħat li jinħadmu
+1464|Naħa waħda
+1465|Żewġ naħat
+1466|4 naħat (arblu)
+1467|6 naħat (blokk)
+1468|Il-materjal jinħadem minn fuq biss.
+1469|Arblu mimdud tul X, maħdum fuq l-erba' wiċċijiet twal tiegħu A, B, C u D: bejniethom jiddawwar kwart ta' dawra lura. Kull wiċċ huwa żona tax-xogħol għalih; il-wiċċijiet ta' ħdejh huma mifruxa madwaru u dak taħtu jidher minn ġo fih, bħala ghosts.
+1470|Blokk maħdum fuq is-sitt wiċċijiet kollha tiegħu: minn A sa D jiddawwar kull darba kwart ta' dawra lura, E u F huma t-tarf tax-xellug u tal-lemin imdawra 'l fuq. Kull wiċċ huwa żona tax-xogħol għalih; il-wiċċijiet ta' ħdejh huma mifruxa madwaru u dak taħtu jidher minn ġo fih, bħala ghosts.
+1471|Dejjem mixgħul meta tinħadem aktar minn naħa waħda: kull naħa għandha ż-żona tax-xogħol tagħha, kbira daqs il-materjal hemmhekk, u l-materjal jitqiegħed fuq il-magna bl-istess mod għal kull waħda.
+1472|Naħa tal-bażi a
+1473|Naħa tal-bażi b
+1474|Għoli tal-arblu H
+1475|Naħa a (mix-xellug għal-lemin)
+1476|Naħa b (minn wara għal quddiem)
+1477|Naħa c (għoli)
+1478|L-arblu jinsab tul X bil-wiċċ A 'l fuq, fil-kantuniera taż-żero. Bejn il-wiċċijiet jiddawwar kwart ta' dawra lura, biex il-quddiem jitla' 'l fuq: wiċċijiet A, B, C u D. Kull wiċċ jitpinġa fuq żona tax-xogħol kbira daqs il-wiċċ, u l-materjal taħtu huwa oħxon daqs kemm l-arblu huwa fond hemmhekk.
+1479|Il-blokk jinsab bil-wiċċ A 'l fuq, fil-kantuniera taż-żero. Wiċċijiet minn A sa D: kull darba jiddawwar kwart ta' dawra lura, biex il-quddiem jitla' 'l fuq; E u F: it-tarf tax-xellug u tal-lemin tiegħu mdawra 'l fuq. Kull wiċċ jitpinġa fuq żona tax-xogħol kbira daqs il-wiċċ, u l-materjal taħtu huwa oħxon daqs kemm il-blokk huwa fond hemmhekk.
+1480|Il-wiċċijiet mifruxa madwar A
+1481|Wiċċ {}
+1482|Arblu: 4 wiċċijiet
+1483|Blokk: 6 wiċċijiet
+1484|fuq
+1485|quddiem
+1486|isfel
+1487|wara
+1488|tarf tax-xellug
+1489|tarf tal-lemin
+1490|materjal
+1491|Bejn il-wiċċijiet minn A sa D l-oġġett jiddawwar kwart ta' dawra lura (il-quddiem jitla' 'l fuq); E u F huma t-tarf tax-xellug u tal-lemin tiegħu mdawra 'l fuq.
+1492|Ghosts tal-wiċċijiet l-oħra
+1493|Il-forom tal-wiċċijiet ta' ħdejn dan, mifruxa madwar it-truf tiegħu, u tal-wiċċ taħtu, jidhru minn ġo l-oġġett; imfassla ċari. Ikklikkja waħda biex tallinja jew taqbad magħha; qatt ma titmexxa.
+1494|Fajl wieħed, b'waqfa qabel kull wiċċ biex jiddawwar l-oġġett
+1495|Fajl wieħed, mingħajr waqfiet
+1496|Fajl għal kull wiċċ: isem_A … isem_{}
+1497|G-code ta' xogħol fuq diversi wiċċijiet
+1498|Ix-xogħol għandu diversi wiċċijiet. Kif għandu jintwera l-G-code?
+1499|Issejvja l-G-code ta' xogħol fuq diversi wiċċijiet
+1500|Ix-xogħol għandu diversi wiċċijiet. Kif għandu jiġi ssejvjat il-G-code?
+1501|Il-marki tal-allinjament f'fajl għalihom (isem_marks)
+1502|Jinħarqu l-ewwel, fuq il-folja taħt il-materjal, qabel ma jitqiegħed: jinsabu eżatt barra mill-materjal, għalhekk mhumiex fil-fajls tan-naħat.

@@ -1461,3 +1461,43 @@
 1460|Tvary druhé strany, otočené jako materiál, nakreslené slabě pod touto stranou. Klikněte na jeden pro zarovnání nebo přichycení k němu; nikdy se nepohne.
 1461|G-code oboustranné úlohy
 1462|Úloha má dvě strany. Jak zobrazit G-code?
+1463|Obráběné strany
+1464|1 strana
+1465|2 strany
+1466|4 strany (sloupek)
+1467|6 stran (kostka)
+1468|Materiál se obrábí jen shora.
+1469|Sloupek ležící podél X, obráběný na čtyřech dlouhých stěnách A, B, C a D: mezi nimi se překulí o čtvrt otáčky dozadu. Každá stěna má vlastní pracovní plochu; sousední stěny jsou kolem ní rozložené a ta pod ní prosvítá, jako duchové.
+1470|Kostka obráběná na všech šesti stěnách: A až D se pokaždé překulí o čtvrt otáčky dozadu, E a F jsou levý a pravý konec otočený nahoru. Každá stěna má vlastní pracovní plochu; sousední stěny jsou kolem ní rozložené a ta pod ní prosvítá, jako duchové.
+1471|Vždy zapnuto, když se obrábí víc než jedna strana: každá strana má vlastní pracovní plochu velkou jako materiál v tom místě a materiál leží na stroji pro každou stejně.
+1472|Strana podstavy a
+1473|Strana podstavy b
+1474|Výška sloupku H
+1475|Strana a (zleva doprava)
+1476|Strana b (zezadu dopředu)
+1477|Strana c (výška)
+1478|Sloupek leží podél X stěnou A nahoru, v rohu nuly. Mezi stěnami se překulí o čtvrt otáčky dozadu, aby přední strana přišla nahoru: stěny A, B, C a D. Každá stěna se kreslí na pracovní plochu velkou jako stěna a materiál pod ní je tak tlustý, jak hluboký je tam sloupek.
+1479|Kostka leží stěnou A nahoru, v rohu nuly. Stěny A až D: pokaždé se překulí o čtvrt otáčky dozadu, aby přední strana přišla nahoru; E a F: její levý a pravý konec otočený nahoru. Každá stěna se kreslí na pracovní plochu velkou jako stěna a materiál pod ní je tak tlustý, jak hluboká je tam kostka.
+1480|Stěny rozložené kolem A
+1481|Stěna {}
+1482|Sloupek: 4 stěny
+1483|Kostka: 6 stěn
+1484|vršek
+1485|předek
+1486|spodek
+1487|zadek
+1488|levý konec
+1489|pravý konec
+1490|materiál
+1491|Mezi stěnami A až D se předmět překulí o čtvrt otáčky dozadu (přední strana jde nahoru); E a F jsou jeho levý a pravý konec otočený nahoru.
+1492|Duchové ostatních stěn
+1493|Tvary sousedních stěn, rozložené kolem jejích hran, a stěny pod ní, viděné skrz předmět; nakreslené slabě. Klepněte na jeden pro zarovnání nebo přichycení; nikdy se nepohne.
+1494|Jeden soubor, se zastavením před každou stěnou na otočení předmětu
+1495|Jeden soubor, bez zastavení
+1496|Soubor pro každou stěnu: název_A … název_{}
+1497|G-code úlohy na několika stěnách
+1498|Úloha má několik stěn. Jak zobrazit G-code?
+1499|Uložit G-code úlohy na několika stěnách
+1500|Úloha má několik stěn. Jak uložit G-code?
+1501|Zarovnávací značky ve vlastním souboru (název_marks)
+1502|Vypalují se nejdřív, na desku pod materiálem, než se materiál položí: leží těsně mimo materiál, proto nejsou v souborech stran.

@@ -20,6 +20,7 @@ pub mod gcode_out;
 pub mod gcode_split;
 pub mod gcode_units;
 pub mod export;
+pub mod faces;
 pub mod firmware;
 pub mod gcode_view;
 pub mod geom;

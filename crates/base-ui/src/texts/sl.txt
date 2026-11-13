@@ -1461,3 +1461,43 @@
 1460|Oblike druge strani, obrnjene kot material, bledo narisane pod to stranjo. Kliknite eno za poravnavo ali pripenjanje nanjo; nikoli se ne premakne.
 1461|G-koda dvostranskega opravila
 1462|Opravilo ima dve strani. Kako prikazati G-kodo?
+1463|Obdelovane strani
+1464|1 stran
+1465|2 strani
+1466|4 strani (steber)
+1467|6 strani (kocka)
+1468|Material se obdeluje samo od zgoraj.
+1469|Steber, položen vzdolž X, obdelan na štirih dolgih ploskvah A, B, C in D: med njimi se ga zavrti za četrt obrata nazaj. Vsaka ploskev ima svoje delovno območje; sosednje ploskve so razgrnjene okoli nje, spodnja pa presveti, kot duhovi.
+1470|Kocka, obdelana na vseh šestih ploskvah: od A do D jo vsakič zavrtimo za četrt obrata nazaj, E in F sta levi in desni konec, obrnjena navzgor. Vsaka ploskev ima svoje delovno območje; sosednje ploskve so razgrnjene okoli nje, spodnja pa presveti, kot duhovi.
+1471|Vedno vklopljeno, ko se obdeluje več kot ena stran: vsaka stran ima svoje delovno območje, veliko kot material tam, material pa leži na stroju enako za vsako.
+1472|Stranica osnovne ploskve a
+1473|Stranica osnovne ploskve b
+1474|Višina stebra H
+1475|Stranica a (z leve na desno)
+1476|Stranica b (od zadaj naprej)
+1477|Stranica c (višina)
+1478|Steber leži vzdolž X s ploskvijo A navzgor, v kotu ničle. Med ploskvami ga zavrtimo za četrt obrata nazaj, da pride sprednja stran na vrh: ploskve A, B, C in D. Vsaka ploskev se riše na delovnem območju, velikem kot ploskev, material pod njo pa je tako debel, kot globok je tam steber.
+1479|Kocka leži s ploskvijo A navzgor, v kotu ničle. Ploskve od A do D: vsakič jo zavrtimo za četrt obrata nazaj, da pride sprednja stran na vrh; E in F: njen levi in desni konec, obrnjena navzgor. Vsaka ploskev se riše na delovnem območju, velikem kot ploskev, material pod njo pa je tako debel, kot globoka je tam kocka.
+1480|Ploskve, razgrnjene okoli A
+1481|Ploskev {}
+1482|Steber: 4 ploskve
+1483|Kocka: 6 ploskev
+1484|zgoraj
+1485|spredaj
+1486|spodaj
+1487|zadaj
+1488|levi konec
+1489|desni konec
+1490|material
+1491|Med ploskvami od A do D predmet zavrtimo za četrt obrata nazaj (sprednja stran pride na vrh); E in F sta njegov levi in desni konec, obrnjena navzgor.
+1492|Duhovi drugih ploskev
+1493|Oblike sosednjih ploskev, razgrnjene okoli njenih robov, in ploskve pod njo, vidne skozi predmet; narisane bledo. Kliknite eno za poravnavo ali pripenjanje nanjo; nikoli se ne premakne.
+1494|Ena datoteka, z ustavitvijo pred vsako ploskvijo za obračanje predmeta
+1495|Ena datoteka, brez ustavitev
+1496|Datoteka za vsako ploskev: ime_A … ime_{}
+1497|G-koda opravila na več ploskvah
+1498|Opravilo ima več ploskev. Kako prikazati G-kodo?
+1499|Shrani G-kodo opravila na več ploskvah
+1500|Opravilo ima več ploskev. Kako shraniti G-kodo?
+1501|Oznake za poravnavo v svoji datoteki (ime_marks)
+1502|Žgejo se najprej, na ploščo pod materialom, preden ga položimo: ležijo tik zunaj materiala, zato niso v datotekah strani.

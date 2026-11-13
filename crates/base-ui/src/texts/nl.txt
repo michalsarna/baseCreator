@@ -1461,3 +1461,43 @@
 1460|De vormen van de andere kant, omgedraaid zoals het materiaal, vaag getekend onder deze kant. Klik op een om erop uit te lijnen of eraan vast te klikken; hij wordt nooit verplaatst.
 1461|G-code van een dubbelzijdige taak
 1462|De taak heeft twee kanten. Hoe moet de G-code worden getoond?
+1463|Te bewerken zijden
+1464|1 zijde
+1465|2 zijden
+1466|4 zijden (paal)
+1467|6 zijden (blok)
+1468|Het materiaal wordt alleen van boven bewerkt.
+1469|Een paal die langs X ligt en op zijn vier lange vlakken A, B, C en D wordt bewerkt: daartussen wordt hij een kwartslag naar achteren gerold. Elk vlak is een eigen werkgebied; de vlakken ernaast zijn eromheen uitgeklapt en het vlak eronder schijnt erdoor, als geesten.
+1470|Een blok dat op alle zes vlakken wordt bewerkt: A tot D telkens een kwartslag naar achteren gerold, E en F het linker- en rechteruiteinde naar boven gedraaid. Elk vlak is een eigen werkgebied; de vlakken ernaast zijn eromheen uitgeklapt en het vlak eronder schijnt erdoor, als geesten.
+1471|Altijd aan als meer dan één zijde wordt bewerkt: elke zijde heeft een eigen werkgebied, zo groot als het materiaal daar, en het materiaal ligt voor elke zijde op dezelfde manier op de machine.
+1472|Zijde van de basis a
+1473|Zijde van de basis b
+1474|Hoogte van de paal H
+1475|Zijde a (van links naar rechts)
+1476|Zijde b (van achter naar voren)
+1477|Zijde c (hoogte)
+1478|De paal ligt langs X met vlak A boven, in de hoek van het nulpunt. Tussen de vlakken wordt hij een kwartslag naar achteren gerold, zodat de voorkant boven komt: vlakken A, B, C en D. Elk vlak wordt getekend op een werkgebied zo groot als het vlak, en het materiaal eronder is zo dik als de paal daar diep is.
+1479|Het blok ligt met vlak A boven, in de hoek van het nulpunt. Vlakken A tot D: het wordt telkens een kwartslag naar achteren gerold, zodat de voorkant boven komt; E en F: het linker- en het rechteruiteinde naar boven gedraaid. Elk vlak wordt getekend op een werkgebied zo groot als het vlak, en het materiaal eronder is zo dik als het blok daar diep is.
+1480|De vlakken rond A uitgeklapt
+1481|Vlak {}
+1482|Paal: 4 vlakken
+1483|Blok: 6 vlakken
+1484|boven
+1485|voorkant
+1486|onderkant
+1487|achterkant
+1488|linkeruiteinde
+1489|rechteruiteinde
+1490|materiaal
+1491|Tussen de vlakken A tot D wordt het werkstuk een kwartslag naar achteren gerold (de voorkant komt boven); E en F zijn het linker- en rechteruiteinde naar boven gedraaid.
+1492|Geesten van de andere vlakken
+1493|De vormen van de vlakken ernaast, uitgeklapt rond de randen, en van het vlak eronder, door het werkstuk heen gezien; vaag getekend. Klik op een om eraan uit te lijnen of te kleven; hij wordt nooit verplaatst.
+1494|Eén bestand, met een stop voor elk vlak om het werkstuk te draaien
+1495|Eén bestand, zonder stops
+1496|Een bestand per vlak: naam_A … naam_{}
+1497|G-code van een taak op meerdere vlakken
+1498|De taak heeft meerdere vlakken. Hoe moet de G-code worden getoond?
+1499|G-code van een taak op meerdere vlakken opslaan
+1500|De taak heeft meerdere vlakken. Hoe moet de G-code worden opgeslagen?
+1501|De uitlijnmarkeringen in een eigen bestand (naam_marks)
+1502|Eerst gebrand, op de plaat onder het materiaal, voordat het wordt neergelegd: ze liggen net buiten het materiaal, dus staan ze niet in de bestanden van de zijden.

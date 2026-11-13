@@ -1461,3 +1461,43 @@
 1460|A másik oldal alakzatai, az anyaggal együtt megfordítva, halványan rajzolva ez alá az oldal alá. Kattints egyre, hogy hozzá igazíts vagy illessz; soha nem mozdul.
 1461|Kétoldalas munka G-kódja
 1462|A munkának két oldala van. Hogyan jelenjen meg a G-kód?
+1463|Megmunkált oldalak
+1464|1 oldal
+1465|2 oldal
+1466|4 oldal (oszlop)
+1467|6 oldal (tömb)
+1468|Az anyagot csak felülről munkáljuk meg.
+1469|Az X mentén fekvő oszlop, amelyet négy hosszú lapján (A, B, C, D) munkálunk meg: köztük negyed fordulattal hátra gördítjük. Minden lap külön munkaterület; a szomszédos lapok köré kiterítve, az alatta lévő átlátszik rajta, szellemként.
+1470|Mind a hat lapján megmunkált tömb: A–D között minden alkalommal negyed fordulattal hátra gördítjük, E és F a felfelé fordított bal és jobb vég. Minden lap külön munkaterület; a szomszédos lapok köré kiterítve, az alatta lévő átlátszik rajta, szellemként.
+1471|Mindig be van kapcsolva, ha egynél több oldalt munkálunk meg: minden oldalnak saját munkaterülete van, akkora, mint ott az anyag, és az anyag mindegyiknél ugyanúgy fekszik a gépen.
+1472|Alap oldala a
+1473|Alap oldala b
+1474|Az oszlop magassága H
+1475|a oldal (balról jobbra)
+1476|b oldal (hátulról előre)
+1477|c oldal (magasság)
+1478|Az oszlop az X mentén fekszik, A lappal felfelé, a nullpont sarkában. A lapok között negyed fordulattal hátra gördítjük, hogy az eleje kerüljön felülre: A, B, C és D lap. Minden lapot akkora munkaterületre rajzolunk, mint a lap, és alatta az anyag olyan vastag, amilyen mély ott az oszlop.
+1479|A tömb A lappal felfelé fekszik, a nullpont sarkában. A–D lapok: minden alkalommal negyed fordulattal hátra gördítjük, hogy az eleje kerüljön felülre; E és F: a bal és a jobb vége felfelé fordítva. Minden lapot akkora munkaterületre rajzolunk, mint a lap, és alatta az anyag olyan vastag, amilyen mély ott a tömb.
+1480|A lapok A köré kiterítve
+1481|{} lap
+1482|Oszlop: 4 lap
+1483|Tömb: 6 lap
+1484|teteje
+1485|eleje
+1486|alja
+1487|hátulja
+1488|bal vége
+1489|jobb vége
+1490|anyag
+1491|Az A–D lapok között a munkadarabot negyed fordulattal hátra gördítjük (az eleje kerül felülre); E és F a felfelé fordított bal és jobb vége.
+1492|A többi lap szellemei
+1493|A mellette lévő lapok alakzatai az élei köré kiterítve, és az alatta lévő lapé a munkadarabon át nézve; halványan rajzolva. Kattintson egyre az igazításhoz vagy illesztéshez; sosem mozdul.
+1494|Egy fájl, minden lap előtt megállással a munkadarab forgatásához
+1495|Egy fájl, megállások nélkül
+1496|Lapokként egy fájl: név_A … név_{}
+1497|Több lapos munka G-kódja
+1498|A munkának több lapja van. Hogyan jelenjen meg a G-kód?
+1499|Több lapos munka G-kódjának mentése
+1500|A munkának több lapja van. Hogyan legyen mentve a G-kód?
+1501|Az igazítójelek külön fájlban (név_marks)
+1502|Elsőként égetjük, az anyag alatti lapra, mielőtt az anyagot ráfektetjük: közvetlenül az anyagon kívül vannak, ezért nincsenek az oldalak fájljaiban.

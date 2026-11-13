@@ -1461,3 +1461,43 @@
 1460|Kitos pusės figūros, apverstos kaip medžiaga, blankiai nupieštos po šia puse. Spustelėkite vieną, kad lygiuotumėte ar pritrauktumėte prie jos; ji niekada nejudinama.
 1461|Dvipusio darbo G kodas
 1462|Darbas turi dvi puses. Kaip parodyti G kodą?
+1463|Apdirbamos pusės
+1464|1 pusė
+1465|2 pusės
+1466|4 pusės (stulpelis)
+1467|6 pusės (kaladėlė)
+1468|Medžiaga apdirbama tik iš viršaus.
+1469|Išilgai X gulintis stulpelis, apdirbamas keturiose ilgosiose sienose A, B, C ir D: tarp jų jis apverčiamas ketvirčiu apsisukimo atgal. Kiekviena siena turi savo darbo lauką; gretimos sienos išskleistos aplink ją, o apatinė prasišviečia, kaip vaiduokliai.
+1470|Kaladėlė, apdirbama visose šešiose sienose: nuo A iki D kaskart apverčiama ketvirčiu apsisukimo atgal, E ir F – aukštyn atversti kairysis ir dešinysis galai. Kiekviena siena turi savo darbo lauką; gretimos sienos išskleistos aplink ją, o apatinė prasišviečia, kaip vaiduokliai.
+1471|Visada įjungta, kai apdirbama daugiau nei viena pusė: kiekviena pusė turi savo darbo lauką, tokio dydžio kaip medžiaga toje vietoje, o medžiaga staklėse guli vienodai kiekvienai.
+1472|Pagrindo kraštinė a
+1473|Pagrindo kraštinė b
+1474|Stulpelio aukštis H
+1475|Kraštinė a (iš kairės į dešinę)
+1476|Kraštinė b (iš galo į priekį)
+1477|Kraštinė c (aukštis)
+1478|Stulpelis guli išilgai X siena A į viršų, nulio kampe. Tarp sienų jis apverčiamas ketvirčiu apsisukimo atgal, kad priekis atsidurtų viršuje: sienos A, B, C ir D. Kiekviena siena braižoma tokio dydžio darbo lauke kaip ji pati, o medžiaga po ja tokia stora, koks ten gilus stulpelis.
+1479|Kaladėlė guli siena A į viršų, nulio kampe. Sienos nuo A iki D: kaskart ji apverčiama ketvirčiu apsisukimo atgal, kad priekis atsidurtų viršuje; E ir F: jos kairysis ir dešinysis galai, atversti aukštyn. Kiekviena siena braižoma tokio dydžio darbo lauke kaip ji pati, o medžiaga po ja tokia stora, kokia ten gili kaladėlė.
+1480|Sienos, išskleistos aplink A
+1481|Siena {}
+1482|Stulpelis: 4 sienos
+1483|Kaladėlė: 6 sienos
+1484|viršus
+1485|priekis
+1486|apačia
+1487|galas
+1488|kairysis galas
+1489|dešinysis galas
+1490|medžiaga
+1491|Tarp sienų A–D daiktas apverčiamas ketvirčiu apsisukimo atgal (priekis kyla į viršų); E ir F – jo aukštyn atversti kairysis ir dešinysis galai.
+1492|Kitų sienų vaiduokliai
+1493|Gretimų sienų figūros, išskleistos aplink jos kraštus, ir apatinės sienos figūros, matomos kiaurai daiktą; nupieštos blankiai. Spustelėkite vieną, kad lygiuotumėte ar pritrauktumėte prie jos; ji niekada nejudinama.
+1494|Vienas failas, su sustojimu prieš kiekvieną sieną daiktui pasukti
+1495|Vienas failas, be sustojimų
+1496|Failas kiekvienai sienai: pavadinimas_A … pavadinimas_{}
+1497|Kelių sienų darbo G kodas
+1498|Darbas turi kelias sienas. Kaip parodyti G kodą?
+1499|Įrašyti kelių sienų darbo G kodą
+1500|Darbas turi kelias sienas. Kaip įrašyti G kodą?
+1501|Lygiavimo žymės atskirame faile (pavadinimas_marks)
+1502|Išdeginamos pirmiausia, ant plokštės po medžiaga, prieš ją padedant: jos yra tiesiai už medžiagos, todėl jų nėra pusių failuose.

@@ -1461,3 +1461,43 @@
 1460|Formene på den andre siden, snudd som materialet, tegnet svakt under denne siden. Klikk på en for å justere eller feste til den; den flyttes aldri.
 1461|G-kode for en tosidig jobb
 1462|Jobben har to sider. Hvordan skal G-koden vises?
+1463|Sider som bearbeides
+1464|1 side
+1465|2 sider
+1466|4 sider (stolpe)
+1467|6 sider (kloss)
+1468|Materialet bearbeides bare ovenfra.
+1469|En stolpe som ligger langs X og bearbeides på sine fire lange sider A, B, C og D: mellom dem rulles den en kvart omdreining bakover. Hver side er sitt eget arbeidsområde; sidene ved siden av er brettet ut rundt den, og den under skinner gjennom, som spøkelser.
+1470|En kloss som bearbeides på alle seks sider: A til D rulles en kvart omdreining bakover hver gang, E og F er venstre og høyre ende vendt opp. Hver side er sitt eget arbeidsområde; sidene ved siden av er brettet ut rundt den, og den under skinner gjennom, som spøkelser.
+1471|Alltid på når mer enn én side bearbeides: hver side har sitt eget arbeidsområde, like stort som materialet der, og materialet ligger likt på maskinen for hver av dem.
+1472|Grunnflate side a
+1473|Grunnflate side b
+1474|Stolpens høyde H
+1475|Side a (venstre mot høyre)
+1476|Side b (bakfra og fram)
+1477|Side c (høyde)
+1478|Stolpen ligger langs X med side A opp, i nullpunktets hjørne. Mellom sidene rulles den en kvart omdreining bakover, slik at forsiden kommer opp: side A, B, C og D. Hver side tegnes på et arbeidsområde like stort som siden, og materialet under er like tykt som stolpen er dyp der.
+1479|Klossen ligger med side A opp, i nullpunktets hjørne. Side A til D: den rulles en kvart omdreining bakover hver gang, slik at forsiden kommer opp; E og F: venstre og høyre ende vendt opp. Hver side tegnes på et arbeidsområde like stort som siden, og materialet under er like tykt som klossen er dyp der.
+1480|Sidene brettet ut rundt A
+1481|Side {}
+1482|Stolpe: 4 sider
+1483|Kloss: 6 sider
+1484|topp
+1485|forside
+1486|bunn
+1487|bakside
+1488|venstre ende
+1489|høyre ende
+1490|materiale
+1491|Mellom sidene A til D rulles emnet en kvart omdreining bakover (forsiden kommer opp); E og F er venstre og høyre ende vendt opp.
+1492|Spøkelser av de andre sidene
+1493|Formene på sidene ved siden av denne, brettet ut rundt kantene, og på siden under, sett gjennom emnet; tegnet svakt. Klikk på en for å justere eller feste til den; den flyttes aldri.
+1494|Én fil, med et stopp før hver side for å snu emnet
+1495|Én fil, uten stopp
+1496|En fil for hver side: navn_A … navn_{}
+1497|G-kode for en jobb på flere sider
+1498|Jobben har flere sider. Hvordan skal G-koden vises?
+1499|Lagre G-kode for en jobb på flere sider
+1500|Jobben har flere sider. Hvordan skal G-koden lagres?
+1501|Justeringsmerkene i en egen fil (navn_marks)
+1502|Brennes først, på platen under materialet, før det legges på: de ligger like utenfor materialet, så de er ikke i sidenes filer.

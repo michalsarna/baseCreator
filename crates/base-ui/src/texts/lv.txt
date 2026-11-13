@@ -1461,3 +1461,43 @@
 1460|Otras puses formas, apgrieztas kā materiāls, bāli zīmētas zem šīs puses. Noklikšķiniet uz vienas, lai līdzinātu vai piesaistītu tai; tā nekad netiek pārvietota.
 1461|Divpusēja darba G-kods
 1462|Darbam ir divas puses. Kā parādīt G-kodu?
+1463|Apstrādājamās puses
+1464|1 puse
+1465|2 puses
+1466|4 puses (stabiņš)
+1467|6 puses (klucis)
+1468|Materiālu apstrādā tikai no augšas.
+1469|Gar X guļošs stabiņš, ko apstrādā tā četrās garajās skaldnēs A, B, C un D: starp tām to pagriež par ceturtdaļapgriezienu atpakaļ. Katra skaldne ir atsevišķs darba lauks; blakus skaldnes ir izklātas ap to, bet apakšējā spīd cauri, kā spoki.
+1470|Klucis, ko apstrādā visās sešās skaldnēs: no A līdz D katru reizi pagriež par ceturtdaļapgriezienu atpakaļ, E un F ir uz augšu pagriezts kreisais un labais gals. Katra skaldne ir atsevišķs darba lauks; blakus skaldnes ir izklātas ap to, bet apakšējā spīd cauri, kā spoki.
+1471|Vienmēr ieslēgts, ja apstrādā vairāk nekā vienu pusi: katrai pusei ir savs darba lauks, tik liels kā materiāls tur, un materiāls uz mašīnas guļ vienādi katrai.
+1472|Pamata mala a
+1473|Pamata mala b
+1474|Stabiņa augstums H
+1475|Mala a (no kreisās uz labo)
+1476|Mala b (no aizmugures uz priekšu)
+1477|Mala c (augstums)
+1478|Stabiņš guļ gar X ar skaldni A uz augšu, nulles stūrī. Starp skaldnēm to pagriež par ceturtdaļapgriezienu atpakaļ, lai priekšpuse nonāktu augšā: skaldnes A, B, C un D. Katru skaldni zīmē uz tik liela darba lauka kā tā pati, un materiāls zem tās ir tik biezs, cik dziļš tur ir stabiņš.
+1479|Klucis guļ ar skaldni A uz augšu, nulles stūrī. Skaldnes no A līdz D: katru reizi to pagriež par ceturtdaļapgriezienu atpakaļ, lai priekšpuse nonāktu augšā; E un F: tā kreisais un labais gals uz augšu. Katru skaldni zīmē uz tik liela darba lauka kā tā pati, un materiāls zem tās ir tik biezs, cik dziļš tur ir klucis.
+1480|Skaldnes, izklātas ap A
+1481|Skaldne {}
+1482|Stabiņš: 4 skaldnes
+1483|Klucis: 6 skaldnes
+1484|augša
+1485|priekša
+1486|apakša
+1487|aizmugure
+1488|kreisais gals
+1489|labais gals
+1490|materiāls
+1491|Starp skaldnēm no A līdz D priekšmetu pagriež par ceturtdaļapgriezienu atpakaļ (priekšpuse nonāk augšā); E un F ir tā uz augšu pagrieztais kreisais un labais gals.
+1492|Pārējo skaldņu spoki
+1493|Blakus skaldņu figūras, izklātas ap tās malām, un apakšējās skaldnes figūras, redzamas cauri priekšmetam; zīmētas bāli. Noklikšķiniet uz vienas, lai līdzinātu vai piesaistītu tai; tā nekad netiek pārvietota.
+1494|Viens fails, ar apstāšanos pirms katras skaldnes priekšmeta pagriešanai
+1495|Viens fails, bez apstāšanās
+1496|Fails katrai skaldnei: nosaukums_A … nosaukums_{}
+1497|Vairāku skaldņu darba G-kods
+1498|Darbam ir vairākas skaldnes. Kā parādīt G-kodu?
+1499|Saglabāt vairāku skaldņu darba G-kodu
+1500|Darbam ir vairākas skaldnes. Kā saglabāt G-kodu?
+1501|Izlīdzināšanas atzīmes atsevišķā failā (nosaukums_marks)
+1502|Tiek iededzinātas vispirms, uz plāksnes zem materiāla, pirms to noliek: tās ir tieši ārpus materiāla, tāpēc to nav pušu failos.

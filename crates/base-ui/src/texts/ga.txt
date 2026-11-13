@@ -1461,3 +1461,43 @@
 1460|Cruthanna an taoibh eile, iompaithe mar atá an t-ábhar, tarraingthe go lag faoin taobh seo. Cliceáil ar cheann chun ailíniú nó greamú leis; ní bhogtar é riamh.
 1461|G-code jab dhá thaobh
 1462|Tá dhá thaobh ar an jab. Conas ba chóir an G-code a thaispeáint?
+1463|Taobhanna le hoibriú
+1464|1 taobh
+1465|2 thaobh
+1466|4 thaobh (cuaille)
+1467|6 thaobh (bloc)
+1468|Ní oibrítear an t-ábhar ach ón mbarr.
+1469|Cuaille ina luí feadh X, oibrithe ar a cheithre thaobh fhada A, B, C agus D: rolltar ceathrú casadh siar é eatarthu. Is limistéar oibre dá chuid féin gach taobh; leathnaítear na taobhanna in aice leis timpeall air agus feictear an ceann faoi tríd, mar thaibhsí.
+1470|Bloc oibrithe ar a shé thaobh ar fad: A go D rollta ceathrú casadh siar gach uair, E agus F an ceann clé agus an ceann deas casta suas. Is limistéar oibre dá chuid féin gach taobh; leathnaítear na taobhanna in aice leis timpeall air agus feictear an ceann faoi tríd, mar thaibhsí.
+1471|Ar siúl i gcónaí nuair a oibrítear níos mó ná taobh amháin: tá a limistéar oibre féin ag gach taobh, chomh mór leis an ábhar ansin, agus luíonn an t-ábhar ar an meaisín ar an mbealach céanna do gach ceann.
+1472|Taobh an bhoinn a
+1473|Taobh an bhoinn b
+1474|Airde an chuaille H
+1475|Taobh a (ó chlé go deas)
+1476|Taobh b (ón gcúl chun tosaigh)
+1477|Taobh c (airde)
+1478|Luíonn an cuaille feadh X le taobh A suas, i gcúinne an nialais. Idir na taobhanna rolltar ceathrú casadh siar é, ionas go dtagann an tosach suas: taobhanna A, B, C agus D. Tarraingítear gach taobh ar limistéar oibre chomh mór leis an taobh, agus tá an t-ábhar faoi chomh tiubh agus atá an cuaille domhain ansin.
+1479|Luíonn an bloc le taobh A suas, i gcúinne an nialais. Taobhanna A go D: rolltar ceathrú casadh siar é gach uair, ionas go dtagann an tosach suas; E agus F: a cheann clé agus a cheann deas casta suas. Tarraingítear gach taobh ar limistéar oibre chomh mór leis an taobh, agus tá an t-ábhar faoi chomh tiubh agus atá an bloc domhain ansin.
+1480|Na taobhanna leathnaithe timpeall ar A
+1481|Taobh {}
+1482|Cuaille: 4 thaobh
+1483|Bloc: 6 thaobh
+1484|barr
+1485|tosach
+1486|bun
+1487|cúl
+1488|ceann clé
+1489|ceann deas
+1490|ábhar
+1491|Idir na taobhanna A go D rolltar an rud ceathrú casadh siar (tagann an tosach suas); is iad E agus F a cheann clé agus a cheann deas casta suas.
+1492|Taibhsí na dtaobhanna eile
+1493|Cruthanna na dtaobhanna in aice leis seo, leathnaithe timpeall a imill, agus an taoibh faoi, le feiceáil tríd an rud; tarraingthe go fann. Cliceáil ar cheann chun ailíniú nó greamú dó; ní bhogtar riamh é.
+1494|Comhad amháin, le stad roimh gach taobh chun an rud a chasadh
+1495|Comhad amháin, gan stadanna
+1496|Comhad do gach taobh: ainm_A … ainm_{}
+1497|G-code jab ar roinnt taobhanna
+1498|Tá roinnt taobhanna ar an jab. Conas ba chóir an G-code a thaispeáint?
+1499|Sábháil G-code jab ar roinnt taobhanna
+1500|Tá roinnt taobhanna ar an jab. Conas ba chóir an G-code a shábháil?
+1501|Na marcanna ailínithe i gcomhad dá gcuid féin (ainm_marks)
+1502|Dóitear ar dtús iad, ar an leathán faoin ábhar, sula leagtar síos é: luíonn siad díreach lasmuigh den ábhar, mar sin níl siad i gcomhaid na dtaobhanna.

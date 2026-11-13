@@ -1461,3 +1461,43 @@
 1460|Oblici druge strane, okrenuti kao materijal, blijedo nacrtani ispod ove strane. Kliknite jedan za poravnanje ili privlačenje uz njega; nikad se ne pomiče.
 1461|G-kod dvostranog posla
 1462|Posao ima dvije strane. Kako prikazati G-kod?
+1463|Strane za obradu
+1464|1 strana
+1465|2 strane
+1466|4 strane (stup)
+1467|6 strana (blok)
+1468|Materijal se obrađuje samo odozgo.
+1469|Stup položen uzduž X, obrađen na četiri duge strane A, B, C i D: između njih se okreće za četvrt okreta unatrag. Svaka strana ima svoju radnu površinu; susjedne strane su razmotane oko nje, a ona ispod prosijava, kao duhovi.
+1470|Blok obrađen na svih šest strana: od A do D svaki put okrenut za četvrt okreta unatrag, E i F su lijevi i desni kraj okrenuti prema gore. Svaka strana ima svoju radnu površinu; susjedne strane su razmotane oko nje, a ona ispod prosijava, kao duhovi.
+1471|Uvijek uključeno kad se obrađuje više od jedne strane: svaka strana ima svoju radnu površinu, veliku kao materijal na tom mjestu, a materijal leži na stroju jednako za svaku.
+1472|Stranica osnovice a
+1473|Stranica osnovice b
+1474|Visina stupa H
+1475|Stranica a (slijeva nadesno)
+1476|Stranica b (straga prema naprijed)
+1477|Stranica c (visina)
+1478|Stup leži uzduž X stranom A gore, u kutu nule. Između strana okreće se za četvrt okreta unatrag, tako da prednja strana dođe gore: strane A, B, C i D. Svaka se strana crta na radnoj površini veličine te strane, a materijal ispod nje debeo je koliko je tu stup dubok.
+1479|Blok leži stranom A gore, u kutu nule. Strane od A do D: svaki put se okreće za četvrt okreta unatrag, tako da prednja strana dođe gore; E i F: njegov lijevi i desni kraj okrenuti prema gore. Svaka se strana crta na radnoj površini veličine te strane, a materijal ispod nje debeo je koliko je tu blok dubok.
+1480|Strane razmotane oko A
+1481|Strana {}
+1482|Stup: 4 strane
+1483|Blok: 6 strana
+1484|gornja
+1485|prednja
+1486|donja
+1487|stražnja
+1488|lijevi kraj
+1489|desni kraj
+1490|materijal
+1491|Između strana A do D predmet se okreće za četvrt okreta unatrag (prednja strana ide gore); E i F su njegov lijevi i desni kraj okrenuti prema gore.
+1492|Duhovi ostalih strana
+1493|Oblici susjednih strana, razmotani oko njezinih rubova, i strane ispod nje, viđeni kroz predmet; nacrtani blijedo. Kliknite jedan za poravnanje ili privlačenje; nikad se ne pomiče.
+1494|Jedna datoteka, sa zaustavljanjem prije svake strane za okretanje predmeta
+1495|Jedna datoteka, bez zaustavljanja
+1496|Datoteka za svaku stranu: naziv_A … naziv_{}
+1497|G-kod posla na više strana
+1498|Posao ima više strana. Kako prikazati G-kod?
+1499|Spremi G-kod posla na više strana
+1500|Posao ima više strana. Kako spremiti G-kod?
+1501|Oznake za poravnanje u zasebnoj datoteci (naziv_marks)
+1502|Pale se prvi, na ploči ispod materijala, prije nego što se materijal položi: leže tik izvan materijala, pa nisu u datotekama strana.

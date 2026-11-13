@@ -1461,3 +1461,43 @@
 1460|Las formas de la otra cara, giradas como el material, dibujadas tenues bajo esta cara. Haz clic en una para alinear o ajustar a ella; nunca se mueve.
 1461|G-code de un trabajo a dos caras
 1462|El trabajo tiene dos caras. ¿Cómo mostrar el G-code?
+1463|Caras a trabajar
+1464|1 cara
+1465|2 caras
+1466|4 caras (poste)
+1467|6 caras (bloque)
+1468|El material solo se trabaja por arriba.
+1469|Un poste tumbado a lo largo de X, trabajado en sus cuatro caras largas A, B, C y D: entre ellas se hace rodar un cuarto de vuelta hacia atrás. Cada cara es un área de trabajo propia; las caras de al lado se despliegan a su alrededor y la de debajo se transparenta, como fantasmas.
+1470|Un bloque trabajado en sus seis caras: de la A a la D se hace rodar cada vez un cuarto de vuelta hacia atrás; E y F son el extremo izquierdo y el derecho girados hacia arriba. Cada cara es un área de trabajo propia; las caras de al lado se despliegan a su alrededor y la de debajo se transparenta, como fantasmas.
+1471|Siempre activado cuando se trabaja más de una cara: cada cara tiene su propia área de trabajo, tan grande como el material allí, y el material se coloca igual en la máquina para cada una.
+1472|Lado de la base a
+1473|Lado de la base b
+1474|Altura del poste H
+1475|Lado a (de izquierda a derecha)
+1476|Lado b (de atrás hacia delante)
+1477|Lado c (altura)
+1478|El poste está tumbado a lo largo de X con la cara A arriba, en la esquina del cero. Entre caras se hace rodar un cuarto de vuelta hacia atrás, para que el frente quede arriba: caras A, B, C y D. Cada cara se dibuja en un área de trabajo tan grande como la cara, y el material debajo es tan grueso como profundo es allí el poste.
+1479|El bloque está con la cara A arriba, en la esquina del cero. Caras de la A a la D: cada vez se hace rodar un cuarto de vuelta hacia atrás, para que el frente quede arriba; E y F: su extremo izquierdo y el derecho girados hacia arriba. Cada cara se dibuja en un área de trabajo tan grande como la cara, y el material debajo es tan grueso como profundo es allí el bloque.
+1480|Las caras desplegadas alrededor de A
+1481|Cara {}
+1482|Poste: 4 caras
+1483|Bloque: 6 caras
+1484|arriba
+1485|frente
+1486|abajo
+1487|detrás
+1488|extremo izquierdo
+1489|extremo derecho
+1490|material
+1491|Entre las caras de la A a la D el objeto se hace rodar un cuarto de vuelta hacia atrás (el frente sube); E y F son su extremo izquierdo y el derecho girados hacia arriba.
+1492|Fantasmas de las otras caras
+1493|Las formas de las caras de al lado, desplegadas alrededor de sus bordes, y de la cara de debajo, vistas a través del objeto; dibujadas tenues. Haga clic en una para alinear o ajustar a ella; nunca se mueve.
+1494|Un archivo, con una parada antes de cada cara para girar el objeto
+1495|Un archivo, sin paradas
+1496|Un archivo por cada cara: nombre_A … nombre_{}
+1497|G-code de un trabajo en varias caras
+1498|El trabajo tiene varias caras. ¿Cómo mostrar el G-code?
+1499|Guardar el G-code de un trabajo en varias caras
+1500|El trabajo tiene varias caras. ¿Cómo guardar el G-code?
+1501|Las marcas de alineación en un archivo propio (nombre_marks)
+1502|Se graban primero, en la plancha bajo el material, antes de colocarlo: quedan justo fuera del material, así que no están en los archivos de las caras.
