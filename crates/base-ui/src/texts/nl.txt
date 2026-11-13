@@ -1453,3 +1453,9 @@
 1452|Project ingesteld: materiaal {} x {} x {} mm, nulpunt: {}
 1453|Vel
 1454|Het materiaal ligt in de hoek van het nulpunt van de machine. Leg het bij een dubbelzijdige taak voor beide kanten op dezelfde plek (de uitlijnmarkeringen tonen waar).
+1455|G-code van een dubbelzijdige taak opslaan
+1456|De taak heeft twee kanten. Hoe moet de G-code worden opgeslagen?
+1457|Eén bestand, met een stop om het materiaal om te draaien
+1458|Eén bestand, zonder stop
+1459|Twee bestanden: naam_A en naam_B
+1460|De vormen van de andere kant, omgedraaid zoals het materiaal, vaag getekend onder deze kant. Klik op een om erop uit te lijnen of eraan vast te klikken; hij wordt nooit verplaatst.

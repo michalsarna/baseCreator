@@ -1453,3 +1453,9 @@
 1452|Projekt nastavený: materiál {} x {} x {} mm, nula: {}
 1453|List
 1454|Materiál leží v rohu nuly stroja. Pri obojstrannej zákazke ho pre obe strany položte na rovnaké miesto (zarovnávacie značky ukazujú kam).
+1455|Uložiť G-kód obojstrannej úlohy
+1456|Úloha má dve strany. Ako uložiť G-kód?
+1457|Jeden súbor, so zastavením na otočenie materiálu
+1458|Jeden súbor, bez zastavenia
+1459|Dva súbory: názov_A a názov_B
+1460|Tvary druhej strany, otočené ako materiál, nakreslené slabo pod touto stranou. Kliknite na jeden pre zarovnanie alebo prichytenie k nemu; nikdy sa nepohne.

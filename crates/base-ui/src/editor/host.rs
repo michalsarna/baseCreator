@@ -168,6 +168,11 @@ pub trait EditorHost: Sized {
     fn paint_under_shapes(&mut self, _v: &CanvasView) {}
     /// Drawn over the shapes (a tool path preview).
     fn paint_over_shapes(&mut self, _v: &CanvasView) {}
+    /// The ghosts of the other side of a two-sided job as they lie under this side (turned over), while they are shown; nothing
+    /// otherwise. They can be selected (`EditorState::ghost_sel`) to align and snap to, and are never moved.
+    fn ghost_shapes(&self) -> Vec<base_core::scene::Shape> {
+        vec![]
+    }
     /// Draw the mark of a locked shape inside `rect`.
     fn paint_lock(&self, ui: &egui::Ui, rect: egui::Rect) {
         crate::icons::paint(ui, rect, "lock", crate::theme::accent());
@@ -271,7 +276,8 @@ pub trait EditorHost: Sized {
     fn measure_snap(&self, o: Pos2, m: Pos2) -> (Pt, Option<super::ruler::SnapKind>) {
         let w = self.s2w(o, m);
         let tol = 8.0 / self.ed().view.zoom.max(1e-6) as f64;
-        match super::ruler::snap(self.scene().shapes.iter().filter(|s| self.layer_visible(s.layer)), w, tol) {
+        let ghosts = self.ghost_shapes();
+        match super::ruler::snap(self.scene().shapes.iter().filter(|s| self.layer_visible(s.layer)).chain(ghosts.iter()), w, tol) {
             Some((p, k)) => (p, Some(k)),
             None => (self.snapped(w), None),
         }
@@ -285,6 +291,33 @@ pub trait EditorHost: Sized {
     fn measure_pick(&self, o: Pos2, m: Pos2) -> Option<super::Measure> {
         let tol = 6.0 / self.ed().view.zoom.max(1e-6) as f64;
         super::ruler::pick(self.scene(), &|s| self.layer_visible(s.layer), self.s2w(o, m), tol)
+    }
+
+    /// The ghost under `p` (on its outline, or the smallest closed one round the point), when no shape of this side is there.
+    fn hit_ghost(&self, p: Pt) -> Option<u64> {
+        let tol = 5.0 / self.ed().view.zoom as f64;
+        let ghosts = self.ghost_shapes();
+        if let Some(s) = ghosts.iter().rev().find(|s| s.polys().iter().any(|q| q.dist_to(p) <= tol)) {
+            return Some(s.id);
+        }
+        ghosts
+            .iter()
+            .filter_map(|s| {
+                let polys = s.polys();
+                let inside = polys.iter().filter(|q| q.closed).fold(false, |a, q| a ^ q.contains(p));
+                inside.then(|| (s.id, polys.iter().map(|q| q.area().abs()).sum::<f64>()))
+            })
+            .min_by(|a, b| a.1.total_cmp(&b.1))
+            .map(|(id, _)| id)
+    }
+
+    /// The box of the selected ghosts (while they are shown).
+    fn ghost_sel_bounds(&self) -> Option<Rect> {
+        let sel = &self.ed().ghost_sel;
+        if sel.is_empty() {
+            return None;
+        }
+        self.ghost_shapes().iter().filter(|s| sel.contains(&s.id)).filter_map(|s| s.bounds()).reduce(Rect::union)
     }
 
     fn hit_shape(&self, p: Pt) -> Option<u64> {

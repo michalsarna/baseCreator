@@ -1453,3 +1453,9 @@
 1452|Prosjekt satt opp: materiale {} x {} x {} mm, null: {}
 1453|Ark
 1454|Materialet ligger i hjørnet ved maskinens nullpunkt. Ved en tosidig jobb legges det på samme sted for begge sider (justeringsmerkene viser hvor).
+1455|Lagre G-kode for en tosidig jobb
+1456|Jobben har to sider. Hvordan skal G-koden lagres?
+1457|Én fil, med et stopp for å snu materialet
+1458|Én fil, uten stopp
+1459|To filer: navn_A og navn_B
+1460|Formene på den andre siden, snudd som materialet, tegnet svakt under denne siden. Klikk på en for å justere eller feste til den; den flyttes aldri.

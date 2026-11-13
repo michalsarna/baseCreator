@@ -1453,3 +1453,9 @@
 1452|Il-proġett issettjat: materjal {} x {} x {} mm, żero: {}
 1453|Folja
 1454|Il-materjal jinsab fil-kantuniera taż-żero tal-magna. F'xogħol fuq żewġ naħat poġġih fl-istess post għaż-żewġ naħat (il-marki tal-allinjament juru fejn).
+1455|Issejvja l-G-code ta' xogħol fuq żewġ naħat
+1456|Ix-xogħol għandu żewġ naħat. Kif għandu jiġi ssejvjat il-G-code?
+1457|Fajl wieħed, b'waqfa biex il-materjal jinqaleb
+1458|Fajl wieħed, mingħajr waqfa
+1459|Żewġ fajls: isem_A u isem_B
+1460|Il-forom tan-naħa l-oħra, maqluba kif inhu l-materjal, imfassla ċari taħt din in-naħa. Ikklikkja waħda biex tallinja jew teħel magħha; qatt ma titmexxa.

@@ -1453,3 +1453,9 @@
 1452|Projekt seadistatud: materjal {} x {} x {} mm, null: {}
 1453|Leht
 1454|Materjal on masina nullpunkti nurgas. Kahepoolses töös aseta see mõlema poole jaoks samasse kohta (joondusmärgid näitavad kuhu).
+1455|Kahepoolse töö G-koodi salvestamine
+1456|Tööl on kaks poolt. Kuidas G-kood salvestada?
+1457|Üks fail, peatusega materjali ümberpööramiseks
+1458|Üks fail, ilma peatuseta
+1459|Kaks faili: nimi_A ja nimi_B
+1460|Teise poole kujundid, pööratud nagu materjal, joonistatud kahvatult selle poole alla. Klõpsa ühel, et sellega joondada või selle külge haakida; seda ei liigutata kunagi.

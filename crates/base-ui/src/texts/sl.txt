@@ -1453,3 +1453,9 @@
 1452|Projekt nastavljen: material {} x {} x {} mm, ničla: {}
 1453|List
 1454|Material leži v kotu ničle stroja. Pri dvostranskem opravilu ga za obe strani položite na isto mesto (oznake za poravnavo kažejo kam).
+1455|Shrani G-kodo dvostranskega opravila
+1456|Opravilo ima dve strani. Kako shraniti G-kodo?
+1457|Ena datoteka, z ustavitvijo za obračanje materiala
+1458|Ena datoteka, brez ustavitve
+1459|Dve datoteki: ime_A in ime_B
+1460|Oblike druge strani, obrnjene kot material, bledo narisane pod to stranjo. Kliknite eno za poravnavo ali pripenjanje nanjo; nikoli se ne premakne.

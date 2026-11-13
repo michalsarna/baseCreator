@@ -1453,3 +1453,9 @@
 1452|Verkefni stillt: efni {} x {} x {} mm, núll: {}
 1453|Örk
 1454|Efnið liggur í horni núllpunkts vélarinnar. Í tvíhliða verki skaltu leggja það á sama stað fyrir báðar hliðar (stillimerkin sýna hvar).
+1455|Vista G-kóða tvíhliða verks
+1456|Verkið hefur tvær hliðar. Hvernig á að vista G-kóðann?
+1457|Ein skrá, með stoppi til að snúa efninu við
+1458|Ein skrá, án stopps
+1459|Tvær skrár: nafn_A og nafn_B
+1460|Form hinnar hliðarinnar, snúin eins og efnið, dregin dauf undir þessa hlið. Smelltu á eitt til að jafna eða festa við það; það er aldrei fært.

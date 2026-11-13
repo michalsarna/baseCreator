@@ -1453,3 +1453,9 @@
 1452|Projeto configurado: material {} x {} x {} mm, zero: {}
 1453|Folha
 1454|O material fica no canto do zero da máquina. Num trabalho de dois lados coloque-o no mesmo sítio para ambos os lados (as marcas de alinhamento mostram onde).
+1455|Guardar o G-code de um trabalho de dois lados
+1456|O trabalho tem dois lados. Como guardar o G-code?
+1457|Um ficheiro, com uma paragem para virar o material
+1458|Um ficheiro, sem paragem
+1459|Dois ficheiros: nome_A e nome_B
+1460|As formas do outro lado, viradas como o material, desenhadas esbatidas sob este lado. Clique numa para alinhar ou encaixar nela; nunca é movida.

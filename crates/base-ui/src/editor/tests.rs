@@ -23,13 +23,15 @@ struct Host {
     sheets: Option<Vec<Vec<base_core::scene::Shape>>>,
     /// The no-go zones the editor gave, when the test lets it make any.
     zones: Option<Vec<base_core::zones::Zone>>,
+    /// The ghosts of the other side of a two-sided job, already turned over.
+    ghosts: Vec<base_core::scene::Shape>,
 }
 
 impl Default for Host {
     fn default() -> Host {
         // Never touch the real user library in tests.
         let dir = std::env::temp_dir().join(format!("base-ui-clip-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
-        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0, clip_img: None, sheets: None, zones: None }
+        Host { scene: Scene::default(), ed: EditorState::default(), status: String::new(), undo: vec![], clip: ClipState::with_builtin(base_core::clipart::Library::open(dir), BUILTIN), calibration: None, cam: None, changed: 0, frames: 0, clip_img: None, sheets: None, zones: None, ghosts: vec![] }
     }
 }
 
@@ -57,6 +59,9 @@ impl EditorHost for Host {
     }
     fn layer_visible(&self, layer: usize) -> bool {
         layer != 9
+    }
+    fn ghost_shapes(&self) -> Vec<base_core::scene::Shape> {
+        self.ghosts.clone()
     }
     fn overlay_calibration(&self) -> Option<([base_core::geom::Pt; 4], f32)> {
         self.calibration
@@ -1179,4 +1184,55 @@ fn the_layer_of_the_properties_moves_the_unlocked_selection_and_becomes_the_acti
     assert_eq!(h.scene.shape(b).unwrap().layer, 0, "a locked shape stays");
     assert_eq!(h.ed.active_layer, 7);
     assert!(!h.undo.is_empty(), "it can be undone");
+}
+
+/// A ghost of the other side of a two-sided job is picked with a click (its id never goes into the selection of shapes, though the
+/// other side counts its ids the same way), dragging it moves nothing, and the selected shapes align to it.
+#[test]
+fn a_ghost_is_selected_by_a_click_never_moves_and_is_what_the_selection_aligns_to() {
+    use base_core::geom::Pt;
+    use super::commands::EditorCommands;
+    let mut h = Host::default();
+    let id = h.scene.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(10.0, 10.0));
+    // The ghost has the same id as the shape of this side.
+    let mut other = Scene::default();
+    let gid = other.add(0, Kind::Rect { w: 30.0, h: 20.0 }, Xf::translate(100.0, 50.0));
+    assert_eq!(gid, id);
+    h.ghosts = other.shapes.clone();
+    let ctx = egui::Context::default();
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(800.0, 600.0));
+    let mut frame = |h: &mut Host, events: Vec<egui::Event>| {
+        let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), events, ..Default::default() }, |ui| {
+            egui::CentralPanel::no_frame().show(ui, |ui| h.canvas(ui));
+        });
+        out.textures_delta.clear();
+    };
+    frame(&mut h, vec![]);
+    frame(&mut h, vec![]);
+    let button = |at: egui::Pos2, down: bool, _: bool| egui::Event::PointerButton { pos: at, button: egui::PointerButton::Primary, pressed: down, modifiers: Default::default() };
+    let on_ghost = h.w2s(h.ed.canvas_origin, Pt::new(100.0, 60.0));
+    frame(&mut h, vec![egui::Event::PointerMoved(on_ghost), button(on_ghost, true, false), button(on_ghost, false, false)]);
+    frame(&mut h, vec![]);
+    assert!(h.ed.sel.is_empty() && h.ed.ghost_sel == vec![gid], "the ghost, not the shape with its id: {:?} {:?}", h.ed.sel, h.ed.ghost_sel);
+    // A drag from the ghost moves nothing.
+    let to = on_ghost + egui::vec2(80.0, 40.0);
+    frame(&mut h, vec![egui::Event::PointerMoved(on_ghost), button(on_ghost, true, false)]);
+    for k in 1..=5 {
+        frame(&mut h, vec![egui::Event::PointerMoved(on_ghost + (to - on_ghost) * (k as f32 / 5.0))]);
+    }
+    frame(&mut h, vec![button(to, false, false)]);
+    frame(&mut h, vec![]);
+    assert_eq!(h.ghosts[0].bounds(), other.shapes[0].bounds(), "a ghost stays where it is");
+    assert_eq!(h.scene.shape(id).unwrap().bounds().unwrap().min, Pt::new(10.0, 10.0), "and so does the shape");
+    // The shape is added to the selection (as Shift+click does); the ghost stays the reference.
+    h.ed.sel = vec![id];
+    h.align(0);
+    assert_eq!(h.scene.shape(id).unwrap().bounds().unwrap().min.x, 100.0, "left edges together, on the ghost");
+    h.align(5);
+    assert_eq!(h.scene.shape(id).unwrap().bounds().unwrap().max.y, 70.0, "bottom edges together");
+    // A click on an empty place lets the ghost go.
+    let empty = h.w2s(h.ed.canvas_origin, Pt::new(180.0, 5.0));
+    frame(&mut h, vec![egui::Event::PointerMoved(empty), button(empty, true, false), button(empty, false, false)]);
+    frame(&mut h, vec![]);
+    assert!(h.ed.sel.is_empty() && h.ed.ghost_sel.is_empty());
 }

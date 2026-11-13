@@ -1453,3 +1453,9 @@
 1452|Proyecto configurado: material {} x {} x {} mm, cero: {}
 1453|Hoja
 1454|El material está en la esquina del cero de la máquina. En un trabajo a dos caras ponlo en el mismo sitio para ambas caras (las marcas de alineación muestran dónde).
+1455|Guardar el G-code de un trabajo a dos caras
+1456|El trabajo tiene dos caras. ¿Cómo guardar el G-code?
+1457|Un archivo, con una parada para dar la vuelta al material
+1458|Un archivo, sin parada
+1459|Dos archivos: nombre_A y nombre_B
+1460|Las formas de la otra cara, giradas como el material, dibujadas tenues bajo esta cara. Haz clic en una para alinear o ajustar a ella; nunca se mueve.
