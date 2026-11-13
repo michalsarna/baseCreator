@@ -86,6 +86,9 @@ pub struct TwoSided {
     /// The size of the piece (width, height, thickness, mm) for a program that keeps it nowhere else.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub piece: Option<[f64; 3]>,
+    /// Alignment marks round the piece, burned as a job of their own before the piece is laid down (LightCreator).
+    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+    pub marks: bool,
 }
 
 fn yes() -> bool {
@@ -94,13 +97,13 @@ fn yes() -> bool {
 
 impl TwoSided {
     pub fn new(flip: FlipAxis) -> TwoSided {
-        TwoSided { flip, ghosts: true, side_b: vec![], next_id: 1, next_group: 1, piece: None }
+        TwoSided { flip, ghosts: true, side_b: vec![], next_id: 1, next_group: 1, piece: None, marks: false }
     }
 
     /// The section with the shapes of side B taken from `scene`.
     pub fn with_side_b(flip: FlipAxis, ghosts: bool, scene: &Scene) -> TwoSided {
         let (next_id, next_group) = scene.counters();
-        TwoSided { flip, ghosts, side_b: scene.shapes.clone(), next_id, next_group, piece: None }
+        TwoSided { flip, ghosts, side_b: scene.shapes.clone(), next_id, next_group, piece: None, marks: false }
     }
 
     /// The shapes of side B as a scene.

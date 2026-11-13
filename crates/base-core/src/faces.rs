@@ -351,11 +351,13 @@ pub struct Faces {
     pub solid: Solid,
     pub ghosts: bool,
     pub scenes: Vec<Scene>,
+    /// A sheet with alignment marks round it, burned as a job of their own.
+    pub marks: bool,
 }
 
 impl Faces {
     pub fn new(solid: Solid) -> Faces {
-        Faces { solid, ghosts: true, scenes: vec![Scene::default(); solid.count()] }
+        Faces { solid, ghosts: true, scenes: vec![Scene::default(); solid.count()], marks: false }
     }
 
     /// Put the faces into a project that is saved: face A is its drawing; side B of a sheet goes into the section of a two-sided job
@@ -371,6 +373,7 @@ impl Faces {
                 let empty = Scene::default();
                 let mut t = TwoSided::with_side_b(flip, self.ghosts, self.scenes.get(1).unwrap_or(&empty));
                 t.piece = Some(self.solid.size);
+                t.marks = self.marks;
                 p.set_section(crate::setup::SECTION, &t);
             }
             Body::Post | Body::Block => {
@@ -390,11 +393,11 @@ impl Faces {
             let mut scenes = vec![p.scene.clone()];
             scenes.extend(f.faces.iter().map(FaceDrawing::scene));
             scenes.resize(f.solid.count(), Scene::default());
-            return Some(Faces { solid: f.solid, ghosts: f.ghosts, scenes });
+            return Some(Faces { solid: f.solid, ghosts: f.ghosts, scenes, marks: false });
         }
         let t = two?;
         let size = t.piece.filter(|s| s.iter().all(|v| v.is_finite() && *v > 0.0)).unwrap_or(sheet);
-        Some(Faces { solid: Solid::sheet(size[0], size[1], size[2], t.flip), ghosts: t.ghosts, scenes: vec![p.scene.clone(), t.side_b()] })
+        Some(Faces { solid: Solid::sheet(size[0], size[1], size[2], t.flip), ghosts: t.ghosts, scenes: vec![p.scene.clone(), t.side_b()], marks: t.marks })
     }
 }
 
@@ -546,12 +549,13 @@ mod tests {
                 }
             }
             f.ghosts = false;
+            f.marks = matches!(s.body, Body::Sheet(_));
             let mut p = Project::new(Scene::default());
             f.write(&mut p);
             let mut back = Project::from_json(&p.to_json()).unwrap();
             let r = Faces::read(&mut back, [1.0, 1.0, 1.0]).expect("faces");
             assert_eq!(r.solid, s);
-            assert!(!r.ghosts);
+            assert!(!r.ghosts && r.marks == matches!(s.body, Body::Sheet(_)));
             assert_eq!(r.scenes.iter().map(|s| s.shapes.len()).collect::<Vec<_>>(), (1..=s.count()).collect::<Vec<_>>());
             assert!(back.section_names().is_empty(), "the sections are taken out");
         }
