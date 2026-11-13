@@ -185,6 +185,22 @@ impl Solid {
         Face { place, w, h, depth, o, u, v, out }
     }
 
+    /// The object with face `i` made `w` × `h` and the object `depth` deep under it (the other faces follow: they share its edges).
+    /// A sheet changes its width, height and thickness.
+    pub fn with_face_size(&self, i: usize, w: f64, h: f64, depth: f64) -> Solid {
+        let f = self.face(i);
+        let mut b = self.bbox();
+        let axis = |d: V3| (0..3).max_by(|x, y| d[*x].abs().total_cmp(&d[*y].abs())).unwrap_or(0);
+        b[axis(f.u)] = w;
+        b[axis(f.v)] = h;
+        b[axis(f.out)] = depth;
+        let size = match self.body {
+            Body::Sheet(_) | Body::Block => b,
+            Body::Post => [b[1], b[2], b[0]],
+        };
+        Solid { body: self.body, size }
+    }
+
     pub fn faces(&self) -> Vec<Face> {
         (0..self.count()).map(|i| self.face(i)).collect()
     }
@@ -264,23 +280,22 @@ impl Solid {
             }
             Body::Post | Body::Block => {
                 let what = if self.body == Body::Post { "post" } else { "block" };
-                format!("Face {} of {} ({} of the {what}): {} x {} mm, {} mm high", Solid::letter(i), self.count(), f.place.name(), mm(f.w), mm(f.h), mm(f.depth))
+                format!("Face {} of {}, {} of the {what}: {} x {} mm, {} mm high", Solid::letter(i), self.count(), f.place.name(), mm(f.w), mm(f.h), mm(f.depth))
             }
         }
     }
 
-    /// How to lay the object for face `i` (ASCII), the comment of the stop before it.
+    /// How to lay the object for face `i` (ASCII, short enough for a line of G-code), the comment of the stop before it.
     pub fn turn_comment(&self, i: usize) -> String {
         let f = self.face(i);
         let l = Solid::letter(i);
-        let way = match (self.body, f.place) {
-            (Body::Sheet(flip), _) => return format!("Turn the material over {} and resume to do side B", if flip.is_side_to_side() { "side to side" } else { "end to end" }),
+        match (self.body, f.place) {
+            (Body::Sheet(flip), _) => format!("Turn the material over {} and resume to do side B", if flip.is_side_to_side() { "side to side" } else { "end to end" }),
             (_, Place::Front | Place::Bottom | Place::Back) => format!("Roll it a quarter turn back: face {l} up, face {} at the back", Solid::letter(i - 1)),
-            (_, Place::Left) => format!("Lay it with face {l} up: face A to the right, the back of face A at the back"),
-            (_, Place::Right) => format!("Lay it with face {l} up: face A to the left, the back of face A at the back"),
+            (_, Place::Left) => format!("Lay it with face {l} up, face A to the right, its back at the back"),
+            (_, Place::Right) => format!("Lay it with face {l} up, face A to the left, its back at the back"),
             _ => format!("Lay it with face {l} up"),
-        };
-        format!("{way}; its top is now {} mm high: set the zero of Z again, and resume", mm(f.depth))
+        }
     }
 }
 
@@ -470,6 +485,21 @@ mod tests {
     }
 
     #[test]
+    fn a_face_made_bigger_changes_the_object() {
+        let p = Solid::post(40.0, 30.0, 250.0);
+        // Face B is H × b with a under it.
+        assert_eq!(p.with_face_size(1, 260.0, 35.0, 45.0), Solid::post(45.0, 35.0, 260.0));
+        let b = Solid::block(120.0, 80.0, 50.0);
+        assert_eq!(b.with_face_size(4, 55.0, 85.0, 125.0), Solid::block(125.0, 85.0, 55.0));
+        for s in all() {
+            for i in 0..s.count() {
+                let f = s.face(i);
+                assert_eq!(s.with_face_size(i, f.w, f.h, f.depth), s, "{s:?} {i}");
+            }
+        }
+    }
+
+    #[test]
     fn the_ends_of_a_block_unfold_left_and_right() {
         let s = Solid::block(120.0, 80.0, 50.0);
         assert_eq!((s.relation(4, 0), s.relation(5, 0), s.relation(4, 5)), (Relation::Left, Relation::Right, Relation::Opposite));
@@ -493,10 +523,14 @@ mod tests {
         for s in all() {
             for i in 0..s.count() {
                 assert!(s.head_comment(i).is_ascii() && s.turn_comment(i).is_ascii());
+                // A line of G-code is short: M0 and the brackets round it.
+                assert!(s.head_comment(i).len() <= 72 && s.turn_comment(i).len() <= 72, "{}", s.turn_comment(i));
             }
         }
         let p = Solid::post(40.0, 30.0, 250.0);
-        assert_eq!(p.head_comment(1), "Face B of 4 (front of the post): 250 x 30 mm, 40 mm high");
+        assert_eq!(p.head_comment(1), "Face B of 4, front of the post: 250 x 30 mm, 40 mm high");
+        // No brackets: a comment of G-code is in brackets itself.
+        assert!((0..6).all(|i| !Solid::block(1.0, 2.0, 3.0).head_comment(i).contains(['(', ')']) && !Solid::block(1.0, 2.0, 3.0).turn_comment(i).contains(['(', ')'])));
         assert!(p.turn_comment(2).starts_with("Roll it a quarter turn back: face C up, face B at the back"));
         assert_eq!(Solid::sheet(1.0, 1.0, 1.0, FlipAxis::SideToSide).head_comment(1), "Side B: the material is turned over side to side");
     }

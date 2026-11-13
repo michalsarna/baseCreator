@@ -175,7 +175,8 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
     let mut open = true;
     let (mut apply, mut skip) = (false, false);
     let title = tr("Project setup…").trim_end_matches('…').to_string();
-    popup(ctx, "setup_window", &title, [400.0, 640.0], &mut open, |ui| {
+    let size = if kind.solids { [480.0, 700.0] } else { [400.0, 640.0] };
+    popup(ctx, "setup_window", &title, size, &mut open, |ui| {
         if kind.cylinder {
             ui.horizontal(|ui| {
                 ui.label(tr("Shape of the material"));
@@ -455,12 +456,13 @@ pub fn solid_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], units: U
     let p = ui.painter_at(rect);
     let [bx, by, bz] = solid.bbox();
     let big = bx.max(by).max(bz).max(1e-6);
-    let (w, d, t) = (bx / big, by / big, bz / big);
+    // A long thin post is drawn thicker than it is, so that its faces can be seen; the numbers are the real ones.
+    let (w, d, t) = (bx / big, (by / big).max(0.3), (bz / big).max(0.22));
     // As in the picture of the block: X to the right, the depth back and up at a slant, Z up; room for the sizes and the arrow.
     let (sx, sy) = (0.55, 0.32);
     let (span_x, span_y) = (w + d * sx, d * sy + t);
-    let k = ((rect.width() as f64 - 120.0) / span_x).min((rect.height() as f64 - 64.0) / span_y).max(1.0);
-    let o = Pos2::new(rect.center().x - (span_x * k / 2.0) as f32 - 18.0, rect.center().y + (span_y * k / 2.0) as f32 - 4.0);
+    let k = ((rect.width() as f64 - 130.0) / span_x).min((rect.height() as f64 - 56.0) / span_y).max(1.0);
+    let o = Pos2::new(rect.center().x - (span_x * k / 2.0) as f32 - 30.0, rect.center().y + (span_y * k / 2.0) as f32 - 2.0);
     // q: [x, the depth from the front back, z].
     let at = |q: [f64; 3]| Pos2::new(o.x + ((q[0] + q[1] * sx) * k) as f32, o.y - ((q[1] * sy + q[2]) * k) as f32);
     let edge = Stroke::new(1.0, shade(colour, 0.45));
@@ -491,7 +493,7 @@ pub fn solid_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], units: U
         .map(|i| {
             let th = (150.0 - 120.0 * i as f64 / 24.0f64).to_radians();
             // th = 180° is the front, 90° the top, 0° the back.
-            at([w + 0.1, d / 2.0 - r * th.cos(), t / 2.0 + r * th.sin()])
+            at([w + 0.06 + r * 0.9, d / 2.0 + r * th.cos(), t / 2.0 + r * th.sin()])
         })
         .collect();
     let (tip, before) = (arc[arc.len() - 1], arc[arc.len() - 3]);
@@ -510,7 +512,7 @@ pub fn solid_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], units: U
     crate::dims::dim(&p, at([0.0, 0.0, 0.0]), at([w, 0.0, 0.0]), egui::vec2(0.0, 1.0), 16.0, &format!("{} = {}", names[0], n(bx)), &ink);
     let along = (at([w, d, 0.0]) - at([w, 0.0, 0.0])).normalized();
     crate::dims::dim(&p, at([w, 0.0, 0.0]), at([w, d, 0.0]), egui::vec2(-along.y, along.x), 16.0, &format!("{} = {}", names[1], n(by)), &ink);
-    crate::dims::dim(&p, at([0.0, d, 0.0]), at([0.0, d, t]), egui::vec2(-1.0, 0.0), 14.0, &format!("{} = {}", names[2], n(bz)), &ink);
+    crate::dims::dim(&p, at([0.0, 0.0, 0.0]), at([0.0, 0.0, t]), egui::vec2(-1.0, 0.0), 12.0, &format!("{} = {}", names[2], n(bz)), &ink);
     let Some((zp, z_bottom)) = zero else { return };
     let (zx, zy) = match zp {
         ZeroPoint::FrontLeft => (0.0, 0.0),
