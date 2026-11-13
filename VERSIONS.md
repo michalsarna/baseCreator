@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.98.0
+
+- **Jobs on the faces of a post and of a block** (`base_core::faces`: `Solid`, `Body`, `Face`, `Relation`, `Faces`): a sheet on two sides, the four long faces of a post (base a × b, height H, lying along X, rolled a quarter turn back between the faces) and the six faces of a block. Every face knows its size, the depth of the object under it and where it lies on the object; from that come the ghosts (`show_on`, `ghost_xf`, `ghosts_of`: the face under the shown one seen through, the faces beside it unfolded over its edges, `neighbour` for their outlines), the words of the G-code (`head_comment`, `turn_comment`) and `with_face_size`. A post or a block is saved in the project section `faces`; a sheet stays in `two_sided` (now with `marks`).
+- **Project setup**: `Setup::sides` (`Sides::One`, `Two`, `Post`, `Block`) instead of `two_sided`, the sizes of a post and of a block, `Kind::solids`; with more than one side "Work area is the material" is always on and greyed. Pictures of the post and the block (`solid_picture`) and the net of their faces (`net_picture`).
+- **The switch of the faces** (`two_sided::faces_bar`, `face_label`, `face_tip`, `paint_face_name`, `paint_net`) and **saving the G-code of all the faces** (`save_window_for`, `SaveSides::label_for`, `face_paths`, `marks_path`, `face_text`, `text_face`, `MARKS_FACE`; `SaveDialog::marks` for the alignment marks of LightCreator in a file of their own).
+- 40 texts in every language.
+
 ## v1.97.0
 
 - **Preview G-code of a two-sided job asks too** (`SaveDialog::ask_show`, `ask_save`): the whole job in one tab, or a tab for each side. `SIDE_B_TEXT` and `text_slot` give the tab of side B its own key beside the one of the project.
