@@ -1461,3 +1461,43 @@
 1460|Form hinnar hliðarinnar, snúin eins og efnið, dregin dauf undir þessa hlið. Smelltu á eitt til að jafna eða festa við það; það er aldrei fært.
 1461|G-kóði tvíhliða verks
 1462|Verkið hefur tvær hliðar. Hvernig á að sýna G-kóðann?
+1463|Hliðar sem unnið er á
+1464|1 hlið
+1465|2 hliðar
+1466|4 hliðar (stólpi)
+1467|6 hliðar (kubbur)
+1468|Aðeins er unnið á efninu ofan frá.
+1469|Stólpi sem liggur eftir X og unnið er á fjórum löngu hliðum hans A, B, C og D: á milli er honum velt fjórðungssnúning aftur. Hver hlið er sitt eigið vinnusvæði; hliðarnar við hlið eru flattar út í kringum hana og sú undir sést í gegn, sem draugar.
+1470|Kubbur sem unnið er á öllum sex hliðum: A til D er velt fjórðungssnúning aftur í hvert sinn, E og F eru vinstri og hægri endi sem snúa upp. Hver hlið er sitt eigið vinnusvæði; hliðarnar við hlið eru flattar út í kringum hana og sú undir sést í gegn, sem draugar.
+1471|Alltaf á þegar unnið er á fleiri en einni hlið: hver hlið hefur sitt eigið vinnusvæði, jafnstórt efninu þar, og efnið liggur eins á vélinni fyrir hverja.
+1472|Grunnhlið a
+1473|Grunnhlið b
+1474|Hæð stólpans H
+1475|Hlið a (frá vinstri til hægri)
+1476|Hlið b (aftan frá og fram)
+1477|Hlið c (hæð)
+1478|Stólpinn liggur eftir X með hlið A upp, í horni núllpunktsins. Á milli hliða er honum velt fjórðungssnúning aftur svo að framhliðin komi upp: hliðar A, B, C og D. Hver hlið er teiknuð á vinnusvæði jafnstórt henni, og efnið undir er jafnþykkt og stólpinn er djúpur þar.
+1479|Kubburinn liggur með hlið A upp, í horni núllpunktsins. Hliðar A til D: honum er velt fjórðungssnúning aftur í hvert sinn svo að framhliðin komi upp; E og F: vinstri og hægri endi hans sem snúa upp. Hver hlið er teiknuð á vinnusvæði jafnstórt henni, og efnið undir er jafnþykkt og kubburinn er djúpur þar.
+1480|Hliðarnar flattar út kringum A
+1481|Hlið {}
+1482|Stólpi: 4 hliðar
+1483|Kubbur: 6 hliðar
+1484|toppur
+1485|framhlið
+1486|botn
+1487|bakhlið
+1488|vinstri endi
+1489|hægri endi
+1490|efni
+1491|Á milli hliða A til D er hlutnum velt fjórðungssnúning aftur (framhliðin kemur upp); E og F eru vinstri og hægri endi hans sem snúa upp.
+1492|Draugar hinna hliðanna
+1493|Form hliðanna við hlið þessarar, flött út kringum brúnir hennar, og hliðarinnar undir, séð gegnum hlutinn; dauflega teiknuð. Smelltu á eitt til að jafna eða festa við það; það er aldrei fært.
+1494|Ein skrá, með stöðvun fyrir hverja hlið til að snúa hlutnum
+1495|Ein skrá, án stöðvana
+1496|Skrá fyrir hverja hlið: nafn_A … nafn_{}
+1497|G-kóði verks á mörgum hliðum
+1498|Verkið hefur margar hliðar. Hvernig á að sýna G-kóðann?
+1499|Vista G-kóða verks á mörgum hliðum
+1500|Verkið hefur margar hliðar. Hvernig á að vista G-kóðann?
+1501|Jöfnunarmerkin í eigin skrá (nafn_marks)
+1502|Brennd fyrst, á plötuna undir efninu, áður en það er lagt niður: þau liggja rétt utan við efnið, svo þau eru ekki í skrám hliðanna.

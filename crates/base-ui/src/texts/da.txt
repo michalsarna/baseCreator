@@ -1461,3 +1461,43 @@
 1460|Formerne på den anden side, vendt som materialet, tegnet svagt under denne side. Klik på en for at justere eller fastgøre til den; den flyttes aldrig.
 1461|G-kode for et tosidet job
 1462|Jobbet har to sider. Hvordan skal G-koden vises?
+1463|Sider der bearbejdes
+1464|1 side
+1465|2 sider
+1466|4 sider (stolpe)
+1467|6 sider (klods)
+1468|Materialet bearbejdes kun fra oven.
+1469|En stolpe der ligger langs X og bearbejdes på sine fire lange sider A, B, C og D: imellem dem rulles den en kvart omgang bagud. Hver side er sit eget arbejdsområde; siderne ved siden af er foldet ud omkring den, og den nedenunder ses igennem, som spøgelser.
+1470|En klods der bearbejdes på alle seks sider: A til D rulles en kvart omgang bagud hver gang, E og F er venstre og højre ende vendt op. Hver side er sit eget arbejdsområde; siderne ved siden af er foldet ud omkring den, og den nedenunder ses igennem, som spøgelser.
+1471|Altid slået til, når mere end én side bearbejdes: hver side har sit eget arbejdsområde, lige så stort som materialet der, og materialet ligger ens på maskinen for hver af dem.
+1472|Grundflade side a
+1473|Grundflade side b
+1474|Stolpens højde H
+1475|Side a (venstre mod højre)
+1476|Side b (bagfra og frem)
+1477|Side c (højde)
+1478|Stolpen ligger langs X med side A opad, i nulpunktets hjørne. Mellem siderne rulles den en kvart omgang bagud, så forsiden kommer op: side A, B, C og D. Hver side tegnes på et arbejdsområde lige så stort som siden, og materialet under den er lige så tykt, som stolpen er dyb der.
+1479|Klodsen ligger med side A opad, i nulpunktets hjørne. Side A til D: den rulles en kvart omgang bagud hver gang, så forsiden kommer op; E og F: dens venstre og højre ende vendt op. Hver side tegnes på et arbejdsområde lige så stort som siden, og materialet under den er lige så tykt, som klodsen er dyb der.
+1480|Siderne foldet ud omkring A
+1481|Side {}
+1482|Stolpe: 4 sider
+1483|Klods: 6 sider
+1484|top
+1485|forside
+1486|bund
+1487|bagside
+1488|venstre ende
+1489|højre ende
+1490|materiale
+1491|Mellem siderne A til D rulles emnet en kvart omgang bagud (forsiden kommer op); E og F er dets venstre og højre ende vendt op.
+1492|Spøgelser af de andre sider
+1493|Formerne på siderne ved siden af denne, foldet ud omkring dens kanter, og på siden nedenunder, set gennem emnet; tegnet svagt. Klik på en for at justere eller fastgøre til den; den flyttes aldrig.
+1494|Én fil, med et stop før hver side for at vende emnet
+1495|Én fil, uden stop
+1496|En fil til hver side: navn_A … navn_{}
+1497|G-kode for et job på flere sider
+1498|Jobbet har flere sider. Hvordan skal G-koden vises?
+1499|Gem G-kode for et job på flere sider
+1500|Jobbet har flere sider. Hvordan skal G-koden gemmes?
+1501|Justeringsmærkerne i deres egen fil (navn_marks)
+1502|Brændes først, på pladen under materialet, før det lægges på: de ligger lige uden for materialet, så de er ikke i sidernes filer.

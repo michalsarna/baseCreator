@@ -1461,3 +1461,43 @@
 1460|Teise poole kujundid, pööratud nagu materjal, joonistatud kahvatult selle poole alla. Klõpsa ühel, et sellega joondada või selle külge haakida; seda ei liigutata kunagi.
 1461|Kahepoolse töö G-kood
 1462|Tööl on kaks poolt. Kuidas G-koodi näidata?
+1463|Töödeldavad küljed
+1464|1 külg
+1465|2 külge
+1466|4 külge (post)
+1467|6 külge (plokk)
+1468|Materjali töödeldakse ainult pealt.
+1469|X-telje suunas lamav post, mida töödeldakse neljalt pikalt küljelt A, B, C ja D: nende vahel veeretatakse seda veerand pööret tahapoole. Iga külg on oma tööala; kõrvalküljed on selle ümber lahti voldidud ja alumine paistab läbi, kummitustena.
+1470|Plokk, mida töödeldakse kõigilt kuuelt küljelt: A–D veeretatakse iga kord veerand pööret tahapoole, E ja F on üles pööratud vasak ja parem ots. Iga külg on oma tööala; kõrvalküljed on selle ümber lahti voldidud ja alumine paistab läbi, kummitustena.
+1471|Alati sees, kui töödeldakse rohkem kui ühte külge: igal küljel on oma tööala, sama suur kui materjal seal, ja materjal on masinal iga külje jaoks samamoodi.
+1472|Aluse külg a
+1473|Aluse külg b
+1474|Posti kõrgus H
+1475|Külg a (vasakult paremale)
+1476|Külg b (tagant ette)
+1477|Külg c (kõrgus)
+1478|Post lamab X-telje suunas, külg A üleval, nullpunkti nurgas. Külgede vahel veeretatakse seda veerand pööret tahapoole, nii et esikülg tuleb üles: küljed A, B, C ja D. Iga külg joonistatakse küljega sama suurele tööalale ja materjal selle all on sama paks kui post seal sügav.
+1479|Plokk on külg A üleval, nullpunkti nurgas. Küljed A–D: seda veeretatakse iga kord veerand pööret tahapoole, nii et esikülg tuleb üles; E ja F: selle vasak ja parem ots üles pööratud. Iga külg joonistatakse küljega sama suurele tööalale ja materjal selle all on sama paks kui plokk seal sügav.
+1480|Küljed A ümber lahti voldituna
+1481|Külg {}
+1482|Post: 4 külge
+1483|Plokk: 6 külge
+1484|pealmine
+1485|esikülg
+1486|põhi
+1487|tagakülg
+1488|vasak ots
+1489|parem ots
+1490|materjal
+1491|Külgede A–D vahel veeretatakse eset veerand pööret tahapoole (esikülg tuleb üles); E ja F on selle üles pööratud vasak ja parem ots.
+1492|Teiste külgede kummitused
+1493|Kõrvalkülgede kujundid, selle servade ümber lahti voldituna, ja alumise külje kujundid, eseme läbi nähtuna; joonistatud kahvatult. Klõpsake ühte, et selle järgi joondada või haarata; seda ei liigutata kunagi.
+1494|Üks fail, peatusega enne igat külge eseme pööramiseks
+1495|Üks fail, peatusteta
+1496|Fail iga külje jaoks: nimi_A … nimi_{}
+1497|Mitme küljega töö G-kood
+1498|Tööl on mitu külge. Kuidas G-koodi näidata?
+1499|Salvesta mitme küljega töö G-kood
+1500|Tööl on mitu külge. Kuidas G-kood salvestada?
+1501|Joondusmärgid eraldi failis (nimi_marks)
+1502|Põletatakse esimesena materjali all olevale plaadile, enne kui materjal peale pannakse: need on materjalist veidi väljas, seega pole need külgede failides.

@@ -1461,3 +1461,43 @@
 1460|Formerna på andra sidan, vända som materialet, ritade svagt under den här sidan. Klicka på en för att justera eller fästa mot den; den flyttas aldrig.
 1461|G-kod för ett dubbelsidigt jobb
 1462|Jobbet har två sidor. Hur ska G-koden visas?
+1463|Sidor som bearbetas
+1464|1 sida
+1465|2 sidor
+1466|4 sidor (stolpe)
+1467|6 sidor (kloss)
+1468|Materialet bearbetas bara uppifrån.
+1469|En stolpe som ligger längs X och bearbetas på sina fyra långa sidor A, B, C och D: mellan dem rullas den ett kvarts varv bakåt. Varje sida är ett eget arbetsområde; sidorna bredvid är utvikta runt den och den under lyser igenom, som spöken.
+1470|En kloss som bearbetas på alla sex sidor: A till D rullas ett kvarts varv bakåt varje gång, E och F är vänster och höger ände vända uppåt. Varje sida är ett eget arbetsområde; sidorna bredvid är utvikta runt den och den under lyser igenom, som spöken.
+1471|Alltid på när mer än en sida bearbetas: varje sida har ett eget arbetsområde, lika stort som materialet där, och materialet ligger likadant på maskinen för var och en.
+1472|Bassida a
+1473|Bassida b
+1474|Stolpens höjd H
+1475|Sida a (vänster till höger)
+1476|Sida b (bakifrån och fram)
+1477|Sida c (höjd)
+1478|Stolpen ligger längs X med sida A uppåt, i nollpunktens hörn. Mellan sidorna rullas den ett kvarts varv bakåt så att framsidan kommer upp: sidorna A, B, C och D. Varje sida ritas på ett arbetsområde lika stort som sidan, och materialet under är lika tjockt som stolpen är djup där.
+1479|Klossen ligger med sida A uppåt, i nollpunktens hörn. Sidorna A till D: den rullas ett kvarts varv bakåt varje gång så att framsidan kommer upp; E och F: dess vänstra och högra ände vända uppåt. Varje sida ritas på ett arbetsområde lika stort som sidan, och materialet under är lika tjockt som klossen är djup där.
+1480|Sidorna utvikta runt A
+1481|Sida {}
+1482|Stolpe: 4 sidor
+1483|Kloss: 6 sidor
+1484|ovansida
+1485|framsida
+1486|undersida
+1487|baksida
+1488|vänster ände
+1489|höger ände
+1490|material
+1491|Mellan sidorna A till D rullas föremålet ett kvarts varv bakåt (framsidan kommer upp); E och F är dess vänstra och högra ände vända uppåt.
+1492|Spöken av de andra sidorna
+1493|Formerna på sidorna bredvid, utvikta runt dess kanter, och på sidan under, sedda genom föremålet; svagt ritade. Klicka på en för att justera eller fästa mot den; den flyttas aldrig.
+1494|En fil, med ett stopp före varje sida för att vända föremålet
+1495|En fil, utan stopp
+1496|En fil för varje sida: namn_A … namn_{}
+1497|G-kod för ett jobb på flera sidor
+1498|Jobbet har flera sidor. Hur ska G-koden visas?
+1499|Spara G-kod för ett jobb på flera sidor
+1500|Jobbet har flera sidor. Hur ska G-koden sparas?
+1501|Justeringsmärkena i en egen fil (namn_marks)
+1502|Bränns först, på skivan under materialet, innan det läggs på: de ligger precis utanför materialet, så de finns inte i sidornas filer.

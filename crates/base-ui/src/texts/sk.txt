@@ -1461,3 +1461,43 @@
 1460|Tvary druhej strany, otočené ako materiál, nakreslené slabo pod touto stranou. Kliknite na jeden pre zarovnanie alebo prichytenie k nemu; nikdy sa nepohne.
 1461|G-kód obojstrannej úlohy
 1462|Úloha má dve strany. Ako zobraziť G-kód?
+1463|Obrábané strany
+1464|1 strana
+1465|2 strany
+1466|4 strany (stĺpik)
+1467|6 strán (kocka)
+1468|Materiál sa obrába len zhora.
+1469|Stĺpik ležiaci pozdĺž X, obrábaný na štyroch dlhých stenách A, B, C a D: medzi nimi sa prevalí o štvrť otáčky dozadu. Každá stena má vlastnú pracovnú plochu; susedné steny sú okolo nej rozložené a tá pod ňou presvitá, ako duchovia.
+1470|Kocka obrábaná na všetkých šiestich stenách: A až D sa zakaždým prevalí o štvrť otáčky dozadu, E a F sú ľavý a pravý koniec otočený nahor. Každá stena má vlastnú pracovnú plochu; susedné steny sú okolo nej rozložené a tá pod ňou presvitá, ako duchovia.
+1471|Vždy zapnuté, keď sa obrába viac ako jedna strana: každá strana má vlastnú pracovnú plochu veľkú ako materiál v tom mieste a materiál leží na stroji pre každú rovnako.
+1472|Strana podstavy a
+1473|Strana podstavy b
+1474|Výška stĺpika H
+1475|Strana a (zľava doprava)
+1476|Strana b (zozadu dopredu)
+1477|Strana c (výška)
+1478|Stĺpik leží pozdĺž X stenou A nahor, v rohu nuly. Medzi stenami sa prevalí o štvrť otáčky dozadu, aby predná strana prišla hore: steny A, B, C a D. Každá stena sa kreslí na pracovnú plochu veľkú ako stena a materiál pod ňou je taký hrubý, aký hlboký je tam stĺpik.
+1479|Kocka leží stenou A nahor, v rohu nuly. Steny A až D: zakaždým sa prevalí o štvrť otáčky dozadu, aby predná strana prišla hore; E a F: jej ľavý a pravý koniec otočený nahor. Každá stena sa kreslí na pracovnú plochu veľkú ako stena a materiál pod ňou je taký hrubý, aká hlboká je tam kocka.
+1480|Steny rozložené okolo A
+1481|Stena {}
+1482|Stĺpik: 4 steny
+1483|Kocka: 6 stien
+1484|vrch
+1485|predok
+1486|spodok
+1487|zadok
+1488|ľavý koniec
+1489|pravý koniec
+1490|materiál
+1491|Medzi stenami A až D sa predmet prevalí o štvrť otáčky dozadu (predná strana ide hore); E a F sú jeho ľavý a pravý koniec otočený nahor.
+1492|Duchovia ostatných stien
+1493|Tvary susedných stien, rozložené okolo jej hrán, a steny pod ňou, videné cez predmet; nakreslené slabo. Kliknite na jeden na zarovnanie alebo prichytenie; nikdy sa nepohne.
+1494|Jeden súbor, so zastavením pred každou stenou na otočenie predmetu
+1495|Jeden súbor, bez zastavení
+1496|Súbor pre každú stenu: názov_A … názov_{}
+1497|G-kód úlohy na viacerých stenách
+1498|Úloha má viac stien. Ako zobraziť G-kód?
+1499|Uložiť G-kód úlohy na viacerých stenách
+1500|Úloha má viac stien. Ako uložiť G-kód?
+1501|Zarovnávacie značky vo vlastnom súbore (názov_marks)
+1502|Vypaľujú sa najskôr, na dosku pod materiálom, kým sa materiál položí: ležia tesne mimo materiálu, preto nie sú v súboroch strán.

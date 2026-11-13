@@ -1,10 +1,12 @@
 //! The window of the project setup, the same in every program that works on a piece of material (File → Project setup…, and after
-//! File → New): a block (its size, thickness, the zero of the program, a two-sided job) or a cylinder on the rotary attachment (its
-//! diameter and length), with a picture of it. The program puts the answer into its project (`Setup` holds what was chosen).
+//! File → New): a block (its size, thickness, the zero of the program, how many of its sides are worked on: one, two, the four long
+//! faces of a post or the six faces of a block) or a cylinder on the rotary attachment (its diameter and length), with pictures of
+//! it. The program puts the answer into its project (`Setup` holds what was chosen).
 use crate::i18n::tr;
 use crate::theme;
 use crate::units_ui::drag_len;
 use crate::window::popup;
+use base_core::faces::{Body, Solid};
 use base_core::setup::{FlipAxis, ZeroPoint};
 use base_core::units::Units;
 use egui::{Color32, Pos2, RichText, Stroke};
@@ -27,17 +29,82 @@ pub struct Setup {
     /// The diameter and the length of the cylinder (mm).
     pub diameter: f64,
     pub length: f64,
-    /// A two-sided job (a block only): the material turned over round `flip`, with alignment marks when `marks` is set.
-    pub two_sided: bool,
+    /// How many sides are worked on (a block only). Two: the material turned over round `flip`, with alignment marks when `marks`
+    /// is set.
+    pub sides: Sides,
     pub flip: FlipAxis,
     pub marks: bool,
+    /// A post: the sides `a` and `b` of its base and its height (mm).
+    pub post: [f64; 3],
+    /// A block: `a` (from left to right), `b` (from the back to the front) and `c` (up), mm.
+    pub block: [f64; 3],
     /// The largest piece the machine takes (its work area), for the list of paper sizes.
     pub max: (f64, f64),
 }
 
 impl Default for Setup {
     fn default() -> Setup {
-        Setup { open: false, w: 200.0, h: 150.0, t: 10.0, zero: ZeroPoint::FrontLeft, z_bottom: false, work_area: false, round: false, diameter: 50.0, length: 150.0, two_sided: false, flip: FlipAxis::SideToSide, marks: true, max: (f64::INFINITY, f64::INFINITY) }
+        Setup { open: false, w: 200.0, h: 150.0, t: 10.0, zero: ZeroPoint::FrontLeft, z_bottom: false, work_area: false, round: false, diameter: 50.0, length: 150.0, sides: Sides::One, flip: FlipAxis::SideToSide, marks: true, post: [40.0, 40.0, 300.0], block: [100.0, 80.0, 60.0], max: (f64::INFINITY, f64::INFINITY) }
+    }
+}
+
+/// How many sides of the material are worked on.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum Sides {
+    #[default]
+    One,
+    /// A sheet turned over: side A and side B.
+    Two,
+    /// The four long faces of a post.
+    Post,
+    /// The six faces of a block.
+    Block,
+}
+
+impl Sides {
+    pub fn label(self) -> &'static str {
+        match self {
+            Sides::One => "1 side",
+            Sides::Two => "2 sides",
+            Sides::Post => "4 sides (post)",
+            Sides::Block => "6 sides (block)",
+        }
+    }
+    /// More than one side: every side has a work area of its own, and the work area is the material.
+    pub fn many(self) -> bool {
+        self != Sides::One
+    }
+    /// What a project with `solid` (or none) was set up as.
+    pub fn of(solid: Option<&Solid>) -> Sides {
+        match solid.map(|s| s.body) {
+            None => Sides::One,
+            Some(Body::Sheet(_)) => Sides::Two,
+            Some(Body::Post) => Sides::Post,
+            Some(Body::Block) => Sides::Block,
+        }
+    }
+}
+
+impl Setup {
+    /// The object of a job on more than one side, from what was chosen (none for one side).
+    pub fn solid(&self) -> Option<Solid> {
+        match self.sides {
+            Sides::One => None,
+            Sides::Two => Some(Solid::sheet(self.w, self.h, self.t, self.flip)),
+            Sides::Post => Some(Solid::post(self.post[0], self.post[1], self.post[2])),
+            Sides::Block => Some(Solid::block(self.block[0], self.block[1], self.block[2])),
+        }
+    }
+    /// Take the sizes of an object the project has already.
+    pub fn take_solid(&mut self, solid: Option<&Solid>) {
+        self.sides = Sides::of(solid);
+        if let Some(s) = solid {
+            match s.body {
+                Body::Sheet(flip) => self.flip = flip,
+                Body::Post => self.post = s.size,
+                Body::Block => self.block = s.size,
+            }
+        }
     }
 }
 
@@ -58,6 +125,8 @@ pub struct Kind {
     pub colour: [u8; 3],
     /// The piece is a sheet of paper: a list of paper sizes (those that fit the machine), and no thickness.
     pub paper: bool,
+    /// The four faces of a post and the six of a block can be chosen.
+    pub solids: bool,
 }
 
 /// The usual sizes of paper (portrait, mm).
@@ -139,61 +208,12 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
             });
             ui.label(RichText::new(tr(kind.cylinder_note)).color(theme::text_dim()));
         } else {
-            block_picture(ui, &Setup { t: if kind.paper { 0.2 } else { st.t }, ..st.clone() }, kind.colour, units, kind.zero);
+            sides_row(ui, st, kind);
             ui.add_space(4.0);
-            egui::Grid::new("setup_grid").num_columns(2).spacing([12.0, 6.0]).show(ui, |ui| {
-                ui.label(tr("Material width"));
-                drag_len(ui, units, &mut st.w, 1.0, Some((1.0, 20_000.0)));
-                ui.end_row();
-                ui.label(tr("Material height"));
-                drag_len(ui, units, &mut st.h, 1.0, Some((1.0, 20_000.0)));
-                ui.end_row();
-                if kind.paper {
-                    ui.label(tr("Paper size"));
-                    let list = papers_that_fit(st.max);
-                    let now = list.iter().find(|(_, w, h)| (w - st.w).abs() < 0.05 && (h - st.h).abs() < 0.05).map_or_else(|| tr("Custom").to_string(), |(n, _, _)| n.clone());
-                    egui::ComboBox::from_id_salt("setup_paper").selected_text(now).show_ui(ui, |ui| {
-                        for (name, w, h) in &list {
-                            if ui.selectable_label((w - st.w).abs() < 0.05 && (h - st.h).abs() < 0.05, format!("{name}  {} × {}", crate::units_ui::fmt_len(units, *w, 1), crate::units_ui::fmt_len(units, *h, 1))).clicked() {
-                                st.w = *w;
-                                st.h = *h;
-                            }
-                        }
-                    }).response.on_hover_text(tr("The sizes that fit the work area of the machine: ↕ upright, ↔ lying."));
-                    ui.end_row();
-                } else {
-                    ui.label(tr("Thickness"));
-                    drag_len(ui, units, &mut st.t, 0.5, Some((0.1, MAX_THICKNESS)));
-                    ui.end_row();
-                }
-                if kind.zero {
-                    zero_row(ui, st, "setup_zero");
-                    ui.label("");
-                    ui.checkbox(&mut st.z_bottom, tr("Z counts from the bottom of the material"));
-                    ui.end_row();
-                }
-                if !kind.paper {
-                    ui.label("");
-                    ui.checkbox(&mut st.work_area, tr("Work area is the material"));
-                    ui.end_row();
-                }
-                ui.label("");
-                ui.checkbox(&mut st.two_sided, tr("Two-sided job")).on_hover_text(tr("Side A and side B are two work areas: the material is cut on one side, turned over and cut on the other. Each side shows the shapes of the other one turned over, as ghosts."));
-                ui.end_row();
-                if st.two_sided {
-                    ui.label(tr("Turned over round"));
-                    egui::ComboBox::from_id_salt("setup_flip").selected_text(flip_name(st.flip)).width(220.0).show_ui(ui, |ui| {
-                        for f in FlipAxis::ALL {
-                            ui.selectable_value(&mut st.flip, f, flip_name(f));
-                        }
-                    });
-                    ui.end_row();
-                    ui.label("");
-                    ui.checkbox(&mut st.marks, tr("Alignment marks")).on_hover_text(tr(kind.marks_tip));
-                    ui.end_row();
-                }
-            });
-            ui.label(RichText::new(tr(kind.block_note)).color(theme::text_dim()));
+            match st.sides {
+                Sides::Post | Sides::Block => solid_part(ui, st, units, kind),
+                Sides::One | Sides::Two => sheet_part(ui, st, units, kind),
+            }
         }
         ui.horizontal(|ui| {
             apply = ui.button(tr("Apply")).clicked();
@@ -209,6 +229,129 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
     } else {
         None
     }
+}
+
+/// The choice of how many sides are worked on: one, two (turned over), the four faces of a post or the six of a block.
+fn sides_row(ui: &mut egui::Ui, st: &mut Setup, kind: Kind) {
+    let all: &[Sides] = if kind.solids { &[Sides::One, Sides::Two, Sides::Post, Sides::Block] } else { &[Sides::One, Sides::Two] };
+    if !all.contains(&st.sides) {
+        st.sides = Sides::One;
+    }
+    ui.horizontal_wrapped(|ui| {
+        ui.label(tr("Sides to work on"));
+        for s in all {
+            let tip = match s {
+                Sides::One => "The material is worked on from the top only.",
+                Sides::Two => "Side A and side B are two work areas: the material is cut on one side, turned over and cut on the other. Each side shows the shapes of the other one turned over, as ghosts.",
+                Sides::Post => "A post lying along X, worked on its four long faces A, B, C and D: it is rolled a quarter turn back between them. Each face is a work area of its own; the faces beside it are unfolded round it and the one under it shows through, as ghosts.",
+                Sides::Block => "A block worked on all its six faces: A to D rolled a quarter turn back each time, E and F the left and the right end turned up. Each face is a work area of its own; the faces beside it are unfolded round it and the one under it shows through, as ghosts.",
+            };
+            ui.selectable_value(&mut st.sides, *s, tr(s.label())).on_hover_text(tr(tip));
+        }
+    });
+}
+
+/// "Work area is the material": a choice for one side; always on (and greyed) when more sides are worked on, so that every side
+/// lies on the machine the same way, in the corner of the zero.
+fn work_area_row(ui: &mut egui::Ui, st: &mut Setup, kind: Kind) {
+    ui.label("");
+    if st.sides.many() && !kind.paper {
+        st.work_area = true;
+        ui.add_enabled(false, egui::Checkbox::new(&mut true, tr("Work area is the material"))).on_disabled_hover_text(tr("Always on when more than one side is worked on: every side has a work area of its own, as big as the material is there, and the material lies the same way on the machine for each of them."));
+    } else {
+        ui.checkbox(&mut st.work_area, tr("Work area is the material"));
+    }
+    ui.end_row();
+}
+
+/// A sheet or a block worked on one side or on two.
+fn sheet_part(ui: &mut egui::Ui, st: &mut Setup, units: Units, kind: Kind) {
+    block_picture(ui, &Setup { t: if kind.paper { 0.2 } else { st.t }, ..st.clone() }, kind.colour, units, kind.zero);
+    ui.add_space(4.0);
+    egui::Grid::new("setup_grid").num_columns(2).spacing([12.0, 6.0]).show(ui, |ui| {
+        ui.label(tr("Material width"));
+        drag_len(ui, units, &mut st.w, 1.0, Some((1.0, 20_000.0)));
+        ui.end_row();
+        ui.label(tr("Material height"));
+        drag_len(ui, units, &mut st.h, 1.0, Some((1.0, 20_000.0)));
+        ui.end_row();
+        if kind.paper {
+            ui.label(tr("Paper size"));
+            let list = papers_that_fit(st.max);
+            let now = list.iter().find(|(_, w, h)| (w - st.w).abs() < 0.05 && (h - st.h).abs() < 0.05).map_or_else(|| tr("Custom").to_string(), |(n, _, _)| n.clone());
+            egui::ComboBox::from_id_salt("setup_paper").selected_text(now).show_ui(ui, |ui| {
+                for (name, w, h) in &list {
+                    if ui.selectable_label((w - st.w).abs() < 0.05 && (h - st.h).abs() < 0.05, format!("{name}  {} × {}", crate::units_ui::fmt_len(units, *w, 1), crate::units_ui::fmt_len(units, *h, 1))).clicked() {
+                        st.w = *w;
+                        st.h = *h;
+                    }
+                }
+            }).response.on_hover_text(tr("The sizes that fit the work area of the machine: ↕ upright, ↔ lying."));
+            ui.end_row();
+        } else {
+            ui.label(tr("Thickness"));
+            drag_len(ui, units, &mut st.t, 0.5, Some((0.1, MAX_THICKNESS)));
+            ui.end_row();
+        }
+        if kind.zero {
+            zero_row(ui, st, "setup_zero");
+            ui.label("");
+            ui.checkbox(&mut st.z_bottom, tr("Z counts from the bottom of the material"));
+            ui.end_row();
+        }
+        if !kind.paper {
+            work_area_row(ui, st, kind);
+        }
+        if st.sides == Sides::Two {
+            ui.label(tr("Turned over round"));
+            egui::ComboBox::from_id_salt("setup_flip").selected_text(flip_name(st.flip)).width(220.0).show_ui(ui, |ui| {
+                for f in FlipAxis::ALL {
+                    ui.selectable_value(&mut st.flip, f, flip_name(f));
+                }
+            });
+            ui.end_row();
+            ui.label("");
+            ui.checkbox(&mut st.marks, tr("Alignment marks")).on_hover_text(tr(kind.marks_tip));
+            ui.end_row();
+        }
+    });
+    ui.label(RichText::new(tr(kind.block_note)).color(theme::text_dim()));
+}
+
+/// A post (four faces) or a block (six): its picture, the faces unfolded, its sizes.
+fn solid_part(ui: &mut egui::Ui, st: &mut Setup, units: Units, kind: Kind) {
+    let post = st.sides == Sides::Post;
+    if let Some(solid) = st.solid() {
+        ui.horizontal(|ui| {
+            let wide = ui.available_width();
+            ui.allocate_ui(egui::vec2(wide * 0.62, 190.0), |ui| solid_picture(ui, &solid, kind.colour, units, kind.zero.then_some((st.zero, st.z_bottom))));
+            ui.allocate_ui(egui::vec2(ui.available_width(), 190.0), |ui| {
+                net_picture(ui, &solid, kind.colour, None);
+            });
+        });
+    }
+    ui.add_space(4.0);
+    egui::Grid::new("setup_grid_solid").num_columns(2).spacing([12.0, 6.0]).show(ui, |ui| {
+        let (names, v) = if post { (["Base side a", "Base side b", "Height of the post H"], &mut st.post) } else { (["Side a (left to right)", "Side b (back to front)", "Side c (height)"], &mut st.block) };
+        for (k, name) in names.iter().enumerate() {
+            ui.label(tr(name));
+            drag_len(ui, units, &mut v[k], 0.5, Some((1.0, 20_000.0)));
+            ui.end_row();
+        }
+        if kind.zero {
+            zero_row(ui, st, "setup_zero_solid");
+            ui.label("");
+            ui.checkbox(&mut st.z_bottom, tr("Z counts from the bottom of the material"));
+            ui.end_row();
+        }
+        work_area_row(ui, st, kind);
+    });
+    let note = if post {
+        "The post lies along X with face A up, in the corner of the zero. Between the faces it is rolled a quarter turn back, so that the front comes up: faces A, B, C and D. Each face is drawn on a work area as big as the face, and the material under it is as thick as the post is deep there."
+    } else {
+        "The block lies with face A up, in the corner of the zero. Faces A to D: it is rolled a quarter turn back each time, so that the front comes up; E and F: its left and its right end turned up. Each face is drawn on a work area as big as the face, and the material under it is as thick as the block is deep there."
+    };
+    ui.label(RichText::new(tr(note)).color(theme::text_dim()));
 }
 
 /// The name of an axis in the list: H or V and what changes places.
@@ -261,7 +404,7 @@ pub fn block_picture(ui: &mut egui::Ui, st: &Setup, colour: [u8; 3], units: Unit
     crate::dims::dim(&p, at([w, 0.0, 0.0]), at([w, h, 0.0]), egui::vec2(-along.y, along.x), 16.0, &n(st.h), &ink);
     crate::dims::dim(&p, at([w, h, 0.0]), at([w, h, t]), egui::vec2(1.0, 0.0), 14.0, &n(st.t), &ink);
     // A two-sided job: the middle line the material is turned over round, dashed over the top, with A and B on its two sides.
-    if st.two_sided {
+    if st.sides == Sides::Two {
         let line = match st.flip {
             FlipAxis::SideToSide => [[w / 2.0, -0.08, t], [w / 2.0, h + 0.08, t]],
             FlipAxis::EndToEnd => [[-0.08, h / 2.0, t], [w + 0.08, h / 2.0, t]],
@@ -297,6 +440,149 @@ pub fn block_picture(ui: &mut egui::Ui, st: &Setup, colour: [u8; 3], units: Unit
     }
     p.circle_filled(zero, 4.5, Color32::from_rgb(0xe0, 0x30, 0x30));
     p.circle_stroke(zero, 4.5, Stroke::new(1.2, Color32::WHITE));
+}
+
+/// The letters of the faces drawn on the pictures.
+fn letter_ink() -> Color32 {
+    Color32::from_rgb(0x2a, 0x1c, 0x0c)
+}
+
+/// The picture of a post or a block: the object seen at a slant as it lies for face A, with the letters of the faces that are seen
+/// (the others are on the net beside it), the arrow of the quarter turn back between the faces A to D, its sizes and the zero of
+/// the program (when the program has one: `zero`, with Z from the bottom).
+pub fn solid_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], units: Units, zero: Option<(ZeroPoint, bool)>) {
+    let (rect, _) = ui.allocate_exact_size(egui::vec2(ui.available_width().min(380.0), 190.0), egui::Sense::hover());
+    let p = ui.painter_at(rect);
+    let [bx, by, bz] = solid.bbox();
+    let big = bx.max(by).max(bz).max(1e-6);
+    let (w, d, t) = (bx / big, by / big, bz / big);
+    // As in the picture of the block: X to the right, the depth back and up at a slant, Z up; room for the sizes and the arrow.
+    let (sx, sy) = (0.55, 0.32);
+    let (span_x, span_y) = (w + d * sx, d * sy + t);
+    let k = ((rect.width() as f64 - 120.0) / span_x).min((rect.height() as f64 - 64.0) / span_y).max(1.0);
+    let o = Pos2::new(rect.center().x - (span_x * k / 2.0) as f32 - 18.0, rect.center().y + (span_y * k / 2.0) as f32 - 4.0);
+    // q: [x, the depth from the front back, z].
+    let at = |q: [f64; 3]| Pos2::new(o.x + ((q[0] + q[1] * sx) * k) as f32, o.y - ((q[1] * sy + q[2]) * k) as f32);
+    let edge = Stroke::new(1.0, shade(colour, 0.45));
+    let face = |pts: [[f64; 3]; 4], f: f32, letter: Option<char>| {
+        let poly: Vec<Pos2> = pts.iter().map(|q| at(*q)).collect();
+        let mid = poly.iter().fold(egui::Vec2::ZERO, |a, q| a + q.to_vec2()) / 4.0;
+        p.add(egui::Shape::convex_polygon(poly, shade(colour, f), edge));
+        if let Some(l) = letter {
+            p.text(mid.to_pos2(), egui::Align2::CENTER_CENTER, l, egui::FontId::proportional(16.0), letter_ink());
+        }
+    };
+    let block = solid.body == Body::Block;
+    face([[0.0, 0.0, 0.0], [w, 0.0, 0.0], [w, 0.0, t], [0.0, 0.0, t]], 0.82, Some('B'));
+    face([[w, 0.0, 0.0], [w, d, 0.0], [w, d, t], [w, 0.0, t]], 0.62, block.then_some('F'));
+    face([[0.0, 0.0, t], [w, 0.0, t], [w, d, t], [0.0, d, t]], 1.0, Some('A'));
+    // The end of a post is not worked on: its grain.
+    if !block {
+        let c = at([w, d / 2.0, t / 2.0]);
+        for f in [0.18f32, 0.34] {
+            let r = (at([w, d, t]) - at([w, 0.0, 0.0])).length() * f;
+            p.add(egui::Shape::ellipse_stroke(c, egui::vec2(r * 0.55, r * 0.7), Stroke::new(1.0, shade(colour, 0.45))));
+        }
+    }
+    // The quarter turn back round the length (X), drawn round the right end: the front comes up.
+    let blue = Color32::from_rgb(0x2e, 0x7d, 0xd0);
+    let r = d.max(t) * 0.78;
+    let arc: Vec<Pos2> = (0..=24)
+        .map(|i| {
+            let th = (150.0 - 120.0 * i as f64 / 24.0f64).to_radians();
+            // th = 180° is the front, 90° the top, 0° the back.
+            at([w + 0.1, d / 2.0 - r * th.cos(), t / 2.0 + r * th.sin()])
+        })
+        .collect();
+    let (tip, before) = (arc[arc.len() - 1], arc[arc.len() - 3]);
+    p.add(egui::Shape::line(arc.clone(), Stroke::new(2.0, blue)));
+    let dir = (tip - before).normalized();
+    let side = egui::vec2(-dir.y, dir.x);
+    p.add(egui::Shape::convex_polygon(vec![tip + dir * 5.0, tip - dir * 4.0 + side * 4.5, tip - dir * 4.0 - side * 4.5], blue, Stroke::NONE));
+    p.text(arc[0] + egui::vec2(-4.0, 2.0), egui::Align2::RIGHT_TOP, "¼", egui::FontId::proportional(13.0), blue);
+    // The sizes: along the front, along the right side and up at the back right.
+    let ink = crate::dims::DimStyle::on(theme::panel());
+    let n = |v: f64| crate::dims::number(units, v);
+    let names = match solid.body {
+        Body::Post => ["H", "a", "b"],
+        _ => ["a", "b", "c"],
+    };
+    crate::dims::dim(&p, at([0.0, 0.0, 0.0]), at([w, 0.0, 0.0]), egui::vec2(0.0, 1.0), 16.0, &format!("{} = {}", names[0], n(bx)), &ink);
+    let along = (at([w, d, 0.0]) - at([w, 0.0, 0.0])).normalized();
+    crate::dims::dim(&p, at([w, 0.0, 0.0]), at([w, d, 0.0]), egui::vec2(-along.y, along.x), 16.0, &format!("{} = {}", names[1], n(by)), &ink);
+    crate::dims::dim(&p, at([0.0, d, 0.0]), at([0.0, d, t]), egui::vec2(-1.0, 0.0), 14.0, &format!("{} = {}", names[2], n(bz)), &ink);
+    let Some((zp, z_bottom)) = zero else { return };
+    let (zx, zy) = match zp {
+        ZeroPoint::FrontLeft => (0.0, 0.0),
+        ZeroPoint::FrontRight => (w, 0.0),
+        ZeroPoint::BackLeft => (0.0, d),
+        ZeroPoint::BackRight => (w, d),
+        ZeroPoint::Center => (w / 2.0, d / 2.0),
+    };
+    let zz = if z_bottom { 0.0 } else { t };
+    let z0 = at([zx, zy, zz]);
+    p.circle_filled(z0, 4.5, Color32::from_rgb(0xe0, 0x30, 0x30));
+    p.circle_stroke(z0, 4.5, Stroke::new(1.2, Color32::WHITE));
+}
+
+/// Where the faces of an object lie on its net (unfolded round face A, as the ghosts are round the shown face): their outlines in
+/// the drawing of face A. The face on the other side of A comes after the front one; a sheet has its side B beside A.
+pub fn net_rects(solid: &Solid) -> Vec<(usize, egui::Rect)> {
+    let fa = solid.face(0);
+    let rect = |pts: [base_core::geom::Pt; 4]| {
+        let (mut lo, mut hi) = (Pos2::new(f32::MAX, f32::MAX), Pos2::new(f32::MIN, f32::MIN));
+        for q in pts {
+            lo = lo.min(Pos2::new(q.x as f32, q.y as f32));
+            hi = hi.max(Pos2::new(q.x as f32, q.y as f32));
+        }
+        egui::Rect::from_min_max(lo, hi)
+    };
+    let mut out = vec![(0, rect(fa.corners()))];
+    for j in 1..solid.count() {
+        let r = match solid.neighbour(j, 0) {
+            Some(pts) => rect(pts),
+            None => {
+                let f = solid.face(j);
+                match solid.body {
+                    // Side B of a sheet beside A, with a gap.
+                    Body::Sheet(_) => egui::Rect::from_min_size(Pos2::new((fa.w * 1.15) as f32, 0.0), egui::vec2(f.w as f32, f.h as f32)),
+                    // Under the front face (B), as the faces follow when it is rolled.
+                    _ => {
+                        let b = solid.face(1);
+                        egui::Rect::from_min_size(Pos2::new(0.0, (fa.h + b.h) as f32), egui::vec2(f.w as f32, f.h as f32))
+                    }
+                }
+            }
+        };
+        out.push((j, r));
+    }
+    out
+}
+
+/// The net of the object: every face with its letter, `shown` marked. Returns the face that was clicked.
+pub fn net_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], shown: Option<usize>) -> Option<usize> {
+    let size = egui::vec2(ui.available_width().max(60.0), ui.available_height().clamp(60.0, 190.0));
+    let (rect, resp) = ui.allocate_exact_size(size, egui::Sense::click());
+    let p = ui.painter_at(rect);
+    let rects = net_rects(solid);
+    let all = rects.iter().fold(egui::Rect::NOTHING, |a, (_, r)| a.union(*r));
+    let k = ((rect.width() - 16.0) / all.width().max(1e-3)).min((rect.height() - 24.0) / all.height().max(1e-3));
+    let place = |r: egui::Rect| {
+        let o = rect.center() - all.center().to_vec2() * k;
+        egui::Rect::from_min_max(o + r.min.to_vec2() * k, o + r.max.to_vec2() * k)
+    };
+    let mut clicked = None;
+    for (j, r) in &rects {
+        let sr = place(*r);
+        let on = shown == Some(*j);
+        p.rect(sr, 1.0, shade(colour, if *j == 0 { 1.0 } else { 0.86 }), Stroke::new(if on { 2.5 } else { 1.0 }, if on { theme::accent() } else { shade(colour, 0.45) }), egui::StrokeKind::Inside);
+        p.text(sr.center(), egui::Align2::CENTER_CENTER, base_core::faces::Solid::letter(*j), egui::FontId::proportional((sr.height().min(sr.width()) * 0.5).clamp(9.0, 16.0)), letter_ink());
+        if resp.clicked() && resp.interact_pointer_pos().is_some_and(|q| sr.contains(q)) {
+            clicked = Some(*j);
+        }
+    }
+    p.text(rect.center_bottom() + egui::vec2(0.0, -2.0), egui::Align2::CENTER_BOTTOM, tr("The faces unfolded round A"), egui::FontId::proportional(11.0), theme::text_dim());
+    clicked
 }
 
 /// The picture of a cylinder on the rotary: the workpiece along X seen at a slant, its length and diameter, the axis of the rotary with

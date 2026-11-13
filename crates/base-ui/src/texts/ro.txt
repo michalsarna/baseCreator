@@ -1461,3 +1461,43 @@
 1460|Formele celeilalte fețe, întoarse ca materialul, desenate estompat sub această față. Faceți clic pe una pentru a alinia sau a vă prinde de ea; nu este mutată niciodată.
 1461|G-code-ul unei lucrări pe două fețe
 1462|Lucrarea are două fețe. Cum se afișează G-code-ul?
+1463|Fețe de lucrat
+1464|1 față
+1465|2 fețe
+1466|4 fețe (stâlp)
+1467|6 fețe (bloc)
+1468|Materialul se lucrează doar de sus.
+1469|Un stâlp culcat de-a lungul lui X, lucrat pe cele patru fețe lungi A, B, C și D: între ele se rostogolește un sfert de tură înapoi. Fiecare față este o zonă de lucru proprie; fețele vecine sunt desfășurate în jurul ei, iar cea de dedesubt se vede prin ea, ca fantome.
+1470|Un bloc lucrat pe toate cele șase fețe: de la A la D rostogolit de fiecare dată un sfert de tură înapoi, E și F sunt capetele stâng și drept întoarse în sus. Fiecare față este o zonă de lucru proprie; fețele vecine sunt desfășurate în jurul ei, iar cea de dedesubt se vede prin ea, ca fantome.
+1471|Mereu activat când se lucrează mai mult de o față: fiecare față are propria zonă de lucru, cât materialul acolo, iar materialul stă la fel pe mașină pentru fiecare.
+1472|Latura bazei a
+1473|Latura bazei b
+1474|Înălțimea stâlpului H
+1475|Latura a (de la stânga la dreapta)
+1476|Latura b (din spate în față)
+1477|Latura c (înălțime)
+1478|Stâlpul stă de-a lungul lui X cu fața A în sus, în colțul zeroului. Între fețe se rostogolește un sfert de tură înapoi, ca fața din față să ajungă sus: fețele A, B, C și D. Fiecare față se desenează pe o zonă de lucru cât fața, iar materialul de sub ea e gros cât de adânc e stâlpul acolo.
+1479|Blocul stă cu fața A în sus, în colțul zeroului. Fețele de la A la D: de fiecare dată se rostogolește un sfert de tură înapoi, ca fața din față să ajungă sus; E și F: capătul lui stâng și cel drept întoarse în sus. Fiecare față se desenează pe o zonă de lucru cât fața, iar materialul de sub ea e gros cât de adânc e blocul acolo.
+1480|Fețele desfășurate în jurul lui A
+1481|Fața {}
+1482|Stâlp: 4 fețe
+1483|Bloc: 6 fețe
+1484|sus
+1485|față
+1486|jos
+1487|spate
+1488|capătul stâng
+1489|capătul drept
+1490|material
+1491|Între fețele de la A la D obiectul se rostogolește un sfert de tură înapoi (fața din față ajunge sus); E și F sunt capetele lui stâng și drept întoarse în sus.
+1492|Fantomele celorlalte fețe
+1493|Formele fețelor vecine, desfășurate în jurul marginilor ei, și ale feței de dedesubt, văzute prin obiect; desenate palid. Clic pe una pentru a alinia sau a fixa la ea; nu se mută niciodată.
+1494|Un fișier, cu o oprire înaintea fiecărei fețe pentru întoarcerea obiectului
+1495|Un fișier, fără opriri
+1496|Un fișier pentru fiecare față: nume_A … nume_{}
+1497|G-code-ul unei lucrări pe mai multe fețe
+1498|Lucrarea are mai multe fețe. Cum se afișează G-code-ul?
+1499|Salvează G-code-ul unei lucrări pe mai multe fețe
+1500|Lucrarea are mai multe fețe. Cum se salvează G-code-ul?
+1501|Marcajele de aliniere într-un fișier separat (nume_marks)
+1502|Se ard primele, pe placa de sub material, înainte de a-l așeza: sunt chiar în afara materialului, așa că nu sunt în fișierele fețelor.

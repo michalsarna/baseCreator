@@ -1461,3 +1461,43 @@
 1460|Les formes de l'altra cara, girades com el material, dibuixades tènues sota aquesta cara. Feu clic en una per alinear-vos o ajustar-vos-hi; mai no es mou.
 1461|G-code d'un treball a dues cares
 1462|El treball té dues cares. Com s'ha de mostrar el G-code?
+1463|Cares a treballar
+1464|1 cara
+1465|2 cares
+1466|4 cares (pilar)
+1467|6 cares (bloc)
+1468|El material només es treballa per dalt.
+1469|Un pilar ajagut al llarg de X, treballat per les seves quatre cares llargues A, B, C i D: entre elles es fa rodar un quart de volta enrere. Cada cara és una àrea de treball pròpia; les cares del costat es despleguen al seu voltant i la de sota es transparenta, com a fantasmes.
+1470|Un bloc treballat per totes sis cares: de l'A a la D, cada vegada es fa rodar un quart de volta enrere; E i F són l'extrem esquerre i el dret girats cap amunt. Cada cara és una àrea de treball pròpia; les cares del costat es despleguen al seu voltant i la de sota es transparenta, com a fantasmes.
+1471|Sempre activat quan es treballa més d'una cara: cada cara té la seva àrea de treball, tan gran com el material allà, i el material jeu igual a la màquina per a cadascuna.
+1472|Costat de la base a
+1473|Costat de la base b
+1474|Alçada del pilar H
+1475|Costat a (d'esquerra a dreta)
+1476|Costat b (de darrere a davant)
+1477|Costat c (alçada)
+1478|El pilar jeu al llarg de X amb la cara A amunt, a la cantonada del zero. Entre les cares es fa rodar un quart de volta enrere, perquè el davant quedi a dalt: cares A, B, C i D. Cada cara es dibuixa en una àrea de treball tan gran com la cara, i el material de sota és tan gruixut com fondo és allà el pilar.
+1479|El bloc jeu amb la cara A amunt, a la cantonada del zero. Cares de l'A a la D: cada vegada es fa rodar un quart de volta enrere, perquè el davant quedi a dalt; E i F: el seu extrem esquerre i el dret girats cap amunt. Cada cara es dibuixa en una àrea de treball tan gran com la cara, i el material de sota és tan gruixut com fondo és allà el bloc.
+1480|Les cares desplegades al voltant de l'A
+1481|Cara {}
+1482|Pilar: 4 cares
+1483|Bloc: 6 cares
+1484|dalt
+1485|davant
+1486|sota
+1487|darrere
+1488|extrem esquerre
+1489|extrem dret
+1490|material
+1491|Entre les cares de l'A a la D l'objecte es fa rodar un quart de volta enrere (el davant puja); E i F són el seu extrem esquerre i el dret girats cap amunt.
+1492|Fantasmes de les altres cares
+1493|Les formes de les cares del costat, desplegades al voltant de les seves vores, i de la cara de sota, vistes a través de l'objecte; dibuixades suaus. Feu clic en una per alinear-hi o ajustar-hi; mai no es mou.
+1494|Un fitxer, amb una parada abans de cada cara per girar l'objecte
+1495|Un fitxer, sense parades
+1496|Un fitxer per a cada cara: nom_A … nom_{}
+1497|G-code d'un treball en diverses cares
+1498|El treball té diverses cares. Com s'ha de mostrar el G-code?
+1499|Desa el G-code d'un treball en diverses cares
+1500|El treball té diverses cares. Com s'ha de desar el G-code?
+1501|Les marques d'alineació en un fitxer a part (nom_marks)
+1502|Es graven primer, a la planxa sota el material, abans de posar-lo: queden just fora del material, així que no són als fitxers de les cares.

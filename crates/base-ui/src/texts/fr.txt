@@ -1461,3 +1461,43 @@
 1460|Les formes de l'autre face, retournées comme le matériau, dessinées en pâle sous cette face. Cliquez sur l'une pour vous y aligner ou vous y accrocher ; elle n'est jamais déplacée.
 1461|G-code d'un travail recto verso
 1462|Le travail a deux faces. Comment afficher le G-code ?
+1463|Faces à travailler
+1464|1 face
+1465|2 faces
+1466|4 faces (poteau)
+1467|6 faces (bloc)
+1468|Le matériau n'est travaillé que par le dessus.
+1469|Un poteau couché le long de X, travaillé sur ses quatre faces longues A, B, C et D : entre elles, on le fait rouler d'un quart de tour vers l'arrière. Chaque face est une zone de travail à part ; les faces voisines sont dépliées autour d'elle et celle du dessous transparaît, en fantômes.
+1470|Un bloc travaillé sur ses six faces : de A à D, on le fait rouler chaque fois d'un quart de tour vers l'arrière ; E et F sont les bouts gauche et droit tournés vers le haut. Chaque face est une zone de travail à part ; les faces voisines sont dépliées autour d'elle et celle du dessous transparaît, en fantômes.
+1471|Toujours activé quand plus d'une face est travaillée : chaque face a sa propre zone de travail, aussi grande que le matériau à cet endroit, et le matériau est posé de la même façon sur la machine pour chacune.
+1472|Côté de la base a
+1473|Côté de la base b
+1474|Hauteur du poteau H
+1475|Côté a (de gauche à droite)
+1476|Côté b (de l'arrière vers l'avant)
+1477|Côté c (hauteur)
+1478|Le poteau est couché le long de X, face A en haut, dans le coin du zéro. Entre les faces, on le fait rouler d'un quart de tour vers l'arrière pour que l'avant vienne en haut : faces A, B, C et D. Chaque face se dessine sur une zone de travail aussi grande qu'elle, et le matériau dessous est aussi épais que le poteau est profond à cet endroit.
+1479|Le bloc est posé face A en haut, dans le coin du zéro. Faces A à D : on le fait rouler chaque fois d'un quart de tour vers l'arrière pour que l'avant vienne en haut ; E et F : ses bouts gauche et droit tournés vers le haut. Chaque face se dessine sur une zone de travail aussi grande qu'elle, et le matériau dessous est aussi épais que le bloc est profond à cet endroit.
+1480|Les faces dépliées autour de A
+1481|Face {}
+1482|Poteau : 4 faces
+1483|Bloc : 6 faces
+1484|dessus
+1485|avant
+1486|dessous
+1487|arrière
+1488|bout gauche
+1489|bout droit
+1490|matériau
+1491|Entre les faces A à D, on fait rouler l'objet d'un quart de tour vers l'arrière (l'avant vient en haut) ; E et F sont ses bouts gauche et droit tournés vers le haut.
+1492|Fantômes des autres faces
+1493|Les formes des faces voisines, dépliées autour de ses bords, et de la face du dessous, vues à travers l'objet ; dessinées en pâle. Cliquez sur l'une pour vous y aligner ou y accrocher ; elle n'est jamais déplacée.
+1494|Un fichier, avec un arrêt avant chaque face pour tourner l'objet
+1495|Un fichier, sans arrêts
+1496|Un fichier par face : nom_A … nom_{}
+1497|G-code d'un travail sur plusieurs faces
+1498|Le travail a plusieurs faces. Comment afficher le G-code ?
+1499|Enregistrer le G-code d'un travail sur plusieurs faces
+1500|Le travail a plusieurs faces. Comment enregistrer le G-code ?
+1501|Les repères d'alignement dans un fichier à part (nom_marks)
+1502|Gravés en premier, sur la plaque sous le matériau, avant de le poser : ils sont juste à l'extérieur du matériau, donc ils ne sont pas dans les fichiers des faces.

@@ -1461,3 +1461,43 @@
 1460	The shapes of the other side, turned over as the material is, drawn faint under this side. Click one to align or snap to it; it is never moved.
 1461	G-code of a two-sided job
 1462	The job has two sides. How should the G-code be shown?
+1463	Sides to work on
+1464	1 side
+1465	2 sides
+1466	4 sides (post)
+1467	6 sides (block)
+1468	The material is worked on from the top only.
+1469	A post lying along X, worked on its four long faces A, B, C and D: it is rolled a quarter turn back between them. Each face is a work area of its own; the faces beside it are unfolded round it and the one under it shows through, as ghosts.
+1470	A block worked on all its six faces: A to D rolled a quarter turn back each time, E and F the left and the right end turned up. Each face is a work area of its own; the faces beside it are unfolded round it and the one under it shows through, as ghosts.
+1471	Always on when more than one side is worked on: every side has a work area of its own, as big as the material is there, and the material lies the same way on the machine for each of them.
+1472	Base side a
+1473	Base side b
+1474	Height of the post H
+1475	Side a (left to right)
+1476	Side b (back to front)
+1477	Side c (height)
+1478	The post lies along X with face A up, in the corner of the zero. Between the faces it is rolled a quarter turn back, so that the front comes up: faces A, B, C and D. Each face is drawn on a work area as big as the face, and the material under it is as thick as the post is deep there.
+1479	The block lies with face A up, in the corner of the zero. Faces A to D: it is rolled a quarter turn back each time, so that the front comes up; E and F: its left and its right end turned up. Each face is drawn on a work area as big as the face, and the material under it is as thick as the block is deep there.
+1480	The faces unfolded round A
+1481	Face {}
+1482	Post: 4 faces
+1483	Block: 6 faces
+1484	top
+1485	front
+1486	bottom
+1487	back
+1488	left end
+1489	right end
+1490	material
+1491	Between the faces A to D the object is rolled a quarter turn back (the front comes up); E and F are its left and its right end turned up.
+1492	Ghosts of the other faces
+1493	The shapes of the faces beside this one, unfolded round its edges, and of the face under it, seen through the object; drawn faint. Click one to align or snap to it; it is never moved.
+1494	One file, with a stop before each face to turn the object
+1495	One file, without stops
+1496	A file for each face: name_A … name_{}
+1497	G-code of a job on several faces
+1498	The job has several faces. How should the G-code be shown?
+1499	Save G-code of a job on several faces
+1500	The job has several faces. How should the G-code be saved?
+1501	The alignment marks in a file of their own (name_marks)
+1502	Burned first, on the sheet under the material, before it is laid down: they lie just outside the material, so they are not in the files of the sides.

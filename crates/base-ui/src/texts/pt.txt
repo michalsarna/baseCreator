@@ -1461,3 +1461,43 @@
 1460|As formas do outro lado, viradas como o material, desenhadas esbatidas sob este lado. Clique numa para alinhar ou encaixar nela; nunca é movida.
 1461|G-code de um trabalho de dois lados
 1462|O trabalho tem dois lados. Como mostrar o G-code?
+1463|Lados a trabalhar
+1464|1 lado
+1465|2 lados
+1466|4 lados (poste)
+1467|6 lados (bloco)
+1468|O material só é trabalhado por cima.
+1469|Um poste deitado ao longo de X, trabalhado nas suas quatro faces longas A, B, C e D: entre elas é rodado um quarto de volta para trás. Cada face é uma área de trabalho própria; as faces ao lado são desdobradas à sua volta e a de baixo transparece, como fantasmas.
+1470|Um bloco trabalhado nas suas seis faces: de A a D rodado de cada vez um quarto de volta para trás, E e F são a ponta esquerda e a direita viradas para cima. Cada face é uma área de trabalho própria; as faces ao lado são desdobradas à sua volta e a de baixo transparece, como fantasmas.
+1471|Sempre ligado quando se trabalha mais de um lado: cada lado tem a sua própria área de trabalho, tão grande como o material aí, e o material fica igual na máquina para cada um.
+1472|Lado da base a
+1473|Lado da base b
+1474|Altura do poste H
+1475|Lado a (da esquerda para a direita)
+1476|Lado b (de trás para a frente)
+1477|Lado c (altura)
+1478|O poste está deitado ao longo de X com a face A para cima, no canto do zero. Entre as faces é rodado um quarto de volta para trás, para que a frente fique em cima: faces A, B, C e D. Cada face é desenhada numa área de trabalho tão grande como a face, e o material por baixo é tão espesso como o poste é fundo aí.
+1479|O bloco está com a face A para cima, no canto do zero. Faces de A a D: de cada vez é rodado um quarto de volta para trás, para que a frente fique em cima; E e F: a sua ponta esquerda e a direita viradas para cima. Cada face é desenhada numa área de trabalho tão grande como a face, e o material por baixo é tão espesso como o bloco é fundo aí.
+1480|As faces desdobradas à volta de A
+1481|Face {}
+1482|Poste: 4 faces
+1483|Bloco: 6 faces
+1484|cima
+1485|frente
+1486|baixo
+1487|trás
+1488|ponta esquerda
+1489|ponta direita
+1490|material
+1491|Entre as faces de A a D o objeto é rodado um quarto de volta para trás (a frente vem para cima); E e F são a sua ponta esquerda e a direita viradas para cima.
+1492|Fantasmas das outras faces
+1493|As formas das faces ao lado, desdobradas à volta das suas arestas, e da face de baixo, vistas através do objeto; desenhadas esbatidas. Clique numa para alinhar ou encaixar nela; nunca é movida.
+1494|Um ficheiro, com uma paragem antes de cada face para virar o objeto
+1495|Um ficheiro, sem paragens
+1496|Um ficheiro para cada face: nome_A … nome_{}
+1497|G-code de um trabalho em várias faces
+1498|O trabalho tem várias faces. Como mostrar o G-code?
+1499|Guardar o G-code de um trabalho em várias faces
+1500|O trabalho tem várias faces. Como guardar o G-code?
+1501|As marcas de alinhamento num ficheiro próprio (nome_marks)
+1502|Gravadas primeiro, na placa por baixo do material, antes de o pousar: ficam mesmo fora do material, por isso não estão nos ficheiros dos lados.
