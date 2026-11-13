@@ -1459,3 +1459,5 @@
 1458|Comhad amháin, gan stad
 1459|Dhá chomhad: ainm_A agus ainm_B
 1460|Cruthanna an taoibh eile, iompaithe mar atá an t-ábhar, tarraingthe go lag faoin taobh seo. Cliceáil ar cheann chun ailíniú nó greamú leis; ní bhogtar é riamh.
+1461|G-code jab dhá thaobh
+1462|Tá dhá thaobh ar an jab. Conas ba chóir an G-code a thaispeáint?

@@ -1459,3 +1459,5 @@
 1458|En fil, utan stopp
 1459|Två filer: namn_A och namn_B
 1460|Formerna på andra sidan, vända som materialet, ritade svagt under den här sidan. Klicka på en för att justera eller fästa mot den; den flyttas aldrig.
+1461|G-kod för ett dubbelsidigt jobb
+1462|Jobbet har två sidor. Hur ska G-koden visas?

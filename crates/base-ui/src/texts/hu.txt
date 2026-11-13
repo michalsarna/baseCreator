@@ -1459,3 +1459,5 @@
 1458|Egy fájl, megállás nélkül
 1459|Két fájl: név_A és név_B
 1460|A másik oldal alakzatai, az anyaggal együtt megfordítva, halványan rajzolva ez alá az oldal alá. Kattints egyre, hogy hozzá igazíts vagy illessz; soha nem mozdul.
+1461|Kétoldalas munka G-kódja
+1462|A munkának két oldala van. Hogyan jelenjen meg a G-kód?

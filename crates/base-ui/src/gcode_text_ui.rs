@@ -25,6 +25,9 @@ pub struct GcodeText {
     pub stamp: u64,
     /// The stamp that is waiting for the project to stay as it is for a moment, and since when.
     waiting: Option<(u64, std::time::Instant)>,
+    /// The text of a two-sided job, made the way that was chosen (one file with or without a stop, or a file of one side). Save
+    /// G-code then asks how to save, as the button of the program does, while the text has no edits by hand.
+    pub sides: Option<crate::two_sided::SaveSides>,
 }
 
 /// What the person asked for.
@@ -35,11 +38,18 @@ pub enum TextAction {
     MakeAgain,
     /// Show the toolpaths of this text in the analysis of G-code.
     Analyse,
+    /// Save the G-code of a two-sided job: the program asks how (`two_sided::save_window`).
+    SaveSides,
 }
 
 impl GcodeText {
     pub fn new(slot: usize, name: &str, text: String) -> GcodeText {
-        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0, waiting: None }
+        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0, waiting: None, sides: None }
+    }
+
+    /// Does Save G-code ask how to save (a text of a two-sided job without edits by hand), instead of writing the text as it is?
+    pub fn asks_how_to_save(&self) -> bool {
+        self.sides.is_some() && !self.dirty()
     }
 
     /// Is it time to make the text again? It is when the project (`stamp`) differs from the one the text was made for, has no edits by hand,
@@ -160,7 +170,10 @@ pub fn show(ui: &mut egui::Ui, g: &mut GcodeText) -> TextAction {
     let mut action = TextAction::None;
     ui.horizontal(|ui| {
         if ui.button(tr("Save G-code")).on_hover_text(tr("Write the text to a file")).clicked() {
-            if let Some(Err(e)) = g.save_dialog() {
+            if g.asks_how_to_save() {
+                // A two-sided job is saved the way the person chooses, as with the button of the program.
+                action = TextAction::SaveSides;
+            } else if let Some(Err(e)) = g.save_dialog() {
                 ui.ctx().data_mut(|d| d.insert_temp(egui::Id::unique("gcode_text_error"), e));
             }
         }
@@ -208,6 +221,17 @@ fn trf_lines(text: &str) -> String {
 #[cfg(test)]
 mod tests {
     use std::time::Duration;
+
+    /// The text of a two-sided job is saved the way the person chooses; once it is edited by hand, as it is.
+    #[test]
+    fn the_text_of_a_two_sided_job_asks_how_to_save_until_it_is_edited() {
+        let mut g = super::GcodeText::new(0, "job.nc", "G21\n".to_string());
+        assert!(!g.asks_how_to_save(), "an ordinary text is written as it is");
+        g.sides = Some(crate::two_sided::SaveSides::Separate);
+        assert!(g.asks_how_to_save());
+        g.text.push_str("G0 X1\n");
+        assert!(!g.asks_how_to_save(), "the edits are saved, not made again");
+    }
 
     #[test]
     fn the_text_is_made_again_when_the_project_changed_stayed_so_for_a_moment_and_has_no_edits() {

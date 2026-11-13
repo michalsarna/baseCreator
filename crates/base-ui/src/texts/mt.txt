@@ -1459,3 +1459,5 @@
 1458|Fajl wieħed, mingħajr waqfa
 1459|Żewġ fajls: isem_A u isem_B
 1460|Il-forom tan-naħa l-oħra, maqluba kif inhu l-materjal, imfassla ċari taħt din in-naħa. Ikklikkja waħda biex tallinja jew teħel magħha; qatt ma titmexxa.
+1461|G-code ta' xogħol fuq żewġ naħat
+1462|Ix-xogħol għandu żewġ naħat. Kif għandu jintwera l-G-code?

@@ -1459,3 +1459,5 @@
 1458|Ein skrá, án stopps
 1459|Tvær skrár: nafn_A og nafn_B
 1460|Form hinnar hliðarinnar, snúin eins og efnið, dregin dauf undir þessa hlið. Smelltu á eitt til að jafna eða festa við það; það er aldrei fært.
+1461|G-kóði tvíhliða verks
+1462|Verkið hefur tvær hliðar. Hvernig á að sýna G-kóðann?
