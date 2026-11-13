@@ -104,7 +104,7 @@ pub fn save_window(ctx: &egui::Context, d: &mut SaveDialog, flip: FlipAxis) -> O
     }
     let mut out = None;
     let mut open = true;
-    egui::Window::new(tr("Save G-code of a two-sided job")).id(egui::Id::new("two_sided_save")).collapsible(false).resizable(false).open(&mut open).anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]).show(ctx, |ui| {
+    egui::Window::new(tr("Save G-code of a two-sided job")).collapsible(false).resizable(false).open(&mut open).anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]).show(ctx, |ui| {
         ui.label(tr("The job has two sides. How should the G-code be saved?"));
         ui.add_space(4.0);
         for c in SaveSides::ALL {
