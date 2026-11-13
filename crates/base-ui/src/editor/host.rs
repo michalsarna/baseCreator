@@ -173,6 +173,11 @@ pub trait EditorHost: Sized {
     fn ghost_shapes(&self) -> Vec<base_core::scene::Shape> {
         vec![]
     }
+    /// A click of the selection tool on no shape and no ghost, at `p` (millimetres of the drawing): a program can act on it (the
+    /// face of a post or a block unfolded there is shown). True when it did.
+    fn click_empty(&mut self, _p: base_core::geom::Pt) -> bool {
+        false
+    }
     /// Draw the mark of a locked shape inside `rect`.
     fn paint_lock(&self, ui: &egui::Ui, rect: egui::Rect) {
         crate::icons::paint(ui, rect, "lock", crate::theme::accent());

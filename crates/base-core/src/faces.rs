@@ -267,6 +267,17 @@ impl Solid {
         }
     }
 
+    /// The face unfolded beside face `shown` at `p` (millimetres of its drawing, from its top left corner), if there is one.
+    pub fn face_at(&self, shown: usize, p: Pt) -> Option<usize> {
+        (0..self.count()).find(|j| {
+            self.neighbour(*j, shown).is_some_and(|c| {
+                let (lx, hx) = (c.iter().map(|q| q.x).fold(f64::MAX, f64::min), c.iter().map(|q| q.x).fold(f64::MIN, f64::max));
+                let (ly, hy) = (c.iter().map(|q| q.y).fold(f64::MAX, f64::min), c.iter().map(|q| q.y).fold(f64::MIN, f64::max));
+                p.x >= lx && p.x <= hx && p.y >= ly && p.y <= hy
+            })
+        })
+    }
+
     /// The comment at the head of the G-code of face `i` (ASCII only: GRBL takes bytes above 127 for commands of its own).
     pub fn head_comment(&self, i: usize) -> String {
         let f = self.face(i);
@@ -479,6 +490,8 @@ mod tests {
         let (lo, hi) = d.iter().fold((f64::MAX, f64::MIN), |(lo, hi), p| (lo.min(p.y), hi.max(p.y)));
         assert!((lo + 30.0).abs() < 1e-9 && hi.abs() < 1e-9, "{d:?}");
         assert!(s.neighbour(2, 0).is_none());
+        // A click above face A is on face D, below it on face B, on A itself on none of those beside it.
+        assert_eq!((s.face_at(0, Pt::new(100.0, -10.0)), s.face_at(0, Pt::new(100.0, 50.0)), s.face_at(0, Pt::new(100.0, 20.0))), (Some(3), Some(1), None));
         // The ghosts are the shapes moved there.
         let mut sc = Scene::default();
         sc.add(0, Kind::Rect { w: 10.0, h: 5.0 }, Xf::translate(20.0, 2.0));

@@ -238,6 +238,7 @@ fn sides_row(ui: &mut egui::Ui, st: &mut Setup, kind: Kind) {
     if !all.contains(&st.sides) {
         st.sides = Sides::One;
     }
+    let before = st.sides;
     ui.horizontal_wrapped(|ui| {
         ui.label(tr("Sides to work on"));
         for s in all {
@@ -250,6 +251,11 @@ fn sides_row(ui: &mut egui::Ui, st: &mut Setup, kind: Kind) {
             ui.selectable_value(&mut st.sides, *s, tr(s.label())).on_hover_text(tr(tip));
         }
     });
+    // Back to one side: the material is as big as the work area of the machine to begin with.
+    if before.many() && st.sides == Sides::One && st.max.0.is_finite() && st.max.1.is_finite() && !kind.paper {
+        st.w = st.max.0;
+        st.h = st.max.1;
+    }
 }
 
 /// "Work area is the material": a choice for one side; always on (and greyed) when more sides are worked on, so that every side

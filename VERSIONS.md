@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.99.0
+
+- **A click beside the work area** (`EditorHost::click_empty`): a click of the selection tool on no shape and no ghost goes to the program, which shows the face of a post or a block unfolded there (`Solid::face_at`).
+- **Back to one side** in the project setup: the material takes the work area of the machine (`Setup::max`) to begin with.
+
 ## v1.98.0
 
 - **Jobs on the faces of a post and of a block** (`base_core::faces`: `Solid`, `Body`, `Face`, `Relation`, `Faces`): a sheet on two sides, the four long faces of a post (base a × b, height H, lying along X, rolled a quarter turn back between the faces) and the six faces of a block. Every face knows its size, the depth of the object under it and where it lies on the object; from that come the ghosts (`show_on`, `ghost_xf`, `ghosts_of`: the face under the shown one seen through, the faces beside it unfolded over its edges, `neighbour` for their outlines), the words of the G-code (`head_comment`, `turn_comment`) and `with_face_size`. A post or a block is saved in the project section `faces`; a sheet stays in `two_sided` (now with `marks`).
