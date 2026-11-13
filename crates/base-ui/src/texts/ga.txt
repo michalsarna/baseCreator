@@ -1453,3 +1453,9 @@
 1452|Socraíodh an tionscadal: ábhar {} x {} x {} mm, nialas: {}
 1453|Bileog
 1454|Tá an t-ábhar i gcúinne náid an mheaisín. I jab dhá thaobh leag é san áit chéanna don dá thaobh (taispeánann na marcanna ailínithe cén áit).
+1455|Sábháil G-code jab dhá thaobh
+1456|Tá dhá thaobh ar an jab. Conas ba chóir an G-code a shábháil?
+1457|Comhad amháin, le stad chun an t-ábhar a iompú
+1458|Comhad amháin, gan stad
+1459|Dhá chomhad: ainm_A agus ainm_B
+1460|Cruthanna an taoibh eile, iompaithe mar atá an t-ábhar, tarraingthe go lag faoin taobh seo. Cliceáil ar cheann chun ailíniú nó greamú leis; ní bhogtar é riamh.

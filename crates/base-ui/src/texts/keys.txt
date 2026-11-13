@@ -1453,3 +1453,9 @@
 1452	Project set up: material {} x {} x {} mm, zero at {}
 1453	Sheet
 1454	The material lies in the corner of the zero of the machine. For a two-sided job lay it in the same place for both sides (the alignment marks show where).
+1455	Save G-code of a two-sided job
+1456	The job has two sides. How should the G-code be saved?
+1457	One file, with a stop to turn the material over
+1458	One file, without a stop
+1459	Two files: name_A and name_B
+1460	The shapes of the other side, turned over as the material is, drawn faint under this side. Click one to align or snap to it; it is never moved.

@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.96.0
+
+- **Ghosts that can be selected** (`EditorHost::ghost_shapes`, `EditorState::ghost_sel`): a click on a ghost of the other side of a two-sided job selects it as a reference; the selected shapes align to it (Align left … bottom, Centre on each other) and snap to it when moved, and the ruler snaps to its points. A ghost is never moved.
+- **Saving the G-code of a two-sided job** (`two_sided::SaveDialog`, `save_window`, `SaveSides`): one file with a stop (M0) to turn the material over, one file without a stop, or two files ending in `_A` and `_B` (`side_paths`); `side_comment` and `hold_comment` for the head of each side.
+- 6 texts in every language.
+
 ## v1.95.0
 
 - **Project setup for paper** (`project_setup::Kind::paper`, `PAPER`, `papers_that_fit`): a list of paper sizes (A6 … A1, B5, B4, Letter, Legal, Tabloid), only those that fit the work area of the machine, upright or lying; no thickness for a sheet.

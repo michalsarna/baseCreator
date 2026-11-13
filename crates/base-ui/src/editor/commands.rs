@@ -94,8 +94,11 @@ pub trait EditorCommands: EditorHost {
 
     fn align(&mut self, mode: u8) {
         let Some(b) = self.sel_bounds() else { return };
-        // A single object aligns to the bed, several align to each other.
-        let target = if self.ed().sel.len() == 1 {
+        // A selected ghost of the other side is the reference everything aligns to; else a single object aligns to the bed, several
+        // align to each other.
+        let target = if let Some(g) = self.ghost_sel_bounds() {
+            g
+        } else if self.ed().sel.len() == 1 {
             Rect { min: Pt::new(0.0, 0.0), max: { let (w, h) = self.work_size(); Pt::new(w, h) } }
         } else {
             b
@@ -121,7 +124,9 @@ pub trait EditorCommands: EditorHost {
     /// counts as one object. With the small shape inside the large one, the large one stays where it is.
     fn center_on_each_other(&mut self) {
         let Some(all) = self.sel_bounds() else { return };
-        let target = all.center();
+        // On a selected ghost of the other side when there is one: it stays where it is.
+        let ghost = self.ghost_sel_bounds();
+        let target = ghost.map_or(all.center(), |g| g.center());
         // Objects are single shapes or whole groups.
         let mut units: Vec<Vec<u64>> = vec![];
         for id in self.ed().sel.clone() {
@@ -130,7 +135,7 @@ pub trait EditorCommands: EditorHost {
             }
             units.push(self.scene().group_of(id));
         }
-        if units.len() < 2 {
+        if units.len() < 2 && ghost.is_none() {
             return;
         }
         self.checkpoint();

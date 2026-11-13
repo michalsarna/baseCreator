@@ -221,6 +221,25 @@ pub trait EditorCanvas: EditorHost {
             }
         }
 
+        // The ghosts that are selected: their outline drawn strong and a dashed frame round them, in the colour of a reference.
+        if !self.ed().ghost_sel.is_empty() {
+            let ink = theme::accent();
+            let sel = self.ed().ghost_sel.clone();
+            for g in self.ghost_shapes().iter().filter(|g| sel.contains(&g.id)) {
+                for p in g.polys() {
+                    let pts: Vec<Pos2> = p.pts.iter().map(|q| self.w2s(o, *q)).collect();
+                    if pts.len() >= 2 {
+                        painter.add(if p.closed { egui::Shape::closed_line(pts, Stroke::new(2.0, ink)) } else { egui::Shape::line(pts, Stroke::new(2.0, ink)) });
+                    }
+                }
+                if let Some(b) = g.bounds() {
+                    let r = egui::Rect::from_min_max(self.w2s(o, b.min), self.w2s(o, b.max)).expand(3.0);
+                    let c = [r.left_top(), r.right_top(), r.right_bottom(), r.left_bottom(), r.left_top()];
+                    painter.extend(egui::Shape::dashed_line(&c, Stroke::new(1.0, ink), 6.0, 3.0));
+                }
+            }
+        }
+
         // ---- node overlay ----
         if self.ed().tool == Tool::Node {
             let acc = theme::accent();
@@ -388,9 +407,13 @@ pub trait EditorCanvas: EditorHost {
                             self.checkpoint();
                             let orig = self.ed().sel.iter().filter_map(|i| self.scene().shape(*i).filter(|s| !s.locked).map(|s| (*i, s.xf))).collect();
                             self.ed_mut().drag = Some(Drag::Move { start: w, orig });
+                        } else if let Some(g) = self.hit_ghost(w) {
+                            // A ghost is never moved: dragging it only selects it, as a reference.
+                            pick_ghost(self.ed_mut(), g, multi);
                         } else {
                             if !multi {
                                 self.ed_mut().sel.clear();
+                                self.ed_mut().ghost_sel.clear();
                             }
                             self.ed_mut().drag = Some(Drag::Marquee { start: w });
                         }
@@ -410,8 +433,17 @@ pub trait EditorCanvas: EditorHost {
                                     self.ed_mut().sel.extend(members);
                                 }
                             }
-                            Some(id) => self.ed_mut().sel = self.scene().group_of(id),
-                            None => self.ed_mut().sel.clear(),
+                            Some(id) => {
+                                self.ed_mut().sel = self.scene().group_of(id);
+                                self.ed_mut().ghost_sel.clear();
+                            }
+                            None => match self.hit_ghost(self.s2w(o, m)) {
+                                Some(g) => pick_ghost(self.ed_mut(), g, multi),
+                                None => {
+                                    self.ed_mut().sel.clear();
+                                    self.ed_mut().ghost_sel.clear();
+                                }
+                            },
                         }
                     }
                 }
@@ -587,7 +619,9 @@ pub trait EditorCanvas: EditorHost {
                             // Where the selection would be, against the other objects: lines within a few pixels join.
                             let ids: Vec<u64> = orig.iter().map(|(id, _)| *id).collect();
                             if self.ed().snap_targets.is_none() {
-                                let others = self.scene().shapes.iter().filter(|s| !ids.contains(&s.id) && self.layer_visible(s.layer)).filter_map(|s| s.bounds()).collect();
+                                let mut others: Vec<Rect> = self.scene().shapes.iter().filter(|s| !ids.contains(&s.id) && self.layer_visible(s.layer)).filter_map(|s| s.bounds()).collect();
+                                // The ghosts of the other side are there to be lined up with.
+                                others.extend(self.ghost_shapes().iter().filter_map(|g| g.bounds()));
                                 self.ed_mut().snap_targets = Some(others);
                             }
                             for (id, xf) in &orig {
@@ -991,3 +1025,18 @@ pub trait EditorCanvas: EditorHost {
 }
 
 impl<T: EditorHost> EditorCanvas for T {}
+
+/// A click on a ghost of the other side: with Shift or Ctrl it joins the selection (or leaves it) as the reference to align to,
+/// else it is the only thing selected.
+fn pick_ghost(ed: &mut super::EditorState, g: u64, multi: bool) {
+    if multi {
+        if let Some(i) = ed.ghost_sel.iter().position(|x| *x == g) {
+            ed.ghost_sel.remove(i);
+        } else {
+            ed.ghost_sel.push(g);
+        }
+    } else {
+        ed.sel.clear();
+        ed.ghost_sel = vec![g];
+    }
+}

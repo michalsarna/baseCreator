@@ -299,6 +299,9 @@ pub struct EditorState {
     /// When a text was last changed, for one undo step per burst of editing.
     pub text_changed_at: f64,
     pub sel: Vec<u64>,
+    /// The ghosts of the other side of a two-sided job that are selected (their ids are those of the other side, never mixed with
+    /// `sel`): they are a fixed reference to align and snap to, and are never moved.
+    pub ghost_sel: Vec<u64>,
     pub node_sel: Vec<NodeRef>,
     pub active_seg: Option<NodeRef>,
     pub tool: Tool,
@@ -410,6 +413,7 @@ impl EditorState {
     /// drawing that was shown (a drag in progress, the guides, the textures of its pictures, the picture dialogs) is dropped.
     pub fn swap_doc_view(&mut self, other: &mut DocView) {
         std::mem::swap(&mut self.sel, &mut other.sel);
+        self.ghost_sel.clear();
         std::mem::swap(&mut self.node_sel, &mut other.node_sel);
         std::mem::swap(&mut self.active_seg, &mut other.active_seg);
         std::mem::swap(&mut self.active_layer, &mut other.active_layer);
@@ -437,6 +441,7 @@ impl EditorState {
     pub fn new() -> EditorState {
         EditorState {
             sel: vec![],
+            ghost_sel: vec![],
             node_sel: vec![],
             active_seg: None,
             tool: Tool::Select,

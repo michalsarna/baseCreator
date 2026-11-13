@@ -1453,3 +1453,9 @@
 1452|Projekts iestatīts: materiāls {} x {} x {} mm, nulle: {}
 1453|Lapa
 1454|Materiāls atrodas mašīnas nulles stūrī. Divpusējā darbā novietojiet to vienā vietā abām pusēm (izlīdzināšanas atzīmes rāda kur).
+1455|Saglabāt divpusēja darba G-kodu
+1456|Darbam ir divas puses. Kā saglabāt G-kodu?
+1457|Viens fails, ar apstāšanos materiāla apgriešanai
+1458|Viens fails, bez apstāšanās
+1459|Divi faili: nosaukums_A un nosaukums_B
+1460|Otras puses formas, apgrieztas kā materiāls, bāli zīmētas zem šīs puses. Noklikšķiniet uz vienas, lai līdzinātu vai piesaistītu tai; tā nekad netiek pārvietota.

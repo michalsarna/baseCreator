@@ -1453,3 +1453,9 @@
 1452|Projekt beállítva: anyag {} x {} x {} mm, nulla: {}
 1453|Lap
 1454|Az anyag a gép nullpontjának sarkában van. Kétoldalas munkánál mindkét oldalhoz ugyanoda tegye (az illesztőjelek mutatják, hová).
+1455|Kétoldalas munka G-kódjának mentése
+1456|A munkának két oldala van. Hogyan mentsük a G-kódot?
+1457|Egy fájl, megállással az anyag megfordításához
+1458|Egy fájl, megállás nélkül
+1459|Két fájl: név_A és név_B
+1460|A másik oldal alakzatai, az anyaggal együtt megfordítva, halványan rajzolva ez alá az oldal alá. Kattints egyre, hogy hozzá igazíts vagy illessz; soha nem mozdul.

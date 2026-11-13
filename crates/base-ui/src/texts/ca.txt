@@ -1453,3 +1453,9 @@
 1452|Projecte configurat: material {} x {} x {} mm, zero: {}
 1453|Full
 1454|El material és a la cantonada del zero de la màquina. En un treball a dues cares poseu-lo al mateix lloc per a les dues cares (les marques d'alineació mostren on).
+1455|Desa el G-code d'un treball a dues cares
+1456|El treball té dues cares. Com s'ha de desar el G-code?
+1457|Un fitxer, amb una parada per girar el material
+1458|Un fitxer, sense parada
+1459|Dos fitxers: nom_A i nom_B
+1460|Les formes de l'altra cara, girades com el material, dibuixades tènues sota aquesta cara. Feu clic en una per alinear-vos o ajustar-vos-hi; mai no es mou.

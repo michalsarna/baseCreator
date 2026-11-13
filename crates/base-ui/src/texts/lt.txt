@@ -1453,3 +1453,9 @@
 1452|Projektas nustatytas: medžiaga {} x {} x {} mm, nulis: {}
 1453|Lapas
 1454|Medžiaga yra mašinos nulio kampe. Dvipusiame darbe abiem pusėms dėkite ją į tą pačią vietą (lygiavimo žymės rodo kur).
+1455|Išsaugoti dvipusio darbo G kodą
+1456|Darbas turi dvi puses. Kaip išsaugoti G kodą?
+1457|Vienas failas, su sustojimu medžiagai apversti
+1458|Vienas failas, be sustojimo
+1459|Du failai: pavadinimas_A ir pavadinimas_B
+1460|Kitos pusės figūros, apverstos kaip medžiaga, blankiai nupieštos po šia puse. Spustelėkite vieną, kad lygiuotumėte ar pritrauktumėte prie jos; ji niekada nejudinama.

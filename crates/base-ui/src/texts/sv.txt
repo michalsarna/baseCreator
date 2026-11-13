@@ -1453,3 +1453,9 @@
 1452|Projekt inställt: material {} x {} x {} mm, noll: {}
 1453|Ark
 1454|Materialet ligger i hörnet vid maskinens nollpunkt. Vid ett dubbelsidigt jobb läggs det på samma plats för båda sidor (justeringsmärkena visar var).
+1455|Spara G-kod för ett dubbelsidigt jobb
+1456|Jobbet har två sidor. Hur ska G-koden sparas?
+1457|En fil, med ett stopp för att vända materialet
+1458|En fil, utan stopp
+1459|Två filer: namn_A och namn_B
+1460|Formerna på andra sidan, vända som materialet, ritade svagt under den här sidan. Klicka på en för att justera eller fästa mot den; den flyttas aldrig.
