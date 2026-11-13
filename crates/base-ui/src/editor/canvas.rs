@@ -442,6 +442,8 @@ pub trait EditorCanvas: EditorHost {
                                 None => {
                                     self.ed_mut().sel.clear();
                                     self.ed_mut().ghost_sel.clear();
+                                    let w = self.s2w(o, m);
+                                    self.click_empty(w);
                                 }
                             },
                         }
