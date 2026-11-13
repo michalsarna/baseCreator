@@ -1459,3 +1459,5 @@
 1458|Viens fails, bez apstāšanās
 1459|Divi faili: nosaukums_A un nosaukums_B
 1460|Otras puses formas, apgrieztas kā materiāls, bāli zīmētas zem šīs puses. Noklikšķiniet uz vienas, lai līdzinātu vai piesaistītu tai; tā nekad netiek pārvietota.
+1461|Divpusēja darba G-kods
+1462|Darbam ir divas puses. Kā parādīt G-kodu?

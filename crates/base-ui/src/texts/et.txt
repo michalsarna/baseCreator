@@ -1459,3 +1459,5 @@
 1458|Üks fail, ilma peatuseta
 1459|Kaks faili: nimi_A ja nimi_B
 1460|Teise poole kujundid, pööratud nagu materjal, joonistatud kahvatult selle poole alla. Klõpsa ühel, et sellega joondada või selle külge haakida; seda ei liigutata kunagi.
+1461|Kahepoolse töö G-kood
+1462|Tööl on kaks poolt. Kuidas G-koodi näidata?

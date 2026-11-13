@@ -1459,3 +1459,5 @@
 1458|Eén bestand, zonder stop
 1459|Twee bestanden: naam_A en naam_B
 1460|De vormen van de andere kant, omgedraaid zoals het materiaal, vaag getekend onder deze kant. Klik op een om erop uit te lijnen of eraan vast te klikken; hij wordt nooit verplaatst.
+1461|G-code van een dubbelzijdige taak
+1462|De taak heeft twee kanten. Hoe moet de G-code worden getoond?

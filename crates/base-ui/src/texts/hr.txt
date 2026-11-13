@@ -1459,3 +1459,5 @@
 1458|Jedna datoteka, bez zaustavljanja
 1459|Dvije datoteke: naziv_A i naziv_B
 1460|Oblici druge strane, okrenuti kao materijal, blijedo nacrtani ispod ove strane. Kliknite jedan za poravnanje ili privlačenje uz njega; nikad se ne pomiče.
+1461|G-kod dvostranog posla
+1462|Posao ima dvije strane. Kako prikazati G-kod?

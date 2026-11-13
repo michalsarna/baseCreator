@@ -1459,3 +1459,5 @@
 1458|Un archivo, sin parada
 1459|Dos archivos: nombre_A y nombre_B
 1460|Las formas de la otra cara, giradas como el material, dibujadas tenues bajo esta cara. Haz clic en una para alinear o ajustar a ella; nunca se mueve.
+1461|G-code de un trabajo a dos caras
+1462|El trabajo tiene dos caras. ¿Cómo mostrar el G-code?

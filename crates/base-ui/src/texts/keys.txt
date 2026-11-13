@@ -1459,3 +1459,5 @@
 1458	One file, without a stop
 1459	Two files: name_A and name_B
 1460	The shapes of the other side, turned over as the material is, drawn faint under this side. Click one to align or snap to it; it is never moved.
+1461	G-code of a two-sided job
+1462	The job has two sides. How should the G-code be shown?

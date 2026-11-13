@@ -90,11 +90,34 @@ impl SaveSides {
     }
 }
 
-/// The question asked by Save G-code in a two-sided job.
+/// The question asked by Save G-code (and by Preview G-code) in a two-sided job.
 #[derive(Clone, Debug, Default)]
 pub struct SaveDialog {
     pub open: bool,
     pub choice: SaveSides,
+    /// The G-code is to be shown in a tab (one, or one for each side), not saved.
+    pub show: bool,
+}
+
+impl SaveDialog {
+    /// Ask before saving.
+    pub fn ask_save(&mut self) {
+        self.open = true;
+        self.show = false;
+    }
+    /// Ask before showing.
+    pub fn ask_show(&mut self) {
+        self.open = true;
+        self.show = true;
+    }
+}
+
+/// The key of the tab with the G-code text of side B, beside the one of the project (`slot`), when the sides are shown apart.
+pub const SIDE_B_TEXT: usize = 1 << (usize::BITS - 2);
+
+/// The project a G-code text tab belongs to (its key without the mark of side B).
+pub fn text_slot(key: usize) -> usize {
+    key & !SIDE_B_TEXT
 }
 
 /// The window of the question; `Some` once the person chose (the window closes), `None` while it is open or after Cancel.
@@ -104,8 +127,13 @@ pub fn save_window(ctx: &egui::Context, d: &mut SaveDialog, flip: FlipAxis) -> O
     }
     let mut out = None;
     let mut open = true;
-    egui::Window::new(tr("Save G-code of a two-sided job")).collapsible(false).resizable(false).open(&mut open).anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]).show(ctx, |ui| {
-        ui.label(tr("The job has two sides. How should the G-code be saved?"));
+    let (title, question, button) = if d.show {
+        (tr("G-code of a two-sided job"), tr("The job has two sides. How should the G-code be shown?"), tr("Preview G-code"))
+    } else {
+        (tr("Save G-code of a two-sided job"), tr("The job has two sides. How should the G-code be saved?"), tr("Save G-code"))
+    };
+    egui::Window::new(title).collapsible(false).resizable(false).open(&mut open).anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]).show(ctx, |ui| {
+        ui.label(question);
         ui.add_space(4.0);
         for c in SaveSides::ALL {
             ui.radio_value(&mut d.choice, c, tr(c.label()));
@@ -114,7 +142,7 @@ pub fn save_window(ctx: &egui::Context, d: &mut SaveDialog, flip: FlipAxis) -> O
         ui.label(RichText::new(crate::project_setup::flip_name(flip)).color(theme::text_dim()));
         ui.add_space(6.0);
         ui.horizontal(|ui| {
-            if ui.button(tr("Save G-code")).clicked() {
+            if ui.button(button).clicked() {
                 out = Some(d.choice);
             }
             if ui.button(tr("Cancel")).clicked() {
@@ -162,5 +190,19 @@ mod tests {
         let (a, b) = side_paths(std::path::Path::new("/x/job_A.gcode"));
         assert_eq!((a.to_str().unwrap(), b.to_str().unwrap()), ("/x/job_A.gcode", "/x/job_B.gcode"));
         assert!(side_comment(true, FlipAxis::EndToEnd).is_ascii() && hold_comment(FlipAxis::SideToSide).is_ascii());
+    }
+
+    #[test]
+    fn the_tab_of_side_b_belongs_to_its_project() {
+        for slot in [0usize, 7, 12345] {
+            assert_eq!(text_slot(slot | SIDE_B_TEXT), slot);
+            assert_eq!(text_slot(slot), slot);
+            assert_ne!(slot | SIDE_B_TEXT, slot);
+        }
+        let mut d = SaveDialog::default();
+        d.ask_show();
+        assert!(d.open && d.show);
+        d.ask_save();
+        assert!(d.open && !d.show);
     }
 }

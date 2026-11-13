@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v1.97.0
+
+- **Preview G-code of a two-sided job asks too** (`SaveDialog::ask_show`, `ask_save`): the whole job in one tab, or a tab for each side. `SIDE_B_TEXT` and `text_slot` give the tab of side B its own key beside the one of the project.
+- **Save G-code in the tab of such a text** asks how to save, as the button of the program does (`GcodeText::sides`, `TextAction::SaveSides`), while the text has no edits by hand; an edited text is saved as it is.
+- 2 texts in every language.
+
 ## v1.96.0
 
 - **Ghosts that can be selected** (`EditorHost::ghost_shapes`, `EditorState::ghost_sel`): a click on a ghost of the other side of a two-sided job selects it as a reference; the selected shapes align to it (Align left … bottom, Centre on each other) and snap to it when moved, and the ruler snaps to its points. A ghost is never moved.

@@ -1459,3 +1459,5 @@
 1458|Ena datoteka, brez ustavitve
 1459|Dve datoteki: ime_A in ime_B
 1460|Oblike druge strani, obrnjene kot material, bledo narisane pod to stranjo. Kliknite eno za poravnavo ali pripenjanje nanjo; nikoli se ne premakne.
+1461|G-koda dvostranskega opravila
+1462|Opravilo ima dve strani. Kako prikazati G-kodo?

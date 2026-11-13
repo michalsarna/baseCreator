@@ -1459,3 +1459,5 @@
 1458|Vienas failas, be sustojimo
 1459|Du failai: pavadinimas_A ir pavadinimas_B
 1460|Kitos pusės figūros, apverstos kaip medžiaga, blankiai nupieštos po šia puse. Spustelėkite vieną, kad lygiuotumėte ar pritrauktumėte prie jos; ji niekada nejudinama.
+1461|Dvipusio darbo G kodas
+1462|Darbas turi dvi puses. Kaip parodyti G kodą?

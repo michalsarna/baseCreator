@@ -1459,3 +1459,5 @@
 1458|Un fitxer, sense parada
 1459|Dos fitxers: nom_A i nom_B
 1460|Les formes de l'altra cara, girades com el material, dibuixades tènues sota aquesta cara. Feu clic en una per alinear-vos o ajustar-vos-hi; mai no es mou.
+1461|G-code d'un treball a dues cares
+1462|El treball té dues cares. Com s'ha de mostrar el G-code?

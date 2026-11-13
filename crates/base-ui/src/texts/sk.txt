@@ -1459,3 +1459,5 @@
 1458|Jeden súbor, bez zastavenia
 1459|Dva súbory: názov_A a názov_B
 1460|Tvary druhej strany, otočené ako materiál, nakreslené slabo pod touto stranou. Kliknite na jeden pre zarovnanie alebo prichytenie k nemu; nikdy sa nepohne.
+1461|G-kód obojstrannej úlohy
+1462|Úloha má dve strany. Ako zobraziť G-kód?

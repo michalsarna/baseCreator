@@ -1459,3 +1459,5 @@
 1458|Un fichier, sans arrêt
 1459|Deux fichiers : nom_A et nom_B
 1460|Les formes de l'autre face, retournées comme le matériau, dessinées en pâle sous cette face. Cliquez sur l'une pour vous y aligner ou vous y accrocher ; elle n'est jamais déplacée.
+1461|G-code d'un travail recto verso
+1462|Le travail a deux faces. Comment afficher le G-code ?

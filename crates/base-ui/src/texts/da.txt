@@ -1459,3 +1459,5 @@
 1458|Én fil, uden stop
 1459|To filer: navn_A og navn_B
 1460|Formerne på den anden side, vendt som materialet, tegnet svagt under denne side. Klik på en for at justere eller fastgøre til den; den flyttes aldrig.
+1461|G-kode for et tosidet job
+1462|Jobbet har to sider. Hvordan skal G-koden vises?

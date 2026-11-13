@@ -1459,3 +1459,5 @@
 1458|Un fișier, fără oprire
 1459|Două fișiere: nume_A și nume_B
 1460|Formele celeilalte fețe, întoarse ca materialul, desenate estompat sub această față. Faceți clic pe una pentru a alinia sau a vă prinde de ea; nu este mutată niciodată.
+1461|G-code-ul unei lucrări pe două fețe
+1462|Lucrarea are două fețe. Cum se afișează G-code-ul?

@@ -1459,3 +1459,5 @@
 1458|Um ficheiro, sem paragem
 1459|Dois ficheiros: nome_A e nome_B
 1460|As formas do outro lado, viradas como o material, desenhadas esbatidas sob este lado. Clique numa para alinhar ou encaixar nela; nunca é movida.
+1461|G-code de um trabalho de dois lados
+1462|O trabalho tem dois lados. Como mostrar o G-code?
