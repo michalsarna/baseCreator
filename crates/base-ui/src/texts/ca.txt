@@ -1501,3 +1501,5 @@
 1500|El treball té diverses cares. Com s'ha de desar el G-code?
 1501|Les marques d'alineació en un fitxer a part (nom_marks)
 1502|Es graven primer, a la planxa sota el material, abans de posar-lo: queden just fora del material, així que no són als fitxers de les cares.
+1503|Qualitat de renderització
+1504|Com de fines són les imatges de la previsualització: 1 és ràpid i bast, 5 nítid i fi però més lent. Mentre es gira la vista es dibuixa més basta un moment.

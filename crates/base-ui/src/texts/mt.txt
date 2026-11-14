@@ -1501,3 +1501,5 @@
 1500|Ix-xogħol għandu diversi wiċċijiet. Kif għandu jiġi ssejvjat il-G-code?
 1501|Il-marki tal-allinjament f'fajl għalihom (isem_marks)
 1502|Jinħarqu l-ewwel, fuq il-folja taħt il-materjal, qabel ma jitqiegħed: jinsabu eżatt barra mill-materjal, għalhekk mhumiex fil-fajls tan-naħat.
+1503|Kwalità tar-rendering
+1504|Kemm huma fini l-istampi tal-prevjuż: 1 hu malajr u mhux fin, 5 ċar u fin iżda aktar bil-mod. Waqt li l-veduta tiddawwar tinġibed inqas fina għal mument.

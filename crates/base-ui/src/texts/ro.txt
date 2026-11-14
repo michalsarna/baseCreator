@@ -1501,3 +1501,5 @@
 1500|Lucrarea are mai multe fețe. Cum se salvează G-code-ul?
 1501|Marcajele de aliniere într-un fișier separat (nume_marks)
 1502|Se ard primele, pe placa de sub material, înainte de a-l așeza: sunt chiar în afara materialului, așa că nu sunt în fișierele fețelor.
+1503|Calitatea randării
+1504|Cât de fine sunt imaginile previzualizării: 1 este rapid și grosier, 5 clar și fin, dar mai lent. Cât timp vederea se rotește, este desenată mai grosier pentru o clipă.

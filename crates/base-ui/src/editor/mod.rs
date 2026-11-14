@@ -251,6 +251,13 @@ pub struct GridPrefs {
     /// The colours and the size of the letters of the console.
     #[serde(default)]
     pub console: crate::console_ui::ConsoleLook,
+    /// The quality of the rendering of the previews, 1 (quick, coarse) to 5 (sharp, slower); see `view3d::quality_row`.
+    #[serde(default = "default_render_quality")]
+    pub render_quality: u8,
+}
+
+fn default_render_quality() -> u8 {
+    crate::view3d::QUALITY_DEFAULT
 }
 
 fn default_line_width() -> f32 {
@@ -283,7 +290,7 @@ impl GridPrefs {
 
 impl Default for GridPrefs {
     fn default() -> Self {
-        GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, units: None, preview_color: None, line_width: 1.0, layer_names: false, gcode_preview_after_save: false, variable_names: false, console: Default::default() }
+        GridPrefs { main_color: [0xc4, 0xc4, 0xcc, 0xff], minor_on: false, minor_mm: 2.0, minor_color: [0xe6, 0xe6, 0xea, 0xff], bed_color: None, workspace_color: None, units: None, preview_color: None, line_width: 1.0, layer_names: false, gcode_preview_after_save: false, variable_names: false, console: Default::default(), render_quality: crate::view3d::QUALITY_DEFAULT }
     }
 }
 

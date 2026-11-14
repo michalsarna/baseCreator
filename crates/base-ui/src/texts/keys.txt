@@ -1501,3 +1501,5 @@
 1500	The job has several faces. How should the G-code be saved?
 1501	The alignment marks in a file of their own (name_marks)
 1502	Burned first, on the sheet under the material, before it is laid down: they lie just outside the material, so they are not in the files of the sides.
+1503	Rendering quality
+1504	How fine the pictures of the preview are: 1 is quick and coarse, 5 sharp and fine but slower. While the view is turned it is drawn coarser for a moment.

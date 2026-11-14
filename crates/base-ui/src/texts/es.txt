@@ -1501,3 +1501,5 @@
 1500|El trabajo tiene varias caras. ¿Cómo guardar el G-code?
 1501|Las marcas de alineación en un archivo propio (nombre_marks)
 1502|Se graban primero, en la plancha bajo el material, antes de colocarlo: quedan justo fuera del material, así que no están en los archivos de las caras.
+1503|Calidad de renderizado
+1504|Qué tan finas son las imágenes de la vista previa: 1 es rápido y tosco, 5 nítido y fino pero más lento. Mientras se gira la vista se dibuja más tosca un momento.

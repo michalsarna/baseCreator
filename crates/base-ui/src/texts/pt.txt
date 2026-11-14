@@ -1501,3 +1501,5 @@
 1500|O trabalho tem várias faces. Como guardar o G-code?
 1501|As marcas de alinhamento num ficheiro próprio (nome_marks)
 1502|Gravadas primeiro, na placa por baixo do material, antes de o pousar: ficam mesmo fora do material, por isso não estão nos ficheiros dos lados.
+1503|Qualidade de renderização
+1504|Quão finas são as imagens da pré-visualização: 1 é rápido e grosseiro, 5 nítido e fino mas mais lento. Enquanto a vista roda, é desenhada mais grosseira por um momento.

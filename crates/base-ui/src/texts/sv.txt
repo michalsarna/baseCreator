@@ -1501,3 +1501,5 @@
 1500|Jobbet har flera sidor. Hur ska G-koden sparas?
 1501|Justeringsmärkena i en egen fil (namn_marks)
 1502|Bränns först, på skivan under materialet, innan det läggs på: de ligger precis utanför materialet, så de finns inte i sidornas filer.
+1503|Renderingskvalitet
+1504|Hur fina förhandsvisningens bilder är: 1 är snabbt och grovt, 5 skarpt och fint men långsammare. Medan vyn vrids ritas den grövre en stund.
