@@ -33,7 +33,7 @@ An open-source drawing program written in Rust, with nothing of a machine: no de
 * **Editor:** shapes, node editing, Bézier lines, text, grouping, aligning, boolean operations, offset, rounded corners, pictures and tracing, undo, grid and snapping. Drawings are tabs, in up to three panes.
 * **A page** in place of the work area of a machine: the usual sheets, a size of your own, portrait and landscape, mm or inches.
 * **64 layers**, each a group of shapes with a name and a colour, which can be hidden.
-* **Import:** image, SVG, Adobe Illustrator / PDF, DXF, LightBurn project, UGS design, and what plugins read. **Export:** SVG, PLT, DXF.
+* **Import:** image, SVG, Adobe Illustrator / PDF / EPS / VectorCraft, DXF, LightBurn project, UGS design, and what plugins read. **Export:** SVG, PLT, DXF.
 * **Project file:** `.cre`, shared with the three other programs; their sections stay in the file when you save here.
 * **Clipart:** 310 pictures shared with the other programs, with online search.
 * **Interface:** 30 languages and 18 colour schemes; around Christmas, the New Year, Halloween, Easter and the Chinese New Year also a festive icon and two festive schemes.

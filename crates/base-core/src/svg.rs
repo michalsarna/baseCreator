@@ -39,7 +39,7 @@ pub fn into_scene(outlines: Vec<Outline>, by_layers: bool) -> crate::scene::Scen
     scene
 }
 
-/// Read a drawing into outlines: a PDF or Illustrator file (known by its content), or else an SVG.
+/// Read a drawing into outlines: a PDF, Illustrator, EPS or VectorCraft file (known by its content), or else an SVG.
 pub fn read_drawing(data: &[u8]) -> Result<Vec<Outline>, String> {
     if crate::pdf::is_pdf_or_ai(data) {
         crate::pdf::parse(data)
@@ -52,7 +52,7 @@ pub fn read_drawing(data: &[u8]) -> Result<Vec<Outline>, String> {
 /// 0, and the pictures of an SVG on layer 0 too.
 pub fn read_scene(data: &[u8]) -> Result<crate::scene::Scene, String> {
     let outlines = read_drawing(data)?;
-    let pictures = if crate::pdf::is_pdf_or_ai(data) { vec![] } else { images(data) };
+    let pictures = pictures(data);
     let mut scene = crate::scene::Scene::default();
     for o in outlines {
         scene.add(0, crate::scene::Kind::Bezier(o.contours), Xf::IDENTITY);
@@ -61,6 +61,20 @@ pub fn read_scene(data: &[u8]) -> Result<crate::scene::Scene, String> {
         scene.add(0, crate::scene::Kind::Image(im), xf);
     }
     Ok(scene)
+}
+
+/// The pictures of a drawing read by [`read_drawing`]: those of an SVG, of a VectorCraft drawing or of the VectorCraft document in an
+/// EPS (a PDF and an Illustrator file give none).
+pub fn pictures(data: &[u8]) -> Vec<(crate::image::ImageData, Xf)> {
+    if crate::vectorcraft::is_vectorcraft(data) {
+        crate::vectorcraft::images(data)
+    } else if crate::eps::is_eps(data) {
+        crate::eps::images(data)
+    } else if crate::pdf::is_pdf_or_ai(data) {
+        vec![]
+    } else {
+        images(data)
+    }
 }
 
 /// Read an SVG into outlines, in document order.

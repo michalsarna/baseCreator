@@ -540,9 +540,12 @@ fn an_illustrator_file_without_a_pdf_inside_gets_a_clear_message() {
     // An Illustrator file of the PostScript kind is read by `ai`: without paths it says so.
     let ps = crate::pdf::parse(b"%!PS-Adobe-3.0 EPSF-3.0\n%%Creator: Adobe Illustrator(R) 8.0\n").err().unwrap();
     assert!(ps.contains("no vector paths"), "{ps}");
-    // Other PostScript is not an Illustrator file.
+    // Other EPS is run as PostScript: with nothing drawn it says so.
     let eps = crate::pdf::parse(b"%!PS-Adobe-3.0 EPSF-3.0\n%%Creator: somebody\n").err().unwrap();
-    assert!(eps.contains("PostScript-only") && eps.contains("PDF Compatible"), "{eps}");
+    assert!(eps.contains("no paths"), "{eps}");
+    // PostScript that is not an EPS is not an Illustrator file.
+    let ps = crate::pdf::parse(b"%!PS-Adobe-3.0\n%%Creator: somebody\n").err().unwrap();
+    assert!(ps.contains("PostScript-only") && ps.contains("PDF Compatible"), "{ps}");
     let other = crate::pdf::parse(b"just some text").err().unwrap();
     assert!(other.contains("not a PDF"), "{other}");
     let big = vec![0u8; 64_000_001];

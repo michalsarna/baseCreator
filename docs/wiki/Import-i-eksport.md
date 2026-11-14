@@ -12,7 +12,7 @@ Wszystko z **Plik → Importuj** jest dodawane do otwartego rysunku, zostaje zaz
 |---|---|---|
 | **Importuj obraz…** | PNG, JPG, BMP, GIF, WebP | Obraz, przez okno importu. |
 | **Importuj SVG…** (Ctrl+I) | `.svg` | Ścieżki, każda na warstwie o najbliższym kolorze. |
-| **Importuj Adobe Illustrator / PDF…** | `.pdf`, `.ai` zgodny z PDF | To samo. Plik z warstwami Illustratora pyta, czy układać według koloru, czy według tych warstw. |
+| **Importuj Adobe Illustrator / PDF / EPS / VectorCraft…** | `.pdf`, `.ai` zgodny z PDF, `.eps`, `.vectorcraft` | To samo. Plik z warstwami Illustratora (lub VectorCrafta) pyta, czy układać według koloru, czy według tych warstw. EPS jest czytany jako PostScript (ścieżki; tekst i obrazy nie są czytane); EPS lub plik `.vectorcraft` zapisany przez VectorCraft 0.8 lub nowszy jest czytany razem z obrazami. |
 | **Importuj DXF…** | tekstowy `.dxf` | Linie, łuki i krzywe, w milimetrach. Warstwy DXF trafiają na warstwy bez kształtów. |
 | **Importuj projekt LightBurn…** | `.lbrn2`, `.lbrn` | Kształty. |
 | **Importuj projekt UGS…** | `.ugsd` | Kształty na ich warstwach. Posuwy i głębokości są pomijane. |

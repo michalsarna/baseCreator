@@ -671,7 +671,7 @@ pub fn standard_menus<A: Copy + From<StdAct>>(p: MenuParts<A>) -> Menus<A> {
     file.push(Sep);
     let formats = vec![
         Item(p.import_svg, "Import SVG…", key("CmdOrCtrl+I", "Ctrl+I")),
-        Item(p.import_ai, "Import Adobe Illustrator / PDF…", None),
+        Item(p.import_ai, "Import Adobe Illustrator / PDF / EPS / VectorCraft…", None),
         Item(p.import_dxf, "Import DXF…", None),
         Item(p.import_lightburn, "Import LightBurn / MillMage project…", None),
         Item(p.import_ugsd, "Import UGS design…", None),
@@ -941,7 +941,7 @@ mod tests {
         p.import_extra = vec![Item(T::App(40), "Import 3D model as relief…", None)];
         p.export_extra = vec![Item(T::App(41), "Export relief as STL…", None)];
         let m = standard_menus(p);
-        assert_eq!(sub_labels(&m, "Import"), ["Import image…", "Import SVG…", "Import Adobe Illustrator / PDF…", "Import DXF…", "Import LightBurn / MillMage project…", "Import UGS design…", "Import 3D model as relief…", "-", crate::plugins_ui::MENU_IMPORT, crate::plugins_ui::MENU_GENERATE]);
+        assert_eq!(sub_labels(&m, "Import"), ["Import image…", "Import SVG…", "Import Adobe Illustrator / PDF / EPS / VectorCraft…", "Import DXF…", "Import LightBurn / MillMage project…", "Import UGS design…", "Import 3D model as relief…", "-", crate::plugins_ui::MENU_IMPORT, crate::plugins_ui::MENU_GENERATE]);
         assert_eq!(sub_labels(&m, "Export"), ["Export G-code…", "Export SVG…", "Export PLT / DXF…", "Export DXF…", "Export DXF R12 (legacy)…", "Export Adobe Illustrator…", "Export LightBurn project…", "Export MillMage project…", "Export relief as STL…", "-", "Export selection as SVG…", "Export selection as DXF…"]);
     }
 

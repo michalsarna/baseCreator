@@ -15,6 +15,7 @@ pub mod diag;
 pub mod drag_knife;
 pub mod knife_lib;
 pub mod dxf;
+pub mod eps;
 pub mod fillet;
 pub mod gcode_out;
 pub mod gcode_split;
@@ -62,6 +63,7 @@ pub mod trace;
 pub mod ugsd;
 pub mod zones;
 pub mod units;
+pub mod vectorcraft;
 
 pub use bezier::*;
 pub use camimg::{CameraKind, CameraSource, CameraView, ImageSettings, Lens, RefPoint};

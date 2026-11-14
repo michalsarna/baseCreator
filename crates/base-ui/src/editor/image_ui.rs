@@ -281,8 +281,8 @@ pub trait EditorImages: EditorHost {
         match base_core::svg::read_drawing(&data) {
             Ok(outlines) if !base_core::svg::layer_names(&outlines).is_empty() => self.ed_mut().drawing_choice = Some((p, outlines)),
             Ok(outlines) => {
-                // The pictures of an SVG (LightBurn writes them in) come with its paths.
-                let pictures = if base_core::pdf::is_pdf_or_ai(&data) { vec![] } else { base_core::svg::images(&data) };
+                // The pictures of an SVG (LightBurn writes them in) or of a VectorCraft drawing come with its paths.
+                let pictures = base_core::svg::pictures(&data);
                 self.place_drawing(&p, outlines, false);
                 self.place_pictures(&p, pictures);
             }

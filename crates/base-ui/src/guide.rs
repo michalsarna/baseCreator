@@ -77,7 +77,7 @@ const EN: Shared = Shared {
         title: "Text, pictures and import",
         lines: &[
             "Text tool: click on the work area, then type in the Properties tab. Choose the font, size, style and spacing; Convert to curves turns text into editable shapes.",
-            "File > Import brings in pictures, SVG, Illustrator / PDF, DXF, LightBurn projects and UGS designs. File > Export writes SVG and PLT / DXF. A picture opens a window with rotate, flip, brightness, contrast, gamma, auto levels, negative and size; Arrange > Adjust image… changes it later, and Arrange > Trace image… turns it into outlines. Negative image is also in Properties of a selected picture.",
+            "File > Import brings in pictures, SVG, Illustrator / PDF / EPS / VectorCraft, DXF, LightBurn projects and UGS designs. File > Export writes SVG and PLT / DXF. A picture opens a window with rotate, flip, brightness, contrast, gamma, auto levels, negative and size; Arrange > Adjust image… changes it later, and Arrange > Trace image… turns it into outlines. Negative image is also in Properties of a selected picture.",
             "View > Overlay from… puts a photo under the drawing, or the live picture of the camera when the device has one; drag its four corners onto the material. View > Show camera overlay shows or hides it. It is saved with the project.",
         ],
     },
@@ -85,7 +85,7 @@ const EN: Shared = Shared {
         title: "Text, pictures and import",
         lines: &[
             "Text tool: click on the work area, then type in the Properties tab. Choose the font, size, style and spacing; Convert to curves turns text into editable shapes.",
-            "File > Import brings in pictures, SVG, Illustrator / PDF, DXF, LightBurn projects and UGS designs. File > Export writes SVG and PLT / DXF. A picture opens a window with rotate, flip, brightness, contrast, gamma, auto levels, negative and size; Arrange > Adjust image… changes it later, and Arrange > Trace image… turns it into outlines. Negative image is also in Properties of a selected picture.",
+            "File > Import brings in pictures, SVG, Illustrator / PDF / EPS / VectorCraft, DXF, LightBurn projects and UGS designs. File > Export writes SVG and PLT / DXF. A picture opens a window with rotate, flip, brightness, contrast, gamma, auto levels, negative and size; Arrange > Adjust image… changes it later, and Arrange > Trace image… turns it into outlines. Negative image is also in Properties of a selected picture.",
             "View > Background picture… puts a photo or a plan under the drawing; drag its four corners onto the corners of the page. It is saved with the project.",
         ],
     },
@@ -144,7 +144,7 @@ const PL: Shared = Shared {
         title: "Tekst, obrazy i import",
         lines: &[
             "Narzędzie tekstu: kliknij na obszarze roboczym i wpisz tekst na karcie Właściwości. Wybierz czcionkę, rozmiar, styl i odstępy; Zamień na krzywe robi z tekstu edytowalne kształty.",
-            "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF, DXF, projekty LightBurn i projekty UGS. Plik > Eksportuj zapisuje SVG i PLT / DXF. Obraz otwiera okno z obrotem, odbiciem, jasnością, kontrastem, gammą, automatycznymi poziomami, negatywem i rozmiarem; dostosowanie i trasowanie obrazu są później w menu Rozmieść. Obraz negatywowy jest też we Właściwościach zaznaczonego obrazu.",
+            "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF / EPS / VectorCraft, DXF, projekty LightBurn i projekty UGS. Plik > Eksportuj zapisuje SVG i PLT / DXF. Obraz otwiera okno z obrotem, odbiciem, jasnością, kontrastem, gammą, automatycznymi poziomami, negatywem i rozmiarem; dostosowanie i trasowanie obrazu są później w menu Rozmieść. Obraz negatywowy jest też we Właściwościach zaznaczonego obrazu.",
             "Widok > Nakładka z… kładzie pod rysunkiem zdjęcie albo obraz na żywo z kamery, gdy urządzenie ją ma; przeciągnij jego cztery narożniki na materiał. Widok > Pokaż nakładkę z kamery pokazuje ją lub ukrywa. Jest zapisywana w projekcie.",
         ],
     },
@@ -152,7 +152,7 @@ const PL: Shared = Shared {
         title: "Tekst, obrazy i import",
         lines: &[
             "Narzędzie tekstu: kliknij na obszarze roboczym i wpisz tekst na karcie Właściwości. Wybierz czcionkę, rozmiar, styl i odstępy; Zamień na krzywe robi z tekstu edytowalne kształty.",
-            "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF, DXF, projekty LightBurn i projekty UGS. Plik > Eksportuj zapisuje SVG i PLT / DXF. Obraz otwiera okno z obrotem, odbiciem, jasnością, kontrastem, gammą, automatycznymi poziomami, negatywem i rozmiarem; dostosowanie i trasowanie obrazu są później w menu Rozmieść. Obraz negatywowy jest też we Właściwościach zaznaczonego obrazu.",
+            "Plik > Importuj wczytuje obrazy, SVG, Illustrator / PDF / EPS / VectorCraft, DXF, projekty LightBurn i projekty UGS. Plik > Eksportuj zapisuje SVG i PLT / DXF. Obraz otwiera okno z obrotem, odbiciem, jasnością, kontrastem, gammą, automatycznymi poziomami, negatywem i rozmiarem; dostosowanie i trasowanie obrazu są później w menu Rozmieść. Obraz negatywowy jest też we Właściwościach zaznaczonego obrazu.",
             "Widok > Obraz w tle… kładzie zdjęcie albo plan pod rysunkiem; przeciągnij jego cztery narożniki na narożniki strony. Jest zapisywany w projekcie.",
         ],
     },
