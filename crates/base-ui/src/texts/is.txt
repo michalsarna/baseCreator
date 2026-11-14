@@ -1501,3 +1501,5 @@
 1500|Verkið hefur margar hliðar. Hvernig á að vista G-kóðann?
 1501|Jöfnunarmerkin í eigin skrá (nafn_marks)
 1502|Brennd fyrst, á plötuna undir efninu, áður en það er lagt niður: þau liggja rétt utan við efnið, svo þau eru ekki í skrám hliðanna.
+1503|Myndgæði
+1504|Hversu fínar myndir forskoðunarinnar eru: 1 er hratt og gróft, 5 skarpt og fínt en hægara. Á meðan sýninni er snúið er hún teiknuð grófar um stund.

@@ -1501,3 +1501,5 @@
 1500|Posao ima više strana. Kako spremiti G-kod?
 1501|Oznake za poravnanje u zasebnoj datoteci (naziv_marks)
 1502|Pale se prvi, na ploči ispod materijala, prije nego što se materijal položi: leže tik izvan materijala, pa nisu u datotekama strana.
+1503|Kvaliteta iscrtavanja
+1504|Koliko su fine slike pregleda: 1 je brzo i grubo, 5 oštro i fino, ali sporije. Dok se pogled okreće, nakratko se crta grublje.

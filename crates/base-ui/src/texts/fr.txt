@@ -1501,3 +1501,5 @@
 1500|Le travail a plusieurs faces. Comment enregistrer le G-code ?
 1501|Les repères d'alignement dans un fichier à part (nom_marks)
 1502|Gravés en premier, sur la plaque sous le matériau, avant de le poser : ils sont juste à l'extérieur du matériau, donc ils ne sont pas dans les fichiers des faces.
+1503|Qualité du rendu
+1504|Finesse des images de l'aperçu : 1 est rapide et grossier, 5 net et fin mais plus lent. Pendant que la vue tourne, elle est dessinée plus grossièrement un instant.

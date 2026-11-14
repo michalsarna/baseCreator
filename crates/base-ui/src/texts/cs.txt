@@ -1501,3 +1501,5 @@
 1500|Úloha má několik stěn. Jak uložit G-code?
 1501|Zarovnávací značky ve vlastním souboru (název_marks)
 1502|Vypalují se nejdřív, na desku pod materiálem, než se materiál položí: leží těsně mimo materiál, proto nejsou v souborech stran.
+1503|Kvalita vykreslování
+1504|Jak jemné jsou obrázky náhledu: 1 je rychlé a hrubé, 5 ostré a jemné, ale pomalejší. Při otáčení pohledu se na chvíli kreslí hruběji.

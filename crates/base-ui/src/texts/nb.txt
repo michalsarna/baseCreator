@@ -1501,3 +1501,5 @@
 1500|Jobben har flere sider. Hvordan skal G-koden lagres?
 1501|Justeringsmerkene i en egen fil (navn_marks)
 1502|Brennes først, på platen under materialet, før det legges på: de ligger like utenfor materialet, så de er ikke i sidenes filer.
+1503|Gjengivelseskvalitet
+1504|Hvor fine bildene i forhåndsvisningen er: 1 er raskt og grovt, 5 skarpt og fint men tregere. Mens visningen dreies, tegnes den grovere et øyeblikk.

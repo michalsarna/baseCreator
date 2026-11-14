@@ -187,6 +187,131 @@ pub fn dxf_modern(scene: &Scene, ids: &[u64], area_h: f64, layer_name: &dyn Fn(u
     s
 }
 
+/// A drawing made of lines and words (a technical drawing), in millimetres with Y up, for [`dxf_drawing`].
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct Drawing {
+    pub lines: Vec<DrawingLine>,
+    pub texts: Vec<DrawingText>,
+}
+
+/// A line of a [`Drawing`]: its points, closed or not, on a DXF layer.
+#[derive(Clone, Debug, PartialEq)]
+pub struct DrawingLine {
+    pub layer: &'static str,
+    pub pts: Vec<Pt>,
+    pub closed: bool,
+}
+
+/// Words of a [`Drawing`]: the left end of their base line, the height of the capitals, the turn (degrees, anticlockwise).
+#[derive(Clone, Debug, PartialEq)]
+pub struct DrawingText {
+    pub layer: &'static str,
+    pub at: Pt,
+    pub height: f64,
+    pub angle: f64,
+    pub text: String,
+}
+
+impl Drawing {
+    /// The DXF layers it uses, in the order they first come.
+    fn layers(&self) -> Vec<&'static str> {
+        let mut out: Vec<&'static str> = vec![];
+        for l in self.lines.iter().map(|l| l.layer).chain(self.texts.iter().map(|t| t.layer)) {
+            if !out.contains(&l) {
+                out.push(l);
+            }
+        }
+        out
+    }
+}
+
+/// Words for a DXF of the old kind: the letters outside ASCII written as `\U+XXXX`, as AutoCAD reads them.
+fn r12_text(t: &str) -> String {
+    t.chars().map(|c| if c.is_ascii() && !c.is_ascii_control() { c.to_string() } else if c.is_control() { " ".to_string() } else { format!("\\U+{:04X}", c as u32) }).collect()
+}
+
+/// A drawing as a DXF: of the old kind (R12, `AC1009`) or of the current one (AutoCAD 2007, `AC1021`, UTF-8), in millimetres. The
+/// lines are polylines and the words TEXT entities, on the layers the drawing names.
+pub fn dxf_drawing(d: &Drawing, modern: bool) -> String {
+    let layers = d.layers();
+    let mut s = String::new();
+    if !modern {
+        s.push_str("0\nSECTION\n2\nHEADER\n9\n$ACADVER\n1\nAC1009\n9\n$INSUNITS\n70\n4\n0\nENDSEC\n");
+        let _ = write!(s, "0\nSECTION\n2\nTABLES\n0\nTABLE\n2\nLTYPE\n70\n1\n0\nLTYPE\n2\nCONTINUOUS\n70\n0\n3\nSolid line\n72\n65\n73\n0\n40\n0.0\n0\nENDTAB\n0\nTABLE\n2\nLAYER\n70\n{}\n", layers.len());
+        for l in &layers {
+            let _ = write!(s, "0\nLAYER\n2\n{l}\n70\n0\n62\n7\n6\nCONTINUOUS\n");
+        }
+        s.push_str("0\nENDTAB\n0\nTABLE\n2\nSTYLE\n70\n1\n0\nSTYLE\n2\nSTANDARD\n70\n0\n40\n0.0\n41\n1.0\n50\n0.0\n71\n0\n42\n2.5\n3\ntxt\n4\n\n0\nENDTAB\n0\nENDSEC\n0\nSECTION\n2\nENTITIES\n");
+        for l in &d.lines {
+            if l.pts.len() < 2 {
+                continue;
+            }
+            let _ = write!(s, "0\nPOLYLINE\n8\n{}\n66\n1\n70\n{}\n", l.layer, if l.closed { 1 } else { 0 });
+            for q in &l.pts {
+                let _ = write!(s, "0\nVERTEX\n8\n{}\n10\n{:.4}\n20\n{:.4}\n", l.layer, q.x, q.y);
+            }
+            let _ = write!(s, "0\nSEQEND\n8\n{}\n", l.layer);
+        }
+        for t in &d.texts {
+            let _ = write!(s, "0\nTEXT\n8\n{}\n10\n{:.4}\n20\n{:.4}\n30\n0.0\n40\n{:.4}\n1\n{}\n50\n{:.4}\n7\nSTANDARD\n", t.layer, t.at.x, t.at.y, t.height, r12_text(&t.text), t.angle);
+        }
+        s.push_str("0\nENDSEC\n0\nEOF\n");
+        return s;
+    }
+    let mut next = 0x30u32;
+    let mut handle = || {
+        next += 1;
+        format!("{:X}", next)
+    };
+    s.push_str("0\nSECTION\n2\nHEADER\n9\n$ACADVER\n1\nAC1021\n9\n$DWGCODEPAGE\n3\nANSI_1252\n9\n$HANDSEED\n5\n20000\n9\n$INSUNITS\n70\n4\n0\nENDSEC\n");
+    s.push_str("0\nSECTION\n2\nTABLES\n");
+    s.push_str("0\nTABLE\n2\nVPORT\n5\n8\n330\n0\n100\nAcDbSymbolTable\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nLTYPE\n5\n5\n330\n0\n100\nAcDbSymbolTable\n70\n3\n");
+    for (h, name, text) in [("14", "ByBlock", ""), ("15", "ByLayer", ""), ("16", "Continuous", "Solid line")] {
+        let _ = write!(s, "0\nLTYPE\n5\n{h}\n330\n5\n100\nAcDbSymbolTableRecord\n100\nAcDbLinetypeTableRecord\n2\n{name}\n70\n0\n3\n{text}\n72\n65\n73\n0\n40\n0\n");
+    }
+    s.push_str("0\nENDTAB\n");
+    let _ = write!(s, "0\nTABLE\n2\nLAYER\n5\n2\n330\n0\n100\nAcDbSymbolTable\n70\n{}\n", layers.len() + 1);
+    s.push_str("0\nLAYER\n5\n10\n330\n2\n100\nAcDbSymbolTableRecord\n100\nAcDbLayerTableRecord\n2\n0\n70\n0\n62\n7\n6\nCONTINUOUS\n370\n-3\n390\nF\n");
+    for n in &layers {
+        let _ = write!(s, "0\nLAYER\n5\n{}\n330\n2\n100\nAcDbSymbolTableRecord\n100\nAcDbLayerTableRecord\n2\n{n}\n70\n0\n62\n7\n6\nCONTINUOUS\n370\n-3\n390\nF\n", handle());
+    }
+    s.push_str("0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nSTYLE\n5\n3\n330\n0\n100\nAcDbSymbolTable\n70\n1\n0\nSTYLE\n5\n11\n330\n3\n100\nAcDbSymbolTableRecord\n100\nAcDbTextStyleTableRecord\n2\nStandard\n70\n0\n40\n0\n41\n1\n50\n0\n71\n0\n42\n2.5\n3\narial.ttf\n4\n\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nVIEW\n5\n6\n330\n0\n100\nAcDbSymbolTable\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nUCS\n5\n7\n330\n0\n100\nAcDbSymbolTable\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nAPPID\n5\n9\n330\n0\n100\nAcDbSymbolTable\n70\n1\n0\nAPPID\n5\n12\n330\n9\n100\nAcDbSymbolTableRecord\n100\nAcDbRegAppTableRecord\n2\nACAD\n70\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nDIMSTYLE\n5\nA\n330\n0\n100\nAcDbSymbolTable\n70\n0\n100\nAcDbDimStyleTable\n71\n0\n0\nENDTAB\n");
+    s.push_str("0\nTABLE\n2\nBLOCK_RECORD\n5\n1\n330\n0\n100\nAcDbSymbolTable\n70\n2\n");
+    s.push_str("0\nBLOCK_RECORD\n5\n1F\n330\n1\n100\nAcDbSymbolTableRecord\n100\nAcDbBlockTableRecord\n2\n*Model_Space\n70\n0\n280\n1\n281\n0\n");
+    s.push_str("0\nBLOCK_RECORD\n5\n1B\n330\n1\n100\nAcDbSymbolTableRecord\n100\nAcDbBlockTableRecord\n2\n*Paper_Space\n70\n0\n280\n1\n281\n0\n");
+    s.push_str("0\nENDTAB\n0\nENDSEC\n");
+    s.push_str("0\nSECTION\n2\nBLOCKS\n");
+    s.push_str("0\nBLOCK\n5\n20\n330\n1F\n100\nAcDbEntity\n8\n0\n100\nAcDbBlockBegin\n2\n*Model_Space\n70\n0\n10\n0\n20\n0\n30\n0\n3\n*Model_Space\n1\n\n");
+    s.push_str("0\nENDBLK\n5\n21\n330\n1F\n100\nAcDbEntity\n8\n0\n100\nAcDbBlockEnd\n");
+    s.push_str("0\nBLOCK\n5\n1C\n330\n1B\n100\nAcDbEntity\n67\n1\n8\n0\n100\nAcDbBlockBegin\n2\n*Paper_Space\n70\n0\n10\n0\n20\n0\n30\n0\n3\n*Paper_Space\n1\n\n");
+    s.push_str("0\nENDBLK\n5\n1D\n330\n1B\n100\nAcDbEntity\n67\n1\n8\n0\n100\nAcDbBlockEnd\n");
+    s.push_str("0\nENDSEC\n0\nSECTION\n2\nENTITIES\n");
+    for l in &d.lines {
+        if l.pts.len() < 2 {
+            continue;
+        }
+        let _ = write!(s, "0\nLWPOLYLINE\n5\n{}\n330\n1F\n100\nAcDbEntity\n8\n{}\n100\nAcDbPolyline\n90\n{}\n70\n{}\n", handle(), l.layer, l.pts.len(), if l.closed { 1 } else { 0 });
+        for q in &l.pts {
+            let _ = write!(s, "10\n{}\n20\n{}\n", num(q.x), num(q.y));
+        }
+    }
+    for t in &d.texts {
+        let text: String = t.text.chars().map(|c| if c.is_control() { ' ' } else { c }).collect();
+        let _ = write!(s, "0\nTEXT\n5\n{}\n330\n1F\n100\nAcDbEntity\n8\n{}\n100\nAcDbText\n10\n{}\n20\n{}\n30\n0\n40\n{}\n1\n{text}\n50\n{}\n7\nStandard\n100\nAcDbText\n", handle(), t.layer, num(t.at.x), num(t.at.y), num(t.height), num(t.angle));
+    }
+    s.push_str("0\nENDSEC\n0\nSECTION\n2\nOBJECTS\n");
+    s.push_str("0\nDICTIONARY\n5\nC\n330\n0\n100\nAcDbDictionary\n281\n1\n3\nACAD_GROUP\n350\nD\n");
+    s.push_str("0\nDICTIONARY\n5\nD\n330\nC\n100\nAcDbDictionary\n281\n1\n");
+    s.push_str("0\nENDSEC\n0\nEOF\n");
+    s
+}
+
 /// How many of the shapes `ids` (all when empty) are pictures: they have no outlines, so no file of outlines holds them.
 pub fn pictures_in(scene: &Scene, ids: &[u64]) -> usize {
     scene.shapes.iter().filter(|x| x.is_image() && (ids.is_empty() || ids.contains(&x.id))).count()
@@ -269,4 +394,23 @@ mod tests {
         // Only the selected one.
         assert_eq!(crate::dxf::parse(dxf(&sc, &ids[1..], 50.0, &|l| format!("L{l}")).as_bytes(), 50.0).unwrap().outlines.len(), 1);
     }
+    #[test]
+    fn a_drawing_goes_into_both_kinds_of_dxf_with_its_lines_and_words() {
+        let d = Drawing {
+            lines: vec![DrawingLine { layer: "OUTLINE", pts: vec![Pt::new(0.0, 0.0), Pt::new(100.0, 0.0), Pt::new(100.0, 50.0)], closed: true }],
+            texts: vec![DrawingText { layer: "TEXT", at: Pt::new(10.0, 60.0), height: 3.5, angle: 90.0, text: "Widok z przodu Ø 12".into() }],
+        };
+        let old = dxf_drawing(&d, false);
+        assert!(old.contains("AC1009") && old.contains("\nPOLYLINE\n8\nOUTLINE\n") && old.contains("\\U+00D8") && old.contains("\nTEXT\n8\nTEXT\n"));
+        let new = dxf_drawing(&d, true);
+        assert!(new.contains("AC1021") && new.contains("LWPOLYLINE") && new.contains("Widok z przodu Ø 12") && new.contains("\n50\n90\n"));
+        // Read back: the outline is the polyline of 100 × 50 mm.
+        for text in [old, new] {
+            let read = crate::dxf::parse(text.as_bytes(), 100.0).unwrap();
+            let o = read.outlines.iter().find(|o| o.layer.as_deref() == Some("OUTLINE")).unwrap();
+            let b = o.contours[0].flatten(0.01).bounds().unwrap();
+            assert!((b.max.x - b.min.x - 100.0).abs() < 1e-3 && (b.max.y - b.min.y - 50.0).abs() < 1e-3, "{b:?}");
+        }
+    }
+
 }

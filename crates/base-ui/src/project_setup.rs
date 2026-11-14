@@ -40,11 +40,14 @@ pub struct Setup {
     pub block: [f64; 3],
     /// The largest piece the machine takes (its work area), for the list of paper sizes.
     pub max: (f64, f64),
+    /// Opened for a new project (the start window): Skip, or closing the window, leaves the project on one side and as big as the
+    /// work area of the machine (`Answer::Skip` tells the program to do so).
+    pub start: bool,
 }
 
 impl Default for Setup {
     fn default() -> Setup {
-        Setup { open: false, w: 200.0, h: 150.0, t: 10.0, zero: ZeroPoint::FrontLeft, z_bottom: false, work_area: false, round: false, diameter: 50.0, length: 150.0, sides: Sides::One, flip: FlipAxis::SideToSide, marks: true, post: [40.0, 40.0, 300.0], block: [100.0, 80.0, 60.0], max: (f64::INFINITY, f64::INFINITY) }
+        Setup { open: false, w: 200.0, h: 150.0, t: 10.0, zero: ZeroPoint::FrontLeft, z_bottom: false, work_area: false, round: false, diameter: 50.0, length: 150.0, sides: Sides::One, flip: FlipAxis::SideToSide, marks: true, post: [40.0, 40.0, 300.0], block: [100.0, 80.0, 60.0], max: (f64::INFINITY, f64::INFINITY), start: false }
     }
 }
 
@@ -175,8 +178,54 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
     let mut open = true;
     let (mut apply, mut skip) = (false, false);
     let title = tr("Project setup…").trim_end_matches('…').to_string();
-    let size = if kind.solids { [480.0, 700.0] } else { [400.0, 640.0] };
-    popup(ctx, "setup_window", &title, size, &mut open, |ui| {
+    // As tall as the pictures ask, but not taller than the screen (the body scrolls then).
+    let room = ctx.content_rect().height() - 40.0;
+    let size = if kind.solids { [700.0, 900.0f32.min(room)] } else { [620.0, 800.0f32.min(room)] };
+    // A new id: the size kept by egui for the old, smaller window does not come back.
+    popup(ctx, "setup_window_2", &title, size, &mut open, |ui| {
+        // Apply and Skip at the bottom of the window, under a line, in the middle; what is above them scrolls when it is too tall.
+        egui::Panel::bottom("setup_buttons").frame(egui::Frame::NONE).resizable(false).show_separator_line(true).show(ui, |ui| {
+            ui.add_space(10.0);
+            (apply, skip) = answer_buttons(ui);
+            ui.add_space(2.0);
+        });
+        egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| setup_body(ui, st, units, kind));
+    });
+    if apply {
+        st.open = false;
+        Some(Answer::Apply)
+    } else if skip || !open {
+        st.open = false;
+        Some(Answer::Skip)
+    } else {
+        None
+    }
+}
+
+/// The green Apply and the blue Skip, half as big again as a button, side by side in the middle. Returns which was clicked.
+pub fn answer_buttons(ui: &mut egui::Ui) -> (bool, bool) {
+    let size = ui.style().text_styles.get(&egui::TextStyle::Button).map_or(14.0, |f| f.size) * 1.5;
+    let height = ui.spacing().interact_size.y * 1.5;
+    let big = move |text: &'static str, fill: Color32| egui::Button::new(RichText::new(tr(text)).size(size).color(Color32::WHITE)).fill(fill).min_size(egui::vec2(132.0, height)).corner_radius(5.0);
+    let gap = ui.spacing().item_spacing.x * 3.0;
+    let width = 2.0 * 132.0 + gap;
+    let mut out = (false, false);
+    ui.horizontal(|ui| {
+        ui.add_space(((ui.available_width() - width) / 2.0).max(0.0));
+        out.0 = ui.add(big("Apply", APPLY_GREEN)).clicked();
+        ui.add_space(gap - ui.spacing().item_spacing.x);
+        out.1 = ui.add(big("Skip", SKIP_BLUE)).clicked();
+    });
+    out
+}
+
+/// The colours of the two answers of the start window.
+pub const APPLY_GREEN: Color32 = Color32::from_rgb(0x2e, 0x9b, 0x4c);
+pub const SKIP_BLUE: Color32 = Color32::from_rgb(0x2e, 0x74, 0xc8);
+
+/// What is above the answers: the shape, the sides, the picture and the sizes.
+fn setup_body(ui: &mut egui::Ui, st: &mut Setup, units: Units, kind: Kind) {
+    {
         if kind.cylinder {
             ui.horizontal(|ui| {
                 ui.label(tr("Shape of the material"));
@@ -216,19 +265,6 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
                 Sides::One | Sides::Two => sheet_part(ui, st, units, kind),
             }
         }
-        ui.horizontal(|ui| {
-            apply = ui.button(tr("Apply")).clicked();
-            skip = ui.button(tr("Skip")).clicked();
-        });
-    });
-    if apply {
-        st.open = false;
-        Some(Answer::Apply)
-    } else if skip || !open {
-        st.open = false;
-        Some(Answer::Skip)
-    } else {
-        None
     }
 }
 
@@ -329,10 +365,13 @@ fn sheet_part(ui: &mut egui::Ui, st: &mut Setup, units: Units, kind: Kind) {
 fn solid_part(ui: &mut egui::Ui, st: &mut Setup, units: Units, kind: Kind) {
     let post = st.sides == Sides::Post;
     if let Some(solid) = st.solid() {
+        // The object and its net side by side, half as big again as they were, in the middle.
+        let full = ui.available_width();
+        let w = full.min(860.0);
         ui.horizontal(|ui| {
-            let wide = ui.available_width();
-            ui.allocate_ui(egui::vec2(wide * 0.62, 190.0), |ui| solid_picture(ui, &solid, kind.colour, units, kind.zero.then_some((st.zero, st.z_bottom))));
-            ui.allocate_ui(egui::vec2(ui.available_width(), 190.0), |ui| {
+            ui.add_space(((full - w) / 2.0).max(0.0));
+            ui.allocate_ui(egui::vec2(w * 0.6, 285.0), |ui| solid_picture(ui, &solid, kind.colour, units, kind.zero.then_some((st.zero, st.z_bottom))));
+            ui.allocate_ui(egui::vec2(w * 0.4 - ui.spacing().item_spacing.x, 285.0), |ui| {
                 net_picture(ui, &solid, kind.colour, None);
             });
         });
@@ -387,7 +426,7 @@ fn shade(colour: [u8; 3], f: f32) -> Color32 {
 /// axes (when the program has one), and for a two-sided job the line it is turned over round. The block is drawn thicker than it is
 /// when it is thin, so that it can be seen; the numbers are the real ones.
 pub fn block_picture(ui: &mut egui::Ui, st: &Setup, colour: [u8; 3], units: Units, with_zero: bool) {
-    let (rect, _) = ui.allocate_exact_size(egui::vec2(ui.available_width().min(380.0), 210.0), egui::Sense::hover());
+    let rect = picture_rect(ui, 570.0, 315.0);
     let p = ui.painter_at(rect);
     let big = st.w.max(st.h).max(1e-6);
     let (w, h) = (st.w / big, st.h / big);
@@ -449,6 +488,12 @@ pub fn block_picture(ui: &mut egui::Ui, st: &Setup, colour: [u8; 3], units: Unit
     p.circle_stroke(zero, 4.5, Stroke::new(1.2, Color32::WHITE));
 }
 
+/// The place of a picture of the window: `w` × `h` (narrower when the room is), in the middle of the width.
+fn picture_rect(ui: &mut egui::Ui, w: f32, h: f32) -> egui::Rect {
+    let (row, _) = ui.allocate_exact_size(egui::vec2(ui.available_width(), h), egui::Sense::hover());
+    egui::Rect::from_center_size(row.center(), egui::vec2(w.min(row.width()), h))
+}
+
 /// The letters of the faces drawn on the pictures.
 fn letter_ink() -> Color32 {
     Color32::from_rgb(0x2a, 0x1c, 0x0c)
@@ -458,7 +503,7 @@ fn letter_ink() -> Color32 {
 /// (the others are on the net beside it), the arrow of the quarter turn back between the faces A to D, its sizes and the zero of
 /// the program (when the program has one: `zero`, with Z from the bottom).
 pub fn solid_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], units: Units, zero: Option<(ZeroPoint, bool)>) {
-    let (rect, _) = ui.allocate_exact_size(egui::vec2(ui.available_width().min(380.0), 190.0), egui::Sense::hover());
+    let rect = picture_rect(ui, 570.0, 285.0);
     let p = ui.painter_at(rect);
     let [bx, by, bz] = solid.bbox();
     let big = bx.max(by).max(bz).max(1e-6);
@@ -467,7 +512,8 @@ pub fn solid_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], units: U
     // As in the picture of the block: X to the right, the depth back and up at a slant, Z up; room for the sizes and the arrow.
     let (sx, sy) = (0.55, 0.32);
     let (span_x, span_y) = (w + d * sx, d * sy + t);
-    let k = ((rect.width() as f64 - 130.0) / span_x).min((rect.height() as f64 - 56.0) / span_y).max(1.0);
+    // Room above and beside for the arrow of the quarter turn, which goes round higher than the object.
+    let k = ((rect.width() as f64 - 130.0) / span_x).min((rect.height() as f64 - 56.0) * 0.72 / span_y).max(1.0);
     let o = Pos2::new(rect.center().x - (span_x * k / 2.0) as f32 - 30.0, rect.center().y + (span_y * k / 2.0) as f32 - 2.0);
     // q: [x, the depth from the front back, z].
     let at = |q: [f64; 3]| Pos2::new(o.x + ((q[0] + q[1] * sx) * k) as f32, o.y - ((q[1] * sy + q[2]) * k) as f32);
@@ -569,7 +615,7 @@ pub fn net_rects(solid: &Solid) -> Vec<(usize, egui::Rect)> {
 
 /// The net of the object: every face with its letter, `shown` marked. Returns the face that was clicked.
 pub fn net_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], shown: Option<usize>) -> Option<usize> {
-    let size = egui::vec2(ui.available_width().max(60.0), ui.available_height().clamp(60.0, 190.0));
+    let size = egui::vec2(ui.available_width().max(60.0), ui.available_height().clamp(60.0, 285.0));
     let (rect, resp) = ui.allocate_exact_size(size, egui::Sense::click());
     let p = ui.painter_at(rect);
     let rects = net_rects(solid);
@@ -596,7 +642,7 @@ pub fn net_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], shown: Opt
 /// The picture of a cylinder on the rotary: the workpiece along X seen at a slant, its length and diameter, the axis of the rotary with
 /// the arrow of the turn (Y goes round), the jaws of a chuck at its left end, and the zero of the program on the surface.
 pub fn cylinder_picture(ui: &mut egui::Ui, st: &Setup, colour: [u8; 3], units: Units, with_zero: bool) {
-    let (rect, _) = ui.allocate_exact_size(egui::vec2(ui.available_width().min(380.0), 200.0), egui::Sense::hover());
+    let rect = picture_rect(ui, 570.0, 300.0);
     let p = ui.painter_at(rect);
     // The proportions of the drawing follow the numbers, within limits so that a long thin bar and a short thick one both show.
     let ratio = (st.length / st.diameter.max(1e-6)).clamp(1.2, 6.0) as f32;

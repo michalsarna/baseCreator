@@ -65,8 +65,10 @@ pub fn face_tip(solid: &Solid, i: usize) -> String {
 /// changes it itself when `face` comes back.
 pub fn faces_bar(ui: &mut egui::Ui, solid: &Solid, shown: usize, ghosts: &mut bool) -> FaceChanged {
     let mut out = FaceChanged::default();
-    ui.horizontal(|ui| {
-        ui.add_space(4.0);
+    // On the colour of the panels of the theme, the whole width of the work area (not on the black of the pane under it).
+    egui::Frame::NONE.fill(crate::theme::panel()).inner_margin(egui::Margin::symmetric(4, 3)).show(ui, |ui| {
+        ui.set_width(ui.available_width());
+        ui.horizontal(|ui| {
         let tip = match solid.body {
             Body::Sheet(flip) => crate::project_setup::flip_name(flip),
             _ => tr("Between the faces A to D the object is rolled a quarter turn back (the front comes up); E and F are its left and its right end turned up.").to_string(),
@@ -85,6 +87,7 @@ pub fn faces_bar(ui: &mut egui::Ui, solid: &Solid, shown: usize, ghosts: &mut bo
             ("Ghosts of the other side", "The shapes of the other side, turned over as the material is, drawn faint under this side. Click one to align or snap to it; it is never moved.")
         };
         out.ghosts = ui.checkbox(ghosts, tr(name)).on_hover_text(tr(tip)).changed();
+        });
     });
     out
 }

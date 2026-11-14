@@ -1501,3 +1501,5 @@
 1500|De taak heeft meerdere vlakken. Hoe moet de G-code worden opgeslagen?
 1501|De uitlijnmarkeringen in een eigen bestand (naam_marks)
 1502|Eerst gebrand, op de plaat onder het materiaal, voordat het wordt neergelegd: ze liggen net buiten het materiaal, dus staan ze niet in de bestanden van de zijden.
+1503|Weergavekwaliteit
+1504|Hoe fijn de beelden van het voorbeeld zijn: 1 is snel en grof, 5 scherp en fijn maar trager. Terwijl de weergave draait, wordt ze even grover getekend.

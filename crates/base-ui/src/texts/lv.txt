@@ -1501,3 +1501,5 @@
 1500|Darbam ir vairākas skaldnes. Kā saglabāt G-kodu?
 1501|Izlīdzināšanas atzīmes atsevišķā failā (nosaukums_marks)
 1502|Tiek iededzinātas vispirms, uz plāksnes zem materiāla, pirms to noliek: tās ir tieši ārpus materiāla, tāpēc to nav pušu failos.
+1503|Attēlošanas kvalitāte
+1504|Cik smalki ir priekšskatījuma attēli: 1 – ātri un rupji, 5 – asi un smalki, bet lēnāk. Kamēr skats tiek griezts, tas uz brīdi tiek zīmēts rupjāk.

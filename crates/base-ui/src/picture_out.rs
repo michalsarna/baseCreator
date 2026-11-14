@@ -38,6 +38,77 @@ pub fn render(size: Vec2, ppp: f32, mut paint: impl FnMut(&mut egui::Ui)) -> ima
     img
 }
 
+/// The lines and the words that `paint` draws on a sheet of `size` points, as a drawing in millimetres (`mm` for a point, Y up) for
+/// a DXF (`base_core::export::dxf_drawing`): what is filled alone (the paper, a background) is left out; strokes thicker than
+/// `bold` points go on the layer OUTLINE, the others on THIN, the words on TEXT.
+pub fn drawing_of(size: Vec2, mm: f64, bold: f32, mut paint: impl FnMut(&mut egui::Ui)) -> base_core::export::Drawing {
+    use base_core::export::{Drawing, DrawingLine, DrawingText};
+    use base_core::geom::Pt;
+    use egui::epaint::Shape;
+    let ctx = egui::Context::default();
+    crate::fonts::install(&ctx);
+    let input = || egui::RawInput { screen_rect: Some(Rect::from_min_size(Pos2::ZERO, size)), ..Default::default() };
+    let mut first = ctx.run_ui(input(), |ui| paint(ui));
+    first.textures_delta.clear();
+    let mut out = ctx.run_ui(input(), |ui| paint(ui));
+    out.textures_delta.clear();
+    let to = |p: Pos2| Pt::new(p.x as f64 * mm, (size.y - p.y) as f64 * mm);
+    let mut d = Drawing::default();
+    fn walk(s: &Shape, d: &mut Drawing, to: &dyn Fn(Pos2) -> Pt, mm: f64, bold: f32) {
+        let layer = |w: f32| if w > bold { "OUTLINE" } else { "THIN" };
+        let mut line = |pts: Vec<Pos2>, closed: bool, w: f32| {
+            if pts.len() >= 2 {
+                d.lines.push(DrawingLine { layer: layer(w), pts: pts.into_iter().map(to).collect(), closed });
+            }
+        };
+        match s {
+            Shape::Vec(v) => v.iter().for_each(|s| walk(s, d, to, mm, bold)),
+            Shape::LineSegment { points, stroke } if stroke.width > 0.0 => line(points.to_vec(), false, stroke.width),
+            Shape::Path(p) => {
+                // An arrowhead or another filled outline is drawn by its outline.
+                if p.stroke.width > 0.0 || (p.closed && p.fill != egui::Color32::TRANSPARENT) {
+                    line(p.points.clone(), p.closed, p.stroke.width);
+                }
+            }
+            Shape::Rect(r) if r.stroke.width > 0.0 => {
+                let q = r.rect;
+                line(vec![q.left_top(), q.right_top(), q.right_bottom(), q.left_bottom()], true, r.stroke.width);
+            }
+            Shape::Circle(c) if c.stroke.width > 0.0 || c.fill != egui::Color32::TRANSPARENT => {
+                let n = 48;
+                line((0..n).map(|i| c.center + Vec2::angled(i as f32 / n as f32 * std::f32::consts::TAU) * c.radius).collect(), true, c.stroke.width);
+            }
+            Shape::Ellipse(e) if e.stroke.width > 0.0 => {
+                let n = 48;
+                line((0..n).map(|i| { let a = i as f32 / n as f32 * std::f32::consts::TAU; e.center + Vec2::new(a.cos() * e.radius.x, a.sin() * e.radius.y) }).collect(), true, e.stroke.width);
+            }
+            Shape::QuadraticBezier(b) if b.stroke.width > 0.0 => line(b.flatten(Some(0.2)), b.closed, b.stroke.width),
+            Shape::CubicBezier(b) if b.stroke.width > 0.0 => line(b.flatten(Some(0.2)), b.closed, b.stroke.width),
+            Shape::Text(t) => {
+                // Each row of the words on its own, from the left end of its base line, turned with the text.
+                let (sin, cos) = t.angle.sin_cos();
+                let turn = |v: Vec2| Vec2::new(v.x * cos - v.y * sin, v.x * sin + v.y * cos);
+                for row in &t.galley.rows {
+                    let text: String = row.row.glyphs.iter().map(|g| g.chr).collect();
+                    if text.trim().is_empty() {
+                        continue;
+                    }
+                    let Some(g) = row.row.glyphs.first() else { continue };
+                    // The glyph is placed by its base line; the capitals are about 0.6 of the height of the line of the font.
+                    let base = row.pos + g.pos.to_vec2();
+                    let at = t.pos + turn(base.to_vec2());
+                    d.texts.push(DrawingText { layer: "TEXT", at: to(at), height: (g.font_height * 0.6) as f64 * mm, angle: -(t.angle as f64).to_degrees(), text: text.trim_end().to_string() });
+                }
+            }
+            _ => {}
+        }
+    }
+    for c in &out.shapes {
+        walk(&c.shape, &mut d, &to, mm, bold);
+    }
+    d
+}
+
 fn apply(textures: &mut HashMap<egui::TextureId, egui::ColorImage>, delta: &egui::TexturesDelta) {
     for (id, ds) in &delta.set {
         for d in ds.iter() {
@@ -186,5 +257,41 @@ mod tests {
         }
         assert!(save(&img, &dir.join("a.gif")).is_err());
         let _ = std::fs::remove_dir_all(&dir);
+    }
+}
+
+#[cfg(test)]
+mod drawing_tests {
+    use super::*;
+
+    #[test]
+    fn what_is_drawn_becomes_lines_and_words_in_millimetres_and_the_paper_is_left_out() {
+        let size = Vec2::new(200.0, 100.0);
+        let d = drawing_of(size, 0.5, 1.2, |ui| {
+            let p = ui.painter();
+            p.rect_filled(Rect::from_min_size(Pos2::ZERO, size), 0.0, egui::Color32::WHITE);
+            p.rect_stroke(Rect::from_min_max(Pos2::new(10.0, 10.0), Pos2::new(110.0, 60.0)), 0.0, egui::Stroke::new(1.5, egui::Color32::BLACK), egui::StrokeKind::Middle);
+            p.line_segment([Pos2::new(0.0, 90.0), Pos2::new(40.0, 90.0)], egui::Stroke::new(0.8, egui::Color32::BLACK));
+            p.text(Pos2::new(20.0, 70.0), egui::Align2::LEFT_TOP, "Front view", egui::FontId::proportional(12.0), egui::Color32::BLACK);
+            // A number turned a quarter turn as a vertical dimension is: it reads upwards.
+            let galley = ui.fonts_mut(|f| f.layout_no_wrap("25".into(), egui::FontId::proportional(12.0), egui::Color32::BLACK));
+            p.add(egui::epaint::TextShape::new(Pos2::new(150.0, 80.0), galley, egui::Color32::BLACK).with_angle(-std::f32::consts::FRAC_PI_2));
+        });
+        let outline = d.lines.iter().find(|l| l.layer == "OUTLINE").expect("the box");
+        assert!(outline.closed && outline.pts.len() == 4);
+        // 100 × 50 points at half a millimetre each, Y up from the bottom of the sheet.
+        let xs: Vec<f64> = outline.pts.iter().map(|q| q.x).collect();
+        let ys: Vec<f64> = outline.pts.iter().map(|q| q.y).collect();
+        assert!((xs.iter().cloned().fold(f64::MIN, f64::max) - 55.0).abs() < 1e-3 && (ys.iter().cloned().fold(f64::MIN, f64::max) - 45.0).abs() < 1e-3, "{xs:?} {ys:?}");
+        let thin = d.lines.iter().find(|l| l.layer == "THIN").expect("the thin line");
+        assert!((thin.pts[0].y - 5.0).abs() < 1e-3);
+        assert_eq!(d.lines.len(), 2, "the white paper is not a line");
+        let up = d.texts.iter().find(|t| t.text == "25").expect("the turned number");
+        assert!((up.angle - 90.0).abs() < 1e-4, "reads upwards: {up:?}");
+        // Its base line starts right of the point it was drawn from (the top of the letters is towards the left) and goes up from it.
+        assert!(up.at.x > 75.0 && up.at.x < 82.0 && (up.at.y - 10.0).abs() < 1.0, "{up:?}");
+        let t = &d.texts[0];
+        assert_eq!(t.text, "Front view");
+        assert!((t.at.x - 10.0).abs() < 0.5 && t.at.y < 15.0 && t.at.y > 5.0 && t.height > 2.0 && t.height < 6.0, "{t:?}");
     }
 }

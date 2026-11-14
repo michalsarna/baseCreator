@@ -1501,3 +1501,5 @@
 1500|A munkának több lapja van. Hogyan legyen mentve a G-kód?
 1501|Az igazítójelek külön fájlban (név_marks)
 1502|Elsőként égetjük, az anyag alatti lapra, mielőtt az anyagot ráfektetjük: közvetlenül az anyagon kívül vannak, ezért nincsenek az oldalak fájljaiban.
+1503|Megjelenítési minőség
+1504|Mennyire finomak az előnézet képei: 1 gyors és durva, 5 éles és finom, de lassabb. A nézet forgatása közben egy pillanatig durvábban rajzolódik.

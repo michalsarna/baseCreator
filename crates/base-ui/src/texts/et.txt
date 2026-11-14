@@ -1501,3 +1501,5 @@
 1500|Tööl on mitu külge. Kuidas G-kood salvestada?
 1501|Joondusmärgid eraldi failis (nimi_marks)
 1502|Põletatakse esimesena materjali all olevale plaadile, enne kui materjal peale pannakse: need on materjalist veidi väljas, seega pole need külgede failides.
+1503|Kuvamise kvaliteet
+1504|Kui täpsed on eelvaate pildid: 1 on kiire ja jäme, 5 terav ja täpne, kuid aeglasem. Vaate pööramise ajal joonistatakse see hetkeks jämedamalt.

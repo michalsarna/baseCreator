@@ -41,6 +41,7 @@ pub mod machine_ctl;
 pub mod markdown_ui;
 pub mod menu;
 pub mod navicube;
+pub mod view3d;
 pub mod photo_trip;
 pub mod playback;
 pub mod recording_ui;

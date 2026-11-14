@@ -1501,3 +1501,5 @@
 1500|Darbas turi kelias sienas. Kaip įrašyti G kodą?
 1501|Lygiavimo žymės atskirame faile (pavadinimas_marks)
 1502|Išdeginamos pirmiausia, ant plokštės po medžiaga, prieš ją padedant: jos yra tiesiai už medžiagos, todėl jų nėra pusių failuose.
+1503|Atvaizdavimo kokybė
+1504|Kokie tikslūs peržiūros vaizdai: 1 – greita ir šiurkštu, 5 – ryšku ir tikslu, bet lėčiau. Sukant vaizdą jis trumpam piešiamas šiurkščiau.
