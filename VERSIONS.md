@@ -3,6 +3,15 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.0.0
+
+- **The 3D preview of the programs** (`view3d`): the camera that turns round the object (`Camera`: yaw, pitch, zoom, pan, from above, under the object; `handle_input` for the mouse, `overlays` for the navigation cube and the zoom bar, `fit_points`), the projection (`Projector`), the moves between the faces of a post or a block (`Affine3`, `face_move`, `FaceFrame`: the object lying with the shown face up), the plain lit block and the letters of the faces (`paint_box`, `paint_letters`), and the picture of an object carved on its faces made by a ray for every pixel (`Carved`, `SolidFace`, `SolidView`, `draw_solid`, `solid_picture`). Moved from MillCreator, so LightCreator and MillCreator draw posts and blocks the same way.
+- **Rendering quality** (`GridPrefs::render_quality`, 1 to 5, 3 as before; `view3d::quality_row` for the program options): how many pixels the picture of the preview may have, how sharp it is and how fine its grids are. While the view is turned the picture is made coarser for a moment.
+- **The start window of the project setup**: Apply (green) and Skip (blue) half as big again, in the middle at the bottom of the window under a line (`answer_buttons`); the pictures half as big again and in the middle; the body scrolls when the window is lower than the screen. `Setup::start` marks the window of a new project: Skip or closing it tells the program to leave the project on one side and as big as the work area of the machine.
+- **The switch of the faces** over the work area has the colour of the panels of the theme instead of the black under it.
+- **A drawing as DXF** (`export::Drawing`, `dxf_drawing`; `picture_out::drawing_of`): what the interface draws on a sheet, as lines (OUTLINE, THIN) and words (TEXT) in millimetres, in a DXF of the current kind (AutoCAD 2007, UTF-8) or of the old one (R12, letters outside ASCII as `\U+XXXX`).
+- 2 texts in every language.
+
 ## v1.99.0
 
 - **A click beside the work area** (`EditorHost::click_empty`): a click of the selection tool on no shape and no ghost goes to the program, which shows the face of a post or a block unfolded there (`Solid::face_at`).

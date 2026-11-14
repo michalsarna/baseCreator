@@ -183,10 +183,8 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
     let size = if kind.solids { [700.0, 900.0f32.min(room)] } else { [620.0, 800.0f32.min(room)] };
     popup(ctx, "setup_window", &title, size, &mut open, |ui| {
         // Apply and Skip at the bottom of the window, under a line, in the middle; what is above them scrolls when it is too tall.
-        egui::Panel::bottom("setup_buttons").frame(egui::Frame::NONE).resizable(false).show(ui, |ui| {
-            ui.add_space(6.0);
-            ui.separator();
-            ui.add_space(6.0);
+        egui::Panel::bottom("setup_buttons").frame(egui::Frame::NONE).resizable(false).show_separator_line(true).show(ui, |ui| {
+            ui.add_space(10.0);
             (apply, skip) = answer_buttons(ui);
             ui.add_space(2.0);
         });
@@ -513,7 +511,8 @@ pub fn solid_picture(ui: &mut egui::Ui, solid: &Solid, colour: [u8; 3], units: U
     // As in the picture of the block: X to the right, the depth back and up at a slant, Z up; room for the sizes and the arrow.
     let (sx, sy) = (0.55, 0.32);
     let (span_x, span_y) = (w + d * sx, d * sy + t);
-    let k = ((rect.width() as f64 - 130.0) / span_x).min((rect.height() as f64 - 56.0) / span_y).max(1.0);
+    // Room above and beside for the arrow of the quarter turn, which goes round higher than the object.
+    let k = ((rect.width() as f64 - 130.0) / span_x).min((rect.height() as f64 - 56.0) * 0.72 / span_y).max(1.0);
     let o = Pos2::new(rect.center().x - (span_x * k / 2.0) as f32 - 30.0, rect.center().y + (span_y * k / 2.0) as f32 - 2.0);
     // q: [x, the depth from the front back, z].
     let at = |q: [f64; 3]| Pos2::new(o.x + ((q[0] + q[1] * sx) * k) as f32, o.y - ((q[1] * sy + q[2]) * k) as f32);

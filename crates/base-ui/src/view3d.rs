@@ -16,8 +16,8 @@ pub type P3 = [f64; 3];
 
 pub const START_YAW: f32 = 0.55;
 pub const START_PITCH: f32 = 0.62;
-const MIN_PITCH: f32 = 0.03;
-const MAX_PITCH: f32 = 1.5;
+pub const MIN_PITCH: f32 = 0.03;
+pub const MAX_PITCH: f32 = 1.5;
 const MIN_ZOOM: f32 = 0.2;
 const MAX_ZOOM: f32 = 40.0;
 
