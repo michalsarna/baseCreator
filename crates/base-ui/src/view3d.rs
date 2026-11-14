@@ -274,7 +274,7 @@ pub const QUALITY_DEFAULT: u8 = 3;
 
 /// How many pixels a picture of the preview may have at most, for quality `q`.
 pub fn quality_pixels(q: u8) -> f32 {
-    [400_000.0, 800_000.0, 1_500_000.0, 3_000_000.0, 6_000_000.0][(q.clamp(1, 5) - 1) as usize]
+    [400_000.0, 800_000.0, 1_500_000.0, 2_500_000.0, 4_000_000.0][(q.clamp(1, 5) - 1) as usize]
 }
 
 /// The pixels of a picture of the preview for a pixel of the screen, for quality `q` (above 1 they are averaged to one).
@@ -298,7 +298,8 @@ pub fn quality_row(ui: &mut egui::Ui, q: &mut u8) -> bool {
 }
 
 /// A surface of the object carved by the job of one face: how deep it is cut at a point of the face's space (X, Y; 0 off it).
-pub trait Carved {
+/// `Sync`: the picture is made by several threads at once.
+pub trait Carved: Sync {
     fn depth_at(&self, x: f64, y: f64) -> f64;
     /// The distance between the points of its grid.
     fn step(&self) -> f64;
@@ -374,7 +375,9 @@ pub fn draw_solid(painter: &egui::Painter, pj: &Projector, solid: &SolidView, qu
 pub fn solid_picture(pj: &Projector, solid: &SolidView, rect: Rect, s: f32, iw: usize, ih: usize, detail: f64) -> egui::ColorImage {
     let deepest: Vec<f64> = solid.faces.iter().map(|f| f.carved.map_or(0.0, |c| c.deepest())).collect();
     let step = solid.faces.iter().filter_map(|f| f.carved).map(|c| c.step()).fold(f64::INFINITY, f64::min);
-    let step = if step.is_finite() { step * 0.5 / detail.max(0.1) } else { 1.0 };
+    // Half a point of the grid between the steps along a ray (the surface between two of them is found by halving); a finer grid
+    // does not need finer steps, only a coarse quality makes them longer.
+    let step = if step.is_finite() { step * 0.5 / detail.clamp(0.1, 1.0) } else { 1.0 };
     // The object in the space of the picture: the block of the shown face.
     let shown = &solid.faces[solid.shown];
     let (lo, hi) = ([0.0, 0.0, -shown.depth], [shown.size[0], shown.size[1], 0.0]);
@@ -383,8 +386,9 @@ pub fn solid_picture(pj: &Projector, solid: &SolidView, rect: Rect, s: f32, iw: 
     let target = f3(pj.target);
     let dir = [-eye[0], -eye[1], -eye[2]];
     // Which face (if any) has cut the point away.
+    let faces = &solid.faces;
     let cutter = |p: P3| -> Option<usize> {
-        for (g, f) in solid.faces.iter().enumerate() {
+        for (g, f) in faces.iter().enumerate() {
             let Some(c) = f.carved else { continue };
             let q = f.to_view.back(p);
             let under = -q[2];
@@ -405,9 +409,9 @@ pub fn solid_picture(pj: &Projector, solid: &SolidView, rect: Rect, s: f32, iw: 
         let lit = 0.4 + 0.6 * ((n[0] * LIGHT[0] + n[1] * LIGHT[1] + n[2] * LIGHT[2]) / len).max(0.0);
         shade(colour, (lit * (1.0 - 0.25 * deep.clamp(0.0, 1.0))) as f32)
     };
-    let mut px = vec![Color32::TRANSPARENT; iw * ih];
-    for j in 0..ih {
-        for i in 0..iw {
+    // What is seen at pixel (i, j).
+    let pixel = |i: usize, j: usize| -> Color32 {
+        {
             // The point of the pixel on the plane through the middle of the picture, and the ray from it away from the eye.
             let sx = (rect.min.x + (i as f32 + 0.5) / s - pj.centre.x) as f64 / pj.scale as f64;
             let sy = -((rect.min.y + (j as f32 + 0.5) / s - pj.centre.y) as f64) / pj.scale as f64;
@@ -431,7 +435,7 @@ pub fn solid_picture(pj: &Projector, solid: &SolidView, rect: Rect, s: f32, iw: 
                 t1 = t1.min(b);
             }
             if !hit_box || t0 > t1 {
-                continue;
+                return Color32::TRANSPARENT;
             }
             let at = |t: f64| [o[0] + dir[0] * t, o[1] + dir[1] * t, o[2] + dir[2] * t];
             let first = at(t0 + 1e-6);
@@ -439,8 +443,7 @@ pub fn solid_picture(pj: &Projector, solid: &SolidView, rect: Rect, s: f32, iw: 
                 // The side of the block itself.
                 let mut n = [0.0; 3];
                 n[axis] = -dir[axis].signum();
-                px[j * iw + i] = shade_of(n, 0.0);
-                continue;
+                return shade_of(n, 0.0);
             };
             // Through the air of the cuts until the material.
             let mut t = t0;
@@ -468,9 +471,9 @@ pub fn solid_picture(pj: &Projector, solid: &SolidView, rect: Rect, s: f32, iw: 
                 }
                 t = next;
             }
-            let Some(th) = found else { continue };
+            let Some(th) = found else { return Color32::TRANSPARENT };
             // The surface of the face that cut the air there: its slope, turned into the picture.
-            let f = &solid.faces[by];
+            let f = &faces[by];
             let c = f.carved.expect("a face that cuts has a surface");
             let q = f.to_view.back(at(th));
             let e = c.step();
@@ -478,9 +481,23 @@ pub fn solid_picture(pj: &Projector, solid: &SolidView, rect: Rect, s: f32, iw: 
             let dzdx = -(d(q[0] + e, q[1]) - d(q[0] - e, q[1])) / (2.0 * e);
             let dzdy = -(d(q[0], q[1] + e) - d(q[0], q[1] - e)) / (2.0 * e);
             let n = f.to_view.dir([-dzdx, -dzdy, 1.0]);
-            px[j * iw + i] = shade_of(n, -q[2] / f.depth.max(0.1));
+            shade_of(n, -q[2] / f.depth.max(0.1))
         }
-    }
+    };
+    // The rows shared out among the cores, so that a fine picture does not hold the program up for long.
+    let mut px = vec![Color32::TRANSPARENT; iw * ih];
+    let threads = std::thread::available_parallelism().map_or(1, |n| n.get()).clamp(1, 16);
+    let rows = ih.div_ceil(threads).max(1);
+    std::thread::scope(|sc| {
+        for (k, chunk) in px.chunks_mut(rows * iw.max(1)).enumerate() {
+            let pixel = &pixel;
+            sc.spawn(move || {
+                for (n, p) in chunk.iter_mut().enumerate() {
+                    *p = pixel(n % iw, k * rows + n / iw);
+                }
+            });
+        }
+    });
     egui::ColorImage::new([iw, ih], px)
 }
 

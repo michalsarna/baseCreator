@@ -1236,3 +1236,36 @@ fn a_ghost_is_selected_by_a_click_never_moves_and_is_what_the_selection_aligns_t
     frame(&mut h, vec![]);
     assert!(h.ed.sel.is_empty() && h.ed.ghost_sel.is_empty());
 }
+
+#[test]
+fn a_drag_with_the_right_button_moves_the_view_also_beside_the_work_area_and_opens_no_menu() {
+    let mut h = Host::default();
+    let ctx = egui::Context::default();
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(800.0, 600.0));
+    let mut frame = |h: &mut Host, events: Vec<egui::Event>| {
+        let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), events, ..Default::default() }, |ui| {
+            egui::CentralPanel::no_frame().show(ui, |ui| h.canvas(ui));
+        });
+        out.textures_delta.clear();
+    };
+    frame(&mut h, vec![]);
+    frame(&mut h, vec![]);
+    let right = |at: egui::Pos2, down: bool| egui::Event::PointerButton { pos: at, button: egui::PointerButton::Secondary, pressed: down, modifiers: Default::default() };
+    // In a corner of the canvas, away from the work area (and on it): the view follows the pointer.
+    for start in [egui::pos2(790.0, 590.0), egui::pos2(400.0, 300.0)] {
+        h.ed.view.auto_fit = false;
+        let before = h.ed.view.pan;
+        frame(&mut h, vec![egui::Event::PointerMoved(start), right(start, true)]);
+        let mut at = start;
+        for _ in 0..5 {
+            at -= egui::vec2(20.0, 10.0);
+            frame(&mut h, vec![egui::Event::PointerMoved(at)]);
+        }
+        frame(&mut h, vec![right(at, false)]);
+        frame(&mut h, vec![]);
+        let moved = h.ed.view.pan - before;
+        assert!((moved - (at - start)).length() < 25.0 && moved.length() > 70.0, "{start:?}: moved {moved:?}, pointer {:?}", at - start);
+        assert_eq!(h.ed.tool, Tool::Select);
+        assert!(!egui::Popup::is_any_open(&ctx), "no menu after a drag");
+    }
+}

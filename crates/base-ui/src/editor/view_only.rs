@@ -38,7 +38,7 @@ pub fn show_other_doc(ui: &mut egui::Ui, scene: &Scene, bed: (f64, f64), look: &
             }
         }
     }
-    if resp.dragged_by(PointerButton::Middle) {
+    if resp.dragged_by(PointerButton::Middle) || resp.dragged_by(PointerButton::Secondary) {
         v.pan += resp.drag_delta();
         v.auto_fit = false;
     }

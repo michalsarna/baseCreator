@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.0.1
+
+- **A drag with the right mouse button moves the view of the editor** anywhere on the canvas, on the work area and beside it (before only the middle button did, or the Pan tool); a right click that does not move still opens the menu. The same in the pictures that are only looked at (`view_only`).
+- **The picture of a carved object** (`solid_picture`) is made by all the cores of the computer at once, and the steps along a ray no longer get finer with the quality (the grid of the surface does): at quality 5 it is made several times faster and no longer holds the program up. Quality 5 has at most 4 million pixels (was 6), quality 4 2.5 million (was 3). `Carved` is `Sync`.
+
 ## v2.0.0
 
 - **The 3D preview of the programs** (`view3d`): the camera that turns round the object (`Camera`: yaw, pitch, zoom, pan, from above, under the object; `handle_input` for the mouse, `overlays` for the navigation cube and the zoom bar, `fit_points`), the projection (`Projector`), the moves between the faces of a post or a block (`Affine3`, `face_move`, `FaceFrame`: the object lying with the shown face up), the plain lit block and the letters of the faces (`paint_box`, `paint_letters`), and the picture of an object carved on its faces made by a ray for every pixel (`Carved`, `SolidFace`, `SolidView`, `draw_solid`, `solid_picture`). Moved from MillCreator, so LightCreator and MillCreator draw posts and blocks the same way.
