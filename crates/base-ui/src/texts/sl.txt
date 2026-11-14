@@ -1503,3 +1503,7 @@
 1502|Žgejo se najprej, na ploščo pod materialom, preden ga položimo: ležijo tik zunaj materiala, zato niso v datotekah strani.
 1503|Kakovost izrisa
 1504|Kako fine so slike predogleda: 1 je hitro in grobo, 5 ostro in fino, a počasneje. Med vrtenjem pogleda se za trenutek riše bolj grobo.
+1505|Samodejno shranjevanje
+1506|Samodejno shranjuj delo
+1507|Delo brez imena datoteke gre v začasno mapo; datoteka z imenom se shrani na mestu
+1508|Samodejno shrani vsakih

@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.3.0
+
+- **Auto-save in the program options of every program** (`autosave::Options`, `autosave_ui::options_rows`): on or off, and how often (10 s to an hour, 2 minutes to begin with), as LightCreator had it alone. BaseCreator, MillCreator and PenCreator saved every 20 seconds with no way to change it; now they follow the options, and save nothing when it is off.
+- 4 texts in every language.
+
 ## v2.2.0
 
 - **Pockets and fills of many rings are made a hundred times faster, with the same path** (`ops::inset_rings`): every ring is the outline taken in by its whole distance instead of the ring before taken in again, whose round corners were more points every time. A star pocket of MillCreator went from 224 000 moves and 14 s to 2 300 moves and 2 ms; the offset fill of LightCreator gains the same way.

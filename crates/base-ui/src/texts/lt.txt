@@ -1503,3 +1503,7 @@
 1502|Išdeginamos pirmiausia, ant plokštės po medžiaga, prieš ją padedant: jos yra tiesiai už medžiagos, todėl jų nėra pusių failuose.
 1503|Atvaizdavimo kokybė
 1504|Kokie tikslūs peržiūros vaizdai: 1 – greita ir šiurkštu, 5 – ryšku ir tikslu, bet lėčiau. Sukant vaizdą jis trumpam piešiamas šiurkščiau.
+1505|Automatinis įrašymas
+1506|Įrašyti darbą automatiškai
+1507|Darbas be failo pavadinimo patenka į laikinąjį aplanką; failas su pavadinimu įrašomas vietoje
+1508|Įrašyti automatiškai kas

@@ -47,6 +47,9 @@ impl App {
         if let Some(g) = get("grid_main_mm").and_then(|v| v.parse::<f64>().ok()).filter(|g| *g >= 0.1) {
             self.ed.grid = g;
         }
+        if get("autosave_on").is_some() || get("autosave_secs").is_some() {
+            self.autosave_opts = base_core::autosave::Options::from_settings(|k| get(k).map(String::from));
+        }
         if let Some(v) = get("snap") {
             self.ed.snap = v == "1";
         }

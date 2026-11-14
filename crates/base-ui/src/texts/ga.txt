@@ -1503,3 +1503,7 @@
 1502|Dóitear ar dtús iad, ar an leathán faoin ábhar, sula leagtar síos é: luíonn siad díreach lasmuigh den ábhar, mar sin níl siad i gcomhaid na dtaobhanna.
 1503|Cáilíocht rindreála
 1504|Cé chomh mín is atá pictiúir an réamhamhairc: 1 tapa agus garbh, 5 géar agus mín ach níos moille. Fad is atá an t-amharc á chasadh tarraingítear níos gairbhe é ar feadh nóiméid.
+1505|Uath-shábháil
+1506|Sábháil an obair go huathoibríoch
+1507|Téann obair gan ainm comhaid isteach i bhfillteán sealadach; sábháiltear comhad le hainm san áit chéanna
+1508|Sábháil go huathoibríoch gach

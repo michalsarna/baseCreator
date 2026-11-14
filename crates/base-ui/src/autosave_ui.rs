@@ -40,3 +40,15 @@ pub fn banner_all(ui: &mut egui::Ui, found: &[Found], width: f32) -> Option<Reco
     let all = Found { path: first.path.clone(), shapes: found.iter().map(|f| f.shapes).sum(), slot: first.slot };
     banner(ui, &all, width)
 }
+
+/// The rows of the program options for the auto-save (in a grid of two columns): on or off, and how often. True when changed.
+pub fn options_rows(ui: &mut egui::Ui, o: &mut base_core::autosave::Options) -> bool {
+    use base_core::autosave::Options;
+    ui.label(tr("Auto-save"));
+    let mut changed = ui.checkbox(&mut o.on, tr("Save the work automatically")).on_hover_text(tr("Work without a file name goes to a temporary folder; a file with a name is saved in place")).changed();
+    ui.end_row();
+    ui.label(tr("Auto-save every"));
+    changed |= ui.add_enabled(o.on, egui::DragValue::new(&mut o.secs).range(Options::MIN_SECS..=Options::MAX_SECS).suffix(" s")).changed();
+    ui.end_row();
+    changed
+}

@@ -1503,3 +1503,7 @@
 1502|Vypalují se nejdřív, na desku pod materiálem, než se materiál položí: leží těsně mimo materiál, proto nejsou v souborech stran.
 1503|Kvalita vykreslování
 1504|Jak jemné jsou obrázky náhledu: 1 je rychlé a hrubé, 5 ostré a jemné, ale pomalejší. Při otáčení pohledu se na chvíli kreslí hruběji.
+1505|Automatické ukládání
+1506|Ukládat práci automaticky
+1507|Práce bez názvu souboru jde do dočasné složky; soubor s názvem se uloží na místě
+1508|Automaticky ukládat každých

@@ -7,19 +7,20 @@ use base_ui::autosave_ui::Recovery;
 const APP: &str = "basecreator";
 
 impl App {
-    /// Save what changed, every `autosave::INTERVAL` (and at once with `force`, when the program closes or the settings are
-    /// saved); the tabs that are not shown go with the forced saving.
+    /// Save what changed, as often as the program options say (and at once with `force`, when the program closes or the settings
+    /// are saved); the tabs that are not shown go with the forced saving. Nothing when the auto-save is off.
     pub(crate) fn autosave_tick(&mut self, ctx: &egui::Context, force: bool) {
-        if self.screen != Screen::Editor {
+        if self.screen != Screen::Editor || !self.autosave_opts.on {
             return;
         }
-        if force || (self.parked_need_autosave() && self.parked_saved_at.elapsed() >= autosave::INTERVAL) {
+        let every = self.autosave_opts.every();
+        if force || (self.parked_need_autosave() && self.parked_saved_at.elapsed() >= every) {
             self.autosave_parked();
         }
         if !self.autosave.changed(self.rev) {
             return;
         }
-        if !force && !self.autosave.due(self.rev) {
+        if !force && !self.autosave.due_every(self.rev, every) {
             // Come back to look again, also when nothing else makes the window repaint.
             ctx.request_repaint_after(std::time::Duration::from_secs(5));
             return;

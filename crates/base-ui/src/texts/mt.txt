@@ -1503,3 +1503,7 @@
 1502|Jinħarqu l-ewwel, fuq il-folja taħt il-materjal, qabel ma jitqiegħed: jinsabu eżatt barra mill-materjal, għalhekk mhumiex fil-fajls tan-naħat.
 1503|Kwalità tar-rendering
 1504|Kemm huma fini l-istampi tal-prevjuż: 1 hu malajr u mhux fin, 5 ċar u fin iżda aktar bil-mod. Waqt li l-veduta tiddawwar tinġibed inqas fina għal mument.
+1505|Ħażna awtomatika
+1506|Salva x-xogħol awtomatikament
+1507|Xogħol mingħajr isem tal-fajl imur f'folder temporanju; fajl b'isem jiġi salvat fil-post
+1508|Salva awtomatikament kull

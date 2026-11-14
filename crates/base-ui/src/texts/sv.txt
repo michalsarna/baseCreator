@@ -1503,3 +1503,7 @@
 1502|Bränns först, på skivan under materialet, innan det läggs på: de ligger precis utanför materialet, så de finns inte i sidornas filer.
 1503|Renderingskvalitet
 1504|Hur fina förhandsvisningens bilder är: 1 är snabbt och grovt, 5 skarpt och fint men långsammare. Medan vyn vrids ritas den grövre en stund.
+1505|Automatisk sparning
+1506|Spara arbetet automatiskt
+1507|Arbete utan filnamn hamnar i en tillfällig mapp; en fil med namn sparas på plats
+1508|Spara automatiskt var

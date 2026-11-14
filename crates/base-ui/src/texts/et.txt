@@ -1503,3 +1503,7 @@
 1502|Põletatakse esimesena materjali all olevale plaadile, enne kui materjal peale pannakse: need on materjalist veidi väljas, seega pole need külgede failides.
 1503|Kuvamise kvaliteet
 1504|Kui täpsed on eelvaate pildid: 1 on kiire ja jäme, 5 terav ja täpne, kuid aeglasem. Vaate pööramise ajal joonistatakse see hetkeks jämedamalt.
+1505|Automaatsalvestus
+1506|Salvesta töö automaatselt
+1507|Failinimeta töö läheb ajutisse kausta; nimega fail salvestatakse kohapeal
+1508|Salvesta automaatselt iga
