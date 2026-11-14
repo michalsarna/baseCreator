@@ -85,7 +85,9 @@ pub trait EditorCanvas: EditorHost {
                 }
             }
         }
-        if resp.dragged_by(PointerButton::Middle) || (self.ed().tool == Tool::Pan && resp.dragged_by(PointerButton::Primary)) {
+        // The middle or the right button dragged moves the view anywhere on the canvas, on the work area or beside it (a right click
+        // that does not move still opens the menu); so does the left one with the Pan tool.
+        if resp.dragged_by(PointerButton::Middle) || resp.dragged_by(PointerButton::Secondary) || (self.ed().tool == Tool::Pan && resp.dragged_by(PointerButton::Primary)) {
             self.ed_mut().view.pan += resp.drag_delta();
             self.ed_mut().view.auto_fit = false;
         }
