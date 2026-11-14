@@ -273,6 +273,9 @@ mod drawing_tests {
             p.rect_stroke(Rect::from_min_max(Pos2::new(10.0, 10.0), Pos2::new(110.0, 60.0)), 0.0, egui::Stroke::new(1.5, egui::Color32::BLACK), egui::StrokeKind::Middle);
             p.line_segment([Pos2::new(0.0, 90.0), Pos2::new(40.0, 90.0)], egui::Stroke::new(0.8, egui::Color32::BLACK));
             p.text(Pos2::new(20.0, 70.0), egui::Align2::LEFT_TOP, "Front view", egui::FontId::proportional(12.0), egui::Color32::BLACK);
+            // A number turned a quarter turn as a vertical dimension is: it reads upwards.
+            let galley = ui.fonts_mut(|f| f.layout_no_wrap("25".into(), egui::FontId::proportional(12.0), egui::Color32::BLACK));
+            p.add(egui::epaint::TextShape::new(Pos2::new(150.0, 80.0), galley, egui::Color32::BLACK).with_angle(-std::f32::consts::FRAC_PI_2));
         });
         let outline = d.lines.iter().find(|l| l.layer == "OUTLINE").expect("the box");
         assert!(outline.closed && outline.pts.len() == 4);
@@ -283,6 +286,10 @@ mod drawing_tests {
         let thin = d.lines.iter().find(|l| l.layer == "THIN").expect("the thin line");
         assert!((thin.pts[0].y - 5.0).abs() < 1e-3);
         assert_eq!(d.lines.len(), 2, "the white paper is not a line");
+        let up = d.texts.iter().find(|t| t.text == "25").expect("the turned number");
+        assert!((up.angle - 90.0).abs() < 1e-4, "reads upwards: {up:?}");
+        // Its base line starts right of the point it was drawn from (the top of the letters is towards the left) and goes up from it.
+        assert!(up.at.x > 75.0 && up.at.x < 82.0 && (up.at.y - 10.0).abs() < 1.0, "{up:?}");
         let t = &d.texts[0];
         assert_eq!(t.text, "Front view");
         assert!((t.at.x - 10.0).abs() < 0.5 && t.at.y < 15.0 && t.at.y > 5.0 && t.height > 2.0 && t.height < 6.0, "{t:?}");

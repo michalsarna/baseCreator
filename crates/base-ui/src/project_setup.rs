@@ -181,7 +181,8 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
     // As tall as the pictures ask, but not taller than the screen (the body scrolls then).
     let room = ctx.content_rect().height() - 40.0;
     let size = if kind.solids { [700.0, 900.0f32.min(room)] } else { [620.0, 800.0f32.min(room)] };
-    popup(ctx, "setup_window", &title, size, &mut open, |ui| {
+    // A new id: the size kept by egui for the old, smaller window does not come back.
+    popup(ctx, "setup_window_2", &title, size, &mut open, |ui| {
         // Apply and Skip at the bottom of the window, under a line, in the middle; what is above them scrolls when it is too tall.
         egui::Panel::bottom("setup_buttons").frame(egui::Frame::NONE).resizable(false).show_separator_line(true).show(ui, |ui| {
             ui.add_space(10.0);
