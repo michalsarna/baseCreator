@@ -1503,3 +1503,7 @@
 1502	Burned first, on the sheet under the material, before it is laid down: they lie just outside the material, so they are not in the files of the sides.
 1503	Rendering quality
 1504	How fine the pictures of the preview are: 1 is quick and coarse, 5 sharp and fine but slower. While the view is turned it is drawn coarser for a moment.
+1505	Auto-save
+1506	Save the work automatically
+1507	Work without a file name goes to a temporary folder; a file with a name is saved in place
+1508	Auto-save every

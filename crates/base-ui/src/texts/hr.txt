@@ -1503,3 +1503,7 @@
 1502|Pale se prvi, na ploči ispod materijala, prije nego što se materijal položi: leže tik izvan materijala, pa nisu u datotekama strana.
 1503|Kvaliteta iscrtavanja
 1504|Koliko su fine slike pregleda: 1 je brzo i grubo, 5 oštro i fino, ali sporije. Dok se pogled okreće, nakratko se crta grublje.
+1505|Automatsko spremanje
+1506|Automatski spremaj rad
+1507|Rad bez naziva datoteke ide u privremenu mapu; datoteka s nazivom sprema se na mjestu
+1508|Automatski spremaj svakih

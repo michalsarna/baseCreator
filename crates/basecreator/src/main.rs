@@ -191,6 +191,8 @@ struct App {
     /// The list of layers shows all of them (not only those with shapes).
     show_all_layers: bool,
     autosave: base_core::autosave::Timer,
+    /// Auto-save on or off and how often (Settings → Program options).
+    autosave_opts: base_core::autosave::Options,
     /// The revision at the last save by hand, open or new; `rev` differing from it is unsaved work (see `is_dirty`).
     saved_rev: u64,
     /// The tabs of open drawings (the shown one is the live fields above), and the number of the recovery file of the shown one.
@@ -302,6 +304,7 @@ impl App {
             rev: 0,
             show_all_layers: false,
             autosave: Default::default(),
+            autosave_opts: base_core::autosave::Options::from_settings(|k| saved(k)),
             saved_rev: 0,
             tabs_state: Default::default(),
             panes: base_ui::work_panes::Panes::from_json(&saved("panes").unwrap_or_default()),
@@ -349,6 +352,7 @@ impl App {
             ("recent_files", self.recent.iter().map(|p| p.to_string_lossy().into_owned()).collect::<Vec<_>>().join("\n")),
         ]
         .into_iter()
+        .chain(self.autosave_opts.settings())
         .chain(self.web.settings_pairs())
         .collect()
     }

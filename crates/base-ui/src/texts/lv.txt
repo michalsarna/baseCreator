@@ -1503,3 +1503,7 @@
 1502|Tiek iededzinātas vispirms, uz plāksnes zem materiāla, pirms to noliek: tās ir tieši ārpus materiāla, tāpēc to nav pušu failos.
 1503|Attēlošanas kvalitāte
 1504|Cik smalki ir priekšskatījuma attēli: 1 – ātri un rupji, 5 – asi un smalki, bet lēnāk. Kamēr skats tiek griezts, tas uz brīdi tiek zīmēts rupjāk.
+1505|Automātiskā saglabāšana
+1506|Automātiski saglabāt darbu
+1507|Darbs bez faila nosaukuma nonāk pagaidu mapē; fails ar nosaukumu tiek saglabāts uz vietas
+1508|Automātiski saglabāt ik pēc

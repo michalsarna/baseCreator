@@ -1503,3 +1503,7 @@
 1502|Gravadas primeiro, na placa por baixo do material, antes de o pousar: ficam mesmo fora do material, por isso não estão nos ficheiros dos lados.
 1503|Qualidade de renderização
 1504|Quão finas são as imagens da pré-visualização: 1 é rápido e grosseiro, 5 nítido e fino mas mais lento. Enquanto a vista roda, é desenhada mais grosseira por um momento.
+1505|Gravação automática
+1506|Guardar o trabalho automaticamente
+1507|O trabalho sem nome de ficheiro vai para uma pasta temporária; um ficheiro com nome é guardado no mesmo sítio
+1508|Guardar automaticamente a cada

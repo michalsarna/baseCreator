@@ -1503,3 +1503,7 @@
 1502|Gravés en premier, sur la plaque sous le matériau, avant de le poser : ils sont juste à l'extérieur du matériau, donc ils ne sont pas dans les fichiers des faces.
 1503|Qualité du rendu
 1504|Finesse des images de l'aperçu : 1 est rapide et grossier, 5 net et fin mais plus lent. Pendant que la vue tourne, elle est dessinée plus grossièrement un instant.
+1505|Enregistrement automatique
+1506|Enregistrer le travail automatiquement
+1507|Un travail sans nom de fichier va dans un dossier temporaire ; un fichier nommé est enregistré sur place
+1508|Enregistrer automatiquement toutes les

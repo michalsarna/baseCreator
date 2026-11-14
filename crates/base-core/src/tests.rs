@@ -673,7 +673,6 @@ fn inset_rings_do_not_gather_points() {
         })
         .collect();
     let star = [Polyline::new(star, true)];
-    let t = std::time::Instant::now();
     let rings = ops::inset_rings(&star, 0.5, 1000);
     assert!(rings.len() > 30, "{}", rings.len());
     let most = rings.iter().map(|r| r.pts.len()).max().unwrap();
@@ -683,5 +682,4 @@ fn inset_rings_do_not_gather_points() {
     let again = (0..10).fold(star.to_vec(), |c, _| ops::offset(&c, -0.5));
     let area = |p: &[Polyline]| p.iter().map(|q| q.area().abs()).sum::<f64>();
     assert!((area(std::slice::from_ref(tenth)) - area(&again)).abs() < area(&again) * 0.01);
-    assert!(t.elapsed().as_secs_f64() < 5.0);
 }

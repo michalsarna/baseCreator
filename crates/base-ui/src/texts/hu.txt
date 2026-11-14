@@ -1503,3 +1503,7 @@
 1502|Elsőként égetjük, az anyag alatti lapra, mielőtt az anyagot ráfektetjük: közvetlenül az anyagon kívül vannak, ezért nincsenek az oldalak fájljaiban.
 1503|Megjelenítési minőség
 1504|Mennyire finomak az előnézet képei: 1 gyors és durva, 5 éles és finom, de lassabb. A nézet forgatása közben egy pillanatig durvábban rajzolódik.
+1505|Automatikus mentés
+1506|A munka automatikus mentése
+1507|A fájlnév nélküli munka ideiglenes mappába kerül; a nevesített fájl a helyén mentődik
+1508|Automatikus mentés ennyi időnként

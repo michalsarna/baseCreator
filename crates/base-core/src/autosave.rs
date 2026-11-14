@@ -91,6 +91,43 @@ pub fn find_slot(base: &Path, app: &str, slot: usize) -> Option<Found> {
     }
 }
 
+/// The auto-save of the program options, the same in every program: on or off, and how often (seconds).
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct Options {
+    pub on: bool,
+    pub secs: u32,
+}
+
+impl Options {
+    pub const DEFAULT_SECS: u32 = 120;
+    pub const MIN_SECS: u32 = 10;
+    pub const MAX_SECS: u32 = 3600;
+
+    /// How long between two saves.
+    pub fn every(&self) -> std::time::Duration {
+        std::time::Duration::from_secs(self.secs.clamp(Self::MIN_SECS, Self::MAX_SECS) as u64)
+    }
+
+    /// From the settings of a program (`autosave_on`, `autosave_secs`), with the defaults for what is missing or wrong.
+    pub fn from_settings(get: impl Fn(&str) -> Option<String>) -> Options {
+        Options {
+            on: get("autosave_on").map(|v| v != "0").unwrap_or(true),
+            secs: get("autosave_secs").and_then(|v| v.parse().ok()).filter(|v| (Self::MIN_SECS..=Self::MAX_SECS).contains(v)).unwrap_or(Self::DEFAULT_SECS),
+        }
+    }
+
+    /// The settings to keep.
+    pub fn settings(&self) -> [(&'static str, String); 2] {
+        [("autosave_on", if self.on { "1" } else { "0" }.to_string()), ("autosave_secs", self.secs.to_string())]
+    }
+}
+
+impl Default for Options {
+    fn default() -> Self {
+        Options { on: true, secs: Self::DEFAULT_SECS }
+    }
+}
+
 /// When to save: after `INTERVAL`, and only when the project changed since the last save.
 #[derive(Debug)]
 pub struct Timer {
@@ -107,7 +144,12 @@ impl Default for Timer {
 impl Timer {
     /// Is it time to save a project that is at revision `rev`?
     pub fn due(&self, rev: u64) -> bool {
-        self.saved_rev != Some(rev) && self.last.elapsed() >= INTERVAL
+        self.due_every(rev, INTERVAL)
+    }
+
+    /// The same with the interval of the program options.
+    pub fn due_every(&self, rev: u64, every: std::time::Duration) -> bool {
+        self.saved_rev != Some(rev) && self.last.elapsed() >= every
     }
 
     /// Is it time, right now? (on exit: the interval does not matter)
@@ -131,6 +173,24 @@ impl Timer {
 mod tests {
     use super::*;
     use crate::scene::{Kind, Scene};
+
+    #[test]
+    fn the_options_are_read_from_the_settings_with_defaults() {
+        let o = Options::from_settings(|k| match k {
+            "autosave_on" => Some("0".into()),
+            "autosave_secs" => Some("45".into()),
+            _ => None,
+        });
+        assert_eq!(o, Options { on: false, secs: 45 });
+        assert_eq!(Options::from_settings(|_| None), Options::default());
+        assert_eq!(Options::from_settings(|k| (k == "autosave_secs").then(|| "5".into())).secs, Options::DEFAULT_SECS, "too short");
+        let back = Options::from_settings(|k| o.settings().iter().find(|(n, _)| *n == k).map(|(_, v)| v.clone()));
+        assert_eq!(back, o);
+        assert_eq!(o.every(), std::time::Duration::from_secs(45));
+        let mut t = Timer::default();
+        t.last = std::time::Instant::now() - std::time::Duration::from_secs(50);
+        assert!(t.due_every(1, o.every()) && !t.due_every(1, std::time::Duration::from_secs(60)));
+    }
 
     fn project_with(n: usize) -> String {
         let mut s = Scene::default();

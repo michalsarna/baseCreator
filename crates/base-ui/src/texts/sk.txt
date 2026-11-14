@@ -1503,3 +1503,7 @@
 1502|Vypaľujú sa najskôr, na dosku pod materiálom, kým sa materiál položí: ležia tesne mimo materiálu, preto nie sú v súboroch strán.
 1503|Kvalita vykresľovania
 1504|Aké jemné sú obrázky náhľadu: 1 je rýchle a hrubé, 5 ostré a jemné, ale pomalšie. Pri otáčaní pohľadu sa na chvíľu kreslí hrubšie.
+1505|Automatické ukladanie
+1506|Ukladať prácu automaticky
+1507|Práca bez názvu súboru ide do dočasného priečinka; súbor s názvom sa uloží na mieste
+1508|Automaticky ukladať každých

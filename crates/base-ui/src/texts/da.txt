@@ -1503,3 +1503,7 @@
 1502|Brændes først, på pladen under materialet, før det lægges på: de ligger lige uden for materialet, så de er ikke i sidernes filer.
 1503|Gengivelseskvalitet
 1504|Hvor fine billederne i forhåndsvisningen er: 1 er hurtigt og groft, 5 skarpt og fint men langsommere. Mens visningen drejes, tegnes den et øjeblik grovere.
+1505|Automatisk lagring
+1506|Gem arbejdet automatisk
+1507|Arbejde uden filnavn kommer i en midlertidig mappe; en fil med navn gemmes på stedet
+1508|Gem automatisk hver
