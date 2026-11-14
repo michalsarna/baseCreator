@@ -54,7 +54,7 @@ Ctrl is Cmd on a Mac. The keys work in the editor, not on the start screen, and 
 | Action | What it does |
 |---|---|
 | Wheel (or pinch) on the work area | Zooms about the pointer. |
-| Middle button drag | Pans the view. |
+| Middle or right button drag | Pans the view, on the work area and beside it (a right click that does not move opens the menu). |
 | Shift+click or Ctrl+click | Adds a shape to the selection, or takes it out. |
 | Shift while drawing a shape | Keeps the width and the height equal. |
 | Dragging a corner handle | Keeps the proportions; with Shift they change freely. |
