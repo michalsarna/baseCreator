@@ -36,6 +36,7 @@ pub mod job_ui;
 pub mod layer_bar;
 pub mod layer_presets_ui;
 pub mod lead_ui;
+pub mod lines;
 pub mod link;
 pub mod machine_ctl;
 pub mod markdown_ui;

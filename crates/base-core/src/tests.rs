@@ -659,3 +659,29 @@ fn an_importer_extension_may_have_an_underscore() {
     assert!(manifest("kicad pcb").check().is_err());
     assert!(manifest("../x").check().is_err());
 }
+
+/// The rings of a star: each is the star taken in by its distance, so a ring has about as many points as the one before (taking the
+/// ring before in again added the points of its round corners every time: a hundred times more for the same path).
+#[test]
+fn inset_rings_do_not_gather_points() {
+    use crate::geom::{Polyline, Pt};
+    let star: Vec<Pt> = (0..10)
+        .map(|k| {
+            let a = k as f64 * std::f64::consts::PI / 5.0;
+            let r = if k % 2 == 0 { 50.0 } else { 20.0 };
+            Pt::new(60.0 + r * a.cos(), 60.0 + r * a.sin())
+        })
+        .collect();
+    let star = [Polyline::new(star, true)];
+    let t = std::time::Instant::now();
+    let rings = ops::inset_rings(&star, 0.5, 1000);
+    assert!(rings.len() > 30, "{}", rings.len());
+    let most = rings.iter().map(|r| r.pts.len()).max().unwrap();
+    assert!(most < 400, "a ring of {most} points");
+    // The same distances as taking each ring in again: the tenth ring is the star taken in by 5 mm.
+    let tenth = &rings[10];
+    let again = (0..10).fold(star.to_vec(), |c, _| ops::offset(&c, -0.5));
+    let area = |p: &[Polyline]| p.iter().map(|q| q.area().abs()).sum::<f64>();
+    assert!((area(std::slice::from_ref(tenth)) - area(&again)).abs() < area(&again) * 0.01);
+    assert!(t.elapsed().as_secs_f64() < 5.0);
+}
