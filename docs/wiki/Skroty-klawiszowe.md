@@ -54,7 +54,7 @@ Ctrl to Cmd na Macu. Klawisze działają w edytorze, nie na ekranie startowym, i
 | Czynność | Co robi |
 |---|---|
 | Kółko (lub szczypanie) na obszarze roboczym | Powiększa wokół wskaźnika. |
-| Przeciąganie środkowym przyciskiem | Przesuwa widok. |
+| Przeciąganie środkowym lub prawym przyciskiem | Przesuwa widok, na obszarze roboczym i obok niego (prawy klik bez ruchu otwiera menu). |
 | Shift+klik lub Ctrl+klik | Dodaje kształt do zaznaczenia lub go z niego usuwa. |
 | Shift przy rysowaniu kształtu | Utrzymuje równą szerokość i wysokość. |
 | Przeciąganie uchwytu narożnika | Zachowuje proporcje; z Shiftem zmieniają się swobodnie. |
