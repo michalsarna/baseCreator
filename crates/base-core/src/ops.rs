@@ -88,17 +88,16 @@ pub fn offset(polys: &[Polyline], d: f64) -> Vec<Polyline> {
 pub fn inset_rings(polys: &[Polyline], step: f64, max_rings: usize) -> Vec<Polyline> {
     let step = step.max(0.01);
     let mut out = vec![];
-    let mut cur = normalize(polys);
-    // First ring sits half a step inside the outline so edges are not burnt twice with Fill + Line.
-    for _ in 0..max_rings {
-        if cur.is_empty() {
+    let start = normalize(polys);
+    // Every ring is the outline taken in by its whole distance (going in by a disc adds up), not the ring before taken in again: the
+    // round corners of each ring were more points in the next, so that a pocket of a few hundred rings had a hundred times the points
+    // (and took seconds) for the same path.
+    for k in 0..max_rings {
+        let cur = if k == 0 { start.clone() } else { offset(&start, -(k as f64) * step) };
+        if cur.is_empty() || (k > 0 && cur.iter().all(|p| p.area().abs() < 1e-4)) {
             break;
         }
-        out.extend(cur.iter().cloned());
-        cur = offset(&cur, -step);
-        if cur.iter().all(|p| p.area().abs() < 1e-4) {
-            break;
-        }
+        out.extend(cur);
     }
     out
 }

@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.2.0
+
+- **Pockets and fills of many rings are made a hundred times faster, with the same path** (`ops::inset_rings`): every ring is the outline taken in by its whole distance instead of the ring before taken in again, whose round corners were more points every time. A star pocket of MillCreator went from 224 000 moves and 14 s to 2 300 moves and 2 ms; the offset fill of LightCreator gains the same way.
+- **`lines::Lines`**: the moves of a program drawn as few shapes (moves that follow each other one polyline, straight runs one piece, points closer than half a pixel and what is out of sight left out), for the previews of all the programs.
+
 ## v2.1.0
 
 - **Import of EPS and VectorCraft drawings** (File → Import → Import Adobe Illustrator / PDF / EPS / VectorCraft…, File → Open…, a file dropped on the window):
