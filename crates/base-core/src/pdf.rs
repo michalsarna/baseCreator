@@ -342,9 +342,9 @@ fn read_page(pdf: &Pdf, page: ObjectId, limits: &Limits, budget: &mut usize) -> 
     Ok((ctx.out, (mb[2] - mb[0]) * PT_TO_MM))
 }
 
-/// Whether the bytes are a PDF or an Illustrator file (of either kind), not an SVG.
+/// Whether the bytes are a PDF or an Illustrator file (of either kind), an EPS or a VectorCraft drawing: not an SVG.
 pub fn is_pdf_or_ai(data: &[u8]) -> bool {
-    data.windows(5).take(1024).any(|w| w == b"%PDF-") || crate::ai::is_postscript_ai(data)
+    data.windows(5).take(1024).any(|w| w == b"%PDF-") || crate::ai::is_postscript_ai(data) || crate::eps::is_eps(data) || crate::vectorcraft::is_vectorcraft(data)
 }
 
 /// Read the pages of a PDF / Illustrator file into outlines. More than one page (the artboards of an Illustrator file) are put
@@ -354,6 +354,13 @@ pub fn parse(data: &[u8]) -> Result<Vec<crate::svg::Outline>, String> {
 }
 
 pub fn parse_with(data: &[u8], limits: &Limits) -> Result<Vec<crate::svg::Outline>, String> {
+    // A VectorCraft drawing and an EPS have readers of their own.
+    if crate::vectorcraft::is_vectorcraft(data) {
+        return crate::vectorcraft::parse(data);
+    }
+    if crate::eps::is_eps(data) {
+        return crate::eps::parse(data);
+    }
     // An Illustrator file of the old PostScript kind (LightBurn writes those) has no PDF page.
     if crate::ai::is_postscript_ai(data) {
         return crate::ai::parse(data);

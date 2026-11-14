@@ -10,6 +10,7 @@ roxmltree = "0.21.1"
 i_overlay = "9.0.1"
 image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp", "gif", "webp", "tiff"] }
 lopdf = { version = "0.47", default-features = false }
+flate2 = "1"
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.151"
 zip = { version = "9.0.1", default-features = false, features = ["deflate"] }
@@ -21,4 +22,3 @@ sha2 = { version = "0.11", default-features = false }
 qrcode = { version = "0.14", default-features = false }
 
 [dev-dependencies]
-flate2 = "1"

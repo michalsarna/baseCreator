@@ -40,7 +40,7 @@ they were, and those programs keep `draw`. A project without `draw` gets the pag
 
 ## Import
 
-*File → Import* is the same list as in the other programs: image, SVG (with the pictures in it), Adobe Illustrator / PDF (also the old PostScript Illustrator files), DXF (current and R12), LightBurn / MillMage project (`.lbrn2`, `.lbrn`, `.mage`), UGS design, and what plugins read. The shapes are added to the open drawing and can be undone. *File → Open…* makes a new tab of an SVG, a PDF or an Illustrator file.
+*File → Import* is the same list as in the other programs: image, SVG (with the pictures in it), Adobe Illustrator / PDF / EPS / VectorCraft (also the old PostScript Illustrator files), DXF (current and R12), LightBurn / MillMage project (`.lbrn2`, `.lbrn`, `.mage`), UGS design, and what plugins read. The shapes are added to the open drawing and can be undone. *File → Open…* makes a new tab of an SVG, a PDF or an Illustrator file.
 
 ## Export
 

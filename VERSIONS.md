@@ -3,6 +3,14 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.1.0
+
+- **Import of EPS and VectorCraft drawings** (File → Import → Import Adobe Illustrator / PDF / EPS / VectorCraft…, File → Open…, a file dropped on the window):
+  - **VectorCraft** (`.vectorcraft`, VectorCraft 0.8 and later; `vectorcraft`): the paths of every layer and group with their curves and transforms, in the colour of their stroke (or fill), from the top left corner of the artboard; the pictures with their place; the layers of the file, when it has several, can be the layers of the program.
+  - **EPS** (`eps`), plain or with the binary header and a TIFF preview: an EPS written by VectorCraft is read from the VectorCraft document kept in it (with its pictures); an EPS of the old Illustrator kind by the Illustrator reader; any other is run by a small PostScript interpreter (procedures, dictionaries, the stack, arithmetic, paths, `arc`, the graphics state and the colours). Text and pictures of such an EPS are not read.
+  - `svg::read_drawing` and `pdf::parse` know both by their content; `svg::pictures` gives the pictures of any drawing that has them.
+- The menu entry is now **Import Adobe Illustrator / PDF / EPS / VectorCraft…** in every language.
+
 ## v2.0.1
 
 - **A drag with the right mouse button moves the view of the editor** anywhere on the canvas, on the work area and beside it (before only the middle button did, or the Pan tool); a right click that does not move still opens the menu. The same in the pictures that are only looked at (`view_only`).

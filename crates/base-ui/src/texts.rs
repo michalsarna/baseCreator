@@ -926,7 +926,7 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Serial port", "Port szeregowy", "Serielle Schnittstelle", "Porta seriale", "Sarjaportti", "串口", "सीरियल पोर्ट"],
     ["Network (TCP, e.g. ser2net)", "Sieć (TCP, np. ser2net)", "Netzwerk (TCP, z. B. ser2net)", "Rete (TCP, ad es. ser2net)", "Verkko (TCP, esim. ser2net)", "网络（TCP，例如 ser2net）", "नेटवर्क (TCP, जैसे ser2net)"],
     ["Import SVG…", "Importuj SVG…", "SVG importieren…", "Importa SVG…", "Tuo SVG…", "导入 SVG…", "SVG आयात करें…"],
-    ["Import Adobe Illustrator / PDF…", "Importuj Adobe Illustrator / PDF…", "Adobe Illustrator / PDF importieren…", "Importa Adobe Illustrator / PDF…", "Tuo Adobe Illustrator / PDF…", "导入 Adobe Illustrator / PDF…", "Adobe Illustrator / PDF आयात करें…"],
+    ["Import Adobe Illustrator / PDF / EPS / VectorCraft…", "Importuj Adobe Illustrator / PDF / EPS / VectorCraft…", "Adobe Illustrator / PDF / EPS / VectorCraft importieren…", "Importa Adobe Illustrator / PDF / EPS / VectorCraft…", "Tuo Adobe Illustrator / PDF / EPS / VectorCraft…", "导入 Adobe Illustrator / PDF / EPS / VectorCraft…", "Adobe Illustrator / PDF / EPS / VectorCraft आयात करें…"],
     ["Import DXF…", "Importuj DXF…", "DXF importieren…", "Importa DXF…", "Tuo DXF…", "导入 DXF…", "DXF आयात करें…"],
     ["Import LightBurn project…", "Importuj projekt LightBurn…", "LightBurn-Projekt importieren…", "Importa progetto LightBurn…", "Tuo LightBurn-projekti…", "导入 LightBurn 项目…", "LightBurn प्रोजेक्ट आयात करें…"],
     ["Import UGS design…", "Importuj projekt UGS…", "UGS-Entwurf importieren…", "Importa progetto UGS…", "Tuo UGS-suunnitelma…", "导入 UGS 设计…", "UGS डिज़ाइन आयात करें…"],

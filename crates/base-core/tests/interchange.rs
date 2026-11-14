@@ -274,3 +274,46 @@ fn the_settings_of_the_layers_go_into_a_lightburn_project() {
     assert_eq!((c.kind, c.power_max, c.power_min, c.speed_mm_s, c.passes, c.interval_mm), (CutKind::Fill, 55.0, 5.0, 42.0, 3, Some(0.1)));
     assert_eq!(c.name, "C00");
 }
+
+/// The same drawings saved by VectorCraft 0.24 (`.vectorcraft`, and EPS: with the binary header and the VectorCraft document in it,
+/// and as plain PostScript without it, which is run by the interpreter): every one is read to the shapes of the SVG, the EPS to
+/// the very same places as the VectorCraft file.
+#[test]
+fn vectorcraft_files_and_their_eps_are_read_to_the_same_shapes() {
+    for name in SAMPLES {
+        let svg = base_core::svg::parse(&file(&format!("{name}.svg"))).unwrap();
+        let shape = outline_lines(&svg);
+        let vc_data = file(&format!("{name}.vectorcraft"));
+        assert!(base_core::vectorcraft::is_vectorcraft(&vc_data));
+        let vc = base_core::svg::read_drawing(&vc_data).unwrap();
+        close_size(of_outlines(&vc), of_outlines(&svg), 0.05, &format!("{name}.vectorcraft"));
+        same_shape(&outline_lines(&vc), &shape, 0.05, &format!("{name}.vectorcraft"));
+        assert_eq!(contours_count(&vc), contours_count(&svg), "{name}.vectorcraft");
+        for eps in [format!("{name}.eps"), format!("{name}-plain.eps")] {
+            let data = file(&eps);
+            assert!(base_core::eps::is_eps(&data), "{eps}");
+            let o = base_core::svg::read_drawing(&data).unwrap();
+            close(of_outlines(&o), of_outlines(&vc), 0.05, &eps);
+            same_shape(&outline_lines(&o), &shape, 0.05, &eps);
+            assert_eq!(contours_count(&o), contours_count(&svg), "{eps}");
+            assert!(base_core::pdf::parse(&data).is_ok(), "{eps}: also through the reader of PDF and Illustrator files");
+        }
+    }
+}
+
+/// A picture in a VectorCraft file lies where the one of the SVG it came from does, the right way up.
+#[test]
+fn the_picture_of_a_vectorcraft_file_is_read_with_its_place() {
+    let vc = base_core::svg::pictures(&file("zdjecie.vectorcraft"));
+    let svg = base_core::svg::images(&file("zdjecie.svg"));
+    assert_eq!(vc.len(), 1);
+    assert_eq!(svg.len(), 1);
+    let corners = |(im, xf): &(base_core::image::ImageData, base_core::geom::Xf)| [xf.apply(Pt::new(0.0, 0.0)), xf.apply(Pt::new(im.w, im.h))];
+    let (a, b) = (corners(&vc[0]), corners(&svg[0]));
+    // The corners of the picture (its first row at the bottom, as in the SVG) lie where they do in the SVG.
+    for k in 0..2 {
+        assert!((a[k].x - b[k].x).abs() < 0.05 && (a[k].y - b[k].y).abs() < 0.05, "{a:?} and {b:?}");
+    }
+    assert_eq!((vc[0].0.px_w, vc[0].0.px_h), (svg[0].0.px_w, svg[0].0.px_h));
+    assert!(base_core::vectorcraft::parse(&file("zdjecie.vectorcraft")).is_ok());
+}

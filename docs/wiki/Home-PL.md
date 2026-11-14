@@ -33,7 +33,7 @@ Otwartoźródłowy program do rysowania napisany w Ruście, bez żadnej części
 * **Edytor:** kształty, edycja węzłów, linie Béziera, tekst, grupowanie, wyrównywanie, operacje logiczne, offset, zaokrąglanie narożników, obrazy i wektoryzacja, cofanie, siatka i przyciąganie. Rysunki są kartami, w maksymalnie trzech panelach.
 * **Strona** zamiast pola roboczego maszyny: typowe arkusze, własny rozmiar, pion i poziom, mm lub cale.
 * **64 warstwy**, każda to grupa kształtów z nazwą i kolorem, którą można ukryć.
-* **Import:** obraz, SVG, Adobe Illustrator / PDF, DXF, projekt LightBurn, projekt UGS oraz to, co czytają wtyczki. **Eksport:** SVG, PLT, DXF.
+* **Import:** obraz, SVG, Adobe Illustrator / PDF / EPS / VectorCraft, DXF, projekt LightBurn, projekt UGS oraz to, co czytają wtyczki. **Eksport:** SVG, PLT, DXF.
 * **Plik projektu:** `.cre`, wspólny z trzema pozostałymi programami; ich sekcje zostają w pliku po zapisie tutaj.
 * **Cliparty:** 310 obrazków wspólnych z innymi programami, z wyszukiwaniem w internecie.
 * **Interfejs:** 30 języków i 18 schematów kolorów; w okolicach Bożego Narodzenia, Nowego Roku, Halloween i Wielkanocy także świąteczna ikona i dwa świąteczne schematy.
