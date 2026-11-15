@@ -1507,3 +1507,9 @@
 1506|Vista vinnuna sjálfkrafa
 1507|Vinna án skráarnafns fer í tímabundna möppu; skrá með nafni er vistuð á staðnum
 1508|Vista sjálfkrafa á
+1509|V-skurður
+1510|Línur á ská, hver jafnbreið og myndin er dökk meðfram henni: mjó í birtunni, breið í skugganum, eins og V-fræsir sker dýpra og því breiðara. Hverri línu er skipt í búta sem birta þeirra ákveður breiddina.
+1511|Breidd línanna
+1512|Lengd bútanna
+1513|Mjósta lína
+1514|Hyrnd

@@ -1507,3 +1507,9 @@
 1506	Save the work automatically
 1507	Work without a file name goes to a temporary folder; a file with a name is saved in place
 1508	Auto-save every
+1509	V-carve
+1510	Lines at the angle, each as wide as the picture is dark along it: thin in the lights, wide in the shadows, as a V-bit cuts deeper and so wider. Every line is cut into pieces whose brightness sets its width.
+1511	Width of the lines
+1512	Length of the pieces
+1513	Thinnest line
+1514	Angular

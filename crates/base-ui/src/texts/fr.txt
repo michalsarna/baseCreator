@@ -1507,3 +1507,9 @@
 1506|Enregistrer le travail automatiquement
 1507|Un travail sans nom de fichier va dans un dossier temporaire ; un fichier nommé est enregistré sur place
 1508|Enregistrer automatiquement toutes les
+1509|Gravure en V
+1510|Des lignes inclinées, chacune aussi large que l'image est sombre le long d'elle : fine dans les lumières, large dans les ombres, comme une fraise en V qui creuse plus profond et donc plus large. Chaque ligne est coupée en morceaux dont la clarté fixe la largeur.
+1511|Largeur des lignes
+1512|Longueur des morceaux
+1513|Ligne la plus fine
+1514|Anguleuse

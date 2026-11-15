@@ -41,6 +41,7 @@ Styles that use chance (stippling, flow lines, sketch, scribble, squares, needle
 | **Flow lines** | Long lines that flow along the shapes, closer together where it is darker. | **Smallest gap** (in the darkest parts), **Largest gap** (in the lightest), **Size of the curves**, **Angle**; Kind: along the shapes or a random flow field. |
 | **Sketch** | Many short straight strokes laid where the picture is darkest, as in a pencil sketch. | **Stroke length**, **Number of strokes**, **Ink of one stroke** (how much of the darkness one stroke takes); Kind: separate strokes or strokes in chains. |
 | **Scribble** | One wandering line of loops that scribbles the dark parts in. | **Loop size**, **Length of the line** (metres), **Ink of one pass**. |
+| **V-carve** | Lines at the angle, each as wide as the picture is dark along it: thin in the lights, wide in the shadows, as a V-bit cuts deeper and so wider. Every line is cut into pieces whose brightness sets its width; each line is one closed outline. Variants: **Smooth** (a smooth curve through the pieces) or **Angular** (straight between them). | **Width of the lines** (also the widest line), **Length of the pieces**, **Thinnest line** (the share of the width in the white; 0: nothing there), **Angle**. |
 
 ## Good to know
 

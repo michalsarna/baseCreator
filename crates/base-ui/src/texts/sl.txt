@@ -1507,3 +1507,9 @@
 1506|Samodejno shranjuj delo
 1507|Delo brez imena datoteke gre v začasno mapo; datoteka z imenom se shrani na mestu
 1508|Samodejno shrani vsakih
+1509|V-rezbarjenje
+1510|Črte pod kotom, vsaka tako široka, kot je slika vzdolž nje temna: tanka v svetlobi, široka v senci, kot V-rezkar, ki reže globlje in zato širše. Vsaka črta je razdeljena na odseke, katerih svetlost določa njeno širino.
+1511|Širina črt
+1512|Dolžina odsekov
+1513|Najtanjša črta
+1514|Oglata

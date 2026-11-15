@@ -62,6 +62,14 @@ impl Lines {
                 self.pts[n - 1] = b;
                 return;
             }
+            // A turn back sharper than 120°: a new line from the corner. The joint of a line drawn by egui is a mitre without a
+            // limit, so a sharp turn back (the end of a raster row, a spike of a traced outline) made a long spike far off the line.
+            let (u, v) = (p1 - p0, b - p1);
+            let (lu, lv) = (u.length(), v.length());
+            if lu > 1e-6 && lv > 1e-6 && u.dot(v) / (lu * lv) < -0.5 {
+                self.flush();
+                self.pts.push(p1);
+            }
         }
         self.pts.push(b);
     }
@@ -131,5 +139,22 @@ mod tests {
         assert_eq!(p.points.len(), 3, "the row, the corner and the end: {:?}", p.points);
         assert_eq!(p.points[0], Pos2::new(10.0, 100.0));
         assert!((p.points[1].x - x).abs() < 1e-3 && (p.points[2].y - 110.0).abs() < 1e-3);
+    }
+
+    /// A sharp turn back ends the line and starts a new one at the corner: no joint of a sharp angle, whose mitre made a long spike.
+    #[test]
+    fn a_sharp_turn_back_starts_a_new_line() {
+        let clip = egui::Rect::from_min_size(Pos2::ZERO, egui::vec2(800.0, 600.0));
+        let st = Stroke::new(1.0, Color32::RED);
+        let mut l = Lines::new(clip);
+        // There and nearly back (a spike), then a right angle that stays in the same line.
+        l.add(Pos2::new(10.0, 10.0), Pos2::new(110.0, 10.0), st, false);
+        l.add(Pos2::new(110.0, 10.0), Pos2::new(10.0, 12.0), st, false);
+        l.add(Pos2::new(10.0, 12.0), Pos2::new(10.0, 60.0), st, false);
+        let shapes = l.shapes();
+        assert_eq!(shapes.len(), 2, "{shapes:?}");
+        let Shape::Path(second) = &shapes[1] else { panic!("a polyline") };
+        assert_eq!(second.points.first(), Some(&Pos2::new(110.0, 10.0)), "the new line starts at the corner");
+        assert_eq!(second.points.len(), 3, "the right angle is kept in it");
     }
 }

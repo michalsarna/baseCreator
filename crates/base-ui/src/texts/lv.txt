@@ -1507,3 +1507,9 @@
 1506|Automātiski saglabāt darbu
 1507|Darbs bez faila nosaukuma nonāk pagaidu mapē; fails ar nosaukumu tiek saglabāts uz vietas
 1508|Automātiski saglabāt ik pēc
+1509|V grebšana
+1510|Līnijas leņķī, katra tik plata, cik tumšs ir attēls gar to: gaišajās vietās tieva, ēnās plata, kā V frēze griež dziļāk un tātad platāk. Katra līnija tiek sadalīta posmos, kuru gaišums nosaka tās platumu.
+1511|Līniju platums
+1512|Posmu garums
+1513|Tievākā līnija
+1514|Stūraina

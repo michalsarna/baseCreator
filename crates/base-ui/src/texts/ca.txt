@@ -1507,3 +1507,9 @@
 1506|Desa la feina automàticament
 1507|La feina sense nom de fitxer va a una carpeta temporal; un fitxer amb nom es desa al mateix lloc
 1508|Desa automàticament cada
+1509|Talla en V
+1510|Línies en angle, cadascuna tan ampla com fosca és la imatge al llarg d'ella: prima a les llums, ampla a les ombres, com una fresa en V que talla més fons i per tant més ample. Cada línia es divideix en trossos la claror dels quals en fixa l'amplada.
+1511|Amplada de les línies
+1512|Llargada dels trossos
+1513|Línia més prima
+1514|Angulosa

@@ -490,12 +490,18 @@ pub trait EditorImages: EditorHost {
                         let r = d.view.place(rect, t.size_vec2());
                         painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::from_white_alpha(70));
                         let (sx, sy) = (r.width() / d.thumb.w as f32, r.height() / d.thumb.h as f32);
+                        // Through `Lines`: thousands of outlines as few shapes, and no mitre spikes at the sharp turns of an outline
+                        // (they showed as long straight lines across the picture).
+                        let mut lines = crate::lines::Lines::new(rect);
+                        let st = Stroke::new(1.3, theme::accent());
                         for poly in &d.preview {
                             let pts: Vec<egui::Pos2> = poly.iter().map(|p| r.min + egui::vec2(p.x as f32 * sx, p.y as f32 * sy)).collect();
                             if pts.len() > 1 {
-                                painter.add(egui::Shape::closed_line(pts, Stroke::new(1.3, theme::accent())));
+                                lines.add_path(&pts, st, false);
+                                lines.add(pts[pts.len() - 1], pts[0], st, false);
                             }
                         }
+                        lines.paint(&painter);
                     }
                     d.view.bar(ui, rect);
                     // A fixed column, so that a long text cannot widen the window frame after frame.
