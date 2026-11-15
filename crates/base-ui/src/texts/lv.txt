@@ -1520,3 +1520,5 @@
 1519|Daudzstūru skaits
 1520|Sekot malām
 1521|Trijstūri un četrstūri
+1522|Attēla stili
+1523|Stilu zīmēšana…

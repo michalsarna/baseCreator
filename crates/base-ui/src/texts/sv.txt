@@ -1520,3 +1520,5 @@
 1519|Antal polygoner
 1520|Följ kanterna
 1521|Trianglar och fyrhörningar
+1522|Bildstilar
+1523|Ritar stilarna…

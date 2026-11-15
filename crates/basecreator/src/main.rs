@@ -127,6 +127,8 @@ enum SideTab {
     Layers,
     Clipart,
     Description,
+    /// The styles of a picture, while one is selected.
+    PictureStyles,
 }
 
 impl SideTab {
@@ -138,11 +140,12 @@ impl SideTab {
             SideTab::Layers => "layers",
             SideTab::Clipart => "clipart",
             SideTab::Description => "description",
+            SideTab::PictureStyles => base_ui::editor::style_gallery::TAB_ID,
         }
     }
 
     fn from_id(id: &str) -> Option<SideTab> {
-        [SideTab::Properties, SideTab::Layers, SideTab::Clipart, SideTab::Description].into_iter().find(|t| t.id() == id)
+        [SideTab::Properties, SideTab::Layers, SideTab::Clipart, SideTab::Description, SideTab::PictureStyles].into_iter().find(|t| t.id() == id)
     }
 
     fn label(self) -> String {
@@ -151,6 +154,7 @@ impl SideTab {
             SideTab::Layers => tr("Layers").to_string(),
             SideTab::Clipart => clipart_ui::tab_label().to_string(),
             SideTab::Description => base_ui::description_ui::tab_label().to_string(),
+            SideTab::PictureStyles => base_ui::editor::style_gallery::tab_label().to_string(),
         }
     }
 }
@@ -162,6 +166,8 @@ enum Screen {
 }
 
 struct App {
+    /// Was a picture selected the frame before (a picture that becomes selected shows the tab of its styles)?
+    picture_was_selected: bool,
     scene: Scene,
     ed: EditorState,
     history: History,
@@ -304,6 +310,7 @@ impl App {
             rev: 0,
             show_all_layers: false,
             autosave: Default::default(),
+            picture_was_selected: false,
             autosave_opts: base_core::autosave::Options::from_settings(|k| saved(k)),
             saved_rev: 0,
             tabs_state: Default::default(),
@@ -757,6 +764,11 @@ impl App {
         });
     }
 
+    /// The tabs that are there only sometimes: the styles of a picture while one is selected.
+    fn extra_tabs(&self) -> Vec<&'static str> {
+        base_ui::editor::style_gallery::picture_selected(self).then_some(base_ui::editor::style_gallery::TAB_ID).into_iter().collect()
+    }
+
     /// The label of a tab.
     fn tab_label(&self, id: &str) -> String {
         SideTab::from_id(id).map(SideTab::label).unwrap_or_default()
@@ -771,18 +783,29 @@ impl App {
 
     /// The collapsed side panel: a narrow strip with the names of the tabs; a click on one opens the panel on it.
     fn side_strip(&mut self, ui: &mut egui::Ui) {
-        let labels: std::collections::HashMap<&str, String> = SideTab::IDS.iter().copied().map(|id| (id, self.tab_label(id))).collect();
+        let extra = self.extra_tabs();
+        let labels: std::collections::HashMap<&str, String> = SideTab::IDS.iter().copied().chain(extra.iter().copied()).map(|id| (id, self.tab_label(id))).collect();
         let label = |id: &str| labels.get(id).cloned().unwrap_or_default();
-        if let Some(t) = self.tabs.strip(ui, self.side_tab.id(), &[], &label) {
+        if let Some(t) = self.tabs.strip(ui, self.side_tab.id(), &extra, &label) {
             self.pick_side_tab(t);
         }
     }
 
     /// The tabs of the right panel.
     fn side_panel(&mut self, ui: &mut egui::Ui) {
-        let labels: std::collections::HashMap<&str, String> = SideTab::IDS.iter().copied().map(|id| (id, self.tab_label(id))).collect();
+        let extra = self.extra_tabs();
+        // The tab of the styles goes when the picture is no longer selected; a picture that becomes selected shows it.
+        let picture = !extra.is_empty();
+        if self.side_tab == SideTab::PictureStyles && !picture {
+            self.side_tab = SideTab::Properties;
+        }
+        if picture && !self.picture_was_selected {
+            self.side_tab = SideTab::PictureStyles;
+        }
+        self.picture_was_selected = picture;
+        let labels: std::collections::HashMap<&str, String> = SideTab::IDS.iter().copied().chain(extra.iter().copied()).map(|id| (id, self.tab_label(id))).collect();
         let label = |id: &str| labels.get(id).cloned().unwrap_or_default();
-        if let Some(t) = self.tabs.bar(ui, self.side_tab.id(), &[], &label) {
+        if let Some(t) = self.tabs.bar(ui, self.side_tab.id(), &extra, &label) {
             self.pick_side_tab(t);
         }
         ui.separator();
@@ -799,6 +822,7 @@ impl App {
             }
             SideTab::Layers => self.layers_panel(ui),
             SideTab::Clipart => self.clipart_panel(ui),
+            SideTab::PictureStyles => base_ui::editor::style_gallery::panel(self, ui),
             SideTab::Description => {
                 if base_ui::description_ui::panel(ui, &mut self.description) {
                     self.touch_rev();

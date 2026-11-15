@@ -1520,3 +1520,5 @@
 1519|Število mnogokotnikov
 1520|Sledi robovom
 1521|Trikotniki in štirikotniki
+1522|Slogi slike
+1523|Risanje slogov…

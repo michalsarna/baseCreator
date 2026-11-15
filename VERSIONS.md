@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.6.0
+
+- **The panel of picture styles** (`editor::style_gallery`): while a picture is selected, the side panel of every program has a tab **Picture styles** (it opens by itself when a picture becomes selected). At its top a button as wide as the panel opens Trace image; under it, laid out as the gallery, a picture of every style of Style trace (a triangle drawn in that style, made once in the background), and a click on one opens Style trace with that style chosen. BaseCreator has the tab too.
+- 2 texts in every language.
+
 ## v2.5.1
 
 - **Style trace: the values of the settings are seen in every language**: a long name (Odstęp między wielokątami) pushed the slider and its value out of the column. Every setting of a style now has its name on a line of its own and the slider with its value under it, as wide as the column.

@@ -1520,3 +1520,5 @@
 1519|Nombre de polygones
 1520|Suivre les bords
 1521|Triangles et quadrilatères
+1522|Styles d'image
+1523|Dessin des styles…

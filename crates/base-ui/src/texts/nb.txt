@@ -1520,3 +1520,5 @@
 1519|Antall polygoner
 1520|Følg kantene
 1521|Trekanter og firkanter
+1522|Bildestiler
+1523|Tegner stilene…

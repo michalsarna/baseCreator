@@ -1520,3 +1520,5 @@
 1519|Fjöldi marghyrninga
 1520|Fylgja brúnunum
 1521|Þríhyrningar og ferhyrningar
+1522|Myndstílar
+1523|Teiknar stílana…

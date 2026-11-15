@@ -1520,3 +1520,5 @@
 1519|Nombre de polígons
 1520|Segueix les vores
 1521|Triangles i quadrilàters
+1522|Estils de la imatge
+1523|Dibuixant els estils…

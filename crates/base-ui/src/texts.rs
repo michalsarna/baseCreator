@@ -1527,6 +1527,8 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Number of polygons", "Liczba wielokątów", "Anzahl der Polygone", "Numero di poligoni", "Monikulmioiden määrä", "多边形数量", "बहुभुजों की संख्या"],
     ["Follow the edges", "Podążaj za krawędziami", "Den Kanten folgen", "Segui i bordi", "Seuraa reunoja", "跟随边缘", "किनारों का अनुसरण"],
     ["Triangles and quadrangles", "Trójkąty i czworokąty", "Dreiecke und Vierecke", "Triangoli e quadrilateri", "Kolmiot ja nelikulmiot", "三角形和四边形", "त्रिभुज और चतुर्भुज"],
+    ["Picture styles", "Style obrazu", "Bildstile", "Stili dell'immagine", "Kuvan tyylit", "图片风格", "चित्र शैलियाँ"],
+    ["Drawing the styles…", "Rysowanie stylów…", "Stile werden gezeichnet…", "Disegno degli stili…", "Tyylejä piirretään…", "正在绘制风格…", "शैलियाँ बनाई जा रही हैं…"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -1520,3 +1520,5 @@
 1519|Numărul de poligoane
 1520|Urmează marginile
 1521|Triunghiuri și patrulatere
+1522|Stiluri de imagine
+1523|Se desenează stilurile…
