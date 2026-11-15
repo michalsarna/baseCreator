@@ -1513,3 +1513,10 @@
 1512|Atkarpų ilgis
 1513|Ploniausia linija
 1514|Kampuota
+1515|Geometriniai daugiakampiai
+1516|Geometriniai daugiakampiai…
+1517|Tamsi paveikslo forma, padalyta į daugiakampius (trikampius ir keturkampius), tankiau ten, kur paveiksle yra kraštų, su tarpu tarp jų ir aplink kontūrą: geometrinis (low poly) paveikslas.
+1518|Tarpas tarp daugiakampių
+1519|Daugiakampių skaičius
+1520|Sekti kraštus
+1521|Trikampiai ir keturkampiai

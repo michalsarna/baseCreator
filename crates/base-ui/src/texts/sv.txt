@@ -1513,3 +1513,10 @@
 1512|Bitarnas längd
 1513|Tunnaste linje
 1514|Kantig
+1515|Geometriska polygoner
+1516|Geometriska polygoner…
+1517|Bildens mörka form uppdelad i polygoner (trianglar och fyrhörningar), tätare där bilden har kanter, med ett mellanrum mellan dem och runt konturen: en geometrisk (low poly) bild.
+1518|Mellanrum mellan polygonerna
+1519|Antal polygoner
+1520|Följ kanterna
+1521|Trianglar och fyrhörningar

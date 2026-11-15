@@ -2,7 +2,7 @@
 
 # Obrysuj w stylu
 
-**Rozmieść → Obrysuj w stylu…** rysuje zaznaczony obraz na nowo liniami w jednym z 19 stylów, gotowymi, by je wyeksportować, wydrukować albo otworzyć w innych programach: wężyki, spirala, fale, koła rastra, kreskowanie, puentylizm, jedna ciągła linia, linie przepływu, szkic i inne. Polecenie jest też w menu prawego przycisku obrazu i w sekcji **Obraz** karty **Właściwości**. Działa tak samo w LightCreatorze, MillCreatorze, PenCreatorze i BaseCreatorze.
+**Rozmieść → Obrysuj w stylu…** rysuje zaznaczony obraz na nowo liniami w jednym z 21 stylów, gotowymi, by je wyeksportować, wydrukować albo otworzyć w innych programach: wężyki, spirala, fale, koła rastra, kreskowanie, puentylizm, jedna ciągła linia, linie przepływu, szkic i inne. Polecenie jest też w menu prawego przycisku obrazu i w sekcji **Obraz** karty **Właściwości**. Działa tak samo w LightCreatorze, MillCreatorze, PenCreatorze i BaseCreatorze.
 
 ![Okno Obrysuj w stylu, linie przepływu](https://raw.githubusercontent.com/michalsarna/LightCreator/main/docs/screenshots/14b-style-trace.png)
 
@@ -42,6 +42,7 @@ Style, które korzystają z przypadku (puentylizm, linie przepływu, szkic, bazg
 | **Szkic** | Wiele krótkich prostych kresek tam, gdzie obraz jest najciemniejszy, jak w szkicu ołówkiem. | **Długość kreski**, **Liczba kresek**, **Tusz jednej kreski** (ile ciemności zabiera jedna kreska); Rodzaj: osobne kreski albo kreski w łańcuchach. |
 | **Bazgroły** | Jedna błądząca linia pętelek, która zabazgruje ciemne części. | **Wielkość pętli**, **Długość linii** (metry), **Tusz jednego przejścia**. |
 | **Rzeźbienie V** (V-carve) | Linie pod kątem, każda tak szeroka, jak ciemny jest obraz wzdłuż niej: cienka w światłach, szeroka w cieniach, jak frez V, który wchodzi głębiej, a więc szerzej. Każda linia jest dzielona na odcinki, których jasność ustala jej szerokość; każda linia to jeden zamknięty kontur. Warianty: **Gładki** (płynna krzywa przez odcinki) albo **Kanciasty** (proste między nimi). | **Szerokość linii** (też najszersza linia), **Długość odcinków**, **Najcieńsza linia** (część szerokości w bieli; 0: tam nic), **Kąt**. |
+| **Wielokąty geometryczne** | Ciemny kształt obrazu podzielony na wielokąty (trójkąty i czworokąty), gęściej tam, gdzie obraz ma krawędzie, z odstępem między nimi i wokół obrysu: obraz geometryczny (low poly), jak obraz na ścianę albo szablon. Obrys idzie za kształtem, wielokąty są do niego przycięte. Także **Rozmieść → Wielokąty geometryczne…**. Warianty: **Trójkąty i czworokąty**, **Trójkąty**; inne **ziarno** daje inne wielokąty; ustawienia tonu (punkt czerni) wybierają, co jest ciemnym kształtem. | **Odstęp między wielokątami** (0: każda krawędź jedną linią), **Liczba wielokątów**, **Podążaj za krawędziami** (0: równo, 1: tylko przy krawędziach). |
 
 ## Dobrze wiedzieć
 

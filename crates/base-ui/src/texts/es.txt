@@ -1513,3 +1513,10 @@
 1512|Longitud de los tramos
 1513|Línea más fina
 1514|Angulosa
+1515|Polígonos geométricos
+1516|Polígonos geométricos…
+1517|La forma oscura de la imagen dividida en polígonos (triángulos y cuadriláteros), más densos donde la imagen tiene bordes, con un espacio entre ellos y alrededor del contorno: una imagen geométrica (low poly).
+1518|Espacio entre los polígonos
+1519|Número de polígonos
+1520|Seguir los bordes
+1521|Triángulos y cuadriláteros

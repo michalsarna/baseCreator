@@ -1513,3 +1513,10 @@
 1512|Duljina odsječaka
 1513|Najtanja linija
 1514|Uglata
+1515|Geometrijski mnogokuti
+1516|Geometrijski mnogokuti…
+1517|Tamni oblik slike podijeljen na mnogokute (trokute i četverokute), gušće gdje slika ima rubove, s razmakom među njima i oko obrisa: geometrijska (low poly) slika.
+1518|Razmak između mnogokuta
+1519|Broj mnogokuta
+1520|Prati rubove
+1521|Trokuti i četverokuti

@@ -111,6 +111,14 @@ pub trait EditorStyleTrace: EditorHost {
         }
     }
 
+    /// The style trace window, on style `style` (its own settings; the menu entry of geometric polygons).
+    fn open_style_trace_as(&mut self, style: Style) {
+        self.open_style_trace();
+        if let Some(d) = self.ed_mut().style_dlg.as_mut() {
+            d.params = style.defaults();
+        }
+    }
+
     fn style_trace_window(&mut self, ctx: &egui::Context) {
         let Some(mut d) = self.ed_mut().style_dlg.take() else { return };
         if self.scene().shape(d.shape).is_none() {

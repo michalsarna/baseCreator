@@ -1513,3 +1513,10 @@
 1512|Dĺžka úsekov
 1513|Najtenšia čiara
 1514|Hranatá
+1515|Geometrické mnohouholníky
+1516|Geometrické mnohouholníky…
+1517|Tmavý tvar obrázka rozdelený na mnohouholníky (trojuholníky a štvoruholníky), hustejšie tam, kde má obrázok hrany, s medzerou medzi nimi a okolo obrysu: geometrický (low poly) obrázok.
+1518|Medzera medzi mnohouholníkmi
+1519|Počet mnohouholníkov
+1520|Sledovať hrany
+1521|Trojuholníky a štvoruholníky

@@ -1513,3 +1513,10 @@
 1512|Lengd bútanna
 1513|Mjósta lína
 1514|Hyrnd
+1515|Rúmfræðilegir marghyrningar
+1516|Rúmfræðilegir marghyrningar…
+1517|Dökk lögun myndarinnar skipt í marghyrninga (þríhyrninga og ferhyrninga), þéttari þar sem myndin hefur brúnir, með bili á milli þeirra og umhverfis útlínuna: rúmfræðileg (low poly) mynd.
+1518|Bil milli marghyrninganna
+1519|Fjöldi marghyrninga
+1520|Fylgja brúnunum
+1521|Þríhyrningar og ferhyrningar

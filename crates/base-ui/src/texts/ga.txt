@@ -1513,3 +1513,10 @@
 1512|Fad na bpíosaí
 1513|An líne is tanaí
 1514|Uilleach
+1515|Polagáin gheoiméadracha
+1516|Polagáin gheoiméadracha…
+1517|Cruth dorcha an phictiúir roinnte ina pholagáin (triantáin agus ceathairshleasáin), níos dlúithe san áit a bhfuil imill sa phictiúr, le bearna eatarthu agus timpeall na himlíne: pictiúr geoiméadrach (low poly).
+1518|Bearna idir na polagáin
+1519|Líon na bpolagán
+1520|Lean na himill
+1521|Triantáin agus ceathairshleasáin

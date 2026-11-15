@@ -1513,3 +1513,10 @@
 1512|Tul tal-biċċiet
 1513|L-irqaq linja
 1514|Angolari
+1515|Poligoni ġeometriċi
+1516|Poligoni ġeometriċi…
+1517|Il-forma skura tal-istampa maqsuma f'poligoni (trijangoli u kwadrilaterali), iktar fitti fejn l-istampa għandha truf, bi spazju bejniethom u madwar il-kontorn: stampa ġeometrika (low poly).
+1518|Spazju bejn il-poligoni
+1519|Numru ta' poligoni
+1520|Segwi t-truf
+1521|Trijangoli u kwadrilaterali

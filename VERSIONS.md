@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.5.0
+
+- **Geometric polygons** (Arrange → Geometric polygons…, and the style `Style::Geometric` of Style trace): the dark shape of the picture split into about the given number of polygons (triangles and, in the first variant, convex quadrangles), more of them where the picture has edges, with a gap between them all and round the outline, as geometric (low poly) wall art. The outline follows the shape (traced from the darkness with the tone settings), the triangles that reach out of it are cut to it; the polygons are made smaller by half the gap with sharp corners. With no gap every edge is one line. Settings: gap between the polygons, number of polygons, follow the edges; the seed gives other polygons.
+- 7 texts in every language.
+
 ## v2.4.0
 
 - **Style trace: V-carve** (`Style::VCarve`): lines at the angle, the width of the lines apart, each cut into pieces whose brightness sets how wide the line is there (the thinnest share in the lights, the whole width in the black), as a V-bit cuts deeper and so wider. Every line is one closed outline through the middles of its pieces, smooth (Catmull-Rom) or angular. Settings: width of the lines, length of the pieces, thinnest line, angle.
