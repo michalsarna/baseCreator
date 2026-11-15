@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.3.1
+
+- **A picture changed with Adjust image is shown as it is**: the work area kept the texture of the picture before the change (the key was the shape and its negative only), so the picture looked untouched while the project, and the G-code, had the new pixels; opening Adjust image again showed them, as if it had changed the picture by itself. The texture now follows the pixels (`editor::image_tex_key`), also after undo.
+- **Every Apply button is green** (`widgets::apply_button`, `apply_widget`): Adjust image, the rotation in Properties and the windows of the design tools, as the Apply of the project setup.
+
 ## v2.3.0
 
 - **Auto-save in the program options of every program** (`autosave::Options`, `autosave_ui::options_rows`): on or off, and how often (10 s to an hour, 2 minutes to begin with), as LightCreator had it alone. BaseCreator, MillCreator and PenCreator saved every 20 seconds with no way to change it; now they follow the options, and save nothing when it is off.

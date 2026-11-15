@@ -88,7 +88,7 @@ pub fn properties_sections<H: EditorHost>(h: &mut H, ui: &mut egui::Ui) -> bool 
             ui.add(egui::DragValue::new(&mut rot).suffix("°")).on_hover_text(tr("Rotate"));
         });
         let ink = theme::text();
-        apply = ui.add_sized([bw, 24.0], egui::Button::image_and_text(icons::slot(Some("check"), ink), tr("Apply")).truncate()).clicked();
+        apply = ui.add_sized([bw, 24.0], crate::widgets::apply_widget(Some("check"), &tr("Apply")).truncate()).clicked();
         quarter = ui.add_sized([bw, 24.0], egui::Button::image_and_text(icons::slot(Some("rotate-cw"), ink), "90°")).clicked();
         ui.end_row();
     });

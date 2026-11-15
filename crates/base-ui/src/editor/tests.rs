@@ -1269,3 +1269,36 @@ fn a_drag_with_the_right_button_moves_the_view_also_beside_the_work_area_and_ope
         assert!(!egui::Popup::is_any_open(&ctx), "no menu after a drag");
     }
 }
+
+/// A picture changed in place (Adjust image, undo) gets a new texture: the canvas showed the old one before, while the project had
+/// the new pixels.
+#[test]
+fn a_picture_changed_in_place_gets_a_new_texture() {
+    let mut h = Host::default();
+    let im = base_core::image::ImageData { name: "p".into(), px_w: 4, px_h: 4, gray: vec![20; 16], w: 10.0, h: 10.0, invert: false };
+    let id = h.scene.add(0, Kind::Image(im.clone()), Xf::translate(10.0, 10.0));
+    let ctx = egui::Context::default();
+    let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(800.0, 600.0));
+    let frame = |h: &mut Host| {
+        let mut out = ctx.run_ui(egui::RawInput { screen_rect: Some(screen), ..Default::default() }, |ui| {
+            egui::CentralPanel::no_frame().show(ui, |ui| h.canvas(ui));
+        });
+        out.textures_delta.clear();
+    };
+    frame(&mut h);
+    let key_now = |h: &Host| match &h.scene.shapes.iter().find(|s| s.id == id).unwrap().kind {
+        Kind::Image(i) => super::image_tex_key(id, i),
+        _ => unreachable!(),
+    };
+    let old = key_now(&h);
+    assert!(h.ed.image_tex.contains_key(&old));
+    // The same shape, lighter pixels (as Apply of Adjust image puts them).
+    let light = im.adjusted(&base_core::image::Adjust { brightness: 0.6, ..Default::default() });
+    if let Some(s) = h.scene.shapes.iter_mut().find(|s| s.id == id) {
+        s.kind = Kind::Image(light.clone());
+    }
+    frame(&mut h);
+    assert!(!h.ed.image_tex.contains_key(&old), "the old texture is dropped");
+    assert!(h.ed.image_tex.contains_key(&key_now(&h)), "the new pixels have a texture");
+    assert_eq!(h.ed.image_tex.len(), 1);
+}

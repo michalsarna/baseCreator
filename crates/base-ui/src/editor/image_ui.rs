@@ -424,7 +424,7 @@ pub trait EditorImages: EditorHost {
             column(ui, hist, |ui| levels_panel(ui, &mut d));
             crate::window::footer(ui, "image_dlg", |ui| {
                 ui.horizontal(|ui| {
-                    accept = if d.target.is_some() { ui.button(tr("Apply")) } else { import_button(ui, &tr("Import")) }.clicked();
+                    accept = if d.target.is_some() { crate::widgets::apply_button(ui, &tr("Apply")) } else { import_button(ui, &tr("Import")) }.clicked();
                     cancel = ui.button(tr("Cancel")).clicked();
                 });
             });

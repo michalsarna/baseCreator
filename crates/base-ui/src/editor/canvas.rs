@@ -145,7 +145,7 @@ pub trait EditorCanvas: EditorHost {
             if !self.layer_visible(s.layer) {
                 continue;
             }
-            if let Some(tex) = self.ed().image_tex.get(&(s.id, im.invert)) {
+            if let Some(tex) = self.ed().image_tex.get(&super::image_tex_key(s.id, im)) {
                 let corners = [Pt::new(0.0, 0.0), Pt::new(im.w, 0.0), Pt::new(im.w, im.h), Pt::new(0.0, im.h)];
                 let uv = [egui::pos2(0.0, 0.0), egui::pos2(1.0, 0.0), egui::pos2(1.0, 1.0), egui::pos2(0.0, 1.0)];
                 let tint = Color32::from_white_alpha(if dim_pictures { 70 } else { 255 });
