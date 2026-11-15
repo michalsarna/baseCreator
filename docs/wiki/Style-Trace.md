@@ -2,7 +2,7 @@
 
 # Style trace
 
-**Arrange → Style trace…** draws a selected picture again as lines in one of 19 styles, ready to export, print or open in the other programs: squiggles, a spiral, waves, halftone circles, hatching, stippling, one continuous line, flow lines, a sketch and more. It is also in the right-click menu of a picture and in the **Image** section of **Properties**. It works in LightCreator, MillCreator, PenCreator and BaseCreator alike.
+**Arrange → Style trace…** draws a selected picture again as lines in one of 21 styles, ready to export, print or open in the other programs: squiggles, a spiral, waves, halftone circles, hatching, stippling, one continuous line, flow lines, a sketch and more. It is also in the right-click menu of a picture and in the **Image** section of **Properties**. It works in LightCreator, MillCreator, PenCreator and BaseCreator alike.
 
 ![The Style trace window in flow lines](https://raw.githubusercontent.com/michalsarna/LightCreator/main/docs/screenshots/14b-style-trace.png)
 
@@ -42,6 +42,7 @@ Styles that use chance (stippling, flow lines, sketch, scribble, squares, needle
 | **Sketch** | Many short straight strokes laid where the picture is darkest, as in a pencil sketch. | **Stroke length**, **Number of strokes**, **Ink of one stroke** (how much of the darkness one stroke takes); Kind: separate strokes or strokes in chains. |
 | **Scribble** | One wandering line of loops that scribbles the dark parts in. | **Loop size**, **Length of the line** (metres), **Ink of one pass**. |
 | **V-carve** | Lines at the angle, each as wide as the picture is dark along it: thin in the lights, wide in the shadows, as a V-bit cuts deeper and so wider. Every line is cut into pieces whose brightness sets its width; each line is one closed outline. Variants: **Smooth** (a smooth curve through the pieces) or **Angular** (straight between them). | **Width of the lines** (also the widest line), **Length of the pieces**, **Thinnest line** (the share of the width in the white; 0: nothing there), **Angle**. |
+| **Geometric polygons** | The dark shape of the picture split into polygons (triangles and quadrangles), more of them where the picture has edges, with a gap between them and round the outline: a geometric (low poly) picture, as wall art or a stencil. The outline follows the shape, the polygons are cut to it. Also **Arrange → Geometric polygons…**. Variants: **Triangles and quadrangles**, **Triangles**; another **seed** gives other polygons; the tone settings (black point) choose what is the dark shape. | **Gap between the polygons** (0: every edge one line), **Number of polygons**, **Follow the edges** (0: even, 1: only by the edges). |
 
 ## Good to know
 

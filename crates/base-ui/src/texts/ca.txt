@@ -1513,3 +1513,10 @@
 1512|Llargada dels trossos
 1513|Línia més prima
 1514|Angulosa
+1515|Polígons geomètrics
+1516|Polígons geomètrics…
+1517|La forma fosca de la imatge dividida en polígons (triangles i quadrilàters), més densos on la imatge té vores, amb un espai entre ells i al voltant del contorn: una imatge geomètrica (low poly).
+1518|Espai entre els polígons
+1519|Nombre de polígons
+1520|Segueix les vores
+1521|Triangles i quadrilàters

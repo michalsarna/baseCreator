@@ -33,6 +33,7 @@ pub enum Style {
     Sketch,
     Scribble,
     VCarve,
+    Geometric,
 }
 
 /// The settings a style uses; their meaning (and the label) depends on the style, see [`Style::knobs`].
@@ -68,7 +69,7 @@ const CELL: KnobSpec = k(Knob::Spacing, "Cell size", 0.5, 30.0, " mm", 2);
 const DOTS: KnobSpec = k(Knob::Detail, "Number of dots", 100.0, 30000.0, "", 0);
 
 impl Style {
-    pub const ALL: [Style; 20] = [
+    pub const ALL: [Style; 21] = [
         Style::Squiggle,
         Style::Sawtooth,
         Style::Springs,
@@ -89,6 +90,7 @@ impl Style {
         Style::Sketch,
         Style::Scribble,
         Style::VCarve,
+        Style::Geometric,
     ];
 
     pub fn label(self) -> &'static str {
@@ -113,6 +115,7 @@ impl Style {
             Style::Sketch => "Sketch",
             Style::Scribble => "Scribble",
             Style::VCarve => "V-carve",
+            Style::Geometric => "Geometric polygons",
         }
     }
 
@@ -138,6 +141,7 @@ impl Style {
             Style::Sketch => "Many short straight strokes laid where the picture is darkest, as in a pencil sketch.",
             Style::Scribble => "One wandering line of loops that scribbles the dark parts in.",
             Style::VCarve => "Lines at the angle, each as wide as the picture is dark along it: thin in the lights, wide in the shadows, as a V-bit cuts deeper and so wider. Every line is cut into pieces whose brightness sets its width.",
+            Style::Geometric => "The dark shape of the picture split into polygons (triangles and quadrangles), more of them where the picture has edges, with a gap between them and round the outline: a geometric (low poly) picture.",
         }
     }
 
@@ -168,6 +172,11 @@ impl Style {
             ]; L },
             Style::Sketch => { const L: &[KnobSpec] = &[k(Knob::Spacing, "Stroke length", 0.5, 50.0, " mm", 1), k(Knob::Detail, "Number of strokes", 50.0, 30000.0, "", 0), k(Knob::Strength, "Ink of one stroke", 0.02, 1.0, "", 2)]; L },
             Style::Scribble => { const L: &[KnobSpec] = &[k(Knob::Spacing, "Loop size", 0.3, 20.0, " mm", 2), k(Knob::Detail, "Length of the line", 0.5, 500.0, " m", 1), k(Knob::Strength, "Ink of one pass", 0.02, 1.0, "", 2)]; L },
+            Style::Geometric => { const L: &[KnobSpec] = &[
+                k(Knob::Spacing, "Gap between the polygons", 0.0, 10.0, " mm", 2),
+                k(Knob::Detail, "Number of polygons", 4.0, 3000.0, "", 0),
+                k(Knob::Strength, "Follow the edges", 0.0, 1.0, "", 2),
+            ]; L },
             Style::VCarve => { const L: &[KnobSpec] = &[
                 k(Knob::Spacing, "Width of the lines", 0.3, 20.0, " mm", 2),
                 k(Knob::Detail, "Length of the pieces", 0.1, 20.0, " mm", 2),
@@ -193,13 +202,14 @@ impl Style {
             Style::FlowLines => &["Along the shapes", "Flow field"],
             Style::Sketch => &["Separate strokes", "Strokes in chains"],
             Style::VCarve => &["Smooth", "Angular"],
+            Style::Geometric => &["Triangles and quadrangles", "Triangles"],
             _ => &[],
         }
     }
 
     /// Does the style use random numbers (so a seed changes it)?
     pub fn random(self) -> bool {
-        matches!(self, Style::Squares | Style::Needles | Style::Truchet | Style::Stipple | Style::Tsp | Style::Delaunay | Style::FlowLines | Style::Sketch | Style::Scribble)
+        matches!(self, Style::Squares | Style::Needles | Style::Truchet | Style::Stipple | Style::Tsp | Style::Delaunay | Style::FlowLines | Style::Sketch | Style::Scribble | Style::Geometric)
     }
 
     /// The starting settings of the style (the tone settings are kept when the style changes).
@@ -226,6 +236,7 @@ impl Style {
             Style::Sketch => (6.0, 0.3, 3000.0, 0.0),
             Style::Scribble => (3.0, 0.25, 60.0, 0.0),
             Style::VCarve => (2.0, 0.05, 1.0, 0.0),
+            Style::Geometric => (1.0, 0.6, 80.0, 0.0),
         };
         StyleParams { spacing, strength, detail, angle, ..p }
     }
@@ -394,6 +405,10 @@ pub fn style_trace(im: &ImageData, params: &StyleParams, stop: &dyn Fn() -> bool
         Style::VCarve => {
             vcarve(im, &p, &mut out);
             false
+        }
+        Style::Geometric => {
+            geometric(im, &p, &mut out, stop);
+            true
         }
     };
     let mut lines = out.lines;
@@ -749,6 +764,249 @@ fn rows_wave(im: &ImageData, p: &StyleParams, out: &mut Out) {
         }
         pen.lift(out);
     }
+}
+
+/// Geometric polygons: the dark shape of the picture (darker than the middle of the tone) split into about `detail` polygons. The
+/// points of the polygons are the corners of the simplified outline of the shape and points spread inside it, more of them where
+/// the picture has edges (`strength`: 0 even, 1 only by the edges); they are joined into triangles (Delaunay), and in the first
+/// variant pairs of them into quadrangles. Every polygon is made smaller by half the gap (`spacing`) and the outline bigger by the
+/// same, so a band as wide as the gap is left between them all; with no gap every edge is one line.
+fn geometric(im: &ImageData, p: &StyleParams, out: &mut Out, stop: &dyn Fn() -> bool) {
+    let n_polys = p.detail.round().max(4.0) as usize;
+    let gap = p.spacing.max(0.0);
+    let f = Field::new(im, p, im.w.max(im.h) / 300.0, 400_000);
+    // The shape: the cells darker than the middle, traced into outlines.
+    let gray: Vec<u8> = f.v.iter().map(|v| if *v > 0.5 { 0 } else { 255 }).collect();
+    let mask = ImageData { name: "shape".into(), px_w: f.nx as u32, px_h: f.ny as u32, gray, w: f.nx as f64 * f.cell, h: f.ny as f64 * f.cell, invert: false };
+    let dark_area = f.v.iter().filter(|v| **v > 0.5).count() as f64 * f.cell * f.cell;
+    if dark_area < f.cell * f.cell * 4.0 || stop() {
+        return;
+    }
+    // The size of a polygon, and the points along the outline about that far apart.
+    let size = (dark_area / n_polys as f64).sqrt();
+    let tp = crate::trace::TraceParams { threshold: 128, min_area: (size * size * 0.3 / (f.cell * f.cell)).max(4.0), tolerance: (size / f.cell / 5.0).max(1.0), smooth: false, invert: false };
+    let outline: Vec<Vec<Pt>> = crate::trace::trace(&mask, &tp).iter().map(|c| c.nodes.iter().map(|n| n.p).collect::<Vec<Pt>>()).filter(|l: &Vec<Pt>| l.len() >= 3).collect();
+    if outline.is_empty() {
+        return;
+    }
+    let inside = |q: Pt| {
+        let mut c = false;
+        for l in &outline {
+            let n = l.len();
+            for i in 0..n {
+                let (a, b) = (l[i], l[(i + 1) % n]);
+                if (a.y > q.y) != (b.y > q.y) && q.x < a.x + (q.y - a.y) / (b.y - a.y) * (b.x - a.x) {
+                    c = !c;
+                }
+            }
+        }
+        c
+    };
+    let mut pts: Vec<Pt> = vec![];
+    for l in &outline {
+        let n = l.len();
+        for i in 0..n {
+            let (a, b) = (l[i], l[(i + 1) % n]);
+            pts.push(a);
+            // A long side gets points between its corners.
+            let k = (a.dist(b) / size).floor() as usize;
+            for j in 1..=k {
+                let t = j as f64 / (k + 1) as f64;
+                pts.push(Pt::new(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t));
+            }
+        }
+    }
+    // Points inside: about half as many as the polygons (a triangulation has about two triangles for a point), more where the
+    // picture changes, never closer than about half a polygon to another.
+    let grad = |q: Pt| {
+        let e = f.cell * 1.5;
+        let gx = f.at(Pt::new(q.x + e, q.y)) - f.at(Pt::new(q.x - e, q.y));
+        let gy = f.at(Pt::new(q.x, q.y + e)) - f.at(Pt::new(q.x, q.y - e));
+        (gx * gx + gy * gy).sqrt()
+    };
+    let gmax = (0..2000).map(|i| {
+        let (x, y) = ((i % 50) as f64 / 50.0 * f.w, (i / 50) as f64 / 40.0 * f.h);
+        grad(Pt::new(x, y))
+    }).fold(1e-6, f64::max);
+    let want = (n_polys / 2).saturating_sub(pts.len() / 3).max(1);
+    let near = size * 0.55;
+    let mut rng = Rng::new(p.seed, 23);
+    let (mut added, mut tries) = (0usize, 0usize);
+    let strength = p.strength.clamp(0.0, 1.0);
+    while added < want && tries < want * 300 {
+        tries += 1;
+        let q = Pt::new(rng.f() * f.w, rng.f() * f.h);
+        if !inside(q) {
+            continue;
+        }
+        let weight = (1.0 - strength) + strength * (grad(q) / gmax).min(1.0);
+        if rng.f() > weight.max(0.02) {
+            continue;
+        }
+        if pts.iter().any(|o| o.dist(q) < near) {
+            continue;
+        }
+        pts.push(q);
+        added += 1;
+        if added % 64 == 0 && stop() {
+            return;
+        }
+    }
+    if pts.len() < 3 {
+        return;
+    }
+    // The triangles cover the hull of the points, not the shape: a triangle wholly in the shape is a cell as it is, one that
+    // reaches out of it (over a hollow of the outline) is cut to the shape, so the cells cover the shape and follow its outline.
+    let mid = |a: Pt, b: Pt| Pt::new((a.x + b.x) / 2.0, (a.y + b.y) / 2.0);
+    let shape: Vec<Polyline> = outline.iter().map(|l| Polyline::new(l.clone(), true)).collect();
+    let all = triangulate(&pts);
+    let mut tris: Vec<[usize; 3]> = vec![];
+    let mut cells: Vec<Vec<Pt>> = vec![];
+    let tiny = size * size * 0.01;
+    for t in all {
+        let (a, b, c) = (pts[t[0]], pts[t[1]], pts[t[2]]);
+        if inside(Pt::new((a.x + b.x + c.x) / 3.0, (a.y + b.y + c.y) / 3.0)) && inside(mid(a, b)) && inside(mid(b, c)) && inside(mid(c, a)) {
+            tris.push(t);
+            continue;
+        }
+        for piece in crate::ops::boolean(&[Polyline::new(vec![a, b, c], true)], &shape, crate::ops::BoolOp::Intersect) {
+            let mut q = piece.pts;
+            if q.len() > 1 && q.first() == q.last() {
+                q.pop();
+            }
+            let n = q.len();
+            let area: f64 = (0..n).map(|i| q[i].x * q[(i + 1) % n].y - q[(i + 1) % n].x * q[i].y).sum::<f64>().abs() / 2.0;
+            if n >= 3 && area > tiny {
+                cells.push(q);
+            }
+        }
+        if stop() {
+            return;
+        }
+    }
+    // The cells: triangles, and in the first variant some pairs of them as convex quadrangles.
+    let mut merged = vec![false; tris.len()];
+    if p.variant == 0 {
+        let mut by_edge: std::collections::HashMap<(usize, usize), Vec<usize>> = std::collections::HashMap::new();
+        for (t, tr) in tris.iter().enumerate() {
+            for (a, b) in [(tr[0], tr[1]), (tr[1], tr[2]), (tr[2], tr[0])] {
+                by_edge.entry((a.min(b), a.max(b))).or_default().push(t);
+            }
+        }
+        let mut edges: Vec<((usize, usize), Vec<usize>)> = by_edge.into_iter().filter(|(_, ts)| ts.len() == 2).collect();
+        edges.sort_by_key(|(e, _)| *e);
+        // In a random order, the same for the same seed.
+        for i in (1..edges.len()).rev() {
+            let j = (rng.next() % (i as u64 + 1)) as usize;
+            edges.swap(i, j);
+        }
+        for ((a, b), ts) in edges {
+            let (t0, t1) = (ts[0], ts[1]);
+            if merged[t0] || merged[t1] || rng.f() > 0.6 {
+                continue;
+            }
+            let other = |t: usize| tris[t].iter().copied().find(|v| *v != a && *v != b).unwrap_or(a);
+            let quad = vec![pts[a], pts[other(t0)], pts[b], pts[other(t1)]];
+            if convex(&quad) {
+                merged[t0] = true;
+                merged[t1] = true;
+                cells.push(quad);
+            }
+        }
+    }
+    for (t, tr) in tris.iter().enumerate() {
+        if !merged[t] {
+            cells.push(vec![pts[tr[0]], pts[tr[1]], pts[tr[2]]]);
+        }
+    }
+    if gap > 1e-6 {
+        for c in &cells {
+            if convex(c) {
+                if let Some(small) = inset_convex(c, gap / 2.0) {
+                    let mut q = small.clone();
+                    q.push(small[0]);
+                    out.push(q, true);
+                }
+            } else {
+                // A cell cut by the outline may have a hollow: made smaller by the general offset.
+                for o in crate::ops::offset(&[Polyline::new(c.clone(), true)], -gap / 2.0) {
+                    out.push(o.pts, true);
+                }
+            }
+        }
+        // The outline half the gap out, but not out of the picture.
+        let frame = [Polyline::new(vec![Pt::new(0.0, 0.0), Pt::new(f.w, 0.0), Pt::new(f.w, f.h), Pt::new(0.0, f.h)], true)];
+        for o in crate::ops::boolean(&crate::ops::offset(&shape, gap / 2.0), &frame, crate::ops::BoolOp::Intersect) {
+            out.push(o.pts, true);
+        }
+    } else {
+        // Every edge once: an edge of two cells is one line.
+        let mut seen = std::collections::HashSet::new();
+        let key = |q: Pt| ((q.x * 1000.0).round() as i64, (q.y * 1000.0).round() as i64);
+        for c in &cells {
+            for i in 0..c.len() {
+                let (a, b) = (c[i], c[(i + 1) % c.len()]);
+                let (ka, kb) = (key(a), key(b));
+                if seen.insert(if ka < kb { (ka, kb) } else { (kb, ka) }) {
+                    out.push(vec![a, b], false);
+                }
+            }
+        }
+        // The cells cover the shape, so their edges are its outline too.
+    }
+}
+
+/// Is the polygon convex (all its turns the same way)?
+fn convex(p: &[Pt]) -> bool {
+    let n = p.len();
+    let mut sign = 0.0;
+    for i in 0..n {
+        let (a, b, c) = (p[i], p[(i + 1) % n], p[(i + 2) % n]);
+        let cr = (b.x - a.x) * (c.y - b.y) - (b.y - a.y) * (c.x - b.x);
+        if cr.abs() < 1e-12 {
+            return false;
+        }
+        if sign == 0.0 {
+            sign = cr.signum();
+        } else if cr.signum() != sign {
+            return false;
+        }
+    }
+    true
+}
+
+/// A convex polygon with every side moved `d` inwards (sharp corners), or `None` when nothing is left.
+fn inset_convex(p: &[Pt], d: f64) -> Option<Vec<Pt>> {
+    let n = p.len();
+    let area: f64 = (0..n).map(|i| p[i].x * p[(i + 1) % n].y - p[(i + 1) % n].x * p[i].y).sum::<f64>() / 2.0;
+    if area.abs() < 1e-9 {
+        return None;
+    }
+    let s = area.signum();
+    // Every side as a point on it and its direction, moved inwards.
+    let lines: Vec<(Pt, Pt)> = (0..n)
+        .map(|i| {
+            let (a, b) = (p[i], p[(i + 1) % n]);
+            let (dx, dy) = (b.x - a.x, b.y - a.y);
+            let l = (dx * dx + dy * dy).sqrt().max(1e-12);
+            let inward = Pt::new(-dy / l * s, dx / l * s);
+            (Pt::new(a.x + inward.x * d, a.y + inward.y * d), Pt::new(dx, dy))
+        })
+        .collect();
+    let mut q = Vec::with_capacity(n);
+    for i in 0..n {
+        let (p0, d0) = lines[(i + n - 1) % n];
+        let (p1, d1) = lines[i];
+        let den = d0.x * d1.y - d0.y * d1.x;
+        if den.abs() < 1e-12 {
+            return None;
+        }
+        let t = ((p1.x - p0.x) * d1.y - (p1.y - p0.y) * d1.x) / den;
+        q.push(Pt::new(p0.x + d0.x * t, p0.y + d0.y * t));
+    }
+    // Moved past each other (too small for the gap): the same turn as before and some area left.
+    let a2: f64 = (0..n).map(|i| q[i].x * q[(i + 1) % n].y - q[(i + 1) % n].x * q[i].y).sum::<f64>() / 2.0;
+    (a2.signum() == s && a2.abs() > 1e-6 && convex(&q)).then_some(q)
 }
 
 /// V-carve: lines at the angle, the width of the lines apart, each cut into pieces of the given length; the brightness of a piece
@@ -2243,6 +2501,36 @@ mod tests {
         assert_eq!(angular.lines.len(), out.lines.len(), "the same lines, with straight pieces");
         let turned = style_trace(&im, &StyleParams { angle: 45.0, ..p }, &never);
         assert!(turned.lines.len() > out.lines.len(), "at 45° more, shorter lines cross the picture");
+    }
+
+    /// Geometric polygons: the dark shape split into closed polygons with the gap between them and an outline round them, more
+    /// of them for a bigger number, all in the picture; with no gap every edge is one open line, none twice.
+    #[test]
+    fn geometric_polygons_cover_the_shape_with_a_gap() {
+        // A dark disc of 40 mm on a 60 × 40 mm picture.
+        let disc = picture(240, 160, |x, y| if ((x * 60.0 - 30.0).powi(2) + (y * 40.0 - 20.0).powi(2)) < 400.0 { 10 } else { 250 });
+        let p = StyleParams { detail: 40.0, spacing: 0.8, ..Style::Geometric.defaults() };
+        let few = style_trace(&disc, &p, &never);
+        assert!(few.lines.len() > 10, "{}", few.lines.len());
+        assert!(few.lines.iter().all(|l| l.closed));
+        assert!(few.lines.iter().flat_map(|l| l.pts.iter()).all(|q| q.x > 8.0 && q.x < 52.0 && q.y > -1.0 && q.y < 41.0), "round the disc only");
+        let many = style_trace(&disc, &StyleParams { detail: 300.0, ..p }, &never);
+        assert!(many.lines.len() > few.lines.len() * 2, "{} vs {}", many.lines.len(), few.lines.len());
+        // The same seed gives the same picture, another one another.
+        assert_eq!(style_trace(&disc, &p, &never), few);
+        assert_ne!(style_trace(&disc, &StyleParams { seed: 7, ..p }, &never), few);
+        // No gap: the edges as lines, each once.
+        let edges = style_trace(&disc, &StyleParams { spacing: 0.0, ..p }, &never);
+        assert!(edges.lines.iter().all(|l| !l.closed && l.pts.len() == 2));
+        let mut keys: Vec<_> = edges.lines.iter().map(|l| {
+            let k = |q: Pt| ((q.x * 1000.0).round() as i64, (q.y * 1000.0).round() as i64);
+            let (a, b) = (k(l.pts[0]), k(l.pts[1]));
+            if a < b { (a, b) } else { (b, a) }
+        }).collect();
+        let n = keys.len();
+        keys.sort();
+        keys.dedup();
+        assert_eq!(keys.len(), n, "an edge of two polygons is one line");
     }
 
     fn small(s: Style) -> StyleParams {

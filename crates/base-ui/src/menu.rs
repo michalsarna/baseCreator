@@ -179,6 +179,8 @@ pub enum StdAct {
     AdjustImage,
     TraceImage,
     StyleTrace,
+    /// The picture as geometric polygons (the style trace window, on that style).
+    GeometricTrace,
     BoolUnion,
     BoolIntersect,
     BoolSubtract,
@@ -276,6 +278,7 @@ impl StdAct {
             StdAct::AdjustImage => crate::editor::EditorImages::open_adjust(h),
             StdAct::TraceImage => crate::editor::EditorImages::open_trace(h),
             StdAct::StyleTrace => crate::editor::EditorStyleTrace::open_style_trace(h),
+            StdAct::GeometricTrace => crate::editor::EditorStyleTrace::open_style_trace_as(h, base_core::style_trace::Style::Geometric),
             StdAct::BoolUnion => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Union),
             StdAct::BoolIntersect => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Intersect),
             StdAct::BoolSubtract => crate::editor::EditorShapeOps::bool_op(h, base_core::ops::BoolOp::Difference),
@@ -340,7 +343,7 @@ impl StdAct {
             StdAct::Redo => h.can_redo(),
             StdAct::CenterEachOther => h.ed().sel.len() >= 2,
             StdAct::AddAsZones => h.can_add_zones() && h.ed().sel.iter().any(|id| h.scene().shape(*id).is_some_and(|s| !s.locked)),
-            StdAct::AdjustImage | StdAct::TraceImage | StdAct::StyleTrace => h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_))),
+            StdAct::AdjustImage | StdAct::TraceImage | StdAct::StyleTrace | StdAct::GeometricTrace => h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_))),
             _ => true,
         }
     }
@@ -397,6 +400,7 @@ impl StdAct {
             StdAct::AdjustImage => "sliders-horizontal",
             StdAct::TraceImage => "portrait",
             StdAct::StyleTrace => "palette",
+            StdAct::GeometricTrace => "triangle",
             StdAct::BoolUnion => "squares-unite",
             StdAct::BoolIntersect => "squares-intersect",
             StdAct::BoolSubtract => "squares-subtract",
@@ -490,7 +494,7 @@ pub mod std_entries {
     }
     /// Adjust and trace a picture that is on the page.
     pub fn image_tools() -> Vec<Entry<StdAct>> {
-        vec![Item(StdAct::AdjustImage, "Adjust image…", None), Item(StdAct::TraceImage, "Trace image…", None), Item(StdAct::StyleTrace, "Style trace…", None)]
+        vec![Item(StdAct::AdjustImage, "Adjust image…", None), Item(StdAct::TraceImage, "Trace image…", None), Item(StdAct::StyleTrace, "Style trace…", None), Item(StdAct::GeometricTrace, "Geometric polygons…", None)]
     }
     /// The operations on whole shapes: boolean operations, offset, rounding the corners, conversion to curves.
     pub fn shape_ops() -> Vec<Entry<StdAct>> {

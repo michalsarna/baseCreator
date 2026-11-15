@@ -1513,3 +1513,10 @@
 1512|Tükkide pikkus
 1513|Kõige õhem joon
 1514|Nurgeline
+1515|Geomeetrilised hulknurgad
+1516|Geomeetrilised hulknurgad…
+1517|Pildi tume kuju jagatud hulknurkadeks (kolm- ja nelinurkadeks), tihedamalt seal, kus pildil on servad, nende vahel ja piirjoone ümber vahe: geomeetriline (low poly) pilt.
+1518|Vahe hulknurkade vahel
+1519|Hulknurkade arv
+1520|Järgi servi
+1521|Kolm- ja nelinurgad

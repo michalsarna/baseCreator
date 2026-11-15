@@ -1520,6 +1520,13 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Length of the pieces", "Długość odcinków", "Länge der Stücke", "Lunghezza dei tratti", "Palojen pituus", "分段长度", "टुकड़ों की लंबाई"],
     ["Thinnest line", "Najcieńsza linia", "Dünnste Linie", "Linea più sottile", "Ohuin viiva", "最细线", "सबसे पतली रेखा"],
     ["Angular", "Kanciasty", "Eckig", "Spigolosa", "Kulmikas", "折线", "कोणीय"],
+    ["Geometric polygons", "Wielokąty geometryczne", "Geometrische Polygone", "Poligoni geometrici", "Geometriset monikulmiot", "几何多边形", "ज्यामितीय बहुभुज"],
+    ["Geometric polygons…", "Wielokąty geometryczne…", "Geometrische Polygone…", "Poligoni geometrici…", "Geometriset monikulmiot…", "几何多边形…", "ज्यामितीय बहुभुज…"],
+    ["The dark shape of the picture split into polygons (triangles and quadrangles), more of them where the picture has edges, with a gap between them and round the outline: a geometric (low poly) picture.", "Ciemny kształt obrazu podzielony na wielokąty (trójkąty i czworokąty), gęściej tam, gdzie obraz ma krawędzie, z odstępem między nimi i wokół obrysu: obraz geometryczny (low poly).", "Die dunkle Form des Bildes in Polygone (Dreiecke und Vierecke) geteilt, mehr davon, wo das Bild Kanten hat, mit einem Abstand zwischen ihnen und um den Umriss: ein geometrisches (Low-Poly-)Bild.", "La forma scura dell'immagine divisa in poligoni (triangoli e quadrilateri), più fitti dove l'immagine ha dei bordi, con uno spazio tra loro e attorno al contorno: un'immagine geometrica (low poly).", "Kuvan tumma muoto jaettuna monikulmioiksi (kolmioiksi ja nelikulmioiksi), tiheämmin kuvan reunojen kohdalla, väli niiden välissä ja ääriviivan ympärillä: geometrinen (low poly) kuva.", "把图片的暗色形状分成多边形（三角形和四边形），在图片有边缘处更密，多边形之间及轮廓周围留有间隙：几何（低多边形）图案。", "चित्र का गहरा आकार बहुभुजों (त्रिभुज और चतुर्भुज) में बँटा, जहाँ चित्र में किनारे हैं वहाँ अधिक, उनके बीच और रूपरेखा के चारों ओर अंतराल के साथ: एक ज्यामितीय (लो-पॉली) चित्र।"],
+    ["Gap between the polygons", "Odstęp między wielokątami", "Abstand zwischen den Polygonen", "Spazio tra i poligoni", "Monikulmioiden väli", "多边形间距", "बहुभुजों के बीच अंतराल"],
+    ["Number of polygons", "Liczba wielokątów", "Anzahl der Polygone", "Numero di poligoni", "Monikulmioiden määrä", "多边形数量", "बहुभुजों की संख्या"],
+    ["Follow the edges", "Podążaj za krawędziami", "Den Kanten folgen", "Segui i bordi", "Seuraa reunoja", "跟随边缘", "किनारों का अनुसरण"],
+    ["Triangles and quadrangles", "Trójkąty i czworokąty", "Dreiecke und Vierecke", "Triangoli e quadrilateri", "Kolmiot ja nelikulmiot", "三角形和四边形", "त्रिभुज और चतुर्भुज"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

@@ -1513,3 +1513,10 @@
 1512|Longueur des morceaux
 1513|Ligne la plus fine
 1514|Anguleuse
+1515|Polygones géométriques
+1516|Polygones géométriques…
+1517|La forme sombre de l'image découpée en polygones (triangles et quadrilatères), plus serrés là où l'image a des bords, avec un espace entre eux et autour du contour : une image géométrique (low poly).
+1518|Espace entre les polygones
+1519|Nombre de polygones
+1520|Suivre les bords
+1521|Triangles et quadrilatères

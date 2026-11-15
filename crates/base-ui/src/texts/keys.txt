@@ -1513,3 +1513,10 @@
 1512	Length of the pieces
 1513	Thinnest line
 1514	Angular
+1515	Geometric polygons
+1516	Geometric polygons…
+1517	The dark shape of the picture split into polygons (triangles and quadrangles), more of them where the picture has edges, with a gap between them and round the outline: a geometric (low poly) picture.
+1518	Gap between the polygons
+1519	Number of polygons
+1520	Follow the edges
+1521	Triangles and quadrangles

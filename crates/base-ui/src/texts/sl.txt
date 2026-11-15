@@ -1513,3 +1513,10 @@
 1512|Dolžina odsekov
 1513|Najtanjša črta
 1514|Oglata
+1515|Geometrijski mnogokotniki
+1516|Geometrijski mnogokotniki…
+1517|Temna oblika slike, razdeljena na mnogokotnike (trikotnike in štirikotnike), gostejše tam, kjer ima slika robove, z razmikom med njimi in okoli obrisa: geometrijska (low poly) slika.
+1518|Razmik med mnogokotniki
+1519|Število mnogokotnikov
+1520|Sledi robovom
+1521|Trikotniki in štirikotniki

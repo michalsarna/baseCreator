@@ -1513,3 +1513,10 @@
 1512|Posmu garums
 1513|Tievākā līnija
 1514|Stūraina
+1515|Ģeometriski daudzstūri
+1516|Ģeometriski daudzstūri…
+1517|Attēla tumšā forma, sadalīta daudzstūros (trijstūros un četrstūros), blīvāk tur, kur attēlā ir malas, ar atstarpi starp tiem un ap kontūru: ģeometrisks (low poly) attēls.
+1518|Atstarpe starp daudzstūriem
+1519|Daudzstūru skaits
+1520|Sekot malām
+1521|Trijstūri un četrstūri

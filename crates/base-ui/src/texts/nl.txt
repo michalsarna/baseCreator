@@ -1513,3 +1513,10 @@
 1512|Lengte van de stukken
 1513|Dunste lijn
 1514|Hoekig
+1515|Geometrische veelhoeken
+1516|Geometrische veelhoeken…
+1517|De donkere vorm van de afbeelding verdeeld in veelhoeken (driehoeken en vierhoeken), dichter waar de afbeelding randen heeft, met een ruimte ertussen en rond de omtrek: een geometrische (low poly) afbeelding.
+1518|Ruimte tussen de veelhoeken
+1519|Aantal veelhoeken
+1520|Volg de randen
+1521|Driehoeken en vierhoeken

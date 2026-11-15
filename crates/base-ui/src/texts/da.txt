@@ -1513,3 +1513,10 @@
 1512|Stykkernes længde
 1513|Tyndeste linje
 1514|Kantet
+1515|Geometriske polygoner
+1516|Geometriske polygoner…
+1517|Billedets mørke form delt i polygoner (trekanter og firkanter), tættere hvor billedet har kanter, med et mellemrum mellem dem og rundt om omridset: et geometrisk (low poly) billede.
+1518|Mellemrum mellem polygonerne
+1519|Antal polygoner
+1520|Følg kanterne
+1521|Trekanter og firkanter

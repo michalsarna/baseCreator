@@ -1513,3 +1513,10 @@
 1512|Lungimea bucăților
 1513|Cea mai subțire linie
 1514|Colțuroasă
+1515|Poligoane geometrice
+1516|Poligoane geometrice…
+1517|Forma întunecată a imaginii împărțită în poligoane (triunghiuri și patrulatere), mai dese unde imaginea are margini, cu un spațiu între ele și în jurul conturului: o imagine geometrică (low poly).
+1518|Spațiu între poligoane
+1519|Numărul de poligoane
+1520|Urmează marginile
+1521|Triunghiuri și patrulatere

@@ -1513,3 +1513,10 @@
 1512|A szakaszok hossza
 1513|Legvékonyabb vonal
 1514|Szögletes
+1515|Geometrikus sokszögek
+1516|Geometrikus sokszögek…
+1517|A kép sötét alakja sokszögekre (háromszögekre és négyszögekre) bontva, sűrűbben ott, ahol a képen élek vannak, köztük és a körvonal körül réssel: geometrikus (low poly) kép.
+1518|Rés a sokszögek között
+1519|Sokszögek száma
+1520|Kövesd az éleket
+1521|Háromszögek és négyszögek
