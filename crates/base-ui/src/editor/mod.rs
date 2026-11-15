@@ -296,6 +296,18 @@ impl Default for GridPrefs {
 
 /// The state of an editor: what is selected, the tool, the view, the grid and snapping, and the shape being drawn.
 /// An application keeps one and gives access to it through `EditorHost`.
+/// The key of the texture of a picture: the shape, its negative, and where its pixels are and how many (a picture changed by
+/// Adjust image or brought back by undo has other pixels, so its texture is made again; it kept the old one before).
+pub type ImageTexKey = (u64, bool, usize, usize, u64);
+
+/// The key of the texture of picture `im` of shape `id`.
+pub fn image_tex_key(id: u64, im: &base_core::image::ImageData) -> ImageTexKey {
+    // A thousand of its pixels too: new pixels that happen to lie where the old ones were are still told apart.
+    let step = (im.gray.len() / 1000).max(1);
+    let sample = im.gray.iter().step_by(step).fold(0xcbf2_9ce4_8422_2325u64, |h, g| (h ^ *g as u64).wrapping_mul(0x100_0000_01b3));
+    (id, im.invert, im.gray.as_ptr() as usize, im.gray.len(), sample)
+}
+
 pub struct EditorState {
     /// What a new text starts as: the settings of the text changed last.
     pub text_default: base_core::text::TextData,
@@ -371,7 +383,8 @@ pub struct EditorState {
     /// Top-left corner of the work area on screen, for tests and overlays.
     pub canvas_origin: egui::Pos2,
     /// Textures of the pictures in the scene, by shape id and whether they are inverted.
-    pub image_tex: std::collections::HashMap<(u64, bool), egui::TextureHandle>,
+    /// The textures of the pictures, by `image_tex_key` (the shape, the negative and the pixels themselves).
+    pub image_tex: std::collections::HashMap<ImageTexKey, egui::TextureHandle>,
     /// The tool to return to when Space (temporary pan) is released.
     pub space_prev: Option<Tool>,
     /// When Escape was pressed last: a second press soon after goes back to the select tool.

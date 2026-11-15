@@ -49,6 +49,21 @@ pub fn window_toggle(ui: &mut egui::Ui, text: &str, tip: &str, open: bool, enabl
     ui.add_enabled(enabled, btn).on_hover_text(tip).clicked()
 }
 
+/// A button that applies what was set (Apply): green with white text, as in every window of the programs.
+pub fn apply_button(ui: &mut egui::Ui, text: &str) -> egui::Response {
+    ui.add(apply_widget(None, text))
+}
+
+/// The same with an icon before the text.
+pub fn apply_widget<'a>(icon: Option<&'static str>, text: &str) -> egui::Button<'a> {
+    let label = egui::RichText::new(text).color(egui::Color32::WHITE);
+    match icon {
+        Some(i) => egui::Button::image_and_text(crate::icons::slot(Some(i), egui::Color32::WHITE), label),
+        None => egui::Button::new(label),
+    }
+    .fill(crate::window::SAVE_GREEN)
+}
+
 /// An option shown as a button (in the bars of the previews): light blue while it is on, as the button of a window that is open;
 /// a click turns it on or off. True when it changed.
 pub fn toggle(ui: &mut egui::Ui, on: &mut bool, text: &str, tip: &str) -> bool {

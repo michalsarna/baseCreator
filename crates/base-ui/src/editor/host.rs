@@ -450,7 +450,7 @@ pub trait EditorHost: Sized {
         let mut fresh = vec![];
         for s in &self.scene().shapes {
             if let Kind::Image(im) = &s.kind {
-                let key = (s.id, im.invert);
+                let key = super::image_tex_key(s.id, im);
                 keep.push(key);
                 if !self.ed().image_tex.contains_key(&key) {
                     let px: Vec<u8> = if im.invert { im.gray.iter().map(|g| 255 - g).collect() } else { im.gray.clone() };

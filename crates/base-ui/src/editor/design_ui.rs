@@ -684,7 +684,7 @@ pub trait EditorDesign: EditorHost {
                     ui.label(l);
                 }
             } else {
-                go = ui.button(tr("Apply")).clicked();
+                go = crate::widgets::apply_button(ui, &tr("Apply")).clicked();
             }
         });
         if go {
