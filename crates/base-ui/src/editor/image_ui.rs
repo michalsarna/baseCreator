@@ -437,6 +437,10 @@ pub trait EditorImages: EditorHost {
                     if let Some(s) = self.scene_mut().unlocked_mut(id) {
                         s.kind = Kind::Image(im);
                     }
+                    // The picture on the work area is made again from the new pixels at once.
+                    self.ed_mut().image_tex.retain(|k, _| k.0 != id);
+                    self.touch();
+                    ctx.request_repaint();
                 }
                 None => {
                     let (bw, bh) = self.work_size();

@@ -5,7 +5,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 
 ## v2.3.1
 
-- **A picture changed with Adjust image is shown as it is**: the work area kept the texture of the picture before the change (the key was the shape and its negative only), so the picture looked untouched while the project, and the G-code, had the new pixels; opening Adjust image again showed them, as if it had changed the picture by itself. The texture now follows the pixels (`editor::image_tex_key`), also after undo.
+- **A picture changed with Adjust image is shown as it is**: the work area kept the texture of the picture before the change (the key was the shape and its negative only), so the picture looked untouched while the project, and the G-code, had the new pixels; opening Adjust image again showed them, as if it had changed the picture by itself. The texture now follows the pixels (`editor::image_tex_key`), also after undo, and Apply makes it again at once.
 - **Every Apply button is green** (`widgets::apply_button`, `apply_widget`): Adjust image, the rotation in Properties and the windows of the design tools, as the Apply of the project setup.
 
 ## v2.3.0
