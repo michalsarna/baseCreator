@@ -157,6 +157,9 @@ pub trait EditorCanvas: EditorHost {
                 painter.add(egui::Shape::mesh(mesh));
             }
         }
+        // The shapes through `Lines`: few shapes for many outlines (a traced picture has thousands), what is out of sight left out,
+        // and a sharp turn back is not a joint whose mitre made a long spike.
+        let mut lines = crate::lines::Lines::new(rect);
         for s in &self.scene().shapes {
             let Some(c) = self.shape_color(s.layer) else { continue };
             let st = Stroke::new(self.ed().grid_prefs.line_width, c);
@@ -165,9 +168,13 @@ pub trait EditorCanvas: EditorHost {
                 if pts.len() < 2 {
                     continue;
                 }
-                painter.add(if p.closed { egui::Shape::closed_line(pts, st) } else { egui::Shape::line(pts, st) });
+                lines.add_path(&pts, st, false);
+                if p.closed {
+                    lines.add(pts[pts.len() - 1], pts[0], st, false);
+                }
             }
         }
+        lines.paint(&painter);
         self.paint_over_shapes(&view);
         if self.ed().show_dims {
             let shapes = self.scene().shapes.iter().filter(|s| self.layer_visible(s.layer));

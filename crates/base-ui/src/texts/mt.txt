@@ -1507,3 +1507,9 @@
 1506|Salva x-xogħol awtomatikament
 1507|Xogħol mingħajr isem tal-fajl imur f'folder temporanju; fajl b'isem jiġi salvat fil-post
 1508|Salva awtomatikament kull
+1509|Intaljar V
+1510|Linji b'angolu, kull waħda wiesgħa daqs kemm l-istampa hija skura tul tagħha: rqiqa fid-dawl, wiesgħa fid-dellijiet, bħal biċċa V li taqta' iktar fond u għalhekk iktar wiesa'. Kull linja tinqasam f'biċċiet li d-dawl tagħhom jiffissa l-wisa' tagħha.
+1511|Wisa' tal-linji
+1512|Tul tal-biċċiet
+1513|L-irqaq linja
+1514|Angolari

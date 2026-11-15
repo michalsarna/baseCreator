@@ -1507,3 +1507,9 @@
 1506|Guardar el trabajo automáticamente
 1507|El trabajo sin nombre de archivo va a una carpeta temporal; un archivo con nombre se guarda en su sitio
 1508|Guardar automáticamente cada
+1509|Tallado en V
+1510|Líneas en ángulo, cada una tan ancha como oscura es la imagen a lo largo de ella: fina en las luces, ancha en las sombras, como una fresa en V que corta más hondo y por tanto más ancho. Cada línea se divide en tramos cuya claridad fija su anchura.
+1511|Anchura de las líneas
+1512|Longitud de los tramos
+1513|Línea más fina
+1514|Angulosa

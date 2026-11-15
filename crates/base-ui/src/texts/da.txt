@@ -1507,3 +1507,9 @@
 1506|Gem arbejdet automatisk
 1507|Arbejde uden filnavn kommer i en midlertidig mappe; en fil med navn gemmes på stedet
 1508|Gem automatisk hver
+1509|V-udskæring
+1510|Linjer i vinkel, hver så bred som billedet er mørkt langs den: tynd i lyset, bred i skyggerne, som et V-bor der skærer dybere og dermed bredere. Hver linje deles i stykker, hvis lysstyrke bestemmer dens bredde.
+1511|Linjernes bredde
+1512|Stykkernes længde
+1513|Tyndeste linje
+1514|Kantet

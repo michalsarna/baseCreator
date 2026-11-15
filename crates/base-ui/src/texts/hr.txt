@@ -1507,3 +1507,9 @@
 1506|Automatski spremaj rad
 1507|Rad bez naziva datoteke ide u privremenu mapu; datoteka s nazivom sprema se na mjestu
 1508|Automatski spremaj svakih
+1509|V-rezbarenje
+1510|Linije pod kutom, svaka široka koliko je slika tamna uzduž nje: tanka na svjetlu, široka u sjeni, kao V-glodalo koje reže dublje i stoga šire. Svaka linija dijeli se na odsječke čija svjetlina određuje njezinu širinu.
+1511|Širina linija
+1512|Duljina odsječaka
+1513|Najtanja linija
+1514|Uglata

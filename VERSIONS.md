@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.4.0
+
+- **Style trace: V-carve** (`Style::VCarve`): lines at the angle, the width of the lines apart, each cut into pieces whose brightness sets how wide the line is there (the thinnest share in the lights, the whole width in the black), as a V-bit cuts deeper and so wider. Every line is one closed outline through the middles of its pieces, smooth (Catmull-Rom) or angular. Settings: width of the lines, length of the pieces, thinnest line, angle.
+- **Trace image: no long straight lines across the preview**: the outlines were drawn as closed lines, and a sharp turn back of an outline (a spike one pixel wide) became a mitre spike of egui that went far off the outline, even out of the picture. The preview and the shapes on the work area are drawn through `lines::Lines`, which now starts a new line at a turn back sharper than 120°; the outlines themselves were right.
+- The shapes on the work area are drawn through `Lines` (fewer shapes for thousands of outlines, nothing out of sight).
+- 6 texts in every language.
+
 ## v2.3.1
 
 - **A picture changed with Adjust image is shown as it is**: the work area kept the texture of the picture before the change (the key was the shape and its negative only), so the picture looked untouched while the project, and the G-code, had the new pixels; opening Adjust image again showed them, as if it had changed the picture by itself. The texture now follows the pixels (`editor::image_tex_key`), also after undo, and Apply makes it again at once.

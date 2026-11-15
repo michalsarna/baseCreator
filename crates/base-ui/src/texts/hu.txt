@@ -1507,3 +1507,9 @@
 1506|A munka automatikus mentése
 1507|A fájlnév nélküli munka ideiglenes mappába kerül; a nevesített fájl a helyén mentődik
 1508|Automatikus mentés ennyi időnként
+1509|V-faragás
+1510|Szögben futó vonalak, mindegyik olyan széles, amilyen sötét mentén a kép: a fényekben vékony, az árnyékokban széles, ahogy a V-maró mélyebben és így szélesebben vág. Minden vonal szakaszokra oszlik, amelyek világossága adja a szélességét.
+1511|A vonalak szélessége
+1512|A szakaszok hossza
+1513|Legvékonyabb vonal
+1514|Szögletes

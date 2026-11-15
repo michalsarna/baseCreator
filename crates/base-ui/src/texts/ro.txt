@@ -1507,3 +1507,9 @@
 1506|Salvează lucrarea automat
 1507|Lucrarea fără nume de fișier ajunge într-un dosar temporar; un fișier cu nume se salvează pe loc
 1508|Salvează automat la fiecare
+1509|Sculptare în V
+1510|Linii în unghi, fiecare atât de lată cât de închisă este imaginea de-a lungul ei: subțire în lumini, lată în umbre, cum o freză în V taie mai adânc și deci mai lat. Fiecare linie e împărțită în bucăți a căror luminozitate îi fixează lățimea.
+1511|Lățimea liniilor
+1512|Lungimea bucăților
+1513|Cea mai subțire linie
+1514|Colțuroasă

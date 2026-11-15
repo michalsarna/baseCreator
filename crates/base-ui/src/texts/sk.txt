@@ -1507,3 +1507,9 @@
 1506|Ukladať prácu automaticky
 1507|Práca bez názvu súboru ide do dočasného priečinka; súbor s názvom sa uloží na mieste
 1508|Automaticky ukladať každých
+1509|Rytie do V
+1510|Čiary pod uhlom, každá taká široká, aký tmavý je obrázok pozdĺž nej: tenká vo svetlách, široká v tieňoch, ako V-fréza, ktorá reže hlbšie, a teda širšie. Každá čiara sa delí na úseky, ktorých jas určuje jej šírku.
+1511|Šírka čiar
+1512|Dĺžka úsekov
+1513|Najtenšia čiara
+1514|Hranatá

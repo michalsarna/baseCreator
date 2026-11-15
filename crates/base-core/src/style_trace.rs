@@ -32,6 +32,7 @@ pub enum Style {
     FlowLines,
     Sketch,
     Scribble,
+    VCarve,
 }
 
 /// The settings a style uses; their meaning (and the label) depends on the style, see [`Style::knobs`].
@@ -67,7 +68,7 @@ const CELL: KnobSpec = k(Knob::Spacing, "Cell size", 0.5, 30.0, " mm", 2);
 const DOTS: KnobSpec = k(Knob::Detail, "Number of dots", 100.0, 30000.0, "", 0);
 
 impl Style {
-    pub const ALL: [Style; 19] = [
+    pub const ALL: [Style; 20] = [
         Style::Squiggle,
         Style::Sawtooth,
         Style::Springs,
@@ -87,6 +88,7 @@ impl Style {
         Style::FlowLines,
         Style::Sketch,
         Style::Scribble,
+        Style::VCarve,
     ];
 
     pub fn label(self) -> &'static str {
@@ -110,6 +112,7 @@ impl Style {
             Style::FlowLines => "Flow lines",
             Style::Sketch => "Sketch",
             Style::Scribble => "Scribble",
+            Style::VCarve => "V-carve",
         }
     }
 
@@ -134,6 +137,7 @@ impl Style {
             Style::FlowLines => "Long lines that flow along the shapes, closer together where it is darker.",
             Style::Sketch => "Many short straight strokes laid where the picture is darkest, as in a pencil sketch.",
             Style::Scribble => "One wandering line of loops that scribbles the dark parts in.",
+            Style::VCarve => "Lines at the angle, each as wide as the picture is dark along it: thin in the lights, wide in the shadows, as a V-bit cuts deeper and so wider. Every line is cut into pieces whose brightness sets its width.",
         }
     }
 
@@ -164,6 +168,12 @@ impl Style {
             ]; L },
             Style::Sketch => { const L: &[KnobSpec] = &[k(Knob::Spacing, "Stroke length", 0.5, 50.0, " mm", 1), k(Knob::Detail, "Number of strokes", 50.0, 30000.0, "", 0), k(Knob::Strength, "Ink of one stroke", 0.02, 1.0, "", 2)]; L },
             Style::Scribble => { const L: &[KnobSpec] = &[k(Knob::Spacing, "Loop size", 0.3, 20.0, " mm", 2), k(Knob::Detail, "Length of the line", 0.5, 500.0, " m", 1), k(Knob::Strength, "Ink of one pass", 0.02, 1.0, "", 2)]; L },
+            Style::VCarve => { const L: &[KnobSpec] = &[
+                k(Knob::Spacing, "Width of the lines", 0.3, 20.0, " mm", 2),
+                k(Knob::Detail, "Length of the pieces", 0.1, 20.0, " mm", 2),
+                k(Knob::Strength, "Thinnest line", 0.0, 1.0, "", 2),
+                ANGLE,
+            ]; L },
         }
     }
 
@@ -182,6 +192,7 @@ impl Style {
             Style::LineArt => &["Edges", "Edges and the dark areas"],
             Style::FlowLines => &["Along the shapes", "Flow field"],
             Style::Sketch => &["Separate strokes", "Strokes in chains"],
+            Style::VCarve => &["Smooth", "Angular"],
             _ => &[],
         }
     }
@@ -214,6 +225,7 @@ impl Style {
             Style::FlowLines => (0.8, 20.0, 6.0, 0.0),
             Style::Sketch => (6.0, 0.3, 3000.0, 0.0),
             Style::Scribble => (3.0, 0.25, 60.0, 0.0),
+            Style::VCarve => (2.0, 0.05, 1.0, 0.0),
         };
         StyleParams { spacing, strength, detail, angle, ..p }
     }
@@ -377,6 +389,10 @@ pub fn style_trace(im: &ImageData, params: &StyleParams, stop: &dyn Fn() -> bool
         }
         Style::Scribble => {
             scribble(im, &p, &mut out, stop);
+            false
+        }
+        Style::VCarve => {
+            vcarve(im, &p, &mut out);
             false
         }
     };
@@ -733,6 +749,91 @@ fn rows_wave(im: &ImageData, p: &StyleParams, out: &mut Out) {
         }
         pen.lift(out);
     }
+}
+
+/// V-carve: lines at the angle, the width of the lines apart, each cut into pieces of the given length; the brightness of a piece
+/// sets how wide the line is there (the thinnest share of the width in the lights, the whole width in the black), as a V-bit cuts
+/// deeper and so wider where the picture is darker. Every line is one closed outline: its upper edge along, its lower edge back,
+/// through the middles of the pieces with straight pieces (angular) or a smooth curve.
+fn vcarve(im: &ImageData, p: &StyleParams, out: &mut Out) {
+    let gap = p.spacing;
+    let piece = p.detail.max(0.05);
+    let f = Field::new(im, p, (piece.min(gap) / 4.0).max(0.05), 1_500_000);
+    let least = p.strength.clamp(0.0, 1.0);
+    let smooth = p.variant == 0;
+    let clamp = |q: Pt| Pt::new(q.x.clamp(0.0, f.w), q.y.clamp(0.0, f.h));
+    for (start, u, n, len) in rows(f.w, f.h, p.angle, gap) {
+        if !out.room() {
+            return;
+        }
+        // In the middle of its band, not on its edge: no line half out of the picture.
+        let start = add(start, n, gap / 2.0);
+        // The part of the line in the picture.
+        let Some((t0, t1)) = clip_line(start, u, len, f.w, f.h) else { continue };
+        if t1 - t0 < piece * 0.5 {
+            continue;
+        }
+        let count = ((t1 - t0) / piece).ceil().max(1.0) as usize;
+        let step = (t1 - t0) / count as f64;
+        // The middle of every piece and its half width (its darkness read at a few points along it).
+        let mut mids: Vec<(f64, f64)> = (0..count)
+            .map(|i| {
+                let (a, b) = (t0 + i as f64 * step, t0 + (i + 1) as f64 * step);
+                let samples = 5;
+                let dark = (0..samples).map(|j| f.at(add(start, u, a + (b - a) * (j as f64 + 0.5) / samples as f64))).sum::<f64>() / samples as f64;
+                ((a + b) / 2.0, gap * (least + (1.0 - least) * dark.clamp(0.0, 1.0)) / 2.0)
+            })
+            .collect();
+        // The ends of the line keep the width of the piece next to them.
+        mids.insert(0, (t0, mids[0].1));
+        let last = mids[mids.len() - 1].1;
+        mids.push((t1, last));
+        if mids.iter().all(|(_, h)| *h < 1e-4) {
+            continue;
+        }
+        let edge: Vec<(f64, f64)> = if smooth { catmull(&mids, 6) } else { mids };
+        let mut pts: Vec<Pt> = edge.iter().map(|(t, h)| clamp(add(add(start, u, *t), n, -h))).collect();
+        pts.extend(edge.iter().rev().map(|(t, h)| clamp(add(add(start, u, *t), n, *h))));
+        out.push(pts, true);
+    }
+}
+
+/// The part `[t0, t1]` of the line `start + u·t`, `t` in `0..len`, that is in the picture `0..w × 0..h`.
+fn clip_line(start: Pt, u: Pt, len: f64, w: f64, h: f64) -> Option<(f64, f64)> {
+    let (mut t0, mut t1) = (0.0f64, len);
+    for (p0, d, lo, hi) in [(start.x, u.x, 0.0, w), (start.y, u.y, 0.0, h)] {
+        if d.abs() < 1e-12 {
+            if p0 < lo || p0 > hi {
+                return None;
+            }
+            continue;
+        }
+        let (a, b) = ((lo - p0) / d, (hi - p0) / d);
+        let (a, b) = if a < b { (a, b) } else { (b, a) };
+        t0 = t0.max(a);
+        t1 = t1.min(b);
+    }
+    (t1 > t0).then_some((t0, t1))
+}
+
+/// A smooth curve through the points `(t, value)` (Catmull-Rom), `per` points for every gap between two of them.
+fn catmull(p: &[(f64, f64)], per: usize) -> Vec<(f64, f64)> {
+    if p.len() < 3 {
+        return p.to_vec();
+    }
+    let at = |i: isize| p[i.clamp(0, p.len() as isize - 1) as usize];
+    let mut out = vec![p[0]];
+    for i in 0..p.len() as isize - 1 {
+        let (p0, p1, p2, p3) = (at(i - 1), at(i), at(i + 1), at(i + 2));
+        for k in 1..=per {
+            let s = k as f64 / per as f64;
+            let (s2, s3) = (s * s, s * s * s);
+            let c = |a: f64, b: f64, c: f64, d: f64| 0.5 * (2.0 * b + (-a + c) * s + (2.0 * a - 5.0 * b + 4.0 * c - d) * s2 + (-a + 3.0 * b - 3.0 * c + d) * s3);
+            // Along the line the points stay in order (the middles are evenly spaced); the width never goes below zero.
+            out.push((p1.0 + (p2.0 - p1.0) * s, c(p0.1, p1.1, p2.1, p3.1).max(0.0)));
+        }
+    }
+    out
 }
 
 /// A triangle wave of the phase, -1..1.
@@ -2119,6 +2220,31 @@ mod tests {
             .sum()
     }
 
+    /// V-carve: one closed outline for every line, wide where the picture is dark and thin where it is light, never wider than the
+    /// width of the lines and never out of the picture; the angular variant has the same lines, and an angle turns them.
+    #[test]
+    fn v_carve_lines_are_wide_in_the_dark_and_thin_in_the_light() {
+        let im = gradient();
+        let p = StyleParams { spacing: 2.0, detail: 1.0, strength: 0.1, ..Style::VCarve.defaults() };
+        let out = style_trace(&im, &p, &never);
+        assert_eq!(out.lines.len(), 20, "40 mm of 2 mm lines");
+        assert!(out.lines.iter().all(|l| l.closed));
+        assert!(out.lines.iter().flat_map(|l| l.pts.iter()).all(|q| q.x >= 0.0 && q.y >= 0.0 && q.x <= 60.0 && q.y <= 40.0));
+        // The width of one line at a place: from its outline, the distance between its two edges there.
+        let width_at = |l: &Polyline, x: f64| {
+            let ys: Vec<f64> = l.pts.windows(2).filter(|s| (s[0].x - x) * (s[1].x - x) <= 0.0 && (s[1].x - s[0].x).abs() > 1e-9).map(|s| s[0].y + (x - s[0].x) / (s[1].x - s[0].x) * (s[1].y - s[0].y)).collect();
+            ys.iter().cloned().fold(f64::MIN, f64::max) - ys.iter().cloned().fold(f64::MAX, f64::min)
+        };
+        let l = &out.lines[10];
+        let (dark, light) = (width_at(l, 3.0), width_at(l, 57.0));
+        assert!(dark > 1.6 && dark <= 2.0 + 1e-9, "nearly the whole width in the dark: {dark}");
+        assert!(light < 0.5 && light >= 0.2 - 1e-6, "the thinnest share in the light: {light}");
+        let angular = style_trace(&im, &StyleParams { variant: 1, ..p }, &never);
+        assert_eq!(angular.lines.len(), out.lines.len(), "the same lines, with straight pieces");
+        let turned = style_trace(&im, &StyleParams { angle: 45.0, ..p }, &never);
+        assert!(turned.lines.len() > out.lines.len(), "at 45° more, shorter lines cross the picture");
+    }
+
     fn small(s: Style) -> StyleParams {
         let mut p = s.defaults();
         // Keep the slow styles quick in the tests.
@@ -2139,8 +2265,9 @@ mod tests {
         let white = picture(60, 40, |_, _| 255);
         for s in Style::ALL {
             let o = style_trace(&white, &small(s), &never);
-            // A wave or a spiral row is still drawn over white (flat), unless the pen is lifted there.
-            if matches!(s, Style::Squiggle | Style::Sawtooth | Style::Springs | Style::Spiral | Style::Waves | Style::Hilbert) {
+            // A wave or a spiral row is still drawn over white (flat), unless the pen is lifted there; a V-carve line is the thinnest
+            // line there.
+            if matches!(s, Style::Squiggle | Style::Sawtooth | Style::Springs | Style::Spiral | Style::Waves | Style::Hilbert | Style::VCarve) {
                 continue;
             }
             assert!(o.lines.is_empty(), "{s:?} drew {} lines on white", o.lines.len());
@@ -2150,6 +2277,7 @@ mod tests {
             p.variant = 1;
             assert!(style_trace(&white, &p, &never).lines.is_empty(), "{s:?} with the pen lifted over white");
         }
+        assert!(style_trace(&white, &StyleParams { strength: 0.0, ..small(Style::VCarve) }, &never).lines.is_empty(), "V-carve with no thinnest line");
     }
 
     #[test]

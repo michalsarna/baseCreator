@@ -1507,3 +1507,9 @@
 1506|Ukládat práci automaticky
 1507|Práce bez názvu souboru jde do dočasné složky; soubor s názvem se uloží na místě
 1508|Automaticky ukládat každých
+1509|Rytí do V
+1510|Čáry pod úhlem, každá tak široká, jak tmavý je obrázek podél ní: tenká ve světlech, široká ve stínech, jako V-fréza, která řeže hlouběji, a tedy šířeji. Každá čára se dělí na úseky, jejichž jas určuje její šířku.
+1511|Šířka čar
+1512|Délka úseků
+1513|Nejtenčí čára
+1514|Hranatá

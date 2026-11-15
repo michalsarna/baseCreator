@@ -1507,3 +1507,9 @@
 1506|Guardar o trabalho automaticamente
 1507|O trabalho sem nome de ficheiro vai para uma pasta temporária; um ficheiro com nome é guardado no mesmo sítio
 1508|Guardar automaticamente a cada
+1509|Entalhe em V
+1510|Linhas em ângulo, cada uma tão larga quanto a imagem é escura ao longo dela: fina nas luzes, larga nas sombras, como uma fresa em V que corta mais fundo e por isso mais largo. Cada linha é dividida em troços cujo brilho fixa a sua largura.
+1511|Largura das linhas
+1512|Comprimento dos troços
+1513|Linha mais fina
+1514|Angulosa

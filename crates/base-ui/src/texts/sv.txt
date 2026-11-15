@@ -1507,3 +1507,9 @@
 1506|Spara arbetet automatiskt
 1507|Arbete utan filnamn hamnar i en tillfällig mapp; en fil med namn sparas på plats
 1508|Spara automatiskt var
+1509|V-snidning
+1510|Linjer i vinkel, var och en så bred som bilden är mörk längs den: tunn i ljuset, bred i skuggorna, som ett V-skär skär djupare och därmed bredare. Varje linje delas i bitar vars ljushet bestämmer dess bredd.
+1511|Linjernas bredd
+1512|Bitarnas längd
+1513|Tunnaste linje
+1514|Kantig

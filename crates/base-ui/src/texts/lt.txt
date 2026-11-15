@@ -1507,3 +1507,9 @@
 1506|Įrašyti darbą automatiškai
 1507|Darbas be failo pavadinimo patenka į laikinąjį aplanką; failas su pavadinimu įrašomas vietoje
 1508|Įrašyti automatiškai kas
+1509|V raižymas
+1510|Linijos kampu, kiekviena tokia plati, kokia tamsi palei ją paveikslo dalis: šviesiose vietose plona, šešėliuose plati, kaip V frezeris pjauna giliau ir todėl plačiau. Kiekviena linija dalijama į atkarpas, kurių šviesumas nustato jos plotį.
+1511|Linijų plotis
+1512|Atkarpų ilgis
+1513|Ploniausia linija
+1514|Kampuota

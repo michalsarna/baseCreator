@@ -1507,3 +1507,9 @@
 1506|Sábháil an obair go huathoibríoch
 1507|Téann obair gan ainm comhaid isteach i bhfillteán sealadach; sábháiltear comhad le hainm san áit chéanna
 1508|Sábháil go huathoibríoch gach
+1509|Snoíodóireacht V
+1510|Línte ar uillinn, gach ceann chomh leathan agus atá an pictiúr dorcha ar a fhad: tanaí sna soilse, leathan sna scáthanna, mar a ghearrann giotán V níos doimhne agus mar sin níos leithne. Roinntear gach líne ina píosaí a socraíonn a ngile a leithead.
+1511|Leithead na línte
+1512|Fad na bpíosaí
+1513|An líne is tanaí
+1514|Uilleach

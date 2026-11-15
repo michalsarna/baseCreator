@@ -41,6 +41,7 @@ Style, które korzystają z przypadku (puentylizm, linie przepływu, szkic, bazg
 | **Linie przepływu** | Długie linie płynące wzdłuż kształtów, bliżej siebie tam, gdzie jest ciemniej. | **Najmniejszy odstęp** (w najciemniejszych miejscach), **Największy odstęp** (w najjaśniejszych), **Wielkość zakrętów**, **Kąt**; Rodzaj: wzdłuż kształtów albo losowe pole przepływu. |
 | **Szkic** | Wiele krótkich prostych kresek tam, gdzie obraz jest najciemniejszy, jak w szkicu ołówkiem. | **Długość kreski**, **Liczba kresek**, **Tusz jednej kreski** (ile ciemności zabiera jedna kreska); Rodzaj: osobne kreski albo kreski w łańcuchach. |
 | **Bazgroły** | Jedna błądząca linia pętelek, która zabazgruje ciemne części. | **Wielkość pętli**, **Długość linii** (metry), **Tusz jednego przejścia**. |
+| **Rzeźbienie V** (V-carve) | Linie pod kątem, każda tak szeroka, jak ciemny jest obraz wzdłuż niej: cienka w światłach, szeroka w cieniach, jak frez V, który wchodzi głębiej, a więc szerzej. Każda linia jest dzielona na odcinki, których jasność ustala jej szerokość; każda linia to jeden zamknięty kontur. Warianty: **Gładki** (płynna krzywa przez odcinki) albo **Kanciasty** (proste między nimi). | **Szerokość linii** (też najszersza linia), **Długość odcinków**, **Najcieńsza linia** (część szerokości w bieli; 0: tam nic), **Kąt**. |
 
 ## Dobrze wiedzieć
 

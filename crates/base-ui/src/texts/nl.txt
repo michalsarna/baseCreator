@@ -1507,3 +1507,9 @@
 1506|Het werk automatisch opslaan
 1507|Werk zonder bestandsnaam gaat naar een tijdelijke map; een bestand met naam wordt ter plaatse opgeslagen
 1508|Automatisch opslaan elke
+1509|V-snijwerk
+1510|Lijnen onder een hoek, elk zo breed als de afbeelding er langs donker is: dun in het licht, breed in de schaduw, zoals een V-frees dieper en dus breder snijdt. Elke lijn wordt in stukken verdeeld waarvan de helderheid de breedte bepaalt.
+1511|Breedte van de lijnen
+1512|Lengte van de stukken
+1513|Dunste lijn
+1514|Hoekig

@@ -1507,3 +1507,9 @@
 1506|Salvesta töö automaatselt
 1507|Failinimeta töö läheb ajutisse kausta; nimega fail salvestatakse kohapeal
 1508|Salvesta automaatselt iga
+1509|V-nikerdus
+1510|Jooned nurga all, igaüks nii lai kui pilt on selle kohal tume: valguses õhuke, varjus lai, nagu V-frees lõikab sügavamalt ja seega laiemalt. Iga joon jagatakse tükkideks, mille heledus määrab selle laiuse.
+1511|Joonte laius
+1512|Tükkide pikkus
+1513|Kõige õhem joon
+1514|Nurgeline

@@ -1507,3 +1507,9 @@
 1506|Lagre arbeidet automatisk
 1507|Arbeid uten filnavn havner i en midlertidig mappe; en fil med navn lagres på stedet
 1508|Lagre automatisk hvert
+1509|V-utskjæring
+1510|Linjer på skrå, hver så bred som bildet er mørkt langs den: tynn i lyset, bred i skyggene, slik en V-fres skjærer dypere og dermed bredere. Hver linje deles i stykker der lysstyrken bestemmer bredden.
+1511|Bredden på linjene
+1512|Lengden på stykkene
+1513|Tynneste linje
+1514|Kantet
