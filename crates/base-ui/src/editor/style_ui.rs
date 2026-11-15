@@ -253,46 +253,50 @@ fn controls(ui: &mut egui::Ui, d: &mut StyleDlg, layers: &[(usize, String, Color
     });
     ui.label(RichText::new(tr(p.style.hint())).color(theme::text_dim()));
     ui.add_space(4.0);
-    egui::Grid::new("style_knobs").num_columns(2).spacing([8.0, 6.0]).show(ui, |ui| {
-        let variants = p.style.variants();
-        if !variants.is_empty() {
-            ui.label(tr("Kind"));
-            let mut v = p.variant.min(variants.len() as u8 - 1);
-            egui::ComboBox::from_id_salt("style_variant").width(170.0).selected_text(tr(variants[v as usize])).show_ui(ui, |ui| {
-                for (i, name) in variants.iter().enumerate() {
-                    ui.selectable_value(&mut v, i as u8, tr(name));
-                }
-            });
-            p.variant = v;
-            ui.end_row();
+    // Every setting of the style: its name on a line of its own, the slider and its value under it as wide as the column, so
+    // that a long name (in any language) does not push the value out of sight.
+    let wide = |ui: &mut egui::Ui| (ui.available_width() - 96.0).max(80.0);
+    let variants = p.style.variants();
+    if !variants.is_empty() {
+        ui.label(tr("Kind"));
+        let mut v = p.variant.min(variants.len() as u8 - 1);
+        egui::ComboBox::from_id_salt("style_variant").width(ui.available_width().min(260.0)).selected_text(tr(variants[v as usize])).show_ui(ui, |ui| {
+            for (i, name) in variants.iter().enumerate() {
+                ui.selectable_value(&mut v, i as u8, tr(name));
+            }
+        });
+        p.variant = v;
+        ui.add_space(2.0);
+    }
+    for k in p.style.knobs() {
+        ui.label(tr(k.label));
+        let mut v = p.get(k.knob);
+        let mut s = egui::Slider::new(&mut v, k.min..=k.max).fixed_decimals(k.decimals).suffix(k.unit);
+        if k.max / k.min.abs().max(1e-3) > 200.0 && k.min > 0.0 {
+            s = s.logarithmic(true);
         }
-        for k in p.style.knobs() {
-            ui.label(tr(k.label));
-            let mut v = p.get(k.knob);
-            let mut s = egui::Slider::new(&mut v, k.min..=k.max).fixed_decimals(k.decimals).suffix(k.unit);
-            if k.max / k.min.abs().max(1e-3) > 200.0 && k.min > 0.0 {
-                s = s.logarithmic(true);
-            }
-            if k.decimals == 0 {
-                s = s.step_by(1.0);
-            }
+        if k.decimals == 0 {
+            s = s.step_by(1.0);
+        }
+        // The width only for this slider (the sliders of the tone keep theirs).
+        ui.scope(|ui| {
+            ui.spacing_mut().slider_width = wide(ui);
             ui.add(s);
-            p.set(k.knob, v);
-            ui.end_row();
-        }
-        if p.style.random() {
+        });
+        p.set(k.knob, v);
+        ui.add_space(2.0);
+    }
+    if p.style.random() {
+        ui.horizontal(|ui| {
             ui.label(tr("Random pattern"));
-            ui.horizontal(|ui| {
-                let mut seed = p.seed;
-                ui.add(egui::DragValue::new(&mut seed).range(1..=99_999));
-                if ui.button(tr("Another")).clicked() {
-                    seed = seed % 99_999 + 1;
-                }
-                p.seed = seed;
-            });
-            ui.end_row();
-        }
-    });
+            let mut seed = p.seed;
+            ui.add(egui::DragValue::new(&mut seed).range(1..=99_999));
+            if ui.button(tr("Another")).clicked() {
+                seed = seed % 99_999 + 1;
+            }
+            p.seed = seed;
+        });
+    }
     ui.separator();
     ui.label(RichText::new(tr("Tone")).strong());
     egui::Grid::new("style_tone").num_columns(2).spacing([8.0, 6.0]).show(ui, |ui| {
