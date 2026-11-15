@@ -1520,3 +1520,5 @@
 1519|Hulknurkade arv
 1520|Järgi servi
 1521|Kolm- ja nelinurgad
+1522|Pildi stiilid
+1523|Stiilide joonistamine…

@@ -1520,3 +1520,5 @@
 1519	Number of polygons
 1520	Follow the edges
 1521	Triangles and quadrangles
+1522	Picture styles
+1523	Drawing the styles…

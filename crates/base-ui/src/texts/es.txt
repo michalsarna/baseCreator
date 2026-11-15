@@ -1520,3 +1520,5 @@
 1519|Número de polígonos
 1520|Seguir los bordes
 1521|Triángulos y cuadriláteros
+1522|Estilos de imagen
+1523|Dibujando los estilos…

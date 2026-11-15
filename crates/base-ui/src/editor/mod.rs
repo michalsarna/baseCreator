@@ -9,6 +9,7 @@ mod host;
 mod keys;
 mod image_ui;
 mod style_ui;
+pub mod style_gallery;
 mod prefs;
 mod props;
 mod background_ui;

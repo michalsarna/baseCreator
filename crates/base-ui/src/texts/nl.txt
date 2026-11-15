@@ -1520,3 +1520,5 @@
 1519|Aantal veelhoeken
 1520|Volg de randen
 1521|Driehoeken en vierhoeken
+1522|Afbeeldingsstijlen
+1523|De stijlen worden getekend…
