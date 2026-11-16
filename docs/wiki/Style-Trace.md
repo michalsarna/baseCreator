@@ -56,4 +56,4 @@ See also: [Design Tools](Design-Tools), [Menus](Menus).
 
 ## The panel of picture styles
 
-While a picture is selected, the side panel has a tab **Picture styles** (it opens by itself when a picture becomes selected and goes when none is). At its top a button as wide as the panel opens **Trace image…**; under it, as in the gallery, a small picture of every style (a triangle drawn in that style). A click on one opens **Style trace** with that style already chosen.
+While a picture is selected, the side panel has a tab **Picture styles** (it opens by itself when a picture becomes selected and goes when none is). At its top an orange button as wide as the panel opens **Edit image…** (the photo editor), and one under it **Trace image…**; under it, as in the gallery, a small picture of every style (a triangle drawn in that style). A click on one opens **Style trace** with that style already chosen.

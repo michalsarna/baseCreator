@@ -15,6 +15,8 @@ struct Sel {
     grouped: bool,
     several: bool,
     image: bool,
+    /// Shapes, none of them a picture (they can be turned into one).
+    to_image: bool,
 }
 
 fn selection<H: EditorHost>(h: &H) -> Sel {
@@ -26,6 +28,7 @@ fn selection<H: EditorHost>(h: &H) -> Sel {
         grouped: shapes.iter().any(|s| s.group.is_some()),
         several: shapes.len() >= 2,
         image: shapes.len() == 1 && matches!(shapes[0].kind, Kind::Image(_)),
+        to_image: !shapes.is_empty() && !shapes.iter().any(|s| matches!(s.kind, Kind::Image(_))),
     }
 }
 
@@ -42,7 +45,8 @@ fn allowed<H: EditorHost>(h: &H, s: &Sel, act: StdAct) -> bool {
         StdAct::OffsetShape => s.any,
         StdAct::AutoJoin | StdAct::ClosePath | StdAct::DogboneCorners | StdAct::GridArray | StdAct::CircleArray | StdAct::CopyAlongPath | StdAct::NestShapes => s.any,
         StdAct::Unlock => s.locked,
-        StdAct::AdjustImage | StdAct::TraceImage | StdAct::StyleTrace => s.image,
+        StdAct::AdjustImage | StdAct::EditImage | StdAct::TraceImage | StdAct::StyleTrace => s.image,
+        StdAct::ToImage => s.to_image,
         _ => act.enabled(h),
     }
 }
@@ -179,8 +183,13 @@ pub fn context_menu<H: EditorHost>(h: &mut H, ui: &mut egui::Ui, resp: &egui::Re
         if sel.image {
             ui.separator();
             item(ui, StdAct::AdjustImage, "Adjust image…");
+            item(ui, StdAct::EditImage, "Edit image…");
             item(ui, StdAct::TraceImage, "Trace image…");
             item(ui, StdAct::StyleTrace, "Style trace…");
+        }
+        if sel.to_image {
+            ui.separator();
+            item(ui, StdAct::ToImage, "Convert to image…");
         }
         if h.can_add_zones() {
             ui.separator();

@@ -1522,3 +1522,40 @@
 1521|Trikotniki in štirikotniki
 1522|Slogi slike
 1523|Risanje slogov…
+1524|Orodje
+1525|Siva
+1526|Kako temno: 0 % je belo, 100 % črno
+1527|Trdota
+1528|Koliko lahko siva odstopa, da se še zapolni
+1529|Ctrl+klik (Cmd+klik) izbere drugo mesto za kopiranje
+1530|Najprej Ctrl+klik (Cmd+klik) tam, od koder kopirati
+1531|Kolesce povečuje; vlečenje z desnim ali srednjim gumbom premika sliko.
+1532|Uredi sliko
+1533|Uredi sliko…
+1534|Slika je zaklenjena
+1535|Čopič
+1536|Radirka
+1537|Kloniranje
+1538|Zapolni
+1539|Slika z izbrano sivo
+1540|Slika belo, kot nedotaknjen material
+1541|Kopira eno mesto slike na drugo: Ctrl+klik (Cmd+klik) na vir, nato slikajte
+1542|Zapolni območje podobnih sivih okoli kliknjene točke
+1543|Oblike nimajo velikosti
+1544|Ločljivost
+1545|{} črt na milimeter
+1546|Velikost predmetov
+1547|{} × {} slikovnih pik
+1548|Risanje
+1549|Zapolni zaprte oblike
+1550|Debelina črte
+1551|Nato izbriši predmete
+1552|Skrij predmete
+1553|Samo v predogledu: sama slika, brez obrisov predmetov
+1554|Pretvori v sliko
+1555|Pretvori v sliko…
+1556|Pretvori
+1557|Čopič, radirka, klonirni žig in zapolnitev, v sivinah
+1558|Skrij sliko
+1559|Samo v predogledu: samo obrisi
+1560|Samo v predogledu: samo črte

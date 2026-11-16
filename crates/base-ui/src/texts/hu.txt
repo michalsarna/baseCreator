@@ -1522,3 +1522,40 @@
 1521|Háromszögek és négyszögek
 1522|Képstílusok
 1523|Stílusok rajzolása…
+1524|Eszköz
+1525|Szürke
+1526|Mennyire sötét: 0 % fehér, 100 % fekete
+1527|Keménység
+1528|Mennyire térhet el egy szürke, hogy még kitöltődjön
+1529|Ctrl+kattintás (Cmd+kattintás) másik másolási helyet választ
+1530|Először Ctrl+kattintás (Cmd+kattintás) oda, ahonnan másolni kell
+1531|Görgetés nagyít; jobb vagy középső gombbal húzva mozgatja a képet.
+1532|Kép szerkesztése
+1533|Kép szerkesztése…
+1534|A kép zárolva van
+1535|Ecset
+1536|Radír
+1537|Klónozás
+1538|Kitöltés
+1539|A kiválasztott szürkével fest
+1540|Fehérrel fest, mint az érintetlen anyag
+1541|A kép egyik helyét a másikra másolja: Ctrl+kattintás (Cmd+kattintás) a forrásra, majd festés
+1542|Kitölti a kattintott pont körüli hasonló szürkék területét
+1543|Az alakzatoknak nincs méretük
+1544|Felbontás
+1545|{} vonal milliméterenként
+1546|Az objektumok mérete
+1547|{} × {} képpont
+1548|Rajzolás
+1549|Zárt alakzatok kitöltése
+1550|Vonalvastagság
+1551|Utána törölje az objektumokat
+1552|Objektumok elrejtése
+1553|Csak az előnézetben: csak a kép, az objektumok körvonalai nélkül
+1554|Átalakítás képpé
+1555|Átalakítás képpé…
+1556|Átalakítás
+1557|Ecset, radír, klónozó bélyegző és kitöltés, szürkékben
+1558|Kép elrejtése
+1559|Csak az előnézetben: csak a körvonalak
+1560|Csak az előnézetben: csak a vonalak

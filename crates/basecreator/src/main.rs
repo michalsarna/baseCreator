@@ -604,6 +604,10 @@ impl App {
     }
 
     fn undo(&mut self) {
+        // While the photo editor is open, its own strokes are undone, not the drawing.
+        if base_ui::editor::photo_edit::take_undo(self, false) {
+            return;
+        }
         if let Some(s) = self.history.back(&self.scene) {
             self.scene = s;
             self.touch_rev();
@@ -612,6 +616,10 @@ impl App {
     }
 
     fn redo(&mut self) {
+        // While the photo editor is open, its own strokes are undone, not the drawing.
+        if base_ui::editor::photo_edit::take_undo(self, true) {
+            return;
+        }
         if let Some(s) = self.history.forward(&self.scene) {
             self.scene = s;
             self.touch_rev();

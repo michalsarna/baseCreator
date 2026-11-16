@@ -1522,3 +1522,40 @@
 1521|Kolm- ja nelinurgad
 1522|Pildi stiilid
 1523|Stiilide joonistamine…
+1524|Tööriist
+1525|Hall
+1526|Kui tume: 0 % on valge, 100 % must
+1527|Kõvadus
+1528|Kui palju võib hall erineda ja ikka täidetud saada
+1529|Ctrl+klõps (Cmd+klõps) valib teise koha, kust kopeerida
+1530|Esmalt Ctrl+klõps (Cmd+klõps) kohal, kust kopeerida
+1531|Keri suumimiseks; lohista parema või keskmise nupuga pildi liigutamiseks.
+1532|Muuda pilti
+1533|Muuda pilti…
+1534|Pilt on lukus
+1535|Pintsel
+1536|Kustukumm
+1537|Kloonimine
+1538|Täide
+1539|Maalib valitud halliga
+1540|Maalib valgeks, nagu puutumata materjal
+1541|Kopeerib pildi ühe koha teise: Ctrl+klõps (Cmd+klõps) allikal, siis maali
+1542|Täidab klõpsatud punkti ümber sarnaste hallide ala
+1543|Kujunditel pole suurust
+1544|Eraldusvõime
+1545|{} joont millimeetri kohta
+1546|Objektide suurus
+1547|{} × {} pikslit
+1548|Joonistus
+1549|Täida suletud kujundid
+1550|Joone laius
+1551|Kustuta objektid pärast
+1552|Peida objektid
+1553|Ainult eelvaates: pilt üksi, ilma objektide piirjoonteta
+1554|Teisenda pildiks
+1555|Teisenda pildiks…
+1556|Teisenda
+1557|Pintsel, kustukumm, kloonitempel ja täide, hallitoonides
+1558|Peida pilt
+1559|Ainult eelvaates: ainult piirjooned
+1560|Ainult eelvaates: ainult jooned

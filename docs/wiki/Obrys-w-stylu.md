@@ -56,4 +56,4 @@ Zobacz też: [Narzędzia projektowe](Narzedzia-projektowe), [Menu](Menu).
 
 ## Panel stylów obrazu
 
-Gdy zaznaczony jest obraz, panel boczny ma kartę **Style obrazu** (otwiera się sama, gdy obraz zostaje zaznaczony, i znika, gdy żaden nie jest). Na górze przycisk na całą szerokość otwiera **Obrysuj obraz…**; pod nim, jak w galerii, mały obrazek każdego stylu (trójkąt narysowany w tym stylu). Kliknięcie otwiera **Obrysuj w stylu** od razu z tym stylem.
+Gdy zaznaczony jest obraz, panel boczny ma kartę **Style obrazu** (otwiera się sama, gdy obraz zostaje zaznaczony, i znika, gdy żaden nie jest). Na górze pomarańczowy przycisk na całą szerokość otwiera **Edytuj obraz…** (edytor zdjęć), pod nim drugi otwiera **Wektoryzacja obrazu…**; pod nim, jak w galerii, mały obrazek każdego stylu (trójkąt narysowany w tym stylu). Kliknięcie otwiera **Obrysuj w stylu** od razu z tym stylem.

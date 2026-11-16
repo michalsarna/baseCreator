@@ -45,9 +45,10 @@ Te same polecenia są w menu kształtu pod prawym przyciskiem; opisuje je strona
 * **Tablica siatkowa…**, **Tablica kołowa…**, **Kopiuj wzdłuż ścieżki…**, **Tekst na ścieżce…**
 * **Przytnij kształtem…**, **Usuń duplikaty**, **Rozdziel**, **Uprość…**
 * **Tekst seryjny…**, **Kod kreskowy / QR…**, **Rozmieść kształty (nesting)…**, **Pomiar…**
-* **Dostosuj obraz…**, **Wektoryzacja obrazu…**
+* **Dostosuj obraz…**, **Edytuj obraz…** (edytor zdjęć), **Wektoryzacja obrazu…**
 * **Obrysuj w stylu…**: zaznaczony obraz narysowany na nowo liniami w jednym z 21 stylów ([Obrysuj w stylu](Obrys-w-stylu)).
 * **Wielokąty geometryczne…**: zaznaczony obraz jako geometryczne wielokąty z odstępem między nimi (okno obrysu w stylu na tym stylu).
+* **Zamień na obraz…**: zaznaczone kształty jako jeden obraz.
 
 ## Widok
 

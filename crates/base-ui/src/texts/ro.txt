@@ -1522,3 +1522,40 @@
 1521|Triunghiuri și patrulatere
 1522|Stiluri de imagine
 1523|Se desenează stilurile…
+1524|Instrument
+1525|Gri
+1526|Cât de închis: 0 % este alb, 100 % negru
+1527|Duritate
+1528|Cât de diferit poate fi un gri și să fie totuși umplut
+1529|Ctrl+clic (Cmd+clic) alege alt loc din care se copiază
+1530|Mai întâi Ctrl+clic (Cmd+clic) de unde se copiază
+1531|Rotița mărește; tragerea cu butonul drept sau din mijloc mută imaginea.
+1532|Editare imagine
+1533|Editare imagine…
+1534|Imaginea este blocată
+1535|Pensulă
+1536|Radieră
+1537|Clonare
+1538|Umplere
+1539|Pictează cu griul ales
+1540|Pictează alb, ca materialul neatins
+1541|Copiază un loc al imaginii în altul: Ctrl+clic (Cmd+clic) pe sursă, apoi pictați
+1542|Umple zona de griuri asemănătoare din jurul punctului clicat
+1543|Formele nu au dimensiune
+1544|Rezoluție
+1545|{} linii pe milimetru
+1546|Dimensiunea obiectelor
+1547|{} × {} pixeli
+1548|Desen
+1549|Umple formele închise
+1550|Grosimea liniei
+1551|Șterge apoi obiectele
+1552|Ascunde obiectele
+1553|Doar în previzualizare: imaginea singură, fără contururile obiectelor
+1554|Conversie în imagine
+1555|Conversie în imagine…
+1556|Convertește
+1557|Pensulă, radieră, ștampilă de clonare și umplere, în nuanțe de gri
+1558|Ascunde imaginea
+1559|Doar în previzualizare: numai contururile
+1560|Doar în previzualizare: numai liniile

@@ -10,6 +10,8 @@ mod keys;
 mod image_ui;
 mod style_ui;
 pub mod style_gallery;
+pub mod photo_edit;
+pub mod to_image;
 mod prefs;
 mod props;
 mod background_ui;
@@ -408,6 +410,10 @@ pub struct EditorState {
     pub trace_dlg: Option<TraceDlg>,
     /// The style trace window of a picture.
     pub style_dlg: Option<StyleDlg>,
+    /// The photo editor of a picture.
+    pub photo_dlg: Option<photo_edit::PhotoDlg>,
+    /// The window that turns the selected shapes into a picture.
+    pub to_image_dlg: Option<to_image::ToImageDlg>,
 }
 
 /// What of the editor belongs to one open drawing (a tab): the selection, the layer new shapes go to and the view.
@@ -520,6 +526,8 @@ impl EditorState {
             drawing_choice: None,
             trace_dlg: None,
             style_dlg: None,
+            photo_dlg: None,
+            to_image_dlg: None,
         }
     }
 }

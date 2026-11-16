@@ -1522,3 +1522,40 @@
 1521	Triangles and quadrangles
 1522	Picture styles
 1523	Drawing the styles…
+1524	Tool
+1525	Grey
+1526	How dark: 0 % is white, 100 % black
+1527	Hardness
+1528	How different a grey may be and still be filled
+1529	Ctrl+click (Cmd+click) chooses another place to copy from
+1530	First Ctrl+click (Cmd+click) where to copy from
+1531	Scroll to zoom; drag with the right or the middle button to move the picture.
+1532	Edit image
+1533	Edit image…
+1534	The picture is locked
+1535	Brush
+1536	Eraser
+1537	Clone
+1538	Fill
+1539	Paints with the grey that is chosen
+1540	Paints white, as the material that is not touched
+1541	Copies one place of the picture to another: Ctrl+click (Cmd+click) where to copy from, then paint
+1542	Fills the area of similar greys around the point that is clicked
+1543	The shapes have no size
+1544	Resolution
+1545	{} lines per millimetre
+1546	The size of the objects
+1547	{} × {} pixels
+1548	Drawing
+1549	Fill the closed shapes
+1550	Line width
+1551	Delete the objects afterwards
+1552	Hide the objects
+1553	Only in the preview: the picture alone, without the outlines of the objects
+1554	Convert to image
+1555	Convert to image…
+1556	Convert
+1557	Brush, eraser, clone stamp and fill, in greys
+1558	Hide the picture
+1559	Only in the preview: the outlines alone
+1560	Only in the preview: the lines alone

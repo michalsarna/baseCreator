@@ -1522,3 +1522,40 @@
 1521|Trojúhelníky a čtyřúhelníky
 1522|Styly obrázku
 1523|Kreslení stylů…
+1524|Nástroj
+1525|Šedá
+1526|Jak tmavé: 0 % je bílá, 100 % černá
+1527|Tvrdost
+1528|Jak moc se může šedá lišit, aby se ještě vyplnila
+1529|Ctrl+klik (Cmd+klik) vybere jiné místo, odkud kopírovat
+1530|Nejprve Ctrl+klik (Cmd+klik) tam, odkud kopírovat
+1531|Kolečko zvětšuje; tažení pravým nebo prostředním tlačítkem posouvá obrázek.
+1532|Upravit obrázek
+1533|Upravit obrázek…
+1534|Obrázek je zamčený
+1535|Štětec
+1536|Guma
+1537|Klonování
+1538|Výplň
+1539|Maluje zvolenou šedou
+1540|Maluje bílou, jako nedotčený materiál
+1541|Kopíruje jedno místo obrázku na jiné: Ctrl+klik (Cmd+klik) na zdroj, pak malujte
+1542|Vyplní oblast podobných šedých kolem kliknutého bodu
+1543|Tvary nemají velikost
+1544|Rozlišení
+1545|{} čar na milimetr
+1546|Velikost objektů
+1547|{} × {} pixelů
+1548|Kreslení
+1549|Vyplnit uzavřené tvary
+1550|Tloušťka čáry
+1551|Poté odstranit objekty
+1552|Skrýt objekty
+1553|Jen v náhledu: samotný obrázek bez obrysů objektů
+1554|Převést na obrázek
+1555|Převést na obrázek…
+1556|Převést
+1557|Štětec, guma, klonovací razítko a výplň, v odstínech šedi
+1558|Skrýt obrázek
+1559|Jen v náhledu: jen obrysy
+1560|Jen v náhledu: jen čáry

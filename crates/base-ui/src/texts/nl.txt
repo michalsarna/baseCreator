@@ -1522,3 +1522,40 @@
 1521|Driehoeken en vierhoeken
 1522|Afbeeldingsstijlen
 1523|De stijlen worden getekend…
+1524|Gereedschap
+1525|Grijs
+1526|Hoe donker: 0 % is wit, 100 % zwart
+1527|Hardheid
+1528|Hoeveel een grijs mag afwijken en toch gevuld worden
+1529|Ctrl+klik (Cmd+klik) kiest een andere plek om van te kopiëren
+1530|Eerst Ctrl+klik (Cmd+klik) waar vandaan gekopieerd wordt
+1531|Scrollen zoomt; slepen met de rechter- of middelste knop verplaatst de afbeelding.
+1532|Afbeelding bewerken
+1533|Afbeelding bewerken…
+1534|De afbeelding is vergrendeld
+1535|Penseel
+1536|Gum
+1537|Klonen
+1538|Vullen
+1539|Schildert met het gekozen grijs
+1540|Schildert wit, zoals onaangeroerd materiaal
+1541|Kopieert een plek van de afbeelding naar een andere: Ctrl+klik (Cmd+klik) op de bron, dan schilderen
+1542|Vult het gebied met vergelijkbare grijstinten rond het aangeklikte punt
+1543|De vormen hebben geen afmeting
+1544|Resolutie
+1545|{} lijnen per millimeter
+1546|De grootte van de objecten
+1547|{} × {} pixels
+1548|Tekening
+1549|Gesloten vormen vullen
+1550|Lijndikte
+1551|Objecten daarna verwijderen
+1552|Objecten verbergen
+1553|Alleen in het voorbeeld: alleen de afbeelding, zonder de omtrekken van de objecten
+1554|Omzetten naar afbeelding
+1555|Omzetten naar afbeelding…
+1556|Omzetten
+1557|Penseel, gum, kloonstempel en vullen, in grijstinten
+1558|Afbeelding verbergen
+1559|Alleen in het voorbeeld: alleen de omtrekken
+1560|Alleen in het voorbeeld: alleen de lijnen
