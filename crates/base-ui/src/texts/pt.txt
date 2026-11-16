@@ -1522,3 +1522,40 @@
 1521|Triângulos e quadriláteros
 1522|Estilos de imagem
 1523|A desenhar os estilos…
+1524|Ferramenta
+1525|Cinzento
+1526|Quão escuro: 0 % é branco, 100 % preto
+1527|Dureza
+1528|Quanto um cinzento pode diferir e ainda ser preenchido
+1529|Ctrl+clique (Cmd+clique) escolhe outro local de onde copiar
+1530|Primeiro Ctrl+clique (Cmd+clique) de onde copiar
+1531|A roda amplia; arrastar com o botão direito ou do meio move a imagem.
+1532|Editar imagem
+1533|Editar imagem…
+1534|A imagem está bloqueada
+1535|Pincel
+1536|Borracha
+1537|Clonar
+1538|Preencher
+1539|Pinta com o cinzento escolhido
+1540|Pinta de branco, como o material não tocado
+1541|Copia um local da imagem para outro: Ctrl+clique (Cmd+clique) na origem e depois pinte
+1542|Preenche a área de cinzentos semelhantes em torno do ponto clicado
+1543|As formas não têm tamanho
+1544|Resolução
+1545|{} linhas por milímetro
+1546|O tamanho dos objetos
+1547|{} × {} píxeis
+1548|Desenho
+1549|Preencher as formas fechadas
+1550|Espessura da linha
+1551|Eliminar depois os objetos
+1552|Ocultar os objetos
+1553|Só na pré-visualização: a imagem sozinha, sem os contornos dos objetos
+1554|Converter em imagem
+1555|Converter em imagem…
+1556|Converter
+1557|Pincel, borracha, carimbo de clonagem e preenchimento, em cinzentos
+1558|Ocultar a imagem
+1559|Só na pré-visualização: apenas os contornos
+1560|Só na pré-visualização: apenas as linhas

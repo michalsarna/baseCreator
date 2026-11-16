@@ -1522,3 +1522,40 @@
 1521|Þríhyrningar og ferhyrningar
 1522|Myndstílar
 1523|Teiknar stílana…
+1524|Verkfæri
+1525|Grátt
+1526|Hversu dökkt: 0 % er hvítt, 100 % svart
+1527|Harka
+1528|Hversu mikið grátt má víkja og samt fyllast
+1529|Ctrl+smell (Cmd+smell) velur annan stað til að afrita frá
+1530|Fyrst Ctrl+smell (Cmd+smell) þar sem á að afrita frá
+1531|Skrunaðu til að þysja; dragðu með hægri eða miðhnappi til að færa myndina.
+1532|Breyta mynd
+1533|Breyta mynd…
+1534|Myndin er læst
+1535|Pensill
+1536|Strokleður
+1537|Klóna
+1538|Fylling
+1539|Málar með völdum gráum lit
+1540|Málar hvítt, eins og ósnert efni
+1541|Afritar einn stað myndarinnar á annan: Ctrl+smell (Cmd+smell) á upprunann, síðan mála
+1542|Fyllir svæði svipaðra grátóna kringum punktinn sem smellt er á
+1543|Formin hafa enga stærð
+1544|Upplausn
+1545|{} línur á millimetra
+1546|Stærð hlutanna
+1547|{} × {} dílar
+1548|Teikning
+1549|Fylla lokuð form
+1550|Línubreidd
+1551|Eyða hlutunum á eftir
+1552|Fela hlutina
+1553|Aðeins í forskoðun: myndin ein, án útlína hlutanna
+1554|Breyta í mynd
+1555|Breyta í mynd…
+1556|Breyta
+1557|Pensill, strokleður, klónstimpill og fylling, í gráum tónum
+1558|Fela myndina
+1559|Aðeins í forskoðun: útlínurnar einar
+1560|Aðeins í forskoðun: línurnar einar

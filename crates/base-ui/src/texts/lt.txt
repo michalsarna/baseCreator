@@ -1522,3 +1522,40 @@
 1521|Trikampiai ir keturkampiai
 1522|Paveikslo stiliai
 1523|Piešiami stiliai…
+1524|Įrankis
+1525|Pilka
+1526|Kiek tamsu: 0 % – balta, 100 % – juoda
+1527|Kietumas
+1528|Kiek pilka gali skirtis ir vis tiek būti užpildyta
+1529|Ctrl+spustelėjimas (Cmd+spustelėjimas) parenka kitą kopijavimo vietą
+1530|Pirmiausia Ctrl+spustelėkite (Cmd+spustelėkite) ten, iš kur kopijuoti
+1531|Ratukas keičia mastelį; tempiant dešiniuoju ar viduriniu mygtuku paveikslas perkeliamas.
+1532|Redaguoti paveikslą
+1533|Redaguoti paveikslą…
+1534|Paveikslas užrakintas
+1535|Teptukas
+1536|Trintukas
+1537|Klonavimas
+1538|Užpildymas
+1539|Piešia pasirinkta pilka
+1540|Piešia balta, kaip neliestą medžiagą
+1541|Kopijuoja vieną paveikslo vietą į kitą: Ctrl+spustelėkite (Cmd+spustelėkite) šaltinį, tada pieškite
+1542|Užpildo panašių pilkų sritį aplink spustelėtą tašką
+1543|Figūros neturi dydžio
+1544|Raiška
+1545|{} linijų milimetrui
+1546|Objektų dydis
+1547|{} × {} pikselių
+1548|Piešimas
+1549|Užpildyti uždaras figūras
+1550|Linijos plotis
+1551|Po to ištrinti objektus
+1552|Slėpti objektus
+1553|Tik peržiūroje: tik paveikslas, be objektų kontūrų
+1554|Paversti paveikslu
+1555|Paversti paveikslu…
+1556|Paversti
+1557|Teptukas, trintukas, klonavimo antspaudas ir užpildymas, pilkais tonais
+1558|Slėpti paveikslą
+1559|Tik peržiūroje: tik kontūrai
+1560|Tik peržiūroje: tik linijos

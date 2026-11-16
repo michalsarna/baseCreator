@@ -1522,3 +1522,40 @@
 1521|Triangles et quadrilatères
 1522|Styles d'image
 1523|Dessin des styles…
+1524|Outil
+1525|Gris
+1526|Plus ou moins sombre : 0 % est blanc, 100 % noir
+1527|Dureté
+1528|De combien un gris peut différer et être encore rempli
+1529|Ctrl+clic (Cmd+clic) choisit un autre endroit d'où copier
+1530|D'abord Ctrl+clic (Cmd+clic) là d'où copier
+1531|La molette zoome ; glisser avec le bouton droit ou du milieu déplace l'image.
+1532|Modifier l'image
+1533|Modifier l'image…
+1534|L'image est verrouillée
+1535|Pinceau
+1536|Gomme
+1537|Cloner
+1538|Remplissage
+1539|Peint avec le gris choisi
+1540|Peint en blanc, comme le matériau non touché
+1541|Copie un endroit de l'image vers un autre : Ctrl+clic (Cmd+clic) sur la source, puis peignez
+1542|Remplit la zone de gris semblables autour du point cliqué
+1543|Les formes n'ont pas de taille
+1544|Résolution
+1545|{} lignes par millimètre
+1546|La taille des objets
+1547|{} × {} pixels
+1548|Dessin
+1549|Remplir les formes fermées
+1550|Épaisseur du trait
+1551|Supprimer ensuite les objets
+1552|Masquer les objets
+1553|Seulement dans l'aperçu : l'image seule, sans les contours des objets
+1554|Convertir en image
+1555|Convertir en image…
+1556|Convertir
+1557|Pinceau, gomme, tampon de duplication et remplissage, en gris
+1558|Masquer l'image
+1559|Seulement dans l'aperçu : les contours seuls
+1560|Seulement dans l'aperçu : les lignes seules

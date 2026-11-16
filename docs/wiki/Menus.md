@@ -45,9 +45,10 @@ The same commands are in the right-click menu of a shape; they are explained on 
 * **Grid array…**, **Circular array…**, **Copy along path…**, **Text on path…**
 * **Trim by shape…**, **Remove duplicates**, **Break apart**, **Simplify…**
 * **Serial text…**, **Barcode / QR code…**, **Nest shapes…**, **Measure…**
-* **Adjust image…**, **Trace image…**
+* **Adjust image…**, **Edit image…** (the photo editor), **Trace image…**
 * **Style trace…**: the selected picture drawn again as lines in one of 21 styles ([Style Trace](Style-Trace)).
 * **Geometric polygons…**: the selected picture as geometric polygons with a gap between them (the style trace window on that style).
+* **Convert to image…**: the selected shapes as one picture.
 
 ## View
 

@@ -1522,3 +1522,40 @@
 1521|Trokuti i četverokuti
 1522|Stilovi slike
 1523|Crtanje stilova…
+1524|Alat
+1525|Siva
+1526|Koliko tamno: 0 % je bijelo, 100 % crno
+1527|Tvrdoća
+1528|Koliko siva smije odstupati da se još ispuni
+1529|Ctrl+klik (Cmd+klik) bira drugo mjesto za kopiranje
+1530|Najprije Ctrl+klik (Cmd+klik) odakle kopirati
+1531|Kotačić zumira; povlačenje desnom ili srednjom tipkom pomiče sliku.
+1532|Uredi sliku
+1533|Uredi sliku…
+1534|Slika je zaključana
+1535|Kist
+1536|Gumica
+1537|Kloniranje
+1538|Ispuna
+1539|Slika odabranom sivom
+1540|Slika bijelo, kao netaknuti materijal
+1541|Kopira jedno mjesto slike na drugo: Ctrl+klik (Cmd+klik) na izvor, zatim slikajte
+1542|Ispunjava područje sličnih sivih oko kliknute točke
+1543|Oblici nemaju veličinu
+1544|Razlučivost
+1545|{} linija po milimetru
+1546|Veličina objekata
+1547|{} × {} piksela
+1548|Crtanje
+1549|Ispuni zatvorene oblike
+1550|Debljina linije
+1551|Nakon toga izbriši objekte
+1552|Sakrij objekte
+1553|Samo u pregledu: sama slika, bez obrisa objekata
+1554|Pretvori u sliku
+1555|Pretvori u sliku…
+1556|Pretvori
+1557|Kist, gumica, klonirajući žig i ispuna, u sivim tonovima
+1558|Sakrij sliku
+1559|Samo u pregledu: samo obrisi
+1560|Samo u pregledu: samo linije

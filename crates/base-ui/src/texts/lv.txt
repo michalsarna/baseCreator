@@ -1522,3 +1522,40 @@
 1521|Trijstūri un četrstūri
 1522|Attēla stili
 1523|Stilu zīmēšana…
+1524|Rīks
+1525|Pelēks
+1526|Cik tumšs: 0 % ir balts, 100 % melns
+1527|Cietība
+1528|Cik atšķirīgs drīkst būt pelēkais, lai to vēl aizpildītu
+1529|Ctrl+klikšķis (Cmd+klikšķis) izvēlas citu vietu, no kuras kopēt
+1530|Vispirms Ctrl+klikšķis (Cmd+klikšķis) vietā, no kuras kopēt
+1531|Ritenītis tuvina; vilkšana ar labo vai vidējo pogu pārvieto attēlu.
+1532|Rediģēt attēlu
+1533|Rediģēt attēlu…
+1534|Attēls ir bloķēts
+1535|Ota
+1536|Dzēšgumija
+1537|Klonēšana
+1538|Aizpildīšana
+1539|Krāso ar izvēlēto pelēko
+1540|Krāso baltu kā neskarts materiāls
+1541|Kopē vienu attēla vietu uz citu: Ctrl+klikšķis (Cmd+klikšķis) uz avota, tad krāsojiet
+1542|Aizpilda līdzīgu pelēko apgabalu ap noklikšķināto punktu
+1543|Formām nav izmēra
+1544|Izšķirtspēja
+1545|{} līnijas uz milimetru
+1546|Objektu izmērs
+1547|{} × {} pikseļi
+1548|Zīmēšana
+1549|Aizpildīt slēgtās formas
+1550|Līnijas platums
+1551|Pēc tam dzēst objektus
+1552|Paslēpt objektus
+1553|Tikai priekšskatījumā: tikai attēls, bez objektu kontūrām
+1554|Pārvērst attēlā
+1555|Pārvērst attēlā…
+1556|Pārvērst
+1557|Ota, dzēšgumija, klonēšanas zīmogs un aizpildīšana pelēkos toņos
+1558|Paslēpt attēlu
+1559|Tikai priekšskatījumā: tikai kontūras
+1560|Tikai priekšskatījumā: tikai līnijas

@@ -34,6 +34,8 @@ pub struct StyleDlg {
     job: Option<(StyleParams, u64, mpsc::Receiver<StyleOut>)>,
     /// The last finished result and what it was made with.
     result: Option<(StyleParams, Arc<StyleOut>)>,
+    /// The picture is not drawn under the lines in the preview (only the preview).
+    pub hide_picture: bool,
 }
 
 impl StyleDlg {
@@ -50,6 +52,7 @@ impl StyleDlg {
             generation: Arc::new(AtomicU64::new(0)),
             job: None,
             result: None,
+            hide_picture: false,
         }
     }
 
@@ -221,7 +224,9 @@ fn preview(ui: &mut egui::Ui, d: &mut StyleDlg, rect: egui::Rect, resp: &egui::R
     d.view.input(ui, resp, rect);
     if let Some(t) = &d.tex {
         let r = d.view.place(rect, t.size_vec2());
-        painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::from_white_alpha(40));
+        if !d.hide_picture {
+            painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::from_white_alpha(40));
+        }
         // The last result, also while a newer one is worked on (greyed then).
         if let Some((p, out)) = &d.result {
             let ink = if *p == d.params { Color32::from_rgb(20, 20, 30) } else { Color32::from_gray(150) };
@@ -331,4 +336,5 @@ fn controls(ui: &mut egui::Ui, d: &mut StyleDlg, layers: &[(usize, String, Color
         ui.end_row();
     });
     ui.checkbox(&mut d.delete_original, tr("Delete the image afterwards"));
+    ui.checkbox(&mut d.hide_picture, tr("Hide the picture")).on_hover_text(tr("Only in the preview: the lines alone"));
 }

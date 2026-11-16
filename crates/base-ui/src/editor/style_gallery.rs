@@ -1,5 +1,5 @@
 //! The panel of the picture styles: a tab of the side panel that is there while a picture is selected. At its top a button as wide
-//! as the panel opens Trace image; under it, as in the gallery, a picture of every style of Style trace (a triangle drawn in that
+//! as the panel opens the photo editor (orange), one under it Trace image; under it, as in the gallery, a picture of every style of Style trace (a triangle drawn in that
 //! style), and a click on one opens Style trace on that style. The pictures are made once, in the background, the first time the
 //! panel is seen.
 use super::{EditorHost, EditorImages, EditorStyleTrace};
@@ -23,6 +23,9 @@ pub fn tab_label() -> &'static str {
 pub fn picture_selected<H: EditorHost + ?Sized>(h: &H) -> bool {
     h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, Kind::Image(_)))
 }
+
+/// The colour of the button of the photo editor.
+const EDIT_ORANGE: Color32 = Color32::from_rgb(0xe8, 0x7a, 0x1c);
 
 /// The side of a picture of a style, in pixels.
 const THUMB_PX: usize = 128;
@@ -156,6 +159,11 @@ fn textures(ctx: &egui::Context) -> Option<Vec<(Style, egui::TextureHandle)>> {
 /// The panel: the button of Trace image, then the pictures of the styles in a grid as wide as the panel.
 pub fn panel<H: EditorHost + EditorImages + EditorStyleTrace + ?Sized>(h: &mut H, ui: &mut egui::Ui) {
     egui::ScrollArea::vertical().id_salt("picture_styles").auto_shrink([false, false]).show(ui, |ui| {
+        let edit = egui::Button::image_and_text(crate::icons::slot(Some("brush"), Color32::WHITE), RichText::new(tr("Edit image…")).color(Color32::WHITE).strong()).fill(EDIT_ORANGE);
+        if ui.add_sized([ui.available_width(), 30.0], edit).on_hover_text(tr("Brush, eraser, clone stamp and fill, in greys")).clicked() {
+            super::photo_edit::open(h);
+        }
+        ui.add_space(4.0);
         let b = egui::Button::image_and_text(crate::icons::slot(Some("portrait"), theme::text()), tr("Trace image…"));
         if ui.add_sized([ui.available_width(), 30.0], b).clicked() {
             h.open_trace();

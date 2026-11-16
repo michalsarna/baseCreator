@@ -1522,3 +1522,40 @@
 1521|Trekanter og firkanter
 1522|Bildestiler
 1523|Tegner stilene…
+1524|Verktøy
+1525|Grå
+1526|Hvor mørk: 0 % er hvit, 100 % svart
+1527|Hardhet
+1528|Hvor mye en grå kan avvike og likevel fylles
+1529|Ctrl+klikk (Cmd+klikk) velger et annet sted å kopiere fra
+1530|Først Ctrl+klikk (Cmd+klikk) der det skal kopieres fra
+1531|Rull for å zoome; dra med høyre eller midtre knapp for å flytte bildet.
+1532|Rediger bilde
+1533|Rediger bilde…
+1534|Bildet er låst
+1535|Pensel
+1536|Viskelær
+1537|Klon
+1538|Fyll
+1539|Maler med den valgte gråtonen
+1540|Maler hvitt, som urørt materiale
+1541|Kopierer ett sted i bildet til et annet: Ctrl+klikk (Cmd+klikk) på kilden, mal deretter
+1542|Fyller området med lignende gråtoner rundt punktet som klikkes
+1543|Figurene har ingen størrelse
+1544|Oppløsning
+1545|{} linjer per millimeter
+1546|Objektenes størrelse
+1547|{} × {} piksler
+1548|Tegning
+1549|Fyll lukkede figurer
+1550|Linjebredde
+1551|Slett objektene etterpå
+1552|Skjul objektene
+1553|Bare i forhåndsvisningen: bildet alene, uten objektenes omriss
+1554|Konverter til bilde
+1555|Konverter til bilde…
+1556|Konverter
+1557|Pensel, viskelær, klonestempel og fyll, i gråtoner
+1558|Skjul bildet
+1559|Bare i forhåndsvisningen: bare omrissene
+1560|Bare i forhåndsvisningen: bare linjene

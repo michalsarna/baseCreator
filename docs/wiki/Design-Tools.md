@@ -37,6 +37,12 @@ All of these are in the **Arrange** menu:
 
 **File → Import → Import image…**, or dropping a picture on the window, opens the import dialog. **Adjust image…** changes a picture on the page, and **Trace image…** turns its dark or light areas into outlines. Pictures have no outlines of their own, so export leaves them out until they are traced.
 
+**Edit image…** (in the Arrange menu, the menu of the right mouse button, and the orange button of the **Picture styles** tab) opens the photo editor of the selected picture: a **brush**, an **eraser** (it paints white, as the material that is not touched), a **clone stamp** (Ctrl+click, Cmd+click on a Mac, where to copy from, then paint) and a **fill** of the area of similar greys around a click. The colours are greys only. Size, hardness and opacity of the brush, and the tolerance of the fill, are set in the column on the left; Undo and Redo go back and forth. The wheel zooms, the right or the middle button moves the picture. Nothing changes in the drawing until **Apply**.
+
+**Convert to image…** (shapes selected, no picture among them) turns them into one picture. The window shows the preview, the resolution (DPI) and the size of the picture, whether the closed shapes are filled and how wide the lines are. **Delete the objects afterwards** removes the shapes once the picture is made; **Hide the objects** leaves their outlines out of the preview only. The picture is placed where the shapes were, on the layer of the first one.
+
+**Hide the picture** in the windows **Trace image** and **Style trace** shows the result alone in the preview, without the picture under it.
+
 **Arrange → Style trace…** draws a picture again as lines in one of 21 styles (squiggles, a spiral, stippling, hatching, flow lines, one continuous line…): see [Style Trace](Style-Trace).
 
 **View → Background picture…** puts a photo or a scan under the drawing, to draw over. It is saved with the project.

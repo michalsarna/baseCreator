@@ -1522,3 +1522,40 @@
 1521|Triantáin agus ceathairshleasáin
 1522|Stíleanna pictiúir
 1523|Na stíleanna á dtarraingt…
+1524|Uirlis
+1525|Liath
+1526|Cé chomh dorcha: is bán é 0 %, dubh 100 %
+1527|Cruas
+1528|Cé chomh difriúil is féidir le liath a bheith agus é a líonadh fós
+1529|Roghnaíonn Ctrl+cliceáil (Cmd+cliceáil) áit eile le cóipeáil uaidh
+1530|Ar dtús Ctrl+cliceáil (Cmd+cliceáil) ar an áit le cóipeáil uaidh
+1531|Scrollaigh chun súmáil; tarraing leis an gcnaipe deas nó lár chun an pictiúr a bhogadh.
+1532|Cuir an íomhá in eagar
+1533|Cuir an íomhá in eagar…
+1534|Tá an pictiúr faoi ghlas
+1535|Scuab
+1536|Scriosán
+1537|Clónáil
+1538|Líonadh
+1539|Péinteálann sé leis an liath roghnaithe
+1540|Péinteálann sé bán, mar an t-ábhar nach dtéitear i dteagmháil leis
+1541|Cóipeálann sé áit amháin den phictiúr go háit eile: Ctrl+cliceáil (Cmd+cliceáil) ar an bhfoinse, ansin péinteáil
+1542|Líonann sé limistéar liatha cosúla timpeall an phointe a cliceáladh
+1543|Níl méid ar na cruthanna
+1544|Taifeach
+1545|{} líne sa mhilliméadar
+1546|Méid na n-oibiachtaí
+1547|{} × {} picteilín
+1548|Líníocht
+1549|Líon na cruthanna dúnta
+1550|Leithead líne
+1551|Scrios na hoibiachtaí ina dhiaidh sin
+1552|Folaigh na hoibiachtaí
+1553|Sa réamhamharc amháin: an pictiúr leis féin, gan imlínte na n-oibiachtaí
+1554|Tiontaigh go híomhá
+1555|Tiontaigh go híomhá…
+1556|Tiontaigh
+1557|Scuab, scriosán, stampa clónála agus líonadh, i liatha
+1558|Folaigh an pictiúr
+1559|Sa réamhamharc amháin: na himlínte amháin
+1560|Sa réamhamharc amháin: na línte amháin

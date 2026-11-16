@@ -249,6 +249,8 @@ pub struct TraceDlg {
     shown: Option<TraceParams>,
     /// How the picture is seen in the frame.
     view: PictureView,
+    /// The picture is not drawn under the outlines in the preview (only the preview).
+    pub hide_picture: bool,
 }
 
 /// The picture dialogs: import, adjust and trace. Implemented for every `EditorHost`.
@@ -365,7 +367,7 @@ pub trait EditorImages: EditorHost {
     fn open_trace(&mut self) {
         let Some(id) = self.ed().sel.first().copied() else { return };
         if let Some(Kind::Image(im)) = self.scene().shape(id).map(|s| s.kind.clone()) {
-            self.ed_mut().trace_dlg = Some(TraceDlg { shape: id, params: TraceParams::default(), delete_original: false, thumb: im.downscaled(1200), tex: None, preview: vec![], shown: None, view: PictureView::default() });
+            self.ed_mut().trace_dlg = Some(TraceDlg { shape: id, params: TraceParams::default(), delete_original: false, thumb: im.downscaled(1200), tex: None, preview: vec![], shown: None, view: PictureView::default(), hide_picture: false });
         }
     }
 
@@ -374,6 +376,8 @@ pub trait EditorImages: EditorHost {
         self.drawing_choice_window(ctx);
         self.trace_dialog(ctx);
         super::EditorStyleTrace::style_trace_window(self, ctx);
+        super::photo_edit::window(self, ctx);
+        super::to_image::window(self, ctx);
         super::EditorShapeOps::shape_op_windows(self, ctx);
         super::EditorDesign::design_windows(self, ctx);
         super::EditorBackground::background_window(self, ctx);
@@ -488,7 +492,9 @@ pub trait EditorImages: EditorHost {
                     d.view.input(ui, &resp, rect);
                     if let Some(t) = &d.tex {
                         let r = d.view.place(rect, t.size_vec2());
-                        painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::from_white_alpha(70));
+                        if !d.hide_picture {
+                            painter.image(t.id(), r, egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::from_white_alpha(70));
+                        }
                         let (sx, sy) = (r.width() / d.thumb.w as f32, r.height() / d.thumb.h as f32);
                         // Through `Lines`: thousands of outlines as few shapes, and no mitre spikes at the sharp turns of an outline
                         // (they showed as long straight lines across the picture).
@@ -523,6 +529,7 @@ pub trait EditorImages: EditorHost {
                         ui.checkbox(&mut d.params.smooth, tr("Smooth curves"));
                         ui.checkbox(&mut d.params.invert, tr("Trace the light areas"));
                         ui.checkbox(&mut d.delete_original, tr("Delete the image afterwards"));
+                        ui.checkbox(&mut d.hide_picture, tr("Hide the picture")).on_hover_text(tr("Only in the preview: the outlines alone"));
                         ui.label(RichText::new(trf("{} outlines", &[&d.preview.len()])).color(theme::text_dim()));
                     });
                 });

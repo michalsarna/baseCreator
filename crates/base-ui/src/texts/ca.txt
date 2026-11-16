@@ -1522,3 +1522,40 @@
 1521|Triangles i quadrilàters
 1522|Estils de la imatge
 1523|Dibuixant els estils…
+1524|Eina
+1525|Gris
+1526|Com de fosc: 0 % és blanc, 100 % negre
+1527|Duresa
+1528|Com de diferent pot ser un gris i encara omplir-se
+1529|Ctrl+clic (Cmd+clic) tria un altre lloc d'on copiar
+1530|Primer Ctrl+clic (Cmd+clic) d'on copiar
+1531|La roda amplia; arrossegar amb el botó dret o central mou la imatge.
+1532|Edita la imatge
+1533|Edita la imatge…
+1534|La imatge està bloquejada
+1535|Pinzell
+1536|Goma
+1537|Clona
+1538|Emplenament
+1539|Pinta amb el gris triat
+1540|Pinta de blanc, com el material que no es toca
+1541|Copia un lloc de la imatge a un altre: Ctrl+clic (Cmd+clic) a l'origen i després pinta
+1542|Omple l'àrea de grisos semblants al voltant del punt clicat
+1543|Les formes no tenen mida
+1544|Resolució
+1545|{} línies per mil·límetre
+1546|La mida dels objectes
+1547|{} × {} píxels
+1548|Dibuix
+1549|Omple les formes tancades
+1550|Gruix de línia
+1551|Suprimeix després els objectes
+1552|Amaga els objectes
+1553|Només a la previsualització: la imatge sola, sense els contorns dels objectes
+1554|Converteix en imatge
+1555|Converteix en imatge…
+1556|Converteix
+1557|Pinzell, goma, tampó de clonar i emplenament, en grisos
+1558|Amaga la imatge
+1559|Només a la previsualització: només els contorns
+1560|Només a la previsualització: només les línies

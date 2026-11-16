@@ -1522,3 +1522,40 @@
 1521|Trijangoli u kwadrilaterali
 1522|Stili tal-istampa
 1523|Qed jitpinġew l-istili…
+1524|Għodda
+1525|Griż
+1526|Kemm skur: 0 % huwa abjad, 100 % iswed
+1527|Ebusija
+1528|Kemm griż jista' jkun differenti u xorta jimtela
+1529|Ctrl+klikk (Cmd+klikk) jagħżel post ieħor minn fejn tikkopja
+1530|L-ewwel Ctrl+klikk (Cmd+klikk) minn fejn tikkopja
+1531|Irrombla biex tkabbar; kaxkar bil-buttuna tal-lemin jew tan-nofs biex iċċaqlaq l-istampa.
+1532|Editja l-istampa
+1533|Editja l-istampa…
+1534|L-istampa hija msakkra
+1535|Pinzell
+1536|Gomma
+1537|Ikklonja
+1538|Imla
+1539|Jpinġi bil-griż magħżul
+1540|Jpinġi abjad, bħall-materjal li ma jintmissx
+1541|Jikkopja post wieħed tal-istampa għal ieħor: Ctrl+klikk (Cmd+klikk) fuq is-sors, imbagħad pinġi
+1542|Jimla ż-żona ta' griżi simili madwar il-punt ikklikkjat
+1543|Il-forom m'għandhomx daqs
+1544|Riżoluzzjoni
+1545|{} linji kull millimetru
+1546|Id-daqs tal-oġġetti
+1547|{} × {} pixel
+1548|Tpinġija
+1549|Imla l-forom magħluqa
+1550|Wisa' tal-linja
+1551|Ħassar l-oġġetti wara
+1552|Aħbi l-oġġetti
+1553|Fil-previżjoni biss: l-istampa waħedha, mingħajr il-kontorni tal-oġġetti
+1554|Ikkonverti fi stampa
+1555|Ikkonverti fi stampa…
+1556|Ikkonverti
+1557|Pinzell, gomma, timbru tal-ikklonjar u mili, fil-griż
+1558|Aħbi l-istampa
+1559|Fil-previżjoni biss: il-kontorni biss
+1560|Fil-previżjoni biss: il-linji biss

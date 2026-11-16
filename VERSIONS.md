@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.0
+
+- **The photo editor** (`editor::photo_edit`, **Arrange → Edit image…**, the menu of the right mouse button, and an orange button at the top of the **Picture styles** tab): a brush, an eraser (it paints white), a clone stamp (Ctrl/Cmd+click where to copy from, then paint; the distance stays for the next strokes) and a fill of the area of similar greys, in greys only. Size, hardness and opacity of the brush (a stroke does not build up over itself), the tolerance of the fill, Undo and Redo. The wheel zooms, the right or the middle button moves the picture; the drawing changes only on Apply (one step of undo).
+- **Convert to image…** (`editor::to_image`, the Arrange menu and the menu of the right mouse button, while shapes and no pictures are selected): the shapes as one picture, with a preview, the resolution (DPI), the size (width and height kept in proportion), the fill of the closed shapes and the width of the lines; smooth edges. **Delete the objects afterwards**; **Hide the objects** leaves their outlines out of the preview only. The picture takes the place of the shapes, on the layer of the first one.
+- **Hide the picture** in the windows Trace image and Style trace: the preview shows the result alone.
+- Icons brush, eraser, stamp, paint-bucket, image-plus (Lucide). 37 texts in every language.
+
 ## v2.6.1
 
 - **The pictures of the styles are a third smaller and drawn as on the material**: black lines on white (a frame of the accent colour under the pointer), in cells two thirds of the gallery's.

@@ -1522,3 +1522,40 @@
 1521|Triángulos y cuadriláteros
 1522|Estilos de imagen
 1523|Dibujando los estilos…
+1524|Herramienta
+1525|Gris
+1526|Qué tan oscuro: 0 % es blanco, 100 % negro
+1527|Dureza
+1528|Cuánto puede diferir un gris y aun así rellenarse
+1529|Ctrl+clic (Cmd+clic) elige otro lugar desde donde copiar
+1530|Primero Ctrl+clic (Cmd+clic) donde copiar
+1531|La rueda amplía; arrastrar con el botón derecho o central mueve la imagen.
+1532|Editar imagen
+1533|Editar imagen…
+1534|La imagen está bloqueada
+1535|Pincel
+1536|Borrador
+1537|Clonar
+1538|Relleno
+1539|Pinta con el gris elegido
+1540|Pinta de blanco, como el material sin tocar
+1541|Copia un lugar de la imagen a otro: Ctrl+clic (Cmd+clic) en el origen y luego pinta
+1542|Rellena el área de grises parecidos alrededor del punto pulsado
+1543|Las formas no tienen tamaño
+1544|Resolución
+1545|{} líneas por milímetro
+1546|El tamaño de los objetos
+1547|{} × {} píxeles
+1548|Dibujo
+1549|Rellenar las formas cerradas
+1550|Grosor de línea
+1551|Eliminar después los objetos
+1552|Ocultar los objetos
+1553|Solo en la vista previa: la imagen sola, sin los contornos de los objetos
+1554|Convertir en imagen
+1555|Convertir en imagen…
+1556|Convertir
+1557|Pincel, borrador, tampón de clonar y relleno, en grises
+1558|Ocultar la imagen
+1559|Solo en la vista previa: solo los contornos
+1560|Solo en la vista previa: solo las líneas

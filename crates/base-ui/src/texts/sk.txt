@@ -1522,3 +1522,40 @@
 1521|Trojuholníky a štvoruholníky
 1522|Štýly obrázka
 1523|Kreslenie štýlov…
+1524|Nástroj
+1525|Sivá
+1526|Ako tmavé: 0 % je biela, 100 % čierna
+1527|Tvrdosť
+1528|Ako veľmi sa môže sivá líšiť, aby sa ešte vyplnila
+1529|Ctrl+klik (Cmd+klik) vyberie iné miesto, odkiaľ kopírovať
+1530|Najprv Ctrl+klik (Cmd+klik) tam, odkiaľ kopírovať
+1531|Koliesko zväčšuje; ťahanie pravým alebo stredným tlačidlom posúva obrázok.
+1532|Upraviť obrázok
+1533|Upraviť obrázok…
+1534|Obrázok je zamknutý
+1535|Štetec
+1536|Guma
+1537|Klonovanie
+1538|Výplň
+1539|Maľuje zvolenou sivou
+1540|Maľuje bielou, ako nedotknutý materiál
+1541|Kopíruje jedno miesto obrázka na iné: Ctrl+klik (Cmd+klik) na zdroj, potom maľujte
+1542|Vyplní oblasť podobných sivých okolo kliknutého bodu
+1543|Tvary nemajú veľkosť
+1544|Rozlíšenie
+1545|{} čiar na milimeter
+1546|Veľkosť objektov
+1547|{} × {} pixelov
+1548|Kreslenie
+1549|Vyplniť uzavreté tvary
+1550|Hrúbka čiary
+1551|Potom odstrániť objekty
+1552|Skryť objekty
+1553|Len v náhľade: samotný obrázok bez obrysov objektov
+1554|Previesť na obrázok
+1555|Previesť na obrázok…
+1556|Previesť
+1557|Štetec, guma, klonovacia pečiatka a výplň, v odtieňoch sivej
+1558|Skryť obrázok
+1559|Len v náhľade: len obrysy
+1560|Len v náhľade: len čiary

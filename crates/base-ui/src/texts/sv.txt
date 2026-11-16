@@ -1522,3 +1522,40 @@
 1521|Trianglar och fyrhörningar
 1522|Bildstilar
 1523|Ritar stilarna…
+1524|Verktyg
+1525|Grå
+1526|Hur mörk: 0 % är vitt, 100 % svart
+1527|Hårdhet
+1528|Hur mycket en grå får avvika och ändå fyllas
+1529|Ctrl+klick (Cmd+klick) väljer en annan plats att kopiera från
+1530|Först Ctrl+klick (Cmd+klick) där det ska kopieras från
+1531|Scrolla för att zooma; dra med höger eller mittenknappen för att flytta bilden.
+1532|Redigera bild
+1533|Redigera bild…
+1534|Bilden är låst
+1535|Pensel
+1536|Suddgummi
+1537|Klona
+1538|Fyll
+1539|Målar med den valda gråtonen
+1540|Målar vitt, som orört material
+1541|Kopierar en plats i bilden till en annan: Ctrl+klick (Cmd+klick) på källan, måla sedan
+1542|Fyller området med liknande gråtoner runt punkten som klickas
+1543|Formerna har ingen storlek
+1544|Upplösning
+1545|{} linjer per millimeter
+1546|Objektens storlek
+1547|{} × {} pixlar
+1548|Ritning
+1549|Fyll slutna former
+1550|Linjebredd
+1551|Ta bort objekten efteråt
+1552|Dölj objekten
+1553|Bara i förhandsvisningen: bilden ensam, utan objektens konturer
+1554|Konvertera till bild
+1555|Konvertera till bild…
+1556|Konvertera
+1557|Pensel, suddgummi, klonstämpel och fyllning, i gråtoner
+1558|Dölj bilden
+1559|Bara i förhandsvisningen: bara konturerna
+1560|Bara i förhandsvisningen: bara linjerna

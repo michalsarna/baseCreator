@@ -177,6 +177,10 @@ pub enum StdAct {
     ToggleAutoFit,
     ImportImage,
     AdjustImage,
+    /// The photo editor of the selected picture: brush, eraser, clone stamp, fill.
+    EditImage,
+    /// The selected shapes (no pictures among them) as one picture.
+    ToImage,
     TraceImage,
     StyleTrace,
     /// The picture as geometric polygons (the style trace window, on that style).
@@ -276,6 +280,8 @@ impl StdAct {
             StdAct::ZoomOut => h.zoom_about_centre(1.0 / 1.5),
             StdAct::ImportImage => crate::editor::EditorImages::import_image_dialog(h),
             StdAct::AdjustImage => crate::editor::EditorImages::open_adjust(h),
+            StdAct::EditImage => crate::editor::photo_edit::open(h),
+            StdAct::ToImage => crate::editor::to_image::open(h),
             StdAct::TraceImage => crate::editor::EditorImages::open_trace(h),
             StdAct::StyleTrace => crate::editor::EditorStyleTrace::open_style_trace(h),
             StdAct::GeometricTrace => crate::editor::EditorStyleTrace::open_style_trace_as(h, base_core::style_trace::Style::Geometric),
@@ -343,7 +349,8 @@ impl StdAct {
             StdAct::Redo => h.can_redo(),
             StdAct::CenterEachOther => h.ed().sel.len() >= 2,
             StdAct::AddAsZones => h.can_add_zones() && h.ed().sel.iter().any(|id| h.scene().shape(*id).is_some_and(|s| !s.locked)),
-            StdAct::AdjustImage | StdAct::TraceImage | StdAct::StyleTrace | StdAct::GeometricTrace => h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_))),
+            StdAct::ToImage => crate::editor::to_image::can_convert(h),
+            StdAct::AdjustImage | StdAct::EditImage | StdAct::TraceImage | StdAct::StyleTrace | StdAct::GeometricTrace => h.ed().sel.first().and_then(|id| h.scene().shape(*id)).is_some_and(|s| matches!(s.kind, base_core::scene::Kind::Image(_))),
             _ => true,
         }
     }
@@ -398,6 +405,8 @@ impl StdAct {
             StdAct::ZoomOut => "zoom-out",
             StdAct::ImportImage => "image",
             StdAct::AdjustImage => "sliders-horizontal",
+            StdAct::EditImage => "brush",
+            StdAct::ToImage => "image-plus",
             StdAct::TraceImage => "portrait",
             StdAct::StyleTrace => "palette",
             StdAct::GeometricTrace => "triangle",
@@ -494,7 +503,7 @@ pub mod std_entries {
     }
     /// Adjust and trace a picture that is on the page.
     pub fn image_tools() -> Vec<Entry<StdAct>> {
-        vec![Item(StdAct::AdjustImage, "Adjust image…", None), Item(StdAct::TraceImage, "Trace image…", None), Item(StdAct::StyleTrace, "Style trace…", None), Item(StdAct::GeometricTrace, "Geometric polygons…", None)]
+        vec![Item(StdAct::AdjustImage, "Adjust image…", None), Item(StdAct::EditImage, "Edit image…", None), Item(StdAct::TraceImage, "Trace image…", None), Item(StdAct::StyleTrace, "Style trace…", None), Item(StdAct::GeometricTrace, "Geometric polygons…", None), Sep, Item(StdAct::ToImage, "Convert to image…", None)]
     }
     /// The operations on whole shapes: boolean operations, offset, rounding the corners, conversion to curves.
     pub fn shape_ops() -> Vec<Entry<StdAct>> {
