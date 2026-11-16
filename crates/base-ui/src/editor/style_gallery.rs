@@ -171,20 +171,26 @@ pub fn panel<H: EditorHost + EditorImages + EditorStyleTrace + ?Sized>(h: &mut H
         };
         let gap = 6.0;
         let width = ui.available_width();
-        let cols = ((width + gap) / (96.0 + gap)).floor().max(2.0) as usize;
+        // Two thirds of the cell the gallery of clipart would have (at least 96 points): as many columns as fit cells that size.
+        let gallery_cols = ((width + gap) / (96.0 + gap)).floor().max(2.0);
+        let gallery_side = (width - gap * (gallery_cols - 1.0)) / gallery_cols;
+        let cols = ((width + gap) / (gallery_side * 2.0 / 3.0 + gap)).round().max(3.0) as usize;
         let side = ((width - gap * (cols as f32 - 1.0)) / cols as f32).floor();
-        let label_h = 30.0;
+        let label_h = 28.0;
         for row in tex.chunks(cols) {
             ui.horizontal(|ui| {
                 ui.spacing_mut().item_spacing.x = gap;
                 for (style, t) in row {
                     let (rect, resp) = ui.allocate_exact_size(egui::vec2(side, side + label_h), Sense::click());
                     let pic = egui::Rect::from_min_size(rect.min, egui::vec2(side, side));
-                    let fill = if resp.hovered() { theme::accent().gamma_multiply(0.25) } else { theme::panel_dark() };
-                    ui.painter().rect_filled(pic, 6.0, fill);
-                    ui.painter().image(t.id(), pic.shrink(6.0), egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), theme::text());
+                    // Black lines on white, as they come out on the material; a frame of the accent colour under the pointer.
+                    ui.painter().rect_filled(pic, 6.0, Color32::WHITE);
+                    if resp.hovered() {
+                        ui.painter().rect_stroke(pic, 6.0, egui::Stroke::new(2.0, theme::accent()), egui::StrokeKind::Inside);
+                    }
+                    ui.painter().image(t.id(), pic.shrink(5.0), egui::Rect::from_min_max(egui::pos2(0.0, 0.0), egui::pos2(1.0, 1.0)), Color32::BLACK);
                     let name = tr(style.label());
-                    let galley = ui.painter().layout(name.to_string(), egui::FontId::proportional(11.5), theme::text(), side);
+                    let galley = ui.painter().layout(name.to_string(), egui::FontId::proportional(10.5), theme::text(), side);
                     let at = egui::pos2(rect.center().x - galley.size().x / 2.0, pic.bottom() + 3.0);
                     ui.painter().galley(at, galley, theme::text());
                     if resp.on_hover_text(tr(style.hint())).clicked() {
