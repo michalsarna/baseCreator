@@ -39,7 +39,7 @@ Wszystko to jest w menu **Rozmieść**:
 
 **Edytuj obraz…** (w menu Rozmieść, w menu prawego przycisku myszy i pod pomarańczowym przyciskiem karty **Style obrazu**) otwiera edytor zdjęć zaznaczonego obrazu: **pędzel**, **gumkę** (maluje bielą, jak nietknięty materiał), **klonowanie** (Ctrl+klik, na Macu Cmd+klik, w miejscu, z którego kopiować, potem malowanie) i **wypełnienie** obszaru podobnych szarości wokół kliknięcia. Kolory to tylko szarości. Rozmiar, twardość i krycie pędzla oraz tolerancję wypełnienia ustawia się w kolumnie po lewej; Cofnij i Ponów przechodzą wstecz i naprzód. Kółko powiększa, prawy lub środkowy przycisk przesuwa obraz. Nic w rysunku się nie zmienia do kliknięcia **Zastosuj**.
 
-**Zamień na obraz…** (zaznaczone kształty, bez obrazów) robi z nich jeden obraz. Okno pokazuje podgląd, rozdzielczość (DPI) i rozmiar obrazu, to, czy zamknięte kształty są wypełnione, i grubość linii. **Usuń potem obiekty** usuwa kształty, gdy obraz jest gotowy; **Ukryj obiekty** pomija ich obrysy tylko w podglądzie. Obraz trafia w miejsce kształtów, na warstwę pierwszego z nich.
+**Zamień na obraz…** (zaznaczone kształty, bez obrazów) robi z nich jeden obraz. Okno pokazuje podgląd, rozdzielczość (DPI) i rozmiar obrazu, to, czy zamknięte kształty są wypełnione, i grubość linii. **Usuń potem obiekty** usuwa kształty, gdy obraz jest gotowy; **Ukryj obiekty** pomija ich obrysy tylko w podglądzie. Obraz trafia w miejsce kształtów, na warstwę bez innych kształtów (warstwę kształtów, gdy są usuwane, warstwę z obrazami albo pustą).
 
 **Ukryj obraz** w oknach **Wektoryzacja obrazu** i **Obrysuj w stylu** pokazuje w podglądzie sam wynik, bez obrazu pod spodem.
 

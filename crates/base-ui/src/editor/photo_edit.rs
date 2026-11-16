@@ -69,6 +69,8 @@ pub struct Canvas {
     last: Option<(f32, f32)>,
     /// The part of the picture that changed since the texture was last made (x0, y0, x1, y1; the ends not included).
     pub dirty: Option<[usize; 4]>,
+    /// The pixels as they were opened, to tell at the end whether anything changed (the steps of undo are not all kept).
+    original: Vec<u8>,
 }
 
 /// What one dab puts down.
@@ -90,7 +92,7 @@ pub struct Brush {
 
 impl Canvas {
     pub fn new(w: usize, h: usize, gray: Vec<u8>) -> Canvas {
-        Canvas { w, h, gray, undo: vec![], redo: vec![], base: vec![], mask: vec![], in_stroke: false, last: None, dirty: None }
+        Canvas { w, h, original: gray.clone(), gray, undo: vec![], redo: vec![], base: vec![], mask: vec![], in_stroke: false, last: None, dirty: None }
     }
 
     fn keep_undo(&mut self) {
@@ -111,6 +113,7 @@ impl Canvas {
     }
 
     pub fn undo(&mut self) {
+        self.end();
         if let Some(g) = self.undo.pop() {
             self.redo.push(std::mem::replace(&mut self.gray, g));
             self.dirty = Some([0, 0, self.w, self.h]);
@@ -118,15 +121,16 @@ impl Canvas {
     }
 
     pub fn redo(&mut self) {
+        self.end();
         if let Some(g) = self.redo.pop() {
             self.undo.push(std::mem::replace(&mut self.gray, g));
             self.dirty = Some([0, 0, self.w, self.h]);
         }
     }
 
-    /// Has any stroke or fill been made (that is not undone)?
+    /// Are the pixels other than when they were opened?
     pub fn changed(&self) -> bool {
-        !self.undo.is_empty()
+        self.gray != self.original
     }
 
     fn touch(&mut self, x0: usize, y0: usize, x1: usize, y1: usize) {
@@ -273,6 +277,9 @@ pub struct PhotoDlg {
     pub clone_src: Option<(f32, f32)>,
     clone_offset: Option<(f32, f32)>,
     tex: Option<egui::TextureHandle>,
+    /// How many pixels of the picture make one of the texture, along each side (more than one for a picture larger than the
+    /// graphics card can show).
+    tex_step: usize,
     view: PictureView,
     note: Option<&'static str>,
 }
@@ -292,6 +299,7 @@ impl PhotoDlg {
             clone_src: None,
             clone_offset: None,
             tex: None,
+            tex_step: 1,
             view: PictureView::default(),
             note: None,
         }
@@ -306,20 +314,48 @@ impl PhotoDlg {
         }
     }
 
+    /// The texture pixels `[tx0, tx1) × [ty0, ty1)`: each the mean of its `step` × `step` pixels of the picture.
+    fn texels(c: &Canvas, step: usize, tx0: usize, ty0: usize, tx1: usize, ty1: usize) -> Vec<u8> {
+        let mut out = Vec::with_capacity((tx1 - tx0) * (ty1 - ty0));
+        for ty in ty0..ty1 {
+            for tx in tx0..tx1 {
+                if step == 1 {
+                    out.push(c.gray[ty * c.w + tx]);
+                    continue;
+                }
+                let (x0, y0) = (tx * step, ty * step);
+                let (x1, y1) = ((x0 + step).min(c.w), (y0 + step).min(c.h));
+                let mut sum = 0u32;
+                for y in y0..y1 {
+                    for x in x0..x1 {
+                        sum += c.gray[y * c.w + x] as u32;
+                    }
+                }
+                out.push((sum / ((x1 - x0) * (y1 - y0)).max(1) as u32) as u8);
+            }
+        }
+        out
+    }
+
     /// Make the texture, or change the part of it that was painted.
     fn refresh(&mut self, ctx: &egui::Context) {
         let c = &mut self.canvas;
-        match (&mut self.tex, c.dirty.take()) {
+        let dirty = c.dirty.take();
+        let step = self.tex_step;
+        let (tw, th) = (c.w.div_ceil(step), c.h.div_ceil(step));
+        match (&mut self.tex, dirty) {
             (None, _) => {
-                let img = egui::ColorImage::from_gray([c.w, c.h], &c.gray);
+                let side = ctx.input(|i| i.max_texture_side).max(1024);
+                self.tex_step = c.w.max(c.h).div_ceil(side).max(1);
+                let step = self.tex_step;
+                let (tw, th) = (c.w.div_ceil(step), c.h.div_ceil(step));
+                let img = egui::ColorImage::from_gray([tw, th], &Self::texels(c, step, 0, 0, tw, th));
                 self.tex = Some(ctx.load_texture("photo-editor", img, egui::TextureOptions::LINEAR));
             }
             (Some(t), Some([x0, y0, x1, y1])) if x1 > x0 && y1 > y0 => {
-                let mut px = Vec::with_capacity((x1 - x0) * (y1 - y0));
-                for y in y0..y1 {
-                    px.extend_from_slice(&c.gray[y * c.w + x0..y * c.w + x1]);
-                }
-                t.set_partial([x0, y0], egui::ColorImage::from_gray([x1 - x0, y1 - y0], &px), egui::TextureOptions::LINEAR);
+                let (tx0, ty0, tx1, ty1) = (x0 / step, y0 / step, x1.div_ceil(step).min(tw), y1.div_ceil(step).min(th));
+                let px = Self::texels(c, step, tx0, ty0, tx1, ty1);
+                t.set_partial([tx0, ty0], egui::ColorImage::from_gray([tx1 - tx0, ty1 - ty0], &px), egui::TextureOptions::LINEAR);
             }
             _ => {}
         }
@@ -485,6 +521,22 @@ fn tools_column(ui: &mut egui::Ui, d: &mut PhotoDlg) {
     ui.label(RichText::new(tr("Scroll to zoom; drag with the right or the middle button to move the picture.")).small().color(theme::text_dim()));
 }
 
+/// Undo (or redo, `redo`) in the editor while it is open: the keys and the menu of the program reach it there instead of the drawing
+/// (true when it took them).
+pub fn take_undo<H: EditorHost + ?Sized>(h: &mut H, redo: bool) -> bool {
+    match h.ed_mut().photo_dlg.as_mut() {
+        Some(d) => {
+            if redo {
+                d.canvas.redo();
+            } else {
+                d.canvas.undo();
+            }
+            true
+        }
+        None => false,
+    }
+}
+
 /// Open the editor on the selected picture.
 pub fn open<H: EditorHost + ?Sized>(h: &mut H) {
     let Some(id) = h.ed().sel.first().copied() else { return };
@@ -599,8 +651,10 @@ mod tests {
         let g = c.gray[20 * 40 + 20];
         assert!((126..=129).contains(&g), "half of the way to black, {g}");
         assert_eq!(c.gray[2 * 40 + 20], 255, "far from the line nothing changed");
+        assert!(c.changed());
         c.undo();
         assert!(c.gray.iter().all(|g| *g == 255), "undo takes the stroke back");
+        assert!(!c.changed(), "nothing is left to apply");
         c.redo();
         assert_eq!(c.gray[20 * 40 + 20], g);
     }

@@ -15,6 +15,8 @@ use egui::{Color32, RichText, Sense, Stroke};
 const CONTROLS_W: f32 = 280.0;
 /// The most pixels a picture may have.
 const MAX_PIXELS: f64 = 40_000_000.0;
+/// The longest side a picture may have, in pixels.
+const MAX_SIDE: f64 = 8192.0;
 /// The longest side of the preview, in pixels.
 const PREVIEW_PX: f64 = 1000.0;
 
@@ -34,8 +36,9 @@ pub struct Raster {
 /// The window.
 pub struct ToImageDlg {
     pub ids: Vec<u64>,
-    /// The outlines of the shapes, in millimetres, as they are on the page.
-    polys: Vec<Polyline>,
+    /// The outlines of each shape, in millimetres, as they are on the page (each shape is filled on its own, so shapes that
+    /// overlap do not cut holes in one another).
+    polys: Vec<Vec<Polyline>>,
     /// The corner and the size of the shapes (with half a line round them).
     origin: (f64, f64),
     size: (f64, f64),
@@ -55,7 +58,7 @@ pub fn can_convert<H: EditorHost + ?Sized>(h: &H) -> bool {
 }
 
 impl ToImageDlg {
-    pub fn new(ids: Vec<u64>, polys: Vec<Polyline>) -> Option<ToImageDlg> {
+    pub fn new(ids: Vec<u64>, polys: Vec<Vec<Polyline>>) -> Option<ToImageDlg> {
         let mut d = ToImageDlg { ids, polys, origin: (0.0, 0.0), size: (1.0, 1.0), raster: Raster { dpi: 254.0, width: 1.0, fill: true, line: 0.3 }, delete_objects: false, hide_objects: false, tex: None, shown: None, view: PictureView::default() };
         d.measure()?;
         d.raster.width = d.size.0;
@@ -64,7 +67,7 @@ impl ToImageDlg {
 
     /// The box of the shapes, half a line larger on each side so the lines along the edge are whole.
     fn measure(&mut self) -> Option<()> {
-        let b = self.polys.iter().filter_map(|p| p.bounds()).reduce(base_core::geom::Rect::union)?;
+        let b = self.polys.iter().flatten().filter_map(|p| p.bounds()).reduce(base_core::geom::Rect::union)?;
         let m = self.raster.line / 2.0;
         let (w, h) = (b.max.x - b.min.x + 2.0 * m, b.max.y - b.min.y + 2.0 * m);
         if w <= 1e-6 || h <= 1e-6 {
@@ -89,6 +92,12 @@ impl ToImageDlg {
             w *= k;
             h *= k;
         }
+        // No side longer than a picture of the program may have (the graphics card shows no larger one).
+        if w.max(h) > MAX_SIDE {
+            let k = MAX_SIDE / w.max(h);
+            w *= k;
+            h *= k;
+        }
         ((w.round() as usize).max(1), (h.round() as usize).max(1))
     }
 
@@ -96,9 +105,8 @@ impl ToImageDlg {
     fn draw(&self, px_w: usize, px_h: usize) -> Vec<u8> {
         let k = px_w as f64 / self.size.0;
         let line_px = self.raster.line * k;
-        let polys: Vec<Vec<(f64, f64)>> = self.polys.iter().map(|p| p.pts.iter().map(|q| ((q.x - self.origin.0) * k, (q.y - self.origin.1) * k)).collect()).collect();
-        let closed: Vec<bool> = self.polys.iter().map(|p| p.closed).collect();
-        rasterize(&polys, &closed, px_w, px_h, self.raster.fill, line_px)
+        let shapes: Vec<Vec<(Vec<(f64, f64)>, bool)>> = self.polys.iter().map(|shape| shape.iter().map(|p| (p.pts.iter().map(|q| ((q.x - self.origin.0) * k, (q.y - self.origin.1) * k)).collect(), p.closed)).collect()).collect();
+        rasterize(&shapes, px_w, px_h, self.raster.fill, line_px)
     }
 
     /// The finished picture.
@@ -108,63 +116,82 @@ impl ToImageDlg {
     }
 }
 
-/// Coverage (0..1) of shapes on a grid of pixels: the closed ones filled by the even-odd rule (when `fill`), every line `line_px`
-/// wide. The edges are smooth: each row is looked at on several lines, each line of a shape by its distance. White is 255.
-pub fn rasterize(polys: &[Vec<(f64, f64)>], closed: &[bool], w: usize, h: usize, fill: bool, line_px: f64) -> Vec<u8> {
+/// Coverage of shapes on a grid of pixels, as greys (white is 255): each shape is a list of paths (with whether each is closed). The
+/// closed paths of a shape are filled by the even-odd rule (when `fill`), so the hole of an O stays; shapes that overlap simply cover
+/// one another. Every line is `line_px` wide. The edges are smooth: each row is looked at on several lines, each line by its distance.
+pub fn rasterize(shapes: &[Vec<(Vec<(f64, f64)>, bool)>], w: usize, h: usize, fill: bool, line_px: f64) -> Vec<u8> {
     let mut cover = vec![0f32; w * h];
     if fill {
-        let mut edges: Vec<((f64, f64), (f64, f64))> = vec![];
-        for (p, c) in polys.iter().zip(closed) {
-            if !*c || p.len() < 3 {
+        let mut row = vec![0f32; w];
+        let mut xs: Vec<f64> = vec![];
+        let sub = 4;
+        for shape in shapes {
+            let mut edges: Vec<((f64, f64), (f64, f64))> = vec![];
+            for (p, closed) in shape {
+                if !*closed || p.len() < 3 {
+                    continue;
+                }
+                for i in 0..p.len() {
+                    let (a, b) = (p[i], p[(i + 1) % p.len()]);
+                    if a.1 != b.1 {
+                        edges.push((a, b));
+                    }
+                }
+            }
+            if edges.is_empty() {
                 continue;
             }
-            for i in 0..p.len() {
-                let (a, b) = (p[i], p[(i + 1) % p.len()]);
-                if a.1 != b.1 {
-                    edges.push((a, b));
+            let (mut ymin, mut ymax, mut xmin, mut xmax) = (f64::MAX, f64::MIN, f64::MAX, f64::MIN);
+            for (a, b) in &edges {
+                ymin = ymin.min(a.1).min(b.1);
+                ymax = ymax.max(a.1).max(b.1);
+                xmin = xmin.min(a.0).min(b.0);
+                xmax = xmax.max(a.0).max(b.0);
+            }
+            let (y0, y1) = (ymin.floor().max(0.0) as usize, (ymax.ceil().max(0.0) as usize).min(h));
+            let (c0, c1) = (xmin.floor().max(0.0) as usize, (xmax.ceil().max(0.0) as usize).min(w));
+            // The edges by the rows they cross, so each row looks only at its own.
+            let mut by_row: Vec<Vec<usize>> = vec![vec![]; y1.saturating_sub(y0)];
+            for (i, (a, b)) in edges.iter().enumerate() {
+                let (ey0, ey1) = (a.1.min(b.1).floor().max(y0 as f64) as usize, (a.1.max(b.1).ceil().max(0.0) as usize).min(y1));
+                for r in ey0..ey1 {
+                    by_row[r - y0].push(i);
                 }
             }
-        }
-        // The edges by the rows they cross, so each row looks only at its own.
-        let mut by_row: Vec<Vec<usize>> = vec![vec![]; h];
-        for (i, (a, b)) in edges.iter().enumerate() {
-            let (y0, y1) = (a.1.min(b.1).floor().max(0.0) as usize, (a.1.max(b.1).ceil().max(0.0) as usize).min(h));
-            for r in by_row.iter_mut().take(y1).skip(y0) {
-                r.push(i);
-            }
-        }
-        let sub = 4;
-        let mut xs: Vec<f64> = vec![];
-        for (y, row) in by_row.iter().enumerate() {
-            for s in 0..sub {
-                let sy = y as f64 + (s as f64 + 0.5) / sub as f64;
-                xs.clear();
-                for &i in row {
-                    let (a, b) = edges[i];
-                    if (a.1 <= sy) != (b.1 <= sy) {
-                        xs.push(a.0 + (sy - a.1) / (b.1 - a.1) * (b.0 - a.0));
+            for y in y0..y1 {
+                row[c0..c1].iter_mut().for_each(|v| *v = 0.0);
+                for s in 0..sub {
+                    let sy = y as f64 + (s as f64 + 0.5) / sub as f64;
+                    xs.clear();
+                    for &i in &by_row[y - y0] {
+                        let (a, b) = edges[i];
+                        if (a.1 <= sy) != (b.1 <= sy) {
+                            xs.push(a.0 + (sy - a.1) / (b.1 - a.1) * (b.0 - a.0));
+                        }
+                    }
+                    xs.sort_by(|p, q| p.total_cmp(q));
+                    for pair in xs.chunks_exact(2) {
+                        let (x0, x1) = (pair[0].max(0.0), pair[1].min(w as f64));
+                        if x1 <= x0 {
+                            continue;
+                        }
+                        for x in (x0.floor() as usize)..((x1.ceil() as usize).min(w)) {
+                            row[x] += ((x1.min(x as f64 + 1.0) - x0.max(x as f64)).max(0.0) / sub as f64) as f32;
+                        }
                     }
                 }
-                xs.sort_by(|p, q| p.total_cmp(q));
-                for pair in xs.chunks_exact(2) {
-                    let (x0, x1) = (pair[0].max(0.0), pair[1].min(w as f64));
-                    if x1 <= x0 {
-                        continue;
-                    }
-                    let (c0, c1) = (x0.floor() as usize, (x1.ceil() as usize).min(w));
-                    for x in c0..c1 {
-                        let part = (x1.min(x as f64 + 1.0) - x0.max(x as f64)).max(0.0);
-                        cover[y * w + x] += (part / sub as f64) as f32;
-                    }
+                for x in c0..c1 {
+                    let i = y * w + x;
+                    cover[i] = cover[i].max(row[x]);
                 }
             }
         }
     }
     if line_px > 0.0 {
         let hw = line_px / 2.0;
-        for (p, c) in polys.iter().zip(closed) {
+        for (p, closed) in shapes.iter().flatten() {
             let n = p.len();
-            let segs = if *c { n } else { n.saturating_sub(1) };
+            let segs = if *closed { n } else { n.saturating_sub(1) };
             for i in 0..segs {
                 let (a, b) = (p[i], p[(i + 1) % n]);
                 let x0 = (a.0.min(b.0) - hw - 1.0).floor().max(0.0) as usize;
@@ -190,13 +217,29 @@ pub fn rasterize(polys: &[Vec<(f64, f64)>], closed: &[bool], w: usize, h: usize,
     cover.iter().map(|c| (255.0 * (1.0 - c.clamp(0.0, 1.0))).round() as u8).collect()
 }
 
+/// The layer of the new picture. A layer that holds other shapes is left alone (a program may switch a layer to pictures when the
+/// first one comes on it, and the shapes on it would then be done as a picture): the layer of the shapes when they are deleted and
+/// nothing else is on it, else a layer that already has pictures, else an empty one, else the active layer.
+fn picture_layer<H: EditorHost + ?Sized>(h: &H, ids: &[u64], deleting: bool) -> usize {
+    let shapes = &h.scene().shapes;
+    if let Some(first) = ids.first().and_then(|id| h.scene().shape(*id)) {
+        if deleting && shapes.iter().filter(|s| s.layer == first.layer).all(|s| ids.contains(&s.id) && !s.locked) {
+            return first.layer;
+        }
+    }
+    if let Some(s) = shapes.iter().find(|s| matches!(s.kind, Kind::Image(_))) {
+        return s.layer;
+    }
+    (0..base_core::layers::LAYER_COUNT).find(|l| !shapes.iter().any(|s| s.layer == *l)).unwrap_or(h.ed().active_layer)
+}
+
 /// Open the window on the selected shapes.
 pub fn open<H: EditorHost + ?Sized>(h: &mut H) {
     if !can_convert(h) {
         return;
     }
     let ids = h.ed().sel.clone();
-    let polys: Vec<Polyline> = ids.iter().filter_map(|id| h.scene().shape(*id)).flat_map(|s| s.polys()).collect();
+    let polys: Vec<Vec<Polyline>> = ids.iter().filter_map(|id| h.scene().shape(*id)).map(|s| s.polys()).collect();
     match ToImageDlg::new(ids, polys) {
         Some(d) => h.ed_mut().to_image_dlg = Some(d),
         None => h.say(tr("The shapes have no size").to_string()),
@@ -284,7 +327,7 @@ pub fn window<H: EditorHost + ?Sized>(h: &mut H, ctx: &egui::Context) {
         if !d.hide_objects {
             let k = pic.width() as f64 / d.size.0;
             let stroke = Stroke::new(1.2, theme::accent());
-            for p in &d.polys {
+            for p in d.polys.iter().flatten() {
                 let pts: Vec<egui::Pos2> = p.pts.iter().map(|q| pic.min + egui::vec2(((q.x - d.origin.0) * k) as f32, ((q.y - d.origin.1) * k) as f32)).collect();
                 if p.closed {
                     painter.add(egui::Shape::closed_line(pts, stroke));
@@ -308,8 +351,7 @@ pub fn window<H: EditorHost + ?Sized>(h: &mut H, ctx: &egui::Context) {
     if accept {
         let im = d.result();
         h.checkpoint();
-        // On the layer of the first shape, where the shapes were.
-        let layer = d.ids.first().and_then(|id| h.scene().shape(*id)).map(|s| s.layer).unwrap_or(h.ed().active_layer);
+        let layer = picture_layer(h, &d.ids, d.delete_objects);
         let id = h.scene_mut().add(layer, Kind::Image(im), Xf::translate(d.origin.0, d.origin.1));
         if d.delete_objects {
             let gone = d.ids.clone();
@@ -333,7 +375,7 @@ mod tests {
     #[test]
     fn a_square_is_filled_with_smooth_edges() {
         let sq = vec![(2.0, 2.0), (8.5, 2.0), (8.5, 8.0), (2.0, 8.0)];
-        let g = rasterize(&[sq], &[true], 10, 10, true, 0.0);
+        let g = rasterize(&[vec![(sq, true)]], 10, 10, true, 0.0);
         assert_eq!(g[5 * 10 + 5], 0);
         assert_eq!(g[0], 255);
         assert!((120..=135).contains(&g[5 * 10 + 8]), "half a pixel covered: {}", g[5 * 10 + 8]);
@@ -344,11 +386,14 @@ mod tests {
     fn holes_stay_white_and_lines_have_width() {
         let outer = vec![(1.0, 1.0), (19.0, 1.0), (19.0, 19.0), (1.0, 19.0)];
         let inner = vec![(6.0, 6.0), (14.0, 6.0), (14.0, 14.0), (6.0, 14.0)];
-        let g = rasterize(&[outer, inner], &[true, true], 20, 20, true, 0.0);
+        let g = rasterize(&[vec![(outer.clone(), true), (inner.clone(), true)]], 20, 20, true, 0.0);
         assert_eq!(g[10 * 20 + 10], 255, "the hole");
         assert_eq!(g[3 * 20 + 3], 0, "the ring");
+        // The same square as a shape of its own, on the ring: shapes cover one another, they do not cut holes.
+        let g = rasterize(&[vec![(outer, true)], vec![(inner, true)]], 20, 20, true, 0.0);
+        assert_eq!(g[10 * 20 + 10], 0, "two shapes that overlap are both filled");
         let line = vec![(0.0, 5.0), (20.0, 5.0)];
-        let g = rasterize(&[line], &[false], 20, 10, true, 3.0);
+        let g = rasterize(&[vec![(line, false)]], 20, 10, true, 3.0);
         assert_eq!(g[5 * 20 + 10], 0);
         assert_eq!(g[9 * 20 + 10], 255);
     }
@@ -357,7 +402,7 @@ mod tests {
     #[test]
     fn the_picture_has_the_size_and_resolution() {
         let p = Polyline::new(vec![base_core::geom::Pt::new(0.0, 0.0), base_core::geom::Pt::new(40.0, 0.0), base_core::geom::Pt::new(40.0, 20.0), base_core::geom::Pt::new(0.0, 20.0)], true);
-        let mut d = ToImageDlg::new(vec![1], vec![p]).unwrap();
+        let mut d = ToImageDlg::new(vec![1], vec![vec![p]]).unwrap();
         d.raster.line = 0.0;
         d.measure();
         d.raster.width = 40.0;
@@ -366,5 +411,10 @@ mod tests {
         let im = d.result();
         assert_eq!((im.w, im.h), (40.0, 20.0));
         assert_eq!(im.gray[100 * 400 + 200], 0);
+        // A long strip at a high resolution keeps its sides within what can be shown.
+        d.raster.width = 400.0;
+        d.raster.dpi = 1200.0;
+        let (w, hh) = d.pixels();
+        assert!(w <= 8192 && hh <= 8192, "{w} × {hh}");
     }
 }

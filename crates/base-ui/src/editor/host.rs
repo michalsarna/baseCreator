@@ -453,6 +453,15 @@ pub trait EditorHost: Sized {
                 let key = super::image_tex_key(s.id, im);
                 keep.push(key);
                 if !self.ed().image_tex.contains_key(&key) {
+                    // A picture larger than the graphics card can show is shown smaller (its pixels stay as they are).
+                    let side = ctx.input(|i| i.max_texture_side).max(1024) as u32;
+                    let small;
+                    let im = if im.px_w.max(im.px_h) > side {
+                        small = im.downscaled(side);
+                        &small
+                    } else {
+                        im
+                    };
                     let px: Vec<u8> = if im.invert { im.gray.iter().map(|g| 255 - g).collect() } else { im.gray.clone() };
                     let img = egui::ColorImage::from_gray([im.px_w as usize, im.px_h as usize], &px);
                     let tex = ctx.load_texture(format!("img-{}-{}", s.id, im.invert), img, egui::TextureOptions::LINEAR);
