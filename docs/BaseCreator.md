@@ -19,6 +19,8 @@ Every [release](https://github.com/michalsarna/baseCreator/releases) holds these
 | macOS, Intel | `basecreator-vX.Y.Z-macos-x86_64.dmg` | – |
 | Debian / Ubuntu, x86_64 | `basecreator-vX.Y.Z-linux-amd64.deb` | `basecreator-vX.Y.Z-linux-x86_64.tar.gz` |
 | Debian / Ubuntu, ARM64 | `basecreator-vX.Y.Z-linux-arm64.deb` | `basecreator-vX.Y.Z-linux-arm64.tar.gz` |
+| Fedora / openSUSE, x86_64 | `basecreator-vX.Y.Z-linux-x86_64.rpm` | `basecreator-vX.Y.Z-linux-x86_64.tar.gz` |
+| Fedora / openSUSE, ARM64 | `basecreator-vX.Y.Z-linux-aarch64.rpm` | `basecreator-vX.Y.Z-linux-arm64.tar.gz` |
 
 The programs are not signed by a paid developer account: macOS and Windows warn about them the first time. On macOS open the program with
 right click → Open.
