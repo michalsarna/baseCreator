@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.1
+
+- Library zip 9.5.1.
+
 ## v2.7.0
 
 - **The photo editor** (`editor::photo_edit`, **Arrange → Edit image…**, the menu of the right mouse button, and an orange button at the top of the **Picture styles** tab): a brush, an eraser (it paints white), a clone stamp (Ctrl/Cmd+click where to copy from, then paint; the distance stays for the next strokes) and a fill of the area of similar greys, in greys only. Size, hardness and opacity of the brush (a stroke does not build up over itself), the tolerance of the fill, Undo and Redo, also with the keys and the Edit menu of the program while the editor is open (`photo_edit::take_undo`, called from the undo of each program). The wheel zooms, the right or the middle button moves the picture; the drawing changes only on Apply (one step of undo). A picture larger than the graphics card can show is shown smaller while its own pixels are edited.
