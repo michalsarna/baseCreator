@@ -11,6 +11,8 @@ Every release on the [Releases page](https://github.com/michalsarna/baseCreator/
 | macOS, Intel | `basecreator-vX.Y.Z-macos-x86_64.dmg` | – |
 | Debian / Ubuntu and derivatives, x86_64 | `basecreator-vX.Y.Z-linux-amd64.deb` | `basecreator-vX.Y.Z-linux-x86_64.tar.gz` |
 | Debian / Ubuntu and derivatives, ARM64 | `basecreator-vX.Y.Z-linux-arm64.deb` | `basecreator-vX.Y.Z-linux-arm64.tar.gz` |
+| Fedora, openSUSE, x86_64 | `basecreator-vX.Y.Z-linux-x86_64.rpm` | `basecreator-vX.Y.Z-linux-x86_64.tar.gz` |
+| Fedora, openSUSE, ARM64 | `basecreator-vX.Y.Z-linux-aarch64.rpm` | `basecreator-vX.Y.Z-linux-arm64.tar.gz` |
 | Other Linux | – | the `.tar.gz` above |
 
 ## Package managers
@@ -34,7 +36,7 @@ xattr -dr com.apple.quarantine /Applications/BaseCreator.app
 ```
 
 ## Linux
-Install the `.deb` (`sudo apt install ./basecreator-vX.Y.Z-linux-amd64.deb`) or unpack the `.tar.gz` and run `basecreator`. The program needs the usual X11 / Wayland and OpenGL libraries (`libxkbcommon-x11-0`, `libgl1`); the `.deb` lists them.
+Install the `.deb` (`sudo apt install ./basecreator-vX.Y.Z-linux-amd64.deb`), on Fedora or openSUSE the `.rpm` (`sudo dnf install ./basecreator-vX.Y.Z-linux-x86_64.rpm`, openSUSE: `sudo zypper install ./...`; it needs a recent glibc, so not RHEL / Alma / Rocky 9), or unpack the `.tar.gz` and run `basecreator`. The program needs the usual X11 / Wayland and OpenGL libraries (`libxkbcommon-x11-0`, `libgl1`); the `.deb` and the `.rpm` list them.
 
 ## From source
 ```sh

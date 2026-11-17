@@ -46,6 +46,25 @@ assets = [
   ["../../LICENSE-APACHE", "usr/share/doc/basecreator/LICENSE-APACHE", "644"],
 ]
 
+# The .rpm of the releases (cargo generate-rpm -p crates/basecreator, run in the workspace folder: the sources are relative to it).
+[package.metadata.generate-rpm]
+assets = [
+  { source = "target/release/basecreator", dest = "/usr/bin/basecreator", mode = "755" },
+  { source = "assets/basecreator.desktop", dest = "/usr/share/applications/basecreator.desktop", mode = "644" },
+  { source = "assets/icons/icon-48.png", dest = "/usr/share/icons/hicolor/48x48/apps/basecreator.png", mode = "644" },
+  { source = "assets/icons/icon-128.png", dest = "/usr/share/icons/hicolor/128x128/apps/basecreator.png", mode = "644" },
+  { source = "assets/icons/icon-256.png", dest = "/usr/share/icons/hicolor/256x256/apps/basecreator.png", mode = "644" },
+  { source = "assets/icons/icon-512.png", dest = "/usr/share/icons/hicolor/512x512/apps/basecreator.png", mode = "644" },
+  { source = "README.md", dest = "/usr/share/doc/basecreator/README.md", mode = "644", doc = true },
+  { source = "LICENSE", dest = "/usr/share/doc/basecreator/LICENSE", mode = "644", doc = true },
+  { source = "LICENSE-APACHE", dest = "/usr/share/doc/basecreator/LICENSE-APACHE", mode = "644", doc = true },
+]
+
+# The other libraries are found in the binary; these two the GUI loads at run time.
+[package.metadata.generate-rpm.requires]
+"libxkbcommon-x11.so.0()(64bit)" = "*"
+"libGL.so.1()(64bit)" = "*"
+
 [dev-dependencies]
 # Renders the UI headlessly to PNG for the screenshots (see src/screenshots.rs).
 egui_kittest = { version = "0.37", features = ["wgpu"] }
