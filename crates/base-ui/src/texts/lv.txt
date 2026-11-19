@@ -1559,3 +1559,4 @@
 1558|Paslēpt attēlu
 1559|Tikai priekšskatījumā: tikai kontūras
 1560|Tikai priekšskatījumā: tikai līnijas
+1561|Šajā Windows nav Media Foundation, kas vajadzīgs kamerai. Instalējiet Media Feature Pack (Iestatījumi → Izvēles līdzekļi).

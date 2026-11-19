@@ -1559,3 +1559,4 @@
 1558|Peida pilt
 1559|Ainult eelvaates: ainult piirjooned
 1560|Ainult eelvaates: ainult jooned
+1561|Selles Windowsis puudub Media Foundation, mida kaamera vajab. Paigaldage Media Feature Pack (Sätted → Valikulised funktsioonid).

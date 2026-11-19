@@ -1559,3 +1559,4 @@
 1558|Folaigh an pictiúr
 1559|Sa réamhamharc amháin: na himlínte amháin
 1560|Sa réamhamharc amháin: na línte amháin
+1561|Níl Media Foundation ar an Windows seo, agus tá sé ag teastáil ón gceamara. Suiteáil an Media Feature Pack (Socruithe → Gnéithe roghnacha).

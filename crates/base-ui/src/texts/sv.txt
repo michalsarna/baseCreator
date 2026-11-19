@@ -1559,3 +1559,4 @@
 1558|Dölj bilden
 1559|Bara i förhandsvisningen: bara konturerna
 1560|Bara i förhandsvisningen: bara linjerna
+1561|Den här Windows saknar Media Foundation, som kameran behöver. Installera Media Feature Pack (Inställningar → Valfria funktioner).

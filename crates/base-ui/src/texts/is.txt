@@ -1559,3 +1559,4 @@
 1558|Fela myndina
 1559|Aðeins í forskoðun: útlínurnar einar
 1560|Aðeins í forskoðun: línurnar einar
+1561|Þetta Windows hefur ekki Media Foundation, sem myndavélin þarf. Settu upp Media Feature Pack (Stillingar → Valfrjálsir eiginleikar).

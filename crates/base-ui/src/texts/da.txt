@@ -1559,3 +1559,4 @@
 1558|Skjul billedet
 1559|Kun i forhåndsvisningen: kun omridsene
 1560|Kun i forhåndsvisningen: kun linjerne
+1561|Denne Windows mangler Media Foundation, som kameraet har brug for. Installér Media Feature Pack (Indstillinger → Valgfrie funktioner).

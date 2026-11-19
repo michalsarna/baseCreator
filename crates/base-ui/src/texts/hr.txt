@@ -1559,3 +1559,4 @@
 1558|Sakrij sliku
 1559|Samo u pregledu: samo obrisi
 1560|Samo u pregledu: samo linije
+1561|Ovaj Windows nema Media Foundation, koji kamera treba. Instalirajte Media Feature Pack (Postavke → Neobavezne značajke).

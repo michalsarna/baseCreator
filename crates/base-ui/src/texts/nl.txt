@@ -1559,3 +1559,4 @@
 1558|Afbeelding verbergen
 1559|Alleen in het voorbeeld: alleen de omtrekken
 1560|Alleen in het voorbeeld: alleen de lijnen
+1561|Deze Windows heeft geen Media Foundation, die de camera nodig heeft. Installeer het Media Feature Pack (Instellingen → Optionele onderdelen).

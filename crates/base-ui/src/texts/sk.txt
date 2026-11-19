@@ -1559,3 +1559,4 @@
 1558|Skryť obrázok
 1559|Len v náhľade: len obrysy
 1560|Len v náhľade: len čiary
+1561|Tento Windows nemá Media Foundation, ktorú kamera potrebuje. Nainštalujte Media Feature Pack (Nastavenie → Voliteľné funkcie).
