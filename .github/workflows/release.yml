@@ -56,7 +56,11 @@ jobs:
       - name: Linux build dependencies
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libudev-dev libxkbcommon-x11-dev libgl1-mesa-dev
+      # Windows: the C runtime is linked into the program, so it starts without the Visual C++ Redistributable
+      # (VCRUNTIME140.dll is not on every Windows; the winget validation failed on it).
       - run: cargo build --release -p basecreator
+        env:
+          RUSTFLAGS: ${{ runner.os == 'Windows' && '-C target-feature=+crt-static' || '' }}
 
       # Plain archive (Linux .tar.gz, Windows .zip): binary + README + LICENSE. macOS gets only the .dmg.
       - name: Archive
@@ -90,6 +94,14 @@ jobs:
             rpm -qi basecreator | head -3
             if ldd /usr/bin/basecreator | grep 'not found'; then exit 1; fi
             test -f /usr/share/applications/basecreator.desktop"
+
+      # Check that the C runtime really is linked in (see the build step).
+      - name: Windows program needs no VCRUNTIME140.dll
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $text = [Text.Encoding]::ASCII.GetString([IO.File]::ReadAllBytes("target/release/basecreator.exe"))
+          if ($text -match '(?i)vcruntime140') { Write-Error "basecreator.exe imports VCRUNTIME140.dll"; exit 1 }
 
       # Windows: NSIS installer (makensis is preinstalled on the runner image; install it if missing)
       - name: Windows installer
