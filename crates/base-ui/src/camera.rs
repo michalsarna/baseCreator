@@ -76,8 +76,55 @@ mod imp {
 
     pub const SUPPORTED: bool = true;
 
+    /// Why the cameras of the computer cannot be used here, or `None` when they can. A Windows "N" edition without the Media
+    /// Feature Pack has no Media Foundation: the release builds load its DLLs only when the camera starts (delay-loaded), so the
+    /// program runs, and the camera says what to install instead of the program failing to start.
+    pub fn unavailable() -> Option<&'static str> {
+        if media_foundation_present() {
+            None
+        } else {
+            Some(crate::i18n::tr("This Windows has no Media Foundation, which the camera needs. Install the Media Feature Pack (Settings → Optional features)."))
+        }
+    }
+
+    #[cfg(windows)]
+    fn media_foundation_present() -> bool {
+        use std::ffi::c_void;
+        use std::sync::OnceLock;
+        #[link(name = "kernel32")]
+        unsafe extern "system" {
+            fn LoadLibraryExW(name: *const u16, file: *mut c_void, flags: u32) -> *mut c_void;
+            fn FreeLibrary(module: *mut c_void) -> i32;
+        }
+        const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 0x0000_0800;
+        static PRESENT: OnceLock<bool> = OnceLock::new();
+        *PRESENT.get_or_init(|| {
+            ["mf.dll", "mfplat.dll", "mfreadwrite.dll"].iter().all(|name| {
+                let wide: Vec<u16> = name.encode_utf16().chain(Some(0)).collect();
+                // SAFETY: a NUL-terminated name; the module is freed right away, only its presence matters.
+                unsafe {
+                    let module = LoadLibraryExW(wide.as_ptr(), std::ptr::null_mut(), LOAD_LIBRARY_SEARCH_SYSTEM32);
+                    if module.is_null() {
+                        false
+                    } else {
+                        FreeLibrary(module);
+                        true
+                    }
+                }
+            })
+        })
+    }
+
+    #[cfg(not(windows))]
+    fn media_foundation_present() -> bool {
+        true
+    }
+
     /// Names of the cameras the system reports. Asks for permission first on macOS.
     pub fn list() -> Vec<String> {
+        if unavailable().is_some() {
+            return Vec::new();
+        }
         nokhwa::nokhwa_initialize(|_| {});
         // Give the permission prompt a moment on first use.
         for _ in 0..20 {
@@ -135,6 +182,10 @@ mod imp {
         let stop = Arc::new(AtomicBool::new(false));
         let flag = stop.clone();
         std::thread::spawn(move || {
+            if let Some(why) = unavailable() {
+                let _ = tx.send(Err(why.to_string()));
+                return;
+            }
             let mut cam = match open_camera(index, prefer_yuyv) {
                 Ok(c) => c,
                 Err(e) => {
@@ -175,6 +226,10 @@ mod imp {
 
     pub const SUPPORTED: bool = false;
 
+    pub fn unavailable() -> Option<&'static str> {
+        None
+    }
+
     pub fn list() -> Vec<String> {
         vec![]
     }
@@ -189,4 +244,4 @@ mod imp {
     }
 }
 
-pub use imp::{list, spawn, Worker, SUPPORTED};
+pub use imp::{list, spawn, unavailable, Worker, SUPPORTED};

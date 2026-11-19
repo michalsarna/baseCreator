@@ -1559,3 +1559,4 @@
 1558|Slėpti paveikslą
 1559|Tik peržiūroje: tik kontūrai
 1560|Tik peržiūroje: tik linijos
+1561|Šioje Windows nėra Media Foundation, kurios reikia kamerai. Įdiekite Media Feature Pack (Parametrai → Pasirinktinės funkcijos).

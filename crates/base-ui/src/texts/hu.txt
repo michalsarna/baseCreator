@@ -1559,3 +1559,4 @@
 1558|Kép elrejtése
 1559|Csak az előnézetben: csak a körvonalak
 1560|Csak az előnézetben: csak a vonalak
+1561|Ebből a Windowsból hiányzik a Media Foundation, amelyre a kamerának szüksége van. Telepítse a Media Feature Packet (Gépház → Választható szolgáltatások).

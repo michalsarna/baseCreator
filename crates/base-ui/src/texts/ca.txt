@@ -1559,3 +1559,4 @@
 1558|Amaga la imatge
 1559|Només a la previsualització: només els contorns
 1560|Només a la previsualització: només les línies
+1561|Aquest Windows no té Media Foundation, que la càmera necessita. Instal·leu el Media Feature Pack (Configuració → Característiques opcionals).

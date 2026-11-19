@@ -1559,3 +1559,4 @@
 1558|Aħbi l-istampa
 1559|Fil-previżjoni biss: il-kontorni biss
 1560|Fil-previżjoni biss: il-linji biss
+1561|Dan il-Windows m'għandux Media Foundation, li l-kamera teħtieġ. Installa l-Media Feature Pack (Settings → Optional features).

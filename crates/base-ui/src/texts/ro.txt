@@ -1559,3 +1559,4 @@
 1558|Ascunde imaginea
 1559|Doar în previzualizare: numai contururile
 1560|Doar în previzualizare: numai liniile
+1561|Acest Windows nu are Media Foundation, de care camera are nevoie. Instalați Media Feature Pack (Setări → Caracteristici opționale).

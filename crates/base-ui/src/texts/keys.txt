@@ -1559,3 +1559,4 @@
 1558	Hide the picture
 1559	Only in the preview: the outlines alone
 1560	Only in the preview: the lines alone
+1561	This Windows has no Media Foundation, which the camera needs. Install the Media Feature Pack (Settings → Optional features).
