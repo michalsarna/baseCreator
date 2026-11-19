@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.3
+
+- **Windows: BaseCreator starts without the Visual C++ Redistributable** (the C runtime is linked in; before, a Windows without it reported a missing VCRUNTIME140.dll). The release build checks it.
+
 ## v2.7.2
 
 - **RPM packages** for Fedora and openSUSE (x86_64 and ARM64): `basecreator-vX.Y.Z-linux-x86_64.rpm` and `-linux-aarch64.rpm` (`sudo dnf install ./basecreator-*.rpm`). Each one is installed in a Fedora container while the release is built, which must find every library the program needs. The program needs a recent glibc (not RHEL / Alma / Rocky 9).
