@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.5
+
+- Libraries: zip 9.6.1, resvg / usvg 0.50.0, i_overlay 9.2.0, ureq 3.5.2.
+
 ## v2.7.4
 
 - **A Windows without Media Foundation** (an "N" edition without the Media Feature Pack): `camera::unavailable()` tells it, the list of cameras is empty and starting a camera says to install the Media Feature Pack (Settings → Optional features), instead of a crash. The programs load the DLLs of Media Foundation only when a camera starts (their release builds delay-load them), so they start on such a Windows. 1 text in every language.
