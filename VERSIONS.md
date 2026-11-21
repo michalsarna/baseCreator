@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.6
+
+- Libraries: zip 9.6.1, resvg / usvg 0.50.0, i_overlay 9.2.0, ureq 3.5.2 (as in v2.7.5, whose tag still says version 2.7.4 inside).
+
 ## v2.7.5
 
 - Libraries: zip 9.6.1, resvg / usvg 0.50.0, i_overlay 9.2.0, ureq 3.5.2.
