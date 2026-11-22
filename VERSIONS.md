@@ -5,7 +5,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 
 ## v2.7.7
 
-- **FreeBSD** (x86_64): the libraries and BaseCreator build there and their tests pass (a FreeBSD 15.0 virtual machine in CI). A release has `basecreator-vX.Y.Z-freebsd-x86_64.tar.gz`; it needs `pkg install libudev-devd libxkbcommon mesa-libs` (see Installation). Libraries nix 0.31.4 and libc 0.2.191 (the older ones do not build on FreeBSD).
+- **FreeBSD** (x86_64): the libraries and BaseCreator build there and their tests pass (a FreeBSD 15.0 virtual machine in CI). USB cameras do not work there yet (the camera library has no FreeBSD backend): the camera says so, in every language; network (IP) cameras go through ffmpeg (`pkg install ffmpeg`). A release has `basecreator-vX.Y.Z-freebsd-x86_64.tar.gz`; it needs `pkg install libudev-devd libxkbcommon mesa-libs` (see Installation). Libraries nix 0.31.4 and libc 0.2.191 (the older ones do not build on FreeBSD).
 
 ## v2.7.6
 

@@ -1560,3 +1560,4 @@
 1559|Només a la previsualització: només els contorns
 1560|Només a la previsualització: només les línies
 1561|Aquest Windows no té Media Foundation, que la càmera necessita. Instal·leu el Media Feature Pack (Configuració → Característiques opcionals).
+1562|Les càmeres USB encara no funcionen a FreeBSD. Una càmera de xarxa (IP) sí que funciona.

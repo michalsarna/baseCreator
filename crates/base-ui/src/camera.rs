@@ -80,6 +80,10 @@ mod imp {
     /// Feature Pack has no Media Foundation: the release builds load its DLLs only when the camera starts (delay-loaded), so the
     /// program runs, and the camera says what to install instead of the program failing to start.
     pub fn unavailable() -> Option<&'static str> {
+        // The camera library has no FreeBSD backend: it would find no camera and fail with an unclear message.
+        if cfg!(target_os = "freebsd") {
+            return Some(crate::i18n::tr("USB cameras do not work on FreeBSD yet. A network (IP) camera does."));
+        }
         if media_foundation_present() {
             None
         } else {

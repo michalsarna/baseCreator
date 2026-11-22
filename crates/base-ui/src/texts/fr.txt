@@ -1560,3 +1560,4 @@
 1559|Seulement dans l'aperçu : les contours seuls
 1560|Seulement dans l'aperçu : les lignes seules
 1561|Ce Windows n'a pas Media Foundation, dont la caméra a besoin. Installez le Media Feature Pack (Paramètres → Fonctionnalités facultatives).
+1562|Les caméras USB ne fonctionnent pas encore sous FreeBSD. Une caméra réseau (IP) fonctionne.

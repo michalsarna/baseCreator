@@ -1560,3 +1560,4 @@
 1559|Jen v náhledu: jen obrysy
 1560|Jen v náhledu: jen čáry
 1561|Tento Windows nemá Media Foundation, kterou kamera potřebuje. Nainstalujte Media Feature Pack (Nastavení → Volitelné funkce).
+1562|USB kamery na FreeBSD zatím nefungují. Síťová (IP) kamera funguje.
