@@ -1560,3 +1560,4 @@
 1559|Samo v predogledu: samo obrisi
 1560|Samo v predogledu: samo črte
 1561|Ta Windows nima Media Foundation, ki jo kamera potrebuje. Namestite Media Feature Pack (Nastavitve → Izbirne funkcije).
+1562|Kamere USB na FreeBSD še ne delujejo. Omrežna (IP) kamera deluje.

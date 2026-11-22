@@ -1560,3 +1560,4 @@
 1559|Ainult eelvaates: ainult piirjooned
 1560|Ainult eelvaates: ainult jooned
 1561|Selles Windowsis puudub Media Foundation, mida kaamera vajab. Paigaldage Media Feature Pack (Sätted → Valikulised funktsioonid).
+1562|USB-kaamerad FreeBSD-s veel ei tööta. Võrgukaamera (IP) töötab.

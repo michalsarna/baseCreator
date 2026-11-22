@@ -44,3 +44,27 @@ jobs:
             awk '/^---- .* stdout ----$/ { t=$2 } p { print "::error title=grbl-sim::" t ": " $0; p=0 } /panicked at/ { p=1 }' grbl-sim-tests.log
             exit 1
           }
+
+  # FreeBSD: the libraries build and the unit tests pass (in a FreeBSD virtual machine; no GRBL simulator there).
+  freebsd:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build and test in FreeBSD
+        uses: vmactions/freebsd-vm@v1.5.9
+        with:
+          release: "15.0"
+          usesh: true
+          prepare: |
+            pkg install -y curl pkgconf libudev-devd evdev-proto libxkbcommon mesa-libs wayland
+            curl -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
+          run: |
+            set -e
+            . "$HOME/.cargo/env"
+            cargo --version
+            cargo test --workspace
+            cargo build -p base-ui --features camera
+            cargo build --release -p basecreator
+            ldd target/release/basecreator
+            if ldd target/release/basecreator | grep "not found"; then exit 1; fi

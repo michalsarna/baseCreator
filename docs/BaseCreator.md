@@ -21,6 +21,7 @@ Every [release](https://github.com/michalsarna/baseCreator/releases) holds these
 | Debian / Ubuntu, ARM64 | `basecreator-vX.Y.Z-linux-arm64.deb` | `basecreator-vX.Y.Z-linux-arm64.tar.gz` |
 | Fedora / openSUSE, x86_64 | `basecreator-vX.Y.Z-linux-x86_64.rpm` | `basecreator-vX.Y.Z-linux-x86_64.tar.gz` |
 | Fedora / openSUSE, ARM64 | `basecreator-vX.Y.Z-linux-aarch64.rpm` | `basecreator-vX.Y.Z-linux-arm64.tar.gz` |
+| FreeBSD, x86_64 | – | `basecreator-vX.Y.Z-freebsd-x86_64.tar.gz` (needs `pkg install libudev-devd libxkbcommon mesa-libs`) |
 
 The programs are not signed by a paid developer account: macOS and Windows warn about them the first time. On macOS open the program with
 right click → Open.

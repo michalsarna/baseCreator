@@ -1560,3 +1560,4 @@
 1559|Aðeins í forskoðun: útlínurnar einar
 1560|Aðeins í forskoðun: línurnar einar
 1561|Þetta Windows hefur ekki Media Foundation, sem myndavélin þarf. Settu upp Media Feature Pack (Stillingar → Valfrjálsir eiginleikar).
+1562|USB-myndavélar virka ekki enn á FreeBSD. Netmyndavél (IP) virkar.

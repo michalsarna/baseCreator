@@ -1560,3 +1560,4 @@
 1559|Kun i forhåndsvisningen: kun omridsene
 1560|Kun i forhåndsvisningen: kun linjerne
 1561|Denne Windows mangler Media Foundation, som kameraet har brug for. Installér Media Feature Pack (Indstillinger → Valgfrie funktioner).
+1562|USB-kameraer virker endnu ikke på FreeBSD. Et netværkskamera (IP) virker.

@@ -14,6 +14,7 @@ Każde wydanie na [stronie Releases](https://github.com/michalsarna/baseCreator/
 | Fedora, openSUSE, x86_64 | `basecreator-vX.Y.Z-linux-x86_64.rpm` | `basecreator-vX.Y.Z-linux-x86_64.tar.gz` |
 | Fedora, openSUSE, ARM64 | `basecreator-vX.Y.Z-linux-aarch64.rpm` | `basecreator-vX.Y.Z-linux-arm64.tar.gz` |
 | Inny Linux | – | `.tar.gz` powyżej |
+| FreeBSD, x86_64 | – | `basecreator-vX.Y.Z-freebsd-x86_64.tar.gz` |
 
 ## Menedżery pakietów
 
@@ -37,6 +38,15 @@ xattr -dr com.apple.quarantine /Applications/BaseCreator.app
 
 ## Linux
 Zainstaluj `.deb` (`sudo apt install ./basecreator-vX.Y.Z-linux-amd64.deb`), na Fedorze lub openSUSE `.rpm` (`sudo dnf install ./basecreator-vX.Y.Z-linux-x86_64.rpm`, openSUSE: `sudo zypper install ./...`; wymaga nowego glibc, więc nie RHEL / Alma / Rocky 9), albo rozpakuj `.tar.gz` i uruchom `basecreator`. Program potrzebuje zwykłych bibliotek X11 / Wayland i OpenGL (`libxkbcommon-x11-0`, `libgl1`); pakiety `.deb` i `.rpm` je wymieniają.
+
+## FreeBSD
+Rozpakuj `.tar.gz` i uruchom `basecreator`. Program potrzebuje kilku pakietów (kontrolery do gier działają przez `libudev-devd`) i pulpitu X11 albo Wayland (jako root):
+
+```sh
+pkg install libudev-devd libxkbcommon mesa-libs
+```
+
+Budowany i testowany automatycznie na FreeBSD 15.0 (tylko x86_64); jeszcze niewypróbowany na pulpicie FreeBSD. Urządzenie szeregowe USB to `/dev/cuaU0` (użytkownik musi być w grupie `dialer`). Aby zbudować go tam ze źródeł, najpierw `pkg install rust pkgconf libudev-devd evdev-proto`.
 
 ## Ze źródeł
 ```sh
