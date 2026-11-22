@@ -134,8 +134,42 @@ jobs:
           name: ${{ matrix.name }}
           path: basecreator-*
 
+  # FreeBSD (x86_64): built in a FreeBSD virtual machine; a .tar.gz with the program. It needs the packages of
+  # docs/BaseCreator.md (libudev-devd for game controllers); the job fails when a library it links to is missing.
+  freebsd:
+    needs: check
+    runs-on: ubuntu-26.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag }}
+      - name: Build in FreeBSD
+        uses: vmactions/freebsd-vm@v1.5.9
+        with:
+          release: "15.0"
+          usesh: true
+          envs: TAG
+          prepare: |
+            pkg install -y curl pkgconf libudev-devd evdev-proto libxkbcommon mesa-libs wayland
+            curl -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
+          run: |
+            set -e
+            . "$HOME/.cargo/env"
+            cargo build --release -p basecreator
+            strip target/release/basecreator
+            ldd target/release/basecreator
+            if ldd target/release/basecreator | grep 'not found'; then exit 1; fi
+            mkdir dist
+            cp README.md LICENSE LICENSE-APACHE target/release/basecreator dist/
+            tar czf "basecreator-${TAG}-freebsd-x86_64.tar.gz" -C dist .
+      - uses: actions/upload-artifact@v7
+        with:
+          name: freebsd-x86_64
+          path: basecreator-*
+
   release:
-    needs: build
+    needs: [build, freebsd]
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7

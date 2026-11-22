@@ -66,3 +66,5 @@ jobs:
             cargo test --workspace
             cargo build -p base-ui --features camera
             cargo build --release -p basecreator
+            ldd target/release/basecreator
+            if ldd target/release/basecreator | grep "not found"; then exit 1; fi

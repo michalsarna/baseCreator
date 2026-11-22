@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.7
+
+- **FreeBSD** (x86_64): the libraries and BaseCreator build there and their tests pass (a FreeBSD 15.0 virtual machine in CI). A release has `basecreator-vX.Y.Z-freebsd-x86_64.tar.gz`; it needs `pkg install libudev-devd libxkbcommon mesa-libs` (see Installation). Libraries nix 0.31.4 and libc 0.2.191 (the older ones do not build on FreeBSD).
+
 ## v2.7.6
 
 - Libraries: zip 9.6.1, resvg / usvg 0.50.0, i_overlay 9.2.0, ureq 3.5.2 (as in v2.7.5, whose tag still says version 2.7.4 inside).
