@@ -7,6 +7,9 @@ use base_core::scene::Shape;
 /// The editing commands. Implemented for every `EditorHost`.
 pub trait EditorCommands: EditorHost {
     fn transform_selection(&mut self, xf: Xf) {
+        if self.ed().locked {
+            return self.say(crate::protect_ui::locked_message());
+        }
         for id in self.ed().sel.clone() {
             if let Some(s) = self.scene_mut().unlocked_mut(id) {
                 s.xf = s.xf.then(xf);
@@ -16,6 +19,9 @@ pub trait EditorCommands: EditorHost {
     }
 
     fn delete_selection(&mut self) {
+        if self.ed().locked {
+            return self.say(crate::protect_ui::locked_message());
+        }
         if self.ed().sel.is_empty() {
             return;
         }
@@ -27,6 +33,9 @@ pub trait EditorCommands: EditorHost {
     }
 
     fn copy(&mut self) {
+        if self.ed().locked {
+            return self.say(crate::protect_ui::locked_message());
+        }
         // A copy of a locked object is a normal, editable object.
         let copy: Vec<Shape> = self.ed().sel.iter().filter_map(|i| self.scene().shape(*i).cloned()).map(|mut s| { s.locked = false; s }).collect();
         if !copy.is_empty() {
@@ -38,6 +47,9 @@ pub trait EditorCommands: EditorHost {
     /// Paste the shapes copied in the program or, when a picture came into the clipboard of the system after them (or there are
     /// none), open the import window with that picture.
     fn paste(&mut self) {
+        if self.ed().locked {
+            return self.say(crate::protect_ui::locked_message());
+        }
         if let Some(img) = self.clipboard_image() {
             if self.ed().clipboard.is_empty() || self.ed().clipboard_image_at_copy != Some(img.fingerprint()) {
                 self.paste_picture(img.w, img.h, &img.rgba);
@@ -74,6 +86,9 @@ pub trait EditorCommands: EditorHost {
 
     /// Open the import window with a pasted picture (RGBA pixels), its longer side half of the shorter side of the work area.
     fn paste_picture(&mut self, w: u32, h: u32, rgba: &[u8]) {
+        if self.ed().locked {
+            return self.say(crate::protect_ui::locked_message());
+        }
         let (bw, bh) = self.work_size();
         let longest = (bw.min(bh) * 0.5).clamp(10.0, 200.0);
         match base_core::image::ImageData::from_rgba(w, h, rgba, &tr("Pasted image"), longest) {
@@ -83,6 +98,9 @@ pub trait EditorCommands: EditorHost {
     }
 
     fn duplicate(&mut self) {
+        if self.ed().locked {
+            return self.say(crate::protect_ui::locked_message());
+        }
         self.copy();
         self.paste();
     }

@@ -1581,3 +1581,16 @@
 1580|Duine
 1581|Ríomhchlár
 1582|Comhlacht, suíomh gréasáin nó aon rud eile le coinneáil le d'ainm
+1583|Cosaint
+1584|Tá {} cosanta. Cuir isteach a phasfhocal:
+1585|Pasfhocal
+1586|Pasfhocal mícheart.
+1587|Ní hionann na pasfhocail.
+1588|{} carachtar ar a laghad; caithfidh an pasfhocal oscailte a bheith difriúil ó phasfhocal an úinéara.
+1589|Oscailte leis an bpasfhocal oscailte: tá eagarthóireacht agus cóipeáil múchta.
+1590|Úinéir: is féidir gach rud. Oscailt: is féidir oscailt, féachaint, G-code a dhéanamh, an jab a rith agus an t-ábhar a athrú, ach ní féidir an líníocht a chur in eagar ná a chóipeáil. Gan pasfhocal ní féidir an comhad a léamh, agus ní féidir pasfhocal dearmadta a aisghabháil.
+1591|Tá an tionscadal cosanta. Fág na réimsí folamh chun a phasfhocail a choinneáil.
+1592|Pasfhocal an úinéara
+1593|Athscríobh an pasfhocal
+1594|Pasfhocal oscailte (roghnach)
+1595|Bain an chosaint

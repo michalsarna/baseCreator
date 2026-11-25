@@ -1581,3 +1581,16 @@
 1580|Osoba
 1581|Program
 1582|Firma, web alebo čokoľvek iné na uloženie s vaším menom
+1583|Ochrana
+1584|{} je chránený. Zadajte jeho heslo:
+1585|Heslo
+1586|Nesprávne heslo.
+1587|Heslá sa nezhodujú.
+1588|Aspoň {} znakov; heslo na otvorenie sa musí líšiť od hesla vlastníka.
+1589|Otvorené heslom na otvorenie: úpravy a kopírovanie sú vypnuté.
+1590|Vlastník: smie všetko. Otvorenie: smie otvoriť, prezerať, vytvoriť G-code, spustiť úlohu a zmeniť materiál, ale nie upravovať ani kopírovať výkres. Bez hesla súbor nemožno prečítať a zabudnuté heslo nemožno obnoviť.
+1591|Projekt je chránený. Nechajte polia prázdne, aby zostali jeho heslá.
+1592|Heslo vlastníka
+1593|Zopakujte heslo
+1594|Heslo na otvorenie (nepovinné)
+1595|Odstrániť ochranu

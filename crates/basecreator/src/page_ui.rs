@@ -14,7 +14,10 @@ impl App {
         let title = tr("Page setup…");
         let mut page = self.page;
         let mut units = self.units;
-        popup(ctx, "page_setup", title.trim_end_matches('…'), [360.0, 190.0], &mut open, |ui| {
+        let mut fields = self.protect_fields.take().unwrap_or_else(|| self.lock.fields());
+        let mut protection_changed = false;
+        let lock = &mut self.lock;
+        popup(ctx, "page_setup_2", title.trim_end_matches('…'), [420.0, 420.0], &mut open, |ui| {
             egui::Grid::new("page_grid").num_columns(2).spacing([12.0, 8.0]).show(ui, |ui| {
                 ui.label(tr("Size"));
                 egui::ComboBox::from_id_salt("page_sheet").selected_text(tr("A usual sheet size…")).show_ui(ui, |ui| {
@@ -49,7 +52,14 @@ impl App {
                 });
                 ui.end_row();
             });
+            ui.add_space(8.0);
+            protection_changed = base_ui::protect_ui::part_with_apply(ui, &mut fields, lock);
         });
+        self.protect_fields = open.then_some(fields);
+        if protection_changed {
+            // Saved with the new passwords (or none) from the next save on.
+            self.touch_rev();
+        }
         self.show_page = open;
         self.units = units;
         if page != before {

@@ -1581,3 +1581,16 @@
 1580|Oseba
 1581|Program
 1582|Podjetje, spletna stran ali kar koli drugega ob vašem imenu
+1583|Zaščita
+1584|{} je zaščiten. Vnesite njegovo geslo:
+1585|Geslo
+1586|Napačno geslo.
+1587|Gesli se ne ujemata.
+1588|Vsaj {} znakov; geslo za odpiranje se mora razlikovati od gesla lastnika.
+1589|Odprto z geslom za odpiranje: urejanje in kopiranje sta izklopljena.
+1590|Lastnik: sme vse. Odpiranje: sme odpreti, gledati, ustvariti G-code, zagnati opravilo in spremeniti material, ne pa urejati ali kopirati risbe. Brez gesla datoteke ni mogoče prebrati, pozabljenega gesla pa ni mogoče obnoviti.
+1591|Projekt je zaščiten. Pustite polja prazna, da ohranite njegova gesla.
+1592|Geslo lastnika
+1593|Ponovite geslo
+1594|Geslo za odpiranje (neobvezno)
+1595|Odstrani zaščito

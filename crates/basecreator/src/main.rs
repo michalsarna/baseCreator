@@ -166,9 +166,19 @@ enum Screen {
     Editor,
 }
 
+/// The purpose of a password question for a recovery file: this plus its slot.
+const RECOVER: u32 = 1000;
+
 struct App {
     /// Was a picture selected the frame before (a picture that becomes selected shows the tab of its styles)?
     picture_was_selected: bool,
+    /// The password protection of the shown drawing (and the guard of a drawing opened with the open password).
+    lock: base_ui::protect_ui::DocLock,
+    /// Protected files waiting for their password, and the one just unlocked (its path, JSON and protection) for `open`.
+    unlock: Vec<base_ui::protect_ui::Prompt>,
+    unlocked: Option<(PathBuf, String, base_core::protect::Protection)>,
+    /// The Protection part of Page setup while the window is open.
+    protect_fields: Option<base_ui::protect_ui::Fields>,
     scene: Scene,
     ed: EditorState,
     history: History,
@@ -307,6 +317,10 @@ impl App {
             clip: ClipState::new(base_core::clipart::Library::open(data_paths().gallery.clone())),
             description: String::new(),
             kept: Project::default(),
+            lock: Default::default(),
+            unlock: vec![],
+            unlocked: None,
+            protect_fields: None,
             layers: section::default_layers(),
             page: new_page,
             new_page,
@@ -396,6 +410,8 @@ impl App {
         self.background_from_project(&Project::default());
         self.layers = section::default_layers();
         self.page = self.new_page;
+        self.lock = Default::default();
+        self.ed.locked = false;
         self.touch_rev();
         self.autosave_in_sync();
         self.ed.sel.clear();
@@ -422,7 +438,21 @@ impl App {
         }
         let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
         let is_project = path.extension().is_some_and(|e| e.eq_ignore_ascii_case(project::EXTENSION));
+        // A protected project: its password first (`dialogs` comes back here with what it unlocked).
+        let unlocked = self.unlocked.take().filter(|(p, ..)| *p == path);
+        let protection = unlocked.as_ref().map(|(_, _, p)| p.clone());
+        if is_project && unlocked.is_none() {
+            if let Ok(text) = std::fs::read_to_string(&path) {
+                if base_core::protect::is_sealed(&text) {
+                    self.unlock.push(base_ui::protect_ui::Prompt::new(path, text, 0));
+                    return;
+                }
+            }
+        }
         let read = std::fs::read(&path).map_err(|e| e.to_string()).and_then(|d| {
+            if let Some((_, json, _)) = &unlocked {
+                return Project::from_json(json).map(|p| (p.scene.clone(), Some(p)));
+            }
             if is_project {
                 let text = String::from_utf8(d).map_err(|_| "this is not a project file".to_string())?;
                 Project::from_json(&text).map(|p| (p.scene.clone(), Some(p)))
@@ -465,6 +495,11 @@ impl App {
                 self.kept = kept;
                 self.status = format!("Opened {name}: {} shapes", scene.shapes.len());
                 self.scene = scene;
+                self.lock = base_ui::protect_ui::DocLock::new(protection, &self.scene);
+                self.ed.locked = self.lock.locked();
+                if self.lock.locked() {
+                    self.status = base_ui::protect_ui::locked_message();
+                }
                 self.history = History::default();
                 self.ed.sel.clear();
                 self.ed.node_sel.clear();
@@ -547,7 +582,7 @@ impl App {
         let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
         // Who saves it, and when: kept with the project for the next save too.
         base_ui::authorship_ui::stamp(&mut self.kept.authorship, "BaseCreator", VERSION, false);
-        match std::fs::write(&path, self.to_project().to_json()) {
+        match std::fs::write(&path, self.lock.seal(self.to_project().to_json())) {
             Ok(()) => {
                 self.status = format!("Saved {name}");
                 self.add_recent(&path);
@@ -903,6 +938,22 @@ impl App {
     }
 
     fn dialogs(&mut self, ctx: &egui::Context) {
+        // A protected file waiting for its password.
+        match base_ui::protect_ui::prompt_window(ctx, &mut self.unlock) {
+            Some(base_ui::protect_ui::Unlocked::Opened { path, json, protection, purpose }) => {
+                self.unlocked = Some((path.clone(), json, protection));
+                match purpose.checked_sub(RECOVER) {
+                    Some(slot) => self.recover_one(path, slot as usize),
+                    None => self.open(path),
+                }
+            }
+            Some(base_ui::protect_ui::Unlocked::Cancelled { .. }) | None => {}
+        }
+        // A drawing opened with the open password stays as it was.
+        if self.lock.check(&mut self.scene) {
+            self.status = base_ui::protect_ui::locked_message();
+            self.touch_rev();
+        }
         self.close_dialogs(ctx);
         self.image_dialogs(ctx);
         let mut show = self.show_options;
@@ -1093,6 +1144,12 @@ impl MenuHost for App {
         menus()
     }
     fn act_enabled(&self, a: Act) -> bool {
+        // A drawing opened with the open password: nothing that adds to it or takes it out of the program.
+        if self.lock.locked()
+            && matches!(a, Act::ExportSvg | Act::ExportCam | Act::Print | Act::ImportSvg | Act::ImportAi | Act::ImportDxf | Act::ImportLightburn | Act::ImportUgsd | Act::ImportPlugin | Act::GenerateShape | Act::OnlineClipart)
+        {
+            return false;
+        }
         match a {
             Act::Std(s) => self.screen == Screen::Editor && s.enabled(self),
             Act::Save | Act::SaveAs | Act::ProjectInfo | Act::PageSetup | Act::ExportSvg | Act::ExportCam => self.screen == Screen::Editor,

@@ -1581,3 +1581,16 @@
 1580|Orang
 1581|Program
 1582|Perusahaan, situs web, atau apa pun yang ingin disimpan bersama nama Anda
+1583|Perlindungan
+1584|{} dilindungi. Masukkan kata sandinya:
+1585|Kata sandi
+1586|Kata sandi salah.
+1587|Kata sandi tidak cocok.
+1588|Minimal {} karakter; kata sandi buka harus berbeda dari kata sandi pemilik.
+1589|Dibuka dengan kata sandi buka: mengedit dan menyalin dimatikan.
+1590|Pemilik: boleh melakukan semuanya. Buka: boleh membuka, melihat, membuat G-code, menjalankan pekerjaan, dan mengubah material, tetapi tidak boleh mengedit atau menyalin desain. Tanpa kata sandi file tidak dapat dibaca, dan kata sandi yang terlupa tidak dapat dipulihkan.
+1591|Proyek dilindungi. Biarkan kolom kosong untuk mempertahankan kata sandinya.
+1592|Kata sandi pemilik
+1593|Ulangi kata sandi
+1594|Kata sandi buka (opsional)
+1595|Hapus perlindungan

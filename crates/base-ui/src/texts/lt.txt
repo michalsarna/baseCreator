@@ -1581,3 +1581,16 @@
 1580|Asmuo
 1581|Programa
 1582|Įmonė, svetainė ar kas nors kita, ką saugoti su jūsų vardu
+1583|Apsauga
+1584|{} yra apsaugotas. Įveskite jo slaptažodį:
+1585|Slaptažodis
+1586|Neteisingas slaptažodis.
+1587|Slaptažodžiai nesutampa.
+1588|Bent {} simbolių; atidarymo slaptažodis turi skirtis nuo savininko slaptažodžio.
+1589|Atidaryta atidarymo slaptažodžiu: redagavimas ir kopijavimas išjungti.
+1590|Savininkas: gali viską. Atidarymas: gali atidaryti, peržiūrėti, kurti G-code, paleisti darbą ir keisti medžiagą, bet ne redaguoti ar kopijuoti brėžinio. Be slaptažodžio failo perskaityti negalima, o pamiršto slaptažodžio atkurti negalima.
+1591|Projektas apsaugotas. Palikite laukus tuščius, kad liktų jo slaptažodžiai.
+1592|Savininko slaptažodis
+1593|Pakartokite slaptažodį
+1594|Atidarymo slaptažodis (nebūtinas)
+1595|Pašalinti apsaugą

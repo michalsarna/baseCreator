@@ -29,7 +29,7 @@ impl App {
             // Written to its own file: a save of the project (joined with the edit before it).
             base_ui::authorship_ui::stamp(&mut self.kept.authorship, "BaseCreator", crate::VERSION, true);
         }
-        let text = self.to_project().to_json();
+        let text = self.lock.seal(self.to_project().to_json());
         let r = match &self.path {
             Some(p) => {
                 // The project's own file is up to date: there is nothing left to ask about when closing.
@@ -63,6 +63,26 @@ impl App {
         self.saved_rev = self.rev;
     }
 
+    /// Open the recovery file of `slot` (unlocked already when it is protected) as unsaved work.
+    pub(crate) fn recover_one(&mut self, path: std::path::PathBuf, slot: usize) {
+        let recent = self.recent.clone();
+        self.open(path);
+        if self.screen != Screen::Editor {
+            return;
+        }
+        if self.slot != slot {
+            autosave::clear_slot(&data_paths().base, APP, self.slot);
+            self.slot = slot;
+        }
+        self.path = None;
+        self.recent = recent;
+        self.autosave.in_sync(self.rev);
+        self.saved_rev = self.rev.wrapping_sub(1);
+        if !self.status.starts_with("Could not") && !self.lock.locked() {
+            self.status = "Recovered the project that was not saved".into();
+        }
+    }
+
     /// The choice on the start screen: open the unsaved projects (each in a tab, as one without a name), or throw them away.
     pub(crate) fn recovery_choice(&mut self, choice: Recovery) {
         if self.recovery.is_empty() {
@@ -79,6 +99,12 @@ impl App {
                 // The files still to be opened keep their slots reserved (see `used_slots`), so no new tab clears one.
                 while !self.recovery.is_empty() {
                     let Found { path, slot, .. } = self.recovery.remove(0);
+                    // A protected project waits for its password; it is recovered when it is given.
+                    if std::fs::read_to_string(&path).is_ok_and(|t| base_core::protect::is_sealed(&t)) {
+                        let text = std::fs::read_to_string(&path).unwrap_or_default();
+                        self.unlock.push(base_ui::protect_ui::Prompt::new(path, text, crate::RECOVER + slot as u32));
+                        continue;
+                    }
                     self.open(path.clone());
                     if self.screen != Screen::Editor {
                         continue;

@@ -5,6 +5,7 @@ edition.workspace = true
 license.workspace = true
 
 [dependencies]
+zeroize = "1.9"
 base-core = { path = "../base-core" }
 egui = "0.37"
 gilrs = "0.11"

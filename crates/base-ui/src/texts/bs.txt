@@ -1581,3 +1581,16 @@
 1580|Osoba
 1581|Program
 1582|Firma, web-stranica ili bilo šta drugo što treba čuvati uz vaše ime
+1583|Zaštita
+1584|{} je zaštićen. Unesite njegovu lozinku:
+1585|Lozinka
+1586|Pogrešna lozinka.
+1587|Lozinke se ne podudaraju.
+1588|Najmanje {} znakova; lozinka za otvaranje mora se razlikovati od lozinke vlasnika.
+1589|Otvoreno lozinkom za otvaranje: uređivanje i kopiranje su isključeni.
+1590|Vlasnik: smije sve. Otvaranje: smije otvoriti, gledati, napraviti G-code, pokrenuti posao i promijeniti materijal, ali ne i uređivati ili kopirati crtež. Bez lozinke datoteka se ne može pročitati, a zaboravljena lozinka se ne može povratiti.
+1591|Projekat je zaštićen. Ostavite polja prazna da zadržite njegove lozinke.
+1592|Lozinka vlasnika
+1593|Ponovite lozinku
+1594|Lozinka za otvaranje (neobavezno)
+1595|Ukloni zaštitu

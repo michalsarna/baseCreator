@@ -1581,3 +1581,16 @@
 1580	Person
 1581	Program
 1582	A company, a website or anything else to keep with your name
+1583	Protection
+1584	{} is protected. Enter its password:
+1585	Password
+1586	Wrong password.
+1587	The passwords do not match.
+1588	At least {} characters; the open password must differ from the owner password.
+1589	Opened with the open password: editing and copying are off.
+1590	Owner: may do everything. Open: may open, look, make G-code, run the job and change the material, but not edit or copy the drawing. Without a password the file cannot be read, and a forgotten password cannot be recovered.
+1591	The project is protected. Leave the fields empty to keep its passwords.
+1592	Owner password
+1593	Repeat the password
+1594	Open password (optional)
+1595	Remove the protection

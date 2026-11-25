@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.9.0
+
+- **Password protection of project files** (`base_core::protect`, `base_ui::protect_ui`): an owner password (everything) and an optional open password (open, look, G-code, run the job, change the material and the layer settings; no editing, copying, exporting of the drawing or printing). The project is encrypted with XChaCha20-Poly1305 under a random key wrapped for each password with Argon2id (64 MiB, 3 passes); every save has a new nonce, and a changed file does not open. The passwords are set in the **Protection** part of Project setup (BaseCreator: Page setup).
+- A protected file asks for its password when it is opened, also when a tab is recovered; the editor of a project opened with the open password allows only the view tools (`EditorState::locked`), the standard commands that change or copy the drawing are off, a guard puts back any change of the drawing, and the web page shows no drawing.
+- 13 texts in every language.
+
 ## v2.8.0
 
 - **Adobe Illustrator / PDF import**: the pictures in the file (an embedded photo) come in as images where they lie: JPEG and Flate pictures, with a palette (as Illustrator writes gray photos), gray, RGB, CMYK, ICC or a spot colour, and their transparency (soft mask); a file of a picture alone no longer says "no vector paths found". What lies on a hidden Illustrator layer is left out. One Illustrator layer (every file of Illustrator has "Layer 1") no longer asks whether to go by colour or by layers, and after that question the pictures are kept too. Checked against files saved by Illustrator 2027 (shapes, colours, a photo).

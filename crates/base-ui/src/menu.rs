@@ -252,6 +252,10 @@ pub fn goes_to_text_field(ctx: &egui::Context, a: StdAct) -> bool {
 impl StdAct {
     /// Carry the command out on an editor.
     pub fn run<H: EditorHost>(self, h: &mut H) {
+        // A protected drawing opened with the open password: only the commands of the view.
+        if h.ed().locked && !self.views_only() {
+            return h.say(crate::protect_ui::locked_message());
+        }
         match self {
             StdAct::Undo => h.undo(),
             StdAct::Redo => h.redo(),
@@ -354,7 +358,27 @@ impl StdAct {
         }
     }
 
+    /// Does the command only change how the drawing is seen (allowed on a protected drawing opened with the open password)?
+    pub fn views_only(self) -> bool {
+        use crate::editor::Tool;
+        matches!(
+            self,
+            StdAct::ToggleGrid
+                | StdAct::FitBed
+                | StdAct::FitAll
+                | StdAct::ZoomIn
+                | StdAct::ZoomOut
+                | StdAct::ToggleAutoFit
+                | StdAct::SplitView(_)
+                | StdAct::SingleView
+                | StdAct::Tool(Tool::Pan | Tool::Zoom | Tool::ZoomOut | Tool::Measure)
+        )
+    }
+
     pub fn enabled<H: EditorHost>(self, h: &H) -> bool {
+        if h.ed().locked && !self.views_only() {
+            return false;
+        }
         match self {
             StdAct::Undo => h.can_undo(),
             StdAct::Redo => h.can_redo(),

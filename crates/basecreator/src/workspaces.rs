@@ -27,6 +27,8 @@ pub struct Workspace {
     pub view: DocView,
     /// The number of the recovery file of this tab.
     pub slot: usize,
+    /// Its password protection.
+    pub lock: base_ui::protect_ui::DocLock,
 }
 
 impl Workspace {
@@ -43,6 +45,7 @@ impl Workspace {
             autosaved_clean: true,
             view: DocView::default(),
             slot,
+            lock: Default::default(),
         }
     }
 
@@ -76,7 +79,10 @@ impl App {
     /// The shown tab with a parked one: a swap of every field that belongs to a drawing. The pattern has no `..`, so a field
     /// added to `Workspace` has to be handled here.
     fn swap_ws(&mut self, w: &mut Workspace) {
-        let Workspace { scene, history, path, description, kept, layers, page, clean, autosaved_clean, view, slot } = w;
+        let Workspace { scene, history, path, description, kept, layers, page, clean, autosaved_clean, view, slot, lock } = w;
+        std::mem::swap(&mut self.lock, lock);
+        self.ed.locked = self.lock.locked();
+        self.protect_fields = None;
         std::mem::swap(&mut self.scene, scene);
         std::mem::swap(&mut self.history, history);
         std::mem::swap(&mut self.path, path);
@@ -241,7 +247,7 @@ impl App {
                 // Written to its own file: a save of the project (joined with the edit before it).
                 base_ui::authorship_ui::stamp(&mut w.kept.authorship, "BaseCreator", crate::VERSION, true);
             }
-            let text = w.to_project().to_json();
+            let text = w.lock.seal(w.to_project().to_json());
             let ok = match &w.path {
                 Some(p) => base_core::autosave::write_atomic(p, &text).is_ok(),
                 None => base_core::autosave::save_slot(&base, APP, w.slot, &text).is_ok(),

@@ -287,6 +287,11 @@ pub fn machine_command(m: &mut crate::machine_ctl::Machine, c: &Command, step: f
 
 /// The drawing as an SVG for the page: the shapes on the work area in the colours of their layers.
 pub fn drawing_svg<H: crate::editor::EditorHost>(h: &H) -> String {
+    // A protected drawing opened with the open password is not given out: the page shows an empty work area.
+    if h.ed().locked {
+        let (w, hh) = h.work_size();
+        return base_core::export::svg(&base_core::scene::Scene::default(), &[], w, hh, &|_| String::new(), &|_| [0, 0, 0]);
+    }
     let (w, hh) = h.work_size();
     let name = |l: usize| h.layer_title(l);
     let color = |l: usize| -> [u8; 3] {

@@ -1581,3 +1581,16 @@
 1580|Isik
 1581|Programm
 1582|Ettevõte, veebisait või muu, mida nimega koos hoida
+1583|Kaitse
+1584|{} on kaitstud. Sisestage selle parool:
+1585|Parool
+1586|Vale parool.
+1587|Paroolid ei kattu.
+1588|Vähemalt {} märki; avamisparool peab erinema omaniku paroolist.
+1589|Avatud avamisparooliga: muutmine ja kopeerimine on välja lülitatud.
+1590|Omanik: võib kõike. Avamine: võib avada, vaadata, teha G-code'i, käivitada töö ja muuta materjali, kuid mitte joonist muuta ega kopeerida. Paroolita faili lugeda ei saa ja unustatud parooli taastada ei saa.
+1591|Projekt on kaitstud. Jätke väljad tühjaks, et selle paroolid alles jääksid.
+1592|Omaniku parool
+1593|Korrake parooli
+1594|Avamisparool (valikuline)
+1595|Eemalda kaitse

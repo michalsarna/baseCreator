@@ -1581,3 +1581,16 @@
 1580|Persuna
 1581|Programm
 1582|Kumpanija, sit web jew xi ħaġa oħra li żżomm ma' ismek
+1583|Protezzjoni
+1584|{} huwa protett. Daħħal il-password tiegħu:
+1585|Password
+1586|Password ħażina.
+1587|Il-passwords ma jaqblux.
+1588|Mill-inqas {} karattri; il-password tal-ftuħ trid tkun differenti minn dik tas-sid.
+1589|Miftuħ bil-password tal-ftuħ: l-editjar u l-ikkupjar huma mitfija.
+1590|Sid: jista' jagħmel kollox. Ftuħ: jista' jiftaħ, iħares, jagħmel G-code, imexxi x-xogħol u jibdel il-materjal, iżda ma jistax jeditja jew jikkopja t-tpinġija. Mingħajr password il-fajl ma jinqarax, u password minsija ma tistax tiġi rkuprata.
+1591|Il-proġett huwa protett. Ħalli l-oqsma vojta biex iżżomm il-passwords tiegħu.
+1592|Password tas-sid
+1593|Erġa' ikteb il-password
+1594|Password tal-ftuħ (mhux obbligatorja)
+1595|Neħħi l-protezzjoni
