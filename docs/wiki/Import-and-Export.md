@@ -12,7 +12,7 @@ Everything in **File → Import** is added to the open drawing, is selected, and
 |---|---|---|
 | **Import image…** | PNG, JPG, BMP, GIF, WebP | A picture, through the import dialog. |
 | **Import SVG…** (Ctrl+I) | `.svg` | The paths, each on the layer nearest to its colour. |
-| **Import Adobe Illustrator / PDF / EPS / VectorCraft…** | `.pdf`, PDF-compatible `.ai`, `.eps`, `.vectorcraft` | The same. A file with Illustrator (or VectorCraft) layers asks whether to go by colour or by those layers. An EPS is read as PostScript (its paths; text and pictures are not read); an EPS or a `.vectorcraft` file written by VectorCraft 0.8 or later is read with its pictures. |
+| **Import Adobe Illustrator / PDF / EPS / VectorCraft…** | `.pdf`, PDF-compatible `.ai`, `.eps`, `.vectorcraft` | The same. A file with more than one Illustrator (or VectorCraft) layer asks whether to go by colour or by those layers; what lies on a hidden Illustrator layer is left out. The pictures in an Illustrator or PDF file (photos: JPEG, Flate, palette, gray, RGB, CMYK, with their transparency) come in as images where they lie. An EPS is read as PostScript (its paths; text and pictures are not read); an EPS or a `.vectorcraft` file written by VectorCraft 0.8 or later is read with its pictures. |
 | **Import DXF…** | ASCII `.dxf` | Lines, arcs and curves, in millimetres. The layers of the DXF go to the layers that have no shapes yet. |
 | **Import LightBurn project…** | `.lbrn2`, `.lbrn` | The shapes. |
 | **Import UGS design…** | `.ugsd` | The shapes on their layers. Feeds and depths are ignored. |

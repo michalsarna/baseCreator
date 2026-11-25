@@ -14,7 +14,7 @@
 |---|---|---|
 | **이미지 가져오기…**(**Import image…**) | PNG, JPG, BMP, GIF, WebP | 가져오기 대화 상자를 거친 그림. |
 | **SVG 가져오기…**(**Import SVG…**, Ctrl+I) | `.svg` | 경로. 각 경로는 색이 가장 가까운 레이어에 들어갑니다. |
-| **Adobe Illustrator / PDF / EPS / VectorCraft 가져오기…**(**Import Adobe Illustrator / PDF / EPS / VectorCraft…**) | `.pdf`, PDF 호환 `.ai`, `.eps`, `.vectorcraft` | 위와 같습니다. Illustrator(또는 VectorCraft) 레이어가 있는 파일은 색을 기준으로 할지 그 레이어를 기준으로 할지 묻습니다. EPS는 PostScript로 읽습니다(경로만 읽으며, 텍스트와 그림은 읽지 않습니다). VectorCraft 0.8 이상에서 저장한 EPS 또는 `.vectorcraft` 파일은 그림과 함께 읽습니다. |
+| **Adobe Illustrator / PDF / EPS / VectorCraft 가져오기…**(**Import Adobe Illustrator / PDF / EPS / VectorCraft…**) | `.pdf`, PDF 호환 `.ai`, `.eps`, `.vectorcraft` | 위와 같습니다. Illustrator(또는 VectorCraft) 레이어가 있는 파일은 색을 기준으로 할지 그 레이어를 기준으로 할지 묻습니다. EPS는 PostScript로 읽습니다(경로만 읽으며, 텍스트와 그림은 읽지 않습니다). VectorCraft 0.8 이상에서 저장한 EPS 또는 `.vectorcraft` 파일은 그림과 함께 읽습니다. Illustrator 레이어가 하나뿐이면 묻지 않으며, 숨겨진 Illustrator 레이어에 있는 것은 빠집니다. Illustrator나 PDF 파일 속 그림(사진: JPEG, Flate, 팔레트, 회색조, RGB, CMYK, 투명도 포함)은 제자리에 이미지로 들어옵니다. |
 | **DXF 가져오기…**(**Import DXF…**) | ASCII `.dxf` | 선, 호, 곡선을 밀리미터 단위로. DXF의 레이어는 아직 도형이 없는 레이어로 들어갑니다. |
 | **LightBurn 프로젝트 가져오기…**(**Import LightBurn project…**) | `.lbrn2`, `.lbrn` | 도형. |
 | **UGS 디자인 가져오기…**(**Import UGS design…**) | `.ugsd` | 레이어에 놓인 도형. 이송 속도와 깊이는 무시됩니다. |

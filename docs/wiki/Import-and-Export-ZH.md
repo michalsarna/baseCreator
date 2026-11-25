@@ -14,7 +14,7 @@
 |---|---|---|
 | **导入图像…**（**Import image…**） | PNG、JPG、BMP、GIF、WebP | 一张图片，通过导入对话框导入。 |
 | **导入 SVG…**（**Import SVG…**，Ctrl+I） | `.svg` | 各条路径，每条放到与其颜色最接近的图层上。 |
-| **导入 Adobe Illustrator / PDF / EPS / VectorCraft…**（**Import Adobe Illustrator / PDF / EPS / VectorCraft…**） | `.pdf`、兼容 PDF 的 `.ai`、`.eps`、`.vectorcraft` | 同上。带有 Illustrator（或 VectorCraft）图层的文件会询问是按颜色还是按这些图层导入。EPS 按 PostScript 读取（读取其路径；不读取文字和图片）；由 VectorCraft 0.8 或更高版本写出的 EPS 或 `.vectorcraft` 文件会连同其中的图片一起读取。 |
+| **导入 Adobe Illustrator / PDF / EPS / VectorCraft…**（**Import Adobe Illustrator / PDF / EPS / VectorCraft…**） | `.pdf`、兼容 PDF 的 `.ai`、`.eps`、`.vectorcraft` | 同上。带有 Illustrator（或 VectorCraft）图层的文件会询问是按颜色还是按这些图层导入。EPS 按 PostScript 读取（读取其路径；不读取文字和图片）；由 VectorCraft 0.8 或更高版本写出的 EPS 或 `.vectorcraft` 文件会连同其中的图片一起读取。 只有一个 Illustrator 图层时不再询问；隐藏的 Illustrator 图层上的内容会被跳过。Illustrator 或 PDF 文件中的图片（照片：JPEG、Flate、调色板、灰度、RGB、CMYK，含透明度）会作为图像导入到原来的位置。 |
 | **导入 DXF…**（**Import DXF…**） | ASCII `.dxf` | 直线、圆弧和曲线，单位为毫米。DXF 的图层会放到还没有形状的图层上。 |
 | **导入 LightBurn 项目…**（**Import LightBurn project…**） | `.lbrn2`、`.lbrn` | 形状。 |
 | **导入 UGS 设计…**（**Import UGS design…**） | `.ugsd` | 位于各自图层上的形状。进给速度和深度会被忽略。 |
