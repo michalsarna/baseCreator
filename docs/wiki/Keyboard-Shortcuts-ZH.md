@@ -1,5 +1,7 @@
 🌐 [English](Keyboard-Shortcuts) · [Polski](Skroty-klawiszowe) · **简体中文** · [한국어](Keyboard-Shortcuts-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Keyboard-Shortcuts)为准。欢迎提出修改建议。
+
 # 键盘快捷键
 
 在 Mac 上，Ctrl 为 Cmd。这些快捷键在编辑器中有效，在启动界面上无效；当文本字段获得键盘焦点时，所有快捷键都不会被占用。

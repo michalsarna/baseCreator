@@ -1,5 +1,7 @@
 🌐 [English](Screenshots) · [Polski](Zrzuty-ekranu) · [简体中文](Screenshots-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Screenshots)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 스크린샷
 
 그림은 프로그램이 스스로 만듭니다: `cargo test -p basecreator render_screenshots -- --ignored`.

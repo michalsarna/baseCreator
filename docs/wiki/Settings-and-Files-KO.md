@@ -1,5 +1,7 @@
 🌐 [English](Settings-and-Files) · [Polski](Ustawienia-i-pliki) · [简体中文](Settings-and-Files-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Settings-and-Files)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 설정과 파일
 
 BaseCreator의 설정은 `app.ron` 파일 하나에 저장됩니다: 언어, 색 구성표, 그리드와 보기 옵션, 단위, 다음 페이지의 크기, 최근 파일, 측면 패널 탭의 순서와 패널이 숨겨져 있는지 여부, 창 배치, 업데이트 확인 여부. 저장하는 프로젝트에 기록되는 사람(**프로그램 옵션 → 작성자**(**Program options → Author**): 이름, 이메일, 기타)은 공유 폴더의 `author.json`에 있으며, 모든 프로그램에서 같습니다.

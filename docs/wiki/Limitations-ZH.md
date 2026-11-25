@@ -1,5 +1,7 @@
 🌐 [English](Limitations) · [Polski](Ograniczenia) · **简体中文** · [한국어](Limitations-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Limitations)为准。欢迎提出修改建议。
+
 # 限制
 
 * **没有机器**：没有设备、连接、G-code、作业预览或摄像头。这些功能请使用 LightCreator、MillCreator 或 PenCreator。

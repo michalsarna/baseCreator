@@ -1,5 +1,7 @@
 🌐 [English](Style-Trace) · [Polski](Obrys-w-stylu) · [简体中文](Style-Trace-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Style-Trace)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 스타일 트레이스
 
 **정렬 → 스타일 트레이스…**(**Arrange → Style trace…**)는 선택한 그림을 21가지 스타일 중 하나의 선으로 다시 그려, 내보내거나 인쇄하거나 다른 프로그램에서 열 수 있게 합니다: 꼬불꼬불한 선, 나선, 물결, 하프톤 원, 해칭, 점묘, 하나의 연속선, 흐름선, 스케치 등이 있습니다. 그림의 오른쪽 클릭 메뉴와 **속성**(**Properties**)의 **이미지**(**Image**) 섹션에도 있습니다. LightCreator, MillCreator, PenCreator, BaseCreator에서 똑같이 동작합니다.

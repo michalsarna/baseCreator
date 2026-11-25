@@ -1,5 +1,7 @@
 🌐 [English](Settings-and-Files) · [Polski](Ustawienia-i-pliki) · **简体中文** · [한국어](Settings-and-Files-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Settings-and-Files)为准。欢迎提出修改建议。
+
 # 设置与文件
 
 BaseCreator 的设置保存在一个文件 `app.ron` 中：语言、配色方案、网格和视图选项、单位、下一个页面的尺寸、最近使用的文件、侧边面板中标签页的顺序以及面板是否隐藏、窗格布局，以及是否检查更新。你保存的项目中记录的人员信息（**程序选项 → 作者**（**Program options → Author**）：姓名、电子邮件、其他）保存在共享文件夹的 `author.json` 中，所有程序通用。
