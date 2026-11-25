@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.12
+
+- **Authors in the project file**: the creator keeps the name, the e-mail and the other field; a contributor and an edit keep only the name and the e-mail, and only the name when the e-mail is the creator's. **Project information** shows the creator's e-mail and other field in rows of their own.
+- Dependencies: muda 0.22 (native macOS menu), qrcode 0.15, the newest compatible versions of the rest (zip 9.8, rhai 1.27, i_overlay 9.2, image 0.25.10 …); FreeBSD test VM action 1.6.0.
+
 ## v2.7.11
 
 - **Eight new languages**: Japanese, Korean, Traditional Chinese, Turkish, Vietnamese, Indonesian, Serbian (Cyrillic) and Bosnian, 38 in all. Simplified Chinese is now named so in the menu. A Korean font (Noto Sans KR, only the Hangul letters) is built in; Japanese and Traditional Chinese use the Chinese font that was there.

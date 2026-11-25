@@ -178,7 +178,14 @@ pub fn view(info: &Info) -> View {
     let mut authors = Vec::new();
     if let Some(c) = &a.creator {
         authors.push((tr("Project created"), authorship::shown(&c.at), program(c)));
-        authors.push((tr("Creator"), who(c), more(c)));
+        authors.push((tr("Creator"), who(c), String::new()));
+        // What the creator wrote about themselves, each in a row of its own.
+        if !c.name.trim().is_empty() && !c.email.trim().is_empty() {
+            authors.push((tr("Email"), c.email.trim().to_string(), String::new()));
+        }
+        if !c.other.trim().is_empty() {
+            authors.push((tr("Other"), c.other.trim().to_string(), String::new()));
+        }
     }
     if a.contributors.is_empty() {
         authors.push((tr("Contributors"), tr("Nobody yet").to_string(), String::new()));
@@ -286,7 +293,9 @@ mod tests {
         assert_eq!(get("Size").as_deref(), Some("2.0 KB"));
         assert!(get("File changed").is_some());
         let who = |k: &str| v.authors.iter().find(|(l, ..)| *l == k).map(|(_, v, m)| (v.clone(), m.clone()));
-        assert_eq!(who("Creator"), Some(("Anna".to_string(), "anna@example.org · Studio A".to_string())));
+        assert_eq!(who("Creator"), Some(("Anna".to_string(), String::new())));
+        assert_eq!(who("Email").unwrap().0, "anna@example.org", "the creator's e-mail in a row of its own");
+        assert_eq!(who("Other").unwrap().0, "Studio A");
         assert!(who("Project created").unwrap().1.contains("LightCreator v0.9.9"));
         let (name, more) = who("Contributors").unwrap();
         assert_eq!(name, "Jan");
