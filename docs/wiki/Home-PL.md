@@ -36,7 +36,7 @@ Otwartoźródłowy program do rysowania napisany w Ruście, bez żadnej części
 * **Import:** obraz, SVG, Adobe Illustrator / PDF / EPS / VectorCraft, DXF, projekt LightBurn, projekt UGS oraz to, co czytają wtyczki. **Eksport:** SVG, PLT, DXF.
 * **Plik projektu:** `.cre`, wspólny z trzema pozostałymi programami; ich sekcje zostają w pliku po zapisie tutaj.
 * **Cliparty:** 310 obrazków wspólnych z innymi programami, z wyszukiwaniem w internecie.
-* **Interfejs:** 30 języków i 18 schematów kolorów; w okolicach Bożego Narodzenia, Nowego Roku, Halloween i Wielkanocy także świąteczna ikona i dwa świąteczne schematy.
+* **Interfejs:** 38 języków i 18 schematów kolorów; w okolicach Bożego Narodzenia, Nowego Roku, Halloween i Wielkanocy także świąteczna ikona i dwa świąteczne schematy.
 
 Wydania mają numery tagów repozytorium, dlatego różnią się od numerów pozostałych programów.
 

@@ -1,0 +1,1583 @@
+0|(boş)
+1|Daha yeni bir sürüm var: {}
+2|Bilgisayarınızdaki SVG dosyalarını küçük resimlerinize ekleyin
+3|Dosya ekle…
+4|Düğüm ekle
+5|{} resim {} içine eklendi
+6|Resmi ayarla
+7|Alta hizala
+8|Ortaya hizala
+9|Ortaya hizala (Y)
+10|Ortaya hizala (D)
+11|Sola hizala
+12|Dikey ortala
+13|Sağa hizala
+14|Üste hizala
+15|Hizalama
+16|Tüm kategoriler
+17|Açı
+18|Hayvanlar
+19|Uygula
+20|Yazar
+21|Otomatik düzeyler
+22|Çalışma alanını pencereye otomatik sığdır
+23|Otomatik
+24|Arka plan rengi
+25|Alt
+26|Parlaklık
+27|En öne getir
+28|İptal
+29|Kategori
+30|Kutlamalar
+31|Orta
+32|Tablada ortala
+33|Birbirine göre ortala
+34|Kategoriyi değiştir
+35|Kategoriyi değiştir…
+36|Listeyi temizle
+37|Lisansını görmek ve kaydetmek için bir resme tıklayın.
+38|Çalışma alanına yerleştirmek için tıklayın
+39|Küçük resimler
+40|Kapat
+41|Açık bir yolu kapat ya da kapalı bir yolu seçili düğümde aç
+42|Koleksiyon
+43|Renk
+44|Renk düzeni
+45|Kontrast
+46|Düğümlerini düzenlemek için metni eğrilere dönüştürün veya resmi izleyin.
+47|Yola dönüştür
+48|Kopyala
+49|Köşe
+50|Güncellemeler denetlenemedi.
+51|Sil
+52|Düğümü sil
+53|Sonra resmi sil
+54|Sil…
+55|Projeyi tanımlayın: ne olduğu, işe yarayan ayarlar, bir dahaki sefer için notlar.
+56|Açıklama
+57|Ayrıntılar
+58|Ayrıntılar…
+59|Çizgiler arası mesafe
+60|İndir
+61|İndirme başarısız: {}
+62|İndiriliyor…
+63|Çoğalt
+64|Düğümleri düzenle
+65|Elips (E)
+66|Koyu kısımlar yerine açık kısımları kazı
+67|Tüm nesneleri sığdır
+68|Tüm nesneleri sığdır (Ctrl+9)
+69|Tablayı pencereye sığdır
+70|Çalışma alanını sığdır (Ctrl+0)
+71|Yatay çevir
+72|Dikey çevir
+73|Yatay çevir
+74|Dikey çevir
+75|Yiyecek
+76|Gama
+77|Izgara
+78|Grupla
+79|Gruplandı. Nesneler katmanlarını korur.
+80|Kalp (K)
+81|Küçük alanları yok say
+82|İçe aktar
+83|İçe aktarma başarısız: {}
+84|Resim içe aktar
+85|{} resmi içe aktarıldı
+86|Dahil
+87|Düğüm ekle (veya bir parçaya çift tıklayın)
+88|Dil
+89|Sol
+90|Lisans
+91|Çizgi (L)
+92|Çizgi kalınlığı
+93|Kilitle
+94|En-boy oranını kilitle
+95|{} nesne kilitlendi.
+96|Ana ızgara
+97|Seçili her düğümden sonraki parçayı eğri yap
+98|Seçili her düğümden sonraki parçayı düz yap
+99|Seçili düğümleri köşe yap
+100|Seçili düğümleri yumuşak yap
+101|Büyüt
+102|Yatay orta
+103|Dikey orta
+104|Benimkiler
+105|Küçült
+106|Yansıt ve ortala
+107|Müzik ve eğlence
+108|Küçük resimlerim
+109|Ad
+110|Doğa
+111|Negatif resim
+112|En yeni sürüm: {}
+113|Burada resim yok. Bulmak için Çevrimiçi… kullanın.
+114|Düğüm düzenleme (N)
+115|Hiçbir şey bulunamadı.
+116|Tamam
+117|Nesneler
+118|Çevrimiçi küçük resimler
+119|Çevrimiçi…
+120|Yalnızca kullanma hakkınız olan resimleri kaydedin. Kaynağın lisansını kontrol edin.
+121|Aç / kapat
+122|Son kullanılanları aç
+123|İndirme sayfasını aç
+124|Ya da bir adresten resim indirin
+125|Kaydır (H)
+126|Yapıştır
+127|Programla gelen resimler
+128|İndirdiğiniz veya eklediğiniz resimler
+129|{} yerleştirildi
+130|Çokgen (G)
+131|Çoklu çizgi / kalem (P)
+132|Konum ve boyut
+133|GitHub'daki proje sayfası
+134|Hızlı kılavuz
+135|Çık
+136|Yuvarlatma yarıçapı
+137|Dikdörtgen (R)
+138|Yinele
+139|Bu resim küçük resimlerinizden kaldırılsın mı? Diskteki dosya silinir.
+140|Yeniden adlandır
+141|Yeniden adlandır…
+142|Sıfırla
+143|Izgarayı sıfırla
+144|Geri yükle
+145|Sağ
+146|Döndür
+147|90° saat yönünün tersine döndür
+148|90° saat yönünde döndür
+149|Döndür ve çevir
+150|Dönüş
+151|Yuvarlat
+152|Seçili köşeleri bu yarıçapla yuvarlat
+153|{} köşe yuvarlatıldı.
+154|Küçük resimlerime bir kopya kaydet
+155|Küçük resimlerime kaydet
+156|{}, {} içine kaydedildi
+157|Ara
+158|Arama başarısız: {}
+159|Açık simge koleksiyonlarında (Iconify) arayın. Resimler diskinize, seçtiğiniz bir kategoriye kaydedilir.
+160|İnternette daha fazla resim arayın ve buraya kaydedin
+161|Aranıyor…
+162|İkincil ızgara
+163|Seç (V)
+164|Önce bir şekil seçin, sonra düğümlerini düzenleyin.
+165|Tümünü seç
+166|Gruplamak için en az iki nesne seçin.
+167|En arkaya gönder
+168|Şekiller
+169|Göster
+170|Izgarayı göster veya gizle
+171|İkincil ızgarayı göster veya gizle
+172|Basitleştir
+173|Boyut
+174|Yerleştirildiğindeki boyut
+175|Yumuşak
+176|Eğrileri yumuşat
+177|Izgaraya yapıştır
+178|Nesnelere yapıştır
+179|Kaynak
+180|Spiral (I)
+181|Yıldız (S)
+182|Semboller
+183|Metin (T)
+184|Sonuç boş.
+185|İkincil ızgara ana ızgaradan daha sık olmalıdır.
+186|Çalışma alanının çevresindeki boşluk
+187|Yuvarlatılacak düz köşe yok.
+188|Eşik
+189|Eğriye
+190|Çizgiye
+191|Ton
+192|Araçlar
+193|Üst
+194|İzle
+195|Resmi izle
+196|Açık alanları izle
+197|{} kontur izlendi
+198|Üçgen (Y)
+199|Geri al
+200|Grubu çöz
+201|Kilidi aç
+202|{} nesnenin kilidi açıldı.
+203|Güncellemeler
+204|Sürüm {}
+205|Görünüm seçenekleri
+206|Genişlik
+207|Çalışma alanı
+208|Çalışma alanı rengi
+209|En yeni sürümü kullanıyorsunuz.
+210|Sizdeki sürüm: {}.
+211|Yakınlaştır
+212|Yakınlaştır (Z)
+213|Uzaklaştır
+214|Uzaklaştır (X)
+215|programla gelir
+216|yazarı belirtin
+217|ör. kedi, çiçek, dişli
+218|kaynak belirtmek gerekmez
+219|veya yeni bir kategori
+220|sizin
+221|{} kontur
+222|{} resim bulundu
+223|{} × {} px
+224|Durduruldu (yazılım sıfırlama)
+225|Animasyon hızı
+226|Başa dön
+227|{} açılamıyor: {}
+228|{} ile bağlantı kuruldu
+229|Bağlantı koptu
+230|Bağlantı kesildi
+231|Bir iş çalışırken denetleyici {} sn yanıt vermiyor (durum: {}).
+232|Duraklat
+233|Oynat
+234|Tekrarla
+235|Otomatik kaydırma
+236|Temizle
+237|Gönder
+238|Durum sorguları
+239|G-code / $ komutu gönder
+240|Yedeği indir…
+241|Yedekten geri yükle…
+242|Yedekleme başarısız: {}
+243|Yedek geri yüklendi: {}
+244|Yedek kaydedildi: {}
+245|Geri yükleme başarısız: {}
+246|Yedekten geri yükle
+247|Mevcut ayarlarınız yedekle değiştirilecek. Yedekteki resimler ortak galeriye eklenir. Devam edilsin mi?
+248|${} artık {} adım/mm
+249|1. Takımın olduğu yere bir işaret koyun (ya da oraya bir komparatör yerleştirin). 2. Taşı'ya basın. 3. Mesafeyi ölçün ve aşağıya yazın.
+250|3B dokunmatik prob
+251|Bir G-code komutu desteklenmiyor veya geçersiz.
+252|Bir G-code kelimesinin harfi yok.
+253|Bir komutta P veya L değeri eksik.
+254|Bir komut tam sayı gerektiriyor.
+255|Bir komut eksen kelimeleri gerektiriyor ama satırda hiç yok.
+256|Bir limit anahtarına çarpıldı. Konum kaybolmuş olabilir: makineyi yeniden sıfırlayın.
+257|Makro, Kontrol sekmesindeki bir düğmenin gönderdiği G-code'dur. Köşeli parantez içinde değişkenler kullanabilir.
+258|Pozitif değer gereken yerde negatif değer var.
+259|Bir sayı geçersiz veya eksik.
+260|Satırda bir kelime tekrarlanıyor.
+261|Makro ekle
+262|Hatırlatıcı ekle
+263|Adım ekle
+264|İşten sonra (bitti veya durduruldu)
+265|Alarm
+266|Alarm {}: {}
+267|Alarmlar
+268|Dosyanın {} ayarının tamamı artık denetleyicide.
+269|Bir yayın düzleminde eksen kelimesi yok.
+270|Hiçbir şey dokunmazken etkin olan bir giriş, kablolama veya ayar sorununa işaret eder ($5, $6).
+271|İşin etrafında
+272|Ok tuşları X ve Y'yi, Page Up ve Page Down Z'yi hareket ettirir. Varsayılan olarak kapalı: oklar seçili şekilleri de taşır.
+273|Bu satırda: X {} Y {} Z {}, {}, ilerleme {}
+274|G80 etkinken eksen kelimeleri artakalıyor.
+275|Önce ayarları yedekleyin. Devam etmek için {} yazın:
+276|Dosyaya yedekle…
+277|İş başlamadan önce
+278|Kalibrasyon
+279|Kalibrasyon…
+280|Buradan başlatılamaz: {}
+281|Dosya kullanılamıyor: {}
+282|Takımı veya kalemi şimdi değiştirin. Makine bekler; devam edene kadar hiçbir şey hareket etmez.
+283|Her çalıştırmadan önce programı denetle
+284|Alarmı temizle ($X)
+285|İstatistikleri temizle
+286|Takımın iş koordinatlarındaki konumunu yazmak için tıklayın
+287|Önce makineye bağlanın (Cihaz sekmesi)
+288|Girişlerini görmek için makineye bağlanın.
+289|İşe devam et
+290|Denetleyici
+291|Koordinatlar
+292|Döngü başlat
+293|Bu makroyu sil
+294|Bu hatırlatıcıyı sil
+295|Tanılama ve istatistikler
+296|Tanılama kaydedildi: {}
+297|Köşegen A
+298|Köşegen A daha uzun: Y ekseni +X'e doğru eğik.
+299|Köşegen B
+300|Köşegen B daha uzun: Y ekseni −X'e doğru eğik.
+301|Bilyenin çapı
+302|Mesafe
+303|Bitti
+304|Hata
+305|Hatalar
+306|Tanılamayı dışa aktar (zip)…
+307|Dışa aktarma başarısız: {}
+308|Fabrika ayarları ($RST=$)…
+309|Fabrika ayarları yazıldı ($RST=$)
+310|Başarısızlık mesafesi
+311|X ve Y'nin en hızlı hareketi
+312|İlerlemeyi beklet
+313|Dosya
+314|Donanım yazılımı ayarları ($$)
+315|Denetleyiciden
+316|Alarm veya jog sırasında G-code kilitlidir. Önce kilidi açın.
+317|G43.1 yalnızca takım boyu eksenini kaydırabilir.
+318|G53 yalnızca G0 veya G1 ile çalışır.
+319|GRBL bu $ komutunu tanımıyor.
+320|X0 Y0'a git
+321|Yükseklik
+322|Hareket için basılı tutun
+323|Referanslama
+324|Referanslama başarısız: döngü sırasında sıfırlandı.
+325|Referanslama başarısız: limit anahtarı bulunamadı. Anahtarları ve kablolamayı kontrol edin.
+326|Referanslama başarısız: döngü sırasında güvenlik kapısı açıldı.
+327|Referanslama başarısız: geri çekilirken anahtar bırakmadı. Geri çekilme mesafesini ve kablolamayı kontrol edin.
+328|Ayarlarda referanslama etkin değil ($22).
+329|Girişler
+330|Etkin girişler: {}
+331|Her tıklamada bir adım yerine, düğme basılı tutulduğu sürece takım hareket eder
+332|Az önce yapıldı
+333|İşler
+334|Jog
+335|Klavye
+336|Lazer modu bir PWM çıkışı gerektirir.
+337|Son prob: X {} Y {} Z {} ({})
+338|Son prob: Z {} ({})
+339|Sıfır ayarlandıktan sonra kaldır
+340|Güvenli yüksekliğe kaldır, sonra iş sıfırına git
+341|Satır
+342|Makine
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: {} satır gönderildi
+346|Makrolar
+347|Bakım
+348|Bir dikdörtgen işaretleyin veya kesin ve iki köşegenini ölçün: sol ön köşeden sağ arka köşeye (A) ve sağ önden sol arkaya (B). Eksenler dik olduğunda eşittirler.
+349|Ölçülen
+350|Taşı
+351|{} eksenini mesafe kadar taşı
+352|Yeni değer: ${} = {} (önceki {})
+353|Henüz ilerleme hızı ayarlanmadı.
+354|Hatırlatıcı yok. Cihaz ayarlarından (Bakım) ekleyin.
+355|Henüz okunmadı (Makine → Donanım yazılımı ayarları).
+356|Henüz hiçbir şey okunmadı.
+357|Temas anında Z ofseti
+358|Rayları yağla
+359|Yalnızca G54 - G59 iş koordinat sistemleri desteklenir.
+360|Yalnızca tipik değerden farklı olanlar
+361|{}° diklikten sapma: Y ekseninin bir ucu tüm yükseklik boyunca {} mm kaymış.
+362|Konum
+363|Prob
+364|Z probu
+365|Prob başarısız: mesafe içinde hiçbir şeye dokunmadı. Plakayı ve başarısızlık mesafesini kontrol edin.
+366|Prob başarısız: prob hareketten önce zaten kapalıydı. Kablolamayı ve plakayı kontrol edin.
+367|Plakayı takımın altına koyun: takım dokunana kadar iner, sonra Z plakanın kalınlığına ayarlanır
+368|Takımı kenarın yanına koyun: dokunana kadar ona doğru ilerler ve kenar sıfır olur
+369|Hızlı dokunma
+370|Makineyi oku
+371|Ayarları oku ($$)
+372|Okunuyor…
+373|Denetleyicinin donanım yazılımını ($I) ve ayarlarını ($$) okur
+374|Bu adımı kaldır
+375|Hareket sırasında sıfırlandı. Adımlar kaybolmuş olabilir: makineyi yeniden referanslayın.
+376|Dosyadan geri yükle…
+377|Fabrika ayarlarını geri yükle
+378|Ayarları bir dosyadan geri yükle
+379|Dokunmalar arasında geri çek
+380|Güvenlik kapısı
+381|Ayarlar {} dosyasına kaydedildi
+382|Z'yi probla yeniden ayarla: yeni takım plakaya dokunur ve Z plakanın kalınlığı olur
+383|Ayar
+384|Yavaş dokunma
+385|Yazılım limitleri
+386|Yazılım limitleri için referanslamanın da etkin olması gerekir.
+387|Bazı kelimeler hiçbir komut tarafından kullanılmıyor.
+388|XY hızı
+389|Z hızı
+390|İş mili hızı
+391|Eksenlerin dikliği
+392|Buradan başla
+393|Satırdan başla
+394|Satırdan başla…
+395|Bu makinenin istatistikleri
+396|X ve Y adımları (mm)
+397|Z adımları (mm)
+398|Milimetre başına adım
+399|İşi durdur
+400|Hareketi durdur
+401|Yay, yarıçapından hesaplanamıyor. Bölün veya ofset kullanın.
+402|Yayda I, J veya K ofseti eksik.
+403|Eksenler yükseklik boyunca {} mm içinde dik.
+404|Derleme bilgisi veya başlangıç satırı çok uzun.
+405|Denetleyicide hepsi zaten var.
+406|Denetleyici programı denetim modunda ($C) çalıştırır: hiçbir şey hareket etmez ve anlamadığı satırlar gerçek çalıştırmadan önce bildirilir
+407|Denetleyici inç cinsinden bildiriyor ($13): Kontrol sekmesindeki konumlar milimetre değil.
+408|İş duraklatıldı
+409|Jog komutu geçersiz.
+410|Jog makinenin hareket alanını aşıyor ve yok sayıldı.
+411|Satır çok uzun.
+412|Satır numarası aralık dışında.
+413|Makine {} işte {} saat çalıştı.
+414|Makine, programın o satırdaki durumuna getirilir: birimler, iş mili, hız, konum. Takımın ve iş parçasının eski yerinde olduğundan emin olun.
+415|Makine istediğiniz mesafe kadar hareket eder; gerçekte ne kadar gittiğini ölçün, doğru adım sayısı hesaplanır.
+416|Hareket makinenin hareket alanını aşıyor. Konum korunur; devam etmek için kilidi açın.
+417|Prob dokunana kadar iner; Z probun ofsetine ayarlanır
+418|Prob girişi zaten kapalı. Klipsi, plakayı ve kablolamayı kontrol edin.
+419|Prob, denetleyicinin prob girişine bağlanmalıdır. Plakaya dokunarak test edin: giriş Kontrol sekmesinde kapalı görünür.
+420|Güvenlik kapısı açık.
+421|Ayar, bu GRBL'nin desteklediği adım hızının üzerinde.
+422|Ayarlar okunamadı; varsayılanlar geri yüklendi.
+423|Ayarlar henüz okunmadı.
+424|Ayarlar ilk değişiklikten önce kaydedildi: {}
+425|Adım darbesi süresi en az 3 µs olmalıdır.
+426|Hareketin hedefi geçersiz.
+427|Takım burada: burayı işin sıfırı yap
+428|Takım numarası çok yüksek.
+429|Bu ayarlar cihazda değil denetleyicide bulunur. Her seferinde birini değiştirin ve önceki değeri not edin: yanlış bir değer makinenin yanlış mesafe gitmesine yol açabilir. Bir oturumdaki ilk değişiklik tüm ayarları bir dosyaya kaydeder.
+430|Dosyanın bu ayarları denetleyiciden farklı. Tümünü yaz'a basana kadar hiçbir şey yazılmaz.
+431|Kenarının kalınlığı
+432|Plakanın kalınlığı
+433|Bu $ komutu yalnızca makine boştayken çalışır.
+434|Bu, $RST=$ yazar: denetleyicinin her ayarı donanım yazılımının varsayılanlarına döner. Adım sayıları, hareket alanı, hızlar ve referanslama değişir.
+435|Çalışma süresi
+436|Takım çapı
+437|Dokunma plakası
+438|X, Y, Z hareket alanı
+439|Satırdaki iki komutun ikisi de eksen kelimesi gerektiriyor.
+440|Aynı gruptan iki komut aynı satırda.
+441|Sonucu görmek için iki köşegeni de yazın.
+442|Yeni değeri görmek için ölçülen mesafeyi yazın.
+443|Tipik
+444|Birim
+445|Bu değerleri cihaz için kullan
+446|Değer
+447|Değişkenler: {}
+448|Yapılacak
+449|İş
+450|Yaz
+451|${} yaz
+452|${} = {} denetleyiciye yazılsın mı? Şu an {}. Her seferinde bir ayarı değiştirin ve eski değeri not edin.
+453|Bir ayar yaz
+454|Tümünü yaz
+455|{} ayar yazılıyor; ardından geri okunacak
+456|X limiti
+457|X limit anahtarı
+458|Y limiti
+459|Y limit anahtarı
+460|Evet
+461|Z
+462|Z limiti
+463|Z limit anahtarı
+464|Z güvenli yüksekliğe
+465|X ve Y'yi sıfırla
+466|Tümünü sıfırla
+467|bir prob mesafesi aralık dışında
+468|bir prob boyutu aralık dışında
+469|kapalı
+470|kapı
+471|her
+472|bekletme
+473|giriş {}
+474|temas yok
+475|bu satırdan önce ilerleme hızı ayarlanmadı
+476|/ {}
+477|kapalı
+478|açık
+479|açık
+480|prob
+481|sıfırla
+482|iş mili kapalı
+483|iş mili açık (M{}) {}
+484|başla
+485|başarısızlık mesafesi geri çekmenin iki katından uzun olmalı
+486|satır bir yayı (G2/G3) G kelimesi olmadan sürdürüyor
+487|satır programın sonundan sonra
+488|önceki satırlar G53 veya G92 kullanıyor, bu yüzden konum hesaplanamıyor
+489|program bu satırdan önce X ve Y'de hareket etmedi
+490|yavaş prob ilerlemesi 1 ile hızlı olan arasında olmalı
+491|dokundu
+492|Bunu hazırlamak için önce {} satır gönderilecek.
+493|Yazdıktan sonra {} / {} ayar farklı:
+494|{} {}: {}
+495|{}: zamanı geldi ({} sa geçti)
+496|{}: {} sa kaldı
+497|1. Sensörün yeri
+498|2. İlk takım, referans
+499|3. Diğer tüm takımlar
+500|Denetleyici ayarlarının bir kopyası cihazla birlikte saklanır. Makine ilk kez bağlandığında ve ayarlar en yeni kopyadan her farklılaştığında bir kopya alınır; kopyalar programın yedeğinin parçasıdır.
+501|Denetleyicinin {} ayarının bir kopyası cihazla birlikte kaydedildi.
+502|{} ayarın bir kopyası cihazla birlikte kaydedildi.
+503|Bir iş çalışıyor.
+504|Bir ölçüm zaten çalışıyor.
+505|Değişikliğinizden sonra ayarların yeni bir kopyası kaydedildi (öncekinden {} ayar farklı).
+506|Takım boyu sensörü, makinede sabit bir yerdeki bir anahtardır. Her takımın ucu ona dokunur, böylece yeni bir uç iş parçasına yeniden dokunmadan öncekiyle tam aynı Z'yi alır. Konumu makine koordinatlarındadır: önce makineyi referanslayın ve sensörü asla yerinden oynatmayın.
+507|Dokunmadan sonra Z, referans takımın sensördeki Z'sine ayarlanır
+508|Denetleyiciyle karşılaştır ve farkları geri yaz
+509|Ayarların kopyaları ({})
+510|Unut
+511|Takımı sensörün ortasının birkaç milimetre üstüne jog edin ve düğmeye basın.
+512|Makine X {}  Y {}, Z {} yüksekliğinden yaklaş
+513|Şimdi kopya al
+514|Referans takımı ölç
+515|Önce referans takımı ölçün.
+516|Takımı ölç (sensör)
+517|Bu takımı ölç ve Z'yi ayarla
+518|Ölçülüyor…
+519|Henüz ölçülmedi.
+520|Henüz ayarlanmadı.
+521|Hiçbir şey değiştirilmez; referanstan fark gösterilir
+522|Yalnızca ölç
+523|İlk ucu takın ve onunla iş parçasında Z'yi ayarlayın (Kontrol sekmesi: Z probu veya yüzeye dokunup Z0'a basın). Sonra onu sensörde ölçün.
+524|Referans: sensörde Z {}
+525|Geri yükle…
+526|Önce sensörün konumunu ayarlayın.
+527|Denetleyici henüz konumu bildirmedi.
+528|Cihazla kaydedilen kopyadan farklı ayarlar: {}. Yeni bir kopya kaydedildi.
+529|İlk seferde elinizi durdurma düğmesinin yakınında tutun: takım sensöre doğru iner.
+530|Makine sensöre gider ve takım ona iki kez dokunur
+531|Makine takım boyu sensörüne gider; yeni takım referans takımın Z'sini alır
+532|Makine boşta değil.
+533|Sensör burada
+534|Takım, referans takımla aynı uzunlukta.
+535|Takım referans takımdan {} mm daha uzun.
+536|Takım referans takımdan {} mm daha kısa.
+537|Takım boyu sensörü
+538|Takım boyu sensörü…
+539|Geçiş yüksekliği (makine Z)
+540|Bir iş uç değişimi için duraklayınca pencere Takımı ölç seçeneğini sunar. Bu, istediğiniz zaman buradan da yapılabilir.
+541|sensörün bir konumu aralık dışında
+542|burada bir değişiklikten sonra
+543|bağlanırken
+544|elle
+545|ayarların kopyaları geçersiz
+546|referans geçersiz
+547|yaklaşmanın başlangıcı geçiş yüksekliğinden yüksek olmamalı
+548|{} ayar
+549|… ve {} tane daha
+550|Oluştur
+551|Veri dosyaları
+552|Şekil üret…
+553|{} şekil üretildi
+554|Üreteç
+555|Üreteçler
+556|İçe aktarıcılar
+557|Zip'ten eklenti yükle…
+558|Betiğin mesajları:
+559|Yüklü üreteç yok. Eklentiler ekleyebilir (Eklentiler penceresi).
+560|Henüz eklenti yok. Eklentiler klasörüne bir eklenti klasörü koyun veya bir zip yükleyin.
+561|Hiçbiri
+562|Bu program için değil
+563|Eklentiler klasörünü aç
+564|Eklenti yüklenemedi: {}
+565|Eklenti yüklendi: {}
+566|Eklenti kaldırıldı: {}
+567|Eklentiler
+568|Eklentiler şekil oluşturabilen ve G-code'u değiştirebilen betikler çalıştırır. Yalnızca güvendiğiniz eklentileri yükleyin.
+569|Okunamayan eklentiler
+570|Eklentiler…
+571|Son işlemci
+572|Son işlemciler
+573|Ön ayarlar
+574|Eklentileri yeniden yükle
+575|Kaldır
+576|{} eklentisi kaldırılsın mı? Klasörü silinir.
+577|Betik başarısız oldu: {}
+578|Çeviriler
+579|Bir eklentiyle içe aktar…
+580|Dosya okuyan eklenti yok: Eklentiler penceresinden bir tane yükleyin
+581|Son işlemci başarısız oldu, hiçbir şey kaydedilmedi: {}
+582|Başlangıçta eklenti güncellemelerini denetle
+583|Güncellemeleri denetle
+584|Liste denetleniyor…
+585|Liste alınamadı: {}
+586|{} indiriliyor…
+587|Şunun için: {}
+588|Yükle
+589|Yüklü
+590|Program sürümü {} veya daha yenisi gerekir
+591|Resmî eklentiler
+592|Eklenti güncellendi: {}
+593|Eklenti güncellemeleri var: {}
+594|Eklenti deposu
+595|Liste henüz yüklenmedi. Güncellemeleri denetle'ye basın.
+596|Güncel
+597|Güncelle
+598|Güncelleme var: {} → {}
+599|Listede {} eklenti, {} tanesi güncellenebilir
+600|Kaydedilmemiş bir proje bulundu
+601|{} şekil, otomatik olarak saklandı
+602|Kurtar
+603|At
+604|Kaydedilmemiş proje kurtarıldı
+605|{} — seçimi atamak / etkin yapmak için tıklayın; seçenekler için çift tıklayın
+606|{} katmanın tümünü göster
+607|Güncellemeleri denetle…
+608|Program seçenekleri…
+609|Program seçenekleri
+610|Program başlarken daha yeni sürüm ara
+611|İşin daha başında
+612|İşin daha sonunda
+613|Bir tıklamanın takımı ne kadar taşıdığı, milimetre olarak
+614|Hız
+615|Ok tuşları X ve Y'yi, Page Up ve Page Down Z'yi yukarıda seçilen adım kadar hareket ettirir. Varsayılan olarak kapalı: oklar seçili şekilleri de taşır.
+616|İş mili
+617|Aç
+618|Denemek için iş milini açar (M3 S…) ve yeniden kapatır (M5). Bir iş bunu kendiliğinden yapar.
+619|Kapat
+620|Makinenin kilidini açmadan önce neden durduğuna bakın: takım malzemenin içinde olabilir.
+621|Durdur
+622|İşi ve iş milini durdur
+623|İş durdu
+624|Makineden yanıt yok
+625|İş mili hızı {} rpm için S{} olarak gönderilir: denetleyicinin aralığı ($30) cihazın en yüksek hızına ({} rpm) yayılır.
+626|Paneli gizle (sekmeler dar bir şeritte kalır)
+627|Paneli göster
+628|Resim içe aktar…
+629|Resmi ayarla…
+630|Resmi izle…
+631|En az iki şekil seçin (resim değil).
+632|Bu çizgiler birleştirilemez (paraleller veya yarıçap sığmıyor).
+633|İki çizgi yuvarlak bir köşeyle birleştirildi.
+634|Önce yuvarlatılacak şekilleri seçin.
+635|Köşeleri yuvarlat
+636|Yarıçap
+637|İki düz çizgi seçili: yuvarlak bir köşeyle birleştirilirler.
+638|Seçili şekillerin her düz köşesi yuvarlatılır.
+639|Şekli ötele
+640|Pozitif değer konturu büyütür, negatif küçültür.
+641|Orijinali koru
+642|Öteleme oluştur
+643|Birleşim
+644|Kesişim
+645|Çıkar
+646|Dışlayıcı veya
+647|Şekli ötele…
+648|Köşeleri yuvarlat…
+649|Eğrilere dönüştür
+650|Şekil işlemleri
+651|Resim
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Düzenli
+657|Gri tonlama
+658|Yalnızca siyah veya beyaz, yarı parlaklıkta ayrılır. Keskin: çizimler ve metin için iyi.
+659|Yuvarlama hatasını komşu noktalara yayar. Fotoğraflar için iyi bir genel seçim.
+660|Hatayı daha geniş bir alana yayar: daha yumuşak tonlar, biraz daha yavaş.
+661|Jarvis gibi, daha keskin ayrıntılarla.
+662|Parlak alanları temiz ve kontrastı yüksek tutar; en koyu ve en açık ayrıntıların bir kısmını kaybeder.
+663|Sabit 8×8 nokta deseni: düzenli ve hızlı, gürültüsüz.
+664|Nokta yok: her piksel, katmanın en düşük ve tam gücü arasında bir güç alır.
+665|Çalışıyor…
+666|{} içe aktar
+667|{} şekil, {} × {} mm
+668|Ön
+669|Arka
+670|Döndürmek için modeli sürükleyin. Aşağıdaki konturlar onun görünümünden elde edilir.
+671|G-code görüntüleyici
+672|Görünümü sıfırla
+673|Boşta hareketleri göster
+674|Yüksekliğe göre renklendir
+675|kesim uzunluğu
+676|{} hareket
+677|Sürükle: döndür · sağ sürükle veya Shift+sürükle: taşı · tekerlek: yakınlaştır
+678|Sürükle: taşı · tekerlek: yakınlaştır
+679|Açılamadı: {}
+680|G-code dosyasını görüntüle…
+681|Kaydet
+682|Kapatmadan önce çalışmanız kaydedilsin mi?
+683|Tasarım bir dosyaya kaydedilmedi.
+684|Kaydetme
+685|Adsız
+686|Yeni sekme
+687|Sekmeyi kapat
+688|En fazla {} sekme açık olabilir.
+689|Referans
+690|Sürdür
+691|Çalışma alanını sığdır (Ctrl+Shift+0)
+692|Tüm nesneleri sığdır (Ctrl+Shift+9)
+693|Kontrol
+694|DUR
+695|Noel (Koyu)
+696|Noel (Açık)
+697|Yılbaşı Gecesi (Koyu)
+698|Yılbaşı Gecesi (Açık)
+699|Cadılar Bayramı (Koyu)
+700|Cadılar Bayramı (Açık)
+701|Paskalya (Koyu)
+702|Paskalya (Açık)
+703|GRBL sürümü
+704|GRBL 1.1 veya daha yeni
+705|GRBL 0.7 veya daha eski
+706|Eski GRBL (0.9) konumları başka bir biçimde bildirir ve jog komutu yoktur: program kafayı bunun yerine olağan hareketlerle taşır.
+707|Çalışma alanında sekme
+708|Pencereye geri dön
+709|Düzeyler
+710|Bundan koyu olan her şey siyah olur
+711|Bundan açık olan her şey beyaz olur
+712|Yakınlaştırmak için kaydırın, taşımak için sürükleyin, tüm resmi görmek için çift tıklayın
+713|Seçilen son işlemci, G-code dışa aktar… ile çıkan G-code'u değiştirir; makineye gönderilen iş değişmez.
+714|Ayarları olan eklentilerin sağ panelde kendi sekmesi vardır.
+715|Yolları otomatik birleştir…
+716|Toleransla yolu kapat…
+717|Seçimi SVG olarak dışa aktar…
+718|Seçimi DXF olarak dışa aktar…
+719|Yolları birleştir
+720|Tolerans
+721|Otomatik birleştir
+722|Yolları kapat
+723|Uçları toleranstan yakın olan yollar birleştirilir; iki ucu bu kadar yakın olan bir yol kapatılır.
+724|Hiçbir şey birleştirilmedi veya kapatılmadı.
+725|{} yola birleştirildi ({} açık kaldı)
+726|{} kaydedildi
+727|Kaydedilemedi: {}
+728|Dışa aktar
+729|Dogbone / T-bone köşeleri…
+730|Dogbone köşeleri
+731|Dogbone
+732|T-bone
+733|Seçili şekillerin her keskin köşesine bir oyuk ekler, böylece bu yarıçapta yuvarlak bir uç içine ulaşır: dogbone iki duvarı da biraz fazla keser, T-bone yalnızca birini.
+734|Seçimde keskin köşe yok.
+735|{} şekle oyuk eklendi
+736|Makine bunu yapamaz.
+737|Merkezi bul
+738|Prob bir deliğin içinde, yaklaşık ortada durur: dört kenara dokunur, ortaya gider ve orayı X ve Y'nin sıfırı yapar. Önce Z'yi yapın.
+739|Soğutma
+740|Buhar
+741|Sıvı
+742|Buhar soğutmayı açar (M7)
+743|Sıvı soğutmayı veya böyle bağlanmış bir makinede toz toplayıcıyı açar (M8)
+744|Tüm soğutmayı kapatır (M9)
+745|Geçersiz kılmalar
+746|İlerleme
+747|Hızlı hareketler
+748|Programın istediği hıza geri dön
+749|Kaydedilen konumlar
+750|X {} Y {} Z {} konumuna git (makine konumu), gerekirse önce yukarı çık
+751|Bu konumu unut
+752|Buraya kaydet
+753|Takımın şu anki yerini hatırla
+754|Kopyalanacak şekilleri seçin (en fazla 2000 kopya yapılır).
+755|{} kopya yapıldı
+756|Önce şekilleri, en son yolu (veya kırpma şeklini) seçin.
+757|Metin artık yolu izliyor (konturlardır, artık metin değil).
+758|Yinelenen yok.
+759|{} yineleme kaldırıldı
+760|Ayrılacak bir şey yok: her şeklin tek bir konturu var.
+761|{} şekle ayrıldı
+762|Önce bir şey seçin.
+763|Basitleştirildi: {} nokta {} oldu
+764|Yapılacak bir şey yok: sayı da satır da yok.
+765|{} metin yapıldı
+766|Metin bir QR koda sığmıyor.
+767|Code 39 barkodunda yalnızca büyük harfler, rakamlar, - . $ / + % ve boşluklar olabilir.
+768|Şekiller alana sığmıyor.
+769|{} şekil yerleştirildi
+770|Izgara dizisi…
+771|Dairesel dizi…
+772|Yol boyunca kopyala…
+773|Yol üzerinde metin…
+774|Şekille kırp…
+775|Basitleştir…
+776|Seri metin…
+777|Barkod / QR kod…
+778|Şekilleri yerleştir…
+779|Ölç…
+780|Sütunlar
+781|Satırlar
+782|Sütun aralığı
+783|Satır aralığı
+784|Adet
+785|Toplam açı
+786|Kopyaları döndür
+787|Start
+788|Şeklin içini koru
+789|Metin
+790|{n} sayıdır; bir CSV dosyasıyla {1}, {2}… onun sütunlarıdır
+791|İlk sayı
+792|Adım
+793|Basamak
+794|Kopya
+795|CSV dosyası oku…
+796|Dosyadan {} satır
+797|Tür
+798|Çubuk genişliği
+799|Alan genişliği
+800|Alan yüksekliği
+801|Döndürmeye izin ver
+802|Şekiller kutularına göre sayfanın köşesinden başlayarak satırlar halinde dizilir.
+803|Genişlik {}  Yükseklik {}
+804|Başlangıç X {} Y {}
+805|Alan {}  Uzunluk {}
+806|Merkezler arası: {} (dX {}, dY {})
+807|Kutular arası boşluk: {}
+808|Yinelenenleri kaldır
+809|Parçalara ayır
+810|Smoothieware (GRBL değil)
+811|Arka plan resmi: {}
+812|Resim okunamadı: {}
+813|Arka plan resmi
+814|Dosyadan resim yükle…
+815|Kamera resmini kullan
+816|Kameranın şu anki resmi
+817|Opaklık
+818|Köşeleri taşı
+819|Çalışma alanına sığdır
+820|Resim çizimin altında durur: köşelerini malzemenin veya çalışma alanının köşelerine sürükleyin. Projeyle birlikte kaydedilir.
+821|Bu sırayla çalışırlar: {}
+822|Tüm son işlemcileri kapat
+823|Seçilen son işlemciler, G-code dışa aktar… ile çıkan G-code'u değiştirir; makineye gönderilen iş değişmez.
+824|Arka plan resmi…
+825|Henüz kameradan resim yok.
+826|{} kaydedildi ({} resim)
+827|Hızlandırılmış çekim: bir katman bitince bir resim çekilir.
+828|Hızlandırılmış çekim: {} resim, {}
+829|Fotoğraf çek
+830|Kaydı durdur
+831|Kaydediliyor: {} sn, {} resim
+832|Video kaydet
+833|Hızlandırılmış çekim
+834|Her
+835|Her katmandan sonra
+836|Programdan makineye gönderilmiş bir iş gerekir (Başlat)
+837|Hızlandırılmış çekimi durdur
+838|{} resim
+839|Hızlandırılmış çekimi başlat
+840|Klasör
+841|ortak verilerin camera klasörü
+842|Klasör seç…
+843|Bu kameranın akışı ffmpeg gerektiriyor; programın yanında veya sistemin PATH'inde bulunamadı.
+844|Akış sona erdi: yeniden açılıyor.
+845|Akış açılamadı (adres, kullanıcı ve parola?): yeniden deneniyor.
+846|Eklenti güncellemeleri var
+847|Tümünü güncelle
+848|Sonra
+849|İyileştirme fikirleri ve önerileri için Jakub'a (CNC KpK) çok teşekkürler:
+850|Yanında göster
+851|Ayrı bir pencerede aç
+852|Bölmeyi kapat
+853|Ana pencereye dön
+854|Etkin proje
+855|G-code analizi
+856|Önizleme
+857|Kamera
+858|Bölünmüş görünüm: yan yana
+859|Bölünmüş görünüm: üst üste
+860|Tek görünüm
+861|Katmanlar
+862|Katman adlarını göster
+863|Kaydettikten sonra G-code'u önizle
+864|Dosyanın en başı
+865|Dosyanın en sonu
+866|Kullanabileceğiniz değişkenler:
+867|Tam sayılardan sonra ondalık nokta
+868|Başta ve sonda %
+869|Bekleme kelimesi
+870|P (saniye)
+871|P (milisaniye)
+872|X (saniye)
+873|Satır numaraları
+874|Yorumları kaldır
+875|Kendi dosya biçimi
+876|Değişken adlarını göster
+877|Kendi G-code'u için değişkeni olan bir alanın etiketinin yanında adı gösterilir; tıklamak onu kopyalar
+878|Katman ön ayarları
+879|Ön ayarı kaydet…
+880|Bu katmanın ayarlarını bu adla sakla
+881|Dışa aktar…
+882|Tüm ön ayarları bir dosyaya yaz
+883|İçe aktar…
+884|Bir dosyanın ön ayarlarını ekle
+885|En fazla {} ön ayar
+886|Dosya çok büyük
+887|{} ön ayar eklendi
+888|Dosyadan hiçbir şey okunamadı
+889|Henüz ön ayar yok
+890|Bu ayarları katmana uygula
+891|Bu ön ayarı unut
+892|Ad boş veya başka bir ön ayar tarafından kullanılıyor
+893|Ana sayfa
+894|Şununla yapıldı:
+895|{} bölmesine taşı
+896|{} satır
+897|Yeniden oluştur
+898|Düzenlemeler kaybolsun mu?
+899|Projenin G-code'unu yeniden oluştur; düzenlemeler kaybolur
+900|Analiz et
+901|Bu metnin takım yollarını G-code analizinde göster
+902|Elle değiştirildi
+903|Metni bir dosyaya yaz
+904|RTSP için UDP kullan
+905|TCP'den daha az gecikme, ama kötü bir ağda resim bozulabilir. Kapalı: TCP.
+906|Düşük gecikme
+907|En yeni resmi arabelleğe almadan daha erken gösterir; resim takılabilir.
+908|Video biçimi
+909|Otomatik, bilgisayardan en az şey isteyen yoldur: bir IP kameranın akışı geldiği gibi bir MP4 dosyasına kopyalanır, hiçbir şey yeniden çözülmez veya kodlanmaz. Art arda resim veren bir kamera AVI olarak yazılır.
+910|Kaydediliyor: {} sn (akış kopyalanıyor)
+911|MP4 bir IP kameranın akışını kopyalar; bu kamera AVI olarak kaydedilir.
+912|Akış kaydedilemedi (adres, kamera, ffmpeg?).
+913|Çevrimiçi küçük resimler…
+914|Süre
+915|Bu derleme bilgisayarın kameralarını kullanamaz.
+916|Çalışma alanını sığdır
+917|Kapalı
+918|Seri port
+919|Ağ (TCP, ör. ser2net)
+920|SVG içe aktar…
+921|Adobe Illustrator / PDF / EPS / VectorCraft içe aktar…
+922|DXF içe aktar…
+923|LightBurn projesi içe aktar…
+924|UGS tasarımı içe aktar…
+925|SVG dışa aktar…
+926|PLT / DXF dışa aktar…
+927|{} yol {} dosyasından içe aktarıldı
+928|{} dışa aktarıldı
+929|{} dışa aktarıldı. {} resim atlandı: bu biçimde raster yok.
+930|Illustrator katmanları
+931|Dosyada {} Illustrator katmanı var. Yolları programın katmanlarına şöyle yerleştir:
+932|İlk Illustrator katmanı katman 1'e, ikincisi katman 2'ye gider ve böyle devam eder; geri kalanlar son katmana gider.
+933|G-code konsolu
+934|Komutlarınız
+935|Programın komutları
+936|Makinenin yanıtları
+937|Programın mesajları
+938|Arka plan
+939|Yazı tipi boyutu
+940|Yazı tipi
+941|Stil
+942|Kalın
+943|İtalik
+944|Harf aralığı
+945|Satır aralığı
+946|Hizala
+947|Metni düzenlenebilir Bézier şekillerine dönüştür
+948|Düzenle
+949|Çizmek için çalışma alanında sürükleyin.
+950|G-code kaydet
+951|Kenar sayısı
+952|Tur sayısı
+953|Çokgen
+954|Spiral
+955|Yeni bir istemci bağlı olanın yerini alır
+956|Baud hızı
+957|Elle: sudo cp <kaydedilen dosya> {} && sudo systemctl restart ser2net
+958|Onayla
+959|Kopyalandı.
+960|Yapılandırma yüklenemedi: {}
+961|Sayfa oluşturulamadı: {}
+962|Görüntüleyici açılamadı: {}
+963|Varsayılan yazıcı
+964|Dosya: {}
+965|Çerçeve
+966|ser2net'i yükle ve yeniden başlat…
+967|{} yüklendi ve ser2net yeniden başlatıldı.
+968|Yalnızca bu bilgisayarda dinle (SSH tüneliyle kullanın)
+969|Kenar boşluğu
+970|Yalnızca görünür katmanlardaki nesneler
+971|Yalnızca nesneler, sayfanın izin verdiği kadar büyük
+972|PDF'i aç
+973|PDF görüntüleyicide açıldı.
+974|Sayfayı, daha fazla seçenekle yazdırabilen PDF görüntüleyicide açar
+975|Kâğıt
+976|Port
+977|Yazdır
+978|Yazıcı
+979|Yerleşimi kontrol etmek veya şablon olarak, tasarımı bir kâğıt yazıcısında yazdırır.
+980|Yazdır…
+981|Yenile
+982|PDF olarak kaydet…
+983|Farklı kaydet…
+984|Kaydetme başarısız: {}
+985|Yazıcıya gönderildi. {}
+986|Ağ üzerinden paylaş (ser2net)
+987|Ağ üzerinden paylaş (ser2net)…
+988|İşi başlat
+989|Cihaz değiştir…
+990|TCP portu
+991|Yazıcı kabul etmedi: {}
+992|Tüm çalışma alanı, ölçekli
+993|Sonra diğer bilgisayardan {}:{} adresine bağlanın
+994|Yazdırılacak bir şey yok.
+995|Bu kılavuz İngilizce ve Lehçe olarak mevcuttur; diğer diller İngilizce metni gösterir.
+996|Bu, {} dosyasını değiştirir (bir yedek tutulur) ve ser2net'i yeniden başlatır. Yönetici hakları istenir.
+997|Yönetici onayı bekleniyor…
+998|ser2net bulundu: {}
+999|ser2net sürümü
+1000|ser2net bulunamadı. Önce yükleyin, örneğin: sudo apt install ser2net
+1001|{} nesne çalışma alanının dışına taşıyor; kâğıtta kenardan kesilirler.
+1002|{} nesne çalışma alanının dışına taşıyor; yine de yazdırılırlar.
+1003|Bu, bu bilgisayardaki makinenin seri portunu ağ üzerinden paylaşır; böylece başka bir bilgisayardaki program Ağ (TCP) bağlantı türüyle bağlanabilir.
+1004|Uyarı: ağda bu porta ulaşan herkes makineyi kullanabilir. Güvenilir bir ağ, bir güvenlik duvarı veya SSH tüneliyle yalnızca yerel seçeneği kullanın.
+1005|Bu denetleyici girişlerini bildirmiyor.
+1006|Nokta ekle
+1007|Noktalara göre hizala
+1008|Hizala: dört köşeyi çalışma alanında sürükleyin
+1009|Kamera katmanı
+1010|Bu noktayı sil
+1011|Her köşeyi malzemenin veya çalışma alanının eşleşen köşesine sürükleyin; perspektif düzeltilir.
+1012|Resmi noktalara uydurur (en küçük kareler) ve köşeleri buna göre taşır.
+1013|Kareyi dondur
+1014|Resim yükle…
+1015|Yeterli nokta yok veya noktalar tek bir doğru üzerinde.
+1016|Katman kaynağı…
+1017|Katman: {}
+1018|Resimdeki bir nokta (piksel) ile çalışma alanındaki yerinin (mm) çiftleri. En az 3, önerilen 4; perspektif dahil hizalamayı belirlerler.
+1019|Mevcut köşelerden noktalar
+1020|Referans noktaları
+1021|Noktaları resmin dört köşesi ve şu anki yerleriyle değiştirir.
+1022|Çalışma alanına sıfırla
+1023|90° döndür
+1024|İşi malzeme üzerinde konumlandırmak için tasarımın altında bir fotoğraf veya canlı kamera gösterir.
+1025|Kamera katmanını göster
+1026|Katmanı göster
+1027|Kamerayı başlat
+1028|Cihaz ayarları…
+1029|Programı denetle
+1030|Tanılama ve istatistikler…
+1031|Donanım yazılımı ayarları ($$)…
+1032|Katman
+1033|Önce program denetleniyor…
+1034|Program denetleniyor…
+1035|Denetim hiçbir sorun bulmadı.
+1036|Denetim hiçbir şey bulmadı. İş çalışıyor.
+1037|Denetim {} sorun buldu, ilki {}. satırda. İş başlatılmadı.
+1038|Resmin açık ve koyu kısımlarını yer değiştir
+1039|Ön ayar yükle
+1040|Superman
+1041|Batman
+1042|Joker (Koyu)
+1043|Joker (Açık)
+1044|Kontrol cihazları
+1045|Kontrol cihazı ayarları…
+1046|Bu makinenin kontrol cihazı…
+1047|Varsayılan: {}
+1048|Varsayılan cihaz yok
+1049|{} (bağlı değil)
+1050|Klavyeyi ekle
+1051|{} ekle
+1052|Yeni kumanda bulunamadı. Birini bağlayın ve biraz bekleyin.
+1053|Tüm makineler ve programlar için varsayılan
+1054|İlk tuşlara geri dön
+1055|Son basılan: {}
+1056|Bir tuşa veya düğmeye basın…
+1057|Ata
+1058|Basışları yalnızca öndeki pencere alır. Hareket, tuş basılı tutulduğu sürece sürer ve bırakıldığında veya başka bir pencere öne geldiğinde durur.
+1059|Tüm klavyeler tek bir cihazdır ve bir alana yazarken hiçbir şey yapmaz. Aynı modelden iki kumanda tek cihaz sayılır.
+1060|Sola git (X-)
+1061|Sağa git (X+)
+1062|Öne git (Y-)
+1063|Geriye git (Y+)
+1064|Yukarı git (Z+)
+1065|Aşağı git (Z-)
+1066|İş mili aç / kapat
+1067|Hava aç / kapat
+1068|Su aç / kapat
+1069|Basılıyken düşük güçlü ışın
+1070|Kalem yukarı
+1071|Kalem aşağı
+1072|Sistemde mevcut
+1073|Yapılandırılmış
+1074|Varsayılan cihaz
+1075|Kamera ekle
+1076|Adres
+1077|Otomatik
+1078|Kamera adı
+1079|Kamera numarası
+1080|Bu bilgisayarın kamerası
+1081|Kamera döndürme
+1082|Kamera testi: {}
+1083|Kamera {}
+1084|Makineyi izleyen kameralar. İşaretli olan canlı resmi verir; başka birini işaretlemek ilkini kapatır.
+1085|Bu kamerayı sil
+1086|Bu bilgisayarın kamerası için: sistemin izin verdiği yerde sıkıştırılmamış YUYV biçimini iste.
+1087|Biçim
+1088|Mercek düzeltmesi
+1089|Gürültü azaltma
+1090|Bir kamera adresi değil (http, https, rtsp, udp, rtp veya rtmp).
+1091|Bu kameranın resmini burada ayarlandığı gibi, kaydetmeden açar
+1092|Resim
+1093|YUYV tercih et
+1094|Akış hatası: {}
+1095|Bu kamerayı aç: canlı resmi verir
+1096|Test
+1097|Resim bekleniyor…
+1098|Beyaz dengesi
+1099|macOS bu programı engelliyor olabilir: Sistem Ayarları, Gizlilik ve Güvenlik, Yerel Ağ bölümünden izin verin.
+1100|Makinenin canlı resmi: bir MJPEG akışı, bir JPEG anlık görüntü adresi (http veya https) ya da ffmpeg'in okuduğu bir akış (rtsp, udp, rtp, rtmp).
+1101|Mercek bozulmasının katsayıları (radyal k1–k3, teğetsel p1, p2); koordinatlar merkezden, resmin uzun kenarı biriminde ölçülür. Hepsi 0 = düzeltme yok. Elle girilir: otomatik kalibrasyon yoktur.
+1102|Kameranın adresini girin veya kamerayı silin.
+1103|AxiDraw / EggBot (EBB, GRBL değil)
+1104|HPGL çizici (GRBL değil)
+1105|AxiDraw (iki motor tek kayışta)
+1106|EggBot (her eksen için bir motor)
+1107|Donanım (RTS/CTS)
+1108|Yazılım (XON/XOFF)
+1109|Çizici bir komutu kabul etmedi: {}
+1110|Bu çizicinin denetim modu yok: denetim atlanıyor.
+1111|Motorlar
+1112|mm başına adım
+1113|Ters
+1114|AxiDraw'da mm başına 80 adım vardır ve Y'yi öne doğru sayar, bu yüzden Y'si terstir.
+1115|EBB'nin limit anahtarı yok: bağlanmadan önce kalemi çizimin başladığı köşeye (sıfırına) koyun.
+1116|mm başına çizici birimi
+1117|Akış denetimi
+1118|Akış denetimi olmadan çizici, arabelleği dolunca komutları kaybeder.
+1119|Çizici hiçbir şey yanıtlamaz: port aldığında satır tamamlanmış sayılır ve durdurma kalemi kaldırır, ama çizici arabelleğindekini çizmeyi sürdürür.
+1120|Çizici 20 sn'dir hiçbir şey almadı: akış denetimini ve kabloyu kontrol edin.
+1121|Referanslanmadı
+1122|Denetleyici, makinenin başladığından beri referanslanmadığını söylüyor.
+1123|Takım {}
+1124|Yapıştırılan resim
+1125|Ayrı pencere
+1126|Yan sekme
+1127|Kamera görünümü
+1128|%200'den fazla yakınlaştırıldığında görünür.
+1129|Kır
+1130|Yolu seçili düğümde kır: kapalı bir yol orada açılır, açık bir yol ikiye bölünür
+1131|Bir yolun ucunda kırılacak bir şey yok.
+1132|Yol kapatıldı.
+1133|İki düğüm artık bir.
+1134|İki yol artık bir.
+1135|Bağlantı türü
+1136|Port yok
+1137|Ana bilgisayar
+1138|Okuma tamam
+1139|Okuma hatası
+1140|Cihazdan oku
+1141|Makine şu an bağlıysa çalışma alanı ve hızı denetleyiciden okunabilir.
+1142|Ayarlar denetleyiciden okundu.
+1143|Kontrol etmeye değer
+1144|Cihaz ekle
+1145|Daha fazla ayar…
+1146|Buraya girilenlerle tüm cihaz penceresini aç
+1147|Cihazım yok
+1148|Henüz port veya ana bilgisayar ayarlanmadı: bağlanmadan önce cihaz ayarlarından seçin.
+1149|Bir cihaz ekle
+1150|Buradakilerin hiçbiri makinenizde denenmedi: ilk testi uçsuz ya da uç malzemenin epey üstündeyken yapın.
+1151|Buradakilerin hiçbiri çizicinizde denenmedi: ilk testi kalem kalkık ve kâğıtsız yapın.
+1152|Cihaz eklendi. Başlamak için Yeni'ye basın.
+1153|Çalışma alanı rengi
+1154|Kâğıt rengi
+1155|Malzeme rengi
+1156|Otomatik renge dön
+1157|Resmin grilerini kendiliğinden tüm aralığa yayar; bu durumda iki kaydırıcı kullanılmaz
+1158|LightBurn / MillMage projesi içe aktar…
+1159|DXF dışa aktar…
+1160|DXF R12 (eski) dışa aktar…
+1161|Adobe Illustrator dışa aktar…
+1162|LightBurn projesi dışa aktar…
+1163|MillMage projesi dışa aktar…
+1164|{} dosyasından {} yol ve {} resim içe aktarıldı
+1165|Cetvel (M)
+1166|Ölçüler
+1167|İşin boyutlarını teknik çizimdeki gibi göster
+1168|Çizimin ölçülerini teknik çizimdeki gibi göster
+1169|Birimler
+1170|Milimetre (mm)
+1171|İnç (in)
+1172|Santimetre (cm)
+1173|Metre (m)
+1174|Fit (ft)
+1175|Cihazla aynı
+1176|Özelliklerdeki, cetveldeki, ölçülerdeki ve önizlemelerdeki boyutların birimleri. G-code her zaman cihazın birimlerindedir.
+1177|Ucun ofseti
+1178|Bıçak ucunun ekseninin ne kadar gerisinde olduğu: bıçağın üreticisi verir
+1179|Bundan keskin köşelerde dön
+1180|Başlangıcı geçerek kes
+1181|Kapalı bir kontur başlangıcını bu kadar geçerek kesilir, böylece kapanır
+1182|Bıçak kitaplığı
+1183|Bıçak
+1184|Kendi değerler
+1185|Bıçak kitaplığı…
+1186|Hazır bıçaklar
+1187|Bıçaklarım
+1188|Henüz yok: değiştirmek için bir bıçağı kopyalayın
+1189|Değiştirmek için kendi bıçaklarınız arasına bir kopya
+1190|Bıçağım
+1191|Hazır bir bıçak değiştirilemez: değiştirmek için kopyalayın.
+1192|Notlar
+1193|30° bıçak
+1194|45° bıçak
+1195|60° bıçak
+1196|CNC makinesinin tutucusunda sürüklemeli bıçak
+1197|İnce film ve kâğıt, ince ayrıntı ve küçük harfler.
+1198|Vinil, flex, kâğıt ve ince karton: bir kesicinin olağan bıçağı.
+1199|Kalın vinil, karton, kauçuk, köpük ve kumlama şablonları.
+1200|İş milinin pensindeki bir tutucu, iş mili dönmez; derinliği katmanda ayarlayın.
+1201|Çiziciler ve kesiciler HPGL'i biraz farklı anlar: bunun ne alacağını burada ayarlayın. Komutlar ; ile biter ve {speed} ile {force} doldurulur.
+1202|Başta
+1203|Sonda
+1204|Kalem veya bıçak aşağı
+1205|Kalem veya bıçak yukarı
+1206|en fazla
+1207|Çizimin hızı değiştiğinde gönderilir; boş: asla (çizici kendininkini korur).
+1208|Kuvvet
+1209|Kalemin veya bıçağın ne kadar sert bastığı, başta bir kez gönderilir; 0: asla (çizici kendininkini korur).
+1210|Olağan komutlara dön
+1211|Kıvrık çizgi
+1212|Testere dişi
+1213|Yaylar
+1214|Dalgalar
+1215|Yarım ton daireleri
+1216|Gravür
+1217|Kareler
+1218|İğneler
+1219|Truchet karoları
+1220|Eş yükselti eğrileri
+1221|Hilbert eğrisi
+1222|Noktalama
+1223|Tek çizgi (TSP)
+1224|Üçgenler ve hücreler
+1225|Çizgi çizimi
+1226|Akış çizgileri
+1227|Eskiz
+1228|Karalama
+1229|Resim koyulaştıkça daha hızlı ve daha yüksek dalgalanan çizgi sıraları.
+1230|Resim koyulaştıkça daha sık ve daha yüksek zikzak sıraları.
+1231|Gerilmiş bir yay gibi ilmek sıraları, resim koyulaştıkça büyür.
+1232|Ortadan başlayan, gölgelerde daha çok titreyen tek bir spiral.
+1233|Resmin koyuluğuyla yükseltilmiş sıralar, yandan görülen bir manzara gibi.
+1234|Resim koyulaştıkça büyüyen dairelerden bir ızgara.
+1235|Katmanlı tarama: her koyu ton başka yönde çizgiler ekler.
+1236|İç içe karelerden bir ızgara, koyu yerlerde daha çok.
+1237|Bir ızgara üzerinde kısa vuruşlar, koyu yerlerde daha uzun, şekillere göre döndürülmüş.
+1238|Rastgele döndürülmüş çeyrek daire karoları, koyu yerlerde daha çok yay.
+1239|Bir haritanın eş yükselti eğrileri gibi eşit parlaklık çizgileri.
+1240|Koyu yerlerde daha ince dönüşlü, alanı dolduran tek bir eğri.
+1241|Resmin tonuna göre dağıtılmış noktalar: gölgelerde sık, açık yerlerde seyrek.
+1242|Noktalamanın noktaları kendini kesmeyen tek bir çizgiyle birleştirilir.
+1243|Tona göre dağıtılmış noktalar üzerinde üçgenlerden veya çevrelerindeki hücrelerden bir ağ.
+1244|Yalnızca resmin kenarları, çizgi olarak.
+1245|Şekiller boyunca akan uzun çizgiler, koyu yerlerde daha sık.
+1246|Kurşun kalem eskizindeki gibi resmin en koyu yerlerine konmuş çok sayıda kısa düz vuruş.
+1247|Koyu kısımları karalayarak dolduran, ilmeklerle dolaşan tek bir çizgi.
+1248|Dönüş aralığı
+1249|Dalgaların yüksekliği
+1250|En büyük daire
+1251|Halka aralığı
+1252|Ton düzeyleri
+1253|Bir hücredeki en çok kare
+1254|Sarsıntı
+1255|Vuruş uzunluğu
+1256|Karo boyutu
+1257|Bir karodaki en çok yay
+1258|Yumuşatma
+1259|En küçük adım
+1260|Nokta boyutu
+1261|Nokta sayısı
+1262|En küçük ayrıntı
+1263|Kenar duyarlılığı
+1264|En kısa çizgi
+1265|En küçük boşluk
+1266|En büyük boşluk
+1267|Eğrilerin boyutu
+1268|Vuruş sayısı
+1269|Bir vuruşun mürekkebi
+1270|İlmek boyutu
+1271|Çizginin uzunluğu
+1272|Bir geçişin mürekkebi
+1273|Kenardan kenara sıralar
+1274|Beyazın üzerinde kalemi kaldır
+1275|Zikzak
+1276|Arkada kalanı gizle
+1277|Her sırayı tam çiz
+1278|Daireler
+1279|Halkalar
+1280|Spiraller
+1281|Düz çizgiler
+1282|Dalgalı çizgiler
+1283|Şekiller boyunca
+1284|Açıyla
+1285|Rastgele
+1286|Tek çizgi
+1287|Noktalar
+1288|Tona göre daireler
+1289|Kesik çizgiler
+1290|Üçgenler
+1291|Hücreler
+1292|Kenarlar
+1293|Kenarlar ve koyu alanlar
+1294|Akış alanı
+1295|Ayrı vuruşlar
+1296|Zincir halinde vuruşlar
+1297|Dalga yüksekliği
+1298|mm başına dalga
+1299|Hücre boyutu
+1300|Stil izleme
+1301|{} çizgi, stil: {}
+1302|{} çizgi, {} m çizgi
+1303|yalnızca bir kısım: çok fazla nokta
+1304|çok nokta: çizim yavaşlar
+1305|Tür
+1306|Rastgele desen
+1307|Başka
+1308|Siyah nokta
+1309|Beyaz nokta
+1310|Katmana koy
+1311|Stil izleme…
+1312|Çizgi aralığı
+1313|Hızlandırılmış çekim: takım her kalktığında kafa kenara alınarak bir resim çekilir.
+1314|Her kalkıştan sonra
+1315|Takım her kalktığında kafa kenara alınarak bir resim (Kayıt sekmesinde kenara almayı açın). İş çok daha uzun sürer.
+1316|Hızlandırılmış çekim fotoğrafları kenarda
+1317|Her fotoğraf için kafayı kenara al
+1318|Bir iş sırasında hızlandırılmış çekimin her resmi işin durabileceği ana kadar bekler: kafa bu yere gider, kamera resmi çeker, kafa geri gelir ve iş sürer. Freze ve çizici yalnızca takım yukarıdayken durur.
+1319|Yer (makine koordinatları)
+1320|Mevcut konumu kullan
+1321|Fotoğraftan önce bekle
+1322|Makinenin sarsıntısı durur ve kamera akışı yetişir. Hiçbir şey yanıtlamayan bir çizici (HPGL), kenara gidiş süresine de ihtiyaç duyar.
+1323|İş milini çalışır bırak
+1324|Her fotoğraftan sonra iş mili yeniden başlamaz ve duvarda iz bırakmaz.
+1325|Uzun çizgileri böl
+1326|Uzun düz kesimler birkaç kısa çizgi olarak gönderilir: iş daha erken durabilir (fotoğraf, duraklatma için) ve ilerleme daha düzgün akar. Yol aynı kalır.
+1327|Böl:
+1328|parça, her biri en az
+1329|Fotoğraflar için kenar yeri
+1330|Hızlandırılmış çekim fotoğrafı için kalem kalktıktan sonra gittiği yer; mutlak bir hareketle geri döner. Boş: Kayıt sekmesinde ayarlanan yer.
+1331|Kayıt
+1332|Bu kamera cihaz ayarlarında kapalı.
+1333|X, Y, Z ivmesi
+1334|Bağlantı sapması
+1335|0 = bilinmiyor. İvmelerle bir işin süresi, GRBL'nin yaptığı gibi makinenin hızlanıp yavaşlamasını ve daha yavaş köşelerini hesaba katar ($120 – $122, $11).
+1336|Yay
+1337|Giriş
+1338|Çıkış
+1339|Giriş uzunluğu
+1340|Giriş yarıçapı
+1341|Giriş açısı
+1342|Bindirme
+1343|Takım çizgiye fire tarafından gelir ve aynı yoldan ayrılır; böylece başlangıç izi parçada kalmaz. Sığmayan bir giriş küçültülür veya atlanır.
+1344|Düz bir girişin uzunluğu, bir yayın yarıçapı.
+1345|90° çizgiye dik gelir, küçük bir açı neredeyse çizgi boyunca.
+1346|Başlangıç ile bitiş temiz birleşsin diye kesimin başlangıcını ne kadar geçtiği.
+1347|Takımın asla girmemesi gereken çalışma alanı kısımları (kıskaç, fikstür). Havadaki hareketler bölgelerin etrafından kendiliğinden dolaşır; etkin bir bölgeye dokunan kesim işten önce bildirilir.
+1348|Bölge adı
+1349|Dikdörtgen
+1350|Daire
+1351|Bu bölgeyi sil
+1352|Yalnızca bu yüksekliklerde (Z)
+1353|Masada duran bir kutu veya silindir gibi: aralığın üstündeki veya altındaki hareketler serbesttir.
+1354|Bölge ekle
+1355|Bölge {}
+1356|Yasak bölgeler
+1357|Gerçek konturlara göre
+1358|Şekiller gerçek konturlarına göre dizilir: küçük biri büyüğün deliğine, bir L başka birinin köşesine girebilir. Bir grup tek parçadır.
+1359|Döndürme
+1360|Yarım turlar
+1361|Çeyrek turlar
+1362|Sekizde bir turlar
+1363|{} parça yerleştirildi, {} sığmadı ve yerinde kaldı
+1364|Sığmayanlar yeni sayfalara gider
+1365|Her yeni sayfa, aynı katmanlar ve malzemeyle kendi sekmesinde bir çizimdir: kaydedin ve bundan sonra kesin.
+1366|Buraya {} parça yerleştirildi, kalanı yeni sekmelerde {} yeni sayfada
+1367|Yasak bölge olarak ekle
+1368|Makine seçili şekillerin yerine asla girmez: her biri cihazın bir yasak bölgesi olur (yuvarlaksa daire, değilse çevresindeki dikdörtgen) ve çizimden kaldırılır.
+1369|Yasak bölge
+1370|Cihaza {} yasak bölge eklendi
+1371|Bölgeler cihaza aittir ve her projede onunla birlikte saklanır.
+1372|Bir döner aparat bağlı
+1373|Ayna
+1374|Silindirler
+1375|İş parçası çapı
+1376|Silindir çapı
+1377|Tur başına mikro adım
+1378|Motorun sürdüğü şeyin (ayna veya bir silindir) bir tam turu için mikro adımları.
+1379|Çevre
+1380|İş parçasının çevresi: tasarım bundan yüksek olamaz.
+1381|GRBL 1.1'in üç ekseni var: A ekseni yok, Y kullanılır.
+1382|Denetleyicinin Y ekseninde mm başına {} adıma ihtiyacı var ($101).
+1383|Döner aparatla Y ekseni işi döndürür: çizim iş parçasının çevresinden yüksek olamaz. Model basittir (ayna iş parçası çapına göre döner, silindirler yüzeyi kendileri gibi hareket ettirir); gerçek bir makine test gerektirir.
+1384|Döner
+1385|Çin Yeni Yılı (Koyu)
+1386|Çin Yeni Yılı (Açık)
+1387|Program kapatılsın mı?
+1388|Son çizim kapatıldı.
+1389|Programı kapat
+1390|Başlangıç ekranına dön
+1391|Katman
+1392|Diziler ve yerleştirme
+1393|G-code önizleme
+1394|Yasak bölgeleri göster
+1395|Yasak bölgeler…
+1396|Katman ön ayarları…
+1397|Kaydedilen konumlar…
+1398|Web sunucusu ve API
+1399|Makinenin, projenin ve kameranın durumunu gösteren bir web sayfası ve diğer programlar için bir API. Her istek erişim ifadesini gerektirir; şifreleme yoktur.
+1400|Web sunucusunu ve API'yi aç
+1401|Ağdaki diğer bilgisayarlardan erişilebilir
+1402|Erişim ifadesi
+1403|Bundan sonra bu erişim ifadesini kullan
+1404|Erişim ifadesi boş olamaz veya denetim karakteri içeremez.
+1405|Ağda erişim ifadesini bilen herkes makineyi görebilir, durdurabilir veya hareket ettirebilir. İfade şifrelenmeden gönderilir: yalnızca güvendiğiniz bir ağda kullanın.
+1406|{} üzerinde dinleniyor
+1407|Sunucu başlatılamadı: {}
+1408|Web sunucusu: açık, port {}
+1409|Web sunucusu: hata
+1410|Projeyi gösteren bir web sayfası ve diğer programlar için bir API. Her istek erişim ifadesini gerektirir; şifreleme yoktur.
+1411|Ağda erişim ifadesini bilen herkes projeyi görebilir. İfade şifrelenmeden gönderilir: yalnızca güvendiğiniz bir ağda kullanın.
+1412|Proje kurulumu…
+1413|Malzemenin şekli
+1414|Blok
+1415|Silindir (döner)
+1416|Cihazın döner aparatıyla döndürülen yuvarlak bir iş parçası. Uygulamak döner aparatı bu çapla açar.
+1417|İş parçası uzunluğu
+1418|Programın sıfırı
+1419|Sol ön
+1420|Sağ ön
+1421|Sol arka
+1422|Sağ arka
+1423|Malzeme genişliği
+1424|Malzeme yüksekliği
+1425|Kalınlık
+1426|Z malzemenin altından sayılır
+1427|Çalışma alanı malzemedir
+1428|Atla
+1429|Yandan yana (sol ve sağ yer değiştirir)
+1430|Uçtan uca (arka ve ön yer değiştirir)
+1431|Malzeme sayfanın sol üstünde durur. Program, sıfırı seçtiğiniz yerde olan G54 iş koordinat sistemi için yazılır: makinede de sıfırı oraya ayarlayın. Z malzemenin üstünden veya altından sayılır.
+1432|Silindir döner aparat üzerinde X boyunca yatar; çizimin Y'si onun çevresinde döner ve çizim yüzeyinden açılır. Z yüzeyin üstünden sayılır ve en derin kesim yarıçaptır. Sıfır yüzeydedir; makinede de aynısını ayarlayın.
+1433|İki taraflı iş
+1434|A tarafı ve B tarafı iki çalışma alanıdır: malzeme bir taraftan kesilir, çevrilir ve diğer taraftan kesilir. Her taraf diğerinin şekillerini çevrilmiş olarak, hayalet gibi gösterir.
+1435|Çevirme ekseni
+1436|Hizalama işaretleri
+1437|yatay eksen (arka ve ön yer değiştirir)
+1438|dikey eksen (sol ve sağ yer değiştirir)
+1439|A tarafı
+1440|B tarafı
+1441|Diğer tarafın hayaletleri
+1442|Diğer tarafın şekilleri, malzeme gibi çevrilmiş olarak bu tarafın altında soluk çizilir: seçilemez veya taşınamazlar.
+1443|Malzemenin hemen dışında dört köşe işareti, A tarafından önce altındaki levhaya yakılır: B tarafı için çevrilmiş malzemeyi bunların içine geri koyun.
+1444|Malzeme çalışma alanının sol üstünde durur. İki taraflı bir işte her iki taraf için de aynı yere koyun (hizalama işaretleri yerini gösterir).
+1445|İş parçası döner aparat üzerindedir; çizimin Y'si onun çevresinde döner ve çizim yüzeyinden açılır.
+1446|B tarafında şekiller var: proje iki taraflı kalır. Tek taraflı yapmak için önce onları silin.
+1447|Kâğıt boyutu
+1448|Özel
+1449|Makinenin çalışma alanına sığan boyutlar: ↕ dik, ↔ yatık.
+1450|Cihazın döner aparatı kapalı.
+1451|Proje kuruldu: döner aparat (açık) üzerinde Ø {} mm ve {} mm uzunluğunda bir silindir, sıfır {}
+1452|Proje kuruldu: malzeme {} x {} x {} mm, sıfır {}
+1453|Levha
+1454|Malzeme makinenin sıfır köşesinde durur. İki taraflı bir işte her iki taraf için de aynı yere koyun (hizalama işaretleri yerini gösterir).
+1455|İki taraflı işin G-code'unu kaydet
+1456|İşin iki tarafı var. G-code nasıl kaydedilsin?
+1457|Tek dosya, malzemeyi çevirmek için bir duraklamayla
+1458|Tek dosya, duraklamasız
+1459|İki dosya: name_A ve name_B
+1460|Diğer tarafın şekilleri, malzeme gibi çevrilmiş olarak bu tarafın altında soluk çizilir. Hizalamak veya yapıştırmak için birine tıklayın; asla taşınmaz.
+1461|İki taraflı işin G-code'u
+1462|İşin iki tarafı var. G-code nasıl gösterilsin?
+1463|İşlenecek taraflar
+1464|1 taraf
+1465|2 taraf
+1466|4 taraf (kalas)
+1467|6 taraf (blok)
+1468|Malzeme yalnızca üstten işlenir.
+1469|X boyunca yatan bir kalas, dört uzun yüzü A, B, C ve D'de işlenir: aralarında çeyrek tur geriye yuvarlanır. Her yüz kendi çalışma alanıdır; yanındaki yüzler çevresinde açılır ve altındaki hayalet olarak görünür.
+1470|Altı yüzünün tümünde işlenen bir blok: A'dan D'ye her seferinde çeyrek tur geriye yuvarlanır, E ve F sol ve sağ uç yukarı çevrilir. Her yüz kendi çalışma alanıdır; yanındaki yüzler çevresinde açılır ve altındaki hayalet olarak görünür.
+1471|Birden fazla taraf işlendiğinde her zaman açık: her tarafın oradaki malzeme kadar büyük kendi çalışma alanı vardır ve malzeme her biri için makinede aynı şekilde durur.
+1472|Taban kenarı a
+1473|Taban kenarı b
+1474|Kalasın yüksekliği H
+1475|Kenar a (soldan sağa)
+1476|Kenar b (arkadan öne)
+1477|Kenar c (yükseklik)
+1478|Kalas, A yüzü yukarıda, sıfır köşesinde X boyunca yatar. Yüzler arasında çeyrek tur geriye yuvarlanır, böylece ön yukarı gelir: A, B, C ve D yüzleri. Her yüz yüz kadar büyük bir çalışma alanına çizilir ve altındaki malzeme kalasın oradaki derinliği kadar kalındır.
+1479|Blok, A yüzü yukarıda, sıfır köşesinde durur. A'dan D'ye yüzler: her seferinde çeyrek tur geriye yuvarlanır, böylece ön yukarı gelir; E ve F: sol ve sağ ucu yukarı çevrilir. Her yüz yüz kadar büyük bir çalışma alanına çizilir ve altındaki malzeme bloğun oradaki derinliği kadar kalındır.
+1480|A'nın çevresinde açılmış yüzler
+1481|Yüz {}
+1482|Kalas: 4 yüz
+1483|Blok: 6 yüz
+1484|üst
+1485|ön
+1486|alt
+1487|arka
+1488|sol uç
+1489|sağ uç
+1490|malzeme
+1491|A'dan D'ye yüzler arasında nesne çeyrek tur geriye yuvarlanır (ön yukarı gelir); E ve F sol ve sağ ucunun yukarı çevrilmiş halidir.
+1492|Diğer yüzlerin hayaletleri
+1493|Bunun yanındaki yüzlerin şekilleri, kenarları çevresinde açılmış olarak, ve altındaki yüzünkiler nesnenin içinden görülerek; soluk çizilir. Hizalamak veya yapıştırmak için birine tıklayın; asla taşınmaz.
+1494|Tek dosya, nesneyi çevirmek için her yüzden önce bir duraklamayla
+1495|Tek dosya, duraklamasız
+1496|Her yüz için bir dosya: name_A … name_{}
+1497|Birkaç yüzlü işin G-code'u
+1498|İşin birkaç yüzü var. G-code nasıl gösterilsin?
+1499|Birkaç yüzlü işin G-code'unu kaydet
+1500|İşin birkaç yüzü var. G-code nasıl kaydedilsin?
+1501|Hizalama işaretleri ayrı bir dosyada (name_marks)
+1502|Malzeme konmadan önce, altındaki levhaya ilk olarak yakılır: malzemenin hemen dışında durdukları için tarafların dosyalarında yer almazlar.
+1503|Görüntü kalitesi
+1504|Önizleme resimlerinin ne kadar ince olduğu: 1 hızlı ve kaba, 5 keskin ve ince ama daha yavaş. Görünüm döndürülürken bir an daha kaba çizilir.
+1505|Otomatik kaydetme
+1506|Çalışmayı otomatik kaydet
+1507|Dosya adı olmayan çalışma geçici bir klasöre gider; adı olan dosya yerinde kaydedilir
+1508|Otomatik kaydetme aralığı
+1509|V oyma
+1510|Açılı çizgiler; her biri boyunca resim ne kadar koyuysa o kadar geniş: açık yerlerde ince, gölgelerde geniş, tıpkı bir V-ucun daha derin ve dolayısıyla daha geniş kesmesi gibi. Her çizgi, parlaklığı genişliğini belirleyen parçalara bölünerek kesilir.
+1511|Çizgilerin genişliği
+1512|Parçaların uzunluğu
+1513|En ince çizgi
+1514|Köşeli
+1515|Geometrik çokgenler
+1516|Geometrik çokgenler…
+1517|Resmin koyu şekli çokgenlere (üçgen ve dörtgenler) bölünür; resimde kenar olan yerlerde daha çok, aralarında ve kontur çevresinde boşlukla: geometrik (low poly) bir resim.
+1518|Çokgenler arası boşluk
+1519|Çokgen sayısı
+1520|Kenarları izle
+1521|Üçgenler ve dörtgenler
+1522|Resim stilleri
+1523|Stiller çiziliyor…
+1524|Araç
+1525|Gri
+1526|Ne kadar koyu: %0 beyaz, %100 siyah
+1527|Sertlik
+1528|Bir grinin ne kadar farklı olup yine de doldurulabileceği
+1529|Ctrl+tık (Cmd+tık) kopyalanacak başka bir yer seçer
+1530|Önce kopyalanacak yere Ctrl+tık (Cmd+tık)
+1531|Yakınlaştırmak için kaydırın; resmi taşımak için sağ veya orta düğmeyle sürükleyin.
+1532|Resmi düzenle
+1533|Resmi düzenle…
+1534|Resim kilitli
+1535|Fırça
+1536|Silgi
+1537|Klonla
+1538|Doldur
+1539|Seçilen griyle boyar
+1540|Dokunulmamış malzeme gibi beyaz boyar
+1541|Resmin bir yerini başka bir yere kopyalar: kopyalanacak yere Ctrl+tık (Cmd+tık), sonra boyayın
+1542|Tıklanan noktanın çevresindeki benzer grilerden oluşan alanı doldurur
+1543|Şekillerin boyutu yok
+1544|Çözünürlük
+1545|Milimetre başına {} çizgi
+1546|Nesnelerin boyutu
+1547|{} × {} piksel
+1548|Çizim
+1549|Kapalı şekilleri doldur
+1550|Çizgi genişliği
+1551|Sonra nesneleri sil
+1552|Nesneleri gizle
+1553|Yalnızca önizlemede: nesnelerin konturları olmadan yalnızca resim
+1554|Resme dönüştür
+1555|Resme dönüştür…
+1556|Dönüştür
+1557|Grilerle fırça, silgi, klon damgası ve doldurma
+1558|Resmi gizle
+1559|Yalnızca önizlemede: yalnızca konturlar
+1560|Yalnızca önizlemede: yalnızca çizgiler
+1561|Bu Windows'ta kameranın gerektirdiği Media Foundation yok. Media Feature Pack'i yükleyin (Ayarlar → İsteğe bağlı özellikler).
+1562|USB kameralar FreeBSD'de henüz çalışmıyor. Ağ (IP) kamerası çalışır.
+1563|Proje bilgileri…
+1564|Proje bilgileri
+1565|Adınız
+1566|Kaydettiğiniz projelere oluşturucu veya katkıda bulunan olarak kaydedilir. Her programda aynıdır.
+1567|Henüz kaydedilmedi
+1568|Dosya oluşturuldu
+1569|Dosya değiştirildi
+1570|Proje oluşturuldu
+1571|Oluşturan
+1572|Katkıda bulunanlar
+1573|Henüz kimse yok
+1574|(ad yok)
+1575|Kaydettiğiniz projelere kaydedilmek için adınızı Ayarlar → Program seçenekleri'nde girin.
+1576|Düzenlemeler ({})
+1577|E-posta
+1578|Diğer
+1579|Yazarlar
+1580|Kişi
+1581|Program
+1582|Adınızla birlikte saklanacak bir şirket, web sitesi veya başka bir şey

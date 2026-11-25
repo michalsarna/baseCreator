@@ -1,0 +1,1583 @@
+0|(trống)
+1|Đã có phiên bản mới hơn: {}
+2|Thêm tệp SVG từ máy tính vào clipart của bạn
+3|Thêm tệp…
+4|Thêm nút
+5|Đã thêm {} hình vào {}
+6|Điều chỉnh ảnh
+7|Căn dưới
+8|Căn giữa
+9|Căn giữa (ngang)
+10|Căn giữa (dọc)
+11|Căn trái
+12|Căn giữa dọc
+13|Căn phải
+14|Căn trên
+15|Căn chỉnh
+16|Tất cả danh mục
+17|Góc
+18|Động vật
+19|Áp dụng
+20|Tác giả
+21|Tự động cân mức
+22|Tự động vừa vùng làm việc với cửa sổ
+23|Tự động
+24|Màu nền
+25|Dưới
+26|Độ sáng
+27|Đưa lên trên cùng
+28|Hủy
+29|Danh mục
+30|Lễ hội
+31|Giữa
+32|Đặt giữa bàn máy
+33|Căn giữa với nhau
+34|Đổi danh mục
+35|Đổi danh mục…
+36|Xóa danh sách
+37|Nhấp vào một hình để xem giấy phép và lưu nó.
+38|Nhấp để đặt vào vùng làm việc
+39|Clipart
+40|Đóng
+41|Đóng một đường mở, hoặc mở một đường đóng tại nút đã chọn
+42|Bộ sưu tập
+43|Màu
+44|Bảng màu
+45|Độ tương phản
+46|Chuyển văn bản thành đường cong, hoặc dò ảnh, để sửa các nút.
+47|Chuyển thành đường
+48|Sao chép
+49|Góc nhọn
+50|Không thể kiểm tra cập nhật.
+51|Xóa
+52|Xóa nút
+53|Xóa ảnh sau đó
+54|Xóa…
+55|Mô tả dự án: nó là gì, các thiết lập hiệu quả, ghi chú cho lần sau.
+56|Mô tả
+57|Chi tiết
+58|Chi tiết…
+59|Khoảng cách giữa các đường
+60|Tải xuống
+61|Tải xuống thất bại: {}
+62|Đang tải xuống…
+63|Nhân bản
+64|Sửa nút
+65|Elip (E)
+66|Khắc phần sáng thay vì phần tối
+67|Vừa tất cả đối tượng
+68|Vừa tất cả đối tượng (Ctrl+9)
+69|Vừa bàn máy với cửa sổ
+70|Vừa vùng làm việc (Ctrl+0)
+71|Lật ngang
+72|Lật dọc
+73|Lật theo chiều ngang
+74|Lật theo chiều dọc
+75|Đồ ăn
+76|Gamma
+77|Lưới
+78|Nhóm
+79|Đã nhóm. Các đối tượng giữ nguyên lớp.
+80|Trái tim (K)
+81|Bỏ qua vùng nhỏ
+82|Nhập
+83|Nhập thất bại: {}
+84|Nhập ảnh
+85|Đã nhập ảnh {}
+86|Có sẵn
+87|Chèn nút (hoặc nhấp đúp vào một đoạn)
+88|Ngôn ngữ
+89|Trái
+90|Giấy phép
+91|Đường thẳng (L)
+92|Độ dày đường
+93|Khóa
+94|Khóa tỉ lệ khung
+95|Đã khóa {} đối tượng.
+96|Lưới chính
+97|Biến đoạn sau mỗi nút đã chọn thành đường cong
+98|Biến đoạn sau mỗi nút đã chọn thành đường thẳng
+99|Biến các nút đã chọn thành góc
+100|Làm mượt các nút đã chọn
+101|Phóng to
+102|Giữa ngang
+103|Giữa dọc
+104|Của tôi
+105|Thu nhỏ
+106|Lật và đặt giữa
+107|Âm nhạc và giải trí
+108|Clipart của tôi
+109|Tên
+110|Thiên nhiên
+111|Ảnh âm bản
+112|Bản phát hành mới nhất: {}
+113|Không có hình nào ở đây. Dùng Trực tuyến… để tìm.
+114|Sửa nút (N)
+115|Không tìm thấy gì.
+116|OK
+117|Đối tượng
+118|Clipart trực tuyến
+119|Trực tuyến…
+120|Chỉ lưu những hình bạn được phép dùng. Hãy kiểm tra giấy phép của nguồn.
+121|Mở / đóng
+122|Mở gần đây
+123|Mở trang tải xuống
+124|Hoặc tải hình từ một địa chỉ
+125|Kéo (H)
+126|Dán
+127|Hình đi kèm chương trình
+128|Hình bạn đã tải xuống hoặc thêm vào
+129|Đã đặt {}
+130|Đa giác (G)
+131|Đường gấp khúc / bút (P)
+132|Vị trí và kích thước
+133|Trang dự án trên GitHub
+134|Hướng dẫn nhanh
+135|Thoát
+136|Bán kính bo tròn
+137|Hình chữ nhật (R)
+138|Làm lại
+139|Gỡ hình này khỏi clipart của bạn? Tệp trên đĩa sẽ bị xóa.
+140|Đổi tên
+141|Đổi tên…
+142|Đặt lại
+143|Đặt lại lưới
+144|Khôi phục
+145|Phải
+146|Xoay
+147|Xoay 90° ngược chiều kim đồng hồ
+148|Xoay 90° theo chiều kim đồng hồ
+149|Xoay và lật
+150|Góc xoay
+151|Bo tròn
+152|Bo tròn các góc đã chọn với bán kính này
+153|Đã bo tròn {} góc.
+154|Lưu một bản sao vào clipart của tôi
+155|Lưu vào clipart của tôi
+156|Đã lưu {} vào {}
+157|Tìm kiếm
+158|Tìm kiếm thất bại: {}
+159|Tìm trong các bộ biểu tượng mở (Iconify). Hình được lưu trên đĩa, trong danh mục bạn chọn.
+160|Tìm thêm hình trên internet và lưu vào đây
+161|Đang tìm…
+162|Lưới phụ
+163|Chọn (V)
+164|Hãy chọn một hình trước, rồi sửa các nút của nó.
+165|Chọn tất cả
+166|Chọn ít nhất hai đối tượng để nhóm.
+167|Đưa xuống dưới cùng
+168|Hình
+169|Hiện
+170|Hiện hoặc ẩn lưới
+171|Hiện hoặc ẩn lưới phụ
+172|Đơn giản hóa
+173|Kích thước
+174|Kích thước khi đặt
+175|Mượt
+176|Làm mượt đường cong
+177|Bắt dính lưới
+178|Bắt dính đối tượng
+179|Nguồn
+180|Xoắn ốc (I)
+181|Ngôi sao (S)
+182|Ký hiệu
+183|Văn bản (T)
+184|Kết quả trống.
+185|Lưới phụ phải mịn hơn lưới chính.
+186|Khoảng trống quanh vùng làm việc
+187|Không có góc vuông nào để bo tròn.
+188|Ngưỡng
+189|Thành đường cong
+190|Thành đường thẳng
+191|Tông màu
+192|Công cụ
+193|Trên
+194|Dò
+195|Dò ảnh
+196|Dò các vùng sáng
+197|Đã dò {} đường viền
+198|Tam giác (Y)
+199|Hoàn tác
+200|Bỏ nhóm
+201|Mở khóa
+202|Đã mở khóa {} đối tượng.
+203|Cập nhật
+204|Phiên bản {}
+205|Tùy chọn hiển thị
+206|Chiều rộng
+207|Vùng làm việc
+208|Màu không gian làm việc
+209|Bạn đang dùng phiên bản mới nhất.
+210|Bạn đang có {}.
+211|Phóng to
+212|Phóng to (Z)
+213|Thu nhỏ
+214|Thu nhỏ (X)
+215|đi kèm chương trình
+216|ghi công tác giả
+217|vd. mèo, hoa, bánh răng
+218|không cần ghi công
+219|hoặc một danh mục mới
+220|của bạn
+221|{} đường viền
+222|Tìm thấy {} hình
+223|{} × {} px
+224|Đã hủy (reset mềm)
+225|Tốc độ hoạt ảnh
+226|Về đầu
+227|Không thể mở {}: {}
+228|Đã kết nối với {}
+229|Mất kết nối
+230|Đã ngắt kết nối
+231|Bộ điều khiển không trả lời trong {} giây khi đang chạy công việc (trạng thái: {}).
+232|Tạm dừng
+233|Phát
+234|Lặp lại
+235|Tự động cuộn
+236|Xóa
+237|Gửi
+238|Truy vấn trạng thái
+239|gửi G-code / lệnh $
+240|Tải bản sao lưu…
+241|Khôi phục từ bản sao lưu…
+242|Sao lưu thất bại: {}
+243|Đã khôi phục bản sao lưu: {}
+244|Đã lưu bản sao lưu: {}
+245|Khôi phục thất bại: {}
+246|Khôi phục từ bản sao lưu
+247|Cài đặt hiện tại sẽ được thay bằng bản sao lưu. Các hình trong đó được thêm vào thư viện chung. Tiếp tục?
+248|${} giờ là {} bước/mm
+249|1. Đánh dấu vị trí của dao (hoặc đặt đồng hồ so ở đó). 2. Nhấn Di chuyển. 3. Đo khoảng cách và nhập vào bên dưới.
+250|Đầu dò chạm 3D
+251|Lệnh G-code không được hỗ trợ hoặc không hợp lệ.
+252|Một từ G-code không có chữ cái.
+253|Lệnh thiếu giá trị P hoặc L.
+254|Lệnh cần một số nguyên.
+255|Lệnh cần từ trục nhưng dòng không có.
+256|Đã chạm công tắc hành trình. Vị trí có thể bị mất: hãy về gốc máy lại.
+257|Macro là G-code mà một nút trên thẻ Điều khiển gửi đi. Có thể dùng biến trong ngoặc vuông.
+258|Có giá trị âm ở chỗ cần giá trị dương.
+259|Một số không hợp lệ hoặc bị thiếu.
+260|Một từ bị lặp lại trong dòng.
+261|Thêm macro
+262|Thêm lời nhắc
+263|Thêm bước
+264|Sau công việc (hoàn thành hoặc dừng)
+265|Báo động
+266|Báo động {}: {}
+267|Báo động
+268|Toàn bộ {} cài đặt của tệp giờ đã nằm trong bộ điều khiển.
+269|Cung tròn không có từ trục trong mặt phẳng của nó.
+270|Một đầu vào đang kích hoạt khi không có gì chạm vào cho thấy lỗi dây hoặc cài đặt ($5, $6).
+271|Quanh công việc
+272|Phím mũi tên di chuyển X và Y, Page Up và Page Down di chuyển Z. Mặc định tắt: mũi tên cũng di chuyển các hình đã chọn.
+273|Tại dòng này: X {} Y {} Z {}, {}, tốc độ tiến {}
+274|Còn thừa từ trục khi G80 đang bật.
+275|Hãy sao lưu cài đặt trước. Để tiếp tục, gõ {}:
+276|Sao lưu ra tệp…
+277|Trước khi bắt đầu công việc
+278|Hiệu chuẩn
+279|Hiệu chuẩn…
+280|Không thể bắt đầu ở đây: {}
+281|Không thể dùng tệp: {}
+282|Hãy thay dao hoặc bút ngay. Máy đang chờ; không có gì di chuyển cho đến khi bạn tiếp tục.
+283|Kiểm tra chương trình trước mỗi lần chạy
+284|Xóa báo động ($X)
+285|Xóa thống kê
+286|Nhấp để nhập vị trí dao theo tọa độ phôi
+287|Hãy kết nối với máy trước (thẻ Thiết bị)
+288|Kết nối với máy để xem các đầu vào.
+289|Tiếp tục công việc
+290|Bộ điều khiển
+291|Tọa độ
+292|Bắt đầu chu trình
+293|Xóa macro này
+294|Xóa lời nhắc này
+295|Chẩn đoán và thống kê
+296|Đã lưu chẩn đoán: {}
+297|Đường chéo A
+298|Đường chéo A dài hơn: trục Y nghiêng về phía +X.
+299|Đường chéo B
+300|Đường chéo B dài hơn: trục Y nghiêng về phía −X.
+301|Đường kính bi
+302|Khoảng cách
+303|Xong
+304|Lỗi
+305|Lỗi
+306|Xuất chẩn đoán (zip)…
+307|Xuất thất bại: {}
+308|Cài đặt gốc ($RST=$)…
+309|Đã ghi cài đặt gốc ($RST=$)
+310|Khoảng cách thất bại
+311|Chuyển động nhanh nhất của X và Y
+312|Giữ tiến dao
+313|Tệp
+314|Cài đặt firmware ($$)
+315|Từ bộ điều khiển
+316|G-code bị khóa khi có báo động hoặc đang jog. Hãy mở khóa trước.
+317|G43.1 chỉ có thể bù trục chiều dài dao.
+318|G53 chỉ hoạt động với G0 hoặc G1.
+319|GRBL không biết lệnh $ này.
+320|Đến X0 Y0
+321|Chiều cao
+322|Giữ để di chuyển
+323|Về gốc
+324|Về gốc thất bại: bị reset trong chu trình.
+325|Về gốc thất bại: không tìm thấy công tắc hành trình. Kiểm tra công tắc và dây.
+326|Về gốc thất bại: cửa an toàn bị mở trong chu trình.
+327|Về gốc thất bại: công tắc không nhả khi lùi ra. Kiểm tra khoảng lùi và dây.
+328|Về gốc chưa được bật trong cài đặt ($22).
+329|Đầu vào
+330|Đầu vào đang kích hoạt: {}
+331|Thay vì mỗi lần nhấp một bước, dao di chuyển khi bạn giữ nút
+332|Vừa mới làm xong
+333|Công việc
+334|Jog
+335|Bàn phím
+336|Chế độ laser cần một đầu ra PWM.
+337|Lần dò cuối: X {} Y {} Z {} ({})
+338|Lần dò cuối: Z {} ({})
+339|Nâng lên sau khi đặt điểm không
+340|Nâng lên độ cao an toàn, rồi đến điểm không của phôi
+341|Dòng
+342|Máy
+343|Macro {}
+344|Macro {}: {}
+345|Macro {}: đã gửi {} dòng
+346|Macro
+347|Bảo trì
+348|Vẽ hoặc cắt một hình chữ nhật và đo hai đường chéo: từ góc trước trái đến góc sau phải (A) và từ góc trước phải đến góc sau trái (B). Chúng bằng nhau khi các trục vuông góc.
+349|Đo được
+350|Di chuyển
+351|Di chuyển {} theo khoảng cách
+352|Giá trị mới: ${} = {} (trước đó {})
+353|Chưa đặt tốc độ tiến.
+354|Không có lời nhắc. Thêm chúng trong cài đặt thiết bị (Bảo trì).
+355|Chưa đọc (Máy → Cài đặt firmware).
+356|Chưa đọc gì.
+357|Độ lệch Z khi chạm
+358|Tra dầu ray trượt
+359|Chỉ hỗ trợ hệ tọa độ phôi G54 đến G59.
+360|Chỉ những giá trị khác với giá trị thông thường
+361|Lệch vuông góc {}°: một đầu trục Y lệch {} mm trên toàn chiều cao.
+362|Vị trí
+363|Đầu dò
+364|Dò Z
+365|Dò thất bại: không chạm vào gì trong khoảng cách. Kiểm tra tấm dò và khoảng cách thất bại.
+366|Dò thất bại: đầu dò đã đóng trước khi di chuyển. Kiểm tra dây và tấm dò.
+367|Đặt tấm dò dưới dao: dao đi xuống đến khi chạm, rồi Z được đặt bằng độ dày tấm
+368|Đặt dao cạnh mép: dao tiến về phía mép đến khi chạm, và mép trở thành điểm không
+369|Chạm nhanh
+370|Đọc máy
+371|Đọc cài đặt ($$)
+372|Đang đọc…
+373|Đọc firmware ($I) và cài đặt ($$) của bộ điều khiển
+374|Gỡ bước này
+375|Bị reset khi đang di chuyển. Có thể đã mất bước: hãy về gốc máy lại.
+376|Khôi phục từ tệp…
+377|Khôi phục cài đặt gốc
+378|Khôi phục cài đặt từ tệp
+379|Rút lên giữa các lần chạm
+380|Cửa an toàn
+381|Đã lưu cài đặt vào {}
+382|Đặt lại Z bằng đầu dò: dao mới chạm tấm dò và Z trở thành độ dày tấm
+383|Cài đặt
+384|Chạm chậm
+385|Giới hạn mềm
+386|Giới hạn mềm cũng cần bật về gốc.
+387|Có từ không được lệnh nào dùng.
+388|Tốc độ XY
+389|Tốc độ Z
+390|Tốc độ trục chính
+391|Độ vuông góc của các trục
+392|Bắt đầu từ đây
+393|Bắt đầu từ dòng
+394|Bắt đầu từ dòng…
+395|Thống kê của máy này
+396|Bước của X và Y (mm)
+397|Bước của Z (mm)
+398|Số bước mỗi milimét
+399|Dừng công việc
+400|Dừng di chuyển
+401|Không thể tính cung tròn từ bán kính. Hãy chia nhỏ hoặc dùng độ lệch.
+402|Cung tròn thiếu độ lệch I, J hoặc K.
+403|Các trục vuông góc trong phạm vi {} mm trên chiều cao.
+404|Thông tin bản dựng hoặc dòng khởi động quá dài.
+405|Bộ điều khiển đã có tất cả.
+406|Bộ điều khiển chạy qua chương trình ở chế độ kiểm tra ($C): không có gì di chuyển, và các dòng nó không hiểu được báo trước khi chạy thật
+407|Bộ điều khiển báo bằng inch ($13): vị trí trên thẻ Điều khiển không tính bằng milimét.
+408|Công việc đang tạm dừng
+409|Lệnh jog không hợp lệ.
+410|Jog vượt quá hành trình của máy nên bị bỏ qua.
+411|Dòng quá dài.
+412|Số dòng nằm ngoài phạm vi.
+413|Máy đã chạy {} giờ trong {} công việc.
+414|Máy được đưa về trạng thái chương trình có tại dòng đó: đơn vị, trục chính, tốc độ, vị trí. Hãy chắc rằng dao và phôi vẫn ở chỗ cũ.
+415|Máy di chuyển một khoảng bạn yêu cầu; đo xem nó thực sự đi bao xa và số bước đúng sẽ được tính.
+416|Di chuyển vượt quá hành trình của máy. Vị trí được giữ; mở khóa để tiếp tục.
+417|Đầu dò đi xuống đến khi chạm; Z được đặt bằng độ lệch của đầu dò
+418|Đầu vào dò đã đóng. Kiểm tra kẹp, tấm dò và dây.
+419|Đầu dò phải được nối vào đầu vào dò của bộ điều khiển. Thử bằng cách chạm tấm dò: đầu vào hiện là đóng trên thẻ Điều khiển.
+420|Cửa an toàn đang mở.
+421|Cài đặt vượt quá tốc độ bước mà GRBL này hỗ trợ.
+422|Không đọc được cài đặt; đã khôi phục mặc định.
+423|Chưa đọc cài đặt.
+424|Cài đặt đã được lưu trước thay đổi đầu tiên: {}
+425|Thời gian xung bước phải ít nhất 3 µs.
+426|Đích di chuyển không hợp lệ.
+427|Dao đang ở đây: đặt đây làm điểm không của phôi
+428|Số dao quá lớn.
+429|Các cài đặt này nằm trong bộ điều khiển, không phải trong thiết bị. Mỗi lần đổi một cái và ghi lại giá trị cũ: giá trị sai có thể làm máy đi sai khoảng cách. Thay đổi đầu tiên của phiên sẽ lưu tất cả cài đặt ra tệp.
+430|Các cài đặt này của tệp khác với bộ điều khiển. Không có gì được ghi cho đến khi bạn nhấn Ghi tất cả.
+431|Độ dày cạnh bên
+432|Độ dày tấm
+433|Lệnh $ này chỉ hoạt động khi máy đang rảnh.
+434|Thao tác này ghi $RST=$: mọi cài đặt của bộ điều khiển trở về mặc định của firmware. Số bước, hành trình, tốc độ và về gốc đều sẽ thay đổi.
+435|Thời gian chạy
+436|Đường kính dao
+437|Tấm dò chạm
+438|Hành trình X, Y, Z
+439|Hai lệnh trong dòng đều cần từ trục.
+440|Hai lệnh cùng nhóm nằm trong một dòng.
+441|Nhập cả hai đường chéo để xem kết quả.
+442|Nhập khoảng cách đo được để xem giá trị mới.
+443|Thông thường
+444|Đơn vị
+445|Dùng các giá trị này cho thiết bị
+446|Giá trị
+447|Biến: {}
+448|Việc cần làm
+449|Phôi
+450|Ghi
+451|Ghi ${}
+452|Ghi ${} = {} vào bộ điều khiển? Hiện tại là {}. Mỗi lần chỉ đổi một cài đặt và ghi lại giá trị cũ.
+453|Ghi một cài đặt
+454|Ghi tất cả
+455|Đang ghi {} cài đặt; sau đó sẽ đọc lại
+456|Giới hạn X
+457|Công tắc hành trình X
+458|Giới hạn Y
+459|Công tắc hành trình Y
+460|Có
+461|Z
+462|Giới hạn Z
+463|Công tắc hành trình Z
+464|Z lên độ cao an toàn
+465|Đặt không X và Y
+466|Đặt không tất cả
+467|một khoảng cách dò nằm ngoài phạm vi
+468|một kích thước dò nằm ngoài phạm vi
+469|đóng
+470|cửa
+471|mỗi
+472|giữ
+473|đầu vào {}
+474|không chạm
+475|chưa đặt tốc độ tiến trước dòng này
+476|/ {}
+477|tắt
+478|bật
+479|mở
+480|đầu dò
+481|reset
+482|tắt trục chính
+483|bật trục chính (M{}) ở {}
+484|bắt đầu
+485|khoảng cách thất bại phải dài hơn hai lần khoảng rút
+486|dòng tiếp tục một cung (G2/G3) mà không có từ G
+487|dòng nằm sau phần cuối chương trình
+488|các dòng trước dùng G53 hoặc G92, nên không thể tính vị trí
+489|chương trình chưa di chuyển theo X và Y trước dòng này
+490|tốc độ dò chậm phải nằm giữa 1 và tốc độ dò nhanh
+491|đã chạm
+492|{} dòng sẽ được gửi trước để thiết lập việc này.
+493|{} / {} cài đặt khác nhau sau khi ghi:
+494|{} {}: {}
+495|{}: đến hạn (quá {} giờ)
+496|{}: còn {} giờ
+497|1. Vị trí cảm biến
+498|2. Dao đầu tiên, dao chuẩn
+499|3. Mọi dao khác
+500|Một bản sao cài đặt của bộ điều khiển được giữ cùng thiết bị. Bản sao được tạo khi máy kết nối lần đầu và mỗi khi cài đặt khác với bản sao mới nhất; các bản sao là một phần của bản sao lưu chương trình.
+501|Đã lưu bản sao {} cài đặt của bộ điều khiển cùng thiết bị.
+502|Đã lưu bản sao {} cài đặt cùng thiết bị.
+503|Một công việc đang chạy.
+504|Một phép đo đang chạy.
+505|Đã lưu bản sao cài đặt mới sau thay đổi của bạn ({} cài đặt khác với bản trước).
+506|Cảm biến chiều dài dao là một công tắc ở vị trí cố định trên máy. Mũi của mọi dao đều chạm vào nó, nên mũi mới có thể nhận đúng Z như mũi trước mà không cần chạm lại phôi. Vị trí của nó theo tọa độ máy: hãy về gốc máy trước, và đừng bao giờ dịch chuyển cảm biến.
+507|Sau khi chạm, Z được đặt bằng Z của dao chuẩn tại cảm biến
+508|So sánh với bộ điều khiển và ghi lại các khác biệt
+509|Bản sao cài đặt ({})
+510|Quên
+511|Jog dao đến trên giữa cảm biến, cách vài milimét, rồi nhấn nút.
+512|Máy X {}  Y {}, tiếp cận từ Z {}
+513|Tạo bản sao ngay
+514|Đo dao chuẩn
+515|Hãy đo dao chuẩn trước.
+516|Đo dao (cảm biến)
+517|Đo dao này và đặt Z
+518|Đang đo…
+519|Chưa đo.
+520|Chưa đặt.
+521|Không thay đổi gì; hiển thị chênh lệch so với dao chuẩn
+522|Chỉ đo
+523|Lắp mũi đầu tiên và đặt Z trên phôi bằng nó (thẻ Điều khiển: dò Z, hoặc chạm bề mặt rồi nhấn Z0). Sau đó đo nó trên cảm biến.
+524|Chuẩn: Z {} tại cảm biến
+525|Khôi phục…
+526|Hãy đặt vị trí cảm biến trước.
+527|Bộ điều khiển chưa báo vị trí.
+528|Các cài đặt khác với bản sao lưu cùng thiết bị: {}. Đã lưu một bản sao mới.
+529|Lần đầu, hãy để tay gần nút dừng: dao sẽ đi xuống về phía cảm biến.
+530|Máy đi đến cảm biến và dao chạm vào nó hai lần
+531|Máy đi đến cảm biến chiều dài dao; dao mới nhận Z của dao chuẩn
+532|Máy không ở trạng thái rảnh.
+533|Cảm biến ở đây
+534|Dao dài bằng dao chuẩn.
+535|Dao dài hơn dao chuẩn {} mm.
+536|Dao ngắn hơn dao chuẩn {} mm.
+537|Cảm biến chiều dài dao
+538|Cảm biến chiều dài dao…
+539|Độ cao di chuyển (Z máy)
+540|Khi công việc tạm dừng để thay mũi, cửa sổ sẽ đề nghị Đo dao. Bạn cũng có thể làm việc này ở đây bất cứ lúc nào.
+541|một vị trí của cảm biến nằm ngoài phạm vi
+542|sau khi thay đổi ở đây
+543|khi kết nối
+544|thủ công
+545|các bản sao cài đặt không hợp lệ
+546|dao chuẩn không hợp lệ
+547|điểm bắt đầu tiếp cận không được cao hơn độ cao di chuyển
+548|{} cài đặt
+549|… và {} mục nữa
+550|Tạo
+551|Tệp dữ liệu
+552|Tạo hình…
+553|Đã tạo {} hình
+554|Bộ tạo
+555|Bộ tạo
+556|Bộ nhập
+557|Cài plugin từ zip…
+558|Thông báo của script:
+559|Chưa cài bộ tạo nào. Plugin có thể thêm vào (cửa sổ Plugin).
+560|Chưa có plugin nào. Đặt một thư mục plugin vào thư mục plugins hoặc cài một tệp zip.
+561|Không có
+562|Không dành cho chương trình này
+563|Mở thư mục plugin
+564|Cài plugin thất bại: {}
+565|Đã cài plugin: {}
+566|Đã gỡ plugin: {}
+567|Plugin
+568|Plugin chạy các script có thể tạo hình và thay đổi G-code. Chỉ cài plugin bạn tin cậy.
+569|Plugin không đọc được
+570|Plugin…
+571|Bộ hậu xử lý
+572|Bộ hậu xử lý
+573|Thiết lập sẵn
+574|Tải lại plugin
+575|Gỡ
+576|Gỡ plugin {}? Thư mục của nó sẽ bị xóa.
+577|Script thất bại: {}
+578|Bản dịch
+579|Nhập bằng plugin…
+580|Không có plugin nào đọc tệp: hãy cài một cái trong cửa sổ Plugin
+581|Bộ hậu xử lý thất bại, không có gì được lưu: {}
+582|Kiểm tra cập nhật plugin khi khởi động
+583|Kiểm tra cập nhật
+584|Đang kiểm tra danh sách…
+585|Không lấy được danh sách: {}
+586|Đang tải {}…
+587|Dành cho: {}
+588|Cài
+589|Đã cài
+590|Cần chương trình phiên bản {} trở lên
+591|Plugin chính thức
+592|Đã cập nhật plugin: {}
+593|Có cập nhật plugin: {}
+594|Kho plugin
+595|Danh sách chưa được tải. Nhấn Kiểm tra cập nhật.
+596|Đã mới nhất
+597|Cập nhật
+598|Có cập nhật: {} → {}
+599|{} plugin trong danh sách, {} có thể cập nhật
+600|Đã tìm thấy một dự án chưa được lưu
+601|{} hình, được giữ tự động
+602|Khôi phục
+603|Bỏ đi
+604|Đã khôi phục dự án chưa được lưu
+605|{} — nhấp để gán vùng chọn / đặt làm hiện hành; nhấp đúp để mở tùy chọn
+606|Hiện tất cả {} lớp
+607|Kiểm tra cập nhật…
+608|Tùy chọn chương trình…
+609|Tùy chọn chương trình
+610|Tìm phiên bản mới hơn khi chương trình khởi động
+611|Sớm hơn trong công việc
+612|Muộn hơn trong công việc
+613|Mỗi lần nhấp dao di chuyển bao xa, tính bằng milimét
+614|Tốc độ
+615|Phím mũi tên di chuyển X và Y, Page Up và Page Down di chuyển Z, theo bước đã chọn ở trên. Mặc định tắt: mũi tên cũng di chuyển các hình đã chọn.
+616|Trục chính
+617|Bật
+618|Bật trục chính để thử (M3 S…) rồi tắt lại (M5). Công việc tự làm việc này.
+619|Tắt
+620|Hãy xem vì sao máy dừng trước khi mở khóa: dao có thể đang nằm trong vật liệu.
+621|Dừng
+622|Dừng công việc và trục chính
+623|Công việc đã dừng
+624|Không có phản hồi từ máy
+625|Tốc độ trục chính được gửi là S{} cho {} rpm: phạm vi của bộ điều khiển ($30) được trải lên tốc độ tối đa của thiết bị ({} rpm).
+626|Ẩn bảng (các thẻ vẫn nằm trên một dải hẹp)
+627|Hiện bảng
+628|Nhập ảnh…
+629|Điều chỉnh ảnh…
+630|Dò ảnh…
+631|Chọn ít nhất hai hình (không phải ảnh).
+632|Không thể nối các đường này (song song, hoặc bán kính không vừa).
+633|Đã nối hai đường bằng một góc bo tròn.
+634|Hãy chọn hình cần bo tròn trước.
+635|Bo tròn góc
+636|Bán kính
+637|Đã chọn hai đường thẳng: chúng được nối bằng một góc bo tròn.
+638|Mọi góc thẳng của các hình đã chọn đều được bo tròn.
+639|Bù hình
+640|Giá trị dương làm lớn đường viền, âm làm nhỏ lại.
+641|Giữ bản gốc
+642|Tạo đường bù
+643|Hợp
+644|Giao
+645|Trừ
+646|Loại trừ
+647|Bù hình…
+648|Bo tròn góc…
+649|Chuyển thành đường cong
+650|Phép toán hình
+651|Ảnh
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Có thứ tự
+657|Thang xám
+658|Chỉ đen hoặc trắng, chia ở mức sáng một nửa. Sắc nét: tốt cho nét vẽ và chữ.
+659|Phân tán sai số làm tròn sang các điểm lân cận. Lựa chọn tốt cho ảnh chụp.
+660|Phân tán sai số trên vùng rộng hơn: tông mượt hơn, hơi chậm hơn.
+661|Giống Jarvis, với chi tiết sắc nét hơn.
+662|Giữ vùng sáng sạch và độ tương phản cao; mất một phần chi tiết tối nhất và sáng nhất.
+663|Một mẫu điểm 8×8 cố định: đều và nhanh, không nhiễu.
+664|Không dùng điểm: mỗi điểm ảnh nhận một cường độ giữa mức tối thiểu và mức tối đa của lớp.
+665|Đang xử lý…
+666|Nhập {}
+667|{} hình, {} × {} mm
+668|Trước
+669|Sau
+670|Kéo mô hình để xoay. Các đường viền bên dưới là những gì góc nhìn đó cho ra.
+671|Trình xem G-code
+672|Đặt lại góc nhìn
+673|Hiện các đường chạy không
+674|Tô màu theo độ cao
+675|chiều dài cắt
+676|{} lần di chuyển
+677|Kéo: xoay · kéo chuột phải hoặc Shift+kéo: di chuyển · con lăn: thu phóng
+678|Kéo: di chuyển · con lăn: thu phóng
+679|Mở thất bại: {}
+680|Xem tệp G-code…
+681|Lưu
+682|Lưu công việc trước khi đóng?
+683|Thiết kế chưa được lưu vào tệp.
+684|Bỏ đi
+685|Chưa đặt tên
+686|Thẻ mới
+687|Đóng thẻ
+688|Chỉ có thể mở tối đa {} thẻ.
+689|Về gốc
+690|Tiếp tục
+691|Vừa vùng làm việc (Ctrl+Shift+0)
+692|Vừa tất cả đối tượng (Ctrl+Shift+9)
+693|Điều khiển
+694|DỪNG
+695|Giáng sinh (Tối)
+696|Giáng sinh (Sáng)
+697|Đêm giao thừa (Tối)
+698|Đêm giao thừa (Sáng)
+699|Halloween (Tối)
+700|Halloween (Sáng)
+701|Phục sinh (Tối)
+702|Phục sinh (Sáng)
+703|Phiên bản GRBL
+704|GRBL 1.1 trở lên
+705|GRBL 0.7 trở xuống
+706|GRBL cũ (0.9) báo vị trí theo định dạng khác và không có lệnh jog: chương trình di chuyển đầu bằng các lệnh di chuyển thông thường.
+707|Thẻ trong vùng làm việc
+708|Trở lại cửa sổ
+709|Mức
+710|Mọi thứ tối hơn mức này thành đen
+711|Mọi thứ sáng hơn mức này thành trắng
+712|Cuộn để thu phóng, kéo để di chuyển, nhấp đúp để xem toàn bộ ảnh
+713|Bộ hậu xử lý đã chọn thay đổi G-code của Xuất G-code…; công việc gửi đến máy không bị thay đổi.
+714|Plugin có cài đặt sẽ có thẻ riêng ở bảng bên phải.
+715|Tự động nối đường…
+716|Đóng đường với dung sai…
+717|Xuất vùng chọn thành SVG…
+718|Xuất vùng chọn thành DXF…
+719|Nối đường
+720|Dung sai
+721|Tự động nối
+722|Đóng đường
+723|Các đường có đầu mút gần hơn dung sai sẽ được nối; một đường có hai đầu gần như vậy sẽ được đóng.
+724|Không có gì được nối hay đóng.
+725|Đã nối thành {} đường (còn {} đường mở)
+726|Đã lưu {}
+727|Không thể lưu: {}
+728|Xuất
+729|Góc dogbone / T-bone…
+730|Góc dogbone
+731|Dogbone
+732|T-bone
+733|Thêm một rãnh vào mỗi góc nhọn của các hình đã chọn, để mũi tròn có bán kính này vào tới góc: dogbone cắt lấn cả hai thành một chút, T-bone chỉ một thành.
+734|Không có góc nhọn nào trong vùng chọn.
+735|Đã thêm rãnh vào {} hình
+736|Máy không thể làm việc này.
+737|Tìm tâm
+738|Đầu dò nằm trong một lỗ, khoảng ở giữa: nó chạm bốn cạnh, đi vào giữa và đặt đó làm điểm không của X và Y. Làm Z trước.
+739|Làm mát
+740|Phun sương
+741|Tưới
+742|Bật làm mát phun sương (M7)
+743|Bật làm mát tưới, hoặc máy hút bụi trên máy được nối dây như vậy (M8)
+744|Tắt mọi làm mát (M9)
+745|Ghi đè
+746|Tiến dao
+747|Chạy nhanh
+748|Trở về tốc độ chương trình yêu cầu
+749|Vị trí đã lưu
+750|Đến X {} Y {} Z {} (vị trí máy), nâng lên trước khi cần
+751|Quên vị trí này
+752|Lưu tại đây
+753|Ghi nhớ vị trí hiện tại của dao
+754|Chọn các hình cần sao chép (tối đa 2000 bản sao).
+755|Đã tạo {} bản sao
+756|Chọn các hình trước và đường (hoặc hình cắt) sau cùng.
+757|Văn bản giờ chạy theo đường (đã là đường viền, không còn là văn bản).
+758|Không có bản trùng.
+759|Đã xóa {} bản trùng
+760|Không có gì để tách: mỗi hình chỉ có một đường viền.
+761|Đã tách thành {} hình
+762|Hãy chọn một thứ trước.
+763|Đã đơn giản hóa: {} điểm thành {}
+764|Không có gì để tạo: không có số và không có hàng.
+765|Đã tạo {} văn bản
+766|Văn bản không vừa trong mã QR.
+767|Mã vạch Code 39 chỉ có chữ hoa, chữ số và - . $ / + % cùng dấu cách.
+768|Các hình không vừa trong vùng.
+769|Đã xếp {} hình
+770|Mảng lưới…
+771|Mảng tròn…
+772|Sao chép dọc đường…
+773|Văn bản trên đường…
+774|Cắt theo hình…
+775|Đơn giản hóa…
+776|Văn bản đánh số…
+777|Mã vạch / mã QR…
+778|Xếp hình…
+779|Đo…
+780|Cột
+781|Hàng
+782|Khoảng cách cột
+783|Khoảng cách hàng
+784|Số chỗ
+785|Tổng góc
+786|Xoay các bản sao
+787|Start
+788|Giữ phần bên trong hình
+789|Văn bản
+790|{n} là số; với tệp CSV thì {1}, {2}… là các cột của nó
+791|Số đầu tiên
+792|Bước
+793|Chữ số
+794|Bản sao
+795|Đọc tệp CSV…
+796|{} hàng từ tệp
+797|Loại
+798|Độ rộng vạch
+799|Chiều rộng vùng
+800|Chiều cao vùng
+801|Cho phép xoay
+802|Các hình được xếp theo khung bao, thành hàng từ góc trang.
+803|Rộng {}  Cao {}
+804|Từ X {} Y {}
+805|Diện tích {}  Chiều dài {}
+806|Giữa các tâm: {} (dX {}, dY {})
+807|Khe giữa các khung: {}
+808|Xóa bản trùng
+809|Tách rời
+810|Smoothieware (không phải GRBL)
+811|Ảnh nền: {}
+812|Không đọc được ảnh: {}
+813|Ảnh nền
+814|Tải ảnh từ tệp…
+815|Dùng ảnh từ camera
+816|Ảnh hiện tại của camera
+817|Độ mờ đục
+818|Di chuyển các góc
+819|Vừa với vùng làm việc
+820|Ảnh nằm dưới bản vẽ: kéo các góc của nó lên các góc của vật liệu hoặc của vùng làm việc. Ảnh được lưu cùng dự án.
+821|Chúng chạy theo thứ tự này: {}
+822|Tắt tất cả bộ hậu xử lý
+823|Các bộ hậu xử lý đã chọn thay đổi G-code của Xuất G-code…; công việc gửi đến máy không bị thay đổi.
+824|Ảnh nền…
+825|Chưa có ảnh từ camera.
+826|Đã lưu {} ({} ảnh)
+827|Time-lapse: chụp một ảnh khi xong mỗi lớp.
+828|Time-lapse: {} ảnh trong {}
+829|Chụp ảnh
+830|Dừng ghi
+831|Đang ghi: {} giây, {} ảnh
+832|Quay video
+833|Time-lapse
+834|Mỗi
+835|Sau mỗi lớp
+836|Cần một công việc được gửi đến máy từ chương trình (Bắt đầu)
+837|Dừng time-lapse
+838|{} ảnh
+839|Bắt đầu time-lapse
+840|Thư mục
+841|thư mục camera của dữ liệu dùng chung
+842|Chọn thư mục…
+843|Luồng của camera này cần ffmpeg, và không tìm thấy nó cạnh chương trình hay trong PATH của hệ thống.
+844|Luồng đã kết thúc: đang mở lại.
+845|Không mở được luồng (địa chỉ, người dùng và mật khẩu?): đang thử lại.
+846|Có bản cập nhật plugin
+847|Cập nhật tất cả
+848|Để sau
+849|Cảm ơn rất nhiều Jakub (CNC KpK) vì những ý tưởng và gợi ý cải tiến:
+850|Hiện bên cạnh
+851|Mở trong cửa sổ riêng
+852|Đóng ngăn
+853|Trở về cửa sổ chính
+854|Dự án hiện hành
+855|Phân tích G-code
+856|Xem trước
+857|Camera
+858|Chia màn hình: cạnh nhau
+859|Chia màn hình: trên dưới
+860|Một màn hình
+861|Lớp
+862|Hiện tên lớp
+863|Xem trước G-code sau khi lưu
+864|Đầu tệp
+865|Cuối tệp
+866|Các biến bạn có thể dùng:
+867|Dấu thập phân sau số nguyên
+868|% ở đầu và cuối
+869|Từ dừng chờ
+870|P (giây)
+871|P (mili giây)
+872|X (giây)
+873|Số dòng
+874|Bỏ chú thích
+875|Định dạng tệp riêng
+876|Hiện tên biến
+877|Bên cạnh nhãn của trường có biến cho G-code riêng, tên biến được hiển thị; nhấp để sao chép
+878|Thiết lập sẵn lớp
+879|Lưu thiết lập sẵn…
+880|Giữ cài đặt của lớp này dưới tên này
+881|Xuất…
+882|Ghi tất cả thiết lập sẵn ra tệp
+883|Nhập…
+884|Thêm các thiết lập sẵn của một tệp
+885|Tối đa {} thiết lập sẵn
+886|Tệp quá lớn
+887|Đã thêm {} thiết lập sẵn
+888|Không đọc được gì từ tệp
+889|Chưa có thiết lập sẵn
+890|Áp các cài đặt này cho lớp
+891|Quên thiết lập sẵn này
+892|Tên trống hoặc đã được thiết lập sẵn khác dùng
+893|Trang chủ
+894|Được làm với:
+895|Chuyển sang ngăn {}
+896|{} dòng
+897|Tạo lại
+898|Bỏ các chỉnh sửa?
+899|Tạo lại G-code của dự án; các chỉnh sửa sẽ mất
+900|Phân tích
+901|Hiện đường chạy dao của văn bản này trong phân tích G-code
+902|Đã sửa thủ công
+903|Ghi văn bản ra tệp
+904|Dùng UDP cho RTSP
+905|Ít độ trễ hơn TCP, nhưng ảnh có thể vỡ khi mạng kém. Tắt: TCP.
+906|Độ trễ thấp
+907|Hiện ảnh mới nhất sớm hơn, không đệm; ảnh có thể bị giật.
+908|Định dạng video
+909|Tự động là cách ít tốn tài nguyên máy tính nhất: luồng của camera IP được chép nguyên vào tệp MP4, không giải mã hay mã hóa lại gì. Camera gửi từng ảnh một được ghi thành AVI.
+910|Đang ghi: {} giây (chép luồng)
+911|MP4 chép luồng của camera IP; camera này được ghi thành AVI.
+912|Không ghi được luồng (địa chỉ, camera, ffmpeg?).
+913|Clipart trực tuyến…
+914|Thời gian
+915|Bản dựng này không thể dùng camera của máy tính.
+916|Vừa vùng làm việc
+917|Tắt
+918|Cổng nối tiếp
+919|Mạng (TCP, vd. ser2net)
+920|Nhập SVG…
+921|Nhập Adobe Illustrator / PDF / EPS / VectorCraft…
+922|Nhập DXF…
+923|Nhập dự án LightBurn…
+924|Nhập thiết kế UGS…
+925|Xuất SVG…
+926|Xuất PLT / DXF…
+927|Đã nhập {} đường từ {}
+928|Đã xuất {}
+929|Đã xuất {}. Bỏ qua {} ảnh: định dạng này không có raster.
+930|Lớp Illustrator
+931|Tệp có {} lớp Illustrator. Đặt các đường vào lớp của chương trình theo:
+932|Lớp Illustrator đầu tiên vào lớp 1, lớp thứ hai vào lớp 2, cứ thế tiếp; phần còn lại vào lớp cuối cùng.
+933|Bảng điều khiển G-code
+934|Lệnh của bạn
+935|Lệnh của chương trình
+936|Phản hồi của máy
+937|Thông báo của chương trình
+938|Nền
+939|Cỡ chữ
+940|Phông chữ
+941|Kiểu
+942|Đậm
+943|Nghiêng
+944|Giãn chữ
+945|Giãn dòng
+946|Căn
+947|Chuyển văn bản thành các hình Bézier có thể sửa
+948|Sắp xếp
+949|Kéo trên vùng làm việc để vẽ.
+950|Lưu G-code
+951|Số cạnh
+952|Số vòng
+953|Đa giác
+954|Xoắn ốc
+955|Một máy khách mới thay thế máy đang kết nối
+956|Tốc độ baud
+957|Thủ công: sudo cp <tệp đã lưu> {} && sudo systemctl restart ser2net
+958|Xác nhận
+959|Đã sao chép.
+960|Không cài được cấu hình: {}
+961|Không tạo được trang: {}
+962|Không mở được trình xem: {}
+963|Máy in mặc định
+964|Tệp: {}
+965|Khung
+966|Cài và khởi động lại ser2net…
+967|Đã cài {} và khởi động lại ser2net.
+968|Chỉ lắng nghe trên máy tính này (dùng với đường hầm SSH)
+969|Lề
+970|Chỉ đối tượng trên các lớp đang hiện
+971|Chỉ các đối tượng, lớn nhất mà trang cho phép
+972|Mở PDF
+973|Đã mở trong trình xem PDF.
+974|Mở trang trong trình xem PDF, nơi có thể in với nhiều tùy chọn hơn
+975|Giấy
+976|Cổng
+977|In
+978|Máy in
+979|In thiết kế ra máy in giấy, để kiểm tra vị trí hoặc làm mẫu.
+980|In…
+981|Làm mới
+982|Lưu thành PDF…
+983|Lưu thành…
+984|Lưu thất bại: {}
+985|Đã gửi đến máy in. {}
+986|Chia sẻ qua mạng (ser2net)
+987|Chia sẻ qua mạng (ser2net)…
+988|Bắt đầu công việc
+989|Chuyển thiết bị…
+990|Cổng TCP
+991|Máy in không nhận: {}
+992|Toàn bộ vùng làm việc, đúng tỉ lệ
+993|Sau đó kết nối từ máy tính kia đến {}:{}
+994|Không có gì để in.
+995|Hướng dẫn này có bằng tiếng Anh và tiếng Ba Lan; các ngôn ngữ khác hiển thị văn bản tiếng Anh.
+996|Thao tác này thay thế {} (có giữ bản sao lưu) và khởi động lại ser2net. Sẽ yêu cầu quyền quản trị.
+997|Đang chờ quản trị viên chấp thuận…
+998|Đã tìm thấy ser2net: {}
+999|Phiên bản ser2net
+1000|Không tìm thấy ser2net. Hãy cài trước, ví dụ: sudo apt install ser2net
+1001|{} đối tượng vượt ra ngoài vùng làm việc; trên giấy chúng bị cắt ở mép.
+1002|{} đối tượng vượt ra ngoài vùng làm việc; chúng vẫn được in.
+1003|Chia sẻ cổng nối tiếp của máy trên máy tính này qua mạng, để chương trình trên máy tính khác có thể kết nối với kiểu kết nối Mạng (TCP).
+1004|Cảnh báo: bất kỳ ai trên mạng truy cập được cổng này đều có thể điều khiển máy. Hãy dùng mạng tin cậy, tường lửa, hoặc tùy chọn chỉ cục bộ với đường hầm SSH.
+1005|Bộ điều khiển này không báo các đầu vào.
+1006|Thêm điểm
+1007|Căn theo các điểm
+1008|Căn: kéo bốn góc trên vùng làm việc
+1009|Lớp phủ camera
+1010|Xóa điểm này
+1011|Kéo mỗi góc đến góc tương ứng của vật liệu hoặc vùng làm việc; phối cảnh được hiệu chỉnh.
+1012|Khớp ảnh với các điểm (bình phương tối thiểu) và di chuyển các góc theo đó.
+1013|Dừng khung hình
+1014|Tải ảnh…
+1015|Không đủ điểm, hoặc chúng nằm trên một đường thẳng.
+1016|Lớp phủ từ…
+1017|Lớp phủ: {}
+1018|Các cặp gồm một điểm trong ảnh (pixel) và vị trí của nó trong vùng làm việc (mm). Ít nhất 3, khuyên dùng 4; chúng cố định việc căn chỉnh, kể cả phối cảnh.
+1019|Điểm từ các góc hiện tại
+1020|Điểm tham chiếu
+1021|Thay các điểm bằng bốn góc của ảnh và vị trí hiện tại của chúng.
+1022|Đặt lại theo vùng làm việc
+1023|Xoay 90°
+1024|Hiện ảnh chụp hoặc camera trực tiếp dưới thiết kế để định vị công việc trên vật liệu.
+1025|Hiện lớp phủ camera
+1026|Hiện lớp phủ
+1027|Bật camera
+1028|Cài đặt thiết bị…
+1029|Kiểm tra chương trình
+1030|Chẩn đoán và thống kê…
+1031|Cài đặt firmware ($$)…
+1032|Lớp phủ
+1033|Đang kiểm tra chương trình trước…
+1034|Đang kiểm tra chương trình…
+1035|Kiểm tra không thấy lỗi nào.
+1036|Kiểm tra không thấy gì. Công việc đang chạy.
+1037|Kiểm tra thấy {} lỗi, lỗi đầu ở dòng {}. Công việc chưa được bắt đầu.
+1038|Đảo phần sáng và phần tối của ảnh
+1039|Tải thiết lập sẵn
+1040|Superman
+1041|Batman
+1042|Joker (Tối)
+1043|Joker (Sáng)
+1044|Thiết bị điều khiển
+1045|Cài đặt thiết bị điều khiển…
+1046|Thiết bị điều khiển của máy này…
+1047|Mặc định: {}
+1048|Không có thiết bị mặc định
+1049|{} (chưa kết nối)
+1050|Thêm bàn phím
+1051|Thêm {}
+1052|Không tìm thấy tay cầm mới. Hãy kết nối một cái và chờ giây lát.
+1053|Mặc định cho mọi máy và chương trình
+1054|Trở về phím ban đầu
+1055|Nhấn gần nhất: {}
+1056|Nhấn một phím hoặc nút…
+1057|Gán
+1058|Chỉ cửa sổ ở trước nhận các lần nhấn. Di chuyển kéo dài khi giữ phím và dừng khi thả ra hoặc khi cửa sổ khác lên trước.
+1059|Mọi bàn phím là một thiết bị, và nó không làm gì khi bạn gõ trong một trường. Hai tay cầm cùng kiểu được tính là một thiết bị.
+1060|Sang trái (X-)
+1061|Sang phải (X+)
+1062|Ra trước (Y-)
+1063|Ra sau (Y+)
+1064|Lên (Z+)
+1065|Xuống (Z-)
+1066|Bật / tắt trục chính
+1067|Bật / tắt khí
+1068|Bật / tắt nước
+1069|Tia công suất thấp khi giữ
+1070|Nhấc bút
+1071|Hạ bút
+1072|Có trong hệ thống
+1073|Đã cấu hình
+1074|Thiết bị mặc định
+1075|Thêm camera
+1076|Địa chỉ
+1077|Tự động
+1078|Tên camera
+1079|Số camera
+1080|Camera của máy tính này
+1081|Xoay camera
+1082|Thử camera: {}
+1083|Camera {}
+1084|Các camera quan sát máy. Camera được đánh dấu cho hình trực tiếp; đánh dấu camera khác sẽ tắt camera đầu.
+1085|Xóa camera này
+1086|Với camera của máy tính này: yêu cầu định dạng YUYV không nén khi hệ thống cho phép.
+1087|Định dạng
+1088|Hiệu chỉnh ống kính
+1089|Giảm nhiễu
+1090|Không phải địa chỉ camera (http, https, rtsp, udp, rtp hoặc rtmp).
+1091|Mở hình của camera này theo cài đặt ở đây, không lưu
+1092|Hình ảnh
+1093|Ưu tiên YUYV
+1094|Lỗi luồng: {}
+1095|Bật camera này: nó cho hình trực tiếp
+1096|Thử
+1097|Đang chờ hình…
+1098|Cân bằng trắng
+1099|macOS có thể đang chặn chương trình này: hãy cho phép trong Cài đặt hệ thống, Quyền riêng tư & Bảo mật, Mạng cục bộ.
+1100|Hình trực tiếp của máy: luồng MJPEG, địa chỉ ảnh chụp JPEG (http hoặc https), hoặc luồng mà ffmpeg đọc được (rtsp, udp, rtp, rtmp).
+1101|Hệ số méo ống kính (xuyên tâm k1–k3, tiếp tuyến p1, p2) cho tọa độ đo từ tâm theo đơn vị cạnh dài của ảnh. Tất cả 0 = không hiệu chỉnh. Nhập tay: không có hiệu chuẩn tự động.
+1102|Nhập địa chỉ camera, hoặc xóa camera.
+1103|AxiDraw / EggBot (EBB, không phải GRBL)
+1104|Máy vẽ HPGL (không phải GRBL)
+1105|AxiDraw (hai động cơ trên một dây đai)
+1106|EggBot (mỗi trục một động cơ)
+1107|Phần cứng (RTS/CTS)
+1108|Phần mềm (XON/XOFF)
+1109|Máy vẽ không nhận lệnh: {}
+1110|Máy vẽ này không có chế độ kiểm tra: bỏ qua bước kiểm tra.
+1111|Động cơ
+1112|Bước mỗi mm
+1113|Đảo
+1114|AxiDraw có 80 bước mỗi mm và đếm Y về phía trước, nên Y của nó bị đảo.
+1115|EBB không có công tắc hành trình: trước khi kết nối, đặt bút ở góc nơi bản vẽ bắt đầu (điểm không của nó).
+1116|Đơn vị máy vẽ mỗi mm
+1117|Điều khiển luồng
+1118|Không có điều khiển luồng, máy vẽ mất lệnh khi bộ đệm đầy.
+1119|Máy vẽ không trả lời gì: một dòng được coi là xong khi cổng nhận nó, và lệnh dừng nhấc bút trong khi máy vẽ vẫn vẽ phần còn trong bộ đệm.
+1120|Máy vẽ không nhận gì trong 20 giây: kiểm tra điều khiển luồng và cáp.
+1121|Chưa về gốc
+1122|Bộ điều khiển báo máy chưa về gốc kể từ khi khởi động.
+1123|Dao {}
+1124|Ảnh đã dán
+1125|Cửa sổ riêng
+1126|Thẻ bên
+1127|Chế độ xem camera
+1128|Hiện khi phóng to hơn 200 %.
+1129|Ngắt
+1130|Ngắt đường tại nút đã chọn: đường đóng sẽ mở tại đó, đường mở bị cắt làm hai
+1131|Đầu mút của đường không có gì để ngắt.
+1132|Đường đã được đóng.
+1133|Hai nút giờ là một.
+1134|Hai đường giờ là một.
+1135|Kiểu kết nối
+1136|Không có cổng
+1137|Máy chủ
+1138|Đọc OK
+1139|Lỗi đọc
+1140|Đọc từ thiết bị
+1141|Nếu máy đang được kết nối, có thể đọc vùng làm việc và tốc độ từ bộ điều khiển.
+1142|Đã đọc cài đặt từ bộ điều khiển.
+1143|Nên kiểm tra
+1144|Thêm thiết bị
+1145|Thêm cài đặt…
+1146|Mở toàn bộ cửa sổ thiết bị với những gì đã nhập ở đây
+1147|Tôi không có thiết bị
+1148|Chưa đặt cổng hoặc máy chủ: hãy chọn trong cài đặt thiết bị trước khi kết nối.
+1149|Thêm một thiết bị
+1150|Chưa có gì ở đây được thử trên máy của bạn: hãy chạy thử lần đầu không có mũi, hoặc với mũi cao hẳn trên vật liệu.
+1151|Chưa có gì ở đây được thử trên máy vẽ của bạn: hãy chạy thử lần đầu với bút nhấc lên và không có giấy.
+1152|Đã thêm thiết bị. Nhấn Mới để bắt đầu.
+1153|Màu vùng làm việc
+1154|Màu giấy
+1155|Màu vật liệu
+1156|Trở về màu tự động
+1157|Tự giãn các mức xám của ảnh ra toàn dải; khi đó hai thanh trượt không được dùng
+1158|Nhập dự án LightBurn / MillMage…
+1159|Xuất DXF…
+1160|Xuất DXF R12 (cũ)…
+1161|Xuất Adobe Illustrator…
+1162|Xuất dự án LightBurn…
+1163|Xuất dự án MillMage…
+1164|Đã nhập {} đường và {} ảnh từ {}
+1165|Thước (M)
+1166|Kích thước
+1167|Hiện kích thước của công việc như trên bản vẽ kỹ thuật
+1168|Hiện kích thước của bản vẽ như trên bản vẽ kỹ thuật
+1169|Đơn vị
+1170|Milimét (mm)
+1171|Inch (in)
+1172|Xentimét (cm)
+1173|Mét (m)
+1174|Feet (ft)
+1175|Theo thiết bị
+1176|Đơn vị của kích thước trong thuộc tính, thước, kích thước và xem trước. G-code luôn theo đơn vị của thiết bị.
+1177|Độ lệch mũi dao
+1178|Mũi lưỡi dao nằm sau trục bao xa: nhà sản xuất lưỡi dao cho biết
+1179|Xoay quanh các góc nhọn hơn
+1180|Cắt vượt qua điểm bắt đầu
+1181|Đường viền kín được cắt vượt qua điểm bắt đầu một đoạn này, để nó khép lại
+1182|Thư viện dao
+1183|Dao
+1184|Giá trị riêng
+1185|Thư viện dao…
+1186|Dao có sẵn
+1187|Dao của tôi
+1188|Chưa có: sao chép một dao để thay đổi
+1189|Một bản sao trong dao của bạn, để thay đổi
+1190|Dao của tôi
+1191|Không thể thay đổi dao có sẵn: hãy sao chép để thay đổi.
+1192|Ghi chú
+1193|Lưỡi 30°
+1194|Lưỡi 45°
+1195|Lưỡi 60°
+1196|Dao kéo trong đầu kẹp của máy CNC
+1197|Màng mỏng và giấy, chi tiết nhỏ và chữ nhỏ.
+1198|Vinyl, flex, giấy và bìa mỏng: lưỡi thông thường của máy cắt.
+1199|Vinyl dày, bìa, cao su, xốp và khuôn phun cát.
+1200|Đầu kẹp lắp trong collet của trục chính, trục chính đứng yên; đặt độ sâu trên lớp.
+1201|Máy vẽ và máy cắt hiểu HPGL hơi khác nhau: đặt ở đây những gì máy này nhận. Lệnh kết thúc bằng ; và {speed} cùng {force} được điền vào.
+1202|Lúc bắt đầu
+1203|Lúc kết thúc
+1204|Hạ bút hoặc dao
+1205|Nhấc bút hoặc dao
+1206|tối đa
+1207|Gửi khi tốc độ vẽ thay đổi; trống: không bao giờ (máy vẽ giữ giá trị riêng).
+1208|Lực
+1209|Bút hoặc dao ấn mạnh bao nhiêu, gửi một lần khi bắt đầu; 0: không bao giờ (máy vẽ giữ giá trị riêng).
+1210|Trở lại các lệnh thông thường
+1211|Đường ngoằn ngoèo
+1212|Răng cưa
+1213|Lò xo
+1214|Sóng
+1215|Vòng tròn bán sắc
+1216|Khắc axit
+1217|Hình vuông
+1218|Kim
+1219|Gạch Truchet
+1220|Đường đồng mức
+1221|Đường cong Hilbert
+1222|Chấm điểm
+1223|Một nét (TSP)
+1224|Tam giác và ô
+1225|Nét vẽ
+1226|Đường dòng chảy
+1227|Phác thảo
+1228|Vẽ nguệch ngoạc
+1229|Các hàng đường lượn sóng nhanh hơn và cao hơn ở chỗ ảnh tối hơn.
+1230|Các hàng zigzag, dày hơn và cao hơn ở chỗ ảnh tối hơn.
+1231|Các hàng vòng như lò xo kéo giãn, lớn hơn ở chỗ ảnh tối hơn.
+1232|Một đường xoắn ốc từ giữa, rung mạnh hơn ở vùng tối.
+1233|Các hàng được nâng lên theo độ tối của ảnh, như phong cảnh nhìn từ bên cạnh.
+1234|Một lưới vòng tròn, lớn hơn ở chỗ ảnh tối hơn.
+1235|Gạch bóng nhiều lớp: mỗi tông tối hơn thêm các đường theo hướng khác.
+1236|Một lưới hình vuông lồng nhau, nhiều hơn ở chỗ tối.
+1237|Các nét ngắn trên lưới, dài hơn ở chỗ tối, xoay theo hình dạng.
+1238|Các ô gạch cung phần tư xoay ngẫu nhiên, nhiều cung hơn ở chỗ tối.
+1239|Các đường cùng độ sáng, như đường đồng mức trên bản đồ.
+1240|Một đường cong lấp đầy không gian, rẽ dày hơn ở chỗ tối.
+1241|Các chấm rải theo tông màu của ảnh: dày ở vùng tối, thưa ở vùng sáng.
+1242|Các chấm của kiểu chấm điểm được nối thành một đường không tự cắt.
+1243|Một lưới tam giác, hoặc các ô quanh chúng, trên các chấm rải theo tông màu.
+1244|Chỉ các cạnh của ảnh, dưới dạng đường.
+1245|Các đường dài chảy theo hình dạng, gần nhau hơn ở chỗ tối.
+1246|Nhiều nét thẳng ngắn đặt ở chỗ tối nhất của ảnh, như bản phác thảo bút chì.
+1247|Một đường lang thang gồm các vòng tô nguệch ngoạc các phần tối.
+1248|Khoảng cách vòng xoắn
+1249|Độ cao sóng
+1250|Vòng tròn lớn nhất
+1251|Khoảng cách các vòng
+1252|Số mức tông
+1253|Số hình vuông tối đa mỗi ô
+1254|Độ rung
+1255|Độ dài nét
+1256|Kích thước ô gạch
+1257|Số cung tối đa mỗi ô gạch
+1258|Làm mượt
+1259|Bước nhỏ nhất
+1260|Kích thước chấm
+1261|Số chấm
+1262|Chi tiết nhỏ nhất
+1263|Độ nhạy cạnh
+1264|Đường ngắn nhất
+1265|Khe nhỏ nhất
+1266|Khe lớn nhất
+1267|Kích thước đường cong
+1268|Số nét
+1269|Mực của một nét
+1270|Kích thước vòng
+1271|Độ dài đường
+1272|Mực của một lượt
+1273|Các hàng từ mép đến mép
+1274|Nhấc bút trên vùng trắng
+1275|Zigzag
+1276|Ẩn những gì phía sau
+1277|Vẽ trọn mọi hàng
+1278|Vòng tròn
+1279|Vòng
+1280|Xoắn ốc
+1281|Đường thẳng
+1282|Đường lượn sóng
+1283|Theo hình dạng
+1284|Theo góc
+1285|Ngẫu nhiên
+1286|Một đường
+1287|Chấm
+1288|Vòng tròn theo tông
+1289|Nét đứt
+1290|Tam giác
+1291|Ô
+1292|Cạnh
+1293|Cạnh và vùng tối
+1294|Trường dòng chảy
+1295|Nét rời
+1296|Nét nối chuỗi
+1297|Độ cao sóng
+1298|Số sóng mỗi mm
+1299|Kích thước ô
+1300|Dò theo phong cách
+1301|{} đường theo phong cách {}
+1302|{} đường, {} m đường
+1303|chỉ một phần: quá nhiều điểm
+1304|nhiều điểm: vẽ sẽ chậm
+1305|Loại
+1306|Mẫu ngẫu nhiên
+1307|Cái khác
+1308|Điểm đen
+1309|Điểm trắng
+1310|Đặt lên lớp
+1311|Dò theo phong cách…
+1312|Khoảng cách các đường
+1313|Time-lapse: chụp một ảnh mỗi khi dao nhấc lên, với đầu được dời sang bên.
+1314|Sau mỗi lần nhấc
+1315|Một ảnh mỗi khi dao nhấc lên, với đầu được dời sang bên (bật dời sang bên ở thẻ Ghi hình). Công việc mất nhiều thời gian hơn.
+1316|Ảnh time-lapse ở bên cạnh
+1317|Dời đầu sang bên cho mỗi ảnh
+1318|Trong công việc, mỗi ảnh time-lapse chờ đến khi công việc có thể dừng: đầu đi đến chỗ này, camera chụp, đầu quay lại và công việc tiếp tục. Máy phay và máy vẽ chỉ dừng khi dao đang nhấc lên.
+1319|Vị trí (tọa độ máy)
+1320|Dùng vị trí hiện tại
+1321|Chờ trước khi chụp
+1322|Máy hết rung và luồng camera bắt kịp. Máy vẽ không trả lời gì (HPGL) còn cần thời gian di chuyển sang bên.
+1323|Giữ trục chính quay
+1324|Không khởi động lại trục chính sau mỗi ảnh, và không để lại vết trên thành.
+1325|Chia nhỏ đường dài
+1326|Các đường cắt thẳng dài được gửi thành nhiều đường ngắn hơn: công việc có thể dừng sớm hơn (để chụp ảnh, tạm dừng), và tiến trình đều hơn. Đường đi vẫn như cũ.
+1327|Thành
+1328|phần, mỗi phần ít nhất
+1329|Vị trí tránh để chụp ảnh
+1330|Nơi bút đi đến để chụp ảnh time-lapse, sau khi nhấc lên; nó quay lại bằng một lệnh di chuyển tuyệt đối. Trống: vị trí đặt ở thẻ Ghi hình.
+1331|Ghi hình
+1332|Camera này đang tắt trong cài đặt thiết bị.
+1333|Gia tốc X, Y, Z
+1334|Độ lệch nối
+1335|0 = không biết. Có gia tốc, thời gian công việc tính cả việc máy tăng tốc, giảm tốc và chạy chậm ở góc, như GRBL ($120 – $122, $11).
+1336|Cung
+1337|Đường vào
+1338|Đường ra
+1339|Độ dài đường vào
+1340|Bán kính đường vào
+1341|Góc đường vào
+1342|Chồng lấn
+1343|Dao vào đường từ phía phần bỏ và rời đi cùng cách, nên vết bắt đầu không nằm trên chi tiết. Đường vào không vừa sẽ được thu nhỏ hoặc bỏ qua.
+1344|Độ dài đường vào thẳng, bán kính của cung.
+1345|90° đi thẳng vào đường, góc nhỏ gần như dọc theo nó.
+1346|Đường cắt đi tiếp qua điểm bắt đầu bao xa, để điểm đầu và điểm cuối khớp gọn.
+1347|Những phần của vùng làm việc dao không bao giờ được vào (kẹp, đồ gá). Di chuyển trên không tự đi vòng quanh vùng; đường cắt chạm vùng đang bật được báo trước khi chạy.
+1348|Tên vùng
+1349|Hình chữ nhật
+1350|Hình tròn
+1351|Xóa vùng này
+1352|Chỉ ở các độ cao này (Z)
+1353|Như một hộp hoặc trụ đặt trên bàn: di chuyển phía trên hoặc dưới phạm vi là tự do.
+1354|Thêm vùng
+1355|Vùng {}
+1356|Vùng cấm
+1357|Theo đường viền thật
+1358|Các hình được xếp theo đường viền thật: hình nhỏ có thể nằm trong lỗ của hình lớn, chữ L vào góc của hình khác. Một nhóm là một chi tiết.
+1359|Xoay
+1360|Nửa vòng
+1361|Một phần tư vòng
+1362|Một phần tám vòng
+1363|Đã xếp {} chi tiết, {} không vừa và giữ nguyên chỗ
+1364|Phần không vừa sang tấm mới
+1365|Mỗi tấm mới là một bản vẽ trong thẻ riêng, cùng các lớp và vật liệu: hãy lưu và cắt sau tấm này.
+1366|Đã xếp {} chi tiết ở đây, phần còn lại trên {} tấm mới trong các thẻ mới
+1367|Thêm làm vùng cấm
+1368|Máy sẽ không bao giờ vào chỗ của các hình đã chọn: mỗi hình thành một vùng cấm của thiết bị (hình tròn nếu tròn, nếu không thì hình chữ nhật bao quanh) và bị xóa khỏi bản vẽ.
+1369|Vùng cấm
+1370|Đã thêm {} vùng cấm vào thiết bị
+1371|Các vùng thuộc về thiết bị và được giữ cùng nó, trong mọi dự án.
+1372|Đã nối bộ quay
+1373|Mâm cặp
+1374|Con lăn
+1375|Đường kính phôi
+1376|Đường kính con lăn
+1377|Vi bước mỗi vòng
+1378|Số vi bước của động cơ cho một vòng đầy đủ của thứ nó dẫn động (mâm cặp, hoặc một con lăn).
+1379|Chu vi
+1380|Vòng quanh phôi: thiết kế không được cao hơn.
+1381|GRBL 1.1 có ba trục: không có trục A, dùng Y.
+1382|Bộ điều khiển cần {} bước mỗi mm trên trục Y ($101).
+1383|Với bộ quay, trục Y xoay phôi: bản vẽ không được cao hơn chu vi phôi. Mô hình đơn giản (mâm cặp quay theo đường kính phôi, con lăn di chuyển bề mặt như chính nó); máy thật cần chạy thử.
+1384|Quay
+1385|Tết Nguyên Đán (Tối)
+1386|Tết Nguyên Đán (Sáng)
+1387|Đóng chương trình?
+1388|Bản vẽ cuối cùng đã đóng.
+1389|Đóng chương trình
+1390|Về màn hình bắt đầu
+1391|Lớp
+1392|Mảng và xếp hình
+1393|Xem trước G-code
+1394|Hiện vùng cấm
+1395|Vùng cấm…
+1396|Thiết lập sẵn lớp…
+1397|Vị trí đã lưu…
+1398|Máy chủ web và API
+1399|Một trang web hiển thị trạng thái máy, dự án và camera, cùng API cho các chương trình khác. Mọi yêu cầu cần cụm từ truy cập; không có mã hóa.
+1400|Bật máy chủ web và API
+1401|Truy cập được từ các máy tính khác trong mạng
+1402|Cụm từ truy cập
+1403|Dùng cụm từ truy cập này từ giờ
+1404|Cụm từ truy cập không được trống hoặc có ký tự điều khiển.
+1405|Bất kỳ ai trong mạng biết cụm từ truy cập đều có thể xem máy và dừng hoặc di chuyển nó. Cụm từ được gửi không mã hóa: chỉ dùng trên mạng bạn tin cậy.
+1406|Đang lắng nghe trên {}
+1407|Không khởi động được máy chủ: {}
+1408|Máy chủ web: bật, cổng {}
+1409|Máy chủ web: lỗi
+1410|Một trang web hiển thị dự án, cùng API cho các chương trình khác. Mọi yêu cầu cần cụm từ truy cập; không có mã hóa.
+1411|Bất kỳ ai trong mạng biết cụm từ truy cập đều có thể xem dự án. Cụm từ được gửi không mã hóa: chỉ dùng trên mạng bạn tin cậy.
+1412|Thiết lập dự án…
+1413|Hình dạng vật liệu
+1414|Khối
+1415|Trụ (quay)
+1416|Phôi tròn được xoay bằng bộ quay của thiết bị. Áp dụng sẽ bật bộ quay với đường kính này.
+1417|Chiều dài phôi
+1418|Điểm không của chương trình
+1419|Trước trái
+1420|Trước phải
+1421|Sau trái
+1422|Sau phải
+1423|Chiều rộng vật liệu
+1424|Chiều cao vật liệu
+1425|Độ dày
+1426|Z tính từ đáy vật liệu
+1427|Vùng làm việc là vật liệu
+1428|Bỏ qua
+1429|Trái sang phải (trái và phải đổi chỗ)
+1430|Đầu sang đầu (sau và trước đổi chỗ)
+1431|Vật liệu nằm ở góc trên bên trái trang. Chương trình được viết cho hệ tọa độ phôi G54 với điểm không tại nơi bạn chọn: hãy đặt điểm không đó trên máy. Z tính từ mặt trên của vật liệu, hoặc từ đáy.
+1432|Trụ nằm dọc theo X trên bộ quay; Y của bản vẽ đi vòng quanh nó và bản vẽ được trải ra từ bề mặt. Z tính từ mặt trên bề mặt, và đường cắt sâu nhất là bán kính. Điểm không nằm trên bề mặt; hãy đặt cùng điểm đó trên máy.
+1433|Công việc hai mặt
+1434|Mặt A và mặt B là hai vùng làm việc: vật liệu được cắt ở một mặt, lật lại và cắt mặt kia. Mỗi mặt hiển thị các hình của mặt kia đã lật, dưới dạng bóng mờ.
+1435|Lật quanh
+1436|Dấu căn chỉnh
+1437|trục ngang (sau và trước đổi chỗ)
+1438|trục dọc (trái và phải đổi chỗ)
+1439|Mặt A
+1440|Mặt B
+1441|Bóng mờ của mặt kia
+1442|Các hình của mặt kia, lật như vật liệu, vẽ mờ dưới mặt này: không thể chọn hay di chuyển.
+1443|Bốn dấu góc ngay ngoài vật liệu, đốt lên tấm bên dưới trước mặt A: đặt vật liệu đã lật trở lại vào chúng cho mặt B.
+1444|Vật liệu nằm ở góc trên bên trái vùng làm việc. Với công việc hai mặt, đặt nó cùng một chỗ cho cả hai mặt (dấu căn chỉnh cho biết vị trí).
+1445|Phôi nằm trên bộ quay; Y của bản vẽ đi vòng quanh nó và bản vẽ được trải ra từ bề mặt.
+1446|Mặt B có hình: dự án vẫn là hai mặt. Hãy xóa chúng trước để thành một mặt.
+1447|Khổ giấy
+1448|Tùy chỉnh
+1449|Các khổ vừa vùng làm việc của máy: ↕ dọc, ↔ nằm ngang.
+1450|Bộ quay của thiết bị đang tắt.
+1451|Đã thiết lập dự án: trụ Ø {} mm dài {} mm trên bộ quay (đã bật), điểm không tại {}
+1452|Đã thiết lập dự án: vật liệu {} x {} x {} mm, điểm không tại {}
+1453|Tấm
+1454|Vật liệu nằm ở góc điểm không của máy. Với công việc hai mặt, đặt nó cùng một chỗ cho cả hai mặt (dấu căn chỉnh cho biết vị trí).
+1455|Lưu G-code của công việc hai mặt
+1456|Công việc có hai mặt. Lưu G-code thế nào?
+1457|Một tệp, có điểm dừng để lật vật liệu
+1458|Một tệp, không dừng
+1459|Hai tệp: name_A và name_B
+1460|Các hình của mặt kia, lật như vật liệu, vẽ mờ dưới mặt này. Nhấp vào một hình để căn hoặc bắt dính; nó không bao giờ bị di chuyển.
+1461|G-code của công việc hai mặt
+1462|Công việc có hai mặt. Hiển thị G-code thế nào?
+1463|Các mặt cần gia công
+1464|1 mặt
+1465|2 mặt
+1466|4 mặt (thanh)
+1467|6 mặt (khối)
+1468|Vật liệu chỉ được gia công từ phía trên.
+1469|Một thanh nằm dọc theo X, gia công trên bốn mặt dài A, B, C và D: lăn về sau một phần tư vòng giữa các mặt. Mỗi mặt là một vùng làm việc riêng; các mặt bên cạnh được trải ra quanh nó và mặt bên dưới hiện xuyên qua, dưới dạng bóng mờ.
+1470|Một khối gia công trên cả sáu mặt: A đến D mỗi lần lăn về sau một phần tư vòng, E và F là đầu trái và đầu phải dựng lên. Mỗi mặt là một vùng làm việc riêng; các mặt bên cạnh được trải ra quanh nó và mặt bên dưới hiện xuyên qua, dưới dạng bóng mờ.
+1471|Luôn bật khi gia công nhiều hơn một mặt: mỗi mặt có vùng làm việc riêng, lớn bằng vật liệu ở đó, và vật liệu nằm cùng một cách trên máy cho mỗi mặt.
+1472|Cạnh đáy a
+1473|Cạnh đáy b
+1474|Chiều cao thanh H
+1475|Cạnh a (trái sang phải)
+1476|Cạnh b (sau ra trước)
+1477|Cạnh c (chiều cao)
+1478|Thanh nằm dọc theo X với mặt A hướng lên, ở góc điểm không. Giữa các mặt nó được lăn về sau một phần tư vòng, để mặt trước lên trên: các mặt A, B, C và D. Mỗi mặt được vẽ trên vùng làm việc lớn bằng mặt đó, và vật liệu bên dưới dày bằng chiều sâu của thanh ở đó.
+1479|Khối nằm với mặt A hướng lên, ở góc điểm không. Mặt A đến D: mỗi lần lăn về sau một phần tư vòng, để mặt trước lên trên; E và F: đầu trái và đầu phải dựng lên. Mỗi mặt được vẽ trên vùng làm việc lớn bằng mặt đó, và vật liệu bên dưới dày bằng chiều sâu của khối ở đó.
+1480|Các mặt trải ra quanh A
+1481|Mặt {}
+1482|Thanh: 4 mặt
+1483|Khối: 6 mặt
+1484|trên
+1485|trước
+1486|dưới
+1487|sau
+1488|đầu trái
+1489|đầu phải
+1490|vật liệu
+1491|Giữa các mặt A đến D, vật được lăn về sau một phần tư vòng (mặt trước lên trên); E và F là đầu trái và đầu phải dựng lên.
+1492|Bóng mờ của các mặt khác
+1493|Các hình của các mặt bên cạnh mặt này, trải ra quanh các cạnh của nó, và của mặt bên dưới, nhìn xuyên qua vật; vẽ mờ. Nhấp vào một hình để căn hoặc bắt dính; nó không bao giờ bị di chuyển.
+1494|Một tệp, có điểm dừng trước mỗi mặt để xoay vật
+1495|Một tệp, không dừng
+1496|Mỗi mặt một tệp: name_A … name_{}
+1497|G-code của công việc nhiều mặt
+1498|Công việc có nhiều mặt. Hiển thị G-code thế nào?
+1499|Lưu G-code của công việc nhiều mặt
+1500|Công việc có nhiều mặt. Lưu G-code thế nào?
+1501|Dấu căn chỉnh trong tệp riêng (name_marks)
+1502|Đốt trước tiên, lên tấm bên dưới vật liệu, trước khi đặt vật liệu xuống: chúng nằm ngay ngoài vật liệu nên không có trong tệp của các mặt.
+1503|Chất lượng hiển thị
+1504|Độ mịn của hình xem trước: 1 nhanh và thô, 5 sắc nét nhưng chậm hơn. Khi xoay góc nhìn, hình được vẽ thô hơn trong chốc lát.
+1505|Tự động lưu
+1506|Tự động lưu công việc
+1507|Công việc chưa có tên tệp vào một thư mục tạm; tệp có tên được lưu tại chỗ
+1508|Tự động lưu mỗi
+1509|Khắc chữ V
+1510|Các đường theo góc, mỗi đường rộng bằng độ tối của ảnh dọc theo nó: mảnh ở vùng sáng, rộng ở vùng tối, như mũi V cắt sâu hơn thì rộng hơn. Mỗi đường được cắt thành từng đoạn mà độ sáng quyết định độ rộng.
+1511|Độ rộng các đường
+1512|Độ dài các đoạn
+1513|Đường mảnh nhất
+1514|Góc cạnh
+1515|Đa giác hình học
+1516|Đa giác hình học…
+1517|Hình tối của ảnh được chia thành các đa giác (tam giác và tứ giác), nhiều hơn ở chỗ ảnh có cạnh, có khe giữa chúng và quanh đường viền: một bức ảnh hình học (low poly).
+1518|Khe giữa các đa giác
+1519|Số đa giác
+1520|Theo các cạnh
+1521|Tam giác và tứ giác
+1522|Phong cách ảnh
+1523|Đang vẽ các phong cách…
+1524|Công cụ
+1525|Xám
+1526|Độ tối: 0 % là trắng, 100 % là đen
+1527|Độ cứng
+1528|Mức xám khác bao nhiêu vẫn được tô
+1529|Ctrl+nhấp (Cmd+nhấp) chọn chỗ khác để sao chép từ đó
+1530|Trước tiên Ctrl+nhấp (Cmd+nhấp) vào chỗ cần sao chép
+1531|Cuộn để thu phóng; kéo bằng nút phải hoặc nút giữa để di chuyển ảnh.
+1532|Sửa ảnh
+1533|Sửa ảnh…
+1534|Ảnh đã bị khóa
+1535|Cọ
+1536|Tẩy
+1537|Nhân bản
+1538|Tô
+1539|Tô bằng màu xám đã chọn
+1540|Tô màu trắng, như vật liệu chưa đụng tới
+1541|Sao chép một chỗ của ảnh sang chỗ khác: Ctrl+nhấp (Cmd+nhấp) vào chỗ cần sao chép, rồi tô
+1542|Tô vùng có màu xám tương tự quanh điểm được nhấp
+1543|Các hình không có kích thước
+1544|Độ phân giải
+1545|{} đường mỗi milimét
+1546|Kích thước các đối tượng
+1547|{} × {} điểm ảnh
+1548|Vẽ
+1549|Tô các hình kín
+1550|Độ rộng đường
+1551|Xóa các đối tượng sau đó
+1552|Ẩn các đối tượng
+1553|Chỉ trong xem trước: chỉ ảnh, không có đường viền của các đối tượng
+1554|Chuyển thành ảnh
+1555|Chuyển thành ảnh…
+1556|Chuyển
+1557|Cọ, tẩy, dấu nhân bản và tô, bằng màu xám
+1558|Ẩn ảnh
+1559|Chỉ trong xem trước: chỉ đường viền
+1560|Chỉ trong xem trước: chỉ các đường
+1561|Windows này không có Media Foundation mà camera cần. Hãy cài Media Feature Pack (Cài đặt → Tính năng tùy chọn).
+1562|Camera USB chưa hoạt động trên FreeBSD. Camera mạng (IP) thì được.
+1563|Thông tin dự án…
+1564|Thông tin dự án
+1565|Tên của bạn
+1566|Được ghi vào các dự án bạn lưu, với tư cách người tạo hoặc người đóng góp. Giống nhau trong mọi chương trình.
+1567|Chưa lưu
+1568|Tạo tệp
+1569|Sửa tệp
+1570|Tạo dự án
+1571|Người tạo
+1572|Người đóng góp
+1573|Chưa có ai
+1574|(không có tên)
+1575|Hãy đặt tên trong Cài đặt → Tùy chọn chương trình để được ghi vào các dự án bạn lưu.
+1576|Chỉnh sửa ({})
+1577|Email
+1578|Khác
+1579|Tác giả
+1580|Người
+1581|Chương trình
+1582|Công ty, trang web hoặc bất cứ gì khác muốn lưu kèm tên bạn

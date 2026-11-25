@@ -1,11 +1,11 @@
-//! The texts of BaseCreator that the shared interface does not have: English, six languages in the table, and the other 23 in the files
+//! The texts of BaseCreator that the shared interface does not have: English, six languages in the table, and the other languages in the files
 //! of `lang`. The shared texts are in base-ui; the application's own are asked first.
 use base_ui::i18n::{self, Texts};
 use std::sync::Once;
 
 /// The texts of the other languages, in the order of `Lang::ALL` after the first seven. One line each: `id|translation`, where the id is
 /// the number of the English text in `lang/keys.txt`.
-const EXTRA_FILES: [&str; 23] = [
+const EXTRA_FILES: [&str; i18n::EXTRA_LANGS] = [
     include_str!("../lang/bg.txt"),
     include_str!("../lang/ca.txt"),
     include_str!("../lang/hr.txt"),
@@ -29,6 +29,14 @@ const EXTRA_FILES: [&str; 23] = [
     include_str!("../lang/es.txt"),
     include_str!("../lang/sv.txt"),
     include_str!("../lang/uk.txt"),
+    include_str!("../lang/ja.txt"),
+    include_str!("../lang/ko.txt"),
+    include_str!("../lang/zh-hant.txt"),
+    include_str!("../lang/tr.txt"),
+    include_str!("../lang/vi.txt"),
+    include_str!("../lang/id.txt"),
+    include_str!("../lang/sr.txt"),
+    include_str!("../lang/bs.txt"),
 ];
 const KEYS: &str = include_str!("../lang/keys.txt");
 

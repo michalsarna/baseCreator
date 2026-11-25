@@ -1,0 +1,29 @@
+1|Một khổ giấy thông dụng…
+2|Giới thiệu
+3|Sắp xếp
+4|Cài đặt thiết bị…
+5|Chỉnh sửa
+6|Xuất G-code…
+7|Trợ giúp
+8|Nhập DXF…
+9|Nhập dự án LightBurn…
+10|Inch (in)
+11|Chèn
+12|Ngang
+13|Milimét (mm)
+14|Mới
+15|Chưa chọn gì
+16|Mở một bản vẽ hoặc bắt đầu một thiết kế trống.
+17|Mở…
+18|Thiết lập trang…
+19|Dọc
+20|Thuộc tính
+21|Đưa các hình đã chọn vào lớp này
+22|Sẵn sàng
+23|Lưu thành…
+24|Cài đặt
+25|Các hình trên lớp này
+26|Hiển thị trong vùng làm việc
+27|Đơn vị
+28|Xem
+29|Tùy chọn hiển thị…

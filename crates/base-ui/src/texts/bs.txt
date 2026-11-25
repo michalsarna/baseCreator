@@ -1,0 +1,1583 @@
+0|(prazno)
+1|Dostupna je novija verzija: {}
+2|Dodajte SVG datoteke s računara u svoj klipart
+3|Dodaj datoteku…
+4|Dodaj čvor
+5|Dodano {} slika u {}
+6|Podesi sliku
+7|Poravnaj dolje
+8|Poravnaj po sredini
+9|Poravnaj po sredini (H)
+10|Poravnaj po sredini (V)
+11|Poravnaj lijevo
+12|Poravnaj po vertikalnoj sredini
+13|Poravnaj desno
+14|Poravnaj gore
+15|Poravnanje
+16|Sve kategorije
+17|Ugao
+18|Životinje
+19|Primijeni
+20|Autor
+21|Automatski nivoi
+22|Automatski uklopi radni prostor u prozor
+23|Automatski
+24|Boja pozadine
+25|Dolje
+26|Osvjetljenje
+27|Donesi naprijed
+28|Otkaži
+29|Kategorija
+30|Proslave
+31|Sredina
+32|Centriraj na podlozi
+33|Centriraj jedno prema drugom
+34|Promijeni kategoriju
+35|Promijeni kategoriju…
+36|Očisti listu
+37|Kliknite na sliku da vidite njenu licencu i sačuvate je.
+38|Kliknite da postavite na radni prostor
+39|Klipart
+40|Zatvori
+41|Zatvori otvorenu putanju ili otvori zatvorenu u odabranom čvoru
+42|Kolekcija
+43|Boja
+44|Shema boja
+45|Kontrast
+46|Pretvorite tekst u krivulje ili trasirajte sliku da biste uređivali čvorove.
+47|Pretvori u putanju
+48|Kopiraj
+49|Ugao
+50|Nije moguće provjeriti ažuriranja.
+51|Obriši
+52|Obriši čvor
+53|Obriši sliku nakon toga
+54|Obriši…
+55|Opišite projekat: šta je, postavke koje su uspjele, bilješke za sljedeći put.
+56|Opis
+57|Detalji
+58|Detalji…
+59|Razmak između linija
+60|Preuzmi
+61|Preuzimanje nije uspjelo: {}
+62|Preuzimanje…
+63|Dupliciraj
+64|Uredi čvorove
+65|Elipsa (E)
+66|Graviraj svijetle dijelove umjesto tamnih
+67|Uklopi sve objekte
+68|Uklopi sve objekte (Ctrl+9)
+69|Uklopi podlogu u prozor
+70|Uklopi radni prostor (Ctrl+0)
+71|Okreni H
+72|Okreni V
+73|Okreni vodoravno
+74|Okreni okomito
+75|Hrana
+76|Gama
+77|Mreža
+78|Grupiši
+79|Grupisano. Objekti zadržavaju svoje slojeve.
+80|Srce (K)
+81|Zanemari male površine
+82|Uvezi
+83|Uvoz nije uspio: {}
+84|Uvezi sliku
+85|Uvezena slika {}
+86|Uključeno
+87|Umetni čvor (ili dvaput kliknite segment)
+88|Jezik
+89|Lijevo
+90|Licenca
+91|Linija (L)
+92|Debljina linije
+93|Zaključaj
+94|Zaključaj omjer stranica
+95|Zaključano objekata: {}.
+96|Glavna mreža
+97|Pretvori segment nakon svakog odabranog čvora u krivulju
+98|Pretvori segment nakon svakog odabranog čvora u pravu
+99|Pretvori odabrane čvorove u uglove
+100|Učini odabrane čvorove glatkim
+101|Uvećaj
+102|Sred-H
+103|Sred-V
+104|Moje
+105|Umanji
+106|Preslikaj i centriraj
+107|Muzika i zabava
+108|Moj klipart
+109|Naziv
+110|Priroda
+111|Negativ slike
+112|Najnovije izdanje: {}
+113|Ovdje nema slika. Koristite Na mreži… da ih pronađete.
+114|Uređivanje čvorova (N)
+115|Ništa nije pronađeno.
+116|U redu
+117|Objekti
+118|Klipart na mreži
+119|Na mreži…
+120|Čuvajte samo slike koje smijete koristiti. Provjerite licencu izvora.
+121|Otvori / zatvori
+122|Otvori nedavno
+123|Otvori stranicu za preuzimanje
+124|Ili preuzmite sliku s adrese
+125|Pomjeranje (H)
+126|Zalijepi
+127|Slike koje dolaze uz program
+128|Slike koje ste preuzeli ili dodali
+129|Postavljeno {}
+130|Mnogougao (G)
+131|Izlomljena linija / olovka (P)
+132|Položaj i veličina
+133|Stranica projekta na GitHubu
+134|Kratki vodič
+135|Izađi
+136|Poluprečnik zaobljenja
+137|Pravougaonik (R)
+138|Ponovi
+139|Ukloniti ovu sliku iz vašeg kliparta? Datoteka na disku će biti obrisana.
+140|Preimenuj
+141|Preimenuj…
+142|Resetuj
+143|Resetuj mrežu
+144|Vrati
+145|Desno
+146|Rotiraj
+147|Rotiraj 90° ulijevo
+148|Rotiraj 90° udesno
+149|Rotiranje i okretanje
+150|Rotacija
+151|Zaobli
+152|Zaobli odabrane uglove ovim poluprečnikom
+153|Zaobljeno uglova: {}.
+154|Sačuvaj kopiju u moj klipart
+155|Sačuvaj u moj klipart
+156|{} sačuvano u {}
+157|Pretraga
+158|Pretraga nije uspjela: {}
+159|Pretražite otvorene kolekcije ikona (Iconify). Slike se čuvaju na disku, u kategoriji koju odaberete.
+160|Potražite još slika na internetu i sačuvajte ih ovdje
+161|Pretraživanje…
+162|Pomoćna mreža
+163|Odabir (V)
+164|Prvo odaberite oblik, a zatim uređujte njegove čvorove.
+165|Odaberi sve
+166|Odaberite barem dva objekta za grupisanje.
+167|Pošalji nazad
+168|Oblici
+169|Prikaži
+170|Prikaži ili sakrij mrežu
+171|Prikaži ili sakrij pomoćnu mrežu
+172|Pojednostavi
+173|Veličina
+174|Veličina pri postavljanju
+175|Glatko
+176|Izgladi krivulje
+177|Privlači na mrežu
+178|Privlači na objekte
+179|Izvor
+180|Spirala (I)
+181|Zvijezda (S)
+182|Simboli
+183|Tekst (T)
+184|Rezultat je prazan.
+185|Pomoćna mreža mora biti gušća od glavne.
+186|Prostor oko radnog prostora
+187|Nema pravih uglova za zaobljavanje.
+188|Prag
+189|U krivulju
+190|U pravu
+191|Ton
+192|Alati
+193|Gore
+194|Trasiraj
+195|Trasiraj sliku
+196|Trasiraj svijetle površine
+197|Trasirano kontura: {}
+198|Trougao (Y)
+199|Poništi
+200|Razgrupiši
+201|Otključaj
+202|Otključano objekata: {}.
+203|Ažuriranja
+204|Verzija {}
+205|Opcije prikaza
+206|Širina
+207|Radni prostor
+208|Boja radnog okruženja
+209|Imate najnoviju verziju.
+210|Imate {}.
+211|Uvećaj
+212|Uvećaj (Z)
+213|Umanji
+214|Umanji (X)
+215|dolazi uz program
+216|navedite autora
+217|npr. mačka, cvijet, zupčanik
+218|nije potrebno navođenje
+219|ili nova kategorija
+220|vaše
+221|{} kontura
+222|Pronađeno slika: {}
+223|{} × {} px
+224|Prekinuto (meki reset)
+225|Brzina animacije
+226|Nazad na početak
+227|Nije moguće otvoriti {}: {}
+228|Povezano s {}
+229|Veza je izgubljena
+230|Veza prekinuta
+231|Nema odgovora kontrolera {} s dok posao radi (stanje: {}).
+232|Pauza
+233|Pusti
+234|Ponavljaj
+235|Automatsko pomjeranje
+236|Očisti
+237|Pošalji
+238|Upiti o stanju
+239|pošalji G-code / $ komandu
+240|Preuzmi rezervnu kopiju…
+241|Vrati iz rezervne kopije…
+242|Pravljenje rezervne kopije nije uspjelo: {}
+243|Rezervna kopija vraćena: {}
+244|Rezervna kopija sačuvana: {}
+245|Vraćanje nije uspjelo: {}
+246|Vrati iz rezervne kopije
+247|Trenutne postavke bit će zamijenjene rezervnom kopijom. Njene slike se dodaju u zajedničku galeriju. Nastaviti?
+248|${} je sada {} koraka/mm
+249|1. Označite gdje je alat (ili tu postavite komparator). 2. Pritisnite Pomjeri. 3. Izmjerite udaljenost i upišite je ispod.
+250|3D dodirna sonda
+251|G-code komanda nije podržana ili nije ispravna.
+252|G-code riječ nema slovo.
+253|Komandi nedostaje vrijednost P ili L.
+254|Komanda zahtijeva cijeli broj.
+255|Komanda zahtijeva riječi ose, ali ih red nema.
+256|Aktiviran je granični prekidač. Položaj je možda izgubljen: ponovo dovedite mašinu u početni položaj.
+257|Makro je G-code koji šalje dugme na kartici Upravljanje. Može koristiti varijable u uglastim zagradama.
+258|Negativna vrijednost gdje je potrebna pozitivna.
+259|Broj nije ispravan ili nedostaje.
+260|Riječ se ponavlja u redu.
+261|Dodaj makro
+262|Dodaj podsjetnik
+263|Dodaj korak
+264|Nakon posla (završenog ili zaustavljenog)
+265|Alarm
+266|Alarm {}: {}
+267|Alarmi
+268|Svih {} postavki iz datoteke sada je u kontroleru.
+269|Luk nema riječi ose u svojoj ravni.
+270|Ulaz koji je aktivan dok ga ništa ne dodiruje ukazuje na problem u ožičenju ili postavkama ($5, $6).
+271|Oko posla
+272|Tipke sa strelicama pomjeraju X i Y, Page Up i Page Down pomjeraju Z. Zadano isključeno: strelice pomjeraju i odabrane oblike.
+273|Na ovom redu: X {} Y {} Z {}, {}, pomak {}
+274|Ostale su riječi ose dok je G80 aktivan.
+275|Prvo napravite rezervnu kopiju postavki. Da nastavite, ukucajte {}:
+276|Rezervna kopija u datoteku…
+277|Prije početka posla
+278|Kalibracija
+279|Kalibracija…
+280|Ne može se početi ovdje: {}
+281|Nije moguće koristiti datoteku: {}
+282|Sada zamijenite alat ili olovku. Mašina čeka; ništa se ne pomjera dok ne nastavite.
+283|Provjeri program prije svakog pokretanja
+284|Očisti alarm ($X)
+285|Očisti statistiku
+286|Kliknite da upišete položaj alata u radnim koordinatama
+287|Prvo se povežite s mašinom (kartica Uređaj)
+288|Povežite se s mašinom da vidite njene ulaze.
+289|Nastavi posao
+290|Kontroler
+291|Koordinate
+292|Početak ciklusa
+293|Obriši ovaj makro
+294|Obriši ovaj podsjetnik
+295|Dijagnostika i statistika
+296|Dijagnostika sačuvana: {}
+297|Dijagonala A
+298|Dijagonala A je duža: osa Y je nagnuta prema +X.
+299|Dijagonala B
+300|Dijagonala B je duža: osa Y je nagnuta prema −X.
+301|Prečnik kuglice
+302|Udaljenost
+303|Gotovo
+304|Greška
+305|Greške
+306|Izvezi dijagnostiku (zip)…
+307|Izvoz nije uspio: {}
+308|Fabričke postavke ($RST=$)…
+309|Fabričke postavke upisane ($RST=$)
+310|Udaljenost neuspjeha
+311|Najbrži pokret X i Y
+312|Zadržavanje pomaka
+313|Datoteka
+314|Postavke firmvera ($$)
+315|Iz kontrolera
+316|G-code je zaključan tokom alarma ili ručnog pomjeranja. Prvo otključajte.
+317|G43.1 može pomjeriti samo osu dužine alata.
+318|G53 radi samo s G0 ili G1.
+319|GRBL ne poznaje ovu $ komandu.
+320|Idi na X0 Y0
+321|Visina
+322|Držite za pomjeranje
+323|Početni položaj
+324|Dovođenje u početni položaj nije uspjelo: resetovano tokom ciklusa.
+325|Dovođenje u početni položaj nije uspjelo: granični prekidač nije pronađen. Provjerite prekidače i ožičenje.
+326|Dovođenje u početni položaj nije uspjelo: sigurnosna vrata su otvorena tokom ciklusa.
+327|Dovođenje u početni položaj nije uspjelo: prekidač se nije otpustio pri odmicanju. Provjerite odmak i ožičenje.
+328|Dovođenje u početni položaj nije uključeno u postavkama ($22).
+329|Ulazi
+330|Aktivni ulazi: {}
+331|Umjesto jednog koraka po kliku, alat se pomjera dok držite dugme
+332|Upravo je urađeno
+333|Poslovi
+334|Ručno pomjeranje
+335|Tastatura
+336|Laserski način zahtijeva PWM izlaz.
+337|Posljednja sonda: X {} Y {} Z {} ({})
+338|Posljednja sonda: Z {} ({})
+339|Podigni nakon postavljanja nule
+340|Podigni na sigurnu visinu, zatim idi na radnu nulu
+341|Red
+342|Mašina
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: poslano redova: {}
+346|Makroi
+347|Održavanje
+348|Označite ili izrežite pravougaonik i izmjerite obje dijagonale: od prednjeg lijevog do zadnjeg desnog ugla (A) i od prednjeg desnog do zadnjeg lijevog (B). Jednake su kada su ose pod pravim uglom.
+349|Izmjereno
+350|Pomjeri
+351|Pomjeri {} za udaljenost
+352|Nova vrijednost: ${} = {} (bila {})
+353|Pomak još nije postavljen.
+354|Nema podsjetnika. Dodajte ih u postavkama uređaja (Održavanje).
+355|Još nije pročitano (Mašina → Postavke firmvera).
+356|Još ništa nije pročitano.
+357|Pomak Z pri dodiru
+358|Podmaži vodilice
+359|Podržani su samo radni koordinatni sistemi G54 do G59.
+360|Samo oni koji se razlikuju od uobičajene vrijednosti
+361|Odstupanje od pravog ugla {}°: jedan kraj ose Y je pomjeren {} mm po cijeloj visini.
+362|Položaj
+363|Sonda
+364|Sonda Z
+365|Sonda nije uspjela: ništa nije dodirnula u okviru udaljenosti. Provjerite pločicu i udaljenost neuspjeha.
+366|Sonda nije uspjela: sonda je bila zatvorena prije pokreta. Provjerite ožičenje i pločicu.
+367|Stavite pločicu ispod alata: alat se spušta dok ne dodirne, zatim se Z postavlja na debljinu pločice
+368|Postavite alat pored ivice: kreće se prema njoj dok ne dodirne, i ivica postaje nula
+369|Brzi dodir
+370|Pročitaj mašinu
+371|Pročitaj postavke ($$)
+372|Čitanje…
+373|Čita firmver ($I) i postavke ($$) kontrolera
+374|Ukloni ovaj korak
+375|Resetovano tokom pokreta. Koraci su možda izgubljeni: ponovo dovedite mašinu u početni položaj.
+376|Vrati iz datoteke…
+377|Vrati fabričke postavke
+378|Vrati postavke iz datoteke
+379|Povuci između dodira
+380|Sigurnosna vrata
+381|Postavke sačuvane u {}
+382|Ponovo postavi Z sondom: novi alat dodirne pločicu i Z postaje debljina pločice
+383|Postavka
+384|Spori dodir
+385|Softverska ograničenja
+386|Softverska ograničenja zahtijevaju i uključen početni položaj.
+387|Neke riječi ne koristi nijedna komanda.
+388|Brzina XY
+389|Brzina Z
+390|Brzina vretena
+391|Upravnost osa
+392|Počni odavde
+393|Počni od reda
+394|Počni od reda…
+395|Statistika ove mašine
+396|Koraci X i Y (mm)
+397|Koraci Z (mm)
+398|Koraka po milimetru
+399|Zaustavi posao
+400|Zaustavi pokret
+401|Luk se ne može izračunati iz poluprečnika. Podijelite ga ili koristite pomake.
+402|Luku nedostaje pomak I, J ili K.
+403|Ose su pod pravim uglom u okviru {} mm po visini.
+404|Informacija o izgradnji ili početni red je predug.
+405|Kontroler ih već ima sve.
+406|Kontroler prolazi kroz program u načinu provjere ($C): ništa se ne pomjera, a redovi koje ne razumije prijavljuju se prije pravog pokretanja
+407|Kontroler izvještava u inčima ($13): položaji na kartici Upravljanje nisu u milimetrima.
+408|Posao je pauziran
+409|Komanda ručnog pomjeranja nije ispravna.
+410|Ručno pomjeranje prelazi hod mašine i zanemareno je.
+411|Red je predug.
+412|Broj reda je van opsega.
+413|Mašina je radila {} sati u {} poslova.
+414|Mašina se dovodi u stanje koje program ima u tom redu: jedinice, vreteno, brzina, položaj. Uvjerite se da su alat i radni predmet tamo gdje su bili.
+415|Mašina se pomjera za udaljenost koju zadate; izmjerite koliko je stvarno prešla i tačan broj koraka se izračunava.
+416|Pokret prelazi hod mašine. Položaj se zadržava; otključajte da nastavite.
+417|Sonda se spušta dok ne dodirne; Z se postavlja na pomak sonde
+418|Ulaz sonde je već zatvoren. Provjerite štipaljku, pločicu i ožičenje.
+419|Sonda mora biti povezana na ulaz sonde kontrolera. Isprobajte je dodirom pločice: ulaz se na kartici Upravljanje prikazuje kao zatvoren.
+420|Sigurnosna vrata su otvorena.
+421|Postavka je iznad brzine koraka koju ovaj GRBL podržava.
+422|Postavke nisu mogle biti pročitane; vraćene su zadane vrijednosti.
+423|Postavke još nisu pročitane.
+424|Postavke su sačuvane prije prve izmjene: {}
+425|Trajanje impulsa koraka mora biti najmanje 3 µs.
+426|Cilj pokreta nije ispravan.
+427|Alat je ovdje: neka ovo bude nula radnog predmeta
+428|Broj alata je prevelik.
+429|Ove postavke su u kontroleru, ne u uređaju. Mijenjajte jednu po jednu i zapišite prethodnu vrijednost: pogrešna vrijednost može učiniti da mašina pređe pogrešnu udaljenost. Prva izmjena u sesiji čuva sve postavke u datoteku.
+430|Ove postavke iz datoteke razlikuju se od kontrolera. Ništa se ne upisuje dok ne pritisnete Upiši sve.
+431|Debljina njegove strane
+432|Debljina pločice
+433|Ova $ komanda radi samo kada mašina miruje.
+434|Ovo upisuje $RST=$: svaka postavka kontrolera vraća se na zadane vrijednosti firmvera. Brojevi koraka, hod, brzine i početni položaj će se promijeniti.
+435|Vrijeme rada
+436|Prečnik alata
+437|Dodirna pločica
+438|Hod X, Y, Z
+439|Dvije komande u redu obje zahtijevaju riječi ose.
+440|Dvije komande iz iste grupe su u jednom redu.
+441|Upišite obje dijagonale da vidite rezultat.
+442|Upišite izmjerenu udaljenost da vidite novu vrijednost.
+443|Uobičajeno
+444|Jedinica
+445|Koristi ove vrijednosti za uređaj
+446|Vrijednost
+447|Varijable: {}
+448|Šta uraditi
+449|Radni predmet
+450|Upiši
+451|Upiši ${}
+452|Upisati ${} = {} u kontroler? Sada je {}. Mijenjajte jednu postavku po jednu i zapišite staru vrijednost.
+453|Upiši postavku
+454|Upiši sve
+455|Upisuje se postavki: {}; poslije se ponovo čitaju
+456|X granica
+457|X granični prekidač
+458|Y granica
+459|Y granični prekidač
+460|Da
+461|Z
+462|Z granica
+463|Z granični prekidač
+464|Z na sigurnu visinu
+465|Nula X i Y
+466|Nula svega
+467|udaljenost sonde je van opsega
+468|veličina sonde je van opsega
+469|zatvoreno
+470|vrata
+471|svakih
+472|zadržavanje
+473|ulaz {}
+474|nema kontakta
+475|pomak nije postavljen prije ovog reda
+476|od {}
+477|isključeno
+478|uključeno
+479|otvoreno
+480|sonda
+481|reset
+482|vreteno isključeno
+483|vreteno uključeno (M{}) na {}
+484|početak
+485|udaljenost neuspjeha mora biti duža od dvostrukog povlačenja
+486|red nastavlja luk (G2/G3) bez G riječi
+487|red je nakon kraja programa
+488|prethodni redovi koriste G53 ili G92, pa se položaj ne može izračunati
+489|program se prije ovog reda nije pomjerao po X i Y
+490|spori pomak sonde mora biti između 1 i brzog
+491|dodirnuto
+492|Prvo će biti poslano {} redova da se ovo pripremi.
+493|Nakon upisa razlikuje se {} od {} postavki:
+494|{} {}: {}
+495|{}: rok je istekao ({} h prekoračeno)
+496|{}: preostalo {} h
+497|1. Gdje je senzor
+498|2. Prvi alat, referentni
+499|3. Svaki drugi alat
+500|Kopija postavki kontrolera čuva se uz uređaj. Pravi se kada se mašina prvi put poveže i ponovo kad god se postavke razlikuju od najnovije kopije; kopije su dio rezervne kopije programa.
+501|Kopija {} postavki kontrolera sačuvana je uz uređaj.
+502|Kopija {} postavki sačuvana je uz uređaj.
+503|Posao je u toku.
+504|Mjerenje je već u toku.
+505|Nova kopija postavki sačuvana je nakon vaše izmjene ({} postavki se razlikuje od prethodne).
+506|Senzor dužine alata je prekidač na stalnom mjestu na mašini. Vrh svakog alata ga dodirne, pa novi alat dobija potpuno isti Z kao prethodni bez ponovnog dodirivanja radnog predmeta. Položaj mu je u mašinskim koordinatama: prvo dovedite mašinu u početni položaj i nikada ne pomjerajte senzor.
+507|Nakon dodira Z se postavlja na Z referentnog alata na senzoru
+508|Uporedi s kontrolerom i upiši razlike nazad
+509|Kopije postavki ({})
+510|Zaboravi
+511|Ručno pomjerite alat iznad sredine senzora, nekoliko milimetara iznad, i pritisnite dugme.
+512|Mašina X {}  Y {}, prilaz sa Z {}
+513|Napravi kopiju sada
+514|Izmjeri referentni alat
+515|Prvo izmjerite referentni alat.
+516|Izmjeri alat (senzor)
+517|Izmjeri ovaj alat i postavi Z
+518|Mjerenje…
+519|Još nije izmjereno.
+520|Još nije postavljeno.
+521|Ništa se ne mijenja; prikazuje se razlika od referentnog
+522|Samo izmjeri
+523|Stavite prvi alat i njime postavite Z na radnom predmetu (kartica Upravljanje: sonda Z, ili dodirnite površinu i pritisnite Z0). Zatim ga izmjerite na senzoru.
+524|Referenca: Z {} na senzoru
+525|Vrati…
+526|Prvo postavite položaj senzora.
+527|Kontroler još nije prijavio položaj.
+528|Postavke koje se razlikuju od kopije sačuvane uz uređaj: {}. Sačuvana je nova kopija.
+529|Prvi put držite ruku blizu stop tipke: alat se spušta prema senzoru.
+530|Mašina ide do senzora i alat ga dodirne dva puta
+531|Mašina ide do senzora dužine alata; novi alat dobija Z referentnog alata
+532|Mašina ne miruje.
+533|Senzor je ovdje
+534|Alat je dug kao referentni alat.
+535|Alat je {} mm duži od referentnog alata.
+536|Alat je {} mm kraći od referentnog alata.
+537|Senzor dužine alata
+538|Senzor dužine alata…
+539|Visina prelaska (mašinski Z)
+540|Kada se posao pauzira radi zamjene alata, prozor nudi Izmjeri alat. To se može uraditi i ovdje, bilo kada.
+541|položaj senzora je van opsega
+542|nakon izmjene ovdje
+543|pri povezivanju
+544|ručno
+545|kopije postavki nisu ispravne
+546|referenca nije ispravna
+547|početak prilaza ne smije biti viši od visine prelaska
+548|Postavke: {}
+549|… i još {}
+550|Napravi
+551|Datoteke podataka
+552|Generiši oblik…
+553|Generisano oblika: {}
+554|Generator
+555|Generatori
+556|Uvoznici
+557|Instaliraj dodatak iz zip…
+558|Poruke skripte:
+559|Nema instaliranih generatora. Dodaci ih mogu dodati (prozor Dodaci).
+560|Još nema dodataka. Stavite folder dodatka u folder plugins ili instalirajte zip.
+561|Ništa
+562|Nije za ovaj program
+563|Otvori folder dodataka
+564|Instaliranje dodatka nije uspjelo: {}
+565|Dodatak instaliran: {}
+566|Dodatak uklonjen: {}
+567|Dodaci
+568|Dodaci pokreću skripte koje mogu praviti oblike i mijenjati G-code. Instalirajte samo dodatke kojima vjerujete.
+569|Dodaci koji nisu mogli biti pročitani
+570|Dodaci…
+571|Postprocesor
+572|Postprocesori
+573|Predlošci
+574|Ponovo učitaj dodatke
+575|Ukloni
+576|Ukloniti dodatak {}? Njegov folder se briše.
+577|Skripta nije uspjela: {}
+578|Prijevodi
+579|Uvezi pomoću dodatka…
+580|Nijedan dodatak ne čita datoteke: instalirajte jedan u prozoru Dodaci
+581|Postprocesor nije uspio, ništa nije sačuvano: {}
+582|Provjeri ažuriranja dodataka pri pokretanju
+583|Provjeri ažuriranja
+584|Provjera liste…
+585|Lista nije mogla biti preuzeta: {}
+586|Preuzimanje {}…
+587|Za: {}
+588|Instaliraj
+589|Instalirano
+590|Potrebna je verzija programa {} ili novija
+591|Zvanični dodaci
+592|Dodatak ažuriran: {}
+593|Dostupna ažuriranja dodataka: {}
+594|Spremište dodataka
+595|Lista još nije učitana. Pritisnite Provjeri ažuriranja.
+596|Ažurno
+597|Ažuriraj
+598|Dostupno ažuriranje: {} → {}
+599|Dodataka u listi: {}, može se ažurirati: {}
+600|Pronađen je projekat koji nije sačuvan
+601|Oblika: {}, čuvano automatski
+602|Povrati
+603|Odbaci
+604|Projekat koji nije sačuvan je vraćen
+605|{} — kliknite da dodijelite odabir / postavite kao aktivan; dvaput kliknite za opcije
+606|Prikaži svih {} slojeva
+607|Provjeri ažuriranja…
+608|Opcije programa…
+609|Opcije programa
+610|Traži noviju verziju pri pokretanju programa
+611|Ranije u poslu
+612|Kasnije u poslu
+613|Koliko jedan klik pomjera alat, u milimetrima
+614|Brzina
+615|Tipke sa strelicama pomjeraju X i Y, Page Up i Page Down pomjeraju Z, za korak odabran iznad. Zadano isključeno: strelice pomjeraju i odabrane oblike.
+616|Vreteno
+617|Uključi
+618|Uključuje vreteno da ga isprobate (M3 S…) i ponovo isključuje (M5). Posao to radi sam.
+619|Isključi
+620|Pogledajte zašto je stalo prije nego što otključate mašinu: alat je možda u materijalu.
+621|Zaustavi
+622|Zaustavi posao i vreteno
+623|Posao je zaustavljen
+624|Nema odgovora mašine
+625|Brzina vretena šalje se kao S{} za {} rpm: opseg kontrolera ($30) raspoređuje se na najveću brzinu uređaja ({} rpm).
+626|Sakrij panel (kartice ostaju na uskoj traci)
+627|Prikaži panel
+628|Uvezi sliku…
+629|Podesi sliku…
+630|Trasiraj sliku…
+631|Odaberite barem dva oblika (ne slike).
+632|Ove linije se ne mogu spojiti (paralelne su ili poluprečnik ne staje).
+633|Dvije linije su spojene zaobljenim uglom.
+634|Prvo odaberite oblike za zaobljavanje.
+635|Zaobli uglove
+636|Poluprečnik
+637|Odabrane su dvije prave linije: spajaju se zaobljenim uglom.
+638|Svaki pravi ugao odabranih oblika se zaobljava.
+639|Pomak oblika
+640|Pozitivno povećava obris, negativno ga smanjuje.
+641|Zadrži original
+642|Napravi pomak
+643|Unija
+644|Presjek
+645|Oduzmi
+646|Isključivo ili
+647|Pomak oblika…
+648|Zaobli uglove…
+649|Pretvori u krivulje
+650|Operacije nad oblicima
+651|Slika
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Uređeno
+657|Nijanse sive
+658|Samo crno ili bijelo, podjela na pola osvjetljenja. Oštro: dobro za crteže i tekst.
+659|Raspoređuje grešku zaokruživanja na susjedne tačke. Dobar izbor za fotografije.
+660|Raspoređuje grešku na šire područje: glađi tonovi, malo sporije.
+661|Kao Jarvis, s oštrijim detaljima.
+662|Čuva svijetle dijelove čistim i kontrast visokim; gubi dio najtamnijih i najsvjetlijih detalja.
+663|Stalni uzorak tačaka 8×8: pravilan i brz, bez šuma.
+664|Bez tačaka: svaki piksel dobija jačinu između najmanje i pune jačine sloja.
+665|Obrada…
+666|Uvezi {}
+667|Oblika: {}, {} × {} mm
+668|Prednja
+669|Zadnja
+670|Prevucite model da ga okrenete. Obrisi ispod su ono što daje njegov pogled.
+671|Preglednik G-code
+672|Resetuj pogled
+673|Prikaži prazne hodove
+674|Boja po visini
+675|dužina rezanja
+676|pokreta: {}
+677|Prevlačenje: rotacija · desno prevlačenje ili Shift+prevlačenje: pomjeranje · točkić: zum
+678|Prevlačenje: pomjeranje · točkić: zum
+679|Otvaranje nije uspjelo: {}
+680|Pogledaj G-code datoteku…
+681|Sačuvaj
+682|Sačuvati rad prije zatvaranja?
+683|Dizajn nije sačuvan u datoteku.
+684|Odbaci
+685|Bez naslova
+686|Nova kartica
+687|Zatvori karticu
+688|Može biti otvoreno najviše {} kartica.
+689|Početni položaj
+690|Nastavi
+691|Uklopi radni prostor (Ctrl+Shift+0)
+692|Uklopi sve objekte (Ctrl+Shift+9)
+693|Upravljanje
+694|STOP
+695|Božić (tamna)
+696|Božić (svijetla)
+697|Doček Nove godine (tamna)
+698|Doček Nove godine (svijetla)
+699|Noć vještica (tamna)
+700|Noć vještica (svijetla)
+701|Uskrs (tamna)
+702|Uskrs (svijetla)
+703|Verzija GRBL-a
+704|GRBL 1.1 ili noviji
+705|GRBL 0.7 ili stariji
+706|Stariji GRBL (0.9) prijavljuje položaje u drugom obliku i nema komandu ručnog pomjeranja: program umjesto toga pomjera glavu običnim pokretima.
+707|Kartica u radnom prostoru
+708|Nazad u prozor
+709|Nivoi
+710|Sve tamnije od ovoga postaje crno
+711|Sve svjetlije od ovoga postaje bijelo
+712|Točkić za zum, prevlačenje za pomjeranje, dvoklik da vidite cijelu sliku
+713|Odabrani postprocesor mijenja G-code iz Izvezi G-code…; posao poslan mašini se ne mijenja.
+714|Dodaci s postavkama imaju svoju karticu u desnom panelu.
+715|Automatski spoji putanje…
+716|Zatvori putanju s tolerancijom…
+717|Izvezi odabir kao SVG…
+718|Izvezi odabir kao DXF…
+719|Spoji putanje
+720|Tolerancija
+721|Automatsko spajanje
+722|Zatvori putanje
+723|Putanje čiji su krajevi bliži od tolerancije se spajaju; putanja čija su oba kraja toliko blizu se zatvara.
+724|Ništa nije spojeno ni zatvoreno.
+725|Spojeno u {} putanja ({} ostalo otvoreno)
+726|Sačuvano {}
+727|Nije moguće sačuvati: {}
+728|Izvoz
+729|Dogbone / T-bone uglovi…
+730|Dogbone uglovi
+731|Dogbone
+732|T-bone
+733|Dodaje urez u svaki oštar ugao odabranih oblika, tako da okrugli alat ovog poluprečnika dosegne do njega: dogbone malo zasijeca oba zida, T-bone samo jedan.
+734|U odabiru nema oštrih uglova.
+735|Urezi dodani na {} oblika
+736|Mašina ovo ne može.
+737|Nađi središte
+738|Sonda visi u rupi, otprilike na sredini: dodirne četiri strane, ode na sredinu i učini je nulom X i Y. Prvo uradite Z.
+739|Hlađenje
+740|Magla
+741|Mlaz
+742|Uključuje hlađenje maglom (M7)
+743|Uključuje hlađenje mlazom, ili usisivač na mašini koja je tako ožičena (M8)
+744|Isključuje svako hlađenje (M9)
+745|Korekcije
+746|Pomak
+747|Brzi hodovi
+748|Nazad na brzinu koju program traži
+749|Sačuvani položaji
+750|Idi na X {} Y {} Z {} (položaj mašine), prvo gore ako je potrebno
+751|Zaboravi ovaj položaj
+752|Sačuvaj ovdje
+753|Zapamti gdje je alat sada
+754|Odaberite oblike za kopiranje (najviše 2000 kopija).
+755|Napravljeno kopija: {}
+756|Prvo odaberite oblike, a putanju (ili oblik za odsijecanje) posljednju.
+757|Tekst sada prati putanju (to su obrisi, više nije tekst).
+758|Nema duplikata.
+759|Uklonjeno duplikata: {}
+760|Nema šta da se razdvoji: svaki oblik ima jedan obris.
+761|Razdvojeno na {} oblika
+762|Prvo nešto odaberite.
+763|Pojednostavljeno: {} tačaka postalo je {}
+764|Nema šta da se napravi: nema brojeva ni redova.
+765|Napravljeno tekstova: {}
+766|Tekst ne staje u QR kod.
+767|Code 39 bar-kod ima samo velika slova, cifre i - . $ / + % i razmake.
+768|Oblici ne staju u područje.
+769|Raspoređeno oblika: {}
+770|Mrežasti niz…
+771|Kružni niz…
+772|Kopiraj duž putanje…
+773|Tekst na putanji…
+774|Odsijeci oblikom…
+775|Pojednostavi…
+776|Serijski tekst…
+777|Bar-kod / QR kod…
+778|Rasporedi oblike…
+779|Mjeri…
+780|Kolone
+781|Redovi
+782|Razmak kolona
+783|Razmak redova
+784|Mjesta
+785|Ukupan ugao
+786|Okreni kopije
+787|Start
+788|Zadrži unutrašnjost oblika
+789|Tekst
+790|{n} je broj; s CSV datotekom {1}, {2}… su njene kolone
+791|Prvi broj
+792|Korak
+793|Cifre
+794|Kopije
+795|Učitaj CSV datoteku…
+796|Redova iz datoteke: {}
+797|Vrsta
+798|Širina trake
+799|Širina područja
+800|Visina područja
+801|Dozvoli okretanje
+802|Oblici se slažu po svojim okvirima u redove od ugla stranice.
+803|Širina {}  Visina {}
+804|Od X {} Y {}
+805|Površina {}  Dužina {}
+806|Između središta: {} (dX {}, dY {})
+807|Razmak između okvira: {}
+808|Ukloni duplikate
+809|Razdvoji
+810|Smoothieware (nije GRBL)
+811|Slika pozadine: {}
+812|Slika nije mogla biti pročitana: {}
+813|Slika pozadine
+814|Učitaj sliku iz datoteke…
+815|Koristi sliku kamere
+816|Trenutna slika kamere
+817|Neprozirnost
+818|Pomjeri uglove
+819|Uklopi u radni prostor
+820|Slika leži ispod crteža: prevucite njene uglove na uglove materijala ili radnog prostora. Čuva se uz projekat.
+821|Pokreću se ovim redom: {}
+822|Isključi sve postprocesore
+823|Odabrani postprocesori mijenjaju G-code iz Izvezi G-code…; posao poslan mašini se ne mijenja.
+824|Slika pozadine…
+825|Još nema slike s kamere.
+826|Sačuvano {} ({} slika)
+827|Ubrzani snimak: slika se snima kada se sloj završi.
+828|Ubrzani snimak: {} slika u {}
+829|Snimi fotografiju
+830|Zaustavi snimanje
+831|Snimanje: {} s, {} slika
+832|Snimi video
+833|Ubrzani snimak
+834|Svakih
+835|Nakon svakog sloja
+836|Potreban je posao poslan mašini iz programa (Počni)
+837|Zaustavi ubrzani snimak
+838|Slika: {}
+839|Pokreni ubrzani snimak
+840|Folder
+841|folder camera zajedničkih podataka
+842|Odaberi folder…
+843|Tok ove kamere zahtijeva ffmpeg, a on nije pronađen pored programa ni u sistemskom PATH-u.
+844|Tok je završen: ponovo se otvara.
+845|Tok nije mogao biti otvoren (adresa, korisnik i lozinka?): pokušava se ponovo.
+846|Dostupna su ažuriranja dodataka
+847|Ažuriraj sve
+848|Kasnije
+849|Veliko hvala Jakubu (CNC KpK) na idejama i prijedlozima za poboljšanja:
+850|Prikaži pored
+851|Otvori u zasebnom prozoru
+852|Zatvori okno
+853|Nazad u glavni prozor
+854|Aktivni projekat
+855|Analiza G-code
+856|Pregled
+857|Kamera
+858|Podijeljen prikaz: jedno pored drugog
+859|Podijeljen prikaz: jedno iznad drugog
+860|Jedan prikaz
+861|Slojevi
+862|Prikaži nazive slojeva
+863|Pregledaj G-code nakon čuvanja
+864|Sam početak datoteke
+865|Sam kraj datoteke
+866|Varijable koje možete koristiti:
+867|Decimalna tačka nakon cijelih brojeva
+868|% na početku i kraju
+869|Riječ zadržavanja
+870|P (sekunde)
+871|P (milisekunde)
+872|X (sekunde)
+873|Brojevi redova
+874|Ukloni komentare
+875|Vlastiti format datoteke
+876|Prikaži nazive varijabli
+877|Pored oznake polja koje ima varijablu za vlastiti G-code prikazuje se njen naziv; klik ga kopira
+878|Predlošci slojeva
+879|Sačuvaj predložak…
+880|Zadrži postavke ovog sloja pod ovim nazivom
+881|Izvezi…
+882|Upiši sve predloške u datoteku
+883|Uvezi…
+884|Dodaj predloške iz datoteke
+885|Najviše {} predložaka
+886|Datoteka je prevelika
+887|Dodano predložaka: {}
+888|Iz datoteke ništa nije moglo biti pročitano
+889|Još nema predložaka
+890|Primijeni ove postavke na sloj
+891|Zaboravi ovaj predložak
+892|Naziv je prazan ili ga koristi drugi predložak
+893|Početna stranica
+894|Napravljeno pomoću:
+895|Premjesti u okno {}
+896|Redova: {}
+897|Napravi ponovo
+898|Odbaciti izmjene?
+899|Ponovo napravi G-code projekta; izmjene se gube
+900|Analiziraj
+901|Prikaži putanje alata ovog teksta u analizi G-code
+902|Ručno mijenjano
+903|Upiši tekst u datoteku
+904|Koristi UDP za RTSP
+905|Manje kašnjenje nego TCP, ali slika se može kvariti na lošoj mreži. Isključeno: TCP.
+906|Malo kašnjenje
+907|Prikazuje najnoviju sliku ranije, bez bafera; slika može štucati.
+908|Format videa
+909|Automatski je način koji najmanje opterećuje računar: tok IP kamere kopira se u MP4 datoteku onakav kakav stiže, ništa se ponovo ne dekodira ni kodira. Kamera koja daje sliku za slikom upisuje se kao AVI.
+910|Snimanje: {} s (tok se kopira)
+911|MP4 kopira tok IP kamere; ova kamera se snima kao AVI.
+912|Tok nije mogao biti snimljen (adresa, kamera, ffmpeg?).
+913|Klipart na mreži…
+914|Vrijeme
+915|Ova verzija ne može koristiti kamere računara.
+916|Uklopi radni prostor
+917|Isključeno
+918|Serijski port
+919|Mreža (TCP, npr. ser2net)
+920|Uvezi SVG…
+921|Uvezi Adobe Illustrator / PDF / EPS / VectorCraft…
+922|Uvezi DXF…
+923|Uvezi LightBurn projekat…
+924|Uvezi UGS dizajn…
+925|Izvezi SVG…
+926|Izvezi PLT / DXF…
+927|Uvezeno putanja: {} iz {}
+928|Izvezeno {}
+929|Izvezeno {}. Preskočeno slika: {}: ovaj format nema raster.
+930|Illustrator slojevi
+931|Datoteka ima {} Illustrator slojeva. Rasporedi putanje na slojeve programa:
+932|Prvi Illustrator sloj ide na sloj 1, drugi na sloj 2 i tako dalje; ostali idu na posljednji sloj.
+933|G-code konzola
+934|Vaše komande
+935|Komande programa
+936|Odgovori mašine
+937|Poruke programa
+938|Pozadina
+939|Veličina fonta
+940|Font
+941|Stil
+942|Podebljano
+943|Kurziv
+944|Razmak slova
+945|Prored
+946|Poravnanje
+947|Pretvori tekst u Bézierove oblike koji se mogu uređivati
+948|Raspored
+949|Prevucite na radnom prostoru da ga nacrtate.
+950|Sačuvaj G-code
+951|Broj stranica
+952|Broj zavoja
+953|Mnogougao
+954|Spirala
+955|Novi klijent zamjenjuje povezanog
+956|Brzina prijenosa
+957|Ručno: sudo cp <sačuvana datoteka> {} && sudo systemctl restart ser2net
+958|Potvrdi
+959|Kopirano.
+960|Konfiguracija nije mogla biti instalirana: {}
+961|Stranica nije mogla biti napravljena: {}
+962|Preglednik nije mogao biti otvoren: {}
+963|Zadani štampač
+964|Datoteka: {}
+965|Okvir
+966|Instaliraj i ponovo pokreni ser2net…
+967|Instalirano {} i ponovo pokrenut ser2net.
+968|Slušaj samo na ovom računaru (koristite sa SSH tunelom)
+969|Margina
+970|Samo objekti na vidljivim slojevima
+971|Samo objekti, onoliko veliki koliko stranica dozvoljava
+972|Otvori PDF
+973|Otvoreno u PDF pregledniku.
+974|Otvara stranicu u PDF pregledniku, koji je može odštampati s više opcija
+975|Papir
+976|Port
+977|Štampaj
+978|Štampač
+979|Štampa dizajn na štampaču za papir, radi provjere položaja ili kao šablon.
+980|Štampaj…
+981|Osvježi
+982|Sačuvaj kao PDF…
+983|Sačuvaj kao…
+984|Čuvanje nije uspjelo: {}
+985|Poslano štampaču. {}
+986|Dijeli preko mreže (ser2net)
+987|Dijeli preko mreže (ser2net)…
+988|Počni posao
+989|Promijeni uređaj…
+990|TCP port
+991|Štampač to nije prihvatio: {}
+992|Cijeli radni prostor, u razmjeri
+993|Zatim se s drugog računara povežite na {}:{}
+994|Nema šta da se štampa.
+995|Ovaj vodič je dostupan na engleskom i poljskom; drugi jezici prikazuju engleski tekst.
+996|Ovo zamjenjuje {} (rezervna kopija se čuva) i ponovo pokreće ser2net. Traže se administratorska prava.
+997|Čeka se odobrenje administratora…
+998|ser2net pronađen: {}
+999|Verzija ser2net
+1000|ser2net nije pronađen. Prvo ga instalirajte, na primjer: sudo apt install ser2net
+1001|Objekata van radnog prostora: {}; na papiru se odsijecaju na ivici.
+1002|Objekata van radnog prostora: {}; ipak se štampaju.
+1003|Ovo dijeli serijski port mašine na ovom računaru preko mreže, tako da se program na drugom računaru može povezati tipom veze Mreža (TCP).
+1004|Upozorenje: svako na mreži ko dođe do ovog porta može upravljati mašinom. Koristite pouzdanu mrežu, zaštitni zid ili opciju samo lokalno sa SSH tunelom.
+1005|Ovaj kontroler ne prijavljuje svoje ulaze.
+1006|Dodaj tačku
+1007|Poravnaj po tačkama
+1008|Poravnanje: prevucite četiri ugla na radnom prostoru
+1009|Sloj kamere
+1010|Obriši ovu tačku
+1011|Prevucite svaki ugao na odgovarajući ugao materijala ili radnog prostora; perspektiva se ispravlja.
+1012|Uklapa sliku u tačke (najmanji kvadrati) i pomjera uglove u skladu s tim.
+1013|Zamrzni kadar
+1014|Učitaj sliku…
+1015|Nema dovoljno tačaka ili leže na jednoj pravoj.
+1016|Sloj iz…
+1017|Sloj: {}
+1018|Parovi tačke na slici (pikseli) i mjesta koje ima u radnom prostoru (mm). Najmanje 3, preporučeno 4; određuju poravnanje, uključujući perspektivu.
+1019|Tačke iz trenutnih uglova
+1020|Referentne tačke
+1021|Zamjenjuje tačke s četiri ugla slike i mjestima gdje sada leže.
+1022|Resetuj na radni prostor
+1023|Rotiraj 90°
+1024|Prikaži fotografiju ili kameru uživo ispod dizajna radi postavljanja posla na materijal.
+1025|Prikaži sloj kamere
+1026|Prikaži sloj
+1027|Pokreni kameru
+1028|Postavke uređaja…
+1029|Provjeri program
+1030|Dijagnostika i statistika…
+1031|Postavke firmvera ($$)…
+1032|Sloj
+1033|Prvo se provjerava program…
+1034|Provjera programa…
+1035|Provjera nije našla ništa pogrešno.
+1036|Provjera nije našla ništa. Posao radi.
+1037|Provjera je našla problema: {}, prvi u redu {}. Posao nije pokrenut.
+1038|Zamijeni svijetle i tamne dijelove slike
+1039|Učitaj predložak
+1040|Superman
+1041|Batman
+1042|Džoker (tamna)
+1043|Džoker (svijetla)
+1044|Uređaji za upravljanje
+1045|Postavke uređaja za upravljanje…
+1046|Uređaj za upravljanje ovom mašinom…
+1047|Zadani: {}
+1048|Nema zadanog uređaja
+1049|{} (nije povezan)
+1050|Dodaj tastaturu
+1051|Dodaj {}
+1052|Nije pronađen novi kontroler. Povežite jedan i sačekajte trenutak.
+1053|Zadano za sve mašine i programe
+1054|Nazad na prve tipke
+1055|Posljednje pritisnuto: {}
+1056|Pritisnite tipku ili dugme…
+1057|Dodijeli
+1058|Pritiske prima samo prozor u prvom planu. Pokret traje dok se tipka drži i staje kada se pusti ili kada drugi prozor dođe u prvi plan.
+1059|Sve tastature su jedan uređaj i ne rade ništa dok kucate u polju. Dva kontrolera istog modela računaju se kao jedan uređaj.
+1060|Pomjeri lijevo (X-)
+1061|Pomjeri desno (X+)
+1062|Pomjeri naprijed (Y-)
+1063|Pomjeri nazad (Y+)
+1064|Pomjeri gore (Z+)
+1065|Pomjeri dolje (Z-)
+1066|Vreteno uključi / isključi
+1067|Zrak uključi / isključi
+1068|Voda uključi / isključi
+1069|Zraka male snage dok se drži
+1070|Olovka gore
+1071|Olovka dolje
+1072|Dostupno u sistemu
+1073|Podešeno
+1074|Zadani uređaj
+1075|Dodaj kameru
+1076|Adresa
+1077|Automatski
+1078|Naziv kamere
+1079|Broj kamere
+1080|Kamera ovog računara
+1081|Rotacija kamere
+1082|Test kamere: {}
+1083|Kamera {}
+1084|Kamere koje prate mašinu. Označena daje sliku uživo; označavanje druge isključuje prvu.
+1085|Obriši ovu kameru
+1086|Za kameru ovog računara: traži nekomprimovani YUYV format gdje sistem to dozvoljava.
+1087|Format
+1088|Korekcija sočiva
+1089|Smanjenje šuma
+1090|Nije adresa kamere (http, https, rtsp, udp, rtp ili rtmp).
+1091|Otvara sliku ove kamere kako je ovdje podešena, bez čuvanja
+1092|Slika
+1093|Preferiraj YUYV
+1094|Greška toka: {}
+1095|Uključi ovu kameru: daje sliku uživo
+1096|Test
+1097|Čeka se slika…
+1098|Balans bijele
+1099|macOS možda blokira ovaj program: dozvolite ga u Postavke sistema, Privatnost i sigurnost, Lokalna mreža.
+1100|Slika mašine uživo: MJPEG tok, adresa JPEG snimka (http ili https) ili tok koji čita ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Koeficijenti izobličenja sočiva (radijalni k1–k3, tangencijalni p1, p2) za koordinate mjerene od središta u jedinicama duže strane slike. Sve 0 = bez korekcije. Unosi se ručno: nema automatske kalibracije.
+1102|Unesite adresu kamere ili obrišite kameru.
+1103|AxiDraw / EggBot (EBB, nije GRBL)
+1104|HPGL ploter (nije GRBL)
+1105|AxiDraw (oba motora na jednom kaišu)
+1106|EggBot (jedan motor za svaku osu)
+1107|Hardverska (RTS/CTS)
+1108|Softverska (XON/XOFF)
+1109|Ploter nije prihvatio komandu: {}
+1110|Ovaj ploter nema način provjere: provjera se preskače.
+1111|Motori
+1112|Koraka po mm
+1113|Obrnuto
+1114|AxiDraw ima 80 koraka po mm i broji Y prema naprijed, pa mu je Y obrnut.
+1115|EBB nema granične prekidače: prije povezivanja postavite olovku u ugao gdje crtež počinje (njegovu nulu).
+1116|Jedinica plotera po mm
+1117|Kontrola toka
+1118|Bez kontrole toka ploter gubi komande čim mu se bafer napuni.
+1119|Ploter ne odgovara ništa: red se računa završenim kada ga port primi, a zaustavljanje podiže olovku dok ploter i dalje crta ono što je u baferu.
+1120|Ploter ništa nije primio 20 s: provjerite kontrolu toka i kabl.
+1121|Nije u početnom položaju
+1122|Kontroler kaže da mašina nije dovedena u početni položaj otkad je pokrenuta.
+1123|Alat {}
+1124|Zalijepljena slika
+1125|Zaseban prozor
+1126|Bočna kartica
+1127|Pogled kamere
+1128|Vidi se pri uvećanju većem od 200 %.
+1129|Prekini
+1130|Prekini putanju u odabranom čvoru: zatvorena se tu otvara, otvorena se siječe na dva dijela
+1131|Kraj putanje nema šta da se prekine.
+1132|Putanja je zatvorena.
+1133|Dva čvora su sada jedan.
+1134|Dvije putanje su sada jedna.
+1135|Tip veze
+1136|Nema porta
+1137|Host
+1138|Čitanje u redu
+1139|Greška pri čitanju
+1140|Pročitaj s uređaja
+1141|Ako je mašina sada povezana, njen radni prostor i brzina mogu se pročitati iz kontrolera.
+1142|Postavke su pročitane iz kontrolera.
+1143|Vrijedno provjere
+1144|Dodaj uređaj
+1145|Još postavki…
+1146|Otvori cijeli prozor uređaja s ovdje unesenim
+1147|Nemam uređaj
+1148|Port ili host još nisu postavljeni: odaberite ih u postavkama uređaja prije povezivanja.
+1149|Dodaj uređaj
+1150|Ništa ovdje nije isprobano na vašoj mašini: prvi test uradite bez alata ili s alatom dobro iznad materijala.
+1151|Ništa ovdje nije isprobano na vašem ploteru: prvi test uradite s podignutom olovkom i bez papira.
+1152|Uređaj je dodan. Pritisnite Novo da počnete.
+1153|Boja radnog prostora
+1154|Boja papira
+1155|Boja materijala
+1156|Nazad na automatsku boju
+1157|Sama razvlači sive tonove slike na cijeli opseg; dva klizača se tada ne koriste
+1158|Uvezi LightBurn / MillMage projekat…
+1159|Izvezi DXF…
+1160|Izvezi DXF R12 (stari)…
+1161|Izvezi Adobe Illustrator…
+1162|Izvezi LightBurn projekat…
+1163|Izvezi MillMage projekat…
+1164|Uvezeno {} putanja i {} slika iz {}
+1165|Lenjir (M)
+1166|Kote
+1167|Prikaži veličine posla kao na tehničkom crtežu
+1168|Prikaži mjere crteža kao na tehničkom crtežu
+1169|Jedinice
+1170|Milimetri (mm)
+1171|Inči (in)
+1172|Centimetri (cm)
+1173|Metri (m)
+1174|Stope (ft)
+1175|Kao uređaj
+1176|Jedinice veličina u svojstvima, lenjiru, kotama i pregledima. G-code je uvijek u jedinicama uređaja.
+1177|Pomak vrha
+1178|Koliko je vrh sječiva iza svoje ose: daje ga proizvođač sječiva
+1179|Okreni na uglovima oštrijim od
+1180|Sijeci i preko početka
+1181|Zatvoreni obris siječe se ovoliko preko početka, da se zatvori
+1182|Biblioteka noževa
+1183|Nož
+1184|Vlastite vrijednosti
+1185|Biblioteka noževa…
+1186|Gotovi noževi
+1187|Moji noževi
+1188|Još nema: kopirajte nož da ga promijenite
+1189|Kopija među vašim noževima, za izmjenu
+1190|Moj nož
+1191|Gotov nož se ne može mijenjati: kopirajte ga da biste ga promijenili.
+1192|Bilješke
+1193|Sječivo 30°
+1194|Sječivo 45°
+1195|Sječivo 60°
+1196|Vlačeći nož u držaču CNC mašine
+1197|Tanka folija i papir, fini detalji i mala slova.
+1198|Vinil, fleks, papir i tanak karton: uobičajeno sječivo rezača.
+1199|Debeli vinil, karton, guma, pjena i šabloni za pjeskarenje.
+1200|Držač u steznoj čauri vretena, vreteno miruje; dubinu postavite na sloju.
+1201|Ploteri i rezači razumiju HPGL malo različito: ovdje podesite šta ovaj dobija. Komande se završavaju s ; a {speed} i {force} se popunjavaju.
+1202|Na početku
+1203|Na kraju
+1204|Olovka ili nož dolje
+1205|Olovka ili nož gore
+1206|najviše
+1207|Šalje se kada se brzina crtanja promijeni; prazno: nikad (ploter zadržava svoju).
+1208|Sila
+1209|Koliko jako olovka ili nož pritiska, šalje se jednom na početku; 0: nikad (ploter zadržava svoju).
+1210|Nazad na uobičajene komande
+1211|Vijugava linija
+1212|Testerasta
+1213|Opruge
+1214|Talasi
+1215|Raster krugovi
+1216|Bakropis
+1217|Kvadrati
+1218|Igle
+1219|Truchetove pločice
+1220|Izohipse
+1221|Hilbertova krivulja
+1222|Tačkanje
+1223|Jedna linija (TSP)
+1224|Trouglovi i ćelije
+1225|Linijski crtež
+1226|Linije toka
+1227|Skica
+1228|Škrabotina
+1229|Redovi linija koje talasaju brže i više gdje je slika tamnija.
+1230|Redovi cik-cak linija, gušći i viši gdje je slika tamnija.
+1231|Redovi petlji kao razvučena opruga, veće gdje je slika tamnija.
+1232|Jedna spirala iz sredine koja više titra u sjenkama.
+1233|Redovi podignuti tamnoćom slike, kao pejzaž viđen sa strane.
+1234|Mreža krugova, većih gdje je slika tamnija.
+1235|Šrafura u slojevima: svaki tamniji ton dodaje linije u drugom smjeru.
+1236|Mreža kvadrata jedan u drugom, više ih je gdje je tamnije.
+1237|Kratki potezi na mreži, duži gdje je tamnije, okrenuti po oblicima.
+1238|Pločice četvrtina kruga okrenute nasumično, više lukova gdje je tamnije.
+1239|Linije jednake osvjetljenosti, kao izohipse na karti.
+1240|Jedna krivulja koja ispunjava prostor, sa sitnijim zavojima gdje je tamnije.
+1241|Tačke raspoređene po tonu slike: guste u sjenkama, rijetke na svijetlom.
+1242|Tačke tačkanja spojene u jednu liniju koja ne siječe samu sebe.
+1243|Mreža trouglova, ili ćelija oko njih, preko tačaka raspoređenih po tonu.
+1244|Samo ivice slike, kao linije.
+1245|Duge linije koje teku duž oblika, bliže jedna drugoj gdje je tamnije.
+1246|Mnogo kratkih pravih poteza postavljenih gdje je slika najtamnija, kao u skici olovkom.
+1247|Jedna lutajuća linija petlji koja iškraba tamne dijelove.
+1248|Razmak zavoja
+1249|Visina talasa
+1250|Najveći krug
+1251|Razmak prstenova
+1252|Nivoi tona
+1253|Najviše kvadrata u ćeliji
+1254|Podrhtavanje
+1255|Dužina poteza
+1256|Veličina pločice
+1257|Najviše lukova u pločici
+1258|Izglađivanje
+1259|Najmanji korak
+1260|Veličina tačke
+1261|Broj tačaka
+1262|Najmanji detalj
+1263|Osjetljivost ivica
+1264|Najkraća linija
+1265|Najmanji razmak
+1266|Najveći razmak
+1267|Veličina krivulja
+1268|Broj poteza
+1269|Mastilo jednog poteza
+1270|Veličina petlje
+1271|Dužina linije
+1272|Mastilo jednog prolaza
+1273|Redovi od ivice do ivice
+1274|Podigni olovku iznad bijelog
+1275|Cik-cak
+1276|Sakrij ono što je iza
+1277|Nacrtaj svaki red cijeli
+1278|Krugovi
+1279|Prstenovi
+1280|Spirale
+1281|Prave linije
+1282|Talasaste linije
+1283|Duž oblika
+1284|Pod uglom
+1285|Nasumično
+1286|Jedna linija
+1287|Tačke
+1288|Krugovi po tonu
+1289|Crtice
+1290|Trouglovi
+1291|Ćelije
+1292|Ivice
+1293|Ivice i tamne površine
+1294|Polje toka
+1295|Odvojeni potezi
+1296|Potezi u lancima
+1297|Visina talasa
+1298|Talasa po mm
+1299|Veličina ćelije
+1300|Stilsko trasiranje
+1301|Linija: {}, stil: {}
+1302|Linija: {}, {} m linije
+1303|samo dio: previše tačaka
+1304|mnogo tačaka: crtanje postaje sporo
+1305|Vrsta
+1306|Nasumični uzorak
+1307|Drugi
+1308|Crna tačka
+1309|Bijela tačka
+1310|Stavi na sloj
+1311|Stilsko trasiranje…
+1312|Razmak linija
+1313|Ubrzani snimak: slika se snima svaki put kada se alat podigne, s glavom pomjerenom u stranu.
+1314|Nakon svakog podizanja
+1315|Slika svaki put kada se alat podigne, s glavom pomjerenom u stranu (uključite pomjeranje u stranu na kartici Snimanje). Posao traje mnogo duže.
+1316|Fotografije ubrzanog snimka sa strane
+1317|Pomjeri glavu u stranu za svaku fotografiju
+1318|Tokom posla svaka slika ubrzanog snimka čeka dok posao ne može stati: glava ide na ovo mjesto, kamera snima, glava se vraća i posao se nastavlja. Glodalica i ploter staju samo kada je alat podignut.
+1319|Mjesto (mašinske koordinate)
+1320|Koristi trenutni položaj
+1321|Sačekaj prije fotografije
+1322|Mašina prestaje da se trese i tok kamere stiže. Ploteru koji ništa ne odgovara (HPGL) treba i vrijeme puta u stranu.
+1323|Neka vreteno radi
+1324|Nema ponovnog pokretanja vretena nakon svake fotografije, ni traga koji bi moglo ostaviti na zidu.
+1325|Podijeli duge linije
+1326|Dugi pravi rezovi šalju se kao nekoliko kraćih linija: posao može ranije stati (za fotografiju, pauzu), a napredak teče ravnomjernije. Putanja ostaje ista.
+1327|Na
+1328|dijelova, svaki najmanje
+1329|Put u stranu za fotografije
+1330|Gdje olovka ide za fotografiju ubrzanog snimka, pošto se podigne; vraća se apsolutnim pokretom. Prazno: mjesto postavljeno na kartici Snimanje.
+1331|Snimanje
+1332|Ova kamera je isključena u postavkama uređaja.
+1333|Ubrzanje X, Y, Z
+1334|Odstupanje spoja
+1335|0 = nepoznato. S ubrzanjima vrijeme posla računa ubrzavanje i usporavanje mašine i njene sporije uglove, kao GRBL ($120 – $122, $11).
+1336|Luk
+1337|Ulaz
+1338|Izlaz
+1339|Dužina ulaza
+1340|Poluprečnik ulaza
+1341|Ugao ulaza
+1342|Preklapanje
+1343|Alat dolazi na liniju sa strane otpada i napušta je na isti način, tako da trag početka nije na dijelu. Ulaz koji ne staje smanjuje se ili izostavlja.
+1344|Dužina pravog ulaza, poluprečnik luka.
+1345|90° dolazi pravo na liniju, mali ugao skoro duž nje.
+1346|Koliko rez ide preko svog početka, da se početak i kraj čisto susretnu.
+1347|Dijelovi radnog prostora u koje alat nikada ne smije ući (stega, pribor). Pokreti kroz zrak sami zaobilaze zone; rez koji dodirne uključenu zonu prijavljuje se prije posla.
+1348|Naziv zone
+1349|Pravougaonik
+1350|Krug
+1351|Obriši ovu zonu
+1352|Samo na ovim visinama (Z)
+1353|Kao kutija ili valjak koji stoji na stolu: pokreti iznad ili ispod opsega su slobodni.
+1354|Dodaj zonu
+1355|Zona {}
+1356|Zabranjene zone
+1357|Po stvarnim obrisima
+1358|Oblici se slažu po stvarnim obrisima: mali može u rupu velikog, L u ugao drugog. Grupa je jedan dio.
+1359|Okretanje
+1360|Pola okreta
+1361|Četvrtina okreta
+1362|Osmina okreta
+1363|Raspoređeno dijelova: {}, {} nije stalo i ostalo je na mjestu
+1364|Ono što ne stane ide na nove listove
+1365|Svaki novi list je crtež u svojoj kartici, s istim slojevima i materijalom: sačuvajte ga i izrežite nakon ovoga.
+1366|Ovdje raspoređeno dijelova: {}, ostatak na {} novih listova u novim karticama
+1367|Dodaj kao zabranjenu zonu
+1368|Mašina nikada neće ući na mjesto odabranih oblika: svaki postaje zabranjena zona uređaja (krug kada je okrugao, inače pravougaonik oko njega) i uklanja se s crteža.
+1369|Zabranjena zona
+1370|Uređaju dodano zabranjenih zona: {}
+1371|Zone pripadaju uređaju i čuvaju se uz njega, u svakom projektu.
+1372|Rotacioni dodatak je povezan
+1373|Stezna glava
+1374|Valjci
+1375|Prečnik radnog predmeta
+1376|Prečnik valjka
+1377|Mikrokoraka po okretu
+1378|Mikrokoraci motora za jedan pun okret onoga što pokreće (stezne glave ili jednog valjka).
+1379|Obim
+1380|Put oko radnog predmeta: dizajn ne smije biti viši.
+1381|GRBL 1.1 ima tri ose: osa A nije dostupna, koristi se Y.
+1382|Kontroleru treba {} koraka po mm na osi Y ($101).
+1383|S rotacionim dodatkom osa Y okreće radni predmet: crtež ne smije biti viši od obima radnog predmeta. Model je jednostavan (stezna glava se okreće prema prečniku radnog predmeta, valjci pomjeraju površinu kao svoju); prava mašina zahtijeva ispitivanje.
+1384|Rotacija
+1385|Kineska Nova godina (tamna)
+1386|Kineska Nova godina (svijetla)
+1387|Zatvoriti program?
+1388|Posljednji crtež je zatvoren.
+1389|Zatvori program
+1390|Nazad na početni ekran
+1391|Sloj
+1392|Nizovi i raspoređivanje
+1393|Pregled G-code
+1394|Prikaži zabranjene zone
+1395|Zabranjene zone…
+1396|Predlošci slojeva…
+1397|Sačuvani položaji…
+1398|Web server i API
+1399|Web stranica sa stanjem mašine, projekta i kamere, i API za druge programe. Svaki zahtjev traži pristupnu frazu; nema šifriranja.
+1400|Uključi web server i API
+1401|Dostupno s drugih računara na mreži
+1402|Pristupna fraza
+1403|Od sada koristi ovu pristupnu frazu
+1404|Pristupna fraza ne smije biti prazna niti sadržavati kontrolne znakove.
+1405|Svako na mreži ko zna pristupnu frazu može vidjeti mašinu i zaustaviti je ili pomjeriti. Fraza se šalje bez šifriranja: koristite samo na mreži kojoj vjerujete.
+1406|Sluša na {}
+1407|Server nije mogao biti pokrenut: {}
+1408|Web server: uključen, port {}
+1409|Web server: greška
+1410|Web stranica s projektom i API za druge programe. Svaki zahtjev traži pristupnu frazu; nema šifriranja.
+1411|Svako na mreži ko zna pristupnu frazu može vidjeti projekat. Fraza se šalje bez šifriranja: koristite samo na mreži kojoj vjerujete.
+1412|Postavke projekta…
+1413|Oblik materijala
+1414|Blok
+1415|Valjak (rotacija)
+1416|Okrugli radni predmet koji okreće rotacioni dodatak uređaja. Primjena uključuje rotacioni dodatak s ovim prečnikom.
+1417|Dužina radnog predmeta
+1418|Nula programa
+1419|Naprijed lijevo
+1420|Naprijed desno
+1421|Nazad lijevo
+1422|Nazad desno
+1423|Širina materijala
+1424|Visina materijala
+1425|Debljina
+1426|Z se broji od dna materijala
+1427|Radni prostor je materijal
+1428|Preskoči
+1429|S jedne na drugu stranu (lijevo i desno mijenjaju mjesta)
+1430|S kraja na kraj (nazad i naprijed mijenjaju mjesta)
+1431|Materijal leži gore lijevo na stranici. Program je pisan za radni koordinatni sistem G54 s nulom na mjestu koje odaberete: postavite tu nulu na mašini. Z se broji od vrha materijala ili od njegovog dna.
+1432|Valjak leži duž X na rotacionom dodatku; Y crteža ide oko njega i crtež se odmotava s njegove površine. Z se broji od vrha površine, a najdublji rez je poluprečnik. Nula je na površini; postavite istu na mašini.
+1433|Dvostrani posao
+1434|Strana A i strana B su dva radna prostora: materijal se siječe s jedne strane, okrene i siječe s druge. Svaka strana prikazuje oblike druge okrenute, kao sjene.
+1435|Okrenuto oko
+1436|Oznake za poravnanje
+1437|horizontalne ose (nazad i naprijed mijenjaju mjesta)
+1438|vertikalne ose (lijevo i desno mijenjaju mjesta)
+1439|Strana A
+1440|Strana B
+1441|Sjene druge strane
+1442|Oblici druge strane, okrenuti kao materijal, blijedo nacrtani ispod ove strane: ne mogu se odabrati ni pomjeriti.
+1443|Četiri ugaone oznake odmah izvan materijala, spaljene na ploči ispod njega prije strane A: vratite okrenuti materijal u njih za stranu B.
+1444|Materijal leži gore lijevo u radnom prostoru. Za dvostrani posao postavite ga na isto mjesto za obje strane (oznake za poravnanje pokazuju gdje).
+1445|Radni predmet leži na rotacionom dodatku; Y crteža ide oko njega i crtež se odmotava s njegove površine.
+1446|Strana B ima oblike: projekat ostaje dvostrani. Prvo ih obrišite da biste ga učinili jednostranim.
+1447|Veličina papira
+1448|Prilagođeno
+1449|Veličine koje staju u radni prostor mašine: ↕ uspravno, ↔ položeno.
+1450|Rotacioni dodatak uređaja je isključen.
+1451|Projekat podešen: valjak Ø {} mm i dug {} mm na rotacionom dodatku (uključen), nula u {}
+1452|Projekat podešen: materijal {} x {} x {} mm, nula u {}
+1453|Ploča
+1454|Materijal leži u uglu nule mašine. Za dvostrani posao postavite ga na isto mjesto za obje strane (oznake za poravnanje pokazuju gdje).
+1455|Sačuvaj G-code dvostranog posla
+1456|Posao ima dvije strane. Kako sačuvati G-code?
+1457|Jedna datoteka, sa zaustavljanjem za okretanje materijala
+1458|Jedna datoteka, bez zaustavljanja
+1459|Dvije datoteke: name_A i name_B
+1460|Oblici druge strane, okrenuti kao materijal, blijedo nacrtani ispod ove strane. Kliknite jedan da se poravnate ili privučete na njega; nikada se ne pomjera.
+1461|G-code dvostranog posla
+1462|Posao ima dvije strane. Kako prikazati G-code?
+1463|Strane za obradu
+1464|1 strana
+1465|2 strane
+1466|4 strane (greda)
+1467|6 strana (blok)
+1468|Materijal se obrađuje samo odozgo.
+1469|Greda koja leži duž X, obrađena na četiri duge strane A, B, C i D: između njih se otkotrlja četvrtinu okreta unazad. Svaka strana je svoj radni prostor; susjedne strane su razvijene oko nje, a ona ispod se nazire, kao sjene.
+1470|Blok obrađen na svih šest strana: A do D svaki put se otkotrlja četvrtinu okreta unazad, E i F su lijevi i desni kraj okrenuti nagore. Svaka strana je svoj radni prostor; susjedne strane su razvijene oko nje, a ona ispod se nazire, kao sjene.
+1471|Uvijek uključeno kada se obrađuje više od jedne strane: svaka strana ima svoj radni prostor, velik koliko je tu materijal, i materijal leži na mašini na isti način za svaku.
+1472|Stranica osnove a
+1473|Stranica osnove b
+1474|Visina grede H
+1475|Stranica a (s lijeva na desno)
+1476|Stranica b (od pozadi prema naprijed)
+1477|Stranica c (visina)
+1478|Greda leži duž X sa stranom A nagore, u uglu nule. Između strana se otkotrlja četvrtinu okreta unazad, tako da prednja dođe gore: strane A, B, C i D. Svaka strana se crta na radnom prostoru velikom kao strana, a materijal ispod je debeo koliko je greda tu duboka.
+1479|Blok leži sa stranom A nagore, u uglu nule. Strane A do D: svaki put se otkotrlja četvrtinu okreta unazad, tako da prednja dođe gore; E i F: lijevi i desni kraj okrenuti nagore. Svaka strana se crta na radnom prostoru velikom kao strana, a materijal ispod je debeo koliko je blok tu dubok.
+1480|Strane razvijene oko A
+1481|Strana {}
+1482|Greda: 4 strane
+1483|Blok: 6 strana
+1484|gore
+1485|naprijed
+1486|dolje
+1487|nazad
+1488|lijevi kraj
+1489|desni kraj
+1490|materijal
+1491|Između strana A do D predmet se otkotrlja četvrtinu okreta unazad (prednja dolazi gore); E i F su njegov lijevi i desni kraj okrenuti nagore.
+1492|Sjene drugih strana
+1493|Oblici strana pored ove, razvijeni oko njenih ivica, i strane ispod nje, viđeni kroz predmet; blijedo nacrtani. Kliknite jedan da se poravnate ili privučete na njega; nikada se ne pomjera.
+1494|Jedna datoteka, sa zaustavljanjem prije svake strane za okretanje predmeta
+1495|Jedna datoteka, bez zaustavljanja
+1496|Datoteka za svaku stranu: name_A … name_{}
+1497|G-code posla na više strana
+1498|Posao ima više strana. Kako prikazati G-code?
+1499|Sačuvaj G-code posla na više strana
+1500|Posao ima više strana. Kako sačuvati G-code?
+1501|Oznake za poravnanje u zasebnoj datoteci (name_marks)
+1502|Spaljuju se prve, na ploči ispod materijala, prije nego što se on postavi: leže odmah izvan materijala, pa nisu u datotekama strana.
+1503|Kvalitet prikaza
+1504|Koliko su fine slike pregleda: 1 je brzo i grubo, 5 oštro i fino ali sporije. Dok se pogled okreće, na trenutak se crta grublje.
+1505|Automatsko čuvanje
+1506|Automatski čuvaj rad
+1507|Rad bez naziva datoteke ide u privremeni folder; datoteka s nazivom čuva se na mjestu
+1508|Automatski čuvaj svakih
+1509|V-rezbarenje
+1510|Linije pod uglom, svaka široka koliko je slika tamna duž nje: tanke na svijetlom, široke u sjenkama, kao što V-glodalo siječe dublje i zato šire. Svaka linija se siječe na dijelove čija osvjetljenost određuje širinu.
+1511|Širina linija
+1512|Dužina dijelova
+1513|Najtanja linija
+1514|Uglasto
+1515|Geometrijski mnogouglovi
+1516|Geometrijski mnogouglovi…
+1517|Tamni oblik slike podijeljen na mnogouglove (trouglove i četverouglove), više ih je gdje slika ima ivice, s razmakom između njih i oko obrisa: geometrijska (low poly) slika.
+1518|Razmak između mnogouglova
+1519|Broj mnogouglova
+1520|Prati ivice
+1521|Trouglovi i četverouglovi
+1522|Stilovi slike
+1523|Crtanje stilova…
+1524|Alat
+1525|Siva
+1526|Koliko tamno: 0 % je bijelo, 100 % crno
+1527|Tvrdoća
+1528|Koliko se siva može razlikovati a da se ipak popuni
+1529|Ctrl+klik (Cmd+klik) bira drugo mjesto za kopiranje
+1530|Prvo Ctrl+klik (Cmd+klik) gdje se kopira
+1531|Točkić za zum; prevucite desnim ili srednjim dugmetom da pomjerite sliku.
+1532|Uredi sliku
+1533|Uredi sliku…
+1534|Slika je zaključana
+1535|Četkica
+1536|Gumica
+1537|Kloniranje
+1538|Popuna
+1539|Slika odabranom sivom
+1540|Slika bijelo, kao netaknut materijal
+1541|Kopira jedno mjesto slike na drugo: Ctrl+klik (Cmd+klik) gdje se kopira, zatim slikajte
+1542|Popunjava područje sličnih sivih oko kliknute tačke
+1543|Oblici nemaju veličinu
+1544|Rezolucija
+1545|{} linija po milimetru
+1546|Veličina objekata
+1547|{} × {} piksela
+1548|Crtanje
+1549|Popuni zatvorene oblike
+1550|Širina linije
+1551|Obriši objekte nakon toga
+1552|Sakrij objekte
+1553|Samo u pregledu: samo slika, bez obrisa objekata
+1554|Pretvori u sliku
+1555|Pretvori u sliku…
+1556|Pretvori
+1557|Četkica, gumica, pečat za kloniranje i popuna, u sivim tonovima
+1558|Sakrij sliku
+1559|Samo u pregledu: samo obrisi
+1560|Samo u pregledu: samo linije
+1561|Ovaj Windows nema Media Foundation, koji je kameri potreban. Instalirajte Media Feature Pack (Postavke → Opcionalne funkcije).
+1562|USB kamere još ne rade na FreeBSD-u. Mrežna (IP) kamera radi.
+1563|Podaci o projektu…
+1564|Podaci o projektu
+1565|Vaše ime
+1566|Upisuje se u projekte koje sačuvate, kao autor ili saradnik. Isto u svakom programu.
+1567|Još nije sačuvano
+1568|Datoteka napravljena
+1569|Datoteka izmijenjena
+1570|Projekat napravljen
+1571|Autor
+1572|Saradnici
+1573|Još niko
+1574|(bez imena)
+1575|Postavite svoje ime u Postavke → Opcije programa da biste bili upisani u projekte koje sačuvate.
+1576|Izmjene ({})
+1577|E-pošta
+1578|Drugo
+1579|Autori
+1580|Osoba
+1581|Program
+1582|Firma, web-stranica ili bilo šta drugo što treba čuvati uz vaše ime
