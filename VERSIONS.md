@@ -3,7 +3,7 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
-## v2.7.14
+## v2.8.0
 
 - **Adobe Illustrator / PDF import**: the pictures in the file (an embedded photo) come in as images where they lie: JPEG and Flate pictures, with a palette (as Illustrator writes gray photos), gray, RGB, CMYK, ICC or a spot colour, and their transparency (soft mask); a file of a picture alone no longer says "no vector paths found". What lies on a hidden Illustrator layer is left out. One Illustrator layer (every file of Illustrator has "Layer 1") no longer asks whether to go by colour or by layers, and after that question the pictures are kept too. Checked against files saved by Illustrator 2027 (shapes, colours, a photo).
 
