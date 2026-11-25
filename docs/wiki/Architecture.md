@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Architektura)
+🌐 **English** · [Polski](Architektura) · [简体中文](Architecture-ZH) · [한국어](Architecture-KO)
 
 # Architecture
 

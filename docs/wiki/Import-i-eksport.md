@@ -1,4 +1,4 @@
-🌐 [English](Import-and-Export) · **Polski**
+🌐 [English](Import-and-Export) · **Polski** · [简体中文](Import-and-Export-ZH) · [한국어](Import-and-Export-KO)
 
 # Import i eksport
 

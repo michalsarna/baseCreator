@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Obrys-w-stylu)
+🌐 **English** · [Polski](Obrys-w-stylu) · [简体中文](Style-Trace-ZH) · [한국어](Style-Trace-KO)
 
 # Style trace
 

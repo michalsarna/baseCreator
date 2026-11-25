@@ -1,4 +1,4 @@
-🌐 [English](Settings-and-Files) · **Polski**
+🌐 [English](Settings-and-Files) · **Polski** · [简体中文](Settings-and-Files-ZH) · [한국어](Settings-and-Files-KO)
 
 # Ustawienia i pliki
 

@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Skroty-klawiszowe)
+🌐 **English** · [Polski](Skroty-klawiszowe) · [简体中文](Keyboard-Shortcuts-ZH) · [한국어](Keyboard-Shortcuts-KO)
 
 # Keyboard Shortcuts
 

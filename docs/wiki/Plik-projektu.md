@@ -1,4 +1,4 @@
-🌐 [English](Project-File) · **Polski**
+🌐 [English](Project-File) · **Polski** · [简体中文](Project-File-ZH) · [한국어](Project-File-KO)
 
 # Plik projektu
 

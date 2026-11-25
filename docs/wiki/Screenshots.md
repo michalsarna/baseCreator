@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Zrzuty-ekranu)
+🌐 **English** · [Polski](Zrzuty-ekranu) · [简体中文](Screenshots-ZH) · [한국어](Screenshots-KO)
 
 # Screenshots
 

@@ -1,4 +1,4 @@
-🌐 [English](Panes-and-Tabs) · **Polski**
+🌐 [English](Panes-and-Tabs) · **Polski** · [简体中文](Panes-and-Tabs-ZH) · [한국어](Panes-and-Tabs-KO)
 
 # Panele i karty
 

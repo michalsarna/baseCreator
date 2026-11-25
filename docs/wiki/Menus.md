@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Menu)
+🌐 **English** · [Polski](Menu) · [简体中文](Menus-ZH) · [한국어](Menus-KO)
 
 # Menus
 

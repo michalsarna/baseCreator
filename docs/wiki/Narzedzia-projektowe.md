@@ -1,4 +1,4 @@
-🌐 [English](Design-Tools) · **Polski**
+🌐 [English](Design-Tools) · **Polski** · [简体中文](Design-Tools-ZH) · [한국어](Design-Tools-KO)
 
 # Narzędzia projektowe
 

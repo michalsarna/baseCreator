@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Instalacja)
+🌐 **English** · [Polski](Instalacja) · [简体中文](Installation-ZH) · [한국어](Installation-KO)
 
 # Installation
 

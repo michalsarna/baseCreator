@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Szybki-start)
+🌐 **English** · [Polski](Szybki-start) · [简体中文](Quick-Start-ZH) · [한국어](Quick-Start-KO)
 
 # Quick Start
 

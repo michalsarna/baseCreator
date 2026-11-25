@@ -1,4 +1,4 @@
-**🌐 [English](Home) · [Polski](Home-PL)**
+**🌐 [English](Home) · [Polski](Home-PL) · [简体中文](Home-ZH) · [한국어](Home-KO)**
 
 ### English
 * [🏠 Home](Home)
@@ -37,3 +37,41 @@
 * [Architektura](Architektura)
 * [Ograniczenia](Ograniczenia)
 * [Wsparcie](Wsparcie)
+
+### 简体中文
+* [🏠 首页](Home-ZH)
+* [安装](Installation-ZH)
+* [快速入门](Quick-Start-ZH)
+* [页面与图层](Page-and-Layers-ZH)
+* [设计工具](Design-Tools-ZH)
+* [风格描摹](Style-Trace-ZH)
+* [导入与导出](Import-and-Export-ZH)
+* [窗格与标签页](Panes-and-Tabs-ZH)
+* [菜单](Menus-ZH)
+* [键盘快捷键](Keyboard-Shortcuts-ZH)
+* [项目文件](Project-File-ZH)
+* [截图](Screenshots-ZH)
+* [插件](Plugins-ZH)
+* [设置与文件](Settings-and-Files-ZH)
+* [架构](Architecture-ZH)
+* [限制](Limitations-ZH)
+* [支持本项目](Support-ZH)
+
+### 한국어
+* [🏠 홈](Home-KO)
+* [설치](Installation-KO)
+* [빠른 시작](Quick-Start-KO)
+* [페이지와 레이어](Page-and-Layers-KO)
+* [디자인 도구](Design-Tools-KO)
+* [스타일 트레이스](Style-Trace-KO)
+* [가져오기와 내보내기](Import-and-Export-KO)
+* [창과 탭](Panes-and-Tabs-KO)
+* [메뉴](Menus-KO)
+* [키보드 단축키](Keyboard-Shortcuts-KO)
+* [프로젝트 파일](Project-File-KO)
+* [스크린샷](Screenshots-KO)
+* [플러그인](Plugins-KO)
+* [설정과 파일](Settings-and-Files-KO)
+* [아키텍처](Architecture-KO)
+* [제한 사항](Limitations-KO)
+* [프로젝트 후원](Support-KO)

@@ -1,4 +1,4 @@
-🌐 [English](Limitations) · **Polski**
+🌐 [English](Limitations) · **Polski** · [简体中文](Limitations-ZH) · [한국어](Limitations-KO)
 
 # Ograniczenia
 
