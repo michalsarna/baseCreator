@@ -267,6 +267,13 @@ impl DocLock {
     pub fn check(&self, scene: &mut Scene) -> bool {
         self.guard.check(scene)
     }
+    /// Another drawing of the same project is shown now (the other side or face of a job worked on from several sides): guard
+    /// that one from here on.
+    pub fn rearm(&mut self, scene: &Scene) {
+        if self.locked() {
+            self.guard.set(scene, true);
+        }
+    }
     /// The fields of the Protection part for this project.
     pub fn fields(&self) -> Fields {
         Fields::of(self.protection.as_ref())
