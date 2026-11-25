@@ -1,0 +1,29 @@
+1|Ukuran kertas umum…
+2|Tentang
+3|Atur
+4|Pengaturan perangkat…
+5|Edit
+6|Ekspor G-code…
+7|Bantuan
+8|Impor DXF…
+9|Impor proyek LightBurn…
+10|Inci (in)
+11|Sisipkan
+12|Lanskap
+13|Milimeter (mm)
+14|Baru
+15|Tidak ada yang dipilih
+16|Buka gambar atau mulai desain kosong.
+17|Buka…
+18|Pengaturan halaman…
+19|Potret
+20|Properti
+21|Pindahkan bentuk yang dipilih ke lapisan ini
+22|Siap
+23|Simpan sebagai…
+24|Pengaturan
+25|Bentuk pada lapisan ini
+26|Ditampilkan di area kerja
+27|Satuan
+28|Tampilan
+29|Opsi tampilan…

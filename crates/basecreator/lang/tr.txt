@@ -1,0 +1,29 @@
+1|Yaygın bir sayfa boyutu…
+2|Hakkında
+3|Düzenle
+4|Cihaz ayarları…
+5|Düzen
+6|G-code dışa aktar…
+7|Yardım
+8|DXF içe aktar…
+9|LightBurn projesi içe aktar…
+10|İnç (in)
+11|Ekle
+12|Yatay
+13|Milimetre (mm)
+14|Yeni
+15|Hiçbir şey seçilmedi
+16|Bir çizim açın veya boş bir tasarıma başlayın.
+17|Aç…
+18|Sayfa yapısı…
+19|Dikey
+20|Özellikler
+21|Seçili şekilleri bu katmana taşı
+22|Hazır
+23|Farklı kaydet…
+24|Ayarlar
+25|Bu katmandaki şekiller
+26|Çalışma alanında gösterilir
+27|Birimler
+28|Görünüm
+29|Görünüm seçenekleri…

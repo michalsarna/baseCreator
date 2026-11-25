@@ -1,0 +1,29 @@
+1|Uobičajena veličina lista…
+2|O programu
+3|Raspored
+4|Postavke uređaja…
+5|Uređivanje
+6|Izvezi G-code…
+7|Pomoć
+8|Uvezi DXF…
+9|Uvezi LightBurn projekat…
+10|Inči (in)
+11|Umetni
+12|Položeno
+13|Milimetri (mm)
+14|Novo
+15|Ništa nije odabrano
+16|Otvorite crtež ili započnite prazan dizajn.
+17|Otvori…
+18|Postavke stranice…
+19|Uspravno
+20|Svojstva
+21|Stavi odabrane oblike na ovaj sloj
+22|Spremno
+23|Sačuvaj kao…
+24|Postavke
+25|Oblici na ovom sloju
+26|Prikazano u radnom prostoru
+27|Jedinice
+28|Prikaz
+29|Opcije prikaza…

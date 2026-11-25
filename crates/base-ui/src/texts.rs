@@ -1,5 +1,5 @@
 //! The texts of the shared interface (node bar, selection commands): English, six languages in the table, and the
-//! other 23 in the files next to this one. Generated from the texts of LightCreator; the test of this file checks that
+//! other languages in the files next to this one. Generated from the texts of LightCreator; the test of this file checks that
 //! every text used by `tr` in this crate has all its translations.
 use crate::i18n::{Texts, TABLE_LANGS};
 
@@ -1616,6 +1616,14 @@ pub static TEXTS: Texts = Texts::new(TABLE, KEYS, [
     include_str!("texts/es.txt"),
     include_str!("texts/sv.txt"),
     include_str!("texts/uk.txt"),
+    include_str!("texts/ja.txt"),
+    include_str!("texts/ko.txt"),
+    include_str!("texts/zh-hant.txt"),
+    include_str!("texts/tr.txt"),
+    include_str!("texts/vi.txt"),
+    include_str!("texts/id.txt"),
+    include_str!("texts/sr.txt"),
+    include_str!("texts/bs.txt"),
 
 ]);
 

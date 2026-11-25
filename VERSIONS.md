@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.11
+
+- **Eight new languages**: Japanese, Korean, Traditional Chinese, Turkish, Vietnamese, Indonesian, Serbian (Cyrillic) and Bosnian, 38 in all. Simplified Chinese is now named so in the menu. A Korean font (Noto Sans KR, only the Hangul letters) is built in; Japanese and Traditional Chinese use the Chinese font that was there.
+- `i18n::EXTRA_LANGS`: the number of languages in the `<code>.txt` files (31 now). A program writes its files as `[&str; i18n::EXTRA_LANGS]`.
+- A long submenu (the languages) scrolls instead of running off a short screen.
+
 ## v2.7.10
 
 - **Project information** no longer grows to the height of the screen. The window fits what it shows: the values are rows, not a grid (a grid's first frame made the wrapped values very tall, and the window kept that height), a short list of edits is shown as it is and a long one scrolls at most 300 points high. Its remembered size starts again.

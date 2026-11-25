@@ -41,10 +41,19 @@ pub enum Lang {
     Es,
     Sv,
     Uk,
+    // Added 2026-11 (also files).
+    Ja,
+    Ko,
+    ZhHant,
+    Tr,
+    Vi,
+    Id,
+    Sr,
+    Bs,
 }
 
 impl Lang {
-    pub const ALL: [Lang; 30] = [Lang::En, Lang::Pl, Lang::De, Lang::It, Lang::Fi, Lang::Zh, Lang::Hi, Lang::Bg, Lang::Ca, Lang::Hr, Lang::Cs, Lang::Da, Lang::Nl, Lang::Et, Lang::Fr, Lang::El, Lang::Hu, Lang::Is, Lang::Ga, Lang::Lv, Lang::Lt, Lang::Mt, Lang::Nb, Lang::Pt, Lang::Ro, Lang::Sk, Lang::Sl, Lang::Es, Lang::Sv, Lang::Uk];
+    pub const ALL: [Lang; 38] = [Lang::En, Lang::Pl, Lang::De, Lang::It, Lang::Fi, Lang::Zh, Lang::Hi, Lang::Bg, Lang::Ca, Lang::Hr, Lang::Cs, Lang::Da, Lang::Nl, Lang::Et, Lang::Fr, Lang::El, Lang::Hu, Lang::Is, Lang::Ga, Lang::Lv, Lang::Lt, Lang::Mt, Lang::Nb, Lang::Pt, Lang::Ro, Lang::Sk, Lang::Sl, Lang::Es, Lang::Sv, Lang::Uk, Lang::Ja, Lang::Ko, Lang::ZhHant, Lang::Tr, Lang::Vi, Lang::Id, Lang::Sr, Lang::Bs];
 
     /// Name shown in the language menu (always in the language itself, plus English for scripts that
     /// might lack a font on a bare system).
@@ -55,7 +64,7 @@ impl Lang {
             Lang::De => "Deutsch",
             Lang::It => "Italiano",
             Lang::Fi => "Suomi",
-            Lang::Zh => "中文 (Chinese)",
+            Lang::Zh => "简体中文 (Simplified Chinese)",
             Lang::Hi => "हिन्दी (Hindi)",
             Lang::Bg => "Български",
             Lang::Ca => "Català",
@@ -80,6 +89,14 @@ impl Lang {
             Lang::Es => "Español",
             Lang::Sv => "Svenska",
             Lang::Uk => "Українська",
+            Lang::Ja => "日本語 (Japanese)",
+            Lang::Ko => "한국어 (Korean)",
+            Lang::ZhHant => "繁體中文 (Traditional Chinese)",
+            Lang::Tr => "Türkçe",
+            Lang::Vi => "Tiếng Việt",
+            Lang::Id => "Bahasa Indonesia",
+            Lang::Sr => "Српски",
+            Lang::Bs => "Bosanski",
         }
     }
     pub fn code(self) -> &'static str {
@@ -114,6 +131,14 @@ impl Lang {
             Lang::Es => "es",
             Lang::Sv => "sv",
             Lang::Uk => "uk",
+            Lang::Ja => "ja",
+            Lang::Ko => "ko",
+            Lang::ZhHant => "zh-hant",
+            Lang::Tr => "tr",
+            Lang::Vi => "vi",
+            Lang::Id => "id",
+            Lang::Sr => "sr",
+            Lang::Bs => "bs",
         }
     }
     pub fn from_code(s: &str) -> Option<Lang> {
@@ -179,21 +204,24 @@ pub fn register(texts: &'static Texts) {
 /// Number of languages that come from the table (English plus six).
 pub const TABLE_LANGS: usize = 7;
 
-/// A set of texts: a table with English and six languages, and the other 23 languages as `id|translation` lines,
+/// Number of languages that come from the `<code>.txt` files: all the others.
+pub const EXTRA_LANGS: usize = Lang::ALL.len() - TABLE_LANGS;
+
+/// A set of texts: a table with English and six languages, and the other languages (`EXTRA_LANGS`) as `id|translation` lines,
 /// where the id is the line of the English text in the `keys` text (`id<TAB>English`).
 pub struct Texts {
     table: &'static [[&'static str; TABLE_LANGS]],
     keys: &'static str,
-    files: [&'static str; 23],
+    files: [&'static str; EXTRA_LANGS],
     rows: OnceLock<HashMap<&'static str, &'static [&'static str; TABLE_LANGS]>>,
     english: OnceLock<HashMap<usize, &'static str>>,
-    maps: [OnceLock<HashMap<&'static str, &'static str>>; 23],
+    maps: [OnceLock<HashMap<&'static str, &'static str>>; EXTRA_LANGS],
 }
 
 impl Texts {
     /// `files` are in the order of `Lang::ALL` after the first seven.
-    pub const fn new(table: &'static [[&'static str; TABLE_LANGS]], keys: &'static str, files: [&'static str; 23]) -> Texts {
-        Texts { table, keys, files, rows: OnceLock::new(), english: OnceLock::new(), maps: [const { OnceLock::new() }; 23] }
+    pub const fn new(table: &'static [[&'static str; TABLE_LANGS]], keys: &'static str, files: [&'static str; EXTRA_LANGS]) -> Texts {
+        Texts { table, keys, files, rows: OnceLock::new(), english: OnceLock::new(), maps: [const { OnceLock::new() }; EXTRA_LANGS] }
     }
     pub fn table(&self) -> &'static [[&'static str; TABLE_LANGS]] {
         self.table
@@ -201,7 +229,7 @@ impl Texts {
     pub fn keys(&self) -> &'static str {
         self.keys
     }
-    pub fn files(&self) -> &[&'static str; 23] {
+    pub fn files(&self) -> &[&'static str; EXTRA_LANGS] {
         &self.files
     }
 
@@ -252,7 +280,7 @@ mod tests {
 
     const ROWS: &[[&str; TABLE_LANGS]] = &[["Save", "Zapisz", "Speichern", "Salva", "Tallenna", "保存", "सहेजें"]];
     static T: Texts = Texts::new(ROWS, "0\tSave\n", {
-        let mut f = [""; 23];
+        let mut f = [""; EXTRA_LANGS];
         f[7] = "0|Enregistrer\n";
         f
     });
@@ -269,11 +297,12 @@ mod tests {
     #[test]
     fn languages_have_unique_codes_and_are_found_by_code() {
         assert_eq!(Lang::from_code("sv"), Some(Lang::Sv));
-        assert_eq!(Lang::ALL.len(), 30);
+        assert_eq!(Lang::ALL.len(), 38);
+        assert_eq!(Lang::from_code("zh-hant"), Some(Lang::ZhHant));
         let mut codes: Vec<_> = Lang::ALL.iter().map(|l| l.code()).collect();
         codes.sort();
         codes.dedup();
-        assert_eq!(codes.len(), 30, "language codes are unique");
+        assert_eq!(codes.len(), 38, "language codes are unique");
         assert_eq!(Lang::Fr.index() as usize, TABLE_LANGS + 7);
     }
 

@@ -83,6 +83,9 @@ pub fn menu_bar<H: MenuHost>(host: &mut H, ui: &mut egui::Ui) {
     }
 }
 
+/// A submenu with more entries than this scrolls.
+const LONG_SUBMENU: usize = 24;
+
 /// The entries of one menu or submenu; the action the user clicked is left in `pending`.
 pub fn menu_entries<H: MenuHost>(host: &H, ui: &mut egui::Ui, entries: &[Entry<H::Act>], pending: &mut Option<H::Act>) {
     for e in entries {
@@ -92,7 +95,15 @@ pub fn menu_entries<H: MenuHost>(host: &H, ui: &mut egui::Ui, entries: &[Entry<H
             }
             Entry::Sub(title, children) => {
                 let ink = theme::text();
-                ui.menu_button((icons::slot(icons::submenu_icon(title), ink), tr(title)), |ui| menu_entries(host, ui, children, pending));
+                ui.menu_button((icons::slot(icons::submenu_icon(title), ink), tr(title)), |ui| {
+                    // A long list (the languages) scrolls instead of running off a short screen.
+                    if children.len() > LONG_SUBMENU {
+                        let max = (ui.ctx().content_rect().height() - 80.0).max(200.0);
+                        egui::ScrollArea::vertical().max_height(max).show(ui, |ui| menu_entries(host, ui, children, pending));
+                    } else {
+                        menu_entries(host, ui, children, pending);
+                    }
+                });
             }
             Entry::Recent => {
                 let ink = theme::text();

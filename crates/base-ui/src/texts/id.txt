@@ -1,0 +1,1583 @@
+0|(kosong)
+1|Versi yang lebih baru tersedia: {}
+2|Tambahkan file SVG dari komputer Anda ke clipart Anda
+3|Tambah file…
+4|Tambah node
+5|Menambahkan {} gambar ke {}
+6|Sesuaikan gambar
+7|Rata bawah
+8|Rata tengah
+9|Rata tengah (H)
+10|Rata tengah (V)
+11|Rata kiri
+12|Rata tengah vertikal
+13|Rata kanan
+14|Rata atas
+15|Perataan
+16|Semua kategori
+17|Sudut
+18|Hewan
+19|Terapkan
+20|Pembuat
+21|Level otomatis
+22|Sesuaikan area kerja ke jendela secara otomatis
+23|Otomatis
+24|Warna latar
+25|Bawah
+26|Kecerahan
+27|Bawa ke depan
+28|Batal
+29|Kategori
+30|Perayaan
+31|Tengah
+32|Tengahkan di meja
+33|Tengahkan satu sama lain
+34|Ubah kategori
+35|Ubah kategori…
+36|Kosongkan daftar
+37|Klik gambar untuk melihat lisensinya dan menyimpannya.
+38|Klik untuk menaruh di area kerja
+39|Clipart
+40|Tutup
+41|Tutup jalur terbuka, atau buka jalur tertutup di node yang dipilih
+42|Koleksi
+43|Warna
+44|Skema warna
+45|Kontras
+46|Ubah teks menjadi kurva, atau lacak gambar, untuk mengedit node-nya.
+47|Ubah menjadi jalur
+48|Salin
+49|Sudut tajam
+50|Tidak dapat memeriksa pembaruan.
+51|Hapus
+52|Hapus node
+53|Hapus gambar sesudahnya
+54|Hapus…
+55|Jelaskan proyek: apa itu, pengaturan yang berhasil, catatan untuk lain kali.
+56|Deskripsi
+57|Detail
+58|Detail…
+59|Jarak antar garis
+60|Unduh
+61|Gagal mengunduh: {}
+62|Mengunduh…
+63|Duplikat
+64|Edit node
+65|Elips (E)
+66|Ukir bagian terang, bukan bagian gelap
+67|Paskan semua objek
+68|Paskan semua objek (Ctrl+9)
+69|Paskan meja ke jendela
+70|Paskan area kerja (Ctrl+0)
+71|Balik H
+72|Balik V
+73|Balik horizontal
+74|Balik vertikal
+75|Makanan
+76|Gamma
+77|Kisi
+78|Kelompokkan
+79|Dikelompokkan. Objek tetap pada lapisannya.
+80|Hati (K)
+81|Abaikan area kecil
+82|Impor
+83|Impor gagal: {}
+84|Impor gambar
+85|Gambar {} diimpor
+86|Bawaan
+87|Sisipkan node (atau klik ganda segmen)
+88|Bahasa
+89|Kiri
+90|Lisensi
+91|Garis (L)
+92|Ketebalan garis
+93|Kunci
+94|Kunci rasio aspek
+95|{} objek dikunci.
+96|Kisi utama
+97|Jadikan segmen setelah tiap node terpilih sebagai kurva
+98|Jadikan segmen setelah tiap node terpilih lurus
+99|Jadikan node terpilih sudut
+100|Jadikan node terpilih halus
+101|Maksimalkan
+102|Tengah-H
+103|Tengah-V
+104|Milik saya
+105|Minimalkan
+106|Cerminkan dan tengahkan
+107|Musik dan hiburan
+108|Clipart saya
+109|Nama
+110|Alam
+111|Gambar negatif
+112|Rilis terbaru: {}
+113|Tidak ada gambar di sini. Gunakan Online… untuk mencarinya.
+114|Edit node (N)
+115|Tidak ditemukan apa pun.
+116|OK
+117|Objek
+118|Clipart online
+119|Online…
+120|Simpan hanya gambar yang boleh Anda gunakan. Periksa lisensi sumbernya.
+121|Buka / tutup
+122|Buka terbaru
+123|Buka halaman unduhan
+124|Atau unduh gambar dari sebuah alamat
+125|Geser (H)
+126|Tempel
+127|Gambar bawaan program
+128|Gambar yang Anda unduh atau tambahkan
+129|{} ditempatkan
+130|Poligon (G)
+131|Polyline / pena (P)
+132|Posisi dan ukuran
+133|Halaman proyek di GitHub
+134|Panduan singkat
+135|Keluar
+136|Jari-jari pembulatan
+137|Persegi panjang (R)
+138|Ulangi
+139|Hapus gambar ini dari clipart Anda? File di disk Anda akan dihapus.
+140|Ganti nama
+141|Ganti nama…
+142|Atur ulang
+143|Atur ulang kisi
+144|Pulihkan
+145|Kanan
+146|Putar
+147|Putar 90° berlawanan arah jarum jam
+148|Putar 90° searah jarum jam
+149|Putar dan balik
+150|Rotasi
+151|Bulatkan
+152|Bulatkan sudut terpilih dengan jari-jari ini
+153|{} sudut dibulatkan.
+154|Simpan salinan di clipart saya
+155|Simpan ke clipart saya
+156|{} disimpan di {}
+157|Cari
+158|Pencarian gagal: {}
+159|Cari di koleksi ikon terbuka (Iconify). Gambar disimpan di disk Anda, dalam kategori pilihan Anda.
+160|Cari lebih banyak gambar di internet dan simpan di sini
+161|Mencari…
+162|Kisi sekunder
+163|Pilih (V)
+164|Pilih bentuk terlebih dahulu, lalu edit node-nya.
+165|Pilih semua
+166|Pilih setidaknya dua objek untuk dikelompokkan.
+167|Kirim ke belakang
+168|Bentuk
+169|Tampilkan
+170|Tampilkan atau sembunyikan kisi
+171|Tampilkan atau sembunyikan kisi sekunder
+172|Sederhanakan
+173|Ukuran
+174|Ukuran saat ditempatkan
+175|Halus
+176|Haluskan kurva
+177|Tempel ke kisi
+178|Tempel ke objek
+179|Sumber
+180|Spiral (I)
+181|Bintang (S)
+182|Simbol
+183|Teks (T)
+184|Hasilnya kosong.
+185|Kisi sekunder harus lebih rapat daripada kisi utama.
+186|Ruang di sekitar area kerja
+187|Tidak ada sudut lurus untuk dibulatkan.
+188|Ambang
+189|Ke kurva
+190|Ke garis
+191|Nada
+192|Alat
+193|Atas
+194|Lacak
+195|Lacak gambar
+196|Lacak area terang
+197|{} garis tepi dilacak
+198|Segitiga (Y)
+199|Urungkan
+200|Pisahkan grup
+201|Buka kunci
+202|{} objek dibuka kuncinya.
+203|Pembaruan
+204|Versi {}
+205|Opsi tampilan
+206|Lebar
+207|Area kerja
+208|Warna ruang kerja
+209|Anda memakai versi terbaru.
+210|Versi Anda: {}.
+211|Perbesar
+212|Perbesar (Z)
+213|Perkecil
+214|Perkecil (X)
+215|bawaan program
+216|cantumkan pembuat
+217|mis. kucing, bunga, roda gigi
+218|tanpa perlu atribusi
+219|atau kategori baru
+220|milik Anda
+221|{} garis tepi
+222|{} gambar ditemukan
+223|{} × {} px
+224|Dibatalkan (soft reset)
+225|Kecepatan animasi
+226|Kembali ke awal
+227|Tidak dapat membuka {}: {}
+228|Terhubung ke {}
+229|Koneksi terputus
+230|Tidak terhubung
+231|Tidak ada jawaban dari kontroler selama {} dtk saat pekerjaan berjalan (status: {}).
+232|Jeda
+233|Putar
+234|Ulangi
+235|Gulir otomatis
+236|Bersihkan
+237|Kirim
+238|Kueri status
+239|kirim G-code / perintah $
+240|Unduh cadangan…
+241|Pulihkan dari cadangan…
+242|Pencadangan gagal: {}
+243|Cadangan dipulihkan: {}
+244|Cadangan disimpan: {}
+245|Pemulihan gagal: {}
+246|Pulihkan dari cadangan
+247|Pengaturan Anda saat ini akan diganti oleh cadangan. Gambarnya ditambahkan ke galeri bersama. Lanjutkan?
+248|${} sekarang {} langkah/mm
+249|1. Beri tanda di posisi alat (atau pasang dial gauge di sana). 2. Tekan Pindah. 3. Ukur jaraknya dan ketik di bawah.
+250|Probe sentuh 3D
+251|Perintah G-code tidak didukung atau tidak valid.
+252|Sebuah kata G-code tidak memiliki huruf.
+253|Perintah kekurangan nilai P atau L.
+254|Perintah memerlukan bilangan bulat.
+255|Perintah memerlukan kata sumbu tetapi barisnya tidak punya.
+256|Sakelar batas tersentuh. Posisi mungkin hilang: lakukan homing lagi.
+257|Makro adalah G-code yang dikirim oleh tombol di tab Kontrol. Dapat memakai variabel dalam kurung siku.
+258|Nilai negatif di tempat yang memerlukan nilai positif.
+259|Angka tidak valid atau tidak ada.
+260|Sebuah kata diulang dalam baris.
+261|Tambah makro
+262|Tambah pengingat
+263|Tambah langkah
+264|Setelah pekerjaan (selesai atau dihentikan)
+265|Alarm
+266|Alarm {}: {}
+267|Alarm
+268|Semua {} pengaturan dari file kini ada di kontroler.
+269|Busur tidak memiliki kata sumbu pada bidangnya.
+270|Input yang aktif padahal tidak disentuh apa pun menunjukkan masalah kabel atau pengaturan ($5, $6).
+271|Seputar pekerjaan
+272|Tombol panah menggerakkan X dan Y, Page Up dan Page Down menggerakkan Z. Mati secara bawaan: panah juga menggerakkan bentuk terpilih.
+273|Pada baris ini: X {} Y {} Z {}, {}, laju {}
+274|Masih ada kata sumbu saat G80 aktif.
+275|Cadangkan pengaturan terlebih dahulu. Untuk melanjutkan, ketik {}:
+276|Cadangkan ke file…
+277|Sebelum pekerjaan dimulai
+278|Kalibrasi
+279|Kalibrasi…
+280|Tidak dapat mulai di sini: {}
+281|Tidak dapat memakai file: {}
+282|Ganti alat atau pena sekarang. Mesin menunggu; tidak ada yang bergerak sampai Anda melanjutkan.
+283|Periksa program sebelum setiap jalan
+284|Hapus alarm ($X)
+285|Hapus statistik
+286|Klik untuk mengetik posisi alat dalam koordinat kerja
+287|Hubungkan ke mesin terlebih dahulu (tab Perangkat)
+288|Hubungkan ke mesin untuk melihat input-nya.
+289|Lanjutkan pekerjaan
+290|Kontroler
+291|Koordinat
+292|Mulai siklus
+293|Hapus makro ini
+294|Hapus pengingat ini
+295|Diagnostik dan statistik
+296|Diagnostik disimpan: {}
+297|Diagonal A
+298|Diagonal A lebih panjang: sumbu Y condong ke +X.
+299|Diagonal B
+300|Diagonal B lebih panjang: sumbu Y condong ke −X.
+301|Diameter bola
+302|Jarak
+303|Selesai
+304|Galat
+305|Galat
+306|Ekspor diagnostik (zip)…
+307|Ekspor gagal: {}
+308|Pengaturan pabrik ($RST=$)…
+309|Pengaturan pabrik ditulis ($RST=$)
+310|Jarak gagal
+311|Gerakan tercepat X dan Y
+312|Tahan laju
+313|File
+314|Pengaturan firmware ($$)
+315|Dari kontroler
+316|G-code terkunci selama alarm atau jog. Buka kunci terlebih dahulu.
+317|G43.1 hanya dapat menggeser sumbu panjang alat.
+318|G53 hanya berfungsi dengan G0 atau G1.
+319|GRBL tidak mengenal perintah $ ini.
+320|Ke X0 Y0
+321|Tinggi
+322|Tahan untuk bergerak
+323|Homing
+324|Homing gagal: direset selama siklus.
+325|Homing gagal: sakelar batas tidak ditemukan. Periksa sakelar dan kabelnya.
+326|Homing gagal: pintu pengaman dibuka selama siklus.
+327|Homing gagal: sakelar tidak lepas saat menarik mundur. Periksa jarak tarik mundur dan kabelnya.
+328|Homing tidak diaktifkan di pengaturan ($22).
+329|Input
+330|Input aktif: {}
+331|Alih-alih satu langkah per klik, alat bergerak selama tombol ditahan
+332|Baru saja dilakukan
+333|Pekerjaan
+334|Jogging
+335|Papan ketik
+336|Mode laser memerlukan output PWM.
+337|Probe terakhir: X {} Y {} Z {} ({})
+338|Probe terakhir: Z {} ({})
+339|Angkat setelah nol diatur
+340|Angkat ke ketinggian aman, lalu ke nol kerja
+341|Baris
+342|Mesin
+343|Makro {}
+344|Makro {}: {}
+345|Makro {}: {} baris dikirim
+346|Makro
+347|Perawatan
+348|Tandai atau potong sebuah persegi panjang dan ukur kedua diagonalnya: dari sudut kiri depan ke kanan belakang (A) dan dari kanan depan ke kiri belakang (B). Keduanya sama bila sumbu siku.
+349|Terukur
+350|Pindah
+351|Pindahkan {} sejauh jarak
+352|Nilai baru: ${} = {} (sebelumnya {})
+353|Laju pemakanan belum diatur.
+354|Tidak ada pengingat. Tambahkan di pengaturan perangkat (Perawatan).
+355|Belum dibaca (Mesin → Pengaturan firmware).
+356|Belum ada yang dibaca.
+357|Offset Z saat menyentuh
+358|Lumasi rel
+359|Hanya sistem koordinat kerja G54 hingga G59 yang didukung.
+360|Hanya yang berbeda dari nilai umum
+361|Tidak siku sebesar {}°: satu ujung sumbu Y bergeser {} mm sepanjang tingginya.
+362|Posisi
+363|Probe
+364|Probe Z
+365|Probe gagal: tidak menyentuh apa pun dalam jarak. Periksa pelat dan jarak gagal.
+366|Probe gagal: probe sudah tertutup sebelum bergerak. Periksa kabel dan pelat.
+367|Letakkan pelat di bawah alat: alat turun hingga menyentuh, lalu Z diatur ke tebal pelat
+368|Letakkan alat di samping tepi: alat bergerak ke arahnya hingga menyentuh, dan tepi menjadi nol
+369|Sentuhan cepat
+370|Baca mesin
+371|Baca pengaturan ($$)
+372|Membaca…
+373|Membaca firmware ($I) dan pengaturan ($$) kontroler
+374|Hapus langkah ini
+375|Direset saat bergerak. Langkah mungkin hilang: lakukan homing lagi.
+376|Pulihkan dari file…
+377|Pulihkan pengaturan pabrik
+378|Pulihkan pengaturan dari file
+379|Tarik mundur di antara sentuhan
+380|Pintu pengaman
+381|Pengaturan disimpan ke {}
+382|Atur Z lagi dengan probe: alat baru menyentuh pelat dan Z menjadi tebal pelat
+383|Pengaturan
+384|Sentuhan lambat
+385|Batas lunak
+386|Batas lunak memerlukan homing juga diaktifkan.
+387|Beberapa kata tidak dipakai oleh perintah mana pun.
+388|Kecepatan XY
+389|Kecepatan Z
+390|Kecepatan spindel
+391|Kesikuan sumbu
+392|Mulai dari sini
+393|Mulai dari baris
+394|Mulai dari baris…
+395|Statistik mesin ini
+396|Langkah X dan Y (mm)
+397|Langkah Z (mm)
+398|Langkah per milimeter
+399|Hentikan pekerjaan
+400|Hentikan gerakan
+401|Busur tidak dapat dihitung dari jari-jarinya. Pecah atau gunakan offset.
+402|Busur kekurangan offset I, J, atau K.
+403|Sumbu siku dalam {} mm sepanjang tinggi.
+404|Info build atau baris awal terlalu panjang.
+405|Kontroler sudah memiliki semuanya.
+406|Kontroler menjalankan program dalam mode periksa ($C): tidak ada yang bergerak, dan baris yang tidak dipahaminya dilaporkan sebelum jalan sebenarnya
+407|Kontroler melapor dalam inci ($13): posisi di tab Kontrol bukan dalam milimeter.
+408|Pekerjaan dijeda
+409|Perintah jog tidak valid.
+410|Jog melampaui jangkauan mesin dan diabaikan.
+411|Baris terlalu panjang.
+412|Nomor baris di luar jangkauan.
+413|Mesin telah berjalan {} jam dalam {} pekerjaan.
+414|Mesin dibawa ke keadaan program pada baris itu: satuan, spindel, kecepatan, posisi. Pastikan alat dan benda kerja ada di tempat semula.
+415|Mesin bergerak sejauh yang Anda minta; ukur seberapa jauh sebenarnya ia bergerak dan jumlah langkah yang benar akan dihitung.
+416|Gerakan melampaui jangkauan mesin. Posisi tetap; buka kunci untuk melanjutkan.
+417|Probe turun hingga menyentuh; Z diatur ke offset probe
+418|Input probe sudah tertutup. Periksa klip, pelat, dan kabel.
+419|Probe harus terhubung ke input probe kontroler. Uji dengan menyentuh pelat: input tampil tertutup di tab Kontrol.
+420|Pintu pengaman terbuka.
+421|Pengaturan melebihi laju langkah yang didukung GRBL ini.
+422|Pengaturan tidak dapat dibaca; nilai bawaan dipulihkan.
+423|Pengaturan belum dibaca.
+424|Pengaturan disimpan sebelum perubahan pertama: {}
+425|Waktu pulsa langkah minimal 3 µs.
+426|Tujuan gerakan tidak valid.
+427|Alat ada di sini: jadikan ini nol kerja
+428|Nomor alat terlalu tinggi.
+429|Pengaturan ini ada di kontroler, bukan di perangkat. Ubah satu per satu dan catat nilai sebelumnya: nilai yang salah dapat membuat mesin bergerak sejauh jarak yang salah. Perubahan pertama dalam sesi menyimpan semua pengaturan ke file.
+430|Pengaturan file ini berbeda dari kontroler. Tidak ada yang ditulis sampai Anda menekan Tulis semua.
+431|Tebal sisinya
+432|Tebal pelat
+433|Perintah $ ini hanya berfungsi saat mesin diam.
+434|Ini menulis $RST=$: setiap pengaturan kontroler kembali ke bawaan firmware. Jumlah langkah, jangkauan, kecepatan, dan homing akan berubah.
+435|Waktu berjalan
+436|Diameter alat
+437|Pelat sentuh
+438|Jangkauan X, Y, Z
+439|Dua perintah dalam baris sama-sama memerlukan kata sumbu.
+440|Dua perintah dari grup yang sama ada di satu baris.
+441|Ketik kedua diagonal untuk melihat hasilnya.
+442|Ketik jarak terukur untuk melihat nilai baru.
+443|Umum
+444|Satuan
+445|Gunakan nilai ini untuk perangkat
+446|Nilai
+447|Variabel: {}
+448|Yang dilakukan
+449|Kerja
+450|Tulis
+451|Tulis ${}
+452|Tulis ${} = {} ke kontroler? Saat ini {}. Ubah satu pengaturan setiap kali dan catat nilai lamanya.
+453|Tulis pengaturan
+454|Tulis semua
+455|Menulis {} pengaturan; setelahnya dibaca kembali
+456|Batas X
+457|Sakelar batas X
+458|Batas Y
+459|Sakelar batas Y
+460|Ya
+461|Z
+462|Batas Z
+463|Sakelar batas Z
+464|Z ke ketinggian aman
+465|Nolkan X dan Y
+466|Nolkan semua
+467|jarak probe di luar jangkauan
+468|ukuran probe di luar jangkauan
+469|tertutup
+470|pintu
+471|setiap
+472|tahan
+473|input {}
+474|tidak ada kontak
+475|laju pemakanan belum diatur sebelum baris ini
+476|dari {}
+477|mati
+478|nyala
+479|terbuka
+480|probe
+481|reset
+482|spindel mati
+483|spindel nyala (M{}) pada {}
+484|mulai
+485|jarak gagal harus lebih panjang dari dua kali jarak tarik mundur
+486|baris melanjutkan busur (G2/G3) tanpa kata G
+487|baris melewati akhir program
+488|baris sebelumnya memakai G53 atau G92, sehingga posisi tidak dapat dihitung
+489|program belum bergerak di X dan Y sebelum baris ini
+490|laju probe lambat harus antara 1 dan laju yang cepat
+491|tersentuh
+492|{} baris akan dikirim terlebih dahulu untuk menyiapkan ini.
+493|{} dari {} pengaturan berbeda setelah ditulis:
+494|{} {}: {}
+495|{}: jatuh tempo (lewat {} jam)
+496|{}: sisa {} jam
+497|1. Letak sensor
+498|2. Alat pertama, acuan
+499|3. Setiap alat lainnya
+500|Salinan pengaturan kontroler disimpan bersama perangkat. Salinan dibuat saat mesin pertama kali terhubung dan setiap kali pengaturan berbeda dari salinan terbaru; salinan menjadi bagian cadangan program.
+501|Salinan {} pengaturan kontroler disimpan bersama perangkat.
+502|Salinan {} pengaturan disimpan bersama perangkat.
+503|Pekerjaan sedang berjalan.
+504|Pengukuran sudah berjalan.
+505|Salinan baru pengaturan disimpan setelah perubahan Anda ({} pengaturan berbeda dari sebelumnya).
+506|Sensor panjang alat adalah sakelar di tempat tetap pada mesin. Ujung setiap alat menyentuhnya, sehingga mata bor baru bisa mendapat Z yang persis sama dengan sebelumnya tanpa menyentuh benda kerja lagi. Posisinya dalam koordinat mesin: lakukan homing terlebih dahulu, dan jangan pernah memindahkan sensor.
+507|Setelah menyentuh, Z diatur ke Z alat acuan pada sensor
+508|Bandingkan dengan kontroler dan tulis kembali perbedaannya
+509|Salinan pengaturan ({})
+510|Lupakan
+511|Jog alat ke atas tengah sensor, beberapa milimeter di atasnya, lalu tekan tombol.
+512|Mesin X {}  Y {}, mendekat dari Z {}
+513|Buat salinan sekarang
+514|Ukur alat acuan
+515|Ukur alat acuan terlebih dahulu.
+516|Ukur alat (sensor)
+517|Ukur alat ini dan atur Z
+518|Mengukur…
+519|Belum diukur.
+520|Belum diatur.
+521|Tidak ada yang diubah; selisih dari acuan ditampilkan
+522|Ukur saja
+523|Pasang mata pertama dan atur Z pada benda kerja dengannya (tab Kontrol: probe Z, atau sentuh permukaan dan tekan Z0). Lalu ukur di sensor.
+524|Acuan: Z {} di sensor
+525|Pulihkan…
+526|Atur posisi sensor terlebih dahulu.
+527|Kontroler belum melaporkan posisi.
+528|Pengaturan yang berbeda dari salinan yang disimpan bersama perangkat: {}. Salinan baru disimpan.
+529|Pertama kali, siagakan tangan di dekat tombol stop: alat turun ke arah sensor.
+530|Mesin menuju sensor dan alat menyentuhnya dua kali
+531|Mesin menuju sensor panjang alat; alat baru mendapat Z dari alat acuan
+532|Mesin tidak dalam keadaan diam.
+533|Sensor ada di sini
+534|Alat sama panjang dengan alat acuan.
+535|Alat {} mm lebih panjang dari alat acuan.
+536|Alat {} mm lebih pendek dari alat acuan.
+537|Sensor panjang alat
+538|Sensor panjang alat…
+539|Ketinggian jalan (Z mesin)
+540|Saat pekerjaan berhenti untuk ganti mata, jendela menawarkan Ukur alat. Ini juga bisa dilakukan di sini, kapan saja.
+541|posisi sensor di luar jangkauan
+542|setelah perubahan di sini
+543|saat terhubung
+544|manual
+545|salinan pengaturan tidak valid
+546|acuan tidak valid
+547|awal pendekatan tidak boleh lebih tinggi dari ketinggian jalan
+548|{} pengaturan
+549|… dan {} lainnya
+550|Buat
+551|File data
+552|Hasilkan bentuk…
+553|{} bentuk dihasilkan
+554|Generator
+555|Generator
+556|Importer
+557|Pasang plugin dari zip…
+558|Pesan dari skrip:
+559|Tidak ada generator terpasang. Plugin dapat menambahkannya (jendela Plugin).
+560|Belum ada plugin. Taruh folder plugin ke folder plugins atau pasang zip.
+561|Tidak ada
+562|Bukan untuk program ini
+563|Buka folder plugin
+564|Gagal memasang plugin: {}
+565|Plugin terpasang: {}
+566|Plugin dihapus: {}
+567|Plugin
+568|Plugin menjalankan skrip yang dapat membuat bentuk dan mengubah G-code. Pasang hanya plugin yang Anda percayai.
+569|Plugin yang tidak dapat dibaca
+570|Plugin…
+571|Postprocessor
+572|Postprocessor
+573|Preset
+574|Muat ulang plugin
+575|Hapus
+576|Hapus plugin {}? Foldernya akan dihapus.
+577|Skrip gagal: {}
+578|Terjemahan
+579|Impor dengan plugin…
+580|Tidak ada plugin yang membaca file: pasang satu di jendela Plugin
+581|Postprocessor gagal, tidak ada yang disimpan: {}
+582|Periksa pembaruan plugin saat mulai
+583|Periksa pembaruan
+584|Memeriksa daftar…
+585|Tidak dapat mengambil daftar: {}
+586|Mengunduh {}…
+587|Untuk: {}
+588|Pasang
+589|Terpasang
+590|Memerlukan program versi {} atau lebih baru
+591|Plugin resmi
+592|Plugin diperbarui: {}
+593|Pembaruan plugin tersedia: {}
+594|Repositori plugin
+595|Daftar belum dimuat. Tekan Periksa pembaruan.
+596|Terbaru
+597|Perbarui
+598|Pembaruan tersedia: {} → {}
+599|{} plugin dalam daftar, {} dapat diperbarui
+600|Ditemukan proyek yang belum disimpan
+601|{} bentuk, disimpan otomatis
+602|Pulihkan
+603|Buang
+604|Proyek yang belum disimpan telah dipulihkan
+605|{} — klik untuk menetapkan pilihan / menjadikan aktif; klik ganda untuk opsi
+606|Tampilkan semua {} lapisan
+607|Periksa pembaruan…
+608|Opsi program…
+609|Opsi program
+610|Cari versi yang lebih baru saat program dimulai
+611|Lebih awal dalam pekerjaan
+612|Lebih akhir dalam pekerjaan
+613|Seberapa jauh satu klik menggerakkan alat, dalam milimeter
+614|Kecepatan
+615|Tombol panah menggerakkan X dan Y, Page Up dan Page Down menggerakkan Z, sejauh langkah yang dipilih di atas. Mati secara bawaan: panah juga menggerakkan bentuk terpilih.
+616|Spindel
+617|Nyalakan
+618|Menyalakan spindel untuk mencobanya (M3 S…) lalu mematikannya lagi (M5). Pekerjaan melakukannya sendiri.
+619|Matikan
+620|Lihat mengapa berhenti sebelum membuka kunci mesin: alat mungkin berada di dalam material.
+621|Stop
+622|Hentikan pekerjaan dan spindel
+623|Pekerjaan berhenti
+624|Tidak ada jawaban dari mesin
+625|Kecepatan spindel dikirim sebagai S{} untuk {} rpm: rentang kontroler ($30) disebar ke kecepatan tertinggi perangkat ({} rpm).
+626|Sembunyikan panel (tab tetap di strip sempit)
+627|Tampilkan panel
+628|Impor gambar…
+629|Sesuaikan gambar…
+630|Lacak gambar…
+631|Pilih setidaknya dua bentuk (bukan gambar).
+632|Garis-garis ini tidak dapat disambung (sejajar, atau jari-jarinya tidak muat).
+633|Kedua garis disambung dengan sudut membulat.
+634|Pilih bentuk yang akan dibulatkan terlebih dahulu.
+635|Bulatkan sudut
+636|Jari-jari
+637|Dua garis lurus dipilih: keduanya disambung dengan sudut membulat.
+638|Setiap sudut lurus dari bentuk terpilih dibulatkan.
+639|Offset bentuk
+640|Positif membesarkan garis tepi, negatif mengecilkannya.
+641|Pertahankan aslinya
+642|Buat offset
+643|Gabungan
+644|Irisan
+645|Kurangi
+646|Eksklusif atau
+647|Offset bentuk…
+648|Bulatkan sudut…
+649|Ubah menjadi kurva
+650|Operasi bentuk
+651|Gambar
+652|Floyd-Steinberg
+653|Jarvis
+654|Stucki
+655|Atkinson
+656|Teratur
+657|Skala abu-abu
+658|Hanya hitam atau putih, dipisah pada setengah kecerahan. Tajam: bagus untuk gambar garis dan teks.
+659|Menyebarkan galat pembulatan ke titik di sekitarnya. Pilihan serbaguna yang baik untuk foto.
+660|Menyebarkan galat ke area lebih luas: nada lebih halus, sedikit lebih lambat.
+661|Seperti Jarvis, dengan detail lebih tajam.
+662|Menjaga bagian terang tetap bersih dan kontras tinggi; kehilangan sebagian detail tergelap dan paling terang.
+663|Pola titik 8×8 tetap: teratur dan cepat, tanpa derau.
+664|Tanpa titik: setiap piksel mendapat kekuatan antara minimum dan kekuatan penuh lapisan.
+665|Memproses…
+666|Impor {}
+667|{} bentuk, {} × {} mm
+668|Depan
+669|Belakang
+670|Seret model untuk memutarnya. Garis tepi di bawah adalah hasil dari tampilannya.
+671|Penampil G-code
+672|Atur ulang tampilan
+673|Tampilkan gerakan jalan
+674|Warnai menurut ketinggian
+675|panjang potong
+676|{} gerakan
+677|Seret: putar · seret kanan atau Shift+seret: geser · roda: zoom
+678|Seret: geser · roda: zoom
+679|Gagal membuka: {}
+680|Lihat file G-code…
+681|Simpan
+682|Simpan pekerjaan Anda sebelum menutup?
+683|Desain belum disimpan ke file.
+684|Buang
+685|Tanpa judul
+686|Tab baru
+687|Tutup tab
+688|Paling banyak {} tab dapat dibuka.
+689|Home
+690|Lanjutkan
+691|Paskan area kerja (Ctrl+Shift+0)
+692|Paskan semua objek (Ctrl+Shift+9)
+693|Kontrol
+694|STOP
+695|Natal (Gelap)
+696|Natal (Terang)
+697|Malam Tahun Baru (Gelap)
+698|Malam Tahun Baru (Terang)
+699|Halloween (Gelap)
+700|Halloween (Terang)
+701|Paskah (Gelap)
+702|Paskah (Terang)
+703|Versi GRBL
+704|GRBL 1.1 atau lebih baru
+705|GRBL 0.7 atau lebih lama
+706|GRBL lama (0.9) melaporkan posisi dalam format lain dan tidak punya perintah jog: program menggerakkan kepala dengan gerakan biasa sebagai gantinya.
+707|Tab di area kerja
+708|Kembali ke jendela
+709|Level
+710|Semua yang lebih gelap dari ini menjadi hitam
+711|Semua yang lebih terang dari ini menjadi putih
+712|Gulir untuk zoom, seret untuk menggeser, klik ganda untuk melihat seluruh gambar
+713|Postprocessor yang dipilih mengubah G-code dari Ekspor G-code…; pekerjaan yang dikirim ke mesin tidak berubah.
+714|Plugin dengan pengaturan memiliki tab sendiri di panel kanan.
+715|Sambung jalur otomatis…
+716|Tutup jalur dengan toleransi…
+717|Ekspor pilihan sebagai SVG…
+718|Ekspor pilihan sebagai DXF…
+719|Sambung jalur
+720|Toleransi
+721|Sambung otomatis
+722|Tutup jalur
+723|Jalur yang ujungnya lebih dekat dari toleransi disambung; jalur yang kedua ujungnya sedekat itu ditutup.
+724|Tidak ada yang disambung atau ditutup.
+725|Disambung menjadi {} jalur ({} masih terbuka)
+726|{} disimpan
+727|Tidak dapat menyimpan: {}
+728|Ekspor
+729|Sudut dogbone / T-bone…
+730|Sudut dogbone
+731|Dogbone
+732|T-bone
+733|Menambahkan takik pada setiap sudut tajam bentuk terpilih, agar mata bulat dengan jari-jari ini bisa mencapainya: dogbone memotong lebih sedikit pada kedua dinding, T-bone hanya satu.
+734|Tidak ada sudut tajam dalam pilihan.
+735|Takik ditambahkan ke {} bentuk
+736|Mesin tidak dapat melakukan ini.
+737|Cari titik tengah
+738|Probe menggantung di dalam lubang, kira-kira di tengah: menyentuh keempat sisi, menuju tengah, dan menjadikannya nol X dan Y. Lakukan Z terlebih dahulu.
+739|Pendingin
+740|Kabut
+741|Banjir
+742|Menyalakan pendingin kabut (M7)
+743|Menyalakan pendingin banjir, atau pengumpul debu pada mesin yang dikabelkan demikian (M8)
+744|Mematikan semua pendingin (M9)
+745|Override
+746|Laju
+747|Gerak cepat
+748|Kembali ke kecepatan yang diminta program
+749|Posisi tersimpan
+750|Ke X {} Y {} Z {} (posisi mesin), naik dulu bila perlu
+751|Lupakan posisi ini
+752|Simpan di sini
+753|Ingat posisi alat sekarang
+754|Pilih bentuk yang akan disalin (paling banyak 2000 salinan dibuat).
+755|{} salinan dibuat
+756|Pilih bentuk terlebih dahulu dan jalurnya (atau bentuk pemangkas) terakhir.
+757|Teks kini mengikuti jalur (berupa garis tepi, bukan teks lagi).
+758|Tidak ada duplikat.
+759|{} duplikat dihapus
+760|Tidak ada yang dipecah: setiap bentuk punya satu garis tepi.
+761|Dipecah menjadi {} bentuk
+762|Pilih sesuatu terlebih dahulu.
+763|Disederhanakan: {} titik menjadi {}
+764|Tidak ada yang dibuat: tidak ada angka dan tidak ada baris.
+765|{} teks dibuat
+766|Teks tidak muat dalam kode QR.
+767|Barcode Code 39 hanya berisi huruf kapital, angka, dan - . $ / + % serta spasi.
+768|Bentuk tidak muat di area.
+769|{} bentuk disusun
+770|Larik kisi…
+771|Larik melingkar…
+772|Salin sepanjang jalur…
+773|Teks pada jalur…
+774|Pangkas dengan bentuk…
+775|Sederhanakan…
+776|Teks berseri…
+777|Barcode / kode QR…
+778|Susun bentuk…
+779|Ukur…
+780|Kolom
+781|Baris
+782|Jarak kolom
+783|Jarak baris
+784|Jumlah
+785|Sudut total
+786|Putar salinan
+787|Start
+788|Pertahankan bagian dalam bentuk
+789|Teks
+790|{n} adalah angkanya; dengan file CSV, {1}, {2}… adalah kolomnya
+791|Angka pertama
+792|Langkah
+793|Digit
+794|Salinan
+795|Baca file CSV…
+796|{} baris dari file
+797|Jenis
+798|Lebar batang
+799|Lebar area
+800|Tinggi area
+801|Izinkan memutar
+802|Bentuk dikemas berdasarkan kotaknya, berbaris dari sudut halaman.
+803|Lebar {}  Tinggi {}
+804|Dari X {} Y {}
+805|Luas {}  Panjang {}
+806|Antar pusat: {} (dX {}, dY {})
+807|Celah antar kotak: {}
+808|Hapus duplikat
+809|Pecah
+810|Smoothieware (bukan GRBL)
+811|Gambar latar: {}
+812|Tidak dapat membaca gambar: {}
+813|Gambar latar
+814|Muat gambar dari file…
+815|Gunakan gambar kamera
+816|Gambar kamera saat ini
+817|Opasitas
+818|Pindahkan sudut
+819|Paskan ke area kerja
+820|Gambar berada di bawah desain: seret sudut-sudutnya ke sudut material atau area kerja. Disimpan bersama proyek.
+821|Dijalankan dalam urutan ini: {}
+822|Matikan semua postprocessor
+823|Postprocessor yang dipilih mengubah G-code dari Ekspor G-code…; pekerjaan yang dikirim ke mesin tidak berubah.
+824|Gambar latar…
+825|Belum ada gambar dari kamera.
+826|{} disimpan ({} gambar)
+827|Time-lapse: gambar diambil setiap lapisan selesai.
+828|Time-lapse: {} gambar di {}
+829|Ambil foto
+830|Hentikan rekaman
+831|Merekam: {} dtk, {} gambar
+832|Rekam video
+833|Time-lapse
+834|Setiap
+835|Setelah setiap lapisan
+836|Memerlukan pekerjaan yang dikirim ke mesin dari program (Mulai)
+837|Hentikan time-lapse
+838|{} gambar
+839|Mulai time-lapse
+840|Folder
+841|folder camera dari data bersama
+842|Pilih folder…
+843|Stream kamera ini memerlukan ffmpeg, dan tidak ditemukan di samping program atau di PATH sistem.
+844|Stream berakhir: dibuka lagi.
+845|Stream tidak dapat dibuka (alamat, pengguna, dan kata sandi?): dicoba lagi.
+846|Pembaruan plugin tersedia
+847|Perbarui semua
+848|Nanti
+849|Terima kasih banyak kepada Jakub (CNC KpK) atas ide dan saran perbaikannya:
+850|Tampilkan di samping
+851|Buka di jendela terpisah
+852|Tutup panel
+853|Kembali ke jendela utama
+854|Proyek aktif
+855|Analisis G-code
+856|Pratinjau
+857|Kamera
+858|Tampilan terbagi: berdampingan
+859|Tampilan terbagi: atas bawah
+860|Tampilan tunggal
+861|Lapisan
+862|Tampilkan nama lapisan
+863|Pratinjau G-code setelah menyimpan
+864|Paling awal file
+865|Paling akhir file
+866|Variabel yang dapat Anda gunakan:
+867|Titik desimal setelah bilangan bulat
+868|% di awal dan akhir
+869|Kata jeda
+870|P (detik)
+871|P (milidetik)
+872|X (detik)
+873|Nomor baris
+874|Hapus komentar
+875|Format file sendiri
+876|Tampilkan nama variabel
+877|Di samping label kolom yang memiliki variabel untuk G-code sendiri, namanya ditampilkan; klik untuk menyalinnya
+878|Preset lapisan
+879|Simpan preset…
+880|Simpan pengaturan lapisan ini dengan nama ini
+881|Ekspor…
+882|Tulis semua preset ke file
+883|Impor…
+884|Tambahkan preset dari file
+885|Paling banyak {} preset
+886|File terlalu besar
+887|{} preset ditambahkan
+888|Tidak ada yang dapat dibaca dari file
+889|Belum ada preset
+890|Terapkan pengaturan ini ke lapisan
+891|Lupakan preset ini
+892|Nama kosong atau dipakai preset lain
+893|Beranda
+894|Dibuat dengan:
+895|Pindah ke panel {}
+896|{} baris
+897|Buat lagi
+898|Buang suntingan?
+899|Buat ulang G-code proyek; suntingan akan hilang
+900|Analisis
+901|Tampilkan jalur alat teks ini dalam analisis G-code
+902|Diubah manual
+903|Tulis teks ke file
+904|Gunakan UDP untuk RTSP
+905|Jeda lebih kecil dari TCP, tetapi gambar bisa rusak di jaringan buruk. Mati: TCP.
+906|Latensi rendah
+907|Menampilkan gambar terbaru lebih cepat, tanpa buffer; gambar bisa tersendat.
+908|Format video
+909|Otomatis adalah cara yang paling ringan bagi komputer: stream kamera IP disalin ke file MP4 apa adanya, tidak ada yang didekode atau dienkode ulang. Kamera yang mengirim gambar satu per satu ditulis sebagai AVI.
+910|Merekam: {} dtk (stream disalin)
+911|MP4 menyalin stream kamera IP; kamera ini direkam sebagai AVI.
+912|Stream tidak dapat direkam (alamat, kamera, ffmpeg?).
+913|Clipart online…
+914|Waktu
+915|Build ini tidak dapat memakai kamera komputer.
+916|Paskan area kerja
+917|Mati
+918|Port serial
+919|Jaringan (TCP, mis. ser2net)
+920|Impor SVG…
+921|Impor Adobe Illustrator / PDF / EPS / VectorCraft…
+922|Impor DXF…
+923|Impor proyek LightBurn…
+924|Impor desain UGS…
+925|Ekspor SVG…
+926|Ekspor PLT / DXF…
+927|{} jalur diimpor dari {}
+928|{} diekspor
+929|{} diekspor. {} gambar dilewati: format ini tidak punya raster.
+930|Lapisan Illustrator
+931|File memiliki {} lapisan Illustrator. Taruh jalur ke lapisan program menurut:
+932|Lapisan Illustrator pertama ke lapisan 1, kedua ke lapisan 2, dan seterusnya; sisanya ke lapisan terakhir.
+933|Konsol G-code
+934|Perintah Anda
+935|Perintah program
+936|Jawaban mesin
+937|Pesan program
+938|Latar
+939|Ukuran font
+940|Font
+941|Gaya
+942|Tebal
+943|Miring
+944|Spasi huruf
+945|Spasi baris
+946|Rata
+947|Ubah teks menjadi bentuk Bézier yang dapat diedit
+948|Atur
+949|Seret di area kerja untuk menggambarnya.
+950|Simpan G-code
+951|Jumlah sisi
+952|Jumlah putaran
+953|Poligon
+954|Spiral
+955|Klien baru menggantikan yang terhubung
+956|Baud rate
+957|Manual: sudo cp <file tersimpan> {} && sudo systemctl restart ser2net
+958|Konfirmasi
+959|Disalin.
+960|Tidak dapat memasang konfigurasi: {}
+961|Tidak dapat membuat halaman: {}
+962|Tidak dapat membuka penampil: {}
+963|Printer bawaan
+964|File: {}
+965|Bingkai
+966|Pasang dan mulai ulang ser2net…
+967|{} dipasang dan ser2net dimulai ulang.
+968|Hanya dengarkan di komputer ini (gunakan dengan tunnel SSH)
+969|Margin
+970|Hanya objek pada lapisan yang terlihat
+971|Hanya objek, sebesar yang dimungkinkan halaman
+972|Buka PDF
+973|Dibuka di penampil PDF.
+974|Membuka halaman di penampil PDF, yang dapat mencetaknya dengan lebih banyak opsi
+975|Kertas
+976|Port
+977|Cetak
+978|Printer
+979|Mencetak desain di printer kertas, untuk memeriksa penempatan atau sebagai templat.
+980|Cetak…
+981|Segarkan
+982|Simpan sebagai PDF…
+983|Simpan sebagai…
+984|Gagal menyimpan: {}
+985|Dikirim ke printer. {}
+986|Bagikan lewat jaringan (ser2net)
+987|Bagikan lewat jaringan (ser2net)…
+988|Mulai pekerjaan
+989|Ganti perangkat…
+990|Port TCP
+991|Printer tidak menerimanya: {}
+992|Seluruh area kerja, sesuai skala
+993|Lalu hubungkan dari komputer lain ke {}:{}
+994|Tidak ada yang dicetak.
+995|Panduan ini tersedia dalam bahasa Inggris dan Polandia; bahasa lain menampilkan teks bahasa Inggris.
+996|Ini menggantikan {} (cadangan disimpan) dan memulai ulang ser2net. Hak administrator akan diminta.
+997|Menunggu persetujuan administrator…
+998|ser2net ditemukan: {}
+999|Versi ser2net
+1000|ser2net tidak ditemukan. Pasang dulu, misalnya: sudo apt install ser2net
+1001|{} objek melewati area kerja; di kertas terpotong di tepinya.
+1002|{} objek melewati area kerja; tetap dicetak.
+1003|Ini membagikan port serial mesin di komputer ini lewat jaringan, sehingga program di komputer lain dapat terhubung dengan jenis koneksi Jaringan (TCP).
+1004|Peringatan: siapa pun di jaringan yang mencapai port ini dapat mengendalikan mesin. Gunakan jaringan tepercaya, firewall, atau opsi lokal saja dengan tunnel SSH.
+1005|Kontroler ini tidak melaporkan input-nya.
+1006|Tambah titik
+1007|Ratakan dengan titik
+1008|Ratakan: seret keempat sudut di area kerja
+1009|Overlay kamera
+1010|Hapus titik ini
+1011|Seret setiap sudut ke sudut yang sesuai pada material atau area kerja; perspektif dikoreksi.
+1012|Mencocokkan gambar ke titik-titik (kuadrat terkecil) dan menggeser sudut sesuai.
+1013|Bekukan bingkai
+1014|Muat gambar…
+1015|Titik tidak cukup, atau semuanya segaris.
+1016|Overlay dari…
+1017|Overlay: {}
+1018|Pasangan titik di gambar (piksel) dan tempatnya di area kerja (mm). Minimal 3, disarankan 4; menentukan perataan, termasuk perspektif.
+1019|Titik dari sudut saat ini
+1020|Titik acuan
+1021|Mengganti titik dengan keempat sudut gambar dan letaknya sekarang.
+1022|Atur ulang ke area kerja
+1023|Putar 90°
+1024|Tampilkan foto atau kamera langsung di bawah desain untuk memosisikan pekerjaan pada material.
+1025|Tampilkan overlay kamera
+1026|Tampilkan overlay
+1027|Mulai kamera
+1028|Pengaturan perangkat…
+1029|Periksa program
+1030|Diagnostik dan statistik…
+1031|Pengaturan firmware ($$)…
+1032|Overlay
+1033|Memeriksa program terlebih dahulu…
+1034|Memeriksa program…
+1035|Pemeriksaan tidak menemukan masalah.
+1036|Pemeriksaan tidak menemukan apa pun. Pekerjaan berjalan.
+1037|Pemeriksaan menemukan {} masalah, yang pertama di baris {}. Pekerjaan tidak dimulai.
+1038|Tukar bagian terang dan gelap gambar
+1039|Muat preset
+1040|Superman
+1041|Batman
+1042|Joker (Gelap)
+1043|Joker (Terang)
+1044|Perangkat kontrol
+1045|Pengaturan perangkat kontrol…
+1046|Perangkat kontrol mesin ini…
+1047|Bawaan: {}
+1048|Tidak ada perangkat bawaan
+1049|{} (tidak terhubung)
+1050|Tambah papan ketik
+1051|Tambah {}
+1052|Tidak ada pad baru. Hubungkan satu dan tunggu sebentar.
+1053|Bawaan untuk semua mesin dan program
+1054|Kembali ke tombol awal
+1055|Terakhir ditekan: {}
+1056|Tekan tombol atau kenop…
+1057|Tetapkan
+1058|Hanya jendela paling depan yang menerima tekanan. Gerakan berlangsung selama tombol ditahan dan berhenti saat dilepas atau saat jendela lain ke depan.
+1059|Semua papan ketik adalah satu perangkat, dan tidak melakukan apa pun saat Anda mengetik di kolom. Dua pad model yang sama dihitung satu perangkat.
+1060|Gerak kiri (X-)
+1061|Gerak kanan (X+)
+1062|Gerak maju (Y-)
+1063|Gerak mundur (Y+)
+1064|Gerak naik (Z+)
+1065|Gerak turun (Z-)
+1066|Spindel nyala / mati
+1067|Udara nyala / mati
+1068|Air nyala / mati
+1069|Sinar daya rendah selama ditahan
+1070|Pena naik
+1071|Pena turun
+1072|Tersedia di sistem
+1073|Dikonfigurasi
+1074|Perangkat bawaan
+1075|Tambah kamera
+1076|Alamat
+1077|Otomatis
+1078|Nama kamera
+1079|Nomor kamera
+1080|Kamera komputer ini
+1081|Rotasi kamera
+1082|Uji kamera: {}
+1083|Kamera {}
+1084|Kamera yang mengawasi mesin. Yang dicentang memberi gambar langsung; mencentang yang lain mematikan yang pertama.
+1085|Hapus kamera ini
+1086|Untuk kamera komputer ini: minta format YUYV tanpa kompresi bila sistem mengizinkan.
+1087|Format
+1088|Koreksi lensa
+1089|Pengurangan derau
+1090|Bukan alamat kamera (http, https, rtsp, udp, rtp, atau rtmp).
+1091|Membuka gambar kamera ini sesuai pengaturan di sini, tanpa menyimpan
+1092|Gambar
+1093|Utamakan YUYV
+1094|Galat stream: {}
+1095|Nyalakan kamera ini: memberi gambar langsung
+1096|Uji
+1097|Menunggu gambar…
+1098|Keseimbangan putih
+1099|macOS mungkin memblokir program ini: izinkan di Pengaturan Sistem, Privasi & Keamanan, Jaringan Lokal.
+1100|Gambar langsung mesin: stream MJPEG, alamat snapshot JPEG (http atau https), atau stream yang dibaca ffmpeg (rtsp, udp, rtp, rtmp).
+1101|Koefisien distorsi lensa (radial k1–k3, tangensial p1, p2) untuk koordinat yang diukur dari pusat dalam satuan sisi panjang gambar. Semua 0 = tanpa koreksi. Diisi manual: tidak ada kalibrasi otomatis.
+1102|Masukkan alamat kamera, atau hapus kamera.
+1103|AxiDraw / EggBot (EBB, bukan GRBL)
+1104|Plotter HPGL (bukan GRBL)
+1105|AxiDraw (kedua motor pada satu sabuk)
+1106|EggBot (satu motor per sumbu)
+1107|Perangkat keras (RTS/CTS)
+1108|Perangkat lunak (XON/XOFF)
+1109|Plotter tidak menerima perintah: {}
+1110|Plotter ini tidak punya mode periksa: pemeriksaan dilewati.
+1111|Motor
+1112|Langkah per mm
+1113|Balik
+1114|AxiDraw memiliki 80 langkah per mm dan menghitung Y ke arah depan, jadi Y-nya dibalik.
+1115|EBB tidak punya sakelar batas: sebelum menghubungkan, letakkan pena di sudut awal gambar (nolnya).
+1116|Satuan plotter per mm
+1117|Kontrol aliran
+1118|Tanpa kontrol aliran, plotter kehilangan perintah begitu buffernya penuh.
+1119|Plotter tidak menjawab apa pun: baris dianggap selesai saat port menerimanya, dan stop mengangkat pena sementara plotter masih menggambar isi buffernya.
+1120|Plotter tidak menerima apa pun selama 20 dtk: periksa kontrol aliran dan kabelnya.
+1121|Belum homing
+1122|Kontroler menyatakan mesin belum di-homing sejak dinyalakan.
+1123|Alat {}
+1124|Gambar yang ditempel
+1125|Jendela terpisah
+1126|Tab samping
+1127|Tampilan kamera
+1128|Terlihat saat diperbesar lebih dari 200 %.
+1129|Putus
+1130|Putuskan jalur di node terpilih: jalur tertutup terbuka di sana, jalur terbuka terpotong dua
+1131|Ujung jalur tidak punya apa pun untuk diputus.
+1132|Jalur ditutup.
+1133|Kedua node kini menjadi satu.
+1134|Kedua jalur kini menjadi satu.
+1135|Jenis koneksi
+1136|Tidak ada port
+1137|Host
+1138|Baca OK
+1139|Galat membaca
+1140|Baca dari perangkat
+1141|Jika mesin sedang terhubung, area kerja dan kecepatannya dapat dibaca dari kontroler.
+1142|Pengaturan dibaca dari kontroler.
+1143|Perlu diperiksa
+1144|Tambah perangkat
+1145|Pengaturan lainnya…
+1146|Buka seluruh jendela perangkat dengan isian di sini
+1147|Saya tidak punya perangkat
+1148|Port atau host belum diatur: pilih di pengaturan perangkat sebelum menghubungkan.
+1149|Tambah perangkat
+1150|Belum ada yang dicoba di mesin Anda: jalankan uji pertama tanpa mata, atau dengan mata jauh di atas material.
+1151|Belum ada yang dicoba di plotter Anda: jalankan uji pertama dengan pena terangkat dan tanpa kertas.
+1152|Perangkat ditambahkan. Tekan Baru untuk mulai.
+1153|Warna area kerja
+1154|Warna kertas
+1155|Warna material
+1156|Kembali ke warna otomatis
+1157|Merentangkan abu-abu gambar ke rentang penuh secara otomatis; kedua slider tidak dipakai
+1158|Impor proyek LightBurn / MillMage…
+1159|Ekspor DXF…
+1160|Ekspor DXF R12 (lama)…
+1161|Ekspor Adobe Illustrator…
+1162|Ekspor proyek LightBurn…
+1163|Ekspor proyek MillMage…
+1164|{} jalur dan {} gambar diimpor dari {}
+1165|Penggaris (M)
+1166|Dimensi
+1167|Tampilkan ukuran pekerjaan seperti pada gambar teknik
+1168|Tampilkan dimensi desain seperti pada gambar teknik
+1169|Satuan
+1170|Milimeter (mm)
+1171|Inci (in)
+1172|Sentimeter (cm)
+1173|Meter (m)
+1174|Kaki (ft)
+1175|Sesuai perangkat
+1176|Satuan ukuran di properti, penggaris, dimensi, dan pratinjau. G-code selalu dalam satuan perangkat.
+1177|Offset ujung
+1178|Seberapa jauh ujung pisau di belakang porosnya: diberikan oleh pembuat pisau
+1179|Putar di sudut yang lebih tajam dari
+1180|Potong melewati awal
+1181|Garis tepi tertutup dipotong sejauh ini melewati awalnya, agar tertutup
+1182|Pustaka pisau
+1183|Pisau
+1184|Nilai sendiri
+1185|Pustaka pisau…
+1186|Pisau siap pakai
+1187|Pisau saya
+1188|Belum ada: salin pisau untuk mengubahnya
+1189|Salinan di antara pisau Anda, untuk diubah
+1190|Pisau saya
+1191|Pisau siap pakai tidak dapat diubah: salin untuk mengubahnya.
+1192|Catatan
+1193|Pisau 30°
+1194|Pisau 45°
+1195|Pisau 60°
+1196|Pisau seret di dudukan mesin CNC
+1197|Film tipis dan kertas, detail halus dan huruf kecil.
+1198|Vinil, flex, kertas, dan karton tipis: pisau umum pemotong.
+1199|Vinil tebal, karton, karet, busa, dan stensil sandblast.
+1200|Dudukan di collet spindel, spindel diam; atur kedalaman di lapisan.
+1201|Plotter dan pemotong memahami HPGL sedikit berbeda: atur di sini apa yang diterima perangkat ini. Perintah diakhiri ; dan {speed} serta {force} diisi.
+1202|Di awal
+1203|Di akhir
+1204|Pena atau pisau turun
+1205|Pena atau pisau naik
+1206|paling banyak
+1207|Dikirim saat kecepatan menggambar berubah; kosong: tidak pernah (plotter memakai miliknya).
+1208|Tekanan
+1209|Seberapa kuat pena atau pisau menekan, dikirim sekali di awal; 0: tidak pernah (plotter memakai miliknya).
+1210|Kembali ke perintah biasa
+1211|Garis berkelok
+1212|Gigi gergaji
+1213|Pegas
+1214|Gelombang
+1215|Lingkaran halftone
+1216|Etsa
+1217|Persegi
+1218|Jarum
+1219|Ubin Truchet
+1220|Garis kontur
+1221|Kurva Hilbert
+1222|Stippling
+1223|Satu garis (TSP)
+1224|Segitiga dan sel
+1225|Gambar garis
+1226|Garis aliran
+1227|Sketsa
+1228|Coretan
+1229|Barisan garis yang bergelombang lebih cepat dan tinggi di bagian gambar yang lebih gelap.
+1230|Barisan zigzag, lebih rapat dan tinggi di bagian gambar yang lebih gelap.
+1231|Barisan lingkaran seperti pegas yang diregangkan, lebih besar di bagian yang lebih gelap.
+1232|Satu spiral dari tengah yang bergoyang lebih kuat di bayangan.
+1233|Barisan yang terangkat oleh gelapnya gambar, seperti pemandangan dilihat dari samping.
+1234|Kisi lingkaran, lebih besar di bagian gambar yang lebih gelap.
+1235|Arsiran berlapis: setiap nada lebih gelap menambah garis ke arah lain.
+1236|Kisi persegi bersarang, lebih banyak di bagian yang gelap.
+1237|Goresan pendek pada kisi, lebih panjang di bagian gelap, diputar mengikuti bentuk.
+1238|Ubin seperempat lingkaran yang diputar acak, lebih banyak busur di bagian gelap.
+1239|Garis kecerahan yang sama, seperti garis kontur peta.
+1240|Satu kurva pengisi ruang, dengan belokan lebih halus di bagian gelap.
+1241|Titik disebar menurut nada gambar: rapat di bayangan, jarang di bagian terang.
+1242|Titik-titik stippling disambung menjadi satu garis yang tidak menyilang dirinya.
+1243|Jaring segitiga, atau sel di sekitarnya, di atas titik yang disebar menurut nada.
+1244|Hanya tepi gambar, sebagai garis.
+1245|Garis panjang yang mengalir mengikuti bentuk, lebih rapat di bagian gelap.
+1246|Banyak goresan lurus pendek di bagian tergelap gambar, seperti sketsa pensil.
+1247|Satu garis berkelana penuh lingkaran yang mencoret bagian gelap.
+1248|Jarak putaran
+1249|Tinggi gelombang
+1250|Lingkaran terbesar
+1251|Jarak cincin
+1252|Tingkat nada
+1253|Persegi terbanyak dalam sel
+1254|Guncangan
+1255|Panjang goresan
+1256|Ukuran ubin
+1257|Busur terbanyak dalam ubin
+1258|Penghalusan
+1259|Langkah terkecil
+1260|Ukuran titik
+1261|Jumlah titik
+1262|Detail terkecil
+1263|Kepekaan tepi
+1264|Garis terpendek
+1265|Celah terkecil
+1266|Celah terbesar
+1267|Ukuran kurva
+1268|Jumlah goresan
+1269|Tinta satu goresan
+1270|Ukuran lingkaran
+1271|Panjang garis
+1272|Tinta satu lintasan
+1273|Baris dari tepi ke tepi
+1274|Angkat pena di atas putih
+1275|Zigzag
+1276|Sembunyikan yang di belakang
+1277|Gambar setiap baris utuh
+1278|Lingkaran
+1279|Cincin
+1280|Spiral
+1281|Garis lurus
+1282|Garis bergelombang
+1283|Mengikuti bentuk
+1284|Pada sudut
+1285|Acak
+1286|Satu garis
+1287|Titik
+1288|Lingkaran menurut nada
+1289|Garis putus
+1290|Segitiga
+1291|Sel
+1292|Tepi
+1293|Tepi dan area gelap
+1294|Medan aliran
+1295|Goresan terpisah
+1296|Goresan berantai
+1297|Tinggi gelombang
+1298|Gelombang per mm
+1299|Ukuran sel
+1300|Lacak bergaya
+1301|{} garis dengan gaya {}
+1302|{} garis, {} m garis
+1303|hanya sebagian: terlalu banyak titik
+1304|banyak titik: penggambaran jadi lambat
+1305|Jenis
+1306|Pola acak
+1307|Yang lain
+1308|Titik hitam
+1309|Titik putih
+1310|Taruh di lapisan
+1311|Lacak bergaya…
+1312|Jarak garis
+1313|Time-lapse: gambar diambil setiap kali alat naik, dengan kepala dipindahkan ke samping.
+1314|Setelah setiap angkat
+1315|Gambar diambil setiap kali alat naik, dengan kepala dipindahkan ke samping (nyalakan pindah ke samping di tab Rekaman). Pekerjaan jauh lebih lama.
+1316|Foto time-lapse di samping
+1317|Pindahkan kepala ke samping untuk setiap foto
+1318|Selama pekerjaan, setiap gambar time-lapse menunggu sampai pekerjaan bisa berhenti: kepala menuju tempat ini, kamera mengambil gambar, kepala kembali, dan pekerjaan berlanjut. Mesin frais dan plotter hanya berhenti saat alat terangkat.
+1319|Tempat (koordinat mesin)
+1320|Gunakan posisi saat ini
+1321|Tunggu sebelum foto
+1322|Mesin berhenti bergetar dan stream kamera menyusul. Plotter yang tidak menjawab apa pun (HPGL) juga butuh waktu perjalanan ke samping.
+1323|Biarkan spindel tetap berputar
+1324|Tidak ada start ulang spindel setelah tiap foto, dan tidak ada bekas yang mungkin tertinggal di dinding.
+1325|Pecah garis panjang
+1326|Potongan lurus panjang dikirim sebagai beberapa garis lebih pendek: pekerjaan bisa berhenti lebih cepat (untuk foto, jeda), dan kemajuan bergerak lebih merata. Jalurnya tetap sama.
+1327|Menjadi
+1328|bagian, masing-masing minimal
+1329|Posisi samping untuk foto
+1330|Ke mana pena pergi untuk foto time-lapse, setelah terangkat; kembali dengan gerakan absolut. Kosong: tempat yang diatur di tab Rekaman.
+1331|Rekaman
+1332|Kamera ini dimatikan di pengaturan perangkat.
+1333|Akselerasi X, Y, Z
+1334|Deviasi sambungan
+1335|0 = tidak diketahui. Dengan akselerasi, waktu pekerjaan menghitung percepatan dan perlambatan mesin serta sudut yang lebih lambat, seperti GRBL ($120 – $122, $11).
+1336|Busur
+1337|Masuk
+1338|Keluar
+1339|Panjang masuk
+1340|Jari-jari masuk
+1341|Sudut masuk
+1342|Tumpang
+1343|Alat masuk ke garis dari sisi sisa dan keluar dengan cara yang sama, sehingga bekas awal tidak ada di benda. Jalan masuk yang tidak muat diperkecil atau dihilangkan.
+1344|Panjang jalan masuk lurus, jari-jari busur.
+1345|90° datang tegak lurus ke garis, sudut kecil hampir sejajar dengannya.
+1346|Seberapa jauh potongan berlanjut melewati awalnya, agar awal dan akhir bertemu rapi.
+1347|Bagian area kerja yang tidak boleh dimasuki alat (klem, jig). Gerakan di udara memutari zona dengan sendirinya; potongan yang menyentuh zona aktif dilaporkan sebelum pekerjaan.
+1348|Nama zona
+1349|Persegi panjang
+1350|Lingkaran
+1351|Hapus zona ini
+1352|Hanya pada ketinggian ini (Z)
+1353|Seperti kotak atau silinder berdiri di meja: gerakan di atas atau di bawah rentang bebas.
+1354|Tambah zona
+1355|Zona {}
+1356|Zona terlarang
+1357|Menurut garis tepi sebenarnya
+1358|Bentuk dikemas menurut garis tepi sebenarnya: yang kecil bisa masuk ke lubang yang besar, huruf L ke sudut yang lain. Grup adalah satu bagian.
+1359|Pemutaran
+1360|Setengah putaran
+1361|Seperempat putaran
+1362|Seperdelapan putaran
+1363|{} bagian disusun, {} tidak muat dan tetap di tempatnya
+1364|Yang tidak muat ke lembar baru
+1365|Setiap lembar baru adalah desain di tab sendiri, dengan lapisan dan material yang sama: simpan dan potong setelah yang ini.
+1366|{} bagian disusun di sini, sisanya di {} lembar baru dalam tab baru
+1367|Tambahkan sebagai zona terlarang
+1368|Mesin tidak akan pernah memasuki tempat bentuk terpilih: masing-masing menjadi zona terlarang perangkat (lingkaran bila bulat, selain itu persegi panjang di sekelilingnya) dan dihapus dari desain.
+1369|Zona terlarang
+1370|{} zona terlarang ditambahkan ke perangkat
+1371|Zona milik perangkat dan disimpan bersamanya, di setiap proyek.
+1372|Alat putar terhubung
+1373|Chuck
+1374|Roller
+1375|Diameter benda kerja
+1376|Diameter roller
+1377|Mikrostep per putaran
+1378|Mikrostep motor untuk satu putaran penuh dari yang digerakkannya (chuck, atau satu roller).
+1379|Keliling
+1380|Keliling benda kerja: desain tidak boleh lebih tinggi.
+1381|GRBL 1.1 punya tiga sumbu: sumbu A tidak tersedia, Y yang dipakai.
+1382|Kontroler memerlukan {} langkah per mm pada sumbu Y ($101).
+1383|Dengan alat putar, sumbu Y memutar benda kerja: desain tidak boleh lebih tinggi dari keliling benda kerja. Modelnya sederhana (chuck berputar menurut diameter benda kerja, roller menggerakkan permukaan seperti dirinya); mesin nyata perlu diuji.
+1384|Putar
+1385|Imlek (Gelap)
+1386|Imlek (Terang)
+1387|Tutup program?
+1388|Desain terakhir ditutup.
+1389|Tutup program
+1390|Kembali ke layar awal
+1391|Lapisan
+1392|Larik dan penyusunan
+1393|Pratinjau G-code
+1394|Tampilkan zona terlarang
+1395|Zona terlarang…
+1396|Preset lapisan…
+1397|Posisi tersimpan…
+1398|Server web dan API
+1399|Halaman web dengan status mesin, proyek, dan kamera, serta API untuk program lain. Setiap permintaan memerlukan frasa akses; tidak ada enkripsi.
+1400|Nyalakan server web dan API
+1401|Dapat dijangkau dari komputer lain di jaringan
+1402|Frasa akses
+1403|Gunakan frasa akses ini mulai sekarang
+1404|Frasa akses tidak boleh kosong atau berisi karakter kontrol.
+1405|Siapa pun di jaringan yang tahu frasa akses dapat melihat mesin dan menghentikan atau menggerakkannya. Frasa dikirim tanpa enkripsi: gunakan hanya di jaringan tepercaya.
+1406|Mendengarkan di {}
+1407|Server tidak dapat dimulai: {}
+1408|Server web: nyala, port {}
+1409|Server web: galat
+1410|Halaman web dengan proyek, serta API untuk program lain. Setiap permintaan memerlukan frasa akses; tidak ada enkripsi.
+1411|Siapa pun di jaringan yang tahu frasa akses dapat melihat proyek. Frasa dikirim tanpa enkripsi: gunakan hanya di jaringan tepercaya.
+1412|Pengaturan proyek…
+1413|Bentuk material
+1414|Blok
+1415|Silinder (putar)
+1416|Benda kerja bulat yang diputar oleh alat putar perangkat. Menerapkan akan menyalakan alat putar dengan diameter ini.
+1417|Panjang benda kerja
+1418|Nol program
+1419|Kiri depan
+1420|Kanan depan
+1421|Kiri belakang
+1422|Kanan belakang
+1423|Lebar material
+1424|Tinggi material
+1425|Tebal
+1426|Z dihitung dari dasar material
+1427|Area kerja adalah material
+1428|Lewati
+1429|Sisi ke sisi (kiri dan kanan bertukar)
+1430|Ujung ke ujung (belakang dan depan bertukar)
+1431|Material berada di kiri atas halaman. Program ditulis untuk sistem koordinat kerja G54 dengan nol di tempat yang Anda pilih: atur nol itu di mesin. Z dihitung dari atas material, atau dari dasarnya.
+1432|Silinder terletak sepanjang X pada alat putar; Y desain mengelilinginya dan desain dibentangkan dari permukaannya. Z dihitung dari atas permukaan, dan potongan terdalam adalah jari-jarinya. Nol ada di permukaan; atur yang sama di mesin.
+1433|Pekerjaan dua sisi
+1434|Sisi A dan sisi B adalah dua area kerja: material dipotong di satu sisi, dibalik, lalu dipotong di sisi lain. Setiap sisi menampilkan bentuk sisi lainnya dalam keadaan terbalik, sebagai bayangan.
+1435|Dibalik pada
+1436|Tanda perataan
+1437|sumbu horizontal (belakang dan depan bertukar)
+1438|sumbu vertikal (kiri dan kanan bertukar)
+1439|Sisi A
+1440|Sisi B
+1441|Bayangan sisi lain
+1442|Bentuk sisi lain, dibalik seperti material, digambar samar di bawah sisi ini: tidak dapat dipilih atau dipindahkan.
+1443|Empat tanda sudut tepat di luar material, dibakar pada lembar di bawahnya sebelum sisi A: taruh material yang dibalik kembali ke dalamnya untuk sisi B.
+1444|Material berada di kiri atas area kerja. Untuk pekerjaan dua sisi letakkan di tempat yang sama untuk kedua sisi (tanda perataan menunjukkan letaknya).
+1445|Benda kerja ada di alat putar; Y desain mengelilinginya dan desain dibentangkan dari permukaannya.
+1446|Sisi B memiliki bentuk: proyek tetap dua sisi. Hapus dulu untuk menjadikannya satu sisi.
+1447|Ukuran kertas
+1448|Kustom
+1449|Ukuran yang muat di area kerja mesin: ↕ tegak, ↔ rebah.
+1450|Alat putar perangkat mati.
+1451|Proyek diatur: silinder Ø {} mm sepanjang {} mm pada alat putar (dinyalakan), nol di {}
+1452|Proyek diatur: material {} x {} x {} mm, nol di {}
+1453|Lembar
+1454|Material berada di sudut nol mesin. Untuk pekerjaan dua sisi letakkan di tempat yang sama untuk kedua sisi (tanda perataan menunjukkan letaknya).
+1455|Simpan G-code pekerjaan dua sisi
+1456|Pekerjaan ini punya dua sisi. Bagaimana G-code disimpan?
+1457|Satu file, dengan jeda untuk membalik material
+1458|Satu file, tanpa jeda
+1459|Dua file: name_A dan name_B
+1460|Bentuk sisi lain, dibalik seperti material, digambar samar di bawah sisi ini. Klik salah satunya untuk meratakan atau menempel padanya; tidak pernah dipindahkan.
+1461|G-code pekerjaan dua sisi
+1462|Pekerjaan ini punya dua sisi. Bagaimana G-code ditampilkan?
+1463|Sisi yang dikerjakan
+1464|1 sisi
+1465|2 sisi
+1466|4 sisi (balok)
+1467|6 sisi (blok)
+1468|Material hanya dikerjakan dari atas.
+1469|Balok yang terletak sepanjang X, dikerjakan pada empat sisi panjangnya A, B, C, dan D: digulirkan seperempat putaran ke belakang di antaranya. Setiap sisi adalah area kerja tersendiri; sisi di sebelahnya dibentangkan di sekelilingnya dan sisi di bawahnya terlihat tembus, sebagai bayangan.
+1470|Blok yang dikerjakan di keenam sisinya: A sampai D digulirkan seperempat putaran ke belakang setiap kali, E dan F ujung kiri dan kanan dihadapkan ke atas. Setiap sisi adalah area kerja tersendiri; sisi di sebelahnya dibentangkan di sekelilingnya dan sisi di bawahnya terlihat tembus, sebagai bayangan.
+1471|Selalu aktif bila lebih dari satu sisi dikerjakan: setiap sisi punya area kerja sendiri, sebesar material di sana, dan material diletakkan dengan cara yang sama di mesin untuk masing-masing.
+1472|Sisi alas a
+1473|Sisi alas b
+1474|Tinggi balok H
+1475|Sisi a (kiri ke kanan)
+1476|Sisi b (belakang ke depan)
+1477|Sisi c (tinggi)
+1478|Balok terletak sepanjang X dengan sisi A di atas, di sudut nol. Di antara sisi-sisi ia digulirkan seperempat putaran ke belakang, sehingga bagian depan naik: sisi A, B, C, dan D. Setiap sisi digambar pada area kerja seukuran sisi itu, dan material di bawahnya setebal kedalaman balok di sana.
+1479|Blok terletak dengan sisi A di atas, di sudut nol. Sisi A sampai D: digulirkan seperempat putaran ke belakang setiap kali, sehingga bagian depan naik; E dan F: ujung kiri dan kanan dihadapkan ke atas. Setiap sisi digambar pada area kerja seukuran sisi itu, dan material di bawahnya setebal kedalaman blok di sana.
+1480|Sisi-sisi dibentangkan di sekitar A
+1481|Sisi {}
+1482|Balok: 4 sisi
+1483|Blok: 6 sisi
+1484|atas
+1485|depan
+1486|bawah
+1487|belakang
+1488|ujung kiri
+1489|ujung kanan
+1490|material
+1491|Di antara sisi A sampai D benda digulirkan seperempat putaran ke belakang (bagian depan naik); E dan F adalah ujung kiri dan kanannya yang dihadapkan ke atas.
+1492|Bayangan sisi-sisi lain
+1493|Bentuk sisi-sisi di sebelah sisi ini, dibentangkan di sekitar tepinya, dan bentuk sisi di bawahnya, terlihat tembus benda; digambar samar. Klik salah satunya untuk meratakan atau menempel padanya; tidak pernah dipindahkan.
+1494|Satu file, dengan jeda sebelum setiap sisi untuk memutar benda
+1495|Satu file, tanpa jeda
+1496|Satu file per sisi: name_A … name_{}
+1497|G-code pekerjaan beberapa sisi
+1498|Pekerjaan ini punya beberapa sisi. Bagaimana G-code ditampilkan?
+1499|Simpan G-code pekerjaan beberapa sisi
+1500|Pekerjaan ini punya beberapa sisi. Bagaimana G-code disimpan?
+1501|Tanda perataan dalam file tersendiri (name_marks)
+1502|Dibakar pertama kali, pada lembar di bawah material, sebelum material diletakkan: tanda ada tepat di luar material, jadi tidak ada di file sisi-sisi.
+1503|Kualitas render
+1504|Seberapa halus gambar pratinjau: 1 cepat dan kasar, 5 tajam dan halus tetapi lebih lambat. Saat tampilan diputar, gambar dibuat lebih kasar sejenak.
+1505|Simpan otomatis
+1506|Simpan pekerjaan secara otomatis
+1507|Pekerjaan tanpa nama file masuk ke folder sementara; file bernama disimpan di tempatnya
+1508|Simpan otomatis setiap
+1509|Ukir V
+1510|Garis bersudut, masing-masing selebar gelapnya gambar di sepanjangnya: tipis di bagian terang, lebar di bayangan, seperti mata V yang memotong lebih dalam sehingga lebih lebar. Setiap garis dipotong menjadi potongan-potongan yang kecerahannya menentukan lebarnya.
+1511|Lebar garis
+1512|Panjang potongan
+1513|Garis tertipis
+1514|Bersudut
+1515|Poligon geometris
+1516|Poligon geometris…
+1517|Bentuk gelap gambar dibagi menjadi poligon (segitiga dan segi empat), lebih banyak di bagian gambar yang bertepi, dengan celah di antaranya dan di sekeliling garis tepi: gambar geometris (low poly).
+1518|Celah antar poligon
+1519|Jumlah poligon
+1520|Ikuti tepi
+1521|Segitiga dan segi empat
+1522|Gaya gambar
+1523|Menggambar gaya…
+1524|Alat
+1525|Abu-abu
+1526|Seberapa gelap: 0 % putih, 100 % hitam
+1527|Kekerasan
+1528|Seberapa berbeda abu-abu yang masih diisi
+1529|Ctrl+klik (Cmd+klik) memilih tempat lain untuk disalin
+1530|Pertama Ctrl+klik (Cmd+klik) tempat yang akan disalin
+1531|Gulir untuk zoom; seret dengan tombol kanan atau tengah untuk menggeser gambar.
+1532|Edit gambar
+1533|Edit gambar…
+1534|Gambar terkunci
+1535|Kuas
+1536|Penghapus
+1537|Klon
+1538|Isi
+1539|Melukis dengan abu-abu yang dipilih
+1540|Melukis putih, seperti material yang tidak disentuh
+1541|Menyalin satu tempat gambar ke tempat lain: Ctrl+klik (Cmd+klik) tempat yang akan disalin, lalu lukis
+1542|Mengisi area abu-abu serupa di sekitar titik yang diklik
+1543|Bentuk tidak memiliki ukuran
+1544|Resolusi
+1545|{} garis per milimeter
+1546|Ukuran objek
+1547|{} × {} piksel
+1548|Gambar
+1549|Isi bentuk tertutup
+1550|Lebar garis
+1551|Hapus objek sesudahnya
+1552|Sembunyikan objek
+1553|Hanya di pratinjau: gambarnya saja, tanpa garis tepi objek
+1554|Ubah menjadi gambar
+1555|Ubah menjadi gambar…
+1556|Ubah
+1557|Kuas, penghapus, stempel klon, dan isi, dalam abu-abu
+1558|Sembunyikan gambar
+1559|Hanya di pratinjau: garis tepinya saja
+1560|Hanya di pratinjau: garisnya saja
+1561|Windows ini tidak punya Media Foundation yang diperlukan kamera. Pasang Media Feature Pack (Pengaturan → Fitur opsional).
+1562|Kamera USB belum berfungsi di FreeBSD. Kamera jaringan (IP) berfungsi.
+1563|Informasi proyek…
+1564|Informasi proyek
+1565|Nama Anda
+1566|Dicatat di proyek yang Anda simpan, sebagai pembuat atau kontributor. Sama di setiap program.
+1567|Belum disimpan
+1568|File dibuat
+1569|File diubah
+1570|Proyek dibuat
+1571|Pembuat
+1572|Kontributor
+1573|Belum ada
+1574|(tanpa nama)
+1575|Atur nama Anda di Pengaturan → Opsi program agar dicatat di proyek yang Anda simpan.
+1576|Suntingan ({})
+1577|Email
+1578|Lainnya
+1579|Penulis
+1580|Orang
+1581|Program
+1582|Perusahaan, situs web, atau apa pun yang ingin disimpan bersama nama Anda
