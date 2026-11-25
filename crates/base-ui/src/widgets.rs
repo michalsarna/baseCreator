@@ -385,3 +385,18 @@ mod toggle_tests {
         assert!(on);
     }
 }
+
+/// The width of the column of the labels in Program options: the same in every part, so that the fields of the parts line up.
+pub const OPTIONS_LABEL_W: f32 = 180.0;
+
+/// One part of Program options: a grid of two columns (label, field) with the labels as wide as in the other parts.
+pub fn options_grid<R>(ui: &mut egui::Ui, id: &str, add: impl FnOnce(&mut egui::Ui) -> R) -> R {
+    egui::Grid::new(id).num_columns(2).spacing([12.0, 8.0]).min_col_width(OPTIONS_LABEL_W).show(ui, add).inner
+}
+
+/// The line between two parts of Program options.
+pub fn options_line(ui: &mut egui::Ui) {
+    ui.add_space(4.0);
+    ui.separator();
+    ui.add_space(4.0);
+}

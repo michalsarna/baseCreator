@@ -85,12 +85,11 @@ pub fn stamp(a: &mut Authorship, program: &str, version: &str, auto: bool) {
 pub fn options_section(ui: &mut egui::Ui) -> bool {
     let id = egui::Id::unique("authorship_person_edit");
     let mut p = ui.data_mut(|d| d.get_temp::<Person>(id)).unwrap_or_else(person);
-    ui.add_space(4.0);
-    ui.separator();
+    crate::widgets::options_line(ui);
     ui.label(RichText::new(tr("Author")).strong()).on_hover_text(tr("Recorded in the projects you save, as their creator or a contributor. The same in every program."));
     ui.add_space(2.0);
     let mut changed = false;
-    egui::Grid::new("authorship_options_grid").num_columns(2).spacing([12.0, 8.0]).show(ui, |ui| {
+    crate::widgets::options_grid(ui, "authorship_options_grid", |ui| {
         for (label, text, hint) in [(tr("Your name"), &mut p.name, ""), (tr("Email"), &mut p.email, "name@example.com"), (tr("Other"), &mut p.other, tr("A company, a website or anything else to keep with your name"))] {
             ui.label(label);
             changed |= ui.add(egui::TextEdit::singleline(text).desired_width(260.0).char_limit(200).hint_text(hint)).changed();
@@ -202,20 +201,25 @@ fn part(ui: &mut egui::Ui, title: &str, first: bool) {
     ui.add_space(2.0);
 }
 
-/// Label and value in two columns, the value wrapped.
-fn pairs(ui: &mut egui::Ui, id: &str, rows: impl Iterator<Item = (&'static str, String, String)>) {
-    egui::Grid::new(id).num_columns(2).min_col_width(130.0).spacing([16.0, 6.0]).show(ui, |ui| {
-        for (label, value, more) in rows {
-            ui.label(RichText::new(label).color(theme::text_dim()));
+/// Label and value in two columns, the value wrapped. Rows, not a grid: a grid measures its first frame without the width of its
+/// columns, a wrapped value is very tall then, and the window would keep that height.
+fn pairs(ui: &mut egui::Ui, _id: &str, rows: impl Iterator<Item = (&'static str, String, String)>) {
+    const LABEL_W: f32 = 140.0;
+    for (label, value, more) in rows {
+        ui.horizontal_top(|ui| {
+            ui.allocate_ui_with_layout(egui::vec2(LABEL_W, 0.0), egui::Layout::top_down(egui::Align::Min), |ui| {
+                ui.set_width(LABEL_W);
+                ui.label(RichText::new(label).color(theme::text_dim()));
+            });
             ui.vertical(|ui| {
                 ui.add(egui::Label::new(value).wrap());
                 if !more.is_empty() {
                     ui.add(egui::Label::new(RichText::new(more).small().color(theme::text_dim())).wrap());
                 }
             });
-            ui.end_row();
-        }
-    });
+        });
+        ui.add_space(2.0);
+    }
 }
 
 /// The window File → Project information.
@@ -224,7 +228,7 @@ pub fn window(ctx: &egui::Context, open: &mut bool, info: &Info) {
         return;
     }
     let v = view(info);
-    crate::window::popup(ctx, "project_information_2", tr("Project information"), [560.0, 560.0], open, |ui| {
+    crate::window::popup(ctx, "project_information_3", tr("Project information"), [560.0, 300.0], open, |ui| {
         part(ui, tr("File"), true);
         pairs(ui, "project_information_file", v.file.iter().map(|(l, v)| (*l, v.clone(), String::new())));
         part(ui, tr("Authors"), false);
@@ -238,7 +242,7 @@ pub fn window(ctx: &egui::Context, open: &mut bool, info: &Info) {
             ui.label(RichText::new(tr("Nobody yet")).color(theme::text_dim()));
             return;
         }
-        egui::ScrollArea::vertical().id_salt("project_information_edits").auto_shrink([false, false]).show(ui, |ui| {
+        let table = |ui: &mut egui::Ui| {
             let w = ui.available_width();
             egui::Grid::new("project_information_edits_grid").num_columns(3).striped(true).min_col_width((w / 3.0 - 12.0).max(80.0)).spacing([12.0, 4.0]).show(ui, |ui| {
                 for h in [tr("Time"), tr("Person"), tr("Program")] {
@@ -252,7 +256,14 @@ pub fn window(ctx: &egui::Context, open: &mut bool, info: &Info) {
                     ui.end_row();
                 }
             });
-        });
+        };
+        // A short list as it is; a long one scrolls, at most this high. (A scrolled list takes its whole height in the first frame,
+        // and the window keeps the height it once had: a short list in it would leave an empty strip.)
+        if v.edits.len() <= 8 {
+            table(ui);
+        } else {
+            egui::ScrollArea::vertical().id_salt("project_information_edits").auto_shrink([false, true]).max_height(300.0).show(ui, table);
+        }
     });
 }
 

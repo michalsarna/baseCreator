@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.10
+
+- **Project information** no longer grows to the height of the screen. The window fits what it shows: the values are rows, not a grid (a grid's first frame made the wrapped values very tall, and the window kept that height), a short list of edits is shown as it is and a long one scrolls at most 300 points high. Its remembered size starts again.
+- **Program options in parts**: `widgets::options_grid` (a part with the labels as wide as in the other parts) and `widgets::options_line` (the line between parts); the Author part uses them. BaseCreator: lines after the updates and after the auto-save.
+
 ## v2.7.9
 
 - **The author has an e-mail and an "Other" field** besides the name, recorded with the creator and the contributors. They are in their own **Author** part of Program options, under a line (`authorship_ui::options_section`, which replaces `options_rows`; `Person`, `set_person`).
