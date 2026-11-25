@@ -3,6 +3,17 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.13
+
+A release of the BaseCreator program. What is new since BaseCreator v2.7.7:
+
+- **Eight new languages**: Japanese, Korean, Traditional Chinese, Turkish, Vietnamese, Indonesian, Serbian (Cyrillic) and Bosnian, 38 in all (machine-translated, corrections are welcome). Simplified Chinese is now named so in the menu. A Korean font is built in. The list of languages scrolls on a short screen.
+- **Creator and contributors in the project file**: the first save makes you the creator, anyone else who saves the project is added once as a contributor, and saves by hand are kept as edits (at most one a minute for the same person and program, the last 200; automatic saves add none). The creator keeps the name, the e-mail and the other field; a contributor the name and the e-mail, only the name when it is the creator's e-mail. Set them in **Settings → Program options**, part **Author**; they are the same in every program.
+- **File → Project information…**: the file (name, folder, size, when it was created and changed), the creator with the e-mail and the other field, the contributors and a table of the edits.
+- **Program options** are in parts separated by lines.
+- The wiki is also in Simplified Chinese and Korean (machine-translated).
+- Dependencies updated (muda 0.22, qrcode 0.15 and the newest compatible versions of the rest).
+
 ## v2.7.12
 
 - **Authors in the project file**: the creator keeps the name, the e-mail and the other field; a contributor and an edit keep only the name and the e-mail, and only the name when the e-mail is the creator's. **Project information** shows the creator's e-mail and other field in rows of their own.
