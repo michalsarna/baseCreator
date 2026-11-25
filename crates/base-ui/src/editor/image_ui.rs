@@ -273,17 +273,18 @@ pub trait EditorImages: EditorHost {
         }
     }
 
-    /// Read an SVG, PDF or Illustrator file into the drawing. A file with Illustrator layers first asks how to put the paths on the
-    /// layers of the program.
+    /// Read an SVG, PDF or Illustrator file into the drawing. A file with more than one Illustrator layer first asks how to put the
+    /// paths on the layers of the program (one layer, as every file of Illustrator has, needs no question).
     fn import_drawing_path(&mut self, p: std::path::PathBuf) {
         let data = match std::fs::read(&p) {
             Ok(d) => d,
             Err(e) => return self.say(trf("Import failed: {}", &[&e])),
         };
         match base_core::svg::read_drawing(&data) {
-            Ok(outlines) if !base_core::svg::layer_names(&outlines).is_empty() => self.ed_mut().drawing_choice = Some((p, outlines)),
+            Ok(outlines) if base_core::svg::layer_names(&outlines).len() > 1 => self.ed_mut().drawing_choice = Some((p, outlines)),
             Ok(outlines) => {
-                // The pictures of an SVG (LightBurn writes them in) or of a VectorCraft drawing come with its paths.
+                // The pictures of an SVG (LightBurn writes them in), of a VectorCraft drawing or of an Illustrator / PDF file come with
+                // its paths.
                 let pictures = base_core::svg::pictures(&data);
                 self.place_drawing(&p, outlines, false);
                 self.place_pictures(&p, pictures);
@@ -347,7 +348,11 @@ pub trait EditorImages: EditorHost {
             });
         });
         match pick {
-            Some(by_layers) => self.place_drawing(&p, outlines, by_layers),
+            Some(by_layers) => {
+                let pictures = std::fs::read(&p).map(|d| base_core::svg::pictures(&d)).unwrap_or_default();
+                self.place_drawing(&p, outlines, by_layers);
+                self.place_pictures(&p, pictures);
+            }
             None if open && !cancel => self.ed_mut().drawing_choice = Some((p, outlines)),
             None => {}
         }

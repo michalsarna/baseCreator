@@ -64,14 +64,14 @@ pub fn read_scene(data: &[u8]) -> Result<crate::scene::Scene, String> {
 }
 
 /// The pictures of a drawing read by [`read_drawing`]: those of an SVG, of a VectorCraft drawing or of the VectorCraft document in an
-/// EPS (a PDF and an Illustrator file give none).
+/// EPS, or of a PDF / Illustrator file (its embedded pictures).
 pub fn pictures(data: &[u8]) -> Vec<(crate::image::ImageData, Xf)> {
     if crate::vectorcraft::is_vectorcraft(data) {
         crate::vectorcraft::images(data)
     } else if crate::eps::is_eps(data) {
         crate::eps::images(data)
     } else if crate::pdf::is_pdf_or_ai(data) {
-        vec![]
+        crate::pdf::images(data)
     } else {
         images(data)
     }

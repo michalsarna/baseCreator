@@ -646,6 +646,105 @@ fn illustrator_layers_are_kept_on_the_outlines() {
     assert!(pdf::parse(&tiny_pdf("0 0 m 5 5 l S")).unwrap()[0].layer.is_none());
 }
 
+/// A page of 100 × 100 points with `content` and the resources `res`; `cat` adds to the catalog.
+fn pdf_with(content: &[u8], res: lopdf::Dictionary, cat: impl FnOnce(&mut lopdf::Document, &mut lopdf::Dictionary)) -> Vec<u8> {
+    use lopdf::{dictionary, Document as Pdf, Object, Stream};
+    let mut pdf = Pdf::with_version("1.6");
+    let pages_id = pdf.new_object_id();
+    let c = pdf.add_object(Stream::new(dictionary! {}, content.to_vec()));
+    let page = pdf.add_object(dictionary! {
+        "Type" => "Page", "Parent" => pages_id, "MediaBox" => vec![0.into(), 0.into(), 100.into(), 100.into()], "Contents" => c, "Resources" => res,
+    });
+    pdf.objects.insert(pages_id, Object::Dictionary(dictionary! { "Type" => "Pages", "Count" => 1, "Kids" => vec![page.into()] }));
+    let mut catalog = dictionary! { "Type" => "Catalog", "Pages" => pages_id };
+    cat(&mut pdf, &mut catalog);
+    let catalog = pdf.add_object(catalog);
+    pdf.trailer.set("Root", catalog);
+    let mut data = Vec::new();
+    pdf.save_to(&mut data).unwrap();
+    data
+}
+
+/// A picture in an Illustrator / PDF file is read with where it lies, as Illustrator writes one: an indexed gray palette, a soft mask,
+/// placed upside down by its matrix.
+#[test]
+fn the_pictures_of_a_pdf_are_read() {
+    use lopdf::{dictionary, Object, Stream};
+    // No picture without its XObject: nothing to read.
+    assert!(pdf::parse(&pdf_with(b"q 72 0 0 -36 0 72 cm /Im0 Do Q", dictionary! {}, |_, _| {})).is_err());
+    let data = {
+        use lopdf::Document as Pdf;
+        let mut pdf = Pdf::with_version("1.6");
+        let lookup = pdf.add_object(Stream::new(dictionary! {}, (0..=255u8).flat_map(|v| [v, v, v]).collect()));
+        // 2 × 2 pixels: black, white / white, gray 128; the mask makes the last one transparent.
+        let mask = pdf.add_object(Stream::new(dictionary! { "Type" => "XObject", "Subtype" => "Image", "Width" => 2, "Height" => 2, "BitsPerComponent" => 8, "ColorSpace" => "DeviceGray" }, vec![255, 255, 255, 0]));
+        let im = pdf.add_object(Stream::new(
+            dictionary! {
+                "Type" => "XObject", "Subtype" => "Image", "Width" => 2, "Height" => 2, "BitsPerComponent" => 8,
+                "ColorSpace" => vec![Object::Name(b"Indexed".to_vec()), Object::Name(b"DeviceRGB".to_vec()), 255.into(), lookup.into()],
+                "SMask" => mask,
+            },
+            vec![0, 255, 255, 128],
+        ));
+        let pages_id = pdf.new_object_id();
+        let c = pdf.add_object(Stream::new(dictionary! {}, b"q 72 0 0 -36 0 72 cm /Im0 Do Q".to_vec()));
+        let page = pdf.add_object(dictionary! {
+            "Type" => "Page", "Parent" => pages_id, "MediaBox" => vec![0.into(), 0.into(), 100.into(), 100.into()], "Contents" => c,
+            "Resources" => dictionary! { "XObject" => dictionary! { "Im0" => im } },
+        });
+        pdf.objects.insert(pages_id, Object::Dictionary(dictionary! { "Type" => "Pages", "Count" => 1, "Kids" => vec![page.into()] }));
+        let catalog = pdf.add_object(dictionary! { "Type" => "Catalog", "Pages" => pages_id });
+        pdf.trailer.set("Root", catalog);
+        let mut v = Vec::new();
+        pdf.save_to(&mut v).unwrap();
+        v
+    };
+    // A file of a picture alone is read without paths.
+    assert!(pdf::parse(&data).unwrap().is_empty());
+    let pics = svg::pictures(&data);
+    assert_eq!(pics.len(), 1);
+    let (p, xf) = &pics[0];
+    assert_eq!((p.px_w, p.px_h), (2, 2));
+    assert_eq!(p.gray, vec![0, 255, 255, 255], "the palette gives the grays; the transparent pixel is white");
+    assert!((p.w - 25.4).abs() < 1e-6 && (p.h - 12.7).abs() < 1e-6, "{} {}", p.w, p.h);
+    // The page is 100 pt high: the picture spans y 28..64 pt from the top, drawn upside down (its first row at the bottom).
+    let mm = 25.4 / 72.0;
+    let top_left = xf.apply(crate::geom::Pt::new(0.0, 0.0));
+    let bottom_right = xf.apply(crate::geom::Pt::new(p.w, p.h));
+    assert!((top_left.x).abs() < 1e-6 && (top_left.y - 64.0 * mm).abs() < 1e-6, "{top_left:?}");
+    assert!((bottom_right.x - 72.0 * mm).abs() < 1e-6 && (bottom_right.y - 28.0 * mm).abs() < 1e-6, "{bottom_right:?}");
+}
+
+/// What lies on an Illustrator layer that is switched off (hidden in Illustrator) is not read.
+#[test]
+fn hidden_illustrator_layers_are_left_out() {
+    use lopdf::{dictionary, Document as Pdf, Object, Stream, StringFormat};
+    let mut pdf = Pdf::with_version("1.6");
+    let pages_id = pdf.new_object_id();
+    let shown = pdf.add_object(dictionary! { "Type" => "OCG", "Name" => Object::String(b"Shown".to_vec(), StringFormat::Literal) });
+    let hidden = pdf.add_object(dictionary! { "Type" => "OCG", "Name" => Object::String(b"Hidden".to_vec(), StringFormat::Literal) });
+    let content = pdf.add_object(Stream::new(dictionary! {}, b"/OC /MC0 BDC 0 0 m 10 0 l S EMC /OC /MC1 BDC 20 0 m 30 0 l S EMC".to_vec()));
+    let page = pdf.add_object(dictionary! {
+        "Type" => "Page", "Parent" => pages_id, "MediaBox" => vec![0.into(), 0.into(), 100.into(), 100.into()], "Contents" => content,
+        "Resources" => dictionary! { "Properties" => dictionary! { "MC0" => shown, "MC1" => hidden } },
+    });
+    pdf.objects.insert(pages_id, Object::Dictionary(dictionary! { "Type" => "Pages", "Count" => 1, "Kids" => vec![page.into()] }));
+    let save = |pdf: &mut Pdf, off: bool| {
+        let mut cat = dictionary! { "Type" => "Catalog", "Pages" => pages_id };
+        let off: Vec<Object> = if off { vec![hidden.into()] } else { vec![] };
+        cat.set("OCProperties", dictionary! { "OCGs" => vec![shown.into(), hidden.into()], "D" => dictionary! { "OFF" => off } });
+        let catalog = pdf.add_object(cat);
+        pdf.trailer.set("Root", catalog);
+        let mut data = Vec::new();
+        pdf.save_to(&mut data).unwrap();
+        data
+    };
+    assert_eq!(pdf::parse(&save(&mut pdf, false)).unwrap().len(), 2, "both layers shown: both read");
+    let out = pdf::parse(&save(&mut pdf, true)).unwrap();
+    assert_eq!(out.len(), 1);
+    assert_eq!(out[0].layer.as_deref(), Some("Shown"));
+}
+
 #[test]
 fn an_importer_extension_may_have_an_underscore() {
     let manifest = |ext: &str| -> crate::plugins::Manifest {
