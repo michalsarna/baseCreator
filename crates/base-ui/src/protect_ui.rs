@@ -315,6 +315,11 @@ mod tests {
     use base_core::geom::Xf;
     use base_core::scene::Kind;
 
+    /// A password for the tests, made when they run (no password is written into the code).
+    fn pw(tag: &str) -> String {
+        format!("{tag}-{}", std::process::id())
+    }
+
     #[test]
     fn the_guard_puts_the_drawing_back() {
         let mut s = Scene::default();
@@ -335,23 +340,24 @@ mod tests {
         let mut f = Fields::default();
         assert!(f.check(), "empty: nothing to do");
         assert!(matches!(f.take_change(), Change::Keep));
-        f.owner = "owner-pass".into();
-        f.owner2 = "owner-pas".into();
+        let (owner, open) = (pw("owner"), pw("open"));
+        f.owner = owner.clone();
+        f.owner2 = owner[..owner.len() - 1].to_string();
         assert!(!f.check());
-        f.owner2 = "owner-pass".into();
+        f.owner2 = owner.clone();
         assert!(f.check());
-        f.open = "owner-pass".into();
-        f.open2 = "owner-pass".into();
+        f.open = owner.clone();
+        f.open2 = owner.clone();
         assert!(!f.check(), "the open password must differ");
-        f.open = "open-pass1".into();
-        f.open2 = "open-pass1".into();
+        f.open = open.clone();
+        f.open2 = open.clone();
         assert!(f.check());
-        assert!(matches!(f.take_change(), Change::Set { ref owner, open: Some(ref o) } if owner == "owner-pass" && o == "open-pass1"));
+        assert!(matches!(f.take_change(), Change::Set { owner: ref w, open: Some(ref o) } if *w == owner && *o == open));
         assert!(f.owner.is_empty(), "the typed passwords are cleared");
         let mut r = Fields { access: Some(Access::Owner), remove: true, ..Default::default() };
         assert!(r.check());
         assert!(matches!(r.take_change(), Change::Remove));
-        let mut o = Fields { access: Some(Access::Open), owner: "anything1".into(), ..Default::default() };
+        let mut o = Fields { access: Some(Access::Open), owner: pw("anything"), ..Default::default() };
         assert!(o.check());
         assert!(matches!(o.take_change(), Change::Keep), "the open password changes nothing");
     }

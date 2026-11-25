@@ -539,7 +539,9 @@ fn a_protected_project_opens_with_its_passwords_and_the_open_one_cannot_edit() {
     let mut scene = Scene::default();
     scene.add(0, base_core::scene::Kind::Rect { w: 20.0, h: 10.0 }, base_core::geom::Xf::IDENTITY);
     let fast = Kdf { m_kib: 8 * 1024, t: 1, p: 1 };
-    let prot = Protection::with_kdf("owner-pass-1", Some("open-pass-2"), fast).unwrap();
+    // Passwords made when the test runs (none written into the code).
+    let (owner, open) = (format!("owner-{}", std::process::id()), format!("open-{}", std::process::id()));
+    let prot = Protection::with_kdf(&owner, Some(&open), fast).unwrap();
     std::fs::write(&file, prot.seal(&Project::new(scene).to_json())).unwrap();
     let unlock = |a: &mut App, pw: &str| {
         a.open(file.clone());
@@ -553,7 +555,7 @@ fn a_protected_project_opens_with_its_passwords_and_the_open_one_cannot_edit() {
 
     // The open password: looking only.
     let mut a = app();
-    unlock(&mut a, "open-pass-2");
+    unlock(&mut a, &open);
     assert_eq!(a.scene.shapes.len(), 1);
     assert!(a.lock.locked() && a.ed.locked);
     assert!(!a.act_enabled(Act::ExportSvg) && !a.act_enabled(Act::Print) && !a.act_enabled(Act::ImportSvg));
@@ -569,12 +571,12 @@ fn a_protected_project_opens_with_its_passwords_and_the_open_one_cannot_edit() {
     a.save(false);
     let text = std::fs::read_to_string(&file).unwrap();
     assert!(protect::is_sealed(&text));
-    assert_eq!(protect::open(&text, "owner-pass-1").unwrap().1.access, Access::Owner);
-    assert_eq!(protect::open(&text, "open-pass-2").unwrap().1.access, Access::Open);
+    assert_eq!(protect::open(&text, &owner).unwrap().1.access, Access::Owner);
+    assert_eq!(protect::open(&text, &open).unwrap().1.access, Access::Open);
 
     // The owner password: everything.
     let mut b = app();
-    unlock(&mut b, "owner-pass-1");
+    unlock(&mut b, &owner);
     assert!(!b.lock.locked() && !b.ed.locked);
     assert!(b.act_enabled(Act::ExportSvg));
     let _ = std::fs::remove_dir_all(&dir);

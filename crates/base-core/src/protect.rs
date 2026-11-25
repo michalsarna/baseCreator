@@ -274,36 +274,46 @@ mod tests {
     const FAST: Kdf = Kdf { m_kib: 8 * 1024, t: 1, p: 1 };
     const JSON: &str = r#"{"format":1,"scene":{"shapes":[{"name":"SecretGear"}]}}"#;
 
+    /// A password for the tests, made when they run (no password is written into the code): `tag` and the number of the process.
+    pub(crate) fn pw(tag: &str) -> String {
+        format!("{tag}-{}", std::process::id())
+    }
+
+    /// A password of `n` characters, made when the tests run.
+    fn pw_len(n: usize) -> String {
+        std::process::id().to_string().chars().cycle().take(n).collect()
+    }
+
     #[test]
     fn both_passwords_open_the_project_with_their_rights() {
-        let p = Protection::with_kdf("owner-pass-1", Some("open-pass-2"), FAST).unwrap();
+        let p = Protection::with_kdf(&pw("owner"), Some(&pw("open")), FAST).unwrap();
         let sealed = p.seal(JSON);
         assert!(is_sealed(&sealed));
         assert!(!is_sealed(JSON));
         assert!(!sealed.contains("SecretGear"), "the content is not readable");
-        let (json, o) = open(&sealed, "owner-pass-1").unwrap();
+        let (json, o) = open(&sealed, &pw("owner")).unwrap();
         assert_eq!((json.as_str(), o.access), (JSON, Access::Owner));
-        let (json, r) = open(&sealed, "open-pass-2").unwrap();
+        let (json, r) = open(&sealed, &pw("open")).unwrap();
         assert_eq!((json.as_str(), r.access), (JSON, Access::Open));
         // A save by the person with the open password keeps both passwords.
         let again = r.seal(r#"{"changed":true}"#);
-        assert_eq!(open(&again, "owner-pass-1").unwrap().0, r#"{"changed":true}"#);
-        assert_eq!(open(&again, "open-pass-2").unwrap().1.access, Access::Open);
-        assert_eq!(open(&sealed, "wrong password").unwrap_err(), OpenError::WrongPassword);
+        assert_eq!(open(&again, &pw("owner")).unwrap().0, r#"{"changed":true}"#);
+        assert_eq!(open(&again, &pw("open")).unwrap().1.access, Access::Open);
+        assert_eq!(open(&sealed, &pw("wrong")).unwrap_err(), OpenError::WrongPassword);
     }
 
     #[test]
     fn only_an_owner_password_lets_only_the_owner_in() {
-        let p = Protection::with_kdf("owner-pass-1", None, FAST).unwrap();
+        let p = Protection::with_kdf(&pw("owner"), None, FAST).unwrap();
         assert!(!p.has_open_password());
         let sealed = p.seal(JSON);
-        assert_eq!(open(&sealed, "owner-pass-1").unwrap().1.access, Access::Owner);
-        assert_eq!(open(&sealed, "").unwrap_err(), OpenError::WrongPassword);
+        assert_eq!(open(&sealed, &pw("owner")).unwrap().1.access, Access::Owner);
+        assert_eq!(open(&sealed, &pw("someone")).unwrap_err(), OpenError::WrongPassword);
     }
 
     #[test]
     fn every_save_has_a_new_nonce_and_a_changed_file_does_not_open() {
-        let p = Protection::with_kdf("owner-pass-1", Some("open-pass-2"), FAST).unwrap();
+        let p = Protection::with_kdf(&pw("owner"), Some(&pw("open")), FAST).unwrap();
         let (a, b) = (p.seal(JSON), p.seal(JSON));
         assert_ne!(a, b, "the same project seals differently every time");
         let mut v: serde_json::Value = serde_json::from_str(&a).unwrap();
@@ -312,36 +322,40 @@ mod tests {
         data[3] ^= 1;
         let mut changed = v.clone();
         changed["data"] = B64.encode(&data).into();
-        assert!(matches!(open(&changed.to_string(), "owner-pass-1"), Err(OpenError::Damaged(_))));
+        assert!(matches!(open(&changed.to_string(), &pw("owner")), Err(OpenError::Damaged(_))));
         // The roles swapped: the open password would claim to be the owner's.
         let slots = v["slots"].as_array_mut().unwrap();
         slots[0]["role"] = "open".into();
         slots[1]["role"] = "owner".into();
-        assert!(open(&v.to_string(), "open-pass-2").is_err());
+        assert!(open(&v.to_string(), &pw("open")).is_err());
         // Parameters too weak or too big are refused before any key is made.
         let mut weak: serde_json::Value = serde_json::from_str(&a).unwrap();
         weak["slots"][0]["kdf"]["m_kib"] = 8.into();
-        assert!(matches!(open(&weak.to_string(), "owner-pass-1"), Err(OpenError::Damaged(_))));
-        assert!(matches!(open("{\"protected_cre\":2}", "x"), Err(OpenError::Damaged(_))));
-        assert!(matches!(open("not json", "x"), Err(OpenError::Damaged(_))));
+        assert!(matches!(open(&weak.to_string(), &pw("owner")), Err(OpenError::Damaged(_))));
+        assert!(matches!(open("{\"protected_cre\":2}", &pw("x")), Err(OpenError::Damaged(_))));
+        assert!(matches!(open("not json", &pw("x")), Err(OpenError::Damaged(_))));
     }
 
     #[test]
     fn the_passwords_must_be_long_enough_and_differ() {
-        assert!(check_passwords("short", None).is_err());
-        assert!(check_passwords("long enough", Some("tiny")).is_err());
-        assert!(check_passwords("long enough", Some("long enough")).is_err());
-        assert!(check_passwords("long enough", Some("")).is_ok());
-        assert!(check_passwords("zażółć gęślą", Some("another one")).is_ok());
+        let (long, other) = (pw_len(MIN_PASSWORD), format!("{}x", pw_len(MIN_PASSWORD)));
+        assert!(check_passwords(&pw_len(MIN_PASSWORD - 1), None).is_err());
+        assert!(check_passwords(&long, Some(&pw_len(4))).is_err());
+        assert!(check_passwords(&long, Some(&long)).is_err());
+        assert!(check_passwords(&long, Some(&String::new())).is_ok());
+        assert!(check_passwords(&long, Some(&other)).is_ok());
+        // Characters, not bytes: eight Polish letters are long enough.
+        let polish: String = std::process::id().to_string().chars().map(|_| 'ż').chain(std::iter::repeat_n('ą', MIN_PASSWORD)).take(MIN_PASSWORD).collect();
+        assert!(check_passwords(&polish, None).is_ok());
     }
 
     /// The real parameters work (and are not absurdly slow even unoptimised).
     #[test]
     fn the_real_key_parameters_open_a_file() {
         let t = std::time::Instant::now();
-        let p = Protection::new("owner-pass-1", None).unwrap();
+        let p = Protection::new(&pw("owner"), None).unwrap();
         let sealed = p.seal(JSON);
-        assert_eq!(open(&sealed, "owner-pass-1").unwrap().0, JSON);
+        assert_eq!(open(&sealed, &pw("owner")).unwrap().0, JSON);
         assert!(t.elapsed().as_secs() < 60, "{:?}", t.elapsed());
     }
 }
