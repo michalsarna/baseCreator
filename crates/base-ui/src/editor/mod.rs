@@ -327,6 +327,9 @@ pub struct EditorState {
     pub node_sel: Vec<NodeRef>,
     pub active_seg: Option<NodeRef>,
     pub tool: Tool,
+    /// The project was opened with its open password: the drawing may be looked at, not edited or copied (no selection, only the
+    /// view tools, no keys that change it, no copy).
+    pub locked: bool,
     /// The layer (or similar group) that new shapes go to.
     pub active_layer: usize,
     pub view: View,
@@ -471,7 +474,7 @@ impl EditorState {
             ghost_sel: vec![],
             node_sel: vec![],
             active_seg: None,
-            tool: Tool::Select,
+            locked: false, tool: Tool::Select,
             active_layer: 0,
             view: View { zoom: 2.0, pan: egui::vec2(40.0, 40.0), need_fit: true, auto_fit: true },
             drag: None,

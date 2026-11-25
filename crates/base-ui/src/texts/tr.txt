@@ -1581,3 +1581,16 @@
 1580|Kişi
 1581|Program
 1582|Adınızla birlikte saklanacak bir şirket, web sitesi veya başka bir şey
+1583|Koruma
+1584|{} korumalı. Parolasını girin:
+1585|Parola
+1586|Yanlış parola.
+1587|Parolalar eşleşmiyor.
+1588|En az {} karakter; açma parolası sahip parolasından farklı olmalı.
+1589|Açma parolasıyla açıldı: düzenleme ve kopyalama kapalı.
+1590|Sahip: her şeyi yapabilir. Açma: açabilir, bakabilir, G-code oluşturabilir, işi çalıştırabilir ve malzemeyi değiştirebilir, ama çizimi düzenleyemez veya kopyalayamaz. Parola olmadan dosya okunamaz ve unutulan parola kurtarılamaz.
+1591|Proje korumalı. Parolalarını korumak için alanları boş bırakın.
+1592|Sahip parolası
+1593|Parolayı yineleyin
+1594|Açma parolası (isteğe bağlı)
+1595|Korumayı kaldır

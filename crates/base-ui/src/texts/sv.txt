@@ -1581,3 +1581,16 @@
 1580|Person
 1581|Program
 1582|Ett företag, en webbplats eller något annat att spara med ditt namn
+1583|Skydd
+1584|{} är skyddad. Ange lösenordet:
+1585|Lösenord
+1586|Fel lösenord.
+1587|Lösenorden stämmer inte överens.
+1588|Minst {} tecken; öppningslösenordet måste skilja sig från ägarens.
+1589|Öppnad med öppningslösenordet: redigering och kopiering är avstängda.
+1590|Ägare: får göra allt. Öppning: får öppna, titta, skapa G-code, köra jobbet och ändra materialet, men inte redigera eller kopiera ritningen. Utan lösenord kan filen inte läsas, och ett glömt lösenord kan inte återställas.
+1591|Projektet är skyddat. Lämna fälten tomma för att behålla lösenorden.
+1592|Ägarens lösenord
+1593|Upprepa lösenordet
+1594|Öppningslösenord (valfritt)
+1595|Ta bort skyddet

@@ -1588,6 +1588,19 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Person", "Osoba", "Person", "Persona", "Henkilö", "人员", "व्यक्ति"],
     ["Program", "Program", "Programm", "Programma", "Ohjelma", "程序", "प्रोग्राम"],
     ["A company, a website or anything else to keep with your name", "Firma, strona WWW lub cokolwiek innego do zapisania z imieniem", "Eine Firma, eine Website oder etwas anderes, das bei deinem Namen stehen soll", "Un'azienda, un sito web o altro da tenere con il tuo nome", "Yritys, verkkosivusto tai muuta, mitä haluat nimesi yhteyteen", "公司、网站或其他想与你的名字一起保存的信息", "कंपनी, वेबसाइट या कुछ और जो आपके नाम के साथ रखना हो"],
+    ["Protection", "Ochrona", "Schutz", "Protezione", "Suojaus", "保护", "सुरक्षा"],
+    ["{} is protected. Enter its password:", "{} jest chroniony. Podaj jego hasło:", "{} ist geschützt. Gib das Passwort ein:", "{} è protetto. Inserisci la password:", "{} on suojattu. Anna sen salasana:", "{} 受密码保护。请输入密码：", "{} सुरक्षित है। इसका पासवर्ड दर्ज करें:"],
+    ["Password", "Hasło", "Passwort", "Password", "Salasana", "密码", "पासवर्ड"],
+    ["Wrong password.", "Złe hasło.", "Falsches Passwort.", "Password errata.", "Väärä salasana.", "密码错误。", "गलत पासवर्ड।"],
+    ["The passwords do not match.", "Hasła się nie zgadzają.", "Die Passwörter stimmen nicht überein.", "Le password non corrispondono.", "Salasanat eivät täsmää.", "两次输入的密码不一致。", "पासवर्ड मेल नहीं खाते।"],
+    ["At least {} characters; the open password must differ from the owner password.", "Co najmniej {} znaków; hasło otwarcia musi być inne niż hasło właściciela.", "Mindestens {} Zeichen; das Öffnungspasswort muss sich vom Besitzerpasswort unterscheiden.", "Almeno {} caratteri; la password di apertura deve essere diversa da quella del proprietario.", "Vähintään {} merkkiä; avaussalasanan on erottava omistajan salasanasta.", "至少 {} 个字符；打开密码必须与所有者密码不同。", "कम से कम {} अक्षर; खोलने का पासवर्ड स्वामी के पासवर्ड से अलग होना चाहिए।"],
+    ["Opened with the open password: editing and copying are off.", "Otwarto hasłem otwarcia: edycja i kopiowanie są wyłączone.", "Mit dem Öffnungspasswort geöffnet: Bearbeiten und Kopieren sind aus.", "Aperto con la password di apertura: modifica e copia sono disattivate.", "Avattu avaussalasanalla: muokkaus ja kopiointi ovat pois päältä.", "已用打开密码打开：编辑和复制已关闭。", "खोलने के पासवर्ड से खोला गया: संपादन और कॉपी बंद हैं।"],
+    ["Owner: may do everything. Open: may open, look, make G-code, run the job and change the material, but not edit or copy the drawing. Without a password the file cannot be read, and a forgotten password cannot be recovered.", "Właściciel: może wszystko. Otwarcie: może otworzyć, oglądać, tworzyć G-code, uruchomić zadanie i zmienić materiał, ale nie może edytować ani kopiować rysunku. Bez hasła pliku nie da się odczytać, a zapomnianego hasła nie da się odzyskać.", "Besitzer: darf alles. Öffnen: darf öffnen, ansehen, G-code erzeugen, den Auftrag starten und das Material ändern, aber die Zeichnung nicht bearbeiten oder kopieren. Ohne Passwort ist die Datei nicht lesbar, und ein vergessenes Passwort lässt sich nicht wiederherstellen.", "Proprietario: può fare tutto. Apertura: può aprire, guardare, generare G-code, avviare il lavoro e cambiare il materiale, ma non modificare né copiare il disegno. Senza password il file non si può leggere e una password dimenticata non si può recuperare.", "Omistaja: saa tehdä kaiken. Avaus: saa avata, katsoa, tehdä G-coden, ajaa työn ja muuttaa materiaalia, mutta ei muokata eikä kopioida piirustusta. Ilman salasanaa tiedostoa ei voi lukea, eikä unohdettua salasanaa voi palauttaa.", "所有者：可以做任何事。打开：可以打开、查看、生成 G-code、运行任务和更改材料，但不能编辑或复制图形。没有密码无法读取文件，忘记的密码无法找回。", "स्वामी: सब कुछ कर सकता है। खोलना: खोल, देख, G-code बना, जॉब चला और सामग्री बदल सकता है, पर ड्रॉइंग संपादित या कॉपी नहीं कर सकता। पासवर्ड के बिना फ़ाइल पढ़ी नहीं जा सकती, और भूला पासवर्ड वापस नहीं मिल सकता।"],
+    ["The project is protected. Leave the fields empty to keep its passwords.", "Projekt jest chroniony. Zostaw pola puste, aby zachować jego hasła.", "Das Projekt ist geschützt. Lass die Felder leer, um seine Passwörter zu behalten.", "Il progetto è protetto. Lascia i campi vuoti per mantenere le sue password.", "Projekti on suojattu. Jätä kentät tyhjiksi säilyttääksesi sen salasanat.", "项目已受保护。保持字段为空即可保留原密码。", "प्रोजेक्ट सुरक्षित है। इसके पासवर्ड रखने के लिए फ़ील्ड खाली छोड़ें।"],
+    ["Owner password", "Hasło właściciela", "Besitzerpasswort", "Password del proprietario", "Omistajan salasana", "所有者密码", "स्वामी का पासवर्ड"],
+    ["Repeat the password", "Powtórz hasło", "Passwort wiederholen", "Ripeti la password", "Toista salasana", "再次输入密码", "पासवर्ड दोहराएँ"],
+    ["Open password (optional)", "Hasło otwarcia (opcjonalne)", "Öffnungspasswort (optional)", "Password di apertura (facoltativa)", "Avaussalasana (valinnainen)", "打开密码（可选）", "खोलने का पासवर्ड (वैकल्पिक)"],
+    ["Remove the protection", "Usuń ochronę", "Schutz entfernen", "Rimuovi la protezione", "Poista suojaus", "移除保护", "सुरक्षा हटाएँ"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");
@@ -1633,7 +1646,8 @@ mod tests {
     use crate::i18n::Lang;
 
     /// The sources that call `tr` or `trf`.
-    const SOURCES: [&str; 49] = [
+    const SOURCES: [&str; 50] = [
+        include_str!("protect_ui.rs"),
         include_str!("print_ui.rs"),
         include_str!("ser2net_ui.rs"),
         include_str!("editor/shape_ops.rs"),

@@ -1581,3 +1581,16 @@
 1580|Persona
 1581|Programa
 1582|Una empresa, un lloc web o qualsevol altra cosa per desar amb el teu nom
+1583|Protecció
+1584|{} està protegit. Introduïu-ne la contrasenya:
+1585|Contrasenya
+1586|Contrasenya incorrecta.
+1587|Les contrasenyes no coincideixen.
+1588|Almenys {} caràcters; la contrasenya d'obertura ha de ser diferent de la del propietari.
+1589|Obert amb la contrasenya d'obertura: l'edició i la còpia estan desactivades.
+1590|Propietari: ho pot fer tot. Obertura: pot obrir, mirar, generar G-code, executar la feina i canviar el material, però no editar ni copiar el dibuix. Sense contrasenya el fitxer no es pot llegir, i una contrasenya oblidada no es pot recuperar.
+1591|El projecte està protegit. Deixeu els camps buits per mantenir-ne les contrasenyes.
+1592|Contrasenya del propietari
+1593|Repetiu la contrasenya
+1594|Contrasenya d'obertura (opcional)
+1595|Treu la protecció

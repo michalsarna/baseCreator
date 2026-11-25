@@ -23,3 +23,15 @@ Each entry has the name, the e-mail and a free text (a company, a website…), t
 **File → Project information…** shows the file (name, folder, size, when it was created and changed), the authors (when the project was created, its creator with the e-mail and the other field in rows of their own, the contributors with their e-mail) and a table of the edits: time, person, program.
 
 A project that has a file is saved to it by itself about 20 seconds after a change. See [Settings and Files](Settings-and-Files).
+
+## Password protection
+
+A project can be protected with passwords: in **Project setup…** of LightCreator, MillCreator and PenCreator, and in **File → Page setup…** of BaseCreator, part **Protection**.
+
+* **Owner password**: everything (editing, copying, exporting, changing or removing the protection).
+* **Open password** (optional): the project can be opened, looked at, turned into G-code and run on the machine, and the material and the layer settings (speed, power, passes, depth, bit, pen) can be changed, but the drawing cannot be edited, copied, exported as a drawing (SVG, DXF, Illustrator, LightBurn …) or printed. The built-in web page shows no drawing then.
+* With only an owner password, nobody else can open the file. Without a password the file cannot be read at all, and a **forgotten password cannot be recovered**.
+
+The file stays a JSON text with the key `protected_cre`; the project in it is encrypted with **XChaCha20-Poly1305** under a random 256-bit key, which is stored once for every password, wrapped with a key made from the password by **Argon2id** (64 MiB, 3 passes, a salt of its own). Every save uses a new nonce; a changed file does not open. Passwords need at least 8 characters, and the open password must differ from the owner's.
+
+What the open password forbids is enforced by the programs, as with the owner password of a PDF: whoever has it can, in principle, decrypt the project with other tools. Keep the owner password for yourself.

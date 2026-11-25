@@ -1581,3 +1581,16 @@
 1580|Persoană
 1581|Program
 1582|O firmă, un site web sau altceva de păstrat împreună cu numele tău
+1583|Protecție
+1584|{} este protejat. Introduceți parola:
+1585|Parolă
+1586|Parolă greșită.
+1587|Parolele nu se potrivesc.
+1588|Cel puțin {} caractere; parola de deschidere trebuie să difere de parola proprietarului.
+1589|Deschis cu parola de deschidere: editarea și copierea sunt oprite.
+1590|Proprietar: poate face orice. Deschidere: poate deschide, vedea, genera G-code, rula lucrarea și schimba materialul, dar nu poate edita sau copia desenul. Fără parolă fișierul nu poate fi citit, iar o parolă uitată nu poate fi recuperată.
+1591|Proiectul este protejat. Lăsați câmpurile goale pentru a-i păstra parolele.
+1592|Parola proprietarului
+1593|Repetați parola
+1594|Parolă de deschidere (opțională)
+1595|Elimină protecția

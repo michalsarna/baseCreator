@@ -43,11 +43,13 @@ pub struct Setup {
     /// Opened for a new project (the start window): Skip, or closing the window, leaves the project on one side and as big as the
     /// work area of the machine (`Answer::Skip` tells the program to do so).
     pub start: bool,
+    /// The passwords of the project (not for a new project from the start window).
+    pub protect: crate::protect_ui::Fields,
 }
 
 impl Default for Setup {
     fn default() -> Setup {
-        Setup { open: false, w: 200.0, h: 150.0, t: 10.0, zero: ZeroPoint::FrontLeft, z_bottom: false, work_area: false, round: false, diameter: 50.0, length: 150.0, sides: Sides::One, flip: FlipAxis::SideToSide, marks: true, post: [40.0, 40.0, 300.0], block: [100.0, 80.0, 60.0], max: (f64::INFINITY, f64::INFINITY), start: false }
+        Setup { open: false, w: 200.0, h: 150.0, t: 10.0, zero: ZeroPoint::FrontLeft, z_bottom: false, work_area: false, round: false, diameter: 50.0, length: 150.0, sides: Sides::One, flip: FlipAxis::SideToSide, marks: true, post: [40.0, 40.0, 300.0], block: [100.0, 80.0, 60.0], max: (f64::INFINITY, f64::INFINITY), start: false, protect: Default::default() }
     }
 }
 
@@ -191,6 +193,10 @@ pub fn window(ctx: &egui::Context, st: &mut Setup, units: Units, kind: Kind) -> 
         });
         egui::ScrollArea::vertical().auto_shrink([false, false]).show(ui, |ui| setup_body(ui, st, units, kind));
     });
+    // Passwords that cannot be used keep the window open, with the reason under them.
+    if apply && !st.start && !st.protect.check() {
+        apply = false;
+    }
     if apply {
         st.open = false;
         Some(Answer::Apply)
@@ -265,6 +271,10 @@ fn setup_body(ui: &mut egui::Ui, st: &mut Setup, units: Units, kind: Kind) {
                 Sides::One | Sides::Two => sheet_part(ui, st, units, kind),
             }
         }
+    }
+    if !st.start {
+        ui.add_space(8.0);
+        crate::protect_ui::part(ui, &mut st.protect);
     }
 }
 

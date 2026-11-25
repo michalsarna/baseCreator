@@ -49,6 +49,7 @@ pub mod plugins;
 pub mod print;
 pub mod presets;
 pub mod project;
+pub mod protect;
 pub mod raster;
 pub mod registry;
 pub mod resume;

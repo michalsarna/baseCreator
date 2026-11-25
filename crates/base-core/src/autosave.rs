@@ -81,6 +81,10 @@ pub fn find_all(base: &Path, app: &str) -> Vec<Found> {
 pub fn find_slot(base: &Path, app: &str, slot: usize) -> Option<Found> {
     let path = slot_path(base, app, slot);
     let text = std::fs::read_to_string(&path).ok()?;
+    // A protected project cannot be looked into without its password: offered as it is (its shapes unknown).
+    if crate::protect::is_sealed(&text) {
+        return Some(Found { path, shapes: 0, slot });
+    }
     match Project::from_json(&text) {
         Ok(p) if !p.scene.shapes.is_empty() => Some(Found { path, shapes: p.scene.shapes.len(), slot }),
         _ => {

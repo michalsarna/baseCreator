@@ -21,6 +21,10 @@ pub fn hold_space<H: EditorHost>(h: &mut H, ctx: &egui::Context) {
 /// The keys without Ctrl or Cmd. `arrows`: the arrows move the selected shapes (not while they move the machine, the Keyboard switch
 /// of the Control tab). The program checks first that no text field has the keyboard.
 pub fn plain_keys<H: EditorHost>(h: &mut H, ctx: &egui::Context, arrows: bool) {
+    // A protected drawing opened with the open password: no key changes it.
+    if h.ed().locked {
+        return;
+    }
     let plain = |k: Key| ctx.input_mut(|i| i.consume_key(Modifiers::NONE, k));
     if plain(Key::Delete) || plain(Key::Backspace) {
         if h.ed().tool == Tool::Node && !h.ed().node_sel.is_empty() {

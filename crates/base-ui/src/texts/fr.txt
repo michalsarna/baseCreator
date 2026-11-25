@@ -1581,3 +1581,16 @@
 1580|Personne
 1581|Programme
 1582|Une entreprise, un site web ou autre chose à garder avec votre nom
+1583|Protection
+1584|{} est protégé. Saisissez son mot de passe :
+1585|Mot de passe
+1586|Mot de passe incorrect.
+1587|Les mots de passe ne correspondent pas.
+1588|Au moins {} caractères ; le mot de passe d'ouverture doit différer de celui du propriétaire.
+1589|Ouvert avec le mot de passe d'ouverture : modification et copie désactivées.
+1590|Propriétaire : peut tout faire. Ouverture : peut ouvrir, regarder, générer le G-code, lancer le travail et changer le matériau, mais pas modifier ni copier le dessin. Sans mot de passe, le fichier est illisible, et un mot de passe oublié ne peut pas être récupéré.
+1591|Le projet est protégé. Laissez les champs vides pour garder ses mots de passe.
+1592|Mot de passe du propriétaire
+1593|Répétez le mot de passe
+1594|Mot de passe d'ouverture (facultatif)
+1595|Retirer la protection

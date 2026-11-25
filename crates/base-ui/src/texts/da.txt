@@ -1581,3 +1581,16 @@
 1580|Person
 1581|Program
 1582|Et firma, en hjemmeside eller andet, der skal gemmes med dit navn
+1583|Beskyttelse
+1584|{} er beskyttet. Indtast adgangskoden:
+1585|Adgangskode
+1586|Forkert adgangskode.
+1587|Adgangskoderne er ikke ens.
+1588|Mindst {} tegn; åbningsadgangskoden skal være forskellig fra ejerens.
+1589|Åbnet med åbningsadgangskoden: redigering og kopiering er slået fra.
+1590|Ejer: må alt. Åbning: må åbne, se, lave G-code, køre jobbet og ændre materialet, men ikke redigere eller kopiere tegningen. Uden adgangskode kan filen ikke læses, og en glemt adgangskode kan ikke gendannes.
+1591|Projektet er beskyttet. Lad felterne være tomme for at beholde adgangskoderne.
+1592|Ejerens adgangskode
+1593|Gentag adgangskoden
+1594|Åbningsadgangskode (valgfri)
+1595|Fjern beskyttelsen

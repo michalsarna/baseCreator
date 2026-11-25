@@ -9,7 +9,7 @@ use serde::{Deserialize, Serialize};
 /// Default tolerance (millimetres) when curves are flattened to polylines.
 pub const DEFAULT_FLATTEN_TOL: f64 = 0.05;
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum Kind {
     Rect { w: f64, h: f64 },
     Ellipse { w: f64, h: f64 },
@@ -23,7 +23,7 @@ pub enum Kind {
     Text(TextData),
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Shape {
     pub id: u64,
     pub layer: usize,

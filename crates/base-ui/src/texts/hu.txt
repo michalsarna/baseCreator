@@ -1581,3 +1581,16 @@
 1580|Személy
 1581|Program
 1582|Cég, weboldal vagy bármi más, ami a neve mellé kerüljön
+1583|Védelem
+1584|{} védett. Adja meg a jelszavát:
+1585|Jelszó
+1586|Hibás jelszó.
+1587|A jelszavak nem egyeznek.
+1588|Legalább {} karakter; a megnyitási jelszó nem lehet azonos a tulajdonosi jelszóval.
+1589|Megnyitási jelszóval megnyitva: a szerkesztés és a másolás ki van kapcsolva.
+1590|Tulajdonos: mindent megtehet. Megnyitás: megnyithatja, megnézheti, G-code-ot készíthet, futtathatja a munkát és módosíthatja az anyagot, de a rajzot nem szerkesztheti és nem másolhatja. Jelszó nélkül a fájl nem olvasható, az elfelejtett jelszó pedig nem állítható vissza.
+1591|A projekt védett. Hagyja üresen a mezőket, ha meg akarja tartani a jelszavait.
+1592|Tulajdonosi jelszó
+1593|Jelszó ismét
+1594|Megnyitási jelszó (nem kötelező)
+1595|Védelem eltávolítása

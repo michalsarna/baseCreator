@@ -1581,3 +1581,16 @@
 1580|Manneskja
 1581|Forrit
 1582|Fyrirtæki, vefsíða eða annað sem á að fylgja nafninu þínu
+1583|Vernd
+1584|{} er varið. Sláðu inn lykilorðið:
+1585|Lykilorð
+1586|Rangt lykilorð.
+1587|Lykilorðin stemma ekki.
+1588|Minnst {} stafir; opnunarlykilorðið verður að vera annað en lykilorð eiganda.
+1589|Opnað með opnunarlykilorði: breytingar og afritun eru óvirk.
+1590|Eigandi: má allt. Opnun: má opna, skoða, búa til G-code, keyra verkið og breyta efninu, en ekki breyta eða afrita teikninguna. Án lykilorðs er ekki hægt að lesa skrána og ekki er hægt að endurheimta gleymt lykilorð.
+1591|Verkefnið er varið. Skildu reitina eftir auða til að halda lykilorðunum.
+1592|Lykilorð eiganda
+1593|Endurtaktu lykilorðið
+1594|Opnunarlykilorð (valfrjálst)
+1595|Fjarlægja vernd

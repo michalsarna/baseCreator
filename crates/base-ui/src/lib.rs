@@ -54,6 +54,7 @@ pub mod plugins_ui;
 pub mod picture_out;
 pub mod print_ui;
 pub mod project_setup;
+pub mod protect_ui;
 pub mod ser2net_ui;
 pub mod seasonal;
 #[cfg(target_os = "macos")]

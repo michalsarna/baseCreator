@@ -1581,3 +1581,16 @@
 1580|Persoon
 1581|Programma
 1582|Een bedrijf, een website of iets anders om bij je naam te bewaren
+1583|Beveiliging
+1584|{} is beveiligd. Voer het wachtwoord in:
+1585|Wachtwoord
+1586|Onjuist wachtwoord.
+1587|De wachtwoorden komen niet overeen.
+1588|Minstens {} tekens; het openingswachtwoord moet verschillen van het eigenaarswachtwoord.
+1589|Geopend met het openingswachtwoord: bewerken en kopiëren zijn uit.
+1590|Eigenaar: mag alles. Openen: mag openen, bekijken, G-code maken, de taak starten en het materiaal wijzigen, maar de tekening niet bewerken of kopiëren. Zonder wachtwoord is het bestand niet te lezen, en een vergeten wachtwoord is niet te herstellen.
+1591|Het project is beveiligd. Laat de velden leeg om de wachtwoorden te behouden.
+1592|Eigenaarswachtwoord
+1593|Herhaal het wachtwoord
+1594|Openingswachtwoord (optioneel)
+1595|Beveiliging verwijderen

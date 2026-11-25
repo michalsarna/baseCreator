@@ -528,3 +528,56 @@ fn saving_a_project_of_someone_else_adds_a_contributor_once() {
     assert!(made.contributors.is_empty());
     let _ = std::fs::remove_dir_all(&dir);
 }
+
+/// A protected project: it asks for its password, opens with either; the open password keeps the drawing as it was, allows no
+/// export or copy, and saving keeps the file protected with both passwords.
+#[test]
+fn a_protected_project_opens_with_its_passwords_and_the_open_one_cannot_edit() {
+    use base_core::protect::{self, Access, Kdf, Protection};
+    let dir = temp_dir("protected");
+    let file = dir.join("secret.cre");
+    let mut scene = Scene::default();
+    scene.add(0, base_core::scene::Kind::Rect { w: 20.0, h: 10.0 }, base_core::geom::Xf::IDENTITY);
+    let fast = Kdf { m_kib: 8 * 1024, t: 1, p: 1 };
+    // Passwords made when the test runs (none written into the code).
+    let (owner, open) = (format!("owner-{}", std::process::id()), format!("open-{}", std::process::id()));
+    let prot = Protection::with_kdf(&owner, Some(&open), fast).unwrap();
+    std::fs::write(&file, prot.seal(&Project::new(scene).to_json())).unwrap();
+    let unlock = |a: &mut App, pw: &str| {
+        a.open(file.clone());
+        assert_eq!(a.unlock.len(), 1, "the password is asked for");
+        let text = std::fs::read_to_string(&file).unwrap();
+        let (json, p) = protect::open(&text, pw).unwrap();
+        a.unlock.clear();
+        a.unlocked = Some((file.clone(), json, p));
+        a.open(file.clone());
+    };
+
+    // The open password: looking only.
+    let mut a = app();
+    unlock(&mut a, &open);
+    assert_eq!(a.scene.shapes.len(), 1);
+    assert!(a.lock.locked() && a.ed.locked);
+    assert!(!a.act_enabled(Act::ExportSvg) && !a.act_enabled(Act::Print) && !a.act_enabled(Act::ImportSvg));
+    assert!(!a.act_enabled(Act::Std(base_ui::menu::StdAct::Copy)) && !a.act_enabled(Act::Std(base_ui::menu::StdAct::Delete)));
+    assert!(a.act_enabled(Act::Std(base_ui::menu::StdAct::ZoomIn)));
+    // Something changed the drawing anyway: it is put back.
+    a.scene.shapes[0].xf = base_core::geom::Xf::translate(5.0, 0.0);
+    a.scene.shapes.clear();
+    assert!(a.lock.check(&mut a.scene));
+    assert_eq!(a.scene.shapes.len(), 1);
+    assert_eq!(a.scene.shapes[0].xf, base_core::geom::Xf::IDENTITY);
+    // Saved, it stays protected with both passwords and readable by nobody else.
+    a.save(false);
+    let text = std::fs::read_to_string(&file).unwrap();
+    assert!(protect::is_sealed(&text));
+    assert_eq!(protect::open(&text, &owner).unwrap().1.access, Access::Owner);
+    assert_eq!(protect::open(&text, &open).unwrap().1.access, Access::Open);
+
+    // The owner password: everything.
+    let mut b = app();
+    unlock(&mut b, &owner);
+    assert!(!b.lock.locked() && !b.ed.locked);
+    assert!(b.act_enabled(Act::ExportSvg));
+    let _ = std::fs::remove_dir_all(&dir);
+}

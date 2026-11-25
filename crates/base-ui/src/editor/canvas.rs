@@ -22,9 +22,19 @@ pub struct CanvasView<'a> {
 pub trait EditorCanvas: EditorHost {
     fn canvas(&mut self, ui: &mut egui::Ui) {
         super::EditorBackground::background_tick(self, &ui.ctx().clone());
+        // A protected drawing opened with the open password: only looking (the view tools), nothing selected, nothing pasted.
+        if self.ed().locked {
+            let ed = self.ed_mut();
+            if !matches!(ed.tool, super::Tool::Pan | super::Tool::Zoom | super::Tool::ZoomOut | super::Tool::Measure) {
+                ed.tool = super::Tool::Pan;
+            }
+            ed.sel.clear();
+            ed.node_sel.clear();
+            ed.ghost_sel.clear();
+        }
         // Ctrl/Cmd+V over the drawing: the window system hands it over as a paste of text or of a picture, not as the key. A
         // picture opens the import window; otherwise the copied shapes come (or a picture the clipboard got some other way).
-        if !ui.ctx().egui_wants_keyboard_input() && self.ed().img_dlg.is_none() {
+        if !ui.ctx().egui_wants_keyboard_input() && self.ed().img_dlg.is_none() && !self.ed().locked {
             let pasted = ui.input(|i| {
                 i.events.iter().find_map(|e| match e {
                     egui::Event::PasteImage(img) => Some(Some(img.clone())),

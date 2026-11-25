@@ -1581,3 +1581,16 @@
 1580|Pessoa
 1581|Programa
 1582|Uma empresa, um site ou outra coisa a guardar com o seu nome
+1583|Proteção
+1584|{} está protegido. Introduza a palavra-passe:
+1585|Palavra-passe
+1586|Palavra-passe errada.
+1587|As palavras-passe não coincidem.
+1588|Pelo menos {} caracteres; a palavra-passe de abertura tem de ser diferente da do proprietário.
+1589|Aberto com a palavra-passe de abertura: edição e cópia desativadas.
+1590|Proprietário: pode tudo. Abertura: pode abrir, ver, gerar G-code, executar o trabalho e mudar o material, mas não editar nem copiar o desenho. Sem palavra-passe o ficheiro não pode ser lido, e uma palavra-passe esquecida não pode ser recuperada.
+1591|O projeto está protegido. Deixe os campos vazios para manter as palavras-passe.
+1592|Palavra-passe do proprietário
+1593|Repita a palavra-passe
+1594|Palavra-passe de abertura (opcional)
+1595|Remover a proteção

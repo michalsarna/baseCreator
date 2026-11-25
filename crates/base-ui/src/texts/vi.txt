@@ -1581,3 +1581,16 @@
 1580|Người
 1581|Chương trình
 1582|Công ty, trang web hoặc bất cứ gì khác muốn lưu kèm tên bạn
+1583|Bảo vệ
+1584|{} được bảo vệ. Nhập mật khẩu của nó:
+1585|Mật khẩu
+1586|Sai mật khẩu.
+1587|Mật khẩu không khớp.
+1588|Ít nhất {} ký tự; mật khẩu mở phải khác mật khẩu chủ sở hữu.
+1589|Đã mở bằng mật khẩu mở: chỉnh sửa và sao chép bị tắt.
+1590|Chủ sở hữu: được làm mọi thứ. Mở: được mở, xem, tạo G-code, chạy công việc và đổi vật liệu, nhưng không được sửa hay sao chép bản vẽ. Không có mật khẩu thì không đọc được tệp, và mật khẩu đã quên không thể khôi phục.
+1591|Dự án đang được bảo vệ. Để trống các ô để giữ mật khẩu.
+1592|Mật khẩu chủ sở hữu
+1593|Nhập lại mật khẩu
+1594|Mật khẩu mở (tùy chọn)
+1595|Gỡ bảo vệ

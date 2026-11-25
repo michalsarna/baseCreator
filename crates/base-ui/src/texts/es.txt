@@ -1581,3 +1581,16 @@
 1580|Persona
 1581|Programa
 1582|Una empresa, un sitio web o cualquier otra cosa para guardar con tu nombre
+1583|Protección
+1584|{} está protegido. Introduzca su contraseña:
+1585|Contraseña
+1586|Contraseña incorrecta.
+1587|Las contraseñas no coinciden.
+1588|Al menos {} caracteres; la contraseña de apertura debe ser distinta de la del propietario.
+1589|Abierto con la contraseña de apertura: la edición y la copia están desactivadas.
+1590|Propietario: puede hacerlo todo. Apertura: puede abrir, ver, generar G-code, ejecutar el trabajo y cambiar el material, pero no editar ni copiar el dibujo. Sin contraseña el archivo no se puede leer, y una contraseña olvidada no se puede recuperar.
+1591|El proyecto está protegido. Deje los campos vacíos para mantener sus contraseñas.
+1592|Contraseña del propietario
+1593|Repita la contraseña
+1594|Contraseña de apertura (opcional)
+1595|Quitar la protección

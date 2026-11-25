@@ -1581,3 +1581,16 @@
 1580|Persona
 1581|Programma
 1582|Uzņēmums, tīmekļa vietne vai kas cits, ko glabāt kopā ar jūsu vārdu
+1583|Aizsardzība
+1584|{} ir aizsargāts. Ievadiet tā paroli:
+1585|Parole
+1586|Nepareiza parole.
+1587|Paroles nesakrīt.
+1588|Vismaz {} rakstzīmes; atvēršanas parolei jāatšķiras no īpašnieka paroles.
+1589|Atvērts ar atvēršanas paroli: rediģēšana un kopēšana ir izslēgta.
+1590|Īpašnieks: drīkst visu. Atvēršana: drīkst atvērt, skatīt, veidot G-code, palaist darbu un mainīt materiālu, bet ne rediģēt vai kopēt zīmējumu. Bez paroles failu nevar nolasīt, un aizmirstu paroli nevar atgūt.
+1591|Projekts ir aizsargāts. Atstājiet laukus tukšus, lai saglabātu tā paroles.
+1592|Īpašnieka parole
+1593|Atkārtojiet paroli
+1594|Atvēršanas parole (nav obligāta)
+1595|Noņemt aizsardzību
