@@ -1,5 +1,7 @@
 🌐 [English](Design-Tools) · [Polski](Narzedzia-projektowe) · **简体中文** · [한국어](Design-Tools-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Design-Tools)为准。欢迎提出修改建议。
+
 # 设计工具
 
 BaseCreator 编辑形状所用的工具与 LightCreator、MillCreator 和 PenCreator 相同。快捷键见[键盘快捷键](Keyboard-Shortcuts-ZH)，菜单见[菜单](Menus-ZH)。

@@ -1,5 +1,7 @@
 🌐 [English](Support) · [Polski](Wsparcie) · [简体中文](Support-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Support)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 프로젝트 후원
 
 BaseCreator는 무료이며 오픈 소스입니다. 유용하다고 생각되면 작성자에게 커피 한 잔을 사 줄 수 있습니다: **<https://buymeacoffee.com/michalsarna>**

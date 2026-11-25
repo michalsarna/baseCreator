@@ -1,5 +1,7 @@
 🌐 [English](Architecture) · [Polski](Architektura) · **简体中文** · [한국어](Architecture-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Architecture)为准。欢迎提出修改建议。
+
 # 架构
 
 BaseCreator 是一个二进制 crate，`crates/basecreator`，位于其库所在的仓库中：`base-core`（几何、场景、SVG / PDF / DXF / LightBurn / UGS 读取器、项目容器）和 `base-ui`（窗口、菜单、编辑器、窗格和标签页、剪贴画、插件）。LightCreator、MillCreator 和 PenCreator 使用同样的库，并通过 git 标签固定版本。

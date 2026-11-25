@@ -1,5 +1,7 @@
 🌐 [English](Page-and-Layers) · [Polski](Strona-i-warstwy) · [简体中文](Page-and-Layers-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Page-and-Layers)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 페이지와 레이어
 
 ## 페이지

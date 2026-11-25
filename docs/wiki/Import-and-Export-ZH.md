@@ -1,5 +1,7 @@
 🌐 [English](Import-and-Export) · [Polski](Import-i-eksport) · **简体中文** · [한국어](Import-and-Export-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Import-and-Export)为准。欢迎提出修改建议。
+
 # 导入与导出
 
 这些列表在 LightCreator、MillCreator、PenCreator 和 BaseCreator 中都相同。需要机器的内容不在这里：没有 G-code，3D 模型和浮雕 STL 留在 MillCreator 中。

@@ -1,5 +1,7 @@
 🌐 [English](Limitations) · [Polski](Ograniczenia) · [简体中文](Limitations-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Limitations)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 제한 사항
 
 * **기계 없음:** 장치, 연결, G-code, 작업 미리 보기, 카메라가 없습니다. 이런 기능에는 LightCreator, MillCreator 또는 PenCreator를 사용하십시오.

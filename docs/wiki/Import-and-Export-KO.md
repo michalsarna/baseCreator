@@ -1,5 +1,7 @@
 🌐 [English](Import-and-Export) · [Polski](Import-i-eksport) · [简体中文](Import-and-Export-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Import-and-Export)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 가져오기와 내보내기
 
 목록은 LightCreator, MillCreator, PenCreator, BaseCreator에서 같습니다. 기계가 필요한 것은 여기에 없습니다: G-code가 없으며, 3D 모델과 부조 STL은 MillCreator에만 있습니다.

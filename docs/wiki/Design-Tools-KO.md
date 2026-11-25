@@ -1,5 +1,7 @@
 🌐 [English](Design-Tools) · [Polski](Narzedzia-projektowe) · [简体中文](Design-Tools-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Design-Tools)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 디자인 도구
 
 BaseCreator는 LightCreator, MillCreator, PenCreator와 같은 도구로 도형을 편집합니다. 키는 [키보드 단축키](Keyboard-Shortcuts-KO)에, 메뉴는 [메뉴](Menus-KO)에 있습니다.
