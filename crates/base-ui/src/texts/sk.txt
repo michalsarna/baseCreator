@@ -1575,3 +1575,9 @@
 1574|(bez mena)
 1575|Nastavte svoje meno v Nastavenia → Možnosti programu, aby sa zapisovalo do projektov, ktoré uložíte.
 1576|Úpravy ({})
+1577|E-mail
+1578|Iné
+1579|Autori
+1580|Osoba
+1581|Program
+1582|Firma, web alebo čokoľvek iné na uloženie s vaším menom

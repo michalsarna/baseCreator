@@ -503,7 +503,7 @@ fn saving_a_project_of_someone_else_adds_a_contributor_once() {
     let dir = temp_dir("authorship");
     let file = dir.join("box.cre");
     let mut p = Project::new(Scene::default());
-    p.authorship.stamp(Signer { name: "Anna", program: "LightCreator", version: "v0.9.9" }, 1_795_000_000, false);
+    p.authorship.stamp(Signer { name: "Anna", email: "", other: "", program: "LightCreator", version: "v0.9.9" }, 1_795_000_000, false);
     std::fs::write(&file, p.to_json()).unwrap();
     base_ui::authorship_ui::init(&dir);
     base_ui::authorship_ui::set_name("Jan").unwrap();
@@ -517,7 +517,7 @@ fn saving_a_project_of_someone_else_adds_a_contributor_once() {
     assert_eq!(back.creator.unwrap().name, "Anna");
     assert_eq!(back.contributors.len(), 1);
     assert_eq!((back.contributors[0].name.as_str(), back.contributors[0].program.as_str(), back.contributors[0].version.as_str()), ("Jan", "BaseCreator", VERSION));
-    assert_eq!(back.edits.len(), 3, "the edit of Anna and the two saves");
+    assert_eq!(back.edits.len(), 2, "the edit of Anna and one for the two saves within a minute");
     // A new project saved for the first time has its creator.
     let mut b = app();
     b.new_tab();

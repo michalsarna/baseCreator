@@ -1575,3 +1575,9 @@
 1574	(no name)
 1575	Set your name in Settings → Program options to be recorded in the projects you save.
 1576	Edits ({})
+1577	Email
+1578	Other
+1579	Authors
+1580	Person
+1581	Program
+1582	A company, a website or anything else to keep with your name

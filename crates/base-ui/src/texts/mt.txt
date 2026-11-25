@@ -1575,3 +1575,9 @@
 1574|(bla isem)
 1575|Issettja ismek f'Settings → Għażliet tal-programm biex jiġi rreġistrat fil-proġetti li tissejvja.
 1576|Editjar ({})
+1577|Email
+1578|Oħrajn
+1579|Awturi
+1580|Persuna
+1581|Programm
+1582|Kumpanija, sit web jew xi ħaġa oħra li żżomm ma' ismek

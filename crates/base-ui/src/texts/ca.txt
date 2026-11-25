@@ -1575,3 +1575,9 @@
 1574|(sense nom)
 1575|Defineix el teu nom a Configuració → Opcions del programa perquè es desi als projectes que deses.
 1576|Edicions ({})
+1577|Correu electrònic
+1578|Altres
+1579|Autors
+1580|Persona
+1581|Programa
+1582|Una empresa, un lloc web o qualsevol altra cosa per desar amb el teu nom

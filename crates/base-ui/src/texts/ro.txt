@@ -1575,3 +1575,9 @@
 1574|(fără nume)
 1575|Setează-ți numele în Setări → Opțiunile programului pentru a fi înregistrat în proiectele pe care le salvezi.
 1576|Modificări ({})
+1577|E-mail
+1578|Altele
+1579|Autori
+1580|Persoană
+1581|Program
+1582|O firmă, un site web sau altceva de păstrat împreună cu numele tău

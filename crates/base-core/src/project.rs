@@ -220,7 +220,7 @@ mod tests {
         let plain = sample().to_json();
         assert!(!plain.contains("authorship"), "nothing is written while nobody saved");
         let mut p = sample();
-        p.authorship.stamp(Signer { name: "Anna", program: "MillCreator", version: "v0.9.10" }, 1_795_000_000, false);
+        p.authorship.stamp(Signer { name: "Anna", email: "", other: "", program: "MillCreator", version: "v0.9.10" }, 1_795_000_000, false);
         let back = Project::from_json(&p.to_json()).unwrap();
         assert_eq!(back.authorship, p.authorship);
         assert_eq!(back.authorship.creator.unwrap().name, "Anna");
@@ -232,7 +232,7 @@ mod tests {
         v["authorship"] = serde_json::json!({ "format": 99, "people": ["x"] });
         let mut p = Project::from_json(&v.to_string()).unwrap();
         assert!(p.authorship.is_empty());
-        p.authorship.stamp(crate::authorship::Signer { name: "Anna", program: "PenCreator", version: "v0.9.10" }, 1_795_000_000, false);
+        p.authorship.stamp(crate::authorship::Signer { name: "Anna", email: "", other: "", program: "PenCreator", version: "v0.9.10" }, 1_795_000_000, false);
         let v2: Value = serde_json::from_str(&p.to_json()).unwrap();
         assert_eq!(v2["authorship"], serde_json::json!({ "format": 99, "people": ["x"] }));
     }

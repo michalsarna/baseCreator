@@ -1575,3 +1575,9 @@
 1574|(geen naam)
 1575|Stel je naam in bij Instellingen → Programmaopties om vastgelegd te worden in de projecten die je opslaat.
 1576|Bewerkingen ({})
+1577|E-mail
+1578|Overig
+1579|Auteurs
+1580|Persoon
+1581|Programma
+1582|Een bedrijf, een website of iets anders om bij je naam te bewaren
