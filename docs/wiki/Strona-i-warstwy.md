@@ -1,4 +1,4 @@
-🌐 [English](Page-and-Layers) · **Polski**
+🌐 [English](Page-and-Layers) · **Polski** · [简体中文](Page-and-Layers-ZH) · [한국어](Page-and-Layers-KO)
 
 # Strona i warstwy
 

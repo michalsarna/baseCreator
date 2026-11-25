@@ -1,4 +1,4 @@
-🌐 [English](Style-Trace) · **Polski**
+🌐 [English](Style-Trace) · **Polski** · [简体中文](Style-Trace-ZH) · [한국어](Style-Trace-KO)
 
 # Obrysuj w stylu
 

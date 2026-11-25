@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Home-PL)
+🌐 **English** · [Polski](Home-PL) · [简体中文](Home-ZH) · [한국어](Home-KO)
 
 <p align="center"><img src="https://raw.githubusercontent.com/michalsarna/baseCreator/main/assets/icons/icon-256.png" alt="BaseCreator" width="128"></p>
 

@@ -1,4 +1,4 @@
-🌐 **English** · [Polski](Wsparcie)
+🌐 **English** · [Polski](Wsparcie) · [简体中文](Support-ZH) · [한국어](Support-KO)
 
 # Support the Project
 

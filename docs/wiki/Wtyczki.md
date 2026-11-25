@@ -1,4 +1,4 @@
-🌐 [English](Plugins) · **Polski**
+🌐 [English](Plugins) · **Polski** · [简体中文](Plugins-ZH) · [한국어](Plugins-KO)
 
 # Wtyczki
 
