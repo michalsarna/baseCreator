@@ -1575,3 +1575,9 @@
 1574|(sans nom)
 1575|Indiquez votre nom dans Paramètres → Options du programme pour être enregistré dans les projets que vous sauvegardez.
 1576|Modifications ({})
+1577|E-mail
+1578|Autre
+1579|Auteurs
+1580|Personne
+1581|Programme
+1582|Une entreprise, un site web ou autre chose à garder avec votre nom

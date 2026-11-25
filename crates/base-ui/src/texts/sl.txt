@@ -1575,3 +1575,9 @@
 1574|(brez imena)
 1575|Nastavite svoje ime v Nastavitve → Možnosti programa, da se bo zapisovalo v projekte, ki jih shranite.
 1576|Urejanja ({})
+1577|E-pošta
+1578|Drugo
+1579|Avtorji
+1580|Oseba
+1581|Program
+1582|Podjetje, spletna stran ali kar koli drugega ob vašem imenu

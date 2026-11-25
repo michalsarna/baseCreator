@@ -1582,6 +1582,12 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["(no name)", "(bez nazwy)", "(kein Name)", "(senza nome)", "(ei nimeä)", "（无名字）", "(कोई नाम नहीं)"],
     ["Set your name in Settings → Program options to be recorded in the projects you save.", "Ustaw swoje imię w Ustawienia → Opcje programu, aby było zapisywane w projektach, które zapisujesz.", "Lege deinen Namen unter Einstellungen → Programmoptionen fest, damit er in den Projekten gespeichert wird, die du speicherst.", "Imposta il tuo nome in Impostazioni → Opzioni del programma per essere registrato nei progetti che salvi.", "Aseta nimesi kohdassa Asetukset → Ohjelman asetukset, jotta se tallennetaan tallentamiisi projekteihin.", "在“设置 → 程序选项”中设置你的名字，即可记录在你保存的项目中。", "अपने सहेजे गए प्रोजेक्ट में दर्ज होने के लिए सेटिंग्स → प्रोग्राम विकल्प में अपना नाम सेट करें।"],
     ["Edits ({})", "Edycje ({})", "Bearbeitungen ({})", "Modifiche ({})", "Muokkaukset ({})", "编辑（{}）", "संपादन ({})"],
+    ["Email", "E-mail", "E-Mail", "E-mail", "Sähköposti", "电子邮件", "ईमेल"],
+    ["Other", "Inne", "Sonstiges", "Altro", "Muuta", "其他", "अन्य"],
+    ["Authors", "Autorzy", "Autoren", "Autori", "Tekijät", "作者", "लेखक"],
+    ["Person", "Osoba", "Person", "Persona", "Henkilö", "人员", "व्यक्ति"],
+    ["Program", "Program", "Programm", "Programma", "Ohjelma", "程序", "प्रोग्राम"],
+    ["A company, a website or anything else to keep with your name", "Firma, strona WWW lub cokolwiek innego do zapisania z imieniem", "Eine Firma, eine Website oder etwas anderes, das bei deinem Namen stehen soll", "Un'azienda, un sito web o altro da tenere con il tuo nome", "Yritys, verkkosivusto tai muuta, mitä haluat nimesi yhteyteen", "公司、网站或其他想与你的名字一起保存的信息", "कंपनी, वेबसाइट या कुछ और जो आपके नाम के साथ रखना हो"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

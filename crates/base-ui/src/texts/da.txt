@@ -1575,3 +1575,9 @@
 1574|(intet navn)
 1575|Angiv dit navn under Indstillinger → Programindstillinger for at blive registreret i de projekter, du gemmer.
 1576|Redigeringer ({})
+1577|E-mail
+1578|Andet
+1579|Forfattere
+1580|Person
+1581|Program
+1582|Et firma, en hjemmeside eller andet, der skal gemmes med dit navn

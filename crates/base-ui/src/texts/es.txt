@@ -1575,3 +1575,9 @@
 1574|(sin nombre)
 1575|Pon tu nombre en Configuración → Opciones del programa para quedar registrado en los proyectos que guardas.
 1576|Ediciones ({})
+1577|Correo electrónico
+1578|Otros
+1579|Autores
+1580|Persona
+1581|Programa
+1582|Una empresa, un sitio web o cualquier otra cosa para guardar con tu nombre

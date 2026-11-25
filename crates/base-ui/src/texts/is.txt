@@ -1575,3 +1575,9 @@
 1574|(ekkert nafn)
 1575|Settu nafnið þitt í Stillingar → Valkostir forrits til að vera skráð(ur) í verkefnin sem þú vistar.
 1576|Breytingar ({})
+1577|Netfang
+1578|Annað
+1579|Höfundar
+1580|Manneskja
+1581|Forrit
+1582|Fyrirtæki, vefsíða eða annað sem á að fylgja nafninu þínu

@@ -1575,3 +1575,9 @@
 1574|(gan ainm)
 1575|Socraigh d'ainm i Socruithe → Roghanna an ríomhchláir chun é a thaifeadadh sna tionscadail a shábhálann tú.
 1576|Eagarthóireachtaí ({})
+1577|Ríomhphost
+1578|Eile
+1579|Údair
+1580|Duine
+1581|Ríomhchlár
+1582|Comhlacht, suíomh gréasáin nó aon rud eile le coinneáil le d'ainm

@@ -1575,3 +1575,9 @@
 1574|(nincs név)
 1575|Adja meg a nevét a Beállítások → Programbeállítások alatt, hogy rögzüljön a mentett projektekben.
 1576|Szerkesztések ({})
+1577|E-mail
+1578|Egyéb
+1579|Szerzők
+1580|Személy
+1581|Program
+1582|Cég, weboldal vagy bármi más, ami a neve mellé kerüljön

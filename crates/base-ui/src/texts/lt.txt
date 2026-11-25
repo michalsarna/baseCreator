@@ -1575,3 +1575,9 @@
 1574|(be vardo)
 1575|Nustatykite savo vardą skiltyje Nustatymai → Programos parinktys, kad jis būtų įrašomas į jūsų išsaugomus projektus.
 1576|Pakeitimai ({})
+1577|El. paštas
+1578|Kita
+1579|Autoriai
+1580|Asmuo
+1581|Programa
+1582|Įmonė, svetainė ar kas nors kita, ką saugoti su jūsų vardu

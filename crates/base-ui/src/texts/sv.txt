@@ -1575,3 +1575,9 @@
 1574|(inget namn)
 1575|Ange ditt namn under Inställningar → Programalternativ för att registreras i projekten du sparar.
 1576|Redigeringar ({})
+1577|E-post
+1578|Övrigt
+1579|Författare
+1580|Person
+1581|Program
+1582|Ett företag, en webbplats eller något annat att spara med ditt namn

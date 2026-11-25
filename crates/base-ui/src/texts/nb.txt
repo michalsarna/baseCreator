@@ -1575,3 +1575,9 @@
 1574|(uten navn)
 1575|Angi navnet ditt under Innstillinger → Programvalg for å bli registrert i prosjektene du lagrer.
 1576|Endringer ({})
+1577|E-post
+1578|Annet
+1579|Forfattere
+1580|Person
+1581|Program
+1582|Et firma, et nettsted eller noe annet som skal lagres med navnet ditt

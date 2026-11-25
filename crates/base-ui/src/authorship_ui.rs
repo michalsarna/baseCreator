@@ -1,6 +1,6 @@
-//! The name of the person who uses the programs, recorded in the projects they save (see `base_core::authorship`), and the window
-//! File → Project information. The name is set in Program options and kept in one file of the shared folder (`author.json`), so it
-//! is the same in every program.
+//! The person who uses the programs (name, e-mail and a free text), recorded in the projects they save (see
+//! `base_core::authorship`), and the window File → Project information. The person is set in the *Author* part of Program options
+//! and kept in one file of the shared folder (`author.json`), so it is the same in every program.
 use crate::i18n::{tr, trf};
 use crate::theme;
 use base_core::authorship::{self, Authorship, Entry, Signer};
@@ -8,63 +8,99 @@ use egui::RichText;
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
 
-/// The file of the name, in the shared folder.
+/// The file of the person, in the shared folder.
 pub const FILE: &str = "author.json";
 
-/// The file and the name read from it. Nothing until a program calls `init` (the tests of the programs do not).
-static STATE: Mutex<Option<(PathBuf, String)>> = Mutex::new(None);
-
-#[derive(serde::Serialize, serde::Deserialize, Default)]
-struct Stored {
+/// Who saves the projects on this computer.
+#[derive(Clone, Debug, Default, PartialEq, serde::Serialize, serde::Deserialize)]
+pub struct Person {
     #[serde(default)]
-    name: String,
+    pub name: String,
+    #[serde(default)]
+    pub email: String,
+    /// Anything else: a company, a website...
+    #[serde(default)]
+    pub other: String,
 }
 
-/// Read the name from the shared folder `base`. Called once when the program starts.
+impl Person {
+    fn trimmed(&self) -> Person {
+        Person { name: self.name.trim().to_string(), email: self.email.trim().to_string(), other: self.other.trim().to_string() }
+    }
+
+    /// Nothing set: the projects get no person.
+    pub fn is_empty(&self) -> bool {
+        self.name.trim().is_empty() && self.email.trim().is_empty()
+    }
+}
+
+/// The file and the person read from it. Nothing until a program calls `init` (the tests of the programs do not).
+static STATE: Mutex<Option<(PathBuf, Person)>> = Mutex::new(None);
+
+/// Read the person from the shared folder `base`. Called once when the program starts.
 pub fn init(base: &Path) {
     let file = base.join(FILE);
-    let name = std::fs::read_to_string(&file).ok().and_then(|t| serde_json::from_str::<Stored>(&t).ok()).map(|s| s.name).unwrap_or_default();
-    *STATE.lock().unwrap_or_else(|e| e.into_inner()) = Some((file, name));
+    let person = std::fs::read_to_string(&file).ok().and_then(|t| serde_json::from_str::<Person>(&t).ok()).unwrap_or_default();
+    *STATE.lock().unwrap_or_else(|e| e.into_inner()) = Some((file, person));
+}
+
+/// The person set in Program options; empty when none is.
+pub fn person() -> Person {
+    STATE.lock().unwrap_or_else(|e| e.into_inner()).as_ref().map(|(_, p)| p.clone()).unwrap_or_default()
 }
 
 /// The name set in Program options; empty when none is.
 pub fn name() -> String {
-    STATE.lock().unwrap_or_else(|e| e.into_inner()).as_ref().map(|(_, n)| n.clone()).unwrap_or_default()
+    person().name
 }
 
-/// Set the name and write it to the shared folder (where the program said with `init`).
-pub fn set_name(name: &str) -> Result<(), String> {
+/// Set the person and write it to the shared folder (where the program said with `init`).
+pub fn set_person(p: &Person) -> Result<(), String> {
     let mut st = STATE.lock().unwrap_or_else(|e| e.into_inner());
     let Some((file, kept)) = st.as_mut() else {
         return Ok(());
     };
-    *kept = name.to_string();
-    let text = serde_json::to_string_pretty(&Stored { name: name.trim().to_string() }).map_err(|e| e.to_string())?;
+    *kept = p.clone();
+    let text = serde_json::to_string_pretty(&p.trimmed()).map_err(|e| e.to_string())?;
     if let Some(dir) = file.parent() {
         std::fs::create_dir_all(dir).map_err(|e| e.to_string())?;
     }
     std::fs::write(file, text).map_err(|e| e.to_string())
 }
 
-/// A save of the project by the person of this computer, now, with `program` and its `version` (`v0.9.10`). `auto` is an
-/// automatic save. Called on the authorship the program carries for the project, before the file is made of it.
-pub fn stamp(a: &mut Authorship, program: &str, version: &str, auto: bool) {
-    let name = name();
-    a.stamp(Signer { name: &name, program, version }, authorship::now_secs(), auto);
+/// Set only the name (the e-mail and the rest stay).
+pub fn set_name(name: &str) -> Result<(), String> {
+    set_person(&Person { name: name.to_string(), ..person() })
 }
 
-/// The rows of Program options (a grid of two columns): the name. True when it was changed.
-pub fn options_rows(ui: &mut egui::Ui) -> bool {
-    let id = egui::Id::unique("authorship_name_edit");
-    let mut text = ui.data_mut(|d| d.get_temp::<String>(id)).unwrap_or_else(name);
-    ui.label(tr("Your name"));
-    let r = ui.add(egui::TextEdit::singleline(&mut text).desired_width(220.0).char_limit(120)).on_hover_text(tr("Recorded in the projects you save, as their creator or a contributor. The same in every program."));
-    ui.end_row();
-    let changed = r.changed();
+/// A save of the project by the person of this computer, now, with `program` and its `version` (`v0.9.10`). `auto` is an
+/// automatic save (it adds no edit). Called on the authorship the program carries for the project, before the file is made of it.
+pub fn stamp(a: &mut Authorship, program: &str, version: &str, auto: bool) {
+    let p = person();
+    a.stamp(Signer { name: &p.name, email: &p.email, other: &p.other, program, version }, authorship::now_secs(), auto);
+}
+
+/// The *Author* part of Program options, under the grid of the other options: a line, a title and the name, the e-mail and the
+/// rest. True when something was changed.
+pub fn options_section(ui: &mut egui::Ui) -> bool {
+    let id = egui::Id::unique("authorship_person_edit");
+    let mut p = ui.data_mut(|d| d.get_temp::<Person>(id)).unwrap_or_else(person);
+    ui.add_space(4.0);
+    ui.separator();
+    ui.label(RichText::new(tr("Author")).strong()).on_hover_text(tr("Recorded in the projects you save, as their creator or a contributor. The same in every program."));
+    ui.add_space(2.0);
+    let mut changed = false;
+    egui::Grid::new("authorship_options_grid").num_columns(2).spacing([12.0, 8.0]).show(ui, |ui| {
+        for (label, text, hint) in [(tr("Your name"), &mut p.name, ""), (tr("Email"), &mut p.email, "name@example.com"), (tr("Other"), &mut p.other, tr("A company, a website or anything else to keep with your name"))] {
+            ui.label(label);
+            changed |= ui.add(egui::TextEdit::singleline(text).desired_width(260.0).char_limit(200).hint_text(hint)).changed();
+            ui.end_row();
+        }
+    });
     if changed {
-        let _ = set_name(&text);
+        let _ = set_person(&p);
     }
-    ui.data_mut(|d| d.insert_temp(id, text));
+    ui.data_mut(|d| d.insert_temp(id, p));
     changed
 }
 
@@ -72,6 +108,16 @@ pub fn options_rows(ui: &mut egui::Ui) -> bool {
 pub struct Info<'a> {
     pub path: Option<&'a Path>,
     pub authorship: &'a Authorship,
+}
+
+/// The window's content as text, separate from the drawing so that it can be tested.
+pub struct View {
+    /// (label, value) of the file.
+    pub file: Vec<(&'static str, String)>,
+    /// (label, value, more) of the authors: `more` is the e-mail and the rest, shown smaller under the value.
+    pub authors: Vec<(&'static str, String, String)>,
+    /// The edits, newest first: time, person, program.
+    pub edits: Vec<[String; 3]>,
 }
 
 fn size_text(bytes: u64) -> String {
@@ -89,53 +135,87 @@ fn time_text(t: std::io::Result<std::time::SystemTime>) -> Option<String> {
     Some(authorship::shown(&authorship::iso(secs)))
 }
 
+/// The name, or the e-mail when there is no name.
 fn who(e: &Entry) -> String {
-    if e.name.trim().is_empty() {
-        tr("(no name)").to_string()
-    } else {
+    if !e.name.trim().is_empty() {
         e.name.clone()
+    } else if !e.email.trim().is_empty() {
+        e.email.clone()
+    } else {
+        tr("(no name)").to_string()
     }
+}
+
+/// The e-mail (when the name is shown) and the rest.
+fn more(e: &Entry) -> String {
+    let email = if e.name.trim().is_empty() { "" } else { e.email.trim() };
+    [email, e.other.trim()].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" · ")
 }
 
 fn program(e: &Entry) -> String {
     format!("{} {}", e.program, e.version).trim().to_string()
 }
 
-/// The lines of the window, as (label, value) pairs; the edits come apart, newest first. Separate from the drawing to be tested.
-pub fn lines(info: &Info) -> (Vec<(&'static str, String)>, Vec<String>) {
-    let mut rows = Vec::new();
+pub fn view(info: &Info) -> View {
+    let mut file = Vec::new();
     match info.path {
-        None => rows.push((tr("File"), tr("Not saved yet").to_string())),
+        None => file.push((tr("Name"), tr("Not saved yet").to_string())),
         Some(p) => {
-            rows.push((tr("File"), p.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default()));
-            rows.push((tr("Folder"), p.parent().map(|d| d.display().to_string()).unwrap_or_default()));
-            let meta = std::fs::metadata(p).ok();
-            if let Some(m) = &meta {
-                rows.push((tr("Size"), size_text(m.len())));
+            file.push((tr("Name"), p.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default()));
+            file.push((tr("Folder"), p.parent().map(|d| d.display().to_string()).unwrap_or_default()));
+            if let Ok(m) = std::fs::metadata(p) {
+                file.push((tr("Size"), size_text(m.len())));
                 // Some file systems do not keep the time a file was made.
                 if let Some(t) = time_text(m.created()) {
-                    rows.push((tr("File created"), t));
+                    file.push((tr("File created"), t));
                 }
                 if let Some(t) = time_text(m.modified()) {
-                    rows.push((tr("File changed"), t));
+                    file.push((tr("File changed"), t));
                 }
             }
         }
     }
     let a = info.authorship;
+    let mut authors = Vec::new();
     if let Some(c) = &a.creator {
-        rows.push((tr("Project created"), format!("{} · {}", authorship::shown(&c.at), program(c))));
-        rows.push((tr("Creator"), who(c)));
+        authors.push((tr("Project created"), authorship::shown(&c.at), program(c)));
+        authors.push((tr("Creator"), who(c), more(c)));
     }
     if a.contributors.is_empty() {
-        rows.push((tr("Contributors"), tr("Nobody yet").to_string()));
-    } else {
-        for (i, c) in a.contributors.iter().enumerate() {
-            rows.push((if i == 0 { tr("Contributors") } else { "" }, format!("{} · {} · {}", who(c), authorship::shown(&c.at), program(c))));
-        }
+        authors.push((tr("Contributors"), tr("Nobody yet").to_string(), String::new()));
     }
-    let edits = a.edits.iter().rev().map(|e| format!("{} · {} · {}", authorship::shown(&e.at), who(e), program(e))).collect();
-    (rows, edits)
+    for (i, c) in a.contributors.iter().enumerate() {
+        let m = [more(c), format!("{} · {}", authorship::shown(&c.at), program(c))].into_iter().filter(|s| !s.is_empty()).collect::<Vec<_>>().join(" · ");
+        authors.push((if i == 0 { tr("Contributors") } else { "" }, who(c), m));
+    }
+    let edits = a.edits.iter().rev().map(|e| [authorship::shown(&e.at), who(e), program(e)]).collect();
+    View { file, authors, edits }
+}
+
+/// A title of a part of the window, with a line over it (but the first).
+fn part(ui: &mut egui::Ui, title: &str, first: bool) {
+    if !first {
+        ui.add_space(6.0);
+        ui.separator();
+    }
+    ui.label(RichText::new(title).strong());
+    ui.add_space(2.0);
+}
+
+/// Label and value in two columns, the value wrapped.
+fn pairs(ui: &mut egui::Ui, id: &str, rows: impl Iterator<Item = (&'static str, String, String)>) {
+    egui::Grid::new(id).num_columns(2).min_col_width(130.0).spacing([16.0, 6.0]).show(ui, |ui| {
+        for (label, value, more) in rows {
+            ui.label(RichText::new(label).color(theme::text_dim()));
+            ui.vertical(|ui| {
+                ui.add(egui::Label::new(value).wrap());
+                if !more.is_empty() {
+                    ui.add(egui::Label::new(RichText::new(more).small().color(theme::text_dim())).wrap());
+                }
+            });
+            ui.end_row();
+        }
+    });
 }
 
 /// The window File → Project information.
@@ -143,28 +223,35 @@ pub fn window(ctx: &egui::Context, open: &mut bool, info: &Info) {
     if !*open {
         return;
     }
-    let (rows, edits) = lines(info);
-    crate::window::popup(ctx, "project_information", tr("Project information"), [480.0, 420.0], open, |ui| {
-        egui::Grid::new("project_information_grid").num_columns(2).spacing([16.0, 6.0]).striped(true).show(ui, |ui| {
-            for (label, value) in &rows {
-                ui.label(RichText::new(*label).color(theme::text_dim()));
-                ui.add(egui::Label::new(value.as_str()).wrap());
-                ui.end_row();
-            }
-        });
-        if name().trim().is_empty() {
-            ui.add_space(6.0);
-            ui.label(RichText::new(tr("Set your name in Settings → Program options to be recorded in the projects you save.")).color(theme::text_dim()).small());
+    let v = view(info);
+    crate::window::popup(ctx, "project_information_2", tr("Project information"), [560.0, 560.0], open, |ui| {
+        part(ui, tr("File"), true);
+        pairs(ui, "project_information_file", v.file.iter().map(|(l, v)| (*l, v.clone(), String::new())));
+        part(ui, tr("Authors"), false);
+        pairs(ui, "project_information_authors", v.authors.iter().cloned());
+        if person().is_empty() {
+            ui.add_space(4.0);
+            ui.add(egui::Label::new(RichText::new(tr("Set your name in Settings → Program options to be recorded in the projects you save.")).small().color(theme::text_dim())).wrap());
         }
-        ui.add_space(8.0);
-        ui.label(RichText::new(trf("Edits ({})", &[&edits.len()])).strong());
-        egui::ScrollArea::vertical().id_salt("project_information_edits").max_height(180.0).auto_shrink([false, true]).show(ui, |ui| {
-            if edits.is_empty() {
-                ui.label(RichText::new(tr("Nobody yet")).color(theme::text_dim()));
-            }
-            for e in &edits {
-                ui.label(e);
-            }
+        part(ui, &trf("Edits ({})", &[&v.edits.len()]), false);
+        if v.edits.is_empty() {
+            ui.label(RichText::new(tr("Nobody yet")).color(theme::text_dim()));
+            return;
+        }
+        egui::ScrollArea::vertical().id_salt("project_information_edits").auto_shrink([false, false]).show(ui, |ui| {
+            let w = ui.available_width();
+            egui::Grid::new("project_information_edits_grid").num_columns(3).striped(true).min_col_width((w / 3.0 - 12.0).max(80.0)).spacing([12.0, 4.0]).show(ui, |ui| {
+                for h in [tr("Time"), tr("Person"), tr("Program")] {
+                    ui.label(RichText::new(h).color(theme::text_dim()));
+                }
+                ui.end_row();
+                for row in &v.edits {
+                    for cell in row {
+                        ui.label(cell);
+                    }
+                    ui.end_row();
+                }
+            });
         });
     });
 }
@@ -174,47 +261,59 @@ mod tests {
     use super::*;
 
     #[test]
-    fn the_window_lists_the_file_the_creator_the_contributors_and_the_edits() {
+    fn the_window_lists_the_file_the_authors_and_the_edits() {
         let dir = std::env::temp_dir().join(format!("authorship_ui_{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
         let file = dir.join("box.cre");
         std::fs::write(&file, "x".repeat(2048)).unwrap();
         let mut a = Authorship::default();
-        a.stamp(Signer { name: "Anna", program: "LightCreator", version: "v0.9.9" }, 1_795_000_000, false);
-        a.stamp(Signer { name: "Jan", program: "MillCreator", version: "v0.9.10" }, 1_795_000_600, false);
-        let (rows, edits) = lines(&Info { path: Some(&file), authorship: &a });
-        let get = |k: &str| rows.iter().find(|(l, _)| *l == k).map(|(_, v)| v.clone());
-        assert_eq!(get("File").as_deref(), Some("box.cre"));
+        a.stamp(Signer { name: "Anna", email: "anna@example.org", other: "Studio A", program: "LightCreator", version: "v0.9.9" }, 1_795_000_000, false);
+        a.stamp(Signer { name: "Jan", email: "", other: "", program: "MillCreator", version: "v0.9.10" }, 1_795_000_600, false);
+        let v = view(&Info { path: Some(&file), authorship: &a });
+        let get = |k: &str| v.file.iter().find(|(l, _)| *l == k).map(|(_, v)| v.clone());
+        assert_eq!(get("Name").as_deref(), Some("box.cre"));
         assert_eq!(get("Size").as_deref(), Some("2.0 KB"));
         assert!(get("File changed").is_some());
-        assert_eq!(get("Creator").as_deref(), Some("Anna"));
-        assert!(get("Project created").unwrap().contains("LightCreator v0.9.9"));
-        assert!(get("Contributors").unwrap().starts_with("Jan · "));
-        assert_eq!(edits.len(), 2);
-        assert!(edits[0].contains("Jan"), "newest first");
-        let (rows, edits) = lines(&Info { path: None, authorship: &Authorship::default() });
-        assert_eq!(rows[0].1, "Not saved yet");
-        assert!(edits.is_empty());
-        let _ = std::fs::remove_dir_all(&dir);
+        let who = |k: &str| v.authors.iter().find(|(l, ..)| *l == k).map(|(_, v, m)| (v.clone(), m.clone()));
+        assert_eq!(who("Creator"), Some(("Anna".to_string(), "anna@example.org · Studio A".to_string())));
+        assert!(who("Project created").unwrap().1.contains("LightCreator v0.9.9"));
+        let (name, more) = who("Contributors").unwrap();
+        assert_eq!(name, "Jan");
+        assert!(more.ends_with("MillCreator v0.9.10"), "{more}");
+        assert_eq!(v.edits.len(), 2);
+        assert_eq!(v.edits[0][1], "Jan", "newest first");
+        let empty = view(&Info { path: None, authorship: &Authorship::default() });
+        assert_eq!(empty.file[0].1, "Not saved yet");
+        assert!(empty.edits.is_empty());
         // The window draws.
         let ctx = egui::Context::default();
         let mut open = true;
         let mut out = ctx.run_ui(egui::RawInput::default(), |ui| window(ui.ctx(), &mut open, &Info { path: Some(&file), authorship: &a }));
         out.textures_delta.clear();
+        let _ = std::fs::remove_dir_all(&dir);
     }
 
     #[test]
-    fn the_name_is_kept_in_the_shared_folder() {
+    fn the_person_is_kept_in_the_shared_folder() {
         let dir = std::env::temp_dir().join(format!("authorship_name_{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&dir);
         init(&dir);
-        assert_eq!(name(), "");
-        set_name("Anna Nowak").unwrap();
+        assert!(person().is_empty());
+        set_person(&Person { name: "Anna Nowak ".into(), email: "anna@example.org".into(), other: "Studio A".into() }).unwrap();
         init(&dir);
-        assert_eq!(name(), "Anna Nowak");
+        assert_eq!(person(), Person { name: "Anna Nowak".into(), email: "anna@example.org".into(), other: "Studio A".into() });
+        set_name("Anna").unwrap();
+        assert_eq!(person().email, "anna@example.org", "setting the name keeps the rest");
         let mut a = Authorship::default();
-        stamp(&mut a, "BaseCreator", "v2.7.8", false);
-        assert_eq!(a.creator.unwrap().name, "Anna Nowak");
+        stamp(&mut a, "BaseCreator", "v2.7.9", false);
+        let c = a.creator.unwrap();
+        assert_eq!((c.name.as_str(), c.email.as_str(), c.other.as_str()), ("Anna", "anna@example.org", "Studio A"));
+        // The section of Program options draws.
+        let ctx = egui::Context::default();
+        let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+            options_section(ui);
+        });
+        out.textures_delta.clear();
         *STATE.lock().unwrap() = None;
         let _ = std::fs::remove_dir_all(&dir);
     }

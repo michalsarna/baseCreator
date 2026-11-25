@@ -16,10 +16,10 @@ The file also records who made the project and who worked on it, in the block `a
 
 * **Creator**: the person who saved the project first.
 * **Contributors**: everyone else who saved it, each added once.
-* **Edits**: every save (the last 200). An automatic save is joined with the edit just before it when it is by the same person in the same program.
+* **Edits**: the saves by hand (the last 200), at most one a minute for the same person and program. Automatic saves add no edit.
 
-Each entry has the name, the time (UTC) and the program with its version. The name is set in **Settings → Program options → Your name**. It is kept in one file of the shared folder (`author.json`), so it is the same in BaseCreator, LightCreator, MillCreator and PenCreator. Without a name, a save records the time and the program but no person.
+Each entry has the name, the e-mail and a free text (a company, a website…), the time (UTC) and the program with its version. They are set in **Settings → Program options**, in the **Author** part: **Your name**, **Email** and **Other**. They are kept in one file of the shared folder (`author.json`), so they are the same in BaseCreator, LightCreator, MillCreator and PenCreator. Without a name or an e-mail, a save records the time and the program but no person.
 
-**File → Project information…** shows the name, folder and size of the file, when the file was created and changed, when the project was created, its creator, its contributors and its edits.
+**File → Project information…** shows the file (name, folder, size, when it was created and changed), the authors (when the project was created, its creator and contributors with their e-mail and the rest) and a table of the edits: time, person, program.
 
 A project that has a file is saved to it by itself about 20 seconds after a change. See [Settings and Files](Settings-and-Files).

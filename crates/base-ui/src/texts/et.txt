@@ -1575,3 +1575,9 @@
 1574|(nimeta)
 1575|Määra oma nimi menüüs Seaded → Programmi valikud, et see salvestataks sinu salvestatud projektidesse.
 1576|Muudatused ({})
+1577|E-post
+1578|Muu
+1579|Autorid
+1580|Isik
+1581|Programm
+1582|Ettevõte, veebisait või muu, mida nimega koos hoida

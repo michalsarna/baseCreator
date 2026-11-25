@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.9
+
+- **The author has an e-mail and an "Other" field** besides the name, recorded with the creator and the contributors. They are in their own **Author** part of Program options, under a line (`authorship_ui::options_section`, which replaces `options_rows`; `Person`, `set_person`).
+- **At most one edit a minute**: saves by hand of the same person and program within a minute make one edit. **Automatic saves add no edit** (they still make the creator or a contributor).
+- **Project information** looks better: the parts File, Authors and Edits, separated by lines; the e-mail and the rest of a person under the name; the edits as a table (time, person, program) that fills the window.
+- 6 texts in every language.
+
 ## v2.7.8
 
 - **Creator and contributors in the project file**: a `.cre` records who made the project (the first save), who else saved it (each person once) and every save (the last 200), each with the name, the time (UTC) and the program with its version (`base_core::authorship`, the block `authorship`; a file without it stays as it was, and a later version of the block is kept unchanged). The name is set in **Program options → Your name** (`authorship_ui::options_rows`) and kept in `author.json` of the shared folder, the same for every program. An automatic save to the file is joined with the edit just before it of the same person and program.

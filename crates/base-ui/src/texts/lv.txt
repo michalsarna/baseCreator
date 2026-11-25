@@ -1575,3 +1575,9 @@
 1574|(bez vārda)
 1575|Iestatiet savu vārdu sadaļā Iestatījumi → Programmas opcijas, lai tas tiktu ierakstīts jūsu saglabātajos projektos.
 1576|Labojumi ({})
+1577|E-pasts
+1578|Cits
+1579|Autori
+1580|Persona
+1581|Programma
+1582|Uzņēmums, tīmekļa vietne vai kas cits, ko glabāt kopā ar jūsu vārdu
