@@ -115,12 +115,12 @@ fn append<A: Copy + PartialEq + std::fmt::Debug + 'static>(cfg: &NativeConfig<A>
 impl<A: Copy + PartialEq + std::fmt::Debug + 'static> NativeMenu<A> {
     pub fn install(ctx: &egui::Context, cfg: &'static NativeConfig<A>) -> NativeMenu<A> {
         let ctx = ctx.clone();
-        MenuEvent::set_event_handler(Some(move |e: MenuEvent| {
+        MenuEvent::set_event_handler(Some(std::sync::Arc::new(move |e: MenuEvent| {
             if let Ok(mut q) = QUEUE.lock() {
                 q.push(e.id.0.clone());
             }
             ctx.request_repaint();
-        }));
+        })));
         Self::build(cfg)
     }
 

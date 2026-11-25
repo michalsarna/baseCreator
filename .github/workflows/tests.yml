@@ -52,7 +52,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Build and test in FreeBSD
-        uses: vmactions/freebsd-vm@v1.5.9
+        uses: vmactions/freebsd-vm@v1.6.0
         with:
           release: "15.0"
           usesh: true
