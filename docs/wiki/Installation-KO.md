@@ -1,5 +1,7 @@
 🌐 [English](Installation) · [Polski](Instalacja) · [简体中文](Installation-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Installation)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 설치
 
 [릴리스 페이지](https://github.com/michalsarna/baseCreator/releases)의 모든 릴리스에는 시스템별로 바로 쓸 수 있는 패키지와 압축 파일, 그리고 다운로드를 검증하기 위한 `SHA256SUMS.txt`(`sha256sum -c SHA256SUMS.txt`)가 들어 있습니다.

@@ -1,5 +1,7 @@
 🌐 [English](Style-Trace) · [Polski](Obrys-w-stylu) · **简体中文** · [한국어](Style-Trace-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Style-Trace)为准。欢迎提出修改建议。
+
 # 风格描摹
 
 **排列 → 风格描摹…**（**Arrange → Style trace…**）用 21 种风格之一，以线条重绘所选图片，结果可以直接导出、打印或在其他程序中打开：波浪线、螺旋、波浪、半色调圆、排线、点画、一笔画、流线、素描等等。它也位于图片的右键菜单中，以及 **属性**（**Properties**）的 **图像**（**Image**）部分。它在 LightCreator、MillCreator、PenCreator 和 BaseCreator 中的用法完全相同。

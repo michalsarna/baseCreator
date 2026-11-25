@@ -1,5 +1,7 @@
 🌐 [English](Plugins) · [Polski](Wtyczki) · **简体中文** · [한국어](Plugins-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Plugins)为准。欢迎提出修改建议。
+
 # 插件
 
 插件可以在不修改程序的情况下增加功能。它们由 BaseCreator、LightCreator、MillCreator 和 PenCreator 共享：插件位于共享数据文件夹（`baseCreator`）内的 `plugins` 文件夹中，每个程序使用适合自己的部分。

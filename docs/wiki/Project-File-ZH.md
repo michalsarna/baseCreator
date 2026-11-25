@@ -1,5 +1,7 @@
 🌐 [English](Project-File) · [Polski](Plik-projektu) · **简体中文** · [한국어](Project-File-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Project-File)为准。欢迎提出修改建议。
+
 # 项目文件
 
 BaseCreator 保存的是 **`.cre`**，即 LightCreator、MillCreator 和 PenCreator 也会写出的项目文件：一个 JSON 文件，包含图纸、描述以及**每个程序各自的一个部分**（`draw`、`laser`、`mill`、`pen`）。每个程序只写自己的部分，并保持其他部分不变，因此项目在程序之间传递时不会丢失任何内容。

@@ -1,5 +1,7 @@
 🌐 [English](Plugins) · [Polski](Wtyczki) · [简体中文](Plugins-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Plugins)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 플러그인
 
 플러그인은 프로그램을 바꾸지 않고 기능을 추가합니다. 플러그인은 BaseCreator, LightCreator, MillCreator, PenCreator가 공유합니다. 플러그인은 공유 데이터 폴더(`baseCreator`) 안의 `plugins` 폴더에 있으며, 각 프로그램은 자신에게 맞는 부분을 사용합니다.

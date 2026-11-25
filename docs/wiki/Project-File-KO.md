@@ -1,5 +1,7 @@
 🌐 [English](Project-File) · [Polski](Plik-projektu) · [简体中文](Project-File-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Project-File)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 프로젝트 파일
 
 BaseCreator는 LightCreator, MillCreator, PenCreator도 저장하는 프로젝트 파일 형식인 **`.cre`** 파일로 저장합니다. 그림, 설명, 그리고 **프로그램마다 하나의 섹션**(`draw`, `laser`, `mill`, `pen`)이 담긴 하나의 JSON 파일입니다. 각 프로그램은 자신의 섹션만 쓰고 다른 섹션은 그대로 두므로, 프로젝트가 프로그램 사이를 오가도 잃는 것이 없습니다.

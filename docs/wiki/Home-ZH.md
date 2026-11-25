@@ -1,5 +1,7 @@
 🌐 [English](Home) · [Polski](Home-PL) · **简体中文** · [한국어](Home-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Home)为准。欢迎提出修改建议。
+
 <p align="center"><img src="https://raw.githubusercontent.com/michalsarna/baseCreator/main/assets/icons/icon-256.png" alt="BaseCreator" width="128"></p>
 
 # BaseCreator

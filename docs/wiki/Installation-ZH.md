@@ -1,5 +1,7 @@
 🌐 [English](Installation) · [Polski](Instalacja) · **简体中文** · [한국어](Installation-KO)
 
+> ⚠️ 本页由英文版机器翻译而成，可能有不准确之处。如有疑问，请以[英文版](Installation)为准。欢迎提出修改建议。
+
 # 安装
 
 [发布页面](https://github.com/michalsarna/baseCreator/releases)上的每个版本都为各个系统提供现成的安装包和压缩包，另有 `SHA256SUMS.txt` 用于校验下载的文件（`sha256sum -c SHA256SUMS.txt`）。

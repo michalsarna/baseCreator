@@ -1,5 +1,7 @@
 🌐 [English](Keyboard-Shortcuts) · [Polski](Skroty-klawiszowe) · [简体中文](Keyboard-Shortcuts-ZH) · **한국어**
 
+> ⚠️ 이 페이지는 영어판을 기계 번역한 것으로, 부정확한 부분이 있을 수 있습니다. 의심스러우면 [영어판](Keyboard-Shortcuts)을 기준으로 하십시오. 수정 제안을 환영합니다.
+
 # 키보드 단축키
 
 Mac에서는 Ctrl 대신 Cmd입니다. 키는 시작 화면이 아니라 편집기에서 동작하며, 텍스트 입력란에 키보드 입력이 들어가 있는 동안에는 어떤 키도 가로채지 않습니다.
