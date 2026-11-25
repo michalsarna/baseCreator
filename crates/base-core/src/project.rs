@@ -6,6 +6,7 @@
 //! the other way round) without losing anything. A section is plain JSON with its own `format` number, owned by the
 //! program that writes it; sections should hold what the job needs, never connection details or other secrets of a
 //! computer.
+use crate::authorship::Authorship;
 use crate::scene::{Scene, Shape};
 use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
@@ -16,6 +17,8 @@ use std::collections::BTreeMap;
 pub const EXTENSION: &str = "cre";
 /// The version of the container written now.
 pub const FORMAT: u32 = 1;
+/// The key of the block of who made the project.
+const AUTHORSHIP: &str = "authorship";
 /// The biggest file read, in bytes.
 pub const MAX_BYTES: usize = 256 * 1024 * 1024;
 
@@ -25,6 +28,8 @@ pub struct Project {
     pub scene: Scene,
     /// A free text about the project (what it is, the settings that worked...).
     pub description: String,
+    /// Who made the project and who worked on it (see `authorship`). Each program carries it over from the file it read.
+    pub authorship: Authorship,
     sections: BTreeMap<String, Value>,
     /// Top-level entries this version does not know, kept for the next save.
     extra: BTreeMap<String, Value>,
@@ -43,6 +48,8 @@ struct SceneWire {
 struct WireRef<'a> {
     format: u32,
     description: &'a str,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    authorship: Option<&'a Authorship>,
     scene: SceneRef<'a>,
     sections: &'a BTreeMap<String, Value>,
     #[serde(flatten)]
@@ -61,6 +68,8 @@ struct Wire {
     format: u32,
     #[serde(default)]
     description: String,
+    #[serde(default)]
+    authorship: Option<Value>,
     scene: SceneWire,
     #[serde(default)]
     sections: BTreeMap<String, Value>,
@@ -76,7 +85,9 @@ impl Project {
     /// The text of the file.
     pub fn to_json(&self) -> String {
         let (next_id, next_group) = self.scene.counters();
-        let wire = WireRef { format: FORMAT, description: &self.description, scene: SceneRef { shapes: &self.scene.shapes, next_id, next_group }, sections: &self.sections, extra: &self.extra };
+        // A block of a later version, kept as it was read (in `extra`), is written instead of ours.
+        let authorship = (!self.authorship.is_empty() && !self.extra.contains_key(AUTHORSHIP)).then_some(&self.authorship);
+        let wire = WireRef { format: FORMAT, description: &self.description, authorship, scene: SceneRef { shapes: &self.scene.shapes, next_id, next_group }, sections: &self.sections, extra: &self.extra };
         serde_json::to_string_pretty(&wire).unwrap_or_default()
     }
 
@@ -89,7 +100,17 @@ impl Project {
         if w.format == 0 || w.format > FORMAT {
             return Err(format!("the project file has format {}, this program reads up to {FORMAT}; update the program", w.format));
         }
-        Ok(Project { scene: Scene::from_parts(w.scene.shapes, w.scene.next_id, w.scene.next_group), description: w.description, sections: w.sections, extra: w.extra })
+        let mut extra = w.extra;
+        // The block of who made the project: one of a later version is kept unread, so that this program does not change it.
+        let authorship = match w.authorship {
+            None => Authorship::default(),
+            Some(v) if v.get("format").and_then(Value::as_u64).unwrap_or(1) > crate::authorship::FORMAT as u64 => {
+                extra.insert(AUTHORSHIP.to_string(), v);
+                Authorship::default()
+            }
+            Some(v) => serde_json::from_value(v).unwrap_or_default(),
+        };
+        Ok(Project { scene: Scene::from_parts(w.scene.shapes, w.scene.next_id, w.scene.next_group), description: w.description, authorship, sections: w.sections, extra })
     }
 
     /// The names of the sections in the file.
@@ -191,6 +212,29 @@ mod tests {
         let p = Project::from_json(&v.to_string()).unwrap();
         let v2: Value = serde_json::from_str(&p.to_json()).unwrap();
         assert_eq!(v2["future"]["a"], 1);
+    }
+
+    #[test]
+    fn the_authorship_is_saved_and_read_and_a_file_without_it_stays_the_same() {
+        use crate::authorship::Signer;
+        let plain = sample().to_json();
+        assert!(!plain.contains("authorship"), "nothing is written while nobody saved");
+        let mut p = sample();
+        p.authorship.stamp(Signer { name: "Anna", program: "MillCreator", version: "v0.9.10" }, 1_795_000_000, false);
+        let back = Project::from_json(&p.to_json()).unwrap();
+        assert_eq!(back.authorship, p.authorship);
+        assert_eq!(back.authorship.creator.unwrap().name, "Anna");
+    }
+
+    #[test]
+    fn a_later_authorship_block_is_kept_unchanged() {
+        let mut v: Value = serde_json::from_str(&sample().to_json()).unwrap();
+        v["authorship"] = serde_json::json!({ "format": 99, "people": ["x"] });
+        let mut p = Project::from_json(&v.to_string()).unwrap();
+        assert!(p.authorship.is_empty());
+        p.authorship.stamp(crate::authorship::Signer { name: "Anna", program: "PenCreator", version: "v0.9.10" }, 1_795_000_000, false);
+        let v2: Value = serde_json::from_str(&p.to_json()).unwrap();
+        assert_eq!(v2["authorship"], serde_json::json!({ "format": 99, "people": ["x"] }));
     }
 
     #[test]

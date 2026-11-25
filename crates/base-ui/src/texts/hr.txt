@@ -1561,3 +1561,17 @@
 1560|Samo u pregledu: samo linije
 1561|Ovaj Windows nema Media Foundation, koji kamera treba. Instalirajte Media Feature Pack (Postavke → Neobavezne značajke).
 1562|USB kamere još ne rade na FreeBSD-u. Mrežna (IP) kamera radi.
+1563|Podaci o projektu…
+1564|Podaci o projektu
+1565|Vaše ime
+1566|Zapisuje se u projekte koje spremate, kao autor ili suradnik. Isto u svakom programu.
+1567|Još nije spremljeno
+1568|Datoteka stvorena
+1569|Datoteka promijenjena
+1570|Projekt stvoren
+1571|Autor
+1572|Suradnici
+1573|Još nitko
+1574|(bez imena)
+1575|Postavite svoje ime u Postavke → Mogućnosti programa da bi se zapisivalo u projekte koje spremate.
+1576|Izmjene ({})

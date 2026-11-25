@@ -1561,3 +1561,17 @@
 1560|Só na pré-visualização: apenas as linhas
 1561|Este Windows não tem o Media Foundation, de que a câmara precisa. Instale o Media Feature Pack (Definições → Funcionalidades opcionais).
 1562|As câmaras USB ainda não funcionam no FreeBSD. Uma câmara de rede (IP) funciona.
+1563|Informações do projeto…
+1564|Informações do projeto
+1565|O seu nome
+1566|Registado nos projetos que guarda, como criador ou colaborador. O mesmo em todos os programas.
+1567|Ainda não guardado
+1568|Ficheiro criado
+1569|Ficheiro alterado
+1570|Projeto criado
+1571|Criador
+1572|Colaboradores
+1573|Ainda ninguém
+1574|(sem nome)
+1575|Defina o seu nome em Definições → Opções do programa para ficar registado nos projetos que guarda.
+1576|Edições ({})

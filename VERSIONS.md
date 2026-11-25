@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.7.8
+
+- **Creator and contributors in the project file**: a `.cre` records who made the project (the first save), who else saved it (each person once) and every save (the last 200), each with the name, the time (UTC) and the program with its version (`base_core::authorship`, the block `authorship`; a file without it stays as it was, and a later version of the block is kept unchanged). The name is set in **Program options → Your name** (`authorship_ui::options_rows`) and kept in `author.json` of the shared folder, the same for every program. An automatic save to the file is joined with the edit just before it of the same person and program.
+- **File → Project information…** (`MenuParts::project_info`, `authorship_ui::window`): the name, folder and size of the file, when it was created and changed, when the project was created, its creator, contributors and edits. 14 texts in every language.
+
 ## v2.7.7
 
 - **FreeBSD** (x86_64): the libraries and BaseCreator build there and their tests pass (a FreeBSD 15.0 virtual machine in CI). USB cameras do not work there yet (the camera library has no FreeBSD backend): the camera says so, in every language; network (IP) cameras go through ffmpeg (`pkg install ffmpeg`). A release has `basecreator-vX.Y.Z-freebsd-x86_64.tar.gz`; it needs `pkg install libudev-devd libxkbcommon mesa-libs` (see Installation). Libraries nix 0.31.4 and libc 0.2.191 (the older ones do not build on FreeBSD).

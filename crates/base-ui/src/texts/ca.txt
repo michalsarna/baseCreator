@@ -1561,3 +1561,17 @@
 1560|Només a la previsualització: només les línies
 1561|Aquest Windows no té Media Foundation, que la càmera necessita. Instal·leu el Media Feature Pack (Configuració → Característiques opcionals).
 1562|Les càmeres USB encara no funcionen a FreeBSD. Una càmera de xarxa (IP) sí que funciona.
+1563|Informació del projecte…
+1564|Informació del projecte
+1565|El teu nom
+1566|Es desa als projectes que deses, com a creador o col·laborador. El mateix a cada programa.
+1567|Encara no desat
+1568|Fitxer creat
+1569|Fitxer canviat
+1570|Projecte creat
+1571|Creador
+1572|Col·laboradors
+1573|Encara ningú
+1574|(sense nom)
+1575|Defineix el teu nom a Configuració → Opcions del programa perquè es desi als projectes que deses.
+1576|Edicions ({})

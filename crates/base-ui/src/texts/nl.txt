@@ -1561,3 +1561,17 @@
 1560|Alleen in het voorbeeld: alleen de lijnen
 1561|Deze Windows heeft geen Media Foundation, die de camera nodig heeft. Installeer het Media Feature Pack (Instellingen → Optionele onderdelen).
 1562|USB-camera's werken nog niet op FreeBSD. Een netwerkcamera (IP) werkt wel.
+1563|Projectinformatie…
+1564|Projectinformatie
+1565|Je naam
+1566|Vastgelegd in de projecten die je opslaat, als maker of bijdrager. Hetzelfde in elk programma.
+1567|Nog niet opgeslagen
+1568|Bestand gemaakt
+1569|Bestand gewijzigd
+1570|Project gemaakt
+1571|Maker
+1572|Bijdragers
+1573|Nog niemand
+1574|(geen naam)
+1575|Stel je naam in bij Instellingen → Programmaopties om vastgelegd te worden in de projecten die je opslaat.
+1576|Bewerkingen ({})

@@ -1561,3 +1561,17 @@
 1560|Ainult eelvaates: ainult jooned
 1561|Selles Windowsis puudub Media Foundation, mida kaamera vajab. Paigaldage Media Feature Pack (Sätted → Valikulised funktsioonid).
 1562|USB-kaamerad FreeBSD-s veel ei tööta. Võrgukaamera (IP) töötab.
+1563|Projekti teave…
+1564|Projekti teave
+1565|Sinu nimi
+1566|Salvestatakse sinu salvestatud projektidesse looja või kaastöötajana. Igas programmis sama.
+1567|Pole veel salvestatud
+1568|Fail loodud
+1569|Faili muudetud
+1570|Projekt loodud
+1571|Looja
+1572|Kaastöötajad
+1573|Veel mitte keegi
+1574|(nimeta)
+1575|Määra oma nimi menüüs Seaded → Programmi valikud, et see salvestataks sinu salvestatud projektidesse.
+1576|Muudatused ({})

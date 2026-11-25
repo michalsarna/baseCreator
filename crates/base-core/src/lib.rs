@@ -2,6 +2,7 @@
 //! bitmaps, tracing, camera calibration and the GRBL / ser2net helpers. No GUI, no machine-specific types.
 pub mod ai;
 pub mod arcs;
+pub mod authorship;
 pub mod autosave;
 pub mod backup;
 pub mod bezier;

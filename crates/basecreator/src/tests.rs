@@ -494,3 +494,37 @@ fn the_web_server_shows_the_project_and_its_settings_are_kept() {
     assert!(shared.svg.lock().unwrap().1.contains("<svg"));
     assert_eq!(*shared.access.lock().unwrap(), "BaseCreator");
 }
+
+/// A project made by someone else gets the person saving it as a contributor, once; their saves are edits; File → Project
+/// information can be used in the editor.
+#[test]
+fn saving_a_project_of_someone_else_adds_a_contributor_once() {
+    use base_core::authorship::Signer;
+    let dir = temp_dir("authorship");
+    let file = dir.join("box.cre");
+    let mut p = Project::new(Scene::default());
+    p.authorship.stamp(Signer { name: "Anna", program: "LightCreator", version: "v0.9.9" }, 1_795_000_000, false);
+    std::fs::write(&file, p.to_json()).unwrap();
+    base_ui::authorship_ui::init(&dir);
+    base_ui::authorship_ui::set_name("Jan").unwrap();
+
+    let mut a = app();
+    a.open(file.clone());
+    assert!(a.act_enabled(Act::ProjectInfo));
+    a.save(false);
+    a.save(false);
+    let back = Project::from_json(&std::fs::read_to_string(&file).unwrap()).unwrap().authorship;
+    assert_eq!(back.creator.unwrap().name, "Anna");
+    assert_eq!(back.contributors.len(), 1);
+    assert_eq!((back.contributors[0].name.as_str(), back.contributors[0].program.as_str(), back.contributors[0].version.as_str()), ("Jan", "BaseCreator", VERSION));
+    assert_eq!(back.edits.len(), 3, "the edit of Anna and the two saves");
+    // A new project saved for the first time has its creator.
+    let mut b = app();
+    b.new_tab();
+    b.path = Some(dir.join("new.cre"));
+    b.save(false);
+    let made = Project::from_json(&std::fs::read_to_string(dir.join("new.cre")).unwrap()).unwrap().authorship;
+    assert_eq!(made.creator.unwrap().name, "Jan");
+    assert!(made.contributors.is_empty());
+    let _ = std::fs::remove_dir_all(&dir);
+}

@@ -1561,3 +1561,17 @@
 1560|Fil-previżjoni biss: il-linji biss
 1561|Dan il-Windows m'għandux Media Foundation, li l-kamera teħtieġ. Installa l-Media Feature Pack (Settings → Optional features).
 1562|Il-kameras USB għadhom ma jaħdmux fuq FreeBSD. Kamera tan-netwerk (IP) taħdem.
+1563|Informazzjoni dwar il-proġett…
+1564|Informazzjoni dwar il-proġett
+1565|Ismek
+1566|Jiġi rreġistrat fil-proġetti li tissejvja, bħala ħallieq jew kontributur. L-istess f'kull programm.
+1567|Għadu ma ġiex issejvjat
+1568|Fajl maħluq
+1569|Fajl mibdul
+1570|Proġett maħluq
+1571|Ħallieq
+1572|Kontributuri
+1573|Ħadd s'issa
+1574|(bla isem)
+1575|Issettja ismek f'Settings → Għażliet tal-programm biex jiġi rreġistrat fil-proġetti li tissejvja.
+1576|Editjar ({})

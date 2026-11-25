@@ -1561,3 +1561,17 @@
 1560|Tik peržiūroje: tik linijos
 1561|Šioje Windows nėra Media Foundation, kurios reikia kamerai. Įdiekite Media Feature Pack (Parametrai → Pasirinktinės funkcijos).
 1562|USB kameros FreeBSD sistemoje dar neveikia. Tinklo (IP) kamera veikia.
+1563|Projekto informacija…
+1564|Projekto informacija
+1565|Jūsų vardas
+1566|Įrašomas į jūsų išsaugomus projektus kaip kūrėjo ar bendraautorio. Toks pat kiekvienoje programoje.
+1567|Dar neišsaugota
+1568|Failas sukurtas
+1569|Failas pakeistas
+1570|Projektas sukurtas
+1571|Kūrėjas
+1572|Bendraautoriai
+1573|Dar niekas
+1574|(be vardo)
+1575|Nustatykite savo vardą skiltyje Nustatymai → Programos parinktys, kad jis būtų įrašomas į jūsų išsaugomus projektus.
+1576|Pakeitimai ({})

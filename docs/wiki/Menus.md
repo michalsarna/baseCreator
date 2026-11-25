@@ -17,6 +17,7 @@ The menu bar has seven menus: **File · Edit · Insert · Arrange · View · Set
 | **Open recent** | | The last 10 files; **Clear list** empties the list. |
 | **Save** | Ctrl+S | Writes the project as `.cre`. |
 | **Save as…** | Ctrl+Shift+S | Writes it under a new name. |
+| **Project information…** | | The file, its size and times, the creator, the contributors and the edits. See [Project File](Project-File). |
 | **Page setup…** | | The size of the page. See [Page and Layers](Page-and-Layers). |
 | **Import → …** | Ctrl+I for SVG | See [Import and Export](Import-and-Export). **Generate shape…** runs the generators of plugins. |
 | **Export → …** | | See [Import and Export](Import-and-Export). |

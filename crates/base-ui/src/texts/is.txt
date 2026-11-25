@@ -1561,3 +1561,17 @@
 1560|Aðeins í forskoðun: línurnar einar
 1561|Þetta Windows hefur ekki Media Foundation, sem myndavélin þarf. Settu upp Media Feature Pack (Stillingar → Valfrjálsir eiginleikar).
 1562|USB-myndavélar virka ekki enn á FreeBSD. Netmyndavél (IP) virkar.
+1563|Upplýsingar um verkefni…
+1564|Upplýsingar um verkefni
+1565|Nafnið þitt
+1566|Skráð í verkefnin sem þú vistar, sem höfundur eða þátttakandi. Það sama í öllum forritum.
+1567|Ekki vistað enn
+1568|Skrá búin til
+1569|Skrá breytt
+1570|Verkefni búið til
+1571|Höfundur
+1572|Þátttakendur
+1573|Enginn enn
+1574|(ekkert nafn)
+1575|Settu nafnið þitt í Stillingar → Valkostir forrits til að vera skráð(ur) í verkefnin sem þú vistar.
+1576|Breytingar ({})

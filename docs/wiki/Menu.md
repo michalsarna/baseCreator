@@ -17,6 +17,7 @@ Pasek menu ma siedem menu: **Plik · Edycja · Wstawianie · Rozmieść · Widok
 | **Otwórz ostatnie** | | Ostatnie 10 plików; **Wyczyść listę** opróżnia listę. |
 | **Zapisz** | Ctrl+S | Zapisuje projekt jako `.cre`. |
 | **Zapisz jako…** | Ctrl+Shift+S | Zapisuje go pod nową nazwą. |
+| **Informacje o projekcie…** | | Plik, jego rozmiar i czasy, twórca, współtwórcy i edycje. Zobacz [Plik projektu](Plik-projektu). |
 | **Ustawienia strony…** | | Rozmiar strony. Zobacz [Strona i warstwy](Strona-i-warstwy). |
 | **Importuj → …** | Ctrl+I dla SVG | Zobacz [Import i eksport](Import-i-eksport). **Generuj kształt…** uruchamia generatory wtyczek. |
 | **Eksportuj → …** | | Zobacz [Import i eksport](Import-i-eksport). |

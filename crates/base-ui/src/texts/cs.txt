@@ -1561,3 +1561,17 @@
 1560|Jen v náhledu: jen čáry
 1561|Tento Windows nemá Media Foundation, kterou kamera potřebuje. Nainstalujte Media Feature Pack (Nastavení → Volitelné funkce).
 1562|USB kamery na FreeBSD zatím nefungují. Síťová (IP) kamera funguje.
+1563|Informace o projektu…
+1564|Informace o projektu
+1565|Vaše jméno
+1566|Zapisuje se do projektů, které uložíte, jako autor nebo spolupracovník. Stejné v každém programu.
+1567|Zatím neuloženo
+1568|Soubor vytvořen
+1569|Soubor změněn
+1570|Projekt vytvořen
+1571|Autor
+1572|Spolupracovníci
+1573|Zatím nikdo
+1574|(bez jména)
+1575|Nastavte své jméno v Nastavení → Možnosti programu, aby se zapisovalo do projektů, které uložíte.
+1576|Úpravy ({})

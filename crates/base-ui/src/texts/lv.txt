@@ -1561,3 +1561,17 @@
 1560|Tikai priekšskatījumā: tikai līnijas
 1561|Šajā Windows nav Media Foundation, kas vajadzīgs kamerai. Instalējiet Media Feature Pack (Iestatījumi → Izvēles līdzekļi).
 1562|USB kameras FreeBSD vēl nedarbojas. Tīkla (IP) kamera darbojas.
+1563|Projekta informācija…
+1564|Projekta informācija
+1565|Jūsu vārds
+1566|Tiek ierakstīts jūsu saglabātajos projektos kā autors vai līdzautors. Vienāds visās programmās.
+1567|Vēl nav saglabāts
+1568|Fails izveidots
+1569|Fails mainīts
+1570|Projekts izveidots
+1571|Autors
+1572|Līdzautori
+1573|Vēl neviens
+1574|(bez vārda)
+1575|Iestatiet savu vārdu sadaļā Iestatījumi → Programmas opcijas, lai tas tiktu ierakstīts jūsu saglabātajos projektos.
+1576|Labojumi ({})

@@ -622,6 +622,8 @@ pub struct MenuParts<A> {
     pub open: A,
     pub save: A,
     pub save_as: A,
+    /// File → Project information… (the file, who made the project and its edits: `authorship_ui::window`).
+    pub project_info: A,
     pub quit: A,
     pub about: A,
     pub view_gcode: A,
@@ -681,6 +683,7 @@ pub fn standard_menus<A: Copy + From<StdAct>>(p: MenuParts<A>) -> Menus<A> {
     let mac = cfg!(target_os = "macos");
     let mut file = vec![Item(p.new, "New", key("CmdOrCtrl+N", "Ctrl+N")), Item(p.open, "Open…", key("CmdOrCtrl+O", "Ctrl+O")), Recent, Sep, Item(p.save, "Save", key("CmdOrCtrl+S", "Ctrl+S")), Item(p.save_as, "Save as…", key("CmdOrCtrl+Shift+S", "Ctrl+Shift+S"))];
     file.extend(p.file_extra);
+    file.push(Item(p.project_info, "Project information…", None));
     file.push(Sep);
     let formats = vec![
         Item(p.import_svg, "Import SVG…", key("CmdOrCtrl+I", "Ctrl+I")),
@@ -900,6 +903,7 @@ mod tests {
             open: T::App(2),
             save: T::App(3),
             save_as: T::App(4),
+            project_info: T::App(18),
             quit: T::App(5),
             about: T::App(6),
             view_gcode: T::App(7),

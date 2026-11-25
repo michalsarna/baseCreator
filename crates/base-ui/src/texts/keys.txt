@@ -1561,3 +1561,17 @@
 1560	Only in the preview: the lines alone
 1561	This Windows has no Media Foundation, which the camera needs. Install the Media Feature Pack (Settings → Optional features).
 1562	USB cameras do not work on FreeBSD yet. A network (IP) camera does.
+1563	Project information…
+1564	Project information
+1565	Your name
+1566	Recorded in the projects you save, as their creator or a contributor. The same in every program.
+1567	Not saved yet
+1568	File created
+1569	File changed
+1570	Project created
+1571	Creator
+1572	Contributors
+1573	Nobody yet
+1574	(no name)
+1575	Set your name in Settings → Program options to be recorded in the projects you save.
+1576	Edits ({})
