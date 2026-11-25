@@ -15,11 +15,11 @@ The `draw` section holds the page and the 64 layers (name, colour, shown or not)
 The file also records who made the project and who worked on it, in the block `authorship`:
 
 * **Creator**: the person who saved the project first.
-* **Contributors**: everyone else who saved it, each added once.
+* **Contributors**: everyone else who saved it, each added once. The creator is kept with the name, the e-mail and the other field; a contributor (and an edit) with the name and the e-mail only, and with the name only when the e-mail is the creator's.
 * **Edits**: the saves by hand (the last 200), at most one a minute for the same person and program. Automatic saves add no edit.
 
 Each entry has the name, the e-mail and a free text (a company, a website…), the time (UTC) and the program with its version. They are set in **Settings → Program options**, in the **Author** part: **Your name**, **Email** and **Other**. They are kept in one file of the shared folder (`author.json`), so they are the same in BaseCreator, LightCreator, MillCreator and PenCreator. Without a name or an e-mail, a save records the time and the program but no person.
 
-**File → Project information…** shows the file (name, folder, size, when it was created and changed), the authors (when the project was created, its creator and contributors with their e-mail and the rest) and a table of the edits: time, person, program.
+**File → Project information…** shows the file (name, folder, size, when it was created and changed), the authors (when the project was created, its creator with the e-mail and the other field in rows of their own, the contributors with their e-mail) and a table of the edits: time, person, program.
 
 A project that has a file is saved to it by itself about 20 seconds after a change. See [Settings and Files](Settings-and-Files).

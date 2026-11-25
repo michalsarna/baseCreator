@@ -94,22 +94,36 @@ impl Authorship {
         self.creator.is_none() && self.contributors.is_empty() && self.edits.is_empty() && self.extra.is_empty()
     }
 
+    /// What a contributor or an edit keeps of a person: the name and the e-mail, without the other field; only the name when the
+    /// e-mail is the creator's (it is there already). Without a name the e-mail stays, as it tells the person apart.
+    fn slim(&self, e: &Entry) -> Entry {
+        let mut e = e.clone();
+        e.other.clear();
+        let creator_email = self.creator.as_ref().map(|c| c.email.as_str()).unwrap_or("");
+        if !e.name.is_empty() && !e.email.is_empty() && same_name(&e.email, creator_email) {
+            e.email.clear();
+        }
+        e
+    }
+
     /// A save by `who` at the Unix time `secs`. `auto` is an automatic save: it can make the creator or a contributor, but adds no
     /// edit. A save by hand adds none either when the last edit is of the same person, program and version and less than
     /// `JOIN_SECS` old.
     pub fn stamp(&mut self, who: Signer, secs: u64, auto: bool) {
         self.format = FORMAT;
         let t = |s: &str| s.trim().to_string();
-        let entry = Entry { name: t(who.name), email: t(who.email), other: t(who.other), at: iso(secs), program: t(who.program), version: t(who.version) };
+        let full = Entry { name: t(who.name), email: t(who.email), other: t(who.other), at: iso(secs), program: t(who.program), version: t(who.version) };
         match &self.creator {
-            None => self.creator = Some(entry.clone()),
+            None => self.creator = Some(full.clone()),
             Some(c) => {
-                let known = entry.same_person(c) || self.contributors.iter().any(|p| entry.same_person(p));
-                if entry.is_somebody() && !known {
-                    self.contributors.push(entry.clone());
+                let known = full.same_person(c) || self.contributors.iter().any(|p| full.same_person(p));
+                if full.is_somebody() && !known {
+                    self.contributors.push(self.slim(&full));
                 }
             }
         }
+        // The creator keeps everything; a contributor and an edit keep the name and the e-mail.
+        let entry = self.slim(&full);
         if auto {
             return;
         }
@@ -233,8 +247,23 @@ mod tests {
         a.stamp(who("JAN"), T0 + 200, false);
         assert_eq!(a.contributors.len(), 1);
         let j = &a.contributors[0];
-        assert_eq!((j.name.as_str(), j.email.as_str(), j.other.as_str(), j.program.as_str(), j.version.as_str(), j.at.as_str()), ("Jan", "jan@example.org", "Workshop", "MillCreator", "v0.9.10", iso(T0 + 100).as_str()));
+        assert_eq!((j.name.as_str(), j.email.as_str(), j.other.as_str(), j.program.as_str(), j.version.as_str(), j.at.as_str()), ("Jan", "jan@example.org", "", "MillCreator", "v0.9.10", iso(T0 + 100).as_str()), "a contributor keeps no other field");
         assert_eq!(a.edits.len(), 3);
+    }
+
+    #[test]
+    fn the_creator_keeps_everything_and_a_contributor_with_the_creators_email_only_the_name() {
+        let mut a = Authorship::default();
+        a.stamp(Signer { name: "Anna", email: "anna@example.org", other: "Studio A", program: "LightCreator", version: "v1" }, T0, false);
+        let c = a.creator.clone().unwrap();
+        assert_eq!((c.name.as_str(), c.email.as_str(), c.other.as_str()), ("Anna", "anna@example.org", "Studio A"));
+        // The same e-mail under another name (a colleague on a shared address): a contributor with the name only.
+        a.stamp(Signer { name: "Jan", email: "Anna@Example.org", other: "Studio A", program: "LightCreator", version: "v1" }, T0 + 100, false);
+        let j = &a.contributors[0];
+        assert_eq!((j.name.as_str(), j.email.as_str(), j.other.as_str()), ("Jan", "", ""));
+        // The edits of the creator do not repeat what the creator has.
+        assert_eq!((a.edits[0].email.as_str(), a.edits[0].other.as_str()), ("", ""));
+        assert_eq!(a.edits[1].name, "Jan");
     }
 
     #[test]
