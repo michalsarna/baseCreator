@@ -1561,3 +1561,17 @@
 1560|Csak az előnézetben: csak a vonalak
 1561|Ebből a Windowsból hiányzik a Media Foundation, amelyre a kamerának szüksége van. Telepítse a Media Feature Packet (Gépház → Választható szolgáltatások).
 1562|Az USB-kamerák még nem működnek FreeBSD-n. A hálózati (IP) kamera működik.
+1563|Projektinformáció…
+1564|Projektinformáció
+1565|Az Ön neve
+1566|A mentett projektekben rögzül, készítőként vagy közreműködőként. Minden programban ugyanaz.
+1567|Még nincs mentve
+1568|Fájl létrehozva
+1569|Fájl módosítva
+1570|Projekt létrehozva
+1571|Készítő
+1572|Közreműködők
+1573|Még senki
+1574|(nincs név)
+1575|Adja meg a nevét a Beállítások → Programbeállítások alatt, hogy rögzüljön a mentett projektekben.
+1576|Szerkesztések ({})

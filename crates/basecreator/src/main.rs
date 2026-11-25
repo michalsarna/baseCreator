@@ -99,6 +99,7 @@ pub fn act_icon(a: Act) -> Option<&'static str> {
         Act::New => Some("file-plus"),
         Act::Open => Some("folder-open"),
         Act::Save | Act::SaveAs => Some("save"),
+        Act::ProjectInfo => Some("info"),
         Act::PageSetup => Some("settings"),
         Act::ImportSvg | Act::ImportAi | Act::ImportDxf | Act::ImportLightburn | Act::ImportUgsd | Act::ImportPlugin => Some("file-input"),
         Act::ExportSvg | Act::ExportCam => Some("file-output"),
@@ -226,6 +227,8 @@ struct App {
     check_updates: bool,
     update: base_ui::dialogs::UpdateState,
     show_program_options: bool,
+    /// File → Project information.
+    show_project_info: bool,
     show_about: bool,
     show_guide: bool,
     guide_filter: String,
@@ -261,6 +264,8 @@ fn is_import(p: &std::path::Path) -> bool {
 
 impl App {
     fn new(cc: &eframe::CreationContext<'_>) -> App {
+        // The name recorded in the projects that are saved (Program options), shared by all the programs.
+        base_ui::authorship_ui::init(&data_paths().base);
         let mut app = App::build(&cc.egui_ctx, cc.storage, cfg!(target_os = "macos"));
         if app.check_updates {
             app.update.start(&cc.egui_ctx, &update_glue::CONFIG, false);
@@ -328,6 +333,7 @@ impl App {
             check_updates: on("check_updates", true),
             update: Default::default(),
             show_program_options: false,
+            show_project_info: false,
             show_about: false,
             show_guide: false,
             guide_filter: String::new(),
@@ -524,6 +530,7 @@ impl App {
     fn to_project(&self) -> Project {
         let mut p = Project::new(self.scene.clone());
         p.description = self.description.clone();
+        p.authorship = self.kept.authorship.clone();
         p.set_section(section::SECTION, &section::DrawSection { format: section::SECTION_FORMAT, page: self.page, layers: self.layers.clone() });
         p.restore_sections(&self.kept.other_sections(section::SECTION));
         p.restore_extra(self.kept.extra());
@@ -538,6 +545,8 @@ impl App {
         };
         let Some(path) = path else { return };
         let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+        // Who saves it, and when: kept with the project for the next save too.
+        base_ui::authorship_ui::stamp(&mut self.kept.authorship, "BaseCreator", VERSION, false);
         match std::fs::write(&path, self.to_project().to_json()) {
             Ok(()) => {
                 self.status = format!("Saved {name}");
@@ -905,6 +914,10 @@ impl App {
         self.page_window(ctx);
         self.update.tick(ctx, &update_glue::CONFIG);
         self.program_options_window(ctx);
+        if self.show_project_info {
+            let info = base_ui::authorship_ui::Info { path: self.path.as_deref(), authorship: &self.kept.authorship };
+            base_ui::authorship_ui::window(ctx, &mut self.show_project_info, &info);
+        }
         let about = AboutInfo {
             title: "About BaseCreator",
             name: "BaseCreator",
@@ -1082,7 +1095,7 @@ impl MenuHost for App {
     fn act_enabled(&self, a: Act) -> bool {
         match a {
             Act::Std(s) => self.screen == Screen::Editor && s.enabled(self),
-            Act::Save | Act::SaveAs | Act::PageSetup | Act::ExportSvg | Act::ExportCam => self.screen == Screen::Editor,
+            Act::Save | Act::SaveAs | Act::ProjectInfo | Act::PageSetup | Act::ExportSvg | Act::ExportCam => self.screen == Screen::Editor,
             _ => true,
         }
     }
@@ -1114,6 +1127,7 @@ impl MenuHost for App {
             Act::Open => self.open_dialog(),
             Act::Save => self.save(false),
             Act::SaveAs => self.save(true),
+            Act::ProjectInfo => self.show_project_info = true,
             Act::PageSetup => self.show_page = true,
             Act::ImportSvg => self.import_drawing_dialog("SVG", &["svg"]),
             Act::ImportAi => self.import_drawing_dialog("Adobe Illustrator / PDF / EPS / VectorCraft", &["ai", "pdf", "eps", "vectorcraft"]),

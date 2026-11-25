@@ -25,6 +25,10 @@ impl App {
             ctx.request_repaint_after(std::time::Duration::from_secs(5));
             return;
         }
+        if self.path.is_some() {
+            // Written to its own file: a save of the project (joined with the edit before it).
+            base_ui::authorship_ui::stamp(&mut self.kept.authorship, "BaseCreator", crate::VERSION, true);
+        }
         let text = self.to_project().to_json();
         let r = match &self.path {
             Some(p) => {

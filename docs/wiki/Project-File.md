@@ -10,4 +10,16 @@ The `draw` section holds the page and the 64 layers (name, colour, shown or not)
 * A project made there opens here with its drawing. It gets the default layers and the page of the last new drawing, made bigger when the drawing does not fit. Its machine settings stay in the file after saving here.
 * A file with a newer format of `draw` is refused, with a request to update the program.
 
+## Creator and contributors
+
+The file also records who made the project and who worked on it, in the block `authorship`:
+
+* **Creator**: the person who saved the project first.
+* **Contributors**: everyone else who saved it, each added once.
+* **Edits**: every save (the last 200). An automatic save is joined with the edit just before it when it is by the same person in the same program.
+
+Each entry has the name, the time (UTC) and the program with its version. The name is set in **Settings → Program options → Your name**. It is kept in one file of the shared folder (`author.json`), so it is the same in BaseCreator, LightCreator, MillCreator and PenCreator. Without a name, a save records the time and the program but no person.
+
+**File → Project information…** shows the name, folder and size of the file, when the file was created and changed, when the project was created, its creator, its contributors and its edits.
+
 A project that has a file is saved to it by itself about 20 seconds after a change. See [Settings and Files](Settings-and-Files).

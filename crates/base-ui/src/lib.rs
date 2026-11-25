@@ -2,6 +2,7 @@
 //! viewer, unit-aware number fields and the camera helpers.
 pub mod add_device_ui;
 pub mod alert_ui;
+pub mod authorship_ui;
 pub mod autosave_ui;
 pub mod backup_ui;
 pub mod camera;

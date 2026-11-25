@@ -2,7 +2,7 @@
 
 # Settings and Files
 
-The settings of BaseCreator are stored in one file, `app.ron`: the language, the colour scheme, the grid and the view options, the units, the size of the next page, the recent files, the order of the tabs of the side panel and whether it is hidden, the layout of the panes, and whether to look for updates.
+The settings of BaseCreator are stored in one file, `app.ron`: the language, the colour scheme, the grid and the view options, the units, the size of the next page, the recent files, the order of the tabs of the side panel and whether it is hidden, the layout of the panes, and whether to look for updates. The name recorded in the projects you save (**Program options → Your name**) is in `author.json` of the shared folder, the same for all the programs.
 
 | System | Location |
 |---|---|

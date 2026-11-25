@@ -2,7 +2,7 @@
 
 # Ustawienia i pliki
 
-Ustawienia BaseCreatora są w jednym pliku, `app.ron`: język, schemat kolorów, siatka i opcje widoku, jednostki, rozmiar następnej strony, ostatnie pliki, kolejność kart bocznego panelu i to, czy jest ukryty, układ paneli oraz to, czy szukać aktualizacji.
+Ustawienia BaseCreatora są w jednym pliku, `app.ron`: język, schemat kolorów, siatka i opcje widoku, jednostki, rozmiar następnej strony, ostatnie pliki, kolejność kart bocznego panelu i to, czy jest ukryty, układ paneli oraz to, czy szukać aktualizacji. Imię zapisywane w projektach (**Opcje programu → Twoje imię i nazwisko**) jest w `author.json` wspólnego folderu, takie samo dla wszystkich programów.
 
 | System | Miejsce |
 |---|---|
