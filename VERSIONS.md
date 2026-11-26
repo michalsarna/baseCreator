@@ -3,6 +3,16 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.9.3
+
+A release of the BaseCreator program. What is new since BaseCreator v2.7.13:
+
+- **Password protection of project files**: in **File → Page setup…**, part **Protection**, an owner password (everything) and an optional open password (open, look, change the layer settings; no editing, copying, exporting of the drawing or printing). The project is encrypted with XChaCha20-Poly1305 under a random key wrapped for each password with Argon2id (64 MiB, 3 passes); a changed file does not open. A protected file asks for its password when it is opened, also when a tab is recovered.
+- A project opened with the open password can be unlocked with the owner password without opening it again (the **Protection** part: **Owner password**, **Unlock**; or **Unlock with the owner password…** in the menu of its tab). The menu of a drawing's tab also has **Project information…** and **Page setup…**. A **padlock** stands before the name of a protected project in its tab.
+- The password question has a bigger green OK and red Cancel; after the last drawing is closed, **Back to the start screen** is on the left (green) and **Close the program** on the right (red).
+- **Adobe Illustrator / PDF import**: the pictures in the file come in as images where they lie (JPEG and Flate, gray, RGB, CMYK, with their transparency); what lies on a hidden Illustrator layer is left out; one Illustrator layer no longer asks whether to go by colour or by layers.
+- 16 texts in every language. The wiki (Project File) describes the protection.
+
 ## v2.9.2
 
 - A **padlock** before the name of a protected project in its tab (`PaneHost::tab_protected`, `doc_tabs::tab_widget_with`).
