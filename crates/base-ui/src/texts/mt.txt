@@ -1594,3 +1594,6 @@
 1593|Erġa' ikteb il-password
 1594|Password tal-ftuħ (mhux obbligatorja)
 1595|Neħħi l-protezzjoni
+1596|Iftaħ bil-password tas-sid…
+1597|Daħħal il-password tas-sid ta' {}:
+1598|Miftuħ bil-password tas-sid: kollox permess.

@@ -192,6 +192,20 @@ impl Protection {
         Ok(Protection { key, slots, access: Access::Owner })
     }
 
+    /// The owner password given for a project opened with the open password: from now on the owner may do everything (the same
+    /// key, so nothing is saved again). Slow (the key of the password is made).
+    pub fn unlock_owner(&mut self, password: &str) -> Result<(), OpenError> {
+        let Some(slot) = self.slots.iter().find(|s| s.role == Access::Owner) else { return Err(OpenError::Damaged("no owner password".into())) };
+        match unwrap(slot, password)? {
+            Some(key) if *key == *self.key => {
+                self.access = Access::Owner;
+                Ok(())
+            }
+            Some(_) => Err(OpenError::Damaged("the owner password is for another key".into())),
+            None => Err(OpenError::WrongPassword),
+        }
+    }
+
     /// Whether the file has an open password too (besides the owner's).
     pub fn has_open_password(&self) -> bool {
         self.slots.iter().any(|s| s.role == Access::Open)
@@ -300,6 +314,17 @@ mod tests {
         assert_eq!(open(&again, &pw("owner")).unwrap().0, r#"{"changed":true}"#);
         assert_eq!(open(&again, &pw("open")).unwrap().1.access, Access::Open);
         assert_eq!(open(&sealed, &pw("wrong")).unwrap_err(), OpenError::WrongPassword);
+    }
+
+    #[test]
+    fn the_owner_password_unlocks_a_project_opened_with_the_open_one() {
+        let p = Protection::with_kdf(&pw("owner"), Some(&pw("open")), FAST).unwrap();
+        let (_, mut r) = open(&p.seal(JSON), &pw("open")).unwrap();
+        assert_eq!(r.unlock_owner(&pw("open")).unwrap_err(), OpenError::WrongPassword, "the open password is not the owner's");
+        assert_eq!(r.access, Access::Open);
+        r.unlock_owner(&pw("owner")).unwrap();
+        assert_eq!(r.access, Access::Owner);
+        assert_eq!(open(&r.seal(JSON), &pw("open")).unwrap().1.access, Access::Open, "both passwords stay");
     }
 
     #[test]

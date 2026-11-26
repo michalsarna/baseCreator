@@ -954,6 +954,13 @@ impl App {
             self.status = base_ui::protect_ui::locked_message();
             self.touch_rev();
         }
+        // The owner password (asked for from the menu of the tab, or typed in the Protection part of the setup): everything again.
+        let name = base_ui::doc_tabs::title_of(self.path.as_deref());
+        let unlocked = self.lock.owner_window(ctx, &name);
+        if unlocked {
+            self.ed.locked = false;
+            self.status = base_ui::protect_ui::unlocked_message();
+        }
         self.close_dialogs(ctx);
         self.image_dialogs(ctx);
         let mut show = self.show_options;

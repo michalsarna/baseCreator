@@ -1594,3 +1594,6 @@
 1593|Ponovite geslo
 1594|Geslo za odpiranje (neobvezno)
 1595|Odstrani zaščito
+1596|Odkleni z geslom lastnika…
+1597|Vnesite geslo lastnika za {}:
+1598|Odklenjeno z geslom lastnika: vse je dovoljeno.

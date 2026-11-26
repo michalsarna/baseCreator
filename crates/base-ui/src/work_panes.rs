@@ -423,6 +423,25 @@ pub trait PaneHost {
     fn can_pop_out(&self, _content: Content) -> bool {
         false
     }
+    /// Is the drawing of this tab opened with the open password (its menu offers to unlock it)?
+    fn tab_locked(&self, _content: Content) -> bool {
+        false
+    }
+    /// The item of the menu of a drawing's tab that opens the setup of its project (`None`: no such item).
+    fn tab_setup_label(&self) -> Option<&'static str> {
+        Some("Project setup…")
+    }
+}
+
+/// What the menu of a drawing's tab asks for (the drawing is made the active one first).
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TabCommand {
+    /// File → Project information…
+    Info,
+    /// The setup of the project (Project setup…, Page setup…).
+    Setup,
+    /// Ask for the owner password of a drawing opened with the open password.
+    Unlock,
 }
 
 /// What happened in the panes.
@@ -436,6 +455,8 @@ pub enum PaneEvent {
     Close(Content),
     /// The "+" of the pane `n`: a new drawing there.
     NewTab(usize),
+    /// An item of the menu of the tab of the drawing in this slot.
+    Menu(usize, TabCommand),
 }
 
 /// A tab that is being dragged.
@@ -481,6 +502,23 @@ impl Panes {
                             }
                         }
                         resp.context_menu(|ui| {
+                            // A drawing: its project information, its setup and, opened with the open password, the owner's way in.
+                            if let Content::Doc(slot) = *c {
+                                let mut item = |ui: &mut egui::Ui, text: &'static str, cmd| {
+                                    if ui.button(tr(text)).clicked() {
+                                        event = PaneEvent::Menu(slot, cmd);
+                                        ui.close();
+                                    }
+                                };
+                                item(ui, "Project information…", TabCommand::Info);
+                                if let Some(label) = h.tab_setup_label() {
+                                    item(ui, label, TabCommand::Setup);
+                                }
+                                if h.tab_locked(*c) {
+                                    item(ui, "Unlock with the owner password…", TabCommand::Unlock);
+                                }
+                                ui.separator();
+                            }
                             for target in 0..n_panes {
                                 if target != i && ui.button(trf("Move to pane {}", &[&(target + 1)])).clicked() {
                                     moves.push((*c, target, None));

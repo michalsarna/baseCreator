@@ -256,13 +256,14 @@ pub fn ask_quit(ctx: &egui::Context, green: Color32) -> Option<bool> {
         ui.label(RichText::new(tr("The last drawing is closed.")).size(14.0).color(theme::text_dim()));
         ui.add_space(14.0);
         ui.horizontal(|ui| {
+            // Back to the start screen on the left (green, the way on), closing the program on the right (red).
             let size = egui::vec2((ui.available_width() - ui.spacing().item_spacing.x) / 2.0, 38.0);
-            let quit = egui::Button::new(RichText::new(tr("Close the program")).size(15.0).color(Color32::WHITE).strong()).fill(green);
-            if ui.add_sized(size, quit).clicked() {
-                choice = Some(true);
-            }
-            if ui.add_sized(size, egui::Button::new(RichText::new(tr("Back to the start screen")).size(15.0))).clicked() {
+            let button = |text: &str, fill| egui::Button::new(RichText::new(text).size(15.0).color(Color32::WHITE).strong()).fill(fill);
+            if ui.add_sized(size, button(&tr("Back to the start screen"), green)).clicked() {
                 choice = Some(false);
+            }
+            if ui.add_sized(size, button(&tr("Close the program"), crate::window::DELETE_RED)).clicked() {
+                choice = Some(true);
             }
         });
         ui.add_space(4.0);

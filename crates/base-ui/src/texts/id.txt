@@ -1594,3 +1594,6 @@
 1593|Ulangi kata sandi
 1594|Kata sandi buka (opsional)
 1595|Hapus perlindungan
+1596|Buka dengan kata sandi pemilik…
+1597|Masukkan kata sandi pemilik {}:
+1598|Dibuka dengan kata sandi pemilik: semuanya diizinkan.

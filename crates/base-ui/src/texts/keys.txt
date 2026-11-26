@@ -1594,3 +1594,6 @@
 1593	Repeat the password
 1594	Open password (optional)
 1595	Remove the protection
+1596	Unlock with the owner password…
+1597	Enter the owner password of {}:
+1598	Unlocked with the owner password: everything is allowed.

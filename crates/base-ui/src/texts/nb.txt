@@ -1594,3 +1594,6 @@
 1593|Gjenta passordet
 1594|Åpningspassord (valgfritt)
 1595|Fjern beskyttelsen
+1596|Lås opp med eierpassordet…
+1597|Skriv inn eierpassordet for {}:
+1598|Låst opp med eierpassordet: alt er tillatt.

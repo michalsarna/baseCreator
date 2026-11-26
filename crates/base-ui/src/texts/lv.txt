@@ -1594,3 +1594,6 @@
 1593|Atkārtojiet paroli
 1594|Atvēršanas parole (nav obligāta)
 1595|Noņemt aizsardzību
+1596|Atbloķēt ar īpašnieka paroli…
+1597|Ievadiet {} īpašnieka paroli:
+1598|Atbloķēts ar īpašnieka paroli: viss ir atļauts.

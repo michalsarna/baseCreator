@@ -16,6 +16,7 @@ impl App {
         let mut units = self.units;
         let mut fields = self.protect_fields.take().unwrap_or_else(|| self.lock.fields());
         let mut protection_changed = false;
+        let mut unlocked = false;
         let lock = &mut self.lock;
         popup(ctx, "page_setup_2", title.trim_end_matches('…'), [420.0, 420.0], &mut open, |ui| {
             egui::Grid::new("page_grid").num_columns(2).spacing([12.0, 8.0]).show(ui, |ui| {
@@ -54,7 +55,12 @@ impl App {
             });
             ui.add_space(8.0);
             protection_changed = base_ui::protect_ui::part_with_apply(ui, &mut fields, lock);
+            unlocked = base_ui::protect_ui::setup_unlock(&mut fields, lock);
         });
+        if unlocked {
+            self.ed.locked = false;
+            self.status = base_ui::protect_ui::unlocked_message();
+        }
         self.protect_fields = open.then_some(fields);
         if protection_changed {
             // Saved with the new passwords (or none) from the next save on.
