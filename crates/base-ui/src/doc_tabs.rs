@@ -77,10 +77,20 @@ fn one_tab(ui: &mut egui::Ui, id: impl std::hash::Hash + std::fmt::Debug, title:
 /// One tab, drawn: the title (cut when long), a dot for unsaved work that turns into the cross while the pointer is on the close
 /// button. Returns the response of the tab (with the `sense` asked for) and whether the cross was clicked.
 pub fn tab_widget(ui: &mut egui::Ui, id: &(impl std::hash::Hash + std::fmt::Debug), title: &str, dirty: bool, is_active: bool, sense: Sense) -> (egui::Response, bool) {
+    tab_widget_with(ui, id, title, dirty, is_active, sense, None)
+}
+
+/// The size of the icon before the title of a tab.
+const TAB_ICON: f32 = 12.0;
+
+/// [`tab_widget`] with an icon before the title (the padlock of a protected project).
+pub fn tab_widget_with(ui: &mut egui::Ui, id: &(impl std::hash::Hash + std::fmt::Debug), title: &str, dirty: bool, is_active: bool, sense: Sense, icon: Option<&str>) -> (egui::Response, bool) {
     let font = egui::FontId::proportional(13.0);
     let text = shorten(title);
-    let galley = ui.painter().layout_no_wrap(text, font, if is_active { theme::text() } else { theme::text_dim() });
-    let w = galley.size().x + 14.0 + 22.0;
+    let ink = if is_active { theme::text() } else { theme::text_dim() };
+    let galley = ui.painter().layout_no_wrap(text, font, ink);
+    let icon_w = if icon.is_some() { TAB_ICON + 4.0 } else { 0.0 };
+    let w = galley.size().x + 14.0 + 22.0 + icon_w;
     let (rect, resp) = ui.allocate_exact_size(egui::vec2(w, TAB_H), sense);
     let close_rect = egui::Rect::from_min_size(egui::pos2(rect.right() - 22.0, rect.top()), egui::vec2(22.0, TAB_H));
     let close = ui.interact(close_rect, ui.make_persistent_id(("doc_tab_close", id)), Sense::click());
@@ -95,7 +105,11 @@ pub fn tab_widget(ui: &mut egui::Ui, id: &(impl std::hash::Hash + std::fmt::Debu
     if is_active {
         ui.painter().rect_filled(egui::Rect::from_min_size(rect.min, egui::vec2(rect.width(), 2.0)), 0.0, theme::accent());
     }
-    ui.painter().galley(egui::pos2(rect.left() + 8.0, rect.center().y - galley.size().y / 2.0), galley, Color32::PLACEHOLDER);
+    if let Some(name) = icon {
+        let r = egui::Rect::from_center_size(egui::pos2(rect.left() + 8.0 + TAB_ICON / 2.0, rect.center().y), egui::vec2(TAB_ICON, TAB_ICON));
+        crate::icons::paint(ui, r, name, ink);
+    }
+    ui.painter().galley(egui::pos2(rect.left() + 8.0 + icon_w, rect.center().y - galley.size().y / 2.0), galley, Color32::PLACEHOLDER);
     let (mark, colour) = if close.hovered() {
         ("×", theme::text())
     } else if dirty {

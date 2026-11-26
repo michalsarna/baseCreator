@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.9.2
+
+- A **padlock** before the name of a protected project in its tab (`PaneHost::tab_protected`, `doc_tabs::tab_widget_with`).
+
 ## v2.9.1
 
 - **Protection, after the first tests**: a project opened with the open password can be unlocked with the owner password (the **Protection** part of the setup: **Owner password**, **Unlock**; or **Unlock with the owner password…** in the menu of its tab), without opening it again. The menu of a drawing's tab also has **Project information…** and the setup of the project (`PaneEvent::Menu`, `TabCommand`).
