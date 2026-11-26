@@ -1594,3 +1594,6 @@
 1593|Zopakujte heslo
 1594|Heslo pro otevření (nepovinné)
 1595|Odstranit ochranu
+1596|Odemknout heslem vlastníka…
+1597|Zadejte heslo vlastníka souboru {}:
+1598|Odemčeno heslem vlastníka: vše je povoleno.

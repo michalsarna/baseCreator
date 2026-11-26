@@ -1594,3 +1594,6 @@
 1593|Endurtaktu lykilorðið
 1594|Opnunarlykilorð (valfrjálst)
 1595|Fjarlægja vernd
+1596|Opna með lykilorði eiganda…
+1597|Sláðu inn lykilorð eiganda {}:
+1598|Opnað með lykilorði eiganda: allt er leyft.

@@ -1594,3 +1594,6 @@
 1593|Nhập lại mật khẩu
 1594|Mật khẩu mở (tùy chọn)
 1595|Gỡ bảo vệ
+1596|Mở khóa bằng mật khẩu chủ sở hữu…
+1597|Nhập mật khẩu chủ sở hữu của {}:
+1598|Đã mở khóa bằng mật khẩu chủ sở hữu: mọi thao tác đều được phép.

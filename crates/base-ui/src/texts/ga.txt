@@ -1594,3 +1594,6 @@
 1593|Athscríobh an pasfhocal
 1594|Pasfhocal oscailte (roghnach)
 1595|Bain an chosaint
+1596|Díghlasáil le pasfhocal an úinéara…
+1597|Cuir isteach pasfhocal úinéara {}:
+1598|Díghlasáilte le pasfhocal an úinéara: tá gach rud ceadaithe.

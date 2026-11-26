@@ -1594,3 +1594,6 @@
 1593|Upprepa lösenordet
 1594|Öppningslösenord (valfritt)
 1595|Ta bort skyddet
+1596|Lås upp med ägarlösenordet…
+1597|Ange ägarlösenordet för {}:
+1598|Upplåst med ägarlösenordet: allt är tillåtet.

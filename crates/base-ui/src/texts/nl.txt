@@ -1594,3 +1594,6 @@
 1593|Herhaal het wachtwoord
 1594|Openingswachtwoord (optioneel)
 1595|Beveiliging verwijderen
+1596|Ontgrendelen met het eigenaarswachtwoord…
+1597|Voer het eigenaarswachtwoord van {} in:
+1598|Ontgrendeld met het eigenaarswachtwoord: alles is toegestaan.

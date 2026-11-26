@@ -31,6 +31,7 @@ A project can be protected with passwords: in **Project setup…** of LightCreat
 * **Owner password**: everything (editing, copying, exporting, changing or removing the protection).
 * **Open password** (optional): the project can be opened, looked at, turned into G-code and run on the machine, and the material and the layer settings (speed, power, passes, depth, bit, pen) can be changed, but the drawing cannot be edited, copied, exported as a drawing (SVG, DXF, Illustrator, LightBurn …) or printed. The built-in web page shows no drawing then.
 * With only an owner password, nobody else can open the file. Without a password the file cannot be read at all, and a **forgotten password cannot be recovered**.
+* A project opened with the open password can be unlocked with the owner password, without opening it again: in the **Protection** part of the setup (**Owner password**, **Unlock**) or with **Unlock with the owner password…** in the menu of its tab (right click). That menu also has **Project information…** and the setup of the project.
 
 The file stays a JSON text with the key `protected_cre`; the project in it is encrypted with **XChaCha20-Poly1305** under a random 256-bit key, which is stored once for every password, wrapped with a key made from the password by **Argon2id** (64 MiB, 3 passes, a salt of its own). Every save uses a new nonce; a changed file does not open. Passwords need at least 8 characters, and the open password must differ from the owner's.
 

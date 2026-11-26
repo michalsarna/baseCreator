@@ -31,6 +31,7 @@ Projekt można chronić hasłami: w **Ustawieniach projektu…** LightCreatora, 
 * **Hasło właściciela**: wszystko (edycja, kopiowanie, eksport, zmiana lub usunięcie ochrony).
 * **Hasło otwarcia** (opcjonalne): projekt można otworzyć, oglądać, zamienić w G-code i uruchomić na maszynie, można też zmienić materiał i ustawienia warstw (prędkość, moc, przejścia, głębokość, frez, pisak), ale rysunku nie da się edytować, kopiować, eksportować jako rysunku (SVG, DXF, Illustrator, LightBurn …) ani drukować. Wbudowana strona WWW nie pokazuje wtedy rysunku.
 * Gdy jest tylko hasło właściciela, nikt inny nie otworzy pliku. Bez hasła pliku nie da się w ogóle odczytać, a **zapomnianego hasła nie da się odzyskać**.
+* Projekt otwarty hasłem otwarcia można odblokować hasłem właściciela bez ponownego otwierania: w części **Ochrona** ustawień (**Hasło właściciela**, **Odblokuj**) albo poleceniem **Odblokuj hasłem właściciela…** z menu jego karty (prawy przycisk). To menu ma też **Informacje o projekcie…** i ustawienia projektu.
 
 Plik pozostaje tekstem JSON z kluczem `protected_cre`; projekt w nim jest zaszyfrowany **XChaCha20-Poly1305** losowym kluczem 256-bitowym, zapisanym raz dla każdego hasła i zaszyfrowanym kluczem zrobionym z hasła przez **Argon2id** (64 MiB, 3 przebiegi, własna sól). Każdy zapis ma nowy nonce; zmieniony plik się nie otworzy. Hasła muszą mieć co najmniej 8 znaków, a hasło otwarcia musi być inne niż hasło właściciela.
 

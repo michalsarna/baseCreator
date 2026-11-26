@@ -1594,3 +1594,6 @@
 1593|Korrake parooli
 1594|Avamisparool (valikuline)
 1595|Eemalda kaitse
+1596|Ava omaniku parooliga…
+1597|Sisesta faili {} omaniku parool:
+1598|Avatud omaniku parooliga: kõik on lubatud.

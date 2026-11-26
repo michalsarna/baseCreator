@@ -1594,3 +1594,6 @@
 1593|Repetați parola
 1594|Parolă de deschidere (opțională)
 1595|Elimină protecția
+1596|Deblochează cu parola proprietarului…
+1597|Introduceți parola proprietarului pentru {}:
+1598|Deblocat cu parola proprietarului: totul este permis.

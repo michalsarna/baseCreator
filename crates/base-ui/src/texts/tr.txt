@@ -1594,3 +1594,6 @@
 1593|Parolayı yineleyin
 1594|Açma parolası (isteğe bağlı)
 1595|Korumayı kaldır
+1596|Sahip parolasıyla kilidi aç…
+1597|{} için sahip parolasını girin:
+1598|Sahip parolasıyla kilit açıldı: her şeye izin verilir.

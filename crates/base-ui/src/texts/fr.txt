@@ -1594,3 +1594,6 @@
 1593|Répétez le mot de passe
 1594|Mot de passe d'ouverture (facultatif)
 1595|Retirer la protection
+1596|Déverrouiller avec le mot de passe du propriétaire…
+1597|Saisissez le mot de passe du propriétaire de {} :
+1598|Déverrouillé avec le mot de passe du propriétaire : tout est permis.

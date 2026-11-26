@@ -1601,6 +1601,9 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Repeat the password", "Powtórz hasło", "Passwort wiederholen", "Ripeti la password", "Toista salasana", "再次输入密码", "पासवर्ड दोहराएँ"],
     ["Open password (optional)", "Hasło otwarcia (opcjonalne)", "Öffnungspasswort (optional)", "Password di apertura (facoltativa)", "Avaussalasana (valinnainen)", "打开密码（可选）", "खोलने का पासवर्ड (वैकल्पिक)"],
     ["Remove the protection", "Usuń ochronę", "Schutz entfernen", "Rimuovi la protezione", "Poista suojaus", "移除保护", "सुरक्षा हटाएँ"],
+    ["Unlock with the owner password…", "Odblokuj hasłem właściciela…", "Mit dem Besitzerpasswort entsperren…", "Sblocca con la password del proprietario…", "Avaa omistajan salasanalla…", "用所有者密码解锁…", "स्वामी पासवर्ड से अनलॉक करें…"],
+    ["Enter the owner password of {}:", "Podaj hasło właściciela pliku {}:", "Besitzerpasswort von {} eingeben:", "Inserisci la password del proprietario di {}:", "Anna tiedoston {} omistajan salasana:", "输入 {} 的所有者密码：", "{} का स्वामी पासवर्ड दर्ज करें:"],
+    ["Unlocked with the owner password: everything is allowed.", "Odblokowano hasłem właściciela: wszystko jest dozwolone.", "Mit dem Besitzerpasswort entsperrt: alles ist erlaubt.", "Sbloccato con la password del proprietario: tutto è consentito.", "Avattu omistajan salasanalla: kaikki on sallittua.", "已用所有者密码解锁：允许所有操作。", "स्वामी पासवर्ड से अनलॉक किया गया: सब कुछ अनुमत है।"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

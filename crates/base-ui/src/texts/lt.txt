@@ -1594,3 +1594,6 @@
 1593|Pakartokite slaptažodį
 1594|Atidarymo slaptažodis (nebūtinas)
 1595|Pašalinti apsaugą
+1596|Atrakinti savininko slaptažodžiu…
+1597|Įveskite {} savininko slaptažodį:
+1598|Atrakinta savininko slaptažodžiu: viskas leidžiama.

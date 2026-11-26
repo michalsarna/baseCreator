@@ -1594,3 +1594,6 @@
 1593|Repetiu la contrasenya
 1594|Contrasenya d'obertura (opcional)
 1595|Treu la protecció
+1596|Desbloqueja amb la contrasenya del propietari…
+1597|Introduïu la contrasenya del propietari de {}:
+1598|Desbloquejat amb la contrasenya del propietari: tot està permès.

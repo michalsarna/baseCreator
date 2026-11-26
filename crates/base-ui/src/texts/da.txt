@@ -1594,3 +1594,6 @@
 1593|Gentag adgangskoden
 1594|Åbningsadgangskode (valgfri)
 1595|Fjern beskyttelsen
+1596|Lås op med ejerens adgangskode…
+1597|Indtast ejerens adgangskode til {}:
+1598|Låst op med ejerens adgangskode: alt er tilladt.

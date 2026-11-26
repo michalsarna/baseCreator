@@ -1594,3 +1594,6 @@
 1593|Repita a palavra-passe
 1594|Palavra-passe de abertura (opcional)
 1595|Remover a proteção
+1596|Desbloquear com a palavra-passe do proprietário…
+1597|Introduza a palavra-passe do proprietário de {}:
+1598|Desbloqueado com a palavra-passe do proprietário: tudo é permitido.

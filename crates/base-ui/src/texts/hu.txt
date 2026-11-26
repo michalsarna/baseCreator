@@ -1594,3 +1594,6 @@
 1593|Jelszó ismét
 1594|Megnyitási jelszó (nem kötelező)
 1595|Védelem eltávolítása
+1596|Feloldás a tulajdonosi jelszóval…
+1597|Adja meg a(z) {} tulajdonosi jelszavát:
+1598|Feloldva a tulajdonosi jelszóval: minden engedélyezett.

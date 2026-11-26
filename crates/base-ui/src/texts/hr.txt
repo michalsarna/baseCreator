@@ -1594,3 +1594,6 @@
 1593|Ponovite lozinku
 1594|Lozinka za otvaranje (neobavezno)
 1595|Ukloni zaštitu
+1596|Otključaj lozinkom vlasnika…
+1597|Unesite lozinku vlasnika za {}:
+1598|Otključano lozinkom vlasnika: sve je dopušteno.

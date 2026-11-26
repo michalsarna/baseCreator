@@ -1594,3 +1594,6 @@
 1593|Repita la contraseña
 1594|Contraseña de apertura (opcional)
 1595|Quitar la protección
+1596|Desbloquear con la contraseña del propietario…
+1597|Introduzca la contraseña del propietario de {}:
+1598|Desbloqueado con la contraseña del propietario: todo está permitido.
