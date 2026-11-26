@@ -423,6 +423,10 @@ pub trait PaneHost {
     fn can_pop_out(&self, _content: Content) -> bool {
         false
     }
+    /// Is the project of this tab protected with a password (a padlock before its title)?
+    fn tab_protected(&self, _content: Content) -> bool {
+        false
+    }
     /// Is the drawing of this tab opened with the open password (its menu offers to unlock it)?
     fn tab_locked(&self, _content: Content) -> bool {
         false
@@ -488,7 +492,7 @@ impl Panes {
                 ui.horizontal(|ui| {
                     ui.spacing_mut().item_spacing.x = 2.0;
                     for (j, c) in tabs.iter().enumerate() {
-                        let (resp, closed) = crate::doc_tabs::tab_widget(ui, &(i, c), &h.tab_title(*c), h.tab_dirty(*c), j == sel, Sense::click_and_drag());
+                        let (resp, closed) = crate::doc_tabs::tab_widget_with(ui, &(i, c), &h.tab_title(*c), h.tab_dirty(*c), j == sel, Sense::click_and_drag(), h.tab_protected(*c).then_some("lock"));
                         rects_of_tabs.push(resp.rect);
                         resp.dnd_set_drag_payload(Drag(*c));
                         if closed || resp.middle_clicked() {

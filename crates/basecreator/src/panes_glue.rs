@@ -71,6 +71,13 @@ impl App {
 }
 
 impl PaneHost for App {
+    fn tab_protected(&self, c: Content) -> bool {
+        match c {
+            Content::Doc(slot) if slot == self.slot => self.lock.protected(),
+            Content::Doc(slot) => self.tabs_state.parked.iter().flatten().find(|w| w.slot == slot).is_some_and(|w| w.lock.protected()),
+            _ => false,
+        }
+    }
     fn tab_locked(&self, c: Content) -> bool {
         match c {
             Content::Doc(slot) if slot == self.slot => self.lock.locked(),
