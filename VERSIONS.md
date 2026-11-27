@@ -3,11 +3,14 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
-## v2.9.5
+## v2.9.6
 
 - **Offset fills and pockets much faster**: `ops::inset_rings` takes every island (an outline with its holes) in by itself and only until it is filled, all the islands at the same time on all the cores. Taking the whole set in at every ring went on over all the shapes as long as the biggest one had rings: the G-code of the performance test project took 17 minutes in LightCreator and now takes half a second (with its other changes).
 - `ops::islands` (the islands of a set of closed outlines) and `ops::par_map` (a function of every item on all the cores, in order), for the programs (MillCreator's pockets).
-- The performance test project and `scripts/perf.sh` (see `testdata/perf/README.md`).
+
+## v2.9.5
+
+- The performance test project and `scripts/perf.sh` (see `testdata/perf/README.md`). Tagged by mistake before the faster offset fills (the crates still say 2.9.4): use v2.9.6.
 
 ## v2.9.4
 
