@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.9.4
+
+- `Scene::on_area`: the shapes that lie at least partly on the work area, what the preview of a job is made of in LightCreator, MillCreator and PenCreator. A drawing kept beside the work area is never in the preview, and it no longer makes the preview slow (a project with 1400 big shapes beside the work area took two minutes to show).
+
 ## v2.9.3
 
 A release of the BaseCreator program. What is new since BaseCreator v2.7.13:

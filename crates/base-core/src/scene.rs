@@ -141,6 +141,13 @@ impl Scene {
     pub fn counters(&self) -> (u64, u64) {
         (self.next_id, self.next_group)
     }
+    /// The shapes that lie at least partly on the work area from (0, 0) to (`w`, `h`), as a scene of their own: what a preview of the
+    /// job is made of. What lies wholly beside the work area (a drawing kept there for later) is never in a preview, and a big one
+    /// there no longer makes the preview slow.
+    pub fn on_area(&self, w: f64, h: f64) -> Scene {
+        let on = |s: &&Shape| s.bounds().is_some_and(|b| b.max.x >= 0.0 && b.max.y >= 0.0 && b.min.x <= w && b.min.y <= h);
+        Scene { shapes: self.shapes.iter().filter(on).cloned().collect(), next_id: self.next_id, next_group: self.next_group }
+    }
     pub fn add(&mut self, layer: usize, kind: Kind, xf: Xf) -> u64 {
         let id = self.next_id;
         self.next_id += 1;

@@ -782,3 +782,15 @@ fn inset_rings_do_not_gather_points() {
     let area = |p: &[Polyline]| p.iter().map(|q| q.area().abs()).sum::<f64>();
     assert!((area(std::slice::from_ref(tenth)) - area(&again)).abs() < area(&again) * 0.01);
 }
+
+#[test]
+fn a_preview_takes_only_what_lies_on_the_work_area() {
+    let mut s = Scene::default();
+    let on = s.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(20.0, 20.0));
+    let across = s.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(395.0, 100.0));
+    s.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(500.0, 20.0));
+    s.add(0, Kind::Rect { w: 10.0, h: 10.0 }, Xf::translate(20.0, -50.0));
+    let a = s.on_area(400.0, 400.0);
+    assert_eq!(a.shapes.iter().map(|s| s.id).collect::<Vec<_>>(), vec![on, across]);
+    assert_eq!(a.counters(), s.counters());
+}
