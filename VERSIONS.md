@@ -3,6 +3,12 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.9.7
+
+- **The G-code tab**: the numbers of the lines on the left (only shown, never in the file); every shape (a line, a fill, an object, a contour) and element has its name beside its first line (**Shape 1**, **Shape 2**…); on the right a list of the **Stages** of the G-code, a small box each: the start, side A and B, the layers, the elements, the shapes, the stops (a pen to change, the material to turn over) and the end of the job. A click brings its line to the top of the text, with the cursor at its start; the stage of the first line in view is lit. The lines are no longer wrapped.
+- The question how the G-code of a two-sided job or a job on several faces is shown or saved: the title in a strip of the colour of the scheme, a line over the buttons, a green **Preview G-code** (or **Save G-code**) and an orange **Cancel**, both a quarter bigger.
+- `protect::random_password`: a random password of 16 characters. The tests of the password protection use only random passwords (code scanning took the passwords the tests made from a word for passwords written into the code).
+
 ## v2.9.6
 
 - **Offset fills and pockets much faster**: `ops::inset_rings` takes every island (an outline with its holes) in by itself and only until it is filled, all the islands at the same time on all the cores. Taking the whole set in at every ring went on over all the shapes as long as the biggest one had rings: the G-code of the performance test project took 17 minutes in LightCreator and now takes half a second (with its other changes).

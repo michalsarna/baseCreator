@@ -1597,3 +1597,8 @@
 1596|Opna með lykilorði eiganda…
 1597|Sláðu inn lykilorð eiganda {}:
 1598|Opnað með lykilorði eiganda: allt er leyft.
+1599|Áfangar
+1600|Form {}
+1601|Eining {}
+1602|Lok verks
+1603|Fara í línu {}

@@ -1597,3 +1597,8 @@
 1596|Odomknúť heslom vlastníka…
 1597|Zadajte heslo vlastníka súboru {}:
 1598|Odomknuté heslom vlastníka: všetko je povolené.
+1599|Fázy
+1600|Tvar {}
+1601|Prvok {}
+1602|Koniec úlohy
+1603|Prejsť na riadok {}

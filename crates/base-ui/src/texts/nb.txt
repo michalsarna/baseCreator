@@ -1597,3 +1597,8 @@
 1596|Lås opp med eierpassordet…
 1597|Skriv inn eierpassordet for {}:
 1598|Låst opp med eierpassordet: alt er tillatt.
+1599|Trinn
+1600|Form {}
+1601|Element {}
+1602|Slutten av jobben
+1603|Gå til linje {}

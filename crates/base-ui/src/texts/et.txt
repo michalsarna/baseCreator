@@ -1597,3 +1597,8 @@
 1596|Ava omaniku parooliga…
 1597|Sisesta faili {} omaniku parool:
 1598|Avatud omaniku parooliga: kõik on lubatud.
+1599|Etapid
+1600|Kujund {}
+1601|Element {}
+1602|Töö lõpp
+1603|Mine reale {}

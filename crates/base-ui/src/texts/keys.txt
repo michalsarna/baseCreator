@@ -1597,3 +1597,8 @@
 1596	Unlock with the owner password…
 1597	Enter the owner password of {}:
 1598	Unlocked with the owner password: everything is allowed.
+1599	Stages
+1600	Shape {}
+1601	Element {}
+1602	End of the job
+1603	Go to line {}

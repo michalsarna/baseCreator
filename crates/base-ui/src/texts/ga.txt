@@ -1597,3 +1597,8 @@
 1596|Díghlasáil le pasfhocal an úinéara…
 1597|Cuir isteach pasfhocal úinéara {}:
 1598|Díghlasáilte le pasfhocal an úinéara: tá gach rud ceadaithe.
+1599|Céimeanna
+1600|Cruth {}
+1601|Eilimint {}
+1602|Deireadh an jab
+1603|Téigh go líne {}

@@ -1597,3 +1597,8 @@
 1596|Ontgrendelen met het eigenaarswachtwoord…
 1597|Voer het eigenaarswachtwoord van {} in:
 1598|Ontgrendeld met het eigenaarswachtwoord: alles is toegestaan.
+1599|Fasen
+1600|Vorm {}
+1601|Element {}
+1602|Einde van de taak
+1603|Ga naar regel {}

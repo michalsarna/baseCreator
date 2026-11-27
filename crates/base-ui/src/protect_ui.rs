@@ -440,9 +440,9 @@ mod tests {
     use base_core::geom::Xf;
     use base_core::scene::Kind;
 
-    /// A password for the tests, made when they run (no password is written into the code).
-    fn pw(tag: &str) -> String {
-        format!("{tag}-{}", std::process::id())
+    /// A random password for the tests (no password is written into the code).
+    fn pw() -> String {
+        protect::random_password()
     }
 
     #[test]
@@ -464,17 +464,18 @@ mod tests {
     fn the_owner_password_unlocks_the_drawing_in_setup() {
         use base_core::protect::Kdf;
         let fast = Kdf { m_kib: 8 * 1024, t: 1, p: 1 };
-        let p = Protection::with_kdf(&pw("owner"), Some(&pw("open")), fast).unwrap();
-        let (_, opened) = protect::open(&p.seal("{}"), &pw("open")).unwrap();
+        let (owner, open) = (pw(), pw());
+        let p = Protection::with_kdf(&owner, Some(&open), fast).unwrap();
+        let (_, opened) = protect::open(&p.seal("{}"), &open).unwrap();
         let mut s = Scene::default();
         s.add(0, Kind::Rect { w: 10.0, h: 5.0 }, Xf::IDENTITY);
         let mut lock = DocLock::new(Some(opened), &s);
         let mut f = lock.fields();
         assert!(!setup_unlock(&mut f, &mut lock), "nothing asked");
-        f.unlock = pw("open");
+        f.unlock = open.clone();
         f.try_unlock = true;
         assert!(!setup_unlock(&mut f, &mut lock) && f.error.is_some() && lock.locked());
-        f.unlock = pw("owner");
+        f.unlock = owner.clone();
         f.try_unlock = true;
         assert!(setup_unlock(&mut f, &mut lock));
         assert!(!lock.locked() && f.access == Some(Access::Owner) && f.unlock.is_empty());
@@ -487,7 +488,7 @@ mod tests {
         let mut f = Fields::default();
         assert!(f.check(), "empty: nothing to do");
         assert!(matches!(f.take_change(), Change::Keep));
-        let (owner, open) = (pw("owner"), pw("open"));
+        let (owner, open) = (pw(), pw());
         f.owner = owner.clone();
         f.owner2 = owner[..owner.len() - 1].to_string();
         assert!(!f.check());
@@ -504,7 +505,7 @@ mod tests {
         let mut r = Fields { access: Some(Access::Owner), remove: true, ..Default::default() };
         assert!(r.check());
         assert!(matches!(r.take_change(), Change::Remove));
-        let mut o = Fields { access: Some(Access::Open), owner: pw("anything"), ..Default::default() };
+        let mut o = Fields { access: Some(Access::Open), owner: pw(), ..Default::default() };
         assert!(o.check());
         assert!(matches!(o.take_change(), Change::Keep), "the open password changes nothing");
     }
