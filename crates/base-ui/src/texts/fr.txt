@@ -1597,3 +1597,8 @@
 1596|Déverrouiller avec le mot de passe du propriétaire…
 1597|Saisissez le mot de passe du propriétaire de {} :
 1598|Déverrouillé avec le mot de passe du propriétaire : tout est permis.
+1599|Étapes
+1600|Forme {}
+1601|Élément {}
+1602|Fin du travail
+1603|Aller à la ligne {}

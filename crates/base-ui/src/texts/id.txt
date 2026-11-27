@@ -1597,3 +1597,8 @@
 1596|Buka dengan kata sandi pemilik…
 1597|Masukkan kata sandi pemilik {}:
 1598|Dibuka dengan kata sandi pemilik: semuanya diizinkan.
+1599|Tahapan
+1600|Bentuk {}
+1601|Elemen {}
+1602|Akhir pekerjaan
+1603|Ke baris {}

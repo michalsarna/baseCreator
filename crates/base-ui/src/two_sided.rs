@@ -253,7 +253,11 @@ pub fn save_window_for(ctx: &egui::Context, d: &mut SaveDialog, solid: &Solid, m
         (true, true) => (tr("G-code of a job on several faces"), tr("The job has several faces. How should the G-code be shown?"), tr("Preview G-code")),
         (false, true) => (tr("Save G-code of a job on several faces"), tr("The job has several faces. How should the G-code be saved?"), tr("Save G-code")),
     };
-    egui::Window::new(title).collapsible(false).resizable(false).open(&mut open).anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]).show(ctx, |ui| {
+    // The title in a strip of the colour of the scheme (egui would give the title the colour of the window).
+    let frame = egui::Frame::window(&ctx.global_style()).inner_margin(egui::Margin::same(10));
+    egui::Window::new(title).id(egui::Id::unique("save_sides_window")).title_bar(false).frame(frame).collapsible(false).resizable(false).anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]).show(ctx, |ui| {
+        let top = ui.cursor().min;
+        ui.add_space(TITLE_H);
         ui.label(question);
         ui.add_space(4.0);
         for c in SaveSides::ALL {
@@ -269,20 +273,54 @@ pub fn save_window_for(ctx: &egui::Context, d: &mut SaveDialog, solid: &Solid, m
             _ => format!("{} — {}", job_title(solid), (0..n).map(|i| format!("{} {}", Solid::letter(i), tr(solid.face(i).place.name()))).collect::<Vec<_>>().join(", ")),
         };
         ui.label(RichText::new(note).color(theme::text_dim()));
-        ui.add_space(6.0);
+        ui.add_space(2.0);
+        ui.separator();
+        ui.add_space(2.0);
+        // The buttons a quarter bigger than usual: the green one goes on, the orange one gives up.
         ui.horizontal(|ui| {
-            if ui.button(button).clicked() {
+            ui.spacing_mut().button_padding *= 1.25;
+            let size = egui::TextStyle::Button.resolve(ui.style()).size * 1.25;
+            let big = |text: &str, fill: egui::Color32| egui::Button::new(RichText::new(text).size(size).color(egui::Color32::WHITE)).fill(fill);
+            if ui.add(big(button, crate::window::SAVE_GREEN)).clicked() {
                 out = Some(d.choice);
             }
-            if ui.button(tr("Cancel")).clicked() {
+            if ui.add(big(tr("Cancel"), crate::window::OPEN_ORANGE)).clicked() {
                 d.open = false;
             }
         });
+        title_strip(ui, top, title, &mut open);
     });
     if !open || out.is_some() {
         d.open = false;
     }
     out
+}
+
+/// The height of the title strip of the question.
+const TITLE_H: f32 = 26.0;
+
+/// The title strip over the question, drawn once its width is known: the accent colour of the scheme from edge to edge of the window,
+/// the title and the close button in a colour that reads on it.
+fn title_strip(ui: &mut egui::Ui, top: egui::Pos2, title: &str, open: &mut bool) {
+    let m = 10.0;
+    let width = ui.min_rect().width();
+    let strip = egui::Rect::from_min_max(egui::pos2(top.x - m, top.y - m), egui::pos2(top.x + width + m, top.y + TITLE_H - 4.0));
+    let fill = theme::accent();
+    let [r, g, b, _] = fill.to_array();
+    let ink = if 0.299 * r as f32 + 0.587 * g as f32 + 0.114 * b as f32 > 150.0 { egui::Color32::BLACK } else { egui::Color32::WHITE };
+    let radius = ui.visuals().window_corner_radius;
+    let p = ui.painter();
+    p.rect_filled(strip, egui::CornerRadius { nw: radius.nw, ne: radius.ne, sw: 0, se: 0 }, fill);
+    p.text(egui::pos2(strip.min.x + m, strip.center().y), egui::Align2::LEFT_CENTER, title, egui::FontId::proportional(14.0), ink);
+    let x = egui::Rect::from_center_size(egui::pos2(strip.max.x - m - 9.0, strip.center().y), egui::vec2(18.0, 18.0));
+    let resp = ui.interact(x, egui::Id::unique("save_sides_close"), egui::Sense::click());
+    if resp.hovered() {
+        ui.painter().rect_filled(x, 3.0, ink.gamma_multiply(0.2));
+    }
+    crate::icons::paint(ui, x.shrink(3.0), "x", ink);
+    if resp.on_hover_text(tr("Close")).clicked() {
+        *open = false;
+    }
 }
 
 /// The comment at the head of the G-code of a side (ASCII only: GRBL takes bytes above 127 for commands of its own).

@@ -1597,3 +1597,8 @@
 1596|Lås upp med ägarlösenordet…
 1597|Ange ägarlösenordet för {}:
 1598|Upplåst med ägarlösenordet: allt är tillåtet.
+1599|Steg
+1600|Form {}
+1601|Element {}
+1602|Jobbets slut
+1603|Gå till rad {}

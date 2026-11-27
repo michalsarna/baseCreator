@@ -1597,3 +1597,8 @@
 1596|Sahip parolasıyla kilidi aç…
 1597|{} için sahip parolasını girin:
 1598|Sahip parolasıyla kilit açıldı: her şeye izin verilir.
+1599|Aşamalar
+1600|Şekil {}
+1601|Öğe {}
+1602|İşin sonu
+1603|{}. satıra git

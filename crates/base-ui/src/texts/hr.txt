@@ -1597,3 +1597,8 @@
 1596|Otključaj lozinkom vlasnika…
 1597|Unesite lozinku vlasnika za {}:
 1598|Otključano lozinkom vlasnika: sve je dopušteno.
+1599|Faze
+1600|Oblik {}
+1601|Element {}
+1602|Kraj posla
+1603|Idi na redak {}

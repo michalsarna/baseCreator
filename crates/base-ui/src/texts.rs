@@ -1604,6 +1604,11 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Unlock with the owner password…", "Odblokuj hasłem właściciela…", "Mit dem Besitzerpasswort entsperren…", "Sblocca con la password del proprietario…", "Avaa omistajan salasanalla…", "用所有者密码解锁…", "स्वामी पासवर्ड से अनलॉक करें…"],
     ["Enter the owner password of {}:", "Podaj hasło właściciela pliku {}:", "Besitzerpasswort von {} eingeben:", "Inserisci la password del proprietario di {}:", "Anna tiedoston {} omistajan salasana:", "输入 {} 的所有者密码：", "{} का स्वामी पासवर्ड दर्ज करें:"],
     ["Unlocked with the owner password: everything is allowed.", "Odblokowano hasłem właściciela: wszystko jest dozwolone.", "Mit dem Besitzerpasswort entsperrt: alles ist erlaubt.", "Sbloccato con la password del proprietario: tutto è consentito.", "Avattu omistajan salasanalla: kaikki on sallittua.", "已用所有者密码解锁：允许所有操作。", "स्वामी पासवर्ड से अनलॉक किया गया: सब कुछ अनुमत है।"],
+    ["Stages", "Etapy", "Abschnitte", "Fasi", "Vaiheet", "阶段", "चरण"],
+    ["Shape {}", "Kształt {}", "Form {}", "Forma {}", "Muoto {}", "形状 {}", "आकृति {}"],
+    ["Element {}", "Element {}", "Element {}", "Elemento {}", "Elementti {}", "元素 {}", "तत्व {}"],
+    ["End of the job", "Koniec zadania", "Ende des Auftrags", "Fine del lavoro", "Työn loppu", "作业结束", "कार्य का अंत"],
+    ["Go to line {}", "Przejdź do wiersza {}", "Zu Zeile {} springen", "Vai alla riga {}", "Siirry riville {}", "转到第 {} 行", "पंक्ति {} पर जाएँ"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

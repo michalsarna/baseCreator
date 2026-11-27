@@ -1597,3 +1597,8 @@
 1596|Feloldás a tulajdonosi jelszóval…
 1597|Adja meg a(z) {} tulajdonosi jelszavát:
 1598|Feloldva a tulajdonosi jelszóval: minden engedélyezett.
+1599|Szakaszok
+1600|{}. alakzat
+1601|{}. elem
+1602|A munka vége
+1603|Ugrás a(z) {}. sorra

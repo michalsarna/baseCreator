@@ -1597,3 +1597,8 @@
 1596|Desbloquear com a palavra-passe do proprietário…
 1597|Introduza a palavra-passe do proprietário de {}:
 1598|Desbloqueado com a palavra-passe do proprietário: tudo é permitido.
+1599|Etapas
+1600|Forma {}
+1601|Elemento {}
+1602|Fim do trabalho
+1603|Ir para a linha {}

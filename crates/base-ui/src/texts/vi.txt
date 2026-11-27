@@ -1597,3 +1597,8 @@
 1596|Mở khóa bằng mật khẩu chủ sở hữu…
 1597|Nhập mật khẩu chủ sở hữu của {}:
 1598|Đã mở khóa bằng mật khẩu chủ sở hữu: mọi thao tác đều được phép.
+1599|Các giai đoạn
+1600|Hình {}
+1601|Phần tử {}
+1602|Kết thúc công việc
+1603|Đi tới dòng {}

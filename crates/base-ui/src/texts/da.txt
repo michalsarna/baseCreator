@@ -1597,3 +1597,8 @@
 1596|Lås op med ejerens adgangskode…
 1597|Indtast ejerens adgangskode til {}:
 1598|Låst op med ejerens adgangskode: alt er tilladt.
+1599|Trin
+1600|Form {}
+1601|Element {}
+1602|Jobbets afslutning
+1603|Gå til linje {}

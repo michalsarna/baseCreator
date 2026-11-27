@@ -1597,3 +1597,8 @@
 1596|Iftaħ bil-password tas-sid…
 1597|Daħħal il-password tas-sid ta' {}:
 1598|Miftuħ bil-password tas-sid: kollox permess.
+1599|Stadji
+1600|Forma {}
+1601|Element {}
+1602|Tmiem ix-xogħol
+1603|Mur għal-linja {}
