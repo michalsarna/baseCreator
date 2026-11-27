@@ -7,7 +7,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 
 - `gcode_out::semicolon_comments`: the comments of a program written with a semicolon in front, as LightCreator writes them (`(Layer: Cut)` → `; Layer: Cut`, `M0 (Change the pen to: red)` → `M0 ; Change the pen to: red`); MillCreator and PenCreator write their G-code so. A comment that does not end its line stays in brackets.
 - `link::clean_gcode` keeps for the machine the start of a layer (`; Layer: …` sent as `(Layer: …)`, where a photo of the time-lapse is taken) and the words of a stop (`M0 ; …` sent as `M0 (…)`, what the person is asked to do); a stop says its words also when they come after a semicolon.
-- The G-code tab: a little room over its buttons; the stage that was clicked is the one lit in the list (it was the stage of the lines above it at the top).
+- The G-code tab: a little room over its buttons; the stage that was clicked is the one lit in the list (it was the stage of the lines above it at the top). A layer in the list is named without what follows its name (LightCreator's `; Layer: Cut (Line) speed 20 mm/s power 80%` is **Layer: Cut**).
 
 ## v2.9.7
 

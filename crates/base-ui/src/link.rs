@@ -901,9 +901,9 @@ mod tests {
         assert_eq!(clean_gcode(laser)[marks[0]], "G1 Y1");
         assert!(layer_marks(&[]).is_empty() && layer_marks_in_text("G0 X1\n").is_empty());
         // Comments written with a semicolon: the layers and the words of a stop are kept for the sending, in brackets.
-        let semi = "; MillCreator: t\nG21 G90 ; units\n; Layer: cut\nG0 X1\nM0 ; Change the bit to: V-bit (60)\n; Layer: pocket\nG1 X2\nM0\n";
+        let semi = "; MillCreator: t\nG21 G90 ; units\n; Layer: cut (Line) speed 20 mm/s\nG0 X1\nM0 ; Change the bit to: V-bit (60)\n; Layer: pocket\nG1 X2\nM0\n";
         let lines = clean_gcode(semi);
-        assert_eq!(lines, ["G21 G90", "(Layer: cut)", "G0 X1", "M0 (Change the bit to: V-bit  60)", "(Layer: pocket)", "G1 X2", "M0"]);
+        assert_eq!(lines, ["G21 G90", "(Layer: cut  Line  speed 20 mm/s)", "G0 X1", "M0 (Change the bit to: V-bit  60)", "(Layer: pocket)", "G1 X2", "M0"]);
         assert_eq!(layer_marks(&lines), vec![4]);
     }
 

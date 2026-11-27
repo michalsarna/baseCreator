@@ -148,9 +148,11 @@ pub fn stages(text: &str) -> Vec<Stage> {
         if lower == "side a" || lower.starts_with("side a:") || lower == "side b" || lower.starts_with("side b:") {
             open = 0;
             add(StageKind::Side(lower.starts_with("side b")));
-        } else if let Some(name) = c.strip_prefix("Layer:") {
+        } else if let Some(rest) = c.strip_prefix("Layer:") {
+            // `Layer: Cut`, or LightCreator's `Layer: Cut (Line) speed 20 mm/s power 80%`: the name is before the brackets.
             open = 0;
-            add(StageKind::Layer(name.trim().to_string()));
+            let rest = rest.trim();
+            add(StageKind::Layer(rest.find(" (").map_or(rest, |e| &rest[..e]).trim().to_string()));
         } else if raw.trim_start().starts_with(';') && lower.starts_with("layer ") {
             // LightCreator: `; layer Cut (Line) speed 20 mm/s power 80%`.
             open = 0;
@@ -555,7 +557,7 @@ mod tests {
         assert_eq!(st[3].detail, "Line 1 of 2 start: closed, 4.0 mm");
         assert_eq!(st[6].detail, "Change the pen to: Red pen");
         // LightCreator writes `;` comments: an object is the shape, its paths are parts of it; one element after the other.
-        let lc = "; LightCreator job - Dummy\nG21\n; job: 1 layer(s) to burn, 2 object(s)\n; own start of the job\n; element 1 of 2 start: 1 object(s)\n; layer Cut (Line) speed 20 mm/s power 80%\n; object 1 of 2 start: rectangle\n; path 1 of 1 start: closed, 4.0 mm\nG1 X1 S800\n; path 1 end\n; object 1 end\n; end of layer Cut\n; element 1 end\n; element 2 of 2 start: 1 object(s)\n; layer Cut (Line) speed 20 mm/s power 80%\n; object 2 of 2 start: ellipse\n; end of the job\n";
+        let lc = "; LightCreator job - Dummy\nG21\n; job: 1 layer(s) to burn, 2 object(s)\n; own start of the job\n; element 1 of 2 start: 1 object(s)\n; Layer: Cut (Line) speed 20 mm/s power 80%\n; object 1 of 2 start: rectangle\n; path 1 of 1 start: closed, 4.0 mm\nG1 X1 S800\n; path 1 end\n; object 1 end\n; end of layer Cut\n; element 1 end\n; element 2 of 2 start: 1 object(s)\n; layer Cut (Line) speed 20 mm/s power 80%\n; object 2 of 2 start: ellipse\n; end of the job\n";
         let kinds: Vec<(usize, StageKind)> = stages(lc).into_iter().map(|s| (s.line, s.kind)).collect();
         assert_eq!(
             kinds,
