@@ -204,7 +204,7 @@ checksum = "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53"
 
 [[package]]
 name = "base-core"
-version = "2.9.8"
+version = "2.9.9"
 dependencies = [
  "argon2",
  "base64 0.23.1",
@@ -229,7 +229,7 @@ dependencies = [
 
 [[package]]
 name = "base-ui"
-version = "2.9.8"
+version = "2.9.9"
 dependencies = [
  "arboard",
  "base-core",
@@ -271,7 +271,7 @@ checksum = "2af50177e190e07a26ab74f8b1efbfe2ef87da2116221318cb1c2e82baf7de06"
 
 [[package]]
 name = "basecreator"
-version = "2.9.8"
+version = "2.9.9"
 dependencies = [
  "base-core",
  "base-ui",
