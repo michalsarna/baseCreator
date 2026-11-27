@@ -32,3 +32,12 @@ same machine and of the same test project (its SHA-256).
 | 2026-11-27 | PenCreator v1.1.0 (release, base v2.9.7) | open | 44 | 944 shapes on face A | Apple M4 Pro | ff181ee7443a |
 | 2026-11-27 | PenCreator v1.1.0 (release, base v2.9.7) | gcode | 20 | 1 faces, 196 kB | Apple M4 Pro | ff181ee7443a |
 | 2026-11-27 | PenCreator v1.1.0 (release, base v2.9.7) | preview | 6 | 1 faces | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | LightCreator v1.1.1 (release, base v2.9.9) | open | 69 | 944 shapes on face A | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | LightCreator v1.1.1 (release, base v2.9.9) | gcode | 528 | 6 faces, 4597 kB | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | LightCreator v1.1.1 (release, base v2.9.9) | preview | 3760 | 6 faces | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | MillCreator v1.1.1 (release, base v2.9.9) | open | 72 | 944 shapes on face A | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | MillCreator v1.1.1 (release, base v2.9.9) | gcode | 686 | 6 faces, 7825 kB | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | MillCreator v1.1.1 (release, base v2.9.9) | preview | 4311 | 6 faces | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | PenCreator v1.1.1 (release, base v2.9.9) | open | 64 | 944 shapes on face A | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | PenCreator v1.1.1 (release, base v2.9.9) | gcode | 21 | 1 faces, 196 kB | Apple M4 Pro | ff181ee7443a |
+| 2026-11-28 | PenCreator v1.1.1 (release, base v2.9.9) | preview | 6 | 1 faces | Apple M4 Pro | ff181ee7443a |
