@@ -229,10 +229,27 @@ pub fn resolve_port(spec: &str, usb_id: &str, ports: &[PortInfo]) -> String {
 
 /// Remove comments/blank lines so only real commands get streamed.
 pub fn clean_gcode(text: &str) -> Vec<String> {
-    text.lines()
-        .map(|l| l.split(';').next().unwrap_or("").trim().to_string())
-        .filter(|l| !l.is_empty())
-        .collect()
+    text.lines().map(clean_line).filter(|l| !l.is_empty()).collect()
+}
+
+/// A line to send: without its `;` comment, except the two the sending needs, put in brackets (which the controller skips): the start
+/// of a layer (`; Layer: Cut` → `(Layer: Cut)`, where a photo of the time-lapse is taken, `layer_marks`) and the words of a stop
+/// (`M0 ; Change the pen to: red` → `M0 (Change the pen to: red)`, what the program asks the person to do).
+fn clean_line(line: &str) -> String {
+    let (code, comment) = match line.split_once(';') {
+        Some((c, k)) => (c.trim(), Some(k.trim())),
+        None => (line.trim(), None),
+    };
+    let Some(comment) = comment.filter(|k| !k.is_empty()) else { return code.to_string() };
+    let safe = || comment.replace(['(', ')'], " ").trim().to_string();
+    let stop = matches!(code.split_whitespace().next().map(str::to_ascii_uppercase).as_deref(), Some("M0" | "M00" | "M1" | "M01"));
+    if code.is_empty() && comment.starts_with("Layer:") {
+        format!("({})", safe())
+    } else if stop && !code.contains('(') {
+        format!("{code} ({})", safe())
+    } else {
+        code.to_string()
+    }
 }
 
 /// Where the layers of a job begin, as line numbers of the lines sent to the machine (`clean_gcode` of the text): the lines that start
@@ -883,6 +900,11 @@ mod tests {
         assert_eq!(marks.len(), 1);
         assert_eq!(clean_gcode(laser)[marks[0]], "G1 Y1");
         assert!(layer_marks(&[]).is_empty() && layer_marks_in_text("G0 X1\n").is_empty());
+        // Comments written with a semicolon: the layers and the words of a stop are kept for the sending, in brackets.
+        let semi = "; MillCreator: t\nG21 G90 ; units\n; Layer: cut\nG0 X1\nM0 ; Change the bit to: V-bit (60)\n; Layer: pocket\nG1 X2\nM0\n";
+        let lines = clean_gcode(semi);
+        assert_eq!(lines, ["G21 G90", "(Layer: cut)", "G0 X1", "M0 (Change the bit to: V-bit  60)", "(Layer: pocket)", "G1 X2", "M0"]);
+        assert_eq!(layer_marks(&lines), vec![4]);
     }
 
     #[test]

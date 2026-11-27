@@ -101,6 +101,37 @@ pub fn comment_text(text: &str, max: usize) -> String {
     ascii(text).chars().map(|c| if matches!(c, '(' | ')' | ';') || c.is_control() { ' ' } else { c }).take(max).collect::<String>().trim_end().to_string()
 }
 
+/// The comments of a program in brackets written with a semicolon, as LightCreator writes them: `(Layer: Cut)` becomes `; Layer: Cut`
+/// and `M0 (Change the pen to: red)` becomes `M0 ; Change the pen to: red`. Only a comment that ends its line is changed, the only one
+/// in it (`G1 X1 (a) Y2` stays as it is: the semicolon would hide `Y2`); the controllers read both the same way.
+pub fn semicolon_comments(text: &str) -> String {
+    let mut out = String::with_capacity(text.len());
+    for line in text.split_inclusive('\n') {
+        let body = line.strip_suffix('\n').map_or(line, |b| b.strip_suffix('\r').unwrap_or(b));
+        let nl = &line[body.len()..];
+        out.push_str(&semicolon_line(body));
+        out.push_str(nl);
+    }
+    out
+}
+
+fn semicolon_line(line: &str) -> String {
+    let t = line.trim_end();
+    let Some(open) = t.find('(') else { return line.to_string() };
+    let inner = &t[open + 1..];
+    if t.contains(';') || !t.ends_with(')') || inner[..inner.len() - 1].contains(['(', ')']) {
+        return line.to_string();
+    }
+    let code = t[..open].trim_end();
+    let comment = inner[..inner.len() - 1].trim();
+    match (code.is_empty(), comment.is_empty()) {
+        (true, true) => String::new(),
+        (true, false) => format!("; {comment}"),
+        (false, true) => code.to_string(),
+        (false, false) => format!("{code} ; {comment}"),
+    }
+}
+
 /// A line without its comments (`;` to the end, and `( ... )` anywhere), trimmed.
 pub fn strip_comments(line: &str) -> String {
     let mut out = String::new();
@@ -429,6 +460,15 @@ pub fn finish(body: &str, start: &[String], end: &[String], flavour: &Flavour) -
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn comments_in_brackets_are_written_with_a_semicolon() {
+        let src = "(MillCreator: part)\nG21 G90\nM0 (Change the pen to: red)\nG1 X1 (a) Y2\n  (Layer: Cut)  \nG0 X1\n()\nG4 P0.2 ()\n; already\nT1 M6 (bit) ; and more\n(a (b) c)\nlast (no newline)";
+        let want = "; MillCreator: part\nG21 G90\nM0 ; Change the pen to: red\nG1 X1 (a) Y2\n; Layer: Cut\nG0 X1\n\nG4 P0.2\n; already\nT1 M6 (bit) ; and more\n(a (b) c)\nlast ; no newline";
+        assert_eq!(semicolon_comments(src), want);
+        assert_eq!(semicolon_comments("G0 X1\r\n(x)\r\n"), "G0 X1\r\n; x\r\n");
+        assert_eq!(semicolon_comments(""), "");
+    }
+
     #[test]
     fn notes_become_lines_that_cannot_end_a_comment() {
         assert_eq!(note_lines("Birch (3 mm); first\n\n  glue [dry] \n"), vec!["Birch <3 mm>, first".to_string(), "glue <dry>".to_string()]);

@@ -24,11 +24,12 @@ pub struct Barrier {
 }
 
 impl Barrier {
-    /// The words in the comment of the line, or the line itself.
+    /// The words in the comment of the line (in brackets or after a semicolon), or the line itself.
     pub fn message(&self) -> String {
         let t = &self.text;
-        match (t.find('('), t.rfind(')')) {
-            (Some(a), Some(b)) if b > a => t[a + 1..b].trim().to_string(),
+        match (t.find('('), t.rfind(')'), t.find(';')) {
+            (Some(a), Some(b), _) if b > a => t[a + 1..b].trim().to_string(),
+            (_, _, Some(s)) if !t[s + 1..].trim().is_empty() => t[s + 1..].trim().to_string(),
             _ => t.trim().to_string(),
         }
     }
