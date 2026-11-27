@@ -83,23 +83,71 @@ pub fn offset(polys: &[Polyline], d: f64) -> Vec<Polyline> {
     to_polys(shapes.outline(&style))
 }
 
+/// The islands of the closed `polys` (even-odd): each outline with its holes, cleaned up. Work that goes on in one island by itself
+/// (the rings of a pocket) can be done for each of them alone, and only as long as that island needs it.
+pub fn islands(polys: &[Polyline]) -> Vec<Vec<Polyline>> {
+    let clean = rings(&normalize(polys));
+    if clean.is_empty() {
+        return vec![];
+    }
+    let shapes: Vec<Vec<Ring>> = clean.overlay(&Vec::<Ring>::new(), OverlayRule::Subject, FillRule::EvenOdd);
+    shapes.into_iter().map(|s| to_polys(vec![s])).collect()
+}
+
+/// `f` of every item, on all the cores, in the order of the items.
+pub fn par_map<T: Sync, R: Send>(items: &[T], f: impl Fn(&T) -> R + Sync) -> Vec<R> {
+    let workers = std::thread::available_parallelism().map_or(1, |n| n.get()).min(items.len());
+    if workers <= 1 {
+        return items.iter().map(f).collect();
+    }
+    let next = std::sync::atomic::AtomicUsize::new(0);
+    let mut parts: Vec<(usize, R)> = std::thread::scope(|sc| {
+        let handles: Vec<_> = (0..workers)
+            .map(|_| {
+                sc.spawn(|| {
+                    let mut got = vec![];
+                    loop {
+                        let i = next.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+                        let Some(item) = items.get(i) else { break };
+                        got.push((i, f(item)));
+                    }
+                    got
+                })
+            })
+            .collect();
+        handles.into_iter().flat_map(|h| h.join().expect("a worker of par_map")).collect()
+    });
+    parts.sort_by_key(|(i, _)| *i);
+    parts.into_iter().map(|(_, r)| r).collect()
+}
+
 /// Concentric inward rings of the closed `polys`, `step` millimetres apart, outermost first.
 /// Stops when nothing is left or after `max_rings`.
+///
+/// Each island (an outline with its holes, `islands`) is taken in by itself, and only until it is filled: taking the whole set in at
+/// every ring went on over all the shapes as long as the biggest one had rings, so many small shapes beside a big one cost as much as
+/// many big ones (a drawing of a thousand shapes took minutes). The islands are worked on at the same time, on all the cores
+/// (`par_map`); the rings come island after island, in the order of the islands.
 pub fn inset_rings(polys: &[Polyline], step: f64, max_rings: usize) -> Vec<Polyline> {
     let step = step.max(0.01);
-    let mut out = vec![];
-    let start = normalize(polys);
-    // Every ring is the outline taken in by its whole distance (going in by a disc adds up), not the ring before taken in again: the
+    if max_rings == 0 {
+        return vec![];
+    }
+    // Every ring is the island taken in by its whole distance (going in by a disc adds up), not the ring before taken in again: the
     // round corners of each ring were more points in the next, so that a pocket of a few hundred rings had a hundred times the points
     // (and took seconds) for the same path.
-    for k in 0..max_rings {
-        let cur = if k == 0 { start.clone() } else { offset(&start, -(k as f64) * step) };
-        if cur.is_empty() || (k > 0 && cur.iter().all(|p| p.area().abs() < 1e-4)) {
-            break;
+    let one = |island: &Vec<Polyline>| -> Vec<Polyline> {
+        let mut out = island.clone();
+        for k in 1..max_rings {
+            let cur = offset(island, -(k as f64) * step);
+            if cur.is_empty() || cur.iter().all(|p| p.area().abs() < 1e-4) {
+                break;
+            }
+            out.extend(cur);
         }
-        out.extend(cur);
-    }
-    out
+        out
+    };
+    par_map(&islands(polys), one).into_iter().flatten().collect()
 }
 
 /// Relief notches in the sharp inside corners of closed shapes that are slots or holes (what a round bit cannot cut square): a disc of

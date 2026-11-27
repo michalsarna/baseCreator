@@ -794,3 +794,20 @@ fn a_preview_takes_only_what_lies_on_the_work_area() {
     assert_eq!(a.shapes.iter().map(|s| s.id).collect::<Vec<_>>(), vec![on, across]);
     assert_eq!(a.counters(), s.counters());
 }
+
+/// Islands are taken in each by itself: a small square beside a big one has its own few rings, and the big one all of its own.
+#[test]
+fn inset_rings_take_every_island_by_itself() {
+    let small = sq(0.0, 0.0, 10.0);
+    let big = sq(100.0, 0.0, 40.0);
+    let both = ops::inset_rings(&[small.clone(), big.clone()], 1.0, 1000);
+    let a = ops::inset_rings(&[small], 1.0, 1000);
+    let b = ops::inset_rings(&[big], 1.0, 1000);
+    assert_eq!(both.len(), a.len() + b.len());
+    assert!((4..=6).contains(&a.len()) && (19..=21).contains(&b.len()), "{} {}", a.len(), b.len());
+    // The rings of the small one come first (the order of the islands), and a hole stays a hole.
+    assert!(both[..a.len()].iter().all(|r| r.pts.iter().all(|p| p.x <= 10.0 + 1e-6)));
+    let ring = [sq(0.0, 0.0, 40.0), sq(10.0, 10.0, 20.0)];
+    let r = ops::inset_rings(&ring, 1.0, 1000);
+    assert!(r.iter().all(|p| p.pts.iter().all(|q| !(q.x > 10.5 && q.x < 29.5 && q.y > 10.5 && q.y < 29.5))), "nothing in the hole");
+}
