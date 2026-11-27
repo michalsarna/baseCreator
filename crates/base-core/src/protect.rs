@@ -111,6 +111,12 @@ fn random<const N: usize>() -> [u8; N] {
     b
 }
 
+/// A random password of 16 characters (96 random bits), for a person who wants one made, and for the tests (no password is written
+/// into the code).
+pub fn random_password() -> String {
+    b64(&random::<12>())
+}
+
 fn b64(b: &[u8]) -> String {
     B64.encode(b)
 }
@@ -288,57 +294,56 @@ mod tests {
     const FAST: Kdf = Kdf { m_kib: 8 * 1024, t: 1, p: 1 };
     const JSON: &str = r#"{"format":1,"scene":{"shapes":[{"name":"SecretGear"}]}}"#;
 
-    /// A password for the tests, made when they run (no password is written into the code): `tag` and the number of the process.
-    pub(crate) fn pw(tag: &str) -> String {
-        format!("{tag}-{}", std::process::id())
-    }
-
-    /// A password of `n` characters, made when the tests run.
+    /// A random password of `n` characters (at most 32).
     fn pw_len(n: usize) -> String {
-        std::process::id().to_string().chars().cycle().take(n).collect()
+        random_password().repeat(2).chars().take(n).collect()
     }
 
     #[test]
     fn both_passwords_open_the_project_with_their_rights() {
-        let p = Protection::with_kdf(&pw("owner"), Some(&pw("open")), FAST).unwrap();
+        let (owner, open_pw) = (random_password(), random_password());
+        let p = Protection::with_kdf(&owner, Some(&open_pw), FAST).unwrap();
         let sealed = p.seal(JSON);
         assert!(is_sealed(&sealed));
         assert!(!is_sealed(JSON));
         assert!(!sealed.contains("SecretGear"), "the content is not readable");
-        let (json, o) = open(&sealed, &pw("owner")).unwrap();
+        let (json, o) = open(&sealed, &owner).unwrap();
         assert_eq!((json.as_str(), o.access), (JSON, Access::Owner));
-        let (json, r) = open(&sealed, &pw("open")).unwrap();
+        let (json, r) = open(&sealed, &open_pw).unwrap();
         assert_eq!((json.as_str(), r.access), (JSON, Access::Open));
         // A save by the person with the open password keeps both passwords.
         let again = r.seal(r#"{"changed":true}"#);
-        assert_eq!(open(&again, &pw("owner")).unwrap().0, r#"{"changed":true}"#);
-        assert_eq!(open(&again, &pw("open")).unwrap().1.access, Access::Open);
-        assert_eq!(open(&sealed, &pw("wrong")).unwrap_err(), OpenError::WrongPassword);
+        assert_eq!(open(&again, &owner).unwrap().0, r#"{"changed":true}"#);
+        assert_eq!(open(&again, &open_pw).unwrap().1.access, Access::Open);
+        assert_eq!(open(&sealed, &random_password()).unwrap_err(), OpenError::WrongPassword);
     }
 
     #[test]
     fn the_owner_password_unlocks_a_project_opened_with_the_open_one() {
-        let p = Protection::with_kdf(&pw("owner"), Some(&pw("open")), FAST).unwrap();
-        let (_, mut r) = open(&p.seal(JSON), &pw("open")).unwrap();
-        assert_eq!(r.unlock_owner(&pw("open")).unwrap_err(), OpenError::WrongPassword, "the open password is not the owner's");
+        let (owner, open_pw) = (random_password(), random_password());
+        let p = Protection::with_kdf(&owner, Some(&open_pw), FAST).unwrap();
+        let (_, mut r) = open(&p.seal(JSON), &open_pw).unwrap();
+        assert_eq!(r.unlock_owner(&open_pw).unwrap_err(), OpenError::WrongPassword, "the open password is not the owner's");
         assert_eq!(r.access, Access::Open);
-        r.unlock_owner(&pw("owner")).unwrap();
+        r.unlock_owner(&owner).unwrap();
         assert_eq!(r.access, Access::Owner);
-        assert_eq!(open(&r.seal(JSON), &pw("open")).unwrap().1.access, Access::Open, "both passwords stay");
+        assert_eq!(open(&r.seal(JSON), &open_pw).unwrap().1.access, Access::Open, "both passwords stay");
     }
 
     #[test]
     fn only_an_owner_password_lets_only_the_owner_in() {
-        let p = Protection::with_kdf(&pw("owner"), None, FAST).unwrap();
+        let owner = random_password();
+        let p = Protection::with_kdf(&owner, None, FAST).unwrap();
         assert!(!p.has_open_password());
         let sealed = p.seal(JSON);
-        assert_eq!(open(&sealed, &pw("owner")).unwrap().1.access, Access::Owner);
-        assert_eq!(open(&sealed, &pw("someone")).unwrap_err(), OpenError::WrongPassword);
+        assert_eq!(open(&sealed, &owner).unwrap().1.access, Access::Owner);
+        assert_eq!(open(&sealed, &random_password()).unwrap_err(), OpenError::WrongPassword);
     }
 
     #[test]
     fn every_save_has_a_new_nonce_and_a_changed_file_does_not_open() {
-        let p = Protection::with_kdf(&pw("owner"), Some(&pw("open")), FAST).unwrap();
+        let (owner, open_pw) = (random_password(), random_password());
+        let p = Protection::with_kdf(&owner, Some(&open_pw), FAST).unwrap();
         let (a, b) = (p.seal(JSON), p.seal(JSON));
         assert_ne!(a, b, "the same project seals differently every time");
         let mut v: serde_json::Value = serde_json::from_str(&a).unwrap();
@@ -347,18 +352,18 @@ mod tests {
         data[3] ^= 1;
         let mut changed = v.clone();
         changed["data"] = B64.encode(&data).into();
-        assert!(matches!(open(&changed.to_string(), &pw("owner")), Err(OpenError::Damaged(_))));
+        assert!(matches!(open(&changed.to_string(), &owner), Err(OpenError::Damaged(_))));
         // The roles swapped: the open password would claim to be the owner's.
         let slots = v["slots"].as_array_mut().unwrap();
         slots[0]["role"] = "open".into();
         slots[1]["role"] = "owner".into();
-        assert!(open(&v.to_string(), &pw("open")).is_err());
+        assert!(open(&v.to_string(), &open_pw).is_err());
         // Parameters too weak or too big are refused before any key is made.
         let mut weak: serde_json::Value = serde_json::from_str(&a).unwrap();
         weak["slots"][0]["kdf"]["m_kib"] = 8.into();
-        assert!(matches!(open(&weak.to_string(), &pw("owner")), Err(OpenError::Damaged(_))));
-        assert!(matches!(open("{\"protected_cre\":2}", &pw("x")), Err(OpenError::Damaged(_))));
-        assert!(matches!(open("not json", &pw("x")), Err(OpenError::Damaged(_))));
+        assert!(matches!(open(&weak.to_string(), &owner), Err(OpenError::Damaged(_))));
+        assert!(matches!(open("{\"protected_cre\":2}", &random_password()), Err(OpenError::Damaged(_))));
+        assert!(matches!(open("not json", &random_password()), Err(OpenError::Damaged(_))));
     }
 
     #[test]
@@ -370,17 +375,19 @@ mod tests {
         assert!(check_passwords(&long, Some(&String::new())).is_ok());
         assert!(check_passwords(&long, Some(&other)).is_ok());
         // Characters, not bytes: eight Polish letters are long enough.
-        let polish: String = std::process::id().to_string().chars().map(|_| 'ż').chain(std::iter::repeat_n('ą', MIN_PASSWORD)).take(MIN_PASSWORD).collect();
+        let polish: String = pw_len(MIN_PASSWORD).chars().map(|c| char::from_u32(c as u32 + 0x100).unwrap_or(c)).collect();
+        assert!(polish.len() > MIN_PASSWORD && polish.chars().count() == MIN_PASSWORD, "{polish}");
         assert!(check_passwords(&polish, None).is_ok());
     }
 
     /// The real parameters work (and are not absurdly slow even unoptimised).
     #[test]
     fn the_real_key_parameters_open_a_file() {
+        let owner = random_password();
         let t = std::time::Instant::now();
-        let p = Protection::new(&pw("owner"), None).unwrap();
+        let p = Protection::new(&owner, None).unwrap();
         let sealed = p.seal(JSON);
-        assert_eq!(open(&sealed, &pw("owner")).unwrap().0, JSON);
+        assert_eq!(open(&sealed, &owner).unwrap().0, JSON);
         assert!(t.elapsed().as_secs() < 60, "{:?}", t.elapsed());
     }
 }

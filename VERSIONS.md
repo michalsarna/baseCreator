@@ -7,6 +7,7 @@ a tag can be made only for LightCreator, MillCreator and PenCreator. Here is wha
 
 - **The G-code tab**: the numbers of the lines on the left (only shown, never in the file); every shape (a line, a fill, an object, a contour) and element has its name beside its first line (**Shape 1**, **Shape 2**…); on the right a list of the **Stages** of the G-code, a small box each: the start, side A and B, the layers, the elements, the shapes, the stops (a pen to change, the material to turn over) and the end of the job. A click brings its line to the top of the text, with the cursor at its start; the stage of the first line in view is lit. The lines are no longer wrapped.
 - The question how the G-code of a two-sided job or a job on several faces is shown or saved: the title in a strip of the colour of the scheme, a line over the buttons, a green **Preview G-code** (or **Save G-code**) and an orange **Cancel**, both a quarter bigger.
+- `protect::random_password`: a random password of 16 characters. The tests of the password protection use only random passwords (code scanning took the passwords the tests made from a word for passwords written into the code).
 
 ## v2.9.6
 
