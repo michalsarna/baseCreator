@@ -36,6 +36,8 @@ pub struct GcodeText {
     marked: Option<usize>,
     /// The first line in view: its stage is lit in the list.
     top_line: usize,
+    /// The last line in view.
+    bottom_line: usize,
 }
 
 /// What a stage of the G-code is.
@@ -146,9 +148,11 @@ pub fn stages(text: &str) -> Vec<Stage> {
         if lower == "side a" || lower.starts_with("side a:") || lower == "side b" || lower.starts_with("side b:") {
             open = 0;
             add(StageKind::Side(lower.starts_with("side b")));
-        } else if let Some(name) = c.strip_prefix("Layer:") {
+        } else if let Some(rest) = c.strip_prefix("Layer:") {
+            // `Layer: Cut`, or LightCreator's `Layer: Cut (Line) speed 20 mm/s power 80%`: the name is before the brackets.
             open = 0;
-            add(StageKind::Layer(name.trim().to_string()));
+            let rest = rest.trim();
+            add(StageKind::Layer(rest.find(" (").map_or(rest, |e| &rest[..e]).trim().to_string()));
         } else if raw.trim_start().starts_with(';') && lower.starts_with("layer ") {
             // LightCreator: `; layer Cut (Line) speed 20 mm/s power 80%`.
             open = 0;
@@ -190,7 +194,7 @@ pub enum TextAction {
 
 impl GcodeText {
     pub fn new(slot: usize, name: &str, text: String) -> GcodeText {
-        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0, waiting: None, sides: None, stages: vec![], stages_of: None, goto: None, marked: None, top_line: 0 }
+        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0, waiting: None, sides: None, stages: vec![], stages_of: None, goto: None, marked: None, top_line: 0, bottom_line: 0 }
     }
 
     /// Does Save G-code ask how to save (a text of a two-sided job without edits by hand), instead of writing the text as it is?
@@ -330,6 +334,8 @@ pub fn highlight(text: &str, font: FontId, wrap: f32) -> LayoutJob {
 /// The tab: the bar of buttons and the text. Returns what the person asked for.
 pub fn show(ui: &mut egui::Ui, g: &mut GcodeText) -> TextAction {
     let mut action = TextAction::None;
+    // A little room between the bar of the tabs and the buttons.
+    ui.add_space(4.0);
     ui.horizontal(|ui| {
         if ui.button(tr("Save G-code")).on_hover_text(tr("Write the text to a file")).clicked() {
             if g.asks_how_to_save() {
@@ -411,6 +417,7 @@ fn text_area(ui: &mut egui::Ui, g: &mut GcodeText) {
         // Only the rows in view are numbered.
         let first = rows.partition_point(|r| r.rect().translate(pos).max.y < clip.min.y);
         g.top_line = first;
+        g.bottom_line = first;
         let dim = theme::text_dim();
         let small = FontId::monospace((font.size * 0.85).max(8.0));
         let tag_from = g.stages.partition_point(|s| s.line < first);
@@ -420,6 +427,7 @@ fn text_area(ui: &mut egui::Ui, g: &mut GcodeText) {
             if r.min.y > clip.max.y {
                 break;
             }
+            g.bottom_line = i;
             if g.marked == Some(i) {
                 painter.rect_filled(egui::Rect::from_min_max(egui::pos2(clip.min.x, r.min.y), egui::pos2(clip.max.x, r.max.y)), 0.0, theme::accent().gamma_multiply(0.15));
             }
@@ -440,10 +448,17 @@ fn text_area(ui: &mut egui::Ui, g: &mut GcodeText) {
     });
 }
 
+/// The stage lit in the list.
+fn lit_stage(g: &GcodeText) -> usize {
+    let at = g.marked.filter(|m| (g.top_line..=g.bottom_line).contains(m)).unwrap_or(g.top_line);
+    g.stages.partition_point(|s| s.line <= at).saturating_sub(1)
+}
+
 /// The stages of the G-code, one small box each: a click brings its line into view. The stage of the first line in view is lit.
 fn stages_list(ui: &mut egui::Ui, g: &mut GcodeText) {
     ui.label(RichText::new(tr("Stages")).strong());
-    let current = g.stages.partition_point(|s| s.line <= g.top_line).saturating_sub(1);
+    // The stage that was clicked while its line is in view (it is brought in below the top), else the stage of the first line in view.
+    let current = lit_stage(g);
     let row_h = 36.0;
     let mut clicked = None;
     egui::ScrollArea::vertical().id_salt(("gcode_text_stages", g.slot)).auto_shrink([false, false]).show_rows(ui, row_h, g.stages.len(), |ui, range| {
@@ -542,7 +557,7 @@ mod tests {
         assert_eq!(st[3].detail, "Line 1 of 2 start: closed, 4.0 mm");
         assert_eq!(st[6].detail, "Change the pen to: Red pen");
         // LightCreator writes `;` comments: an object is the shape, its paths are parts of it; one element after the other.
-        let lc = "; LightCreator job - Dummy\nG21\n; job: 1 layer(s) to burn, 2 object(s)\n; own start of the job\n; element 1 of 2 start: 1 object(s)\n; layer Cut (Line) speed 20 mm/s power 80%\n; object 1 of 2 start: rectangle\n; path 1 of 1 start: closed, 4.0 mm\nG1 X1 S800\n; path 1 end\n; object 1 end\n; end of layer Cut\n; element 1 end\n; element 2 of 2 start: 1 object(s)\n; layer Cut (Line) speed 20 mm/s power 80%\n; object 2 of 2 start: ellipse\n; end of the job\n";
+        let lc = "; LightCreator job - Dummy\nG21\n; job: 1 layer(s) to burn, 2 object(s)\n; own start of the job\n; element 1 of 2 start: 1 object(s)\n; Layer: Cut (Line) speed 20 mm/s power 80%\n; object 1 of 2 start: rectangle\n; path 1 of 1 start: closed, 4.0 mm\nG1 X1 S800\n; path 1 end\n; object 1 end\n; end of layer Cut\n; element 1 end\n; element 2 of 2 start: 1 object(s)\n; layer Cut (Line) speed 20 mm/s power 80%\n; object 2 of 2 start: ellipse\n; end of the job\n";
         let kinds: Vec<(usize, StageKind)> = stages(lc).into_iter().map(|s| (s.line, s.kind)).collect();
         assert_eq!(
             kinds,
@@ -586,7 +601,9 @@ mod tests {
         g.go_to(at);
         frame(&mut g);
         frame(&mut g);
-        assert!(g.top_line > 250 && g.top_line <= at, "the line is in view: {}", g.top_line);
+        assert!(g.top_line > 250 && g.top_line <= at && at <= g.bottom_line, "the line is in view: {}..{}", g.top_line, g.bottom_line);
+        // The clicked stage is the lit one, not the stage of the lines above it at the top.
+        assert_eq!(lit_stage(&g), 2);
         // The text changed: its stages are found again.
         g.text.push_str("(Fill start: 2 lines)\n");
         assert_eq!(g.stages().len(), 5);
