@@ -3,6 +3,11 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v2.9.9
+
+- The G-code tab: the buttons over the text a little to the right, away from the edge of the tab; a new tab opens at the start of the text (`GcodeText::to_start` for a G-code made again); a click on a stage brings its line exactly to the top also far down a long text (in MillCreator, ten thousand lines down, the text stopped a few hundred lines above the line).
+- BaseCreator, Page setup: the **Apply** button of the protection is blue.
+
 ## v2.9.8
 
 - `gcode_out::semicolon_comments`: the comments of a program written with a semicolon in front, as LightCreator writes them (`(Layer: Cut)` → `; Layer: Cut`, `M0 (Change the pen to: red)` → `M0 ; Change the pen to: red`); MillCreator and PenCreator write their G-code so. A comment that does not end its line stays in brackets.

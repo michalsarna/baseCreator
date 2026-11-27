@@ -38,6 +38,9 @@ pub struct GcodeText {
     top_line: usize,
     /// The last line in view.
     bottom_line: usize,
+    /// The text as last drawn and how far below the top of the scrolled area it starts: a stage brings its line exactly to the top
+    /// (the height of a row from the font is a little off: many thousand lines down the text was far from its line).
+    drawn: Option<(std::sync::Arc<egui::Galley>, f32)>,
 }
 
 /// What a stage of the G-code is.
@@ -194,7 +197,7 @@ pub enum TextAction {
 
 impl GcodeText {
     pub fn new(slot: usize, name: &str, text: String) -> GcodeText {
-        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0, waiting: None, sides: None, stages: vec![], stages_of: None, goto: None, marked: None, top_line: 0, bottom_line: 0 }
+        GcodeText { slot, name: name.to_string(), original: text.clone(), text, confirm_again: false, saved_as: None, stamp: 0, waiting: None, sides: None, stages: vec![], stages_of: None, goto: Some(0), marked: None, top_line: 0, bottom_line: 0, drawn: None }
     }
 
     /// Does Save G-code ask how to save (a text of a two-sided job without edits by hand), instead of writing the text as it is?
@@ -241,6 +244,12 @@ impl GcodeText {
             self.stages_of = Some(self.text.len());
         }
         &self.stages
+    }
+
+    /// Show the start of the text (a new tab, or the G-code made again by the person): the text opens at its first line.
+    pub fn to_start(&mut self) {
+        self.goto = Some(0);
+        self.marked = None;
     }
 
     /// Bring line `line` (from 0) into view, put the cursor at its start and mark it.
@@ -337,6 +346,8 @@ pub fn show(ui: &mut egui::Ui, g: &mut GcodeText) -> TextAction {
     // A little room between the bar of the tabs and the buttons.
     ui.add_space(4.0);
     ui.horizontal(|ui| {
+        // A little room on the left, so the buttons do not touch the edge of the tab.
+        ui.add_space(6.0);
         if ui.button(tr("Save G-code")).on_hover_text(tr("Write the text to a file")).clicked() {
             if g.asks_how_to_save() {
                 // A two-sided job is saved the way the person chooses, as with the button of the program.
@@ -393,11 +404,17 @@ fn text_area(ui: &mut egui::Ui, g: &mut GcodeText) {
     let edit_id = ui.make_persistent_id(("gcode_text_edit", g.slot));
     let mut scroll = egui::ScrollArea::both().id_salt(("gcode_text_scroll", g.slot)).auto_shrink([false, false]);
     if let Some(line) = goto {
-        // A line is a row (never wrapped): the line with three more above it at the top.
-        let row = ui.fonts_mut(|f| f.row_height(&font));
-        scroll = scroll.vertical_scroll_offset(line.saturating_sub(3) as f32 * row).horizontal_scroll_offset(0.0);
+        // A line is a row (never wrapped): the line with three more above it at the top, where the text as last drawn has it.
+        let above = line.saturating_sub(3);
+        let y = match &g.drawn {
+            _ if line == 0 => 0.0,
+            Some((galley, dy)) if above < galley.rows.len() => dy + galley.rows[above].rect().min.y,
+            _ => above as f32 * ui.fonts_mut(|f| f.row_height(&font)),
+        };
+        scroll = scroll.vertical_scroll_offset(y).horizontal_scroll_offset(0.0);
     }
     scroll.show(ui, |ui| {
+        let content_top = ui.max_rect().min.y;
         if let Some(line) = goto {
             // The cursor at the start of the line.
             let at: usize = g.text.split_inclusive('\n').take(line).map(|l| l.chars().count()).sum();
@@ -410,6 +427,7 @@ fn text_area(ui: &mut egui::Ui, g: &mut GcodeText) {
         if out.response.changed() {
             g.confirm_again = false;
         }
+        g.drawn = Some((out.galley.clone(), out.galley_pos.y - content_top));
         let rows = &out.galley.rows;
         let pos = out.galley_pos.to_vec2();
         let clip = ui.clip_rect();
@@ -604,6 +622,30 @@ mod tests {
         assert!(g.top_line > 250 && g.top_line <= at && at <= g.bottom_line, "the line is in view: {}..{}", g.top_line, g.bottom_line);
         // The clicked stage is the lit one, not the stage of the lines above it at the top.
         assert_eq!(lit_stage(&g), 2);
+        // Far down a long text the line is at the top all the same (the height of a row from the font was a little off).
+        let mut long = String::from("(MillCreator: t)\nG21\n(Layer: a)\n");
+        for i in 0..20000 {
+            long.push_str(&format!("G1 X{i} Y{i}.25 Z-9.525\n"));
+        }
+        long.push_str("(Contour 1 of 1 start: 1 mm round)\nG1 X1\n");
+        for i in 0..20000 {
+            long.push_str(&format!("G1 X{i} Y{i}.5 Z-10\n"));
+        }
+        long.push_str("(End of the job)\n");
+        let mut l = GcodeText::new(4, "m.nc", long);
+        let far = l.stages()[2].line;
+        frame(&mut l);
+        assert_eq!(l.top_line, 0);
+        l.go_to(far);
+        frame(&mut l);
+        frame(&mut l);
+        assert!((far - 4..=far - 2).contains(&l.top_line), "the line with three above it at the top: {} for {far}", l.top_line);
+        assert_eq!(lit_stage(&l), 2);
+        // Made again by the person: the text opens at its first line.
+        l.to_start();
+        frame(&mut l);
+        frame(&mut l);
+        assert_eq!(l.top_line, 0);
         // The text changed: its stages are found again.
         g.text.push_str("(Fill start: 2 lines)\n");
         assert_eq!(g.stages().len(), 5);

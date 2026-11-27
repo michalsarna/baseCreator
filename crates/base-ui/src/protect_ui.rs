@@ -413,7 +413,9 @@ pub fn part_with_apply(ui: &mut egui::Ui, f: &mut Fields, lock: &mut DocLock) ->
         return false;
     }
     let mut changed = false;
-    if ui.button(tr("Apply")).clicked() && f.check() {
+    // Blue, so it stands out from the fields above it.
+    let blue = egui::Button::new(RichText::new(tr("Apply")).color(egui::Color32::WHITE)).fill(crate::window::NEW_BLUE);
+    if ui.add(blue).clicked() && f.check() {
         let ch = f.take_change();
         let real = !matches!(ch, Change::Keep);
         match apply(ch, &mut lock.protection) {
