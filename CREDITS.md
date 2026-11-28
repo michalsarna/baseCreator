@@ -12,6 +12,8 @@ Licences are named for orientation; the exact terms are in each project's reposi
 * **[serde](https://serde.rs/)**, **serde_json** and **base64** (MIT / Apache-2.0): saved data and embedded pictures.
 * **[Noto fonts](https://fonts.google.com/noto)** (Google and the Noto Authors, SIL Open Font License 1.1): the fonts built into the text tool
   (Latin, Cyrillic, Greek, Chinese, Hindi; licence in `assets/fonts/OFL.txt`).
+* **[JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)**, **[IBM Plex Mono](https://github.com/IBM/plex)** and **[Fira Mono](https://github.com/mozilla/Fira)** (SIL Open Font License 1.1):
+  typefaces to choose for the G-code editor (licences in `assets/fonts/OFL-*.txt`).
 * **[egui](https://github.com/emilk/egui)** by Emil Ernerfeldt and contributors (MIT / Apache-2.0): the interface toolkit.
 * **[nokhwa](https://github.com/l1npengtul/nokhwa)** (Apache-2.0): optional live camera capture.
 * **[ureq](https://github.com/algesten/ureq)** (MIT / Apache-2.0): the camera stream.

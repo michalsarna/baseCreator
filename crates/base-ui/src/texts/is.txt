@@ -1602,3 +1602,6 @@
 1601|Eining {}
 1602|Lok verks
 1603|Fara í línu {}
+1604|G-kóða ritill
+1605|Fella saman
+1606|Fletta út

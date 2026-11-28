@@ -1602,3 +1602,6 @@
 1601|Element {}
 1602|Slutten av jobben
 1603|Gå til linje {}
+1604|G-kode-redigering
+1605|Fold sammen
+1606|Fold ut

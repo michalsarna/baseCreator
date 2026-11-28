@@ -62,6 +62,8 @@ pub struct GcodeViewer {
     pub show_rapid: bool,
     pub by_height: bool,
     pub cam: Cam,
+    /// The bounds of the file are drawn as the material under the moves (a part of a program, shown where it is on the material).
+    pub material: bool,
 }
 
 impl GcodeViewer {
@@ -80,7 +82,20 @@ impl GcodeViewer {
             return Err("no moves".into());
         }
         let cam = Cam::home(tp.is_3d);
-        Ok(GcodeViewer { path: name, tp, show_rapid: true, by_height: true, cam })
+        Ok(GcodeViewer { path: name, tp, show_rapid: true, by_height: true, cam, material: false })
+    }
+
+    /// The viewer of lines `part` (from 0) of a program in memory, as if only they were made: one shape on the material of the whole
+    /// program. The moves start where the machine is after the lines before them.
+    pub fn from_text_part(name: PathBuf, text: &str, part: std::ops::Range<usize>) -> Result<GcodeViewer, String> {
+        let (motion, rapid) = MACHINE.lock().map(|m| *m).unwrap_or((base_core::motion::Motion::default(), 3000.0));
+        let tp = gcode_view::parse_part(text, &motion, rapid, Some(part));
+        if tp.segs.is_empty() {
+            return Err("no moves".into());
+        }
+        let cam = Cam::home(tp.is_3d);
+        // Only what is made: the moves through the air to and from the shape would cross the material.
+        Ok(GcodeViewer { path: name, tp, show_rapid: false, by_height: true, cam, material: true })
     }
 
     /// The scale that fits the file into a rectangle (the camera at home).
@@ -215,6 +230,14 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
     painter.rect_filled(rect, 0.0, Color32::from_rgb(18, 20, 24));
     let scale = scale.max(1e-6);
     let centre = rect.center();
+    if v.material {
+        // The material: the bounds of the whole program, in the colour of plywood, with its edge; at Z 0 (the top of the material of a
+        // mill) when the program moves in Z.
+        let (lo, hi) = (v.tp.min, v.tp.max);
+        let z = if v.tp.is_3d { 0.0f32.clamp(lo[2], hi[2]) } else { hi[2] };
+        let top = [[lo[0], lo[1], z], [hi[0], lo[1], z], [hi[0], hi[1], z], [lo[0], hi[1], z]].map(|p| v.project(p, centre, scale));
+        painter.add(Shape::convex_polygon(top.to_vec(), Color32::from_rgb(0xd9, 0xbf, 0x8f), Stroke::new(1.0, Color32::from_rgb(0x8a, 0x6a, 0x3c))));
+    }
     let n = v.tp.segs.len();
     let step = n.div_ceil(DRAW_LIMIT).max(1);
     let z_span = (v.tp.max[2] - v.tp.min[2]).max(1e-6);
@@ -235,6 +258,10 @@ pub fn panel(view: &mut Option<GcodeViewer>, ui: &mut egui::Ui) -> bool {
         if s.cut {
             let c = if v.tp.is_3d && v.by_height {
                 height_colour((s.a[2] + s.b[2]) / 2.0 / z_span - v.tp.min[2] / z_span)
+            } else if v.material {
+                // Burnt into the material: the harder the beam, the darker.
+                let k = 1.0 - 0.75 * s.power.max(0.2);
+                Color32::from_rgb((0x8a as f32 * k) as u8, (0x5a as f32 * k) as u8, (0x2a as f32 * k) as u8)
             } else {
                 // A laser file: the harder the beam, the brighter.
                 let k = 0.35 + 0.65 * s.power;

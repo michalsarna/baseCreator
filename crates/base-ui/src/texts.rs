@@ -1609,6 +1609,9 @@ pub const TABLE: &[[&str; TABLE_LANGS]] = &[
     ["Element {}", "Element {}", "Element {}", "Elemento {}", "Elementti {}", "元素 {}", "तत्व {}"],
     ["End of the job", "Koniec zadania", "Ende des Auftrags", "Fine del lavoro", "Työn loppu", "作业结束", "कार्य का अंत"],
     ["Go to line {}", "Przejdź do wiersza {}", "Zu Zeile {} springen", "Vai alla riga {}", "Siirry riville {}", "转到第 {} 行", "पंक्ति {} पर जाएँ"],
+    ["G-code editor", "Edytor G-code", "G-Code-Editor", "Editor del G-code", "G-koodieditori", "G 代码编辑器", "G-कोड संपादक"],
+    ["Fold", "Zwiń", "Einklappen", "Comprimi", "Kutista", "折叠", "समेटें"],
+    ["Unfold", "Rozwiń", "Ausklappen", "Espandi", "Laajenna", "展开", "फैलाएँ"],
 ];
 
 pub const KEYS: &str = include_str!("texts/keys.txt");

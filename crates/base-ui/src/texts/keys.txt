@@ -1602,3 +1602,6 @@
 1601	Element {}
 1602	End of the job
 1603	Go to line {}
+1604	G-code editor
+1605	Fold
+1606	Unfold

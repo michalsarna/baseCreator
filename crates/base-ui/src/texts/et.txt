@@ -1602,3 +1602,6 @@
 1601|Element {}
 1602|Töö lõpp
 1603|Mine reale {}
+1604|G-koodi redaktor
+1605|Ahenda
+1606|Laienda

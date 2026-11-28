@@ -47,7 +47,7 @@ impl Scheme {
     /// The schemes of the holidays: two for each, offered only around that holiday.
     pub const FESTIVE: [Scheme; 10] = [Scheme::ChristmasDark, Scheme::ChristmasLight, Scheme::NewYearDark, Scheme::NewYearLight, Scheme::HalloweenDark, Scheme::HalloweenLight, Scheme::EasterDark, Scheme::EasterLight, Scheme::ChineseNewYearDark, Scheme::ChineseNewYearLight];
     /// All of them; the position is the index of the palette.
-    const EVERY: [Scheme; 28] = [
+    pub(crate) const EVERY: [Scheme; 28] = [
         Scheme::Dark, Scheme::LightDark, Scheme::MediumLight, Scheme::Light, Scheme::BlueDark, Scheme::BlueLight, Scheme::GreenDark, Scheme::GreenLight, Scheme::PurpleDark, Scheme::PurpleLight, Scheme::BrownDark, Scheme::BrownLight, Scheme::OrangeDark, Scheme::OrangeLight,
         Scheme::ChristmasDark, Scheme::ChristmasLight, Scheme::NewYearDark, Scheme::NewYearLight, Scheme::HalloweenDark, Scheme::HalloweenLight, Scheme::EasterDark, Scheme::EasterLight,
         Scheme::Superman, Scheme::Batman, Scheme::JokerDark, Scheme::JokerLight,
@@ -568,6 +568,28 @@ pub fn console_bg() -> Color32 {
 }
 pub fn text_dim() -> Color32 {
     pal().text_dim
+}
+
+/// The colours of a scheme that other parts of the interface build their own colours from (the G-code editor).
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Ink {
+    pub dark: bool,
+    pub accent: Color32,
+    pub panel: Color32,
+    pub panel_dark: Color32,
+    pub text: Color32,
+    pub text_dim: Color32,
+}
+
+/// [`Ink`] of any scheme (the tests check every scheme without switching the one in use).
+pub fn ink_of(s: Scheme) -> Ink {
+    let p = s.palette();
+    Ink { dark: s.is_dark(), accent: p.accent, panel: p.panel, panel_dark: p.panel_dark, text: p.text, text_dim: p.text_dim }
+}
+
+/// [`Ink`] of the scheme in use.
+pub fn ink() -> Ink {
+    ink_of(Scheme::EVERY[(CURRENT.load(Ordering::Relaxed) as usize).min(Scheme::EVERY.len() - 1)])
 }
 
 /// The colour schemes for the web page: id, name and the colours it needs, as `#rrggbb`.
