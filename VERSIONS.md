@@ -3,6 +3,10 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v3.0.1
+
+- The window of the preview of one shape (the right button on a stage of the G-code tab → **Preview**) keeps its size: it grew taller at every frame up to the height of the screen. Every pop-up window whose content fills it (`window::popup`) kept growing so by the gap between two items.
+
 ## v3.0.0
 
 - **The G-code editor in the colours of the scheme**: its background is a deep shade of the panels of a dark scheme (a light one in a light scheme), the edge with the numbers of the lines a shade of it, and the words take the hue of the accent of the scheme (G words) and hues spread from it (M words, the axes, the speeds and powers), each made light or dark enough to read on the background. A test checks every scheme. `gcode_text_ui::syntax`, `theme::ink`.
