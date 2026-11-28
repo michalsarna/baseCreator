@@ -1602,3 +1602,6 @@
 1601|Element {}
 1602|Final del treball
 1603|Vés a la línia {}
+1604|Editor de G-code
+1605|Plega
+1606|Desplega

@@ -1602,3 +1602,6 @@
 1601|Element {}
 1602|Kraj posla
 1603|Idi na red {}
+1604|Uređivač G-koda
+1605|Skupi
+1606|Proširi

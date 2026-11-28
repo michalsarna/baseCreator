@@ -3,6 +3,13 @@
 The releases of the program [BaseCreator](docs/BaseCreator.md) have the numbers of the tags of this repository. Not every tag is a release:
 a tag can be made only for LightCreator, MillCreator and PenCreator. Here is what is new for the people who use BaseCreator.
 
+## v3.0.0
+
+- **The G-code editor in the colours of the scheme**: its background is a deep shade of the panels of a dark scheme (a light one in a light scheme), the edge with the numbers of the lines a shade of it, and the words take the hue of the accent of the scheme (G words) and hues spread from it (M words, the axes, the speeds and powers), each made light or dark enough to read on the background. A test checks every scheme. `gcode_text_ui::syntax`, `theme::ink`.
+- **Program options → G-code editor**: the typeface (Noto Sans Mono, JetBrains Mono, IBM Plex Mono or Fira Mono, built into the program, SIL Open Font License) and the size of the text of the editor, with a sample; kept in `gcode_editor.json` of the shared folder, the same in every program (`gcode_text_ui::init`, `options_section`).
+- **Folding**: an arrow by the number of every line that starts a block folds the block to that line, with how many lines it hides beside it (a click there opens it again): a side, an element, a layer, a pass of a layer (LightCreator's `pass 1/2`), a shape, a pass of a shape (MillCreator's `Depth 1 of 7`, PenCreator's `Pass 1 of 3`). A stage brought into view opens the blocks around it; the G-code made again opens them all. The text is not changed by folding.
+- **The right button on a stage** of the list: **Fold** / **Unfold**, and **Preview**, a window with only that shape (or layer, element, side) as if nothing else were made: burnt into, cut into or drawn on the material of the whole program, at its place, with its length of cut and time. `gcode_view::parse_part` reads a part of a program with the state of the machine before it; `GcodeViewer::from_text_part`.
+
 ## v2.9.9
 
 - The G-code tab: the buttons over the text a little to the right, away from the edge of the tab; a new tab opens at the start of the text (`GcodeText::to_start` for a G-code made again); a click on a stage brings its line exactly to the top also far down a long text (in MillCreator, ten thousand lines down, the text stopped a few hundred lines above the line).

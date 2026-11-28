@@ -1602,3 +1602,6 @@
 1601|Element {}
 1602|Konec posla
 1603|Pojdi na vrstico {}
+1604|Urejevalnik G-kode
+1605|Strni
+1606|Razpri

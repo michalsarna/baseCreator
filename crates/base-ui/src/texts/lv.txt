@@ -1602,3 +1602,6 @@
 1601|Elements {}
 1602|Darba beigas
 1603|Doties uz rindu {}
+1604|G koda redaktors
+1605|Sakļaut
+1606|Izvērst

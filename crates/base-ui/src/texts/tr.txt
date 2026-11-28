@@ -1602,3 +1602,6 @@
 1601|Öğe {}
 1602|İşin sonu
 1603|{}. satıra git
+1604|G-code düzenleyici
+1605|Daralt
+1606|Genişlet

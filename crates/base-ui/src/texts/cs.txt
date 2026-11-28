@@ -1602,3 +1602,6 @@
 1601|Prvek {}
 1602|Konec úlohy
 1603|Přejít na řádek {}
+1604|Editor G-kódu
+1605|Sbalit
+1606|Rozbalit

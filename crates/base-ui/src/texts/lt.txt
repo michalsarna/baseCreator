@@ -1602,3 +1602,6 @@
 1601|Elementas {}
 1602|Darbo pabaiga
 1603|Eiti į eilutę {}
+1604|G kodo redaktorius
+1605|Sutraukti
+1606|Išskleisti

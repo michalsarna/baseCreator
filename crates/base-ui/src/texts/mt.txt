@@ -1602,3 +1602,6 @@
 1601|Element {}
 1602|Tmiem ix-xogħol
 1603|Mur għal-linja {}
+1604|Editur tal-G-code
+1605|Itwi
+1606|Iftaħ

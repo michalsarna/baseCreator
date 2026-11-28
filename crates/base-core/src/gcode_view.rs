@@ -94,6 +94,13 @@ pub fn parse(text: &str) -> Toolpath {
 
 /// Read a file for a machine whose accelerations (`motion`) and speed of rapid moves (`rapid`, mm/min) are known.
 pub fn parse_with(text: &str, motion: &crate::motion::Motion, rapid: f64) -> Toolpath {
+    parse_part(text, motion, rapid, None)
+}
+
+/// Read a file but keep only the moves of its lines `part` (from 0): one shape of a program, as if only it were made. The whole file
+/// is read, so the moves start where the machine is then and with its feed, power and units; the bounds (`min`, `max`) stay those of
+/// the whole file, so the part is shown where it is on the material.
+pub fn parse_part(text: &str, motion: &crate::motion::Motion, rapid: f64, part: Option<std::ops::Range<usize>>) -> Toolpath {
     let rapid = if rapid > 0.0 { rapid } else { 3000.0 };
     let mut st = State { pos: [0.0; 3], abs: true, inch: false, motion: 0, plane: 17, spindle: false, s: 0.0, feed: 1000.0 };
     let mut tp = Toolpath::default();
@@ -104,10 +111,11 @@ pub fn parse_with(text: &str, motion: &crate::motion::Motion, rapid: f64) -> Too
         on: bool,
         s: f64,
         feed: f64,
+        line: usize,
     }
     let mut raw: Vec<Raw> = vec![];
     let mut any_spindle = false;
-    for line in text.lines() {
+    for (at, line) in text.lines().enumerate() {
         tp.lines += 1;
         let ws = words(line);
         if ws.is_empty() {
@@ -174,6 +182,7 @@ pub fn parse_with(text: &str, motion: &crate::motion::Motion, rapid: f64) -> Too
                 on: st.spindle,
                 s: st.s,
                 feed: st.feed,
+                line: at,
             });
         };
         if st.motion >= 2 {
@@ -244,12 +253,24 @@ pub fn parse_with(text: &str, motion: &crate::motion::Motion, rapid: f64) -> Too
     let mut max = [f32::MIN; 3];
     let (mut z_lo, mut z_hi) = (f32::MAX, f32::MIN);
     let mut blocks: Vec<crate::motion::Block> = Vec::with_capacity(raw.len());
-    let mut was_on = raw.first().map(|r| r.on);
+    let kept = |r: &Raw| part.as_ref().is_none_or(|p| p.contains(&r.line));
+    let mut was_on = raw.iter().find(|r| kept(r)).map(|r| r.on);
     for r in &raw {
         let mut seg = r.seg;
         // Where the file drives the spindle or the laser, a cut is a line move with it on; otherwise every line move is a cut.
         seg.cut = r.motion >= 1 && (!any_spindle || (r.on && r.s > 0.0));
         seg.power = if any_spindle { (r.s / max_s).clamp(0.0, 1.0) as f32 } else { 1.0 };
+        for p in [seg.a, seg.b] {
+            for d in 0..3 {
+                min[d] = min[d].min(p[d]);
+                max[d] = max[d].max(p[d]);
+            }
+            z_lo = z_lo.min(p[2]);
+            z_hi = z_hi.max(p[2]);
+        }
+        if !kept(r) {
+            continue;
+        }
         let len = (0..3).map(|d| ((seg.b[d] - seg.a[d]) as f64).powi(2)).sum::<f64>().sqrt();
         if seg.cut {
             tp.cut_len += len;
@@ -261,21 +282,13 @@ pub fn parse_with(text: &str, motion: &crate::motion::Motion, rapid: f64) -> Too
         was_on = Some(r.on);
         let feed = if r.motion == 0 { rapid } else { r.feed.max(1.0) };
         blocks.push(crate::motion::Block { to: [seg.b[0] as f64, seg.b[1] as f64, seg.b[2] as f64], feed, stop });
-        for p in [seg.a, seg.b] {
-            for d in 0..3 {
-                min[d] = min[d].min(p[d]);
-                max[d] = max[d].max(p[d]);
-            }
-            z_lo = z_lo.min(p[2]);
-            z_hi = z_hi.max(p[2]);
-        }
         tp.segs.push(seg);
     }
-    if let Some(first) = raw.first() {
+    if let Some(first) = raw.iter().find(|r| kept(r)) {
         let a = first.seg.a;
         tp.est_seconds = crate::motion::seconds([a[0] as f64, a[1] as f64, a[2] as f64], &blocks, motion);
     }
-    if tp.segs.is_empty() {
+    if raw.is_empty() {
         min = [0.0; 3];
         max = [0.0; 3];
         z_lo = 0.0;
@@ -290,6 +303,22 @@ pub fn parse_with(text: &str, motion: &crate::motion::Motion, rapid: f64) -> Too
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn a_part_of_the_file_keeps_its_moves_where_the_machine_is_and_the_bounds_of_the_whole_file() {
+        let text = "G21 G90\nM3 S500\nG0 X0 Y0\nG1 X100 Y0 F600\n; shape 2 start\nG1 X100 Y50\nG1 X90 Y50\n; shape 2 end\nG0 X0 Y0\n";
+        let whole = parse(text);
+        let part = parse_part(text, &crate::motion::Motion::default(), 3000.0, Some(4..8));
+        assert_eq!(part.segs.len(), 2, "only the moves of lines 5 to 8");
+        // It starts where the machine is after the lines before it (not at the origin), with the spindle on, so it cuts.
+        assert_eq!(part.segs[0].a, [100.0, 0.0, 0.0]);
+        assert!(part.segs.iter().all(|s| s.cut));
+        assert!((part.cut_len - 60.0).abs() < 1e-6);
+        assert_eq!((part.min, part.max), (whole.min, whole.max), "the bounds of the whole file");
+        // 60 mm at 600 mm/min.
+        assert!((part.est_seconds - 6.0).abs() < 1e-6);
+        assert!(parse_part(text, &crate::motion::Motion::default(), 3000.0, Some(0..2)).segs.is_empty(), "no moves in the part");
+    }
 
     #[test]
     fn the_time_counts_the_acceleration_of_the_machine_when_it_is_known() {

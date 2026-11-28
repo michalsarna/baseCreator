@@ -1602,3 +1602,6 @@
 1601|Elemento {}
 1602|Fim do trabalho
 1603|Ir para a linha {}
+1604|Editor de G-code
+1605|Recolher
+1606|Expandir
