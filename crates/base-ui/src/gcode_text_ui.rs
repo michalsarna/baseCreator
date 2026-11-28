@@ -1343,6 +1343,13 @@ mod tests {
         assert_eq!(v.tp.max[0], 39.0, "the bounds of the whole program");
         frame(&mut g, vec![]);
         assert!(g.previewing().is_some(), "the window stays open");
+        // The window keeps the size it opened with, frame after frame (it grew to the height of the screen).
+        let height = || ctx.memory(|m| m.layer_ids().find(|l| l.order != egui::Order::Background).and_then(|l| m.area_rect(l.id))).map(|r| r.height()).expect("the window is shown");
+        let first = height();
+        for _ in 0..8 {
+            frame(&mut g, vec![]);
+        }
+        assert!((height() - first).abs() < 1.0 && first < 560.0, "the window does not grow: {first} → {}", height());
         assert!(g.preview_stage(0).is_err() || g.previewing().is_some());
     }
 

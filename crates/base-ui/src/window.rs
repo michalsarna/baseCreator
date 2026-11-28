@@ -359,8 +359,13 @@ pub fn popup_at<R>(ctx: &egui::Context, id: &str, title: &str, size: [f32; 2], p
         .show(ctx, |ui| {
             mini_title(ui, title, &mut keep, tools);
             let r = add(ui);
-            // Take the rest of the size the window was given, so it keeps a height taller than its content.
-            ui.allocate_space(ui.available_size_before_wrap().max(egui::Vec2::ZERO));
+            // Take the rest of the size the window was given, so it keeps a height taller than its content. Only when there is
+            // a rest: content that fills the window (a picture) leaves none, and an empty space taken then still adds the gap
+            // between items under it, which made the window taller by that gap at every frame, up to the height of the screen.
+            let rest = ui.available_size_before_wrap();
+            if rest.y > 0.0 {
+                ui.allocate_space(rest.max(egui::Vec2::ZERO));
+            }
             r
         });
     if !keep {
